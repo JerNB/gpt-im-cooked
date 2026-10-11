@@ -5,6 +5,9 @@ import json
 import re
 import tempfile
 import zipfile
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from build_packages import collect_files, PLUGIN_FILES, SKILL_FILES
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT / 'plugins/gpt-im-cooked'
@@ -23,8 +26,7 @@ def check():
     with tempfile.TemporaryDirectory(prefix='cooked-distribution-') as temp:
         for kind, source in [('plugin', PLUGIN), ('skill', PLUGIN / 'skills/gpt-im-cooked')]:
             path = ROOT / 'docs/downloads' / f'gpt-im-cooked-{kind}-v{version}.zip'
-            expected = {'gpt-im-cooked/' + p.relative_to(source).as_posix(): p.read_bytes()
-                        for p in source.rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+            expected = collect_files(source, PLUGIN_FILES if kind == 'plugin' else SKILL_FILES)
             destination = Path(temp) / kind
             with zipfile.ZipFile(path) as archive:
                 assert archive.testzip() is None

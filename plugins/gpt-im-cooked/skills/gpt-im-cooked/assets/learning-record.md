@@ -19,6 +19,13 @@ Use the identity and scope in the linked course profile. Record its actual path 
 | Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |
 |---|---|---|---|---|---|---|---|
 
+## Import ledger
+
+| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |
+|---|---|---|---|---|---|
+
+Use existing entries to avoid counting repeat imports as new attempts. Missing legacy identities remain explicitly unknown.
+
 ## Student-reported difficulties
 
 None recorded. Preserve self-reports separately from verified attempts.

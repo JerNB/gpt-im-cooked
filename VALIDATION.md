@@ -1,6 +1,8 @@
 # Validation status
 
-Version 0.4.0 — source and distribution checked October 11, 2026. The model-run evidence below belongs to v0.3.0 instruction snapshots; it was not rerun for this cleanup.
+Version 0.4.1 — source and distribution checked October 11, 2026. The model-run evidence below belongs to v0.3.0 instruction snapshots; it was not rerun for the state update.
+
+The v0.4.1 state update adds an optional Python 3.10+ write helper, import identity/revision guidance, a record import ledger, versioned session/attempt exports, pre-key snapshots, and strict package file boundaries. New helper and Node demo-script regressions are recorded in [STATE.md](tests/reports/2026-10-11/STATE.md). These are mechanical checks; the new [state pilot](tests/STATE-PILOT.md) has not been run against a fresh tutoring model. No database, automatic import service, multi-file transaction, or draft persistence is added.
 
 The v0.4.0 update unifies plugin/skill naming, streamlines the review workflow, removes duplicated onboarding instructions, and fixes the downloaded plugin's marketplace layout. Both new ZIPs are extracted and compared with the maintained source; setup, icon, and resource paths resolve. A reproducible package builder is now included. See the [cleanup report](tests/reports/2026-10-11/CLEANUP.md). The local npm CLI is 0.94.0 and does not expose plugin marketplace subcommands; desktop installation remains unverified.
 

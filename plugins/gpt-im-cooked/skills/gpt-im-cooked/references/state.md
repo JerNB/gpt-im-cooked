@@ -8,6 +8,20 @@ Read existing records before changes. Create new records from the assets when ne
 
 If the host cannot write files, maintain state in the current conversation and supply a handoff on request or at the end of a substantial session. Say that the student must bring it to a new conversation. If a previous file is inaccessible, report the limit rather than claim to have loaded it. Do not discover other students' records or search unrelated personal directories.
 
+## Verified record writes
+
+When Python 3.10+ is available, use [record_io.py](../scripts/record_io.py) for each profile/record update. Run `python <helper> read <record>` to obtain content and its SHA-256. Prepare the complete merged Markdown in a separate candidate file in the student's workspace, then run `python <helper> commit <record> --candidate <candidate> --expected-sha256 <hash>`. A changed hash or existing lock means stop that write, reread, and merge; do not overwrite or automatically remove a lock. An interrupted process can leave a lock; inspect whether a writer is still active before recovering it.
+
+The helper atomically replaces one file, retains its previous bytes in `<record>.bak`, and verifies written bytes. It does not validate teaching judgments or commit multiple files together; other writers must use the same helper for locking to work. Write preserved attempts/feedback first and the learning record last. On partial failure, report which files succeeded and reconcile their references before claiming the activity was saved. Without Python, reread immediately before editing, preserve a backup for meaningful changes, and read back the result; disclose that conflict checks are manual. No-change turns leave the record and backup untouched.
+
+## Import identity and revisions
+
+Read the import ledger before reviewing an export. New exports use schema version `1.0`, a session ID, attempt IDs, and separate package/artifact versions. Match course, artifact/version, item IDs, and the actual key before grading; unknown schemas or mismatched questions require clarification, not guessed mappings. Preserve the original export. Record its actual path and SHA-256 when a hashing tool is available.
+
+Use `(session_id, attempt_id)` as the attempt identity, scoped to its artifact and course. Multiple exports and snapshots of that attempt are revisions, not independent successes. An unchanged imported file or already-reviewed attempt adds no duplicate evidence. Additional answers in a later export can update the same attempt; retain prior answers and review revisions. If identical IDs refer to different artifacts or contradictory histories, flag the conflict before updating performance. A new explicit retry gets a new attempt ID; re-exporting does not. Legacy exports remain readable: use their session/item/order fields and file hash when present, label missing identity/version fields, and compare original answers before deciding uniqueness. Do not invent timestamps or count uncertain duplicates as distinct transfer evidence.
+
+Keep original answers separate from review judgments. A corrected review records its reason and which earlier judgment it supersedes; it never creates a new student attempt. Distinguish occurred-at, exported-at, and reviewed-at times; dates or unknown times cannot establish precise chronology. Reconcile concept status and the next-session pointer after revised feedback, and identify older guides affected by the change.
+
 ## Course profile
 
 Record:

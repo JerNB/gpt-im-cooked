@@ -1,6 +1,6 @@
 {
   "name": "gpt-im-cooked",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Review supplied course content, save selective learning evidence, and build personalized practice, guides, or interactive pages.",
   "skills": "./skills/",
   "repository": "https://github.com/JerNB/gpt-im-cooked",

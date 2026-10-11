@@ -37,7 +37,7 @@ Label solution evidence **Instructor key / Verified computation / Reasoned solut
 
 ## 4. Save selected learning evidence
 
-Before finishing every tutoring turn, decide whether an attempt, specific reported difficulty, correction, improvement, source gap, or preference changed. Read [references/state.md](references/state.md) when creating or updating the record. Save only meaningful changes; otherwise leave the file unchanged. Save before claiming persistence.
+Before finishing every tutoring turn, decide whether an attempt, specific reported difficulty, correction, improvement, source gap, or preference changed. Read [references/state.md](references/state.md) when importing attempts or creating/updating records; follow its duplicate/revision checks and verified-write procedure. Save only meaningful changes; otherwise leave the file unchanged. Save before claiming persistence.
 
 Keep evidence and assistance explicit: self-report differs from reviewed work; a correct response after hints/reveals differs from independent transfer. Remember improvements and valid alternatives, remove stale weakness labels, and preserve useful original reasoning. Do not infer weaknesses from silence, a blank answer, reading a solution, temporary tiredness, or unrelated remarks. Never save a transcript dump or label one success “mastered.”
 
