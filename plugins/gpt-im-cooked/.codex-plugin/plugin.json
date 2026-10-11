@@ -1,6 +1,6 @@
 {
-  "name": "exam-loop",
-  "version": "0.3.1",
+  "name": "gpt-im-cooked",
+  "version": "0.4.0",
   "description": "Review supplied course content, save selective learning evidence, and build personalized practice, guides, or interactive pages.",
   "skills": "./skills/",
   "repository": "https://github.com/JerNB/gpt-im-cooked",
@@ -10,7 +10,7 @@
   },
   "extensions": {
     "com.openai": {
-      "onboardingSkill": "./skills/examloop-start/SKILL.md"
+      "onboardingSkill": "./skills/gpt-im-cooked-start/SKILL.md"
     }
   },
   "interface": {
@@ -32,6 +32,7 @@
       "Get me started with GPT, I'm Cooked and show me how to study efficiently.",
       "Check my practice answers and turn my mistakes into targeted questions.",
       "Use my course outline and past exams to build a practice exam with a separate answer key."
-    ]
+    ],
+    "longDescription": "Prepare within your supplied course materials. Review independent attempts, save selected learning evidence in your study folder, and use it to build original mock exams, interactive practice, or personalized review guides."
   }
 }

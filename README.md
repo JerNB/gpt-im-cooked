@@ -4,7 +4,7 @@
 
 A reusable **English exam-review skill and plugin** for college students. Bring your course materials and attempts; build original practice, review your reasoning, and use a saved learning record to decide what to study next.
 
-**Preview v0.3.1** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+**Preview v0.4.0** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
 
 ## Try an exam-style demo
 
@@ -56,7 +56,7 @@ Past papers provide evidence of question formats and reasoning patterns. New que
 
 ## Quick start
 
-1. **[Download the standalone skill](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-skill-v0.3.1.zip)** and extract the `gpt-im-cooked` folder.
+1. **[Download the standalone skill](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-skill-v0.4.0.zip)** and extract the `gpt-im-cooked` folder.
 2. Copy that entire folder into `~/.codex/skills/` (or your configured `$CODEX_HOME/skills/`). Preserve an existing copy unless you intend to replace it. Refresh the skill list or restart the client if needed, then open a new chat.
 3. Add one useful course file and send:
 
@@ -72,9 +72,9 @@ or a personalized review guide.
 
 You can start with a single outline or set of notes. Past exams, dates, and official keys help, but are optional. The first-use guide explains the loop and proceeds with the material already supplied.
 
-**Prefer the plugin?** [Download the plugin package](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-plugin-v0.3.1.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
+**Prefer the plugin?** [Download the plugin package](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-plugin-v0.4.0.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
 
-**Try without installing:** clone or download the repository, keep the whole skill folder accessible, and ask Codex to read [SKILL.md](plugins/exam-loop/skills/gpt-im-cooked/SKILL.md) and its relevant supporting files. This manual preview does not test automatic plugin discovery.
+**Try without installing:** clone or download the repository, keep the whole skill folder accessible, and ask Codex to read [SKILL.md](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and its relevant supporting files. This manual preview does not test automatic plugin discovery.
 
 ## The study loop
 
@@ -98,15 +98,15 @@ Every tutoring reply starts with **“Hi student, let's get you uncooked.”** I
 
 The previous v0.3.0 run used five isolated tutoring contexts and 14 total turns, including fresh-chat resume, selective record updates, scope boundaries, and browser export import. The earlier coached page was tested in Chrome. Those archived results describe the tested snapshots, not every later revision.
 
-The v0.3.1 update adds the exam-style demo and clearer presentation. See [validation status](VALIDATION.md), the [new demo check](tests/reports/2026-10-10/SHOWCASE.md), and the [earlier model run](tests/reports/2026-10-10/REPORT.md). Actual plugin installation/discovery and real-student learning gains remain unverified.
+The v0.4.0 update organizes the main skill around the study loop, unifies naming, and makes the plugin download include a usable local marketplace. See the [v0.4.0 cleanup and distribution checks](tests/reports/2026-10-11/CLEANUP.md), [validation status](VALIDATION.md), the [earlier demo check](tests/reports/2026-10-10/SHOWCASE.md), and the [earlier model run](tests/reports/2026-10-10/REPORT.md). Actual plugin installation/discovery and real-student learning gains remain unverified.
 
 ## Explore the package
 
-- [Review skill](plugins/exam-loop/skills/gpt-im-cooked/SKILL.md) and [onboarding skill](plugins/exam-loop/skills/examloop-start/SKILL.md)
+- [Review skill](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and [onboarding skill](plugins/gpt-im-cooked/skills/gpt-im-cooked-start/SKILL.md)
 - [Installation and updates](docs/INSTALLATION.md)
 - [Evaluation method](tests/EVALUATION.md) and [22 behavioral pilot cases](tests/PILOT-CASES.md)
 - [Earlier worked demonstration](examples/DEMO.md) and [fresh-chat review guide](tests/reports/2026-10-10/resume/outputs/review-guide-01.md)
 
-For development checks, install PyYAML and run `python tests/validate_package.py`. This checks package structure; it does not install the plugin or evaluate learning gains.
+For development checks, install PyYAML and run `python tests/validate_package.py`. Build both downloads from the same source with `python scripts/build_packages.py`; then run `python tests/check_distribution.py` to check their extracted contents and paths. This checks package structure; it does not install the plugin or evaluate learning gains.
 
-The project was previously named **ExamLoop**. The repository's new name is **gpt-im-cooked**; the internal plugin ID remains `exam-loop` for continuity. This is a skills-only preview, not a public plugin-directory listing. Code execution, browsing, and PDF generation depend on the host's available tools.
+The project was previously named **ExamLoop**. Version 0.4.0 unifies the plugin ID, directory, and main skill as `gpt-im-cooked`; onboarding is `gpt-im-cooked-start`. Existing `exam-loop` plugin installations need an intentional replacement; study records stay in their original workspace. This is a skills-only preview, not a public plugin-directory listing. Code execution, browsing, and PDF generation depend on the host's available tools.

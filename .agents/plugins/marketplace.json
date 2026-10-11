@@ -1,14 +1,14 @@
 {
-  "name": "exam-loop-preview",
+  "name": "gpt-im-cooked-preview",
   "interface": {
-    "displayName": "GPT, I'm Cooked Preview"
+    "displayName": "GPT, I'm Cooked"
   },
   "plugins": [
     {
-      "name": "exam-loop",
+      "name": "gpt-im-cooked",
       "source": {
         "source": "local",
-        "path": "./plugins/exam-loop"
+        "path": "./plugins/gpt-im-cooked"
       },
       "policy": {
         "installation": "AVAILABLE",

@@ -2,7 +2,7 @@
 
 ## Storage and continuity
 
-Reuse the student's chosen course directory. Otherwise, in a writable workspace create `study/<course-slug>/<exam-slug>/` with `course-profile.md`, `learning-record.md`, and `materials/` and `outputs/` only when needed. Use neutral slugs if the course/exam has not been named. Follow the host's output-directory requirements if they differ. Keep one exam record per course/exam; carry relevant prior learning forward with provenance, not by merging unrelated courses.
+Reuse the student's chosen course directory. Otherwise, in a writable workspace create `study/<course-slug>/<exam-slug>/` with `course-profile.md`, `learning-record.md`, and `materials/` and `outputs/` only when needed. Create records only after the course is identified. If the exam is unnamed, use a neutral exam slug until it is clarified. Follow the host's output-directory requirements if they differ. Keep one exam record per course/exam; carry relevant prior learning forward with provenance, not by merging unrelated courses.
 
 Read existing records before changes. Create new records from the assets when needed. Update relevant entries in place, append attempt history, and preserve prior student statements. Do not overwrite an existing course directory with blank templates. Record confirmed file paths/URLs, not guesses. Follow a supplied handoff when the old directory is inaccessible, marking its evidence as student-provided.
 

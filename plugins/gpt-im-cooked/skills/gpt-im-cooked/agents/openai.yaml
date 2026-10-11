@@ -1,6 +1,6 @@
 interface:
   display_name: "GPT, I'm Cooked"
   short_description: "Course-scoped practice, feedback, and review guides"
-  default_prompt: "Use $gpt-im-cooked to get me started with GPT, I'm Cooked: show the quick start, then help me prepare using my course materials."
+  default_prompt: "Use $gpt-im-cooked to prepare for my exam using my course materials and saved learning record."
 policy:
   allow_implicit_invocation: true

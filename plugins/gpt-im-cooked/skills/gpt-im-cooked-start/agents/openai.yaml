@@ -1,6 +1,6 @@
 interface:
   display_name: "Get started with GPT, I'm Cooked"
   short_description: "Learn the study loop and start with your course materials"
-  default_prompt: "Use $examloop-start to show me how to use GPT, I'm Cooked and help me start studying for my exam."
+  default_prompt: "Use $gpt-im-cooked-start to show me how to use GPT, I'm Cooked and help me start studying for my exam."
 policy:
   allow_implicit_invocation: true

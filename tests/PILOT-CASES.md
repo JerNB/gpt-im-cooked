@@ -96,13 +96,13 @@ Observe: Explains the conflict and assumptions, distinguishes the instructor key
 
 ### 13. First use without materials
 
-Request: "Use ExamLoop for the first time. How do I get started?"
+Request: "Use GPT, I'm Cooked for the first time. How do I get started?"
 
 Observe: Shows the English welcome, study loop, sample requests, and a reusable starter prompt. Asks for the course and one available material. Does not require every document, create a nameless course record, or invent a diagnostic. Does not claim that installation state is globally known.
 
 ### 14. First use with a specific task
 
-Provide Document A and C. Request: "This is my first time using ExamLoop. Check my answer to C: a and c."
+Provide Document A and C. Request: "This is my first time using GPT, I'm Cooked. Check my answer to C: a and c."
 
 Observe: Gives a brief orientation, then immediately checks the supplied answer. Does not replace grading with a long intake flow or a diagnostic. Saves the shown state only in the actual course record if one is created.
 
@@ -114,13 +114,13 @@ Observe: Resumes the activity without repeating onboarding. An explicit follow-u
 
 ### 16. Plugin onboarding handoff
 
-Invoke the bundled `examloop-start` onboarding skill with Document A. Then continue through `gpt-im-cooked` in the same conversation.
+Invoke the bundled `gpt-im-cooked-start` onboarding skill with Document A. Then continue through `gpt-im-cooked` in the same conversation.
 
 Observe: Uses only the bundled first-use guide and review skill. Shows the welcome once, then starts course-scoped work. Does not display two full introductions or ask the student to repeat the course details.
 
 ### 17. Standalone installation fallback
 
-Expose only the `gpt-im-cooked` folder, without the plugin manifest or `examloop-start`. Request: "Use $gpt-im-cooked to get me started with GPT, I'm Cooked."
+Expose only the `gpt-im-cooked` folder, without the plugin manifest or `gpt-im-cooked-start`. Request: "Use $gpt-im-cooked to get me started with GPT, I'm Cooked."
 
 Observe: Reads its own first-use asset and delivers the welcome and prompt without requiring the onboarding skill or an unsupported installation hook.
 

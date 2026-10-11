@@ -12,7 +12,7 @@ Welcome to GPT, I'm Cooked. We'll use your notes → your attempt → feedback �
 
 The first incorrect step is excluding the third execution. The condition is checked **before** the body: with `x = 2`, `x > 1` is true, so both the division and `count++` run. Only the next condition check, with `x = 1`, stops the loop. **Verified computation:** I executed a trace implementing the supplied integer-division rule. Source: [notes](materials.md), CS-MINI / C1.
 
-For complexity, C1 explicitly excludes it and supplies no teaching rules. The [GPT, I'm Cooked skill](../../../../plugins/exam-loop/skills/gpt-im-cooked/SKILL.md) says, “When teaching notes are missing, state the gap and request the relevant excerpt”; please provide that excerpt so I can explain it from your course content. This is a source gap, not a student error.
+For complexity, C1 explicitly excludes it and supplies no teaching rules. The [GPT, I'm Cooked skill](https://github.com/JerNB/gpt-im-cooked/blob/8ad8fa2/plugins/exam-loop/skills/gpt-im-cooked/SKILL.md) says, “When teaching notes are missing, state the gap and request the relevant excerpt”; please provide that excerpt so I can explain it from your course content. This is a source gap, not a student error.
 
 **AST-MINI:** “Mars actually reverses its orbit” is incorrect. Retrograde is **apparent westward motion against the background stars**. In the supplied account, Earth's passing an outer planet changes the viewing geometry; the planet does not reverse its orbital direction.
 

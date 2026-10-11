@@ -1,48 +1,53 @@
 # Installation
 
-Choose the standalone skill for a simple start, or the plugin for the bundled getting-started entry point.
+Version 0.4.0 uses `gpt-im-cooked` for both the plugin ID and main skill. The getting-started entry is `gpt-im-cooked-start`. Choose one normal installation route to avoid duplicate workflows.
 
-## Install the standalone skill in Codex
+## Standalone skill: the simplest route
 
-The skill is the folder `plugins/exam-loop/skills/gpt-im-cooked`, including all of its contents.
+1. [Download the skill ZIP](downloads/gpt-im-cooked-skill-v0.4.0.zip).
+2. Extract the entire `gpt-im-cooked` folder into `~/.codex/skills/`, or your configured `$CODEX_HOME/skills/`. Preserve an existing copy unless intentionally replacing it.
+3. Refresh skills or restart the client if needed. In a new chat, bring a course file and send:
 
-Copy that folder into your Codex user skill directory, usually `~/.codex/skills/` (or `$CODEX_HOME/skills/` if configured). On Windows, `~` means your user folder. Use a new chat after refreshing the skill list or restarting the client if needed. Keep an existing skill with the same name unless you intentionally want to replace it.
+```text
+Use $gpt-im-cooked to help me prepare for my exam.
+Here are my course notes and exam outline. Stay within them.
+Keep solutions separate. Review my attempts and save relevant
+difficulties and improvements for personalized practice and a guide.
+```
 
-You can ask Codex to do the copying:
+The skill already includes the first-use guide and complete study workflow. Repository source is at `plugins/gpt-im-cooked/skills/gpt-im-cooked/`; copy the whole folder, including references, assets, and UI metadata. If installed skill discovery is unavailable, ask the agent to read the source SKILL.md and relevant supporting files for a manual preview.
 
-> Install the local gpt-im-cooked skill from this extracted package in my Codex skill directory. Preserve any existing skill with that name and report a conflict instead of overwriting it.
+## Plugin: bundled setup and listing
 
-Invoke it with:
+[Download the plugin ZIP](downloads/gpt-im-cooked-plugin-v0.4.0.zip) and extract its entire `gpt-im-cooked` folder, including hidden directories. This folder has its own `.agents/plugins/marketplace.json`, so it is also a local marketplace root.
 
-> Use $gpt-im-cooked to get me started with GPT, I'm Cooked. Here are my course outline and lecture notes.
+Open the extracted folder as a project in a supported desktop client. Refresh the Plugins Directory or restart the client if needed, choose **GPT, I'm Cooked**, and install **gpt-im-cooked**. Run its setup entry or invoke `$gpt-im-cooked` in a new chat with your materials. Setup goes straight into the supplied task; the main skill supplies the same welcome when setup is not surfaced.
 
-The standalone skill includes the same first-use guide. Host-specific installation and discovery may differ outside Codex.
+For clients with a plugin-capable CLI, first check `codex plugin marketplace --help`. If supported, register the extracted folder from its terminal:
 
-## Install the plugin preview
+```text
+codex plugin marketplace add .
+```
 
-The repository includes the review skill, a getting-started skill, plugin manifests, and a local marketplace catalog. The marketplace root is the repository folder, not `.agents/plugins/`.
+Then install through the desktop Plugins Directory. Registration is not installation. Older CLIs without a `plugin` command cannot use this command; use a supported desktop client or the standalone skill route. During this revision, the machine's npm CLI was 0.94.0 and did not expose plugin marketplace commands; actual desktop installation remains a separate check.
 
-Clone or download this repository before registering it. With Git, clone it using:
+## Install from the repository
 
 ```text
 git clone https://github.com/JerNB/gpt-im-cooked.git
 cd gpt-im-cooked
 ```
 
-If your Codex CLI supports local plugin marketplaces, open a terminal in this folder and run:
+The repository root has a catalog pointing to `./plugins/gpt-im-cooked`. Open that root as a desktop project, or register it with `codex plugin marketplace add .` when your CLI supports the command. A supporting CLI can also register `JerNB/gpt-im-cooked` directly. Keep the source folder accessible for local marketplace entries.
 
-```text
-codex plugin marketplace add .
-```
+## Update from older versions
 
-Refresh or restart the supported desktop client, open its Plugins Directory, and look for **GPT, I'm Cooked Preview**. Install **exam-loop** and test it in a new chat. Local marketplace support varies by client. If unavailable, use the standalone skill or manual preview above.
+- The standalone skill keeps the same `$gpt-im-cooked` invocation. Intentionally replace its full installed folder with the new version.
+- The old plugin ID was `exam-loop`; 0.4.0 uses `gpt-im-cooked`. This is a replacement identity, not an automatic update of an installed old plugin. Preserve study files, install the new package, and disable the old copy to avoid duplicate workflows. The old `examloop-start` entry becomes `gpt-im-cooked-start`.
+- The older `exam-review-coach` skill is another separate copy. Replace or disable it only when ready. No package update moves, clears, or uploads your course records.
 
-Install either the standalone review skill or the plugin for normal use; both expose the same study workflow. The plugin adds the onboarding entry point and listing prompts. Installing both can create duplicate entries. The catalog's authentication policy is packaging metadata; this skills-only preview has no connected service or sign-in flow.
+## What the plugin contains
 
-The catalog and manifests follow the [official plugin packaging documentation](https://developers.openai.com/plugins/build/plugins), with onboarding metadata based on the [official manifest field reference](https://developers.openai.com/plugins/deploy/submission). The package has not yet been installed through a desktop plugin directory or submitted for public listing.
+The plugin bundles the main skill, a small setup entry, manifests, listing prompts, an icon, and a local marketplace. It provides no AI server or connected service and requires no separate API key. Teaching, file writes, code execution, and PDF rendering use the host's available tools. Browser attempts are exported and reviewed by the tutor before a study record changes.
 
-
-
-## Updating from the old name
-
-The repository was renamed from ExamLoop to gpt-im-cooked. The plugin ID `exam-loop` and onboarding skill `examloop-start` stay stable. Existing study records remain usable. The v0.2 `exam-review-coach` skill is an older separate copy; replace or disable it only when you are ready.
+The manifests and catalogs follow the [official OpenAI plugin packaging documentation](https://developers.openai.com/plugins/build/plugins). A GitHub download is a local preview, not a universal-directory listing. An automatic installation pop-up is not guaranteed; the host supplies setup UI and the skill has a first-use fallback.

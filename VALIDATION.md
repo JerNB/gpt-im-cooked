@@ -1,6 +1,8 @@
 # Validation status
 
-Version 0.3.1 — checked October 10, 2026. The model-run evidence below belongs to v0.3.0 instruction snapshots; it was not rerun for this presentation update.
+Version 0.4.0 — source and distribution checked October 11, 2026. The model-run evidence below belongs to v0.3.0 instruction snapshots; it was not rerun for this cleanup.
+
+The v0.4.0 update unifies plugin/skill naming, streamlines the review workflow, removes duplicated onboarding instructions, and fixes the downloaded plugin's marketplace layout. Both new ZIPs are extracted and compared with the maintained source; setup, icon, and resource paths resolve. A reproducible package builder is now included. See the [cleanup report](tests/reports/2026-10-11/CLEANUP.md). The local npm CLI is 0.94.0 and does not expose plugin marketplace subcommands; desktop installation remains unverified.
 
 The v0.3.1 update adds an original exam-style demo, separate solutions and source packet, a project landing page, refreshed branding, and downloadable packages. See the [showcase checks](tests/reports/2026-10-10/SHOWCASE.md) for this revision's browser and package checks. The main skill now distinguishes independent mock exams from coached practice.
 

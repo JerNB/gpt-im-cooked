@@ -1,4 +1,4 @@
-"""Check the ExamLoop package structure; does not evaluate model behavior."""
+"""Check the GPT, I'm Cooked package structure; does not evaluate model behavior."""
 
 from fractions import Fraction
 from pathlib import Path
@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-PLUGIN = ROOT / 'plugins' / 'exam-loop'
+PLUGIN = ROOT / 'plugins' / 'gpt-im-cooked'
 
 
 def require(condition, message):
@@ -22,7 +22,7 @@ def read_json(path):
 
 
 def packaged_files():
-    roots = (ROOT / 'plugins', ROOT / '.agents', ROOT / 'examples', ROOT / 'tests', ROOT / 'docs')
+    roots = (ROOT / 'plugins', ROOT / '.agents', ROOT / 'examples', ROOT / 'tests', ROOT / 'docs', ROOT / 'scripts')
     files = [ROOT / name for name in ('README.md', 'VALIDATION.md', '.gitignore')]
     for directory in roots:
         files.extend(p for p in directory.rglob('*') if p.is_file() and '__pycache__' not in p.parts)
@@ -34,8 +34,8 @@ def main():
     compat = read_json(PLUGIN / '.codex-plugin/plugin.json')
     for key in ('name', 'version', 'description', 'repository', 'author'):
         require(portable[key] == compat[key], f'Manifest mismatch: {key}')
-    require(portable['name'] == 'exam-loop', 'Incorrect plugin identity')
-    require(portable['version'] == '0.3.1', 'Incorrect release version')
+    require(portable['name'] == 'gpt-im-cooked', 'Incorrect plugin identity')
+    require(portable['version'] == '0.4.0', 'Incorrect release version')
     require(compat['skills'] == './skills/', 'Incorrect compatibility skill path')
 
     extensions = portable['extensions']['com.openai']
@@ -60,8 +60,13 @@ def main():
     require((ROOT / entry['source']['path']).resolve() == PLUGIN, 'Marketplace source path mismatch')
     require(entry['policy']['installation'] == 'AVAILABLE' and bool(entry['category']), 'Invalid marketplace metadata')
 
+    extracted_catalog = read_json(PLUGIN / '.agents/plugins/marketplace.json')
+    extracted_entry = extracted_catalog['plugins'][0]
+    require(extracted_entry['name'] == portable['name'], 'Download marketplace identity mismatch')
+    require((PLUGIN / extracted_entry['source']['path']).resolve() == PLUGIN, 'Download marketplace must resolve plugin root')
+
     skills = sorted((PLUGIN / 'skills').iterdir())
-    require({p.name for p in skills if p.is_dir()} == {'gpt-im-cooked', 'examloop-start'}, 'Missing bundled skill')
+    require({p.name for p in skills if p.is_dir()} == {'gpt-im-cooked', 'gpt-im-cooked-start'}, 'Missing bundled skill')
     for skill in skills:
         content = (skill / 'SKILL.md').read_text(encoding='utf-8')
         match = re.match(r'^---\n(.*?)\n---', content, re.S)
