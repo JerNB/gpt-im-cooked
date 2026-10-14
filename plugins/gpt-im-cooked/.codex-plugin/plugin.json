@@ -1,6 +1,6 @@
 {
   "name": "gpt-im-cooked",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Review supplied course content, save selective learning evidence, and build personalized practice, guides, or interactive pages.",
   "skills": "./skills/",
   "repository": "https://github.com/JerNB/gpt-im-cooked",
@@ -33,6 +33,6 @@
       "Check my practice answers and turn my mistakes into targeted questions.",
       "Use my course outline and past exams to build a practice exam with a separate answer key."
     ],
-    "longDescription": "Prepare within your supplied course materials. Review independent attempts, save selected learning evidence in your study folder, and use it to build original mock exams, interactive practice, or personalized review guides."
+    "longDescription": "Understand supplied course concepts through clear conversation and small worked examples. Review attempts, save selected learning evidence in your study folder, and build personalized HTML mock exams and PDF study guides by default. Optional interactive pages explore a few selected concepts when requested."
   }
 }

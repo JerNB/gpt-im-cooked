@@ -35,7 +35,7 @@ def main():
     for key in ('name', 'version', 'description', 'repository', 'author'):
         require(portable[key] == compat[key], f'Manifest mismatch: {key}')
     require(portable['name'] == 'gpt-im-cooked', 'Incorrect plugin identity')
-    require(portable['version'] == '0.4.1', 'Incorrect release version')
+    require(portable['version'] == '0.5.0', 'Incorrect release version')
     require(compat['skills'] == './skills/', 'Incorrect compatibility skill path')
 
     extensions = portable['extensions']['com.openai']

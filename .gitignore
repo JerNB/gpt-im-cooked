@@ -4,6 +4,7 @@
 /work/
 /outputs/
 *.zip
+!/docs/downloads/gpt-im-cooked-*.zip
 __pycache__/
 *.pyc
 .DS_Store

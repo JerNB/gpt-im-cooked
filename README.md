@@ -2,9 +2,13 @@
 
 <p align="center"><a href="https://jernb.github.io/gpt-im-cooked/demo.html"><strong>Try the mock exam</strong></a> · <a href="#quick-start">Get started</a> · <a href="docs/INSTALLATION.md">Install</a> · <a href="VALIDATION.md">Testing & limitations</a></p>
 
-A reusable **English exam-review skill and plugin** for college students. Bring your course materials and attempts; build original practice, review your reasoning, and use a saved learning record to decide what to study next.
+A reusable **English learning and exam-review skill and plugin** for college and graduate students. Understand your course concepts through clear conversation, retain meaningful learning evidence and weak spots, and use that record for personalized practice exams and study guides. Interactive pages are an optional aid for selected concepts.
 
-**Preview v0.4.1** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+Designed for English-language college and graduate study, including international students at US universities. Tutoring, page copy, feedback, and generated study outputs default to English unless the student explicitly asks for another language. Teaching uses plain language, small worked examples, and explanations of why each step follows. Optional concept pages use purposeful interactions and spacious layouts suited to the idea.
+
+**Preview v0.5.0** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+
+The October 15 update makes conversation the primary review experience, with optional interactive pages for selected concepts. A simple mock-exam request produces an HTML paper with a separate key; a study-guide request produces a PDF when the host supports generation. See the [v0.5.0 changes and package checks](tests/reports/2026-10-15/RELEASE.md).
 
 ## Try an exam-style demo
 
@@ -50,51 +54,60 @@ The student's missed questions and follow-up requests became exact constructor t
 |---|---|
 | **Your supplied course is the boundary** | Teaching rules need a source in your accessible notes. Missing content is flagged; excluded topics stay out. |
 | **Remember useful learning evidence** | Save meaningful mistakes, specific difficulties, assisted attempts, and improvements. Read that record when resuming. |
-| **Personalize the next output** | Emphasize your documented weak spots in an instructor-style mock exam, focused practice, review guide, or permitted reference sheet. |
+| **Understand through clear conversation** | Explain the main idea in plain English, work through a small example, clarify the confusing step, and build an accurate takeaway. |
+| **Personalize the next output** | Emphasize your documented weak spots in focused practice, an instructor-style mock exam, a study guide, or a permitted reference sheet. Optional interactive pages explore selected concepts when requested. |
 
 Past papers provide evidence of question formats and reasoning patterns. New questions use original situations. A mock exam keeps breadth; a focused drill can concentrate on one weakness. The skill does not predict the next exam or promise a grade.
 
 ## Quick start
 
-1. **[Download the standalone skill](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-skill-v0.4.1.zip)** and extract the `gpt-im-cooked` folder.
+1. **[Download the standalone skill](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-skill-v0.5.0.zip)** and extract the `gpt-im-cooked` folder.
 2. Copy that entire folder into `~/.codex/skills/` (or your configured `$CODEX_HOME/skills/`). Preserve an existing copy unless you intend to replace it. Refresh the skill list or restart the client if needed, then open a new chat.
 3. Add one useful course file and send:
 
 ```text
 Use $gpt-im-cooked to help me prepare for my midterm.
-Here are my notes, exam outline, and any practice papers I have.
-Include the covered topics; exclude anything outside these materials.
-Keep solutions separate until I ask. After I submit an attempt,
-explain my mistakes and save relevant difficulties and improvements.
-Then make an original mock exam webpage in my instructor's formats,
-or a personalized review guide.
+Here are my course notes and practice paper.
 ```
 
-You can start with a single outline or set of notes. Past exams, dates, and official keys help, but are optional. The first-use guide explains the loop and proceeds with the material already supplied.
+You can start with a single course link, outline, or set of notes. A short request is enough: the skill handles scope checks, separate practice answers, and selective learning records. Past exams, dates, and official keys help, but are optional. Mention known exclusions; uncertain scope is flagged. Materials are read as needed for the current activity rather than requiring a complete course inventory before tutoring.
 
-**Prefer the plugin?** [Download the plugin package](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-plugin-v0.4.1.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
+**Prefer the plugin?** [Download the plugin package](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-plugin-v0.5.0.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
 
 **Try without installing:** clone or download the repository, keep the whole skill folder accessible, and ask Codex to read [SKILL.md](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and its relevant supporting files. This manual preview does not test automatic plugin discovery.
 
 ## The study loop
 
-**Course scope → independent attempt → feedback → learning record → targeted practice → review output**
+**Course scope → conversational concept review → learning evidence and record → personalized practice/mock exam → study guide**
+
+Join at the requested step. Concept review starts in conversation, with clear explanations and source-grounded examples. Requests for targeted questions select coached practice; explicit mock-exam requests select independent exam practice with separate solutions. Past papers calibrate applications and formats when available; they are optional for concept learning. An interactive page can be offered briefly when manipulating a relationship would help, and is generated when the student chooses it. Browser exports need tutor review before they update the saved record.
+
+No chosen concept is required. A full review packet starts with a concise topic map, a supported study route, and a first explanation in chat. Requested concept pages focus on one or a few supported concepts, with spatial layouts chosen for the activity. Explicit broader artifact requests retain their requested coverage; unread or unsupported topics remain identified honestly.
+
+**Default formats:** mock exams are HTML exam worksheets with separate checked keys, following the [STA199 paper layout](plugins/gpt-im-cooked/skills/gpt-im-cooked/references/mock-exam-layout.md); study/review guides are PDF files with rendered-page checks when supported. Explicit format requests override these defaults. If PDF generation is unavailable, the tutor labels the editable fallback and its limits. Small recaps and ordinary concept questions stay in chat.
 
 | You want to… | Say… |
 |---|---|
 | Check the boundary | “Compare my notes with the exam outline. Flag missing content.” |
+| Start from a review packet | “Here are my review files. Map the topics and suggest where to start.” |
+| Understand a concept | “I don't get this concept. Explain it in plain English.” |
 | Get a nudge | “Give me a small hint for question 4, without the answer.” |
 | Review an attempt | “Check my answers and reasoning. Keep my original attempt.” |
-| Practice like the exam | “Use these papers' formats to build an original mock exam webpage with a separate key.” |
+| Practice like the exam | “Make a short mock exam from these materials.” |
 | Target a difficulty | “Give me new questions on my recent denominator mistakes.” |
 | Make a guide | “Make an English review guide from my weak concepts.” |
+| Explore a few concepts visually | “Make an interactive page for these two concepts.” |
 | Resume | “Continue from my course profile and saved learning record.” |
+
+See [conversational concept review](plugins/gpt-im-cooked/skills/gpt-im-cooked/references/concept-tutoring.md) for the teaching approach and [optional webpage prompts](plugins/gpt-im-cooked/skills/gpt-im-cooked/references/webpage-prompts.md) for concept-page and mock-exam briefs. A one-sentence request is enough to start.
 
 In a writable workspace, the tutor saves a course profile and selective learning record, usually under `study/<course>/<exam>/`. Student data stays outside the installed package. A new chat must have access to that record; bring it when switching computers. Browser exports require tutor review before the record changes.
 
 Every tutoring reply starts with **“Hi student, let's get you uncooked.”** It is a visible workflow marker. It cannot measure remaining context. If it disappears, ask the tutor to reread the skill and accessible saved records.
 
 ## What has been tested
+
+The v0.5.0 downloads are built from the maintained source and checked for exact file contents, extracted resource paths, and package metadata. A local GPT-6 Luna statistics run exercised the review flow and a concept page in Chrome before the new output defaults were added. The HTML-mock/PDF-guide defaults have not yet had a fresh model run, and the earlier run exposed grading and record/export reliability issues. See the [current validation status](VALIDATION.md) and [release checks](tests/reports/2026-10-15/RELEASE.md); package checks do not establish model adherence or learning gains.
 
 Version 0.4.1 adds duplicate-import/review rules, a Python standard-library helper for conflict-checked single-record writes and backups, explicit export identities, pre-key snapshots, and an allowlisted package builder. Python 3.10+ is optional; hosts without it use the documented manual fallback. Student records remain Markdown in their workspace. The helper is invoked by the tutor, not a background service. Export review and import-ledger updates remain tutor responsibilities.
 

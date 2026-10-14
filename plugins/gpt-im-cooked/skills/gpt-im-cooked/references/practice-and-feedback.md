@@ -2,6 +2,8 @@
 
 ## Extract instructor patterns
 
+Match analysis depth to the request. A concept question needs its relevant item and teaching basis, not an inventory of every paper. At intake, summarize only formats directly observed in the review; inspect further items as practice requires. Before a full mock exam, expand this into sufficient topic/format coverage for the blueprint and check each generated item.
+
 For each accessible paper/review, record its identity and whether it is an exam, review, or answer key. Describe formats and reasoning operations: tracing, constructing code, selecting a graph, interpreting data, explaining a mechanism, comparing models, or doing calculations. Use question locators to support claims.
 
 Identify distractor mechanisms, such as confusing an output with its input object, reversing a logical implication, omitting a boundary condition, or mixing related quantities. Also record assumptions used by the course. Two near-identical review sheets are not two independent samples of exam tendencies; make this limitation explicit. Missing pages and unreadable diagrams limit frequency counts.
@@ -9,6 +11,8 @@ Identify distractor mechanisms, such as confusing an output with its input objec
 ## Blueprint and item metadata
 
 For a mock exam, match known formats, approximate reasoning depth, and confirmed topic breadth. If timing is unknown, give an estimated practice time and label it as an estimate. Targeted drills may deliberately emphasize one weakness. Do not claim a generated paper predicts the exam.
+
+Default mock-exam delivery to an HTML exam worksheet using [mock-exam-layout.md](mock-exam-layout.md), with the checked key separate. This applies even when the student simply says "Make a mock exam." Explicit format requests override it; ordinary question practice may remain in chat.
 
 Keep a small blueprint in the solution file:
 

@@ -13,6 +13,9 @@ SKILL_FILES = {
     'assets/course-profile.md', 'assets/learning-record.md',
     'references/state.md', 'references/practice-and-feedback.md',
     'references/review-artifacts.md', 'references/interactive-review.md',
+    'references/webpage-prompts.md',
+    'references/concept-tutoring.md',
+    'references/mock-exam-layout.md',
     'scripts/record_io.py',
 }
 PLUGIN_FILES = {

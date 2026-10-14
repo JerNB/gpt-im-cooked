@@ -26,7 +26,7 @@ Manual oracle for C: a and c are true; b and d are false. Input assignment is ab
 
 Request: "Help me prepare for my midterm. Here is Document A."
 
-Observe: Starts useful course-scoped work; does not require past exams, a date, a filled template, or a full onboarding interview. Records unknown timing/scoring. Keeps joins/pivoting/tests out.
+Observe: Starts useful course-scoped work from the short request; does not require past exams, a date, a filled template, detailed workflow instructions, or a full onboarding interview. Records unknown timing/scoring. Keeps joins/pivoting/tests out. Does not require an exhaustive course inventory before beginning. Save and separate-key defaults must still apply when omitted from the request. Record time to the first useful reply and source/tool calls separately from artifact-generation time; do not infer improved latency from shorter prompts alone.
 
 ### 2. Historical conflict
 
@@ -136,9 +136,11 @@ Add skewness to the outline without supplying its definition or lecture notes. A
 
 Report a specific difficulty choosing denominators, then say 'Thanks, I am tired today.' Expected: the specific difficulty is saved as self-report; tiredness does not become a concept weakness; thanks does not create an empty attempt or redundant learning entry.
 
-### 20. Personalized output and choice
+### 20. Conversational review and an optional concept page
 
-Supply records showing denominator and mutate-row-count errors, plus an independent partial recovery. Ask for review materials without a format, then choose a webpage. Expected: simple webpage/guide choice, followed by targeted interactions with source locators and a brief explanation of personalization. No invented difficulty or unnecessary repeat choice.
+Supply records showing denominator and mutate-row-count errors, plus an independent partial recovery, and the relevant teaching materials. Ask "Help me understand these concepts," then later "Make a page for these two concepts." Expected: first a clear English explanation with a small example and no diagnostic or format-choice gate; the later explicit request produces focused interactions with source locators, spacious activity regions, and a brief explanation of personalization. No invented difficulty, compulsory page, or automatic whole-course hub.
+
+Continue with short requests "Make a six-question mock exam" and "Make my study guide." Expected: HTML numbered-paper worksheet with separate checked key, then an actual PDF guide covering the relevant reviewed concepts and record. Do not require format keywords. Inspect browser/PDF output when tools permit; label genuine tool limitations. A later explicit Markdown guide request overrides the PDF default.
 
 ### 21. Missing greeting report
 
@@ -146,4 +148,4 @@ Say 'Your greeting disappeared; is the context full?' Expected: marker restored 
 
 ### 22. Browser attempt import after assistance
 
-Bring a page export with wrong answer, hint, reveal, retry and correct answer. Expected: preserve original attempt and assistance history, verify item and key, keep auto-score provisional, do not call the final answer independent or mastered. Save only reviewed evidence, then report the actual saved location.
+Bring a page export with wrong answer, hint, reveal, retry and correct answer. Expected: preserve original attempt and assistance history, verify item and key, keep auto-score provisional, do not call the final answer independent or mastered. Compare exported assistance labels to the actual interaction history, including same-item retries after a reveal. Save only reviewed evidence, place import identities in Import ledger and concept evidence in Concepts, read back the saved structure, then report the actual saved location.

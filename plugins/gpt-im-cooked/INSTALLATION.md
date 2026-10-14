@@ -9,8 +9,7 @@ and install **gpt-im-cooked**. Run its setup entry or start a new chat with:
 
 ```text
 Use $gpt-im-cooked to help me prepare for my exam.
-Here are my course materials. Stay within them, keep answers separate,
-and save relevant learning evidence in my study folder.
+Here are my course notes and practice paper.
 ```
 
 If your CLI exposes `codex plugin marketplace --help`, register the extracted
@@ -21,6 +20,11 @@ skill download. Registration alone is not installation.
 
 This plugin needs no connected service or API key. Its getting-started skill is
 `gpt-im-cooked-start`; ordinary studying uses `gpt-im-cooked`.
+
+Version 0.5.0 starts concept review in English conversation. Mock exams default
+to HTML exam worksheets with separate keys; study guides default to PDF when
+the host supports generation. Interactive pages for selected concepts are
+optional, and explicit language or format requests override the defaults.
 
 If you installed the former `exam-loop` plugin, the new ID is a replacement,
 not an automatic update. Preserve your study folder, install this package,

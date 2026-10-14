@@ -3,7 +3,7 @@
 ## Study setup
 
 - Quick start shown: No
-- Preferred review output: Unknown; offer webpage or guide when relevant
+- Preferred review output: Unknown; conversational review by default, with artifacts when requested
 
 ## Active course and exam
 
