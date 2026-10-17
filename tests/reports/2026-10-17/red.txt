@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: Retry after disclosed solution must retain exposure
+
+false !== true
+
+    at check ([workspace]\tests\check_concept_retry.cjs:55:10) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
