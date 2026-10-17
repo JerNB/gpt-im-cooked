@@ -1,0 +1,410 @@
+{
+  "reviewer": "Author/root agent, manual application of the frozen criteria. No external assessor. Counts are per applicable context/case, not independent human participants.",
+  "cases": [
+    {
+      "id": "q4-and-blanks",
+      "category": "grading",
+      "judgments": [
+        {
+          "run": "baseline-01",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-01/response-01.md",
+            "runs/baseline-01/record-after-01.md"
+          ]
+        },
+        {
+          "run": "baseline-02",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-02/response-01.md",
+            "runs/baseline-02/record-after-01.md"
+          ]
+        },
+        {
+          "run": "baseline-03",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-03/response-01.md",
+            "runs/baseline-03/record-after-01.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "correct-number-wrong-reason",
+      "category": "diagnosis",
+      "judgments": [
+        {
+          "run": "baseline-01",
+          "turn": 4,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-01/response-04.md",
+            "runs/baseline-01/record-after-04.md"
+          ]
+        },
+        {
+          "run": "baseline-02",
+          "turn": 4,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-02/response-04.md",
+            "runs/baseline-02/record-after-04.md"
+          ]
+        },
+        {
+          "run": "baseline-03",
+          "turn": 4,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-03/response-04.md",
+            "runs/baseline-03/record-after-04.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outside-help-unknown",
+      "category": "assistance",
+      "judgments": [
+        {
+          "run": "baseline-01",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-01/response-01.md",
+            "runs/baseline-01/record-after-01.md"
+          ]
+        },
+        {
+          "run": "baseline-02",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-02/response-01.md",
+            "runs/baseline-02/record-after-01.md"
+          ]
+        },
+        {
+          "run": "baseline-03",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-03/response-01.md",
+            "runs/baseline-03/record-after-01.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "response-time-exposure",
+      "category": "assistance",
+      "judgments": [
+        {
+          "run": "baseline-01",
+          "turn": 2,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-01/response-02.md",
+            "runs/baseline-01/record-after-02.md"
+          ]
+        },
+        {
+          "run": "baseline-02",
+          "turn": 2,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-02/response-02.md",
+            "runs/baseline-02/record-after-02.md"
+          ]
+        },
+        {
+          "run": "baseline-03",
+          "turn": 2,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-03/response-02.md",
+            "runs/baseline-03/record-after-02.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "repeat-import",
+      "category": "duplicate-evidence",
+      "judgments": [
+        {
+          "run": "baseline-01",
+          "turn": 3,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-01/response-03.md",
+            "runs/baseline-01/record-after-03.md"
+          ]
+        },
+        {
+          "run": "baseline-02",
+          "turn": 3,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-02/response-03.md",
+            "runs/baseline-02/record-after-03.md"
+          ]
+        },
+        {
+          "run": "baseline-03",
+          "turn": 3,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-03/response-03.md",
+            "runs/baseline-03/record-after-03.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "same-item-recall",
+      "category": "propagation",
+      "judgments": [
+        {
+          "run": "baseline-01",
+          "turn": 5,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-01/response-05.md",
+            "runs/baseline-01/record-after-05.md"
+          ]
+        },
+        {
+          "run": "baseline-02",
+          "turn": 5,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-02/response-05.md",
+            "runs/baseline-02/record-after-05.md"
+          ]
+        },
+        {
+          "run": "baseline-03",
+          "turn": 5,
+          "result": "pass",
+          "evidence": [
+            "runs/baseline-03/response-05.md",
+            "runs/baseline-03/record-after-05.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "equivalent-answer",
+      "category": "grading",
+      "judgments": [
+        {
+          "run": "counterexamples",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/counterexamples/original-attempt.md",
+            "runs/counterexamples/review-01.md",
+            "runs/counterexamples/record-before.md",
+            "runs/counterexamples/learning-record.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ambiguous-key",
+      "category": "grading",
+      "judgments": [
+        {
+          "run": "counterexamples",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/counterexamples/original-attempt.md",
+            "runs/counterexamples/review-01.md",
+            "runs/counterexamples/record-before.md",
+            "runs/counterexamples/learning-record.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "superseded-verdict",
+      "category": "correction",
+      "judgments": [
+        {
+          "run": "counterexamples",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/counterexamples/original-attempt.md",
+            "runs/counterexamples/review-01.md",
+            "runs/counterexamples/record-before.md",
+            "runs/counterexamples/learning-record.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legacy-contradictory-export-assistance",
+      "category": "assistance",
+      "judgments": [
+        {
+          "run": "legacy-01",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/legacy-01/response-01.md",
+            "runs/legacy-01/feedback.md",
+            "runs/legacy-01/learning-record.md",
+            "runs/legacy-01/next-question.md"
+          ]
+        },
+        {
+          "run": "legacy-02",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/legacy-02/response-01.md",
+            "runs/legacy-02/feedback.md",
+            "runs/legacy-02/learning-record.md",
+            "runs/legacy-02/next-question.md"
+          ]
+        },
+        {
+          "run": "legacy-03",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/legacy-03/response-01.md",
+            "runs/legacy-03/feedback.md",
+            "runs/legacy-03/learning-record.md",
+            "runs/legacy-03/next-question.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "legacy-contradictory-export-propagation",
+      "category": "propagation",
+      "judgments": [
+        {
+          "run": "legacy-01",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/legacy-01/response-01.md",
+            "runs/legacy-01/feedback.md",
+            "runs/legacy-01/learning-record.md",
+            "runs/legacy-01/next-question.md"
+          ]
+        },
+        {
+          "run": "legacy-02",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/legacy-02/response-01.md",
+            "runs/legacy-02/feedback.md",
+            "runs/legacy-02/learning-record.md",
+            "runs/legacy-02/next-question.md"
+          ]
+        },
+        {
+          "run": "legacy-03",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/legacy-03/response-01.md",
+            "runs/legacy-03/feedback.md",
+            "runs/legacy-03/learning-record.md",
+            "runs/legacy-03/next-question.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revised-contradictory-export-assistance",
+      "category": "assistance",
+      "judgments": [
+        {
+          "run": "revised-01",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/revised-01/response-01.md",
+            "runs/revised-01/feedback.md",
+            "runs/revised-01/learning-record.md",
+            "runs/revised-01/next-question.md"
+          ]
+        },
+        {
+          "run": "revised-02",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/revised-02/response-01.md",
+            "runs/revised-02/feedback.md",
+            "runs/revised-02/learning-record.md",
+            "runs/revised-02/next-question.md"
+          ]
+        },
+        {
+          "run": "revised-03",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/revised-03/response-01.md",
+            "runs/revised-03/feedback.md",
+            "runs/revised-03/learning-record.md",
+            "runs/revised-03/next-question.md"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "revised-contradictory-export-propagation",
+      "category": "propagation",
+      "judgments": [
+        {
+          "run": "revised-01",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/revised-01/response-01.md",
+            "runs/revised-01/feedback.md",
+            "runs/revised-01/learning-record.md",
+            "runs/revised-01/next-question.md"
+          ]
+        },
+        {
+          "run": "revised-02",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/revised-02/response-01.md",
+            "runs/revised-02/feedback.md",
+            "runs/revised-02/learning-record.md",
+            "runs/revised-02/next-question.md"
+          ]
+        },
+        {
+          "run": "revised-03",
+          "turn": 1,
+          "result": "pass",
+          "evidence": [
+            "runs/revised-03/response-01.md",
+            "runs/revised-03/feedback.md",
+            "runs/revised-03/learning-record.md",
+            "runs/revised-03/next-question.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

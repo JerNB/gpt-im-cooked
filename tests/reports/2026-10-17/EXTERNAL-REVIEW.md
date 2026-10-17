@@ -17,6 +17,10 @@ Source rules: a within-group proportion uses that group's total; a whole-table
 proportion uses the whole-table total. For "among A, what fraction B?", count A
 in the denominator and both A and B in the numerator. Sources are the repository's
 synthetic course packets, not actual instructor examinations.
+For the primary repaired case, grouping alone keeps observation rows; mutate
+preserves its current input rows; scalar summarise returns one row per group
+(the existing packet L2). Inspect the supplied page's feedback path as well as
+its exported labels.
 
 | Case | Complete prompt / evidence | Student's original response |
 |---|---|---|
@@ -27,6 +31,7 @@ synthetic course packets, not actual instructor examinations.
 | V5 | V1 response was exported before opening the key. Export records no page hint/key; outside help is explicitly untracked. One earlier different correct context has student-reported independence. | Same response as V1. |
 | V6 | After V5's export, the student opened the key, reset the display and repeated the same question. Earlier snapshots retain V5; exports of attempt 1 repeat the same IDs. | Same response as V1 on the retry. |
 | V7 | A prior tutor marked V3 wrong for not using decimal notation. Student requests a recheck against the source rule and original answer. | Original V3 answer remains 7/10 with the same explanation. |
+| V8 | Four observations belong to two regions. First grouped-mutate prediction is checked, and the page displays four plus its explanation. Student retries the same item; both exported entries claim independent_transfer and no earlier reveal. | First: 2 because two regions. Retry: 4 because mutate preserves observation rows. Source/export: inputs/legacy-attempt.json and the preserved legacy page. |
 
 For each case, complete:
 
@@ -39,6 +44,7 @@ For each case, complete:
 | V5 | | | | | | | | |
 | V6 | | | | | | | | |
 | V7 | | | | | | | | |
+| V8 | | | | | | | | |
 
 Record grading errors per adjudicated answer; diagnosis errors per reviewed
 explanation; assistance errors per response; duplicate evidence per repeated
@@ -49,7 +55,7 @@ error. No high composite score can offset an assistance or propagation failure.
 ## Real-student pilot
 
 Question: with equal source materials and study time, does the full evidence loop
-improve later unaided reference-population reasoning compared with ordinary
+improve later unaided grouped-transformation row-count reasoning compared with ordinary
 review of the same packet and worked examples?
 
 1. Recruit consenting students who did not design the project. Use pseudonymous
@@ -58,8 +64,10 @@ review of the same packet and worked examples?
 2. An independent teacher validates parallel pretest, immediate and delayed forms
    against the same objectives. Balance reading/calculation demands; use new
    contexts and changed reasoning demands, not only new names/numbers. Keep all
-   scored forms and their keys unavailable to the teaching tutor. V1-V7 above
-   are behavior checks, not validated learner-test forms.
+   scored forms and their keys unavailable to the teaching tutor. V1-V8 above
+   are behavior checks, not validated learner-test forms. The separate
+   external/learner-forms.md and external/learner-key.md provide an unseen draft
+   candidate pool; they are not yet equivalent or teacher-validated forms.
 3. Use a parallel-group random assignment, balancing pretest performance where
    feasible. Both groups receive the same packet, allowed content, and a fixed
    study period (proposed pilot: 20 minutes). The intervention uses the project;
@@ -70,7 +78,7 @@ review of the same packet and worked examples?
    seven days later. Agree on this interval before recruiting. Record intervening
    study and missing follow-ups. Do not treat attrition as zero performance.
 5. Blind the teacher/TA grading to condition. Primary outcome: delayed correct
-   population reasoning, using a prespecified partial-credit rubric. Secondary:
+   row-count and unit-of-observation reasoning, using a prespecified partial-credit rubric. Secondary:
    immediate reasoning, numerical accuracy, assistance needed, and time. Record
    satisfaction separately. Set the rubric and minimum meaningful difference
    before outcomes are visible.

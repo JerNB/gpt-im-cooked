@@ -6,7 +6,9 @@ A reusable **English learning and exam-review skill and plugin** for college and
 
 Designed for English-language college and graduate study, including international students at US universities. Tutoring, page copy, feedback, and generated study outputs default to English unless the student explicitly asks for another language. Teaching uses plain language, small worked examples, and explanations of why each step follows. Optional concept pages use purposeful interactions and spacious layouts suited to the idea.
 
-**Preview v0.5.0** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+**Preview v0.5.1** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+
+The October 17 patch preserves answer exposure across retries in a [repaired concept-page example](examples/grouped-transformations.html), adds an executable regression, and clarifies how tutors review contradictory export labels. [Evidence, repeated tutor runs, and limits](tests/reports/2026-10-17/REPORT.md) distinguish the reproduced page defect from model judgments and unmeasured learning gains.
 
 The October 15 update makes conversation the primary review experience, with optional interactive pages for selected concepts. A simple mock-exam request produces an HTML paper with a separate key; a study-guide request produces a PDF when the host supports generation. See the [v0.5.0 changes and package checks](tests/reports/2026-10-15/RELEASE.md).
 
@@ -61,7 +63,7 @@ Past papers provide evidence of question formats and reasoning patterns. New que
 
 ## Quick start
 
-1. **[Download the standalone skill](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-skill-v0.5.0.zip)** and extract the `gpt-im-cooked` folder.
+1. **[Download the standalone skill](docs/downloads/gpt-im-cooked-skill-v0.5.1.zip)** and extract the `gpt-im-cooked` folder.
 2. Copy that entire folder into `~/.codex/skills/` (or your configured `$CODEX_HOME/skills/`). Preserve an existing copy unless you intend to replace it. Refresh the skill list or restart the client if needed, then open a new chat.
 3. Add one useful course file and send:
 
@@ -72,7 +74,7 @@ Here are my course notes and practice paper.
 
 You can start with a single course link, outline, or set of notes. A short request is enough: the skill handles scope checks, separate practice answers, and selective learning records. Past exams, dates, and official keys help, but are optional. Mention known exclusions; uncertain scope is flagged. Materials are read as needed for the current activity rather than requiring a complete course inventory before tutoring.
 
-**Prefer the plugin?** [Download the plugin package](https://jernb.github.io/gpt-im-cooked/downloads/gpt-im-cooked-plugin-v0.5.0.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
+**Prefer the plugin?** [Download the plugin package](docs/downloads/gpt-im-cooked-plugin-v0.5.1.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
 
 **Try without installing:** clone or download the repository, keep the whole skill folder accessible, and ask Codex to read [SKILL.md](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and its relevant supporting files. This manual preview does not test automatic plugin discovery.
 
@@ -107,7 +109,7 @@ Every tutoring reply starts with **“Hi student, let's get you uncooked.”** I
 
 ## What has been tested
 
-The v0.5.0 downloads are built from the maintained source and checked for exact file contents, extracted resource paths, and package metadata. A local GPT-6 Luna statistics run exercised the review flow and a concept page in Chrome before the new output defaults were added. The HTML-mock/PDF-guide defaults have not yet had a fresh model run, and the earlier run exposed grading and record/export reliability issues. See the [current validation status](VALIDATION.md) and [release checks](tests/reports/2026-10-15/RELEASE.md); package checks do not establish model adherence or learning gains.
+The v0.5.1 downloads contain the maintained source. The [October 17 evidence report](tests/reports/2026-10-17/REPORT.md) includes original/repaired page-script replay, isolated tutor runs, and record ablations. These do not establish learning gains or automatic plugin discovery. The HTML-mock/PDF-guide defaults still lack a dedicated fresh model run. See the [current validation status](VALIDATION.md) and [earlier release checks](tests/reports/2026-10-15/RELEASE.md).
 
 Version 0.4.1 adds duplicate-import/review rules, a Python standard-library helper for conflict-checked single-record writes and backups, explicit export identities, pre-key snapshots, and an allowlisted package builder. Python 3.10+ is optional; hosts without it use the documented manual fallback. Student records remain Markdown in their workspace. The helper is invoked by the tutor, not a background service. Export review and import-ledger updates remain tutor responsibilities.
 

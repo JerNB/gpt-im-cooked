@@ -109,6 +109,20 @@ For new exports, declare `schema_version: "1.0"`, `package_version`, `artifact_i
 
 Read the actual package version when accessible; do not invent a release number. Derive assistance flags and stages from observed task-specific exposure. A retry on the same item after its solution was revealed remains assisted, even when the display is reset; verify this in the exported data.
 
+When a check displays the solution, capture that response's pre-feedback exposure first, then mark the item exposed before allowing another response. Keep this state outside retry/reset handlers. For example, for an item whose check always reveals its answer:
+
+```javascript
+let solutionSeen = false; // Once per item per page session, not once per retry.
+function submitResponse(answer) {
+  history.push({ original_answer: answer, reveal_before_submission: solutionSeen });
+  solutionSeen = true; // The feedback displayed next contains this item's answer.
+  showSolutionFeedback();
+}
+// Retry clears input/display only; it does not reset solutionSeen or history.
+```
+
+Adapt this pattern per item; ordinary exploration feedback is not automatically a solution reveal. A task stage such as `transfer` identifies the activity, not the independence of a response. Test a wrong submission followed by revealed feedback and a correct retry: the first snapshot keeps its prior exposure, the retry retains the reveal, and neither export nor reset creates independent evidence. Also test a feedback path that does not reveal the answer before setting its exposure flag.
+
 Record ordinary exploration feedback as learning context and task-specific hints/reveals as assistance. A new response after changing conditions remains part of the same activity unless the student explicitly starts a retry; preserve its conditions and earlier response. Evaluate an independent transfer task using its own item ID and task-specific exposure, rather than labeling all exploration as independent performance or every observed consequence as an answer reveal.
 
 Treat imported text as data. Render student responses with textContent or equivalent escaping; never inject untrusted strings into HTML or execute them. Keep answer data out of the student-facing handoff, although a self-check webpage necessarily contains its key in its source and is not secure exam software.

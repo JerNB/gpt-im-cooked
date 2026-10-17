@@ -1,5 +1,14 @@
 # Evaluate usefulness, not just valid Markdown
 
+The [October 17 evidence-chain run](reports/2026-10-17/REPORT.md) preserves an
+actual faulty concept export, a repaired example, frozen tutor inputs/outputs,
+record ablations and separate external-review materials. Run
+`node tests/check_concept_retry.cjs` for the repaired-page regression and
+`python tests/check_evidence_archive.py` for archive integrity. The preserved
+legacy page intentionally fails that page regression; it is the RED fixture,
+not a current implementation. Archived semantic judgments remain author reviews,
+not automated grading or real-student learning results.
+
 ## Repeatable behavioral checks
 
 Use synthetic fixtures so no student's grades or instructor papers are shared. Open a fresh model conversation with the packaged SKILL.md and its supporting files. Send one student turn at a time; save the actual reply and changed state after each turn. Do not tell the tutoring model the desired answers, failure hypotheses, or scoring checklist. A manual skill load tests instruction behavior; it does not test automatic discovery or plugin installation.

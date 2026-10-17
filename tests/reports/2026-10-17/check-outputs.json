@@ -1,0 +1,90 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "archive",
+      "chunk_id": "0bb46e",
+      "wall_time_seconds": 0.7328994,
+      "exit_code": 0,
+      "original_token_count": 68,
+      "output": "PASS: 213 archived fingerprints, 12 contexts/24 turns, unchanged duplicate hashes, identical comparison inputs, two changed instruction references, and manual-verdict evidence paths.\r\nThis validates evidence integrity, not the correctness of author semantic judgments.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "state",
+      "chunk_id": "8b366b",
+      "wall_time_seconds": 0.6424324,
+      "exit_code": 0,
+      "original_token_count": 23,
+      "output": "PASS: create/no-change/backup/conflict/lock/invalid/write failure and package rejection\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "historical",
+      "chunk_id": "6dba95",
+      "wall_time_seconds": 0.6197578,
+      "exit_code": 0,
+      "original_token_count": 58,
+      "output": "PASS: downloaded/text export equality, 9 event checks, assistance across reset, no-change record hash, markers, and selective retention.\r\nThese assertions verify archived evidence only; semantic behavior is reviewed in REPORT.md.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "package",
+      "chunk_id": "ab70ea",
+      "wall_time_seconds": 0.9626738,
+      "exit_code": 0,
+      "original_token_count": 52,
+      "output": "PASS: 393 package files, 2 skills, onboarding paths, starter prompts, links, and synthetic arithmetic.\r\nThis command checks package structure only; see VALIDATION.md for behavioral evidence and host limits.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "distribution",
+      "chunk_id": "34c2b2",
+      "wall_time_seconds": 0.7675047,
+      "exit_code": 0,
+      "original_token_count": 91,
+      "output": "PASS plugin: 20 exact source files; extracted resources resolve; SHA256 f00876bc4b3439c1e326255ddf9654bdf3cb15adac7da03f3543cc5bb195f85e\r\nPASS skill: 13 exact source files; extracted resources resolve; SHA256 08f19d9b43f4d8251915b90a413b91cbbae61b55aa8373b21216aa426abc51bd\r\nThese checks verify distribution structure, not desktop installation or model behavior.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "javascript",
+      "chunk_id": "1d6f2d",
+      "wall_time_seconds": 0.5602935,
+      "exit_code": 0,
+      "original_token_count": 400,
+      "output": "PASS: actual page script preserves pre-feedback response, exposed retry, stable exports, original answers and blank/locked-submit handling.\n✔ tests\\check_concept_retry.cjs (74.2626ms)\nPASS: pre-key answers, immutable snapshots, stable export identity, retry identity and exposure\n✔ tests\\check_demo_state.cjs (65.3435ms)\nPASS: generated pre/post-key snapshots, identity/retry/exposure, unknown external help, blank fields, equivalent values, historical response-time flags and denominator counterexamples.\nThis checks raw evidence invariants only; tutor verdicts require separate adjudication.\n✔ tests\\check_evidence_chain.cjs (81.6443ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 103.6852\nℹ start of coverage report\nℹ ---------------------------------------------------------------------------\nℹ file                       | line % | branch % | funcs % | uncovered lines\nℹ ---------------------------------------------------------------------------\nℹ tests                      |        |          |         | \nℹ  check_concept_retry.cjs   | 100.00 |    93.10 |   95.00 | \nℹ  check_demo_state.cjs      | 100.00 |    96.00 |   95.45 | \nℹ  check_evidence_chain.cjs  | 100.00 |   100.00 |  100.00 | \nℹ  prepare_evidence_case.cjs | 100.00 |    93.94 |   96.30 | \nℹ ---------------------------------------------------------------------------\nℹ all files                  | 100.00 |    94.85 |   95.95 | \nℹ ---------------------------------------------------------------------------\nℹ end of coverage report\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "syntax",
+      "chunk_id": "8070a7",
+      "wall_time_seconds": 0.6105333,
+      "exit_code": 0,
+      "original_token_count": 19,
+      "output": "PASS: modified Python source parses; no configured static type checker.\r\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "name": "security",
+      "chunk_id": "31d3e3",
+      "wall_time_seconds": 0.4135448,
+      "exit_code": 1,
+      "original_token_count": 0,
+      "output": ""
+    }
+  }
+]

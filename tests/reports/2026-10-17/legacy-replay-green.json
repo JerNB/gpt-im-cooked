@@ -1,0 +1,147 @@
+{
+  "feedback_before_retry": "<strong>The output has 4 rows.</strong> Grouped mutate() keeps every state observation and repeats its region mean on each row. Your explanation: “There are two regions, so one row per region.”",
+  "export": {
+    "schema_version": "1.0",
+    "package_version": "0.5.1",
+    "artifact_id": "sta199-ex1-grouped-mutate-vs-summarize",
+    "artifact_version": "1.0.1",
+    "course": "STA 199CCL",
+    "exam": "Exam 1",
+    "topic_ids": [
+      "EX1-DPLYR"
+    ],
+    "source_basis": [
+      {
+        "title": "Exploratory data analysis II",
+        "url": "https://sta199-f26.github.io/slides/06-exploratory-data-analysis-II-slides.html",
+        "locator": "mutate(); group_by() |> summarize()"
+      },
+      {
+        "title": "Lab 2",
+        "url": "https://sta199-f26.github.io/lab/lab-2.html",
+        "locator": "grouped mutate and summarize comparison"
+      }
+    ],
+    "session_id": "mvbt6g00-0cyk5r",
+    "attempt_id": "mvbt6g03-12voha",
+    "exported_at": "2026-10-17T03:00:00.005Z",
+    "exploration": {
+      "current_state": {
+        "grouping": "team",
+        "operation": "mutate",
+        "statistic": "mean"
+      },
+      "data": [
+        {
+          "team": "A",
+          "shift": "Morning",
+          "hours": 2
+        },
+        {
+          "team": "A",
+          "shift": "Evening",
+          "hours": 4
+        },
+        {
+          "team": "B",
+          "shift": "Morning",
+          "hours": 5
+        },
+        {
+          "team": "B",
+          "shift": "Evening",
+          "hours": 7
+        },
+        {
+          "team": "B",
+          "shift": "Evening",
+          "hours": 8
+        }
+      ]
+    },
+    "transfer_history": [
+      {
+        "attempt_id": "mvbt6g01-0px4bi",
+        "item_id": "transfer-region-mean-rows",
+        "timestamp": "2026-10-17T03:00:00.002Z",
+        "stage": "transfer",
+        "independence": "not established by page",
+        "condition": {
+          "data": [
+            {
+              "region": "East",
+              "state": "Pine",
+              "rate": 2
+            },
+            {
+              "region": "East",
+              "state": "Lake",
+              "rate": 4
+            },
+            {
+              "region": "West",
+              "state": "Mesa",
+              "rate": 5
+            },
+            {
+              "region": "West",
+              "state": "Cedar",
+              "rate": 7
+            }
+          ],
+          "operation": "group_by(region) |> mutate(mean_tax = mean(rate))"
+        },
+        "original_answer": {
+          "predicted_rows": "2",
+          "explanation": "There are two regions, so one row per region."
+        },
+        "provisional_check": "incorrect row-count prediction",
+        "hint_used": false,
+        "reveal_before_submission": false,
+        "feedback_revealed_answer": true
+      },
+      {
+        "attempt_id": "mvbt6g03-12voha",
+        "item_id": "transfer-region-mean-rows",
+        "timestamp": "2026-10-17T03:00:00.004Z",
+        "stage": "assisted_retry",
+        "independence": "not established by page",
+        "condition": {
+          "data": [
+            {
+              "region": "East",
+              "state": "Pine",
+              "rate": 2
+            },
+            {
+              "region": "East",
+              "state": "Lake",
+              "rate": 4
+            },
+            {
+              "region": "West",
+              "state": "Mesa",
+              "rate": 5
+            },
+            {
+              "region": "West",
+              "state": "Cedar",
+              "rate": 7
+            }
+          ],
+          "operation": "group_by(region) |> mutate(mean_tax = mean(rate))"
+        },
+        "original_answer": {
+          "predicted_rows": "4",
+          "explanation": "Mutate keeps all four state observations."
+        },
+        "provisional_check": "correct row-count prediction",
+        "hint_used": false,
+        "reveal_before_submission": true,
+        "feedback_revealed_answer": true
+      }
+    ],
+    "current_unsubmitted_response": null,
+    "instructions": "Attach this JSON file in chat for tutor review. Page activity alone does not establish mastery."
+  }
+}
