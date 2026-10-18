@@ -21,7 +21,7 @@ skill download. Registration alone is not installation.
 This plugin needs no connected service or API key. Its getting-started skill is
 `gpt-im-cooked-start`; ordinary studying uses `gpt-im-cooked`.
 
-Version 0.5.0 starts concept review in English conversation. Mock exams default
+Version 0.5.1 retains concept review in English conversation. Mock exams default
 to HTML exam worksheets with separate keys; study guides default to PDF when
 the host supports generation. Interactive pages for selected concepts are
 optional, and explicit language or format requests override the defaults.

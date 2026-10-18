@@ -1,0 +1,5 @@
+# Evidence hashes refer to the original bytes, including source line endings.
+tests/reports/2026-10-17/** -text whitespace=cr-at-eol
+tests/reports/2026-10-17/runs/** -text -whitespace
+tests/reports/2026-10-17/skills/** -text -whitespace
+tests/fixtures/legacy-grouped-transformations.html -text -whitespace

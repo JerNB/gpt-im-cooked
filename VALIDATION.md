@@ -1,5 +1,17 @@
 # Validation status
 
+Version 0.5.1 adds a repaired standalone concept example and narrow guidance for
+feedback-based answer exposure and contradictory imported flags. The original
+October 15 page's exposed retry was reproduced by executing its actual script;
+the repaired copy passes the same regression. The preserved original remains
+unchanged. Twelve isolated tutor contexts completed 24 synthetic turns, including
+three before/three after reviews of the faulty export. Both instruction snapshots
+had 0/3 observed assistance errors on that import task, so no model improvement
+is claimed. See the [raw evidence, protocols, counts and limits](tests/reports/2026-10-17/REPORT.md).
+Exact backend model build, new-page generation reliability, new browser rendering,
+plugin discovery and real learning gains remain unverified. Both 0.5.1 archives
+are local candidate artifacts; no publication or installed-skill update occurred.
+
 Version 0.5.0 centers review on plain-English conversation, incremental source reading, selective learning records, and optional spacious pages for a few selected concepts. Mock exams default to an HTML numbered-paper worksheet based on the inspected STA199 layout; study/review guides default to actual PDF files with rendered-page checks when supported. Explicit format requests override these defaults. The current standalone and plugin downloads contain these instructions; older versioned ZIPs retain their original snapshots. See the [October 15 release checks](tests/reports/2026-10-15/RELEASE.md).
 
 An October 15, 2026 local GPT-6 Luna statistics run exercised question feedback, a reported weak concept, an explicitly requested interactive page, reviewed attempt import, a six-question mock, and a study guide. The generated page was exercised in Chrome and the mock's six keys were manually checked. The run preceded the HTML-mock/PDF-guide defaults and produced Markdown for those two outputs, so it does not validate the new formats. It also exposed initial incorrect grading corrected after a student challenge, inaccurate exported assistance/version labels, an import-ledger entry in the Concepts section, and incomplete first-guide coverage. The instructions now clarify coverage, exposure labels, and section placement; no fresh model run establishes that these reliability issues are resolved. No learning-gain or latency claim follows from this test.

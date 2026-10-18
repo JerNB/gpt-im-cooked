@@ -1,0 +1,140 @@
+{
+  "schema_version": "1.0",
+  "package_version": "1.0.0",
+  "artifact_id": "sta199-ex1-grouped-mutate-vs-summarize",
+  "artifact_version": "1.0.0",
+  "course": "STA 199CCL",
+  "exam": "Exam 1",
+  "topic_ids": [
+    "EX1-DPLYR"
+  ],
+  "source_basis": [
+    {
+      "title": "Exploratory data analysis II",
+      "url": "https://sta199-f26.github.io/slides/06-exploratory-data-analysis-II-slides.html",
+      "locator": "mutate(); group_by() |> summarize()"
+    },
+    {
+      "title": "Lab 2",
+      "url": "https://sta199-f26.github.io/lab/lab-2.html",
+      "locator": "grouped mutate and summarize comparison"
+    }
+  ],
+  "session_id": "mv8c5njy-1xx0jk",
+  "attempt_id": "mv8c973g-40rtr5",
+  "exported_at": "2026-10-14T16:43:14.915Z",
+  "exploration": {
+    "current_state": {
+      "grouping": "shift",
+      "operation": "mutate",
+      "statistic": "count"
+    },
+    "data": [
+      {
+        "team": "A",
+        "shift": "Morning",
+        "hours": 2
+      },
+      {
+        "team": "A",
+        "shift": "Evening",
+        "hours": 4
+      },
+      {
+        "team": "B",
+        "shift": "Morning",
+        "hours": 5
+      },
+      {
+        "team": "B",
+        "shift": "Evening",
+        "hours": 7
+      },
+      {
+        "team": "B",
+        "shift": "Evening",
+        "hours": 8
+      }
+    ]
+  },
+  "transfer_history": [
+    {
+      "attempt_id": "mv8c5njy-qg5zcp",
+      "item_id": "transfer-region-mean-rows",
+      "timestamp": "2026-10-14T16:42:32.829Z",
+      "stage": "independent_transfer",
+      "condition": {
+        "data": [
+          {
+            "region": "East",
+            "state": "Pine",
+            "rate": 2
+          },
+          {
+            "region": "East",
+            "state": "Lake",
+            "rate": 4
+          },
+          {
+            "region": "West",
+            "state": "Mesa",
+            "rate": 5
+          },
+          {
+            "region": "West",
+            "state": "Cedar",
+            "rate": 7
+          }
+        ],
+        "operation": "group_by(region) |> mutate(mean_tax = mean(tax_rate))"
+      },
+      "original_answer": {
+        "predicted_rows": "2",
+        "explanation": "There are two regions, so I expected one result row per region."
+      },
+      "provisional_check": "incorrect row-count prediction",
+      "hint_used": false,
+      "reveal_before_submission": false
+    },
+    {
+      "attempt_id": "mv8c973g-40rtr5",
+      "item_id": "transfer-region-mean-rows",
+      "timestamp": "2026-10-14T16:43:07.812Z",
+      "stage": "independent_transfer",
+      "condition": {
+        "data": [
+          {
+            "region": "East",
+            "state": "Pine",
+            "rate": 2
+          },
+          {
+            "region": "East",
+            "state": "Lake",
+            "rate": 4
+          },
+          {
+            "region": "West",
+            "state": "Mesa",
+            "rate": 5
+          },
+          {
+            "region": "West",
+            "state": "Cedar",
+            "rate": 7
+          }
+        ],
+        "operation": "group_by(region) |> mutate(mean_tax = mean(tax_rate))"
+      },
+      "original_answer": {
+        "predicted_rows": "4",
+        "explanation": "mutate attaches the region mean to every existing state row, so all four states remain."
+      },
+      "provisional_check": "correct row-count prediction",
+      "hint_used": false,
+      "reveal_before_submission": false
+    }
+  ],
+  "current_unsubmitted_response": null,
+  "instructions": "Attach this JSON file in chat for tutor review. Page activity alone does not establish mastery."
+}

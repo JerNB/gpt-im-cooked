@@ -1,0 +1,23 @@
+{
+  "ticket": {
+    "within_plus": "7/10",
+    "all_short": "2/3",
+    "plus_and_short_among_all": "7/15"
+  },
+  "legacy_transfer": {
+    "input_rows": 4,
+    "groups": 2,
+    "grouped_mutate_rows": 4,
+    "scalar_summary_rows": 2,
+    "east_mean": "3",
+    "west_mean": "6"
+  },
+  "historical_denominators": {
+    "morning": "1/4",
+    "whole": "1/10",
+    "remote_evening": "7/20",
+    "wrong_whole": "7/40"
+  },
+  "runtime": "3.13.12",
+  "verification": "Exact Python arithmetic plus row-count derivation from supplied L2; no R execution."
+}

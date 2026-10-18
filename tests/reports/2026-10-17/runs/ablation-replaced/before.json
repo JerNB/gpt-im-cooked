@@ -1,0 +1,272 @@
+{
+  "schema_version": "1.0",
+  "package_version": "0.4.1",
+  "artifact_id": "cooked-stats-mock-a",
+  "artifact_version": "0.3.1",
+  "session_id": "evidence-session",
+  "course": "Fictional intro statistics",
+  "exam": "Mock Exam A",
+  "source_packet": "course-packet.md",
+  "learning_record": "learning-record.md",
+  "exported_at": "2026-10-17T02:00:00.000Z",
+  "attempt_id": "evidence-session:1",
+  "attempt_order": 1,
+  "items": [
+    {
+      "item_id": "q1",
+      "topic_id": "observations-and-variables",
+      "source_basis": "packet.html#s1",
+      "original_answer": [],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q2",
+      "topic_id": "plot-choice",
+      "source_basis": "packet.html#s2",
+      "original_answer": [],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q3",
+      "topic_id": "distribution-interpretation",
+      "source_basis": "packet.html#s2",
+      "original_answer": [],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q4",
+      "topic_id": "within-group-denominator",
+      "source_basis": "packet.html#s3",
+      "original_answer": [
+        "B"
+      ],
+      "explanation": "The reference population is Plus-plan tickets: 40. Of those, 28 had a short wait, so 28/40 = 0.70.",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q5",
+      "topic_id": "grouped-summary",
+      "source_basis": "packet.html#s4",
+      "original_answer": "",
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q6",
+      "topic_id": "missing-values",
+      "source_basis": "packet.html#s4",
+      "original_answer": [],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q7",
+      "topic_id": "factor-order",
+      "source_basis": "packet.html#s5",
+      "original_answer": "",
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q8",
+      "topic_id": "association-not-causation",
+      "source_basis": "packet.html#s2",
+      "original_answer": [],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "attempt_id": "evidence-session:1",
+      "attempt_order": 1,
+      "reason": "export",
+      "time": "2026-10-17T02:00:00.000Z",
+      "items": [
+        {
+          "item_id": "q1",
+          "topic_id": "observations-and-variables",
+          "source_basis": "packet.html#s1",
+          "original_answer": [],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q2",
+          "topic_id": "plot-choice",
+          "source_basis": "packet.html#s2",
+          "original_answer": [],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q3",
+          "topic_id": "distribution-interpretation",
+          "source_basis": "packet.html#s2",
+          "original_answer": [],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q4",
+          "topic_id": "within-group-denominator",
+          "source_basis": "packet.html#s3",
+          "original_answer": [
+            "B"
+          ],
+          "explanation": "The reference population is Plus-plan tickets: 40. Of those, 28 had a short wait, so 28/40 = 0.70.",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q5",
+          "topic_id": "grouped-summary",
+          "source_basis": "packet.html#s4",
+          "original_answer": "",
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q6",
+          "topic_id": "missing-values",
+          "source_basis": "packet.html#s4",
+          "original_answer": [],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q7",
+          "topic_id": "factor-order",
+          "source_basis": "packet.html#s5",
+          "original_answer": "",
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q8",
+          "topic_id": "association-not-causation",
+          "source_basis": "packet.html#s2",
+          "original_answer": [],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "persistence": "Exported file only; no automatic tutor or workspace update"
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "source_file": "work/sta199-full-flow-2026-10-15/01-question-initial.json",
+    "source_sha256": "f77b6ea548cf1f7d100c2fc8d659ec351d1b031fe5cdae5ae69978fdf0c1bbc0",
+    "extraction": "English agent messages only; native paths, thread titles and command logs omitted. Full source remains in ignored local work directory.",
+    "turns": [
+      {
+        "startedAt": 1791995478,
+        "completedAt": 1791995505,
+        "messages": [
+          {
+            "phase": "commentary",
+            "text": "I\u2019ll check the course\u2019s Q21 wording and apply the exam-review coaching approach so I can confirm both the logic and what the filter keeps."
+          },
+          {
+            "phase": "final_answer",
+            "text": "**Hi student, let's get you uncooked.**\n\nYes\u2014your blanks are correct: **`|`** means \u201cor,\u201d and **`<`** means \u201cless than.\u201d The filter keeps houses with a garage **or** houses built before 1950. That matches Q21\u2019s answer key (**a**). [Q21](https://sta199-f26.github.io/exam-review/exam-1-review.html) \u00b7 [Suggested answers](https://sta199-f26.github.io/exam-review/exam-1-review-A.html)\n\nOne subtlety: a house meeting either condition is kept, including one that meets both. In the table, that\u2019s the 5 garage homes built before 1950."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source_file": "work/sta199-full-flow-2026-10-15/01-question-correction.json",
+    "source_sha256": "c160dd008e03e8ab1b25135c70cda88662c3bc4e75add50cdf80fcb24806fc59",
+    "extraction": "English agent messages only; native paths, thread titles and command logs omitted. Full source remains in ignored local work directory.",
+    "turns": [
+      {
+        "startedAt": 1791995556,
+        "completedAt": 1791995558,
+        "messages": [
+          {
+            "phase": "final_answer",
+            "text": "**Hi student, let's get you uncooked.**\n\nYou\u2019re right to challenge that\u2014I misread the output. The answer key is **`&`** and **`<`**, which keeps houses that have a garage **and** were built before 1950. The table shows 5 houses meeting both conditions.\n\nWith **`|`** and **`<`**, the filter would keep houses meeting either condition: 38 with a garage, plus 8 built before 1950, minus the 5 counted in both groups\u2014**41 houses**. I\u2019m sorry for the mistake."
+          }
+        ]
+      }
+    ]
+  }
+]
