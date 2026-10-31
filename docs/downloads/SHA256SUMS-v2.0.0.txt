@@ -1,0 +1,2 @@
+2abc1b04c3069e50a24da7e4f40972f9cbe76ec25a186279ccb70ed6cf9dd597  gpt-im-cooked-plugin-v2.0.0.zip
+4bb5b60370c776c754bca6929e83e1b52df6add65b6a862ee126e83ef9bb71ab  gpt-im-cooked-skill-v2.0.0.zip

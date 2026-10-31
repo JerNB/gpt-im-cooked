@@ -2,7 +2,7 @@
 
 ## Choose the output
 
-Conversation is the default for concept review. Honor requests for practice, a mock exam, a study guide, or a permitted reference sheet directly. A brief recap stays in chat; a requested study/review guide defaults to PDF, and a requested mock exam defaults to HTML. The student need not specify a file type or choose from a format menu. Read the learning record before every output; without evidence, label a course-based output honestly.
+Conversation is the default for concept review. Honor requests for practice, a mock exam, a study guide, or a permitted reference sheet directly. A brief recap stays in chat; a requested study/review guide defaults to PDF, and a requested mock exam defaults to HTML. The student need not specify a file type or choose from a format menu. Use loaded learning state and pending evidence for ordinary replies. For personalized artifacts, follow the save/refresh checkpoint in [state.md](state.md); without evidence, label a course-based output honestly.
 
 | Request | Default delivery |
 |---|---|
@@ -43,6 +43,14 @@ Lead with rules the student needs to retrieve or apply quickly. Include a few co
 Use the learning record to emphasize demonstrated difficulties while retaining key coverage. Do not fill limited space with long lists of every function or copied answer paragraphs. Avoid personal labels, unnecessary scores, private comments, or unrelated information in printable artifacts.
 
 For a personalized guide, check all relevant concepts reviewed in the active session and saved record against the requested scope. Include both weaknesses and useful corrected distinctions; do not silently cover only the most recent concept. State genuine coverage gaps.
+
+## Corrected mistakes and content balance
+
+Include selected reviewed mistakes when they explain a fragile distinction or recurring failure better than a generic example. A compact unit contains the necessary prompt, a short original reasoning excerpt or faithful summary, the first error, the corrected method and its conditions, and an optional unanswered variant. Mark missing original reasoning and tentative diagnoses; use only verified errors as confirmed mistakes. Keep independent practice and its key separate from guide explanations.
+
+Choose the share of page space from course demands, exam format, learning stage, and available evidence, rather than a fixed percentage. Early review usually needs more conceptual structure; repeated application errors may justify more corrected examples; exam review still needs confirmed topic coverage, including unassessed topics. For humanities, a short response excerpt with explained revision can serve the role of a worked mistake. Briefly state the selection rationale without claiming a proven optimal ratio.
+
+For exam-room sheets, apply confirmed content and layout restrictions first. Include worked questions or answers only when permitted; otherwise condense their lessons into allowed distinctions, conditions, or cues. Unknown restrictions permit a study draft only. A full study guide can include explanations without inheriting the sheet's space limit.
 
 ## Layout and verification
 

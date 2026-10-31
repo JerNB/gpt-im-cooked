@@ -1,10 +1,10 @@
 # Installation
 
-Version 0.5.1 keeps `gpt-im-cooked` for both the plugin ID and main skill. The getting-started entry is `gpt-im-cooked-start`. Choose one normal installation route to avoid duplicate workflows.
+Version 2.0.0 keeps `gpt-im-cooked` for both the plugin ID and main skill. The getting-started entry is `gpt-im-cooked-start`. Choose one normal installation route to avoid duplicate workflows.
 
 ## Standalone skill: the simplest route
 
-1. [Download the skill ZIP](downloads/gpt-im-cooked-skill-v0.5.1.zip).
+1. [Download the skill ZIP](downloads/gpt-im-cooked-skill-v2.0.0.zip).
 2. Extract the entire `gpt-im-cooked` folder into `~/.codex/skills/`, or your configured `$CODEX_HOME/skills/`. Preserve an existing copy unless intentionally replacing it.
 3. Refresh skills or restart the client if needed. In a new chat, bring a course file and send:
 
@@ -17,7 +17,7 @@ The skill already includes the first-use guide and complete study workflow. Repo
 
 ## Plugin: bundled setup and listing
 
-[Download the plugin ZIP](downloads/gpt-im-cooked-plugin-v0.5.1.zip) and extract its entire `gpt-im-cooked` folder, including hidden directories. This folder has its own `.agents/plugins/marketplace.json`, so it is also a local marketplace root.
+[Download the plugin ZIP](downloads/gpt-im-cooked-plugin-v2.0.0.zip) and extract its entire `gpt-im-cooked` folder, including hidden directories. This folder has its own `.agents/plugins/marketplace.json`, so it is also a local marketplace root.
 
 Open the extracted folder as a project in a supported desktop client. Refresh the Plugins Directory or restart the client if needed, choose **GPT, I'm Cooked**, and install **gpt-im-cooked**. Run its setup entry or invoke `$gpt-im-cooked` in a new chat with your materials. Setup goes straight into the supplied task; the main skill supplies the same welcome when setup is not surfaced.
 
@@ -39,6 +39,8 @@ cd gpt-im-cooked
 The repository root has a catalog pointing to `./plugins/gpt-im-cooked`. Open that root as a desktop project, or register it with `codex plugin marketplace add .` when your CLI supports the command. A supporting CLI can also register `JerNB/gpt-im-cooked` directly. Keep the source folder accessible for local marketplace entries.
 
 ## Update from older versions
+
+- V2 (`2.0.0`) batches meaningful record updates at checkpoints, adds concise handoffs and mistake variants, and expands humanities feedback. Replace the complete installed skill or plugin so supporting references match. Existing course records remain usable; no migration or record reset is required. Recent pending evidence stays in the current conversation until saved; ask to save before changing chats.
 
 - Version 0.5.0 centers review on conversation and selected learning evidence. Mock exams default to HTML with a separate key, study guides default to PDF, and concept pages are optional. Explicit format requests still take precedence. Update the complete package so the new supporting references accompany the main skill.
 - The standalone skill keeps the same `$gpt-im-cooked` invocation. Intentionally replace its full installed folder with the new version.

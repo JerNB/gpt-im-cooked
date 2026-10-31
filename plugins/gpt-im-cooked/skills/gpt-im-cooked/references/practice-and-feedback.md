@@ -31,6 +31,14 @@ Separate scope/style provenance from authorship: newly generated items are origi
 - When execution is unavailable, retain a manual trace/derivation and label it unexecuted. Fix or omit items whose correctness remains materially unresolved.
 - If an item depends on a graph, supply a legible graph or a self-contained table plus a suitable rewritten question. Do not refer to a graph the student cannot see.
 
+## Mistake review and variants
+
+For "review my mistakes," use reviewed record evidence and the current conversation to select a small set, prioritizing repeated supported errors, foundational dependencies, and unresolved rechecks. Self-reports may identify targets but remain labelled until the actual work is reviewed. If the original question/key is unavailable, give source-grounded concept practice with that limit rather than reconstruct a supposedly exact mistake.
+
+For each target, identify the error mechanism and choose the next task: a same-structure retry, a new setting requiring the same principle, or a changed condition requiring the student to decide whether the method still applies. State the target and what changed in the separate key. Changing numbers alone practices execution; a transfer task changes context or reasoning demands. Keep variants within supplied scope and check the key before delivery.
+
+Offer a short recheck sequence suited to the exam timeline: correction and explanation, later unaided application, then a distinct-context recheck. Record a retry as a new attempt only when actually attempted, retain prior answer exposure, and distinguish assisted correction, unaided original-question retry, and independent transfer. Update priority after improvement or recurrence; avoid claiming mastery from recognition. Suggested recheck dates are a study plan, not scheduled notifications.
+
 ## Domain adaptations
 
 ### Programming
@@ -44,6 +52,14 @@ Track unit of observation, variable types, grouping state, row/column counts, de
 ### Astronomy and other conceptual sciences
 
 Distinguish related concepts and the physical mechanism connecting them. Use comparison questions, diagrams when available, limiting cases, and qualitative predictions. Keep mathematical computation out of a concepts-only request. If formulas are included, use the instructor's conventions and explain units and assumptions.
+
+### Humanities and interpretive writing
+
+Choose tasks from the course's actual assessment: factual/concept recall, contextual interpretation of texts or sources, comparison, or argument construction. Use supplied passages and page/section locators; distinguish an author's claim, a source's perspective, and the student's interpretation. Match instructor rubrics when available.
+
+Assess factual accuracy separately from interpretation. For interpretive responses, evaluate whether the answer addresses the prompt, states a defensible claim, selects relevant evidence, explains the inference, and handles context or counterarguments when required. Accept different interpretations supported by the supplied material; a model response is one reasoned example, not the sole valid wording or conclusion. Without a rubric, keep judgments qualitative or label requested scores provisional.
+
+Record specific repairable issues such as an unsupported claim, anachronism, misread passage, missing comparison, or gap between evidence and conclusion. Preserve the student's original claim/evidence/reasoning, distinguish factual error from an arguable reading, and ask for a targeted revision or application to a different supplied passage. Guides may pair short original and revised excerpts with revision reasons. Generated practice passages must be labelled synthetic and must not be attributed to a real author or substituted for authentic course evidence.
 
 ## Feedback and scoring
 

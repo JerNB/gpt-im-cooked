@@ -17,7 +17,7 @@ Read only what the next activity needs. For a new course website and exam review
 
 When a review packet has no named concept, start with a concise source-grounded topic map, coverage gaps, and a recommended starting concept. Use reviewed learning evidence first, then supported prerequisites, explicit instructor guidance, and course sequence; without student evidence, call this a course-based starting route. Begin explaining a supported concept in chat. Follow an explicit artifact request directly; having used a webpage earlier does not make it the default for later review. A file upload alone does not imply a mock exam, webpage, or weakness diagnosis. See [references/review-artifacts.md](references/review-artifacts.md) for packet and output routing.
 
-Reuse material and instructions already read in the current conversation; reopen them when changed, uncertain, or needed for an unread section. Read saved state when starting/resuming a session, and refresh it before writes or personalized artifacts. Keep ordinary answers focused on the requested concept; a greeting and one or two orientation sentences suffice when a task is already supplied. Explain setup details when relevant rather than presenting a workflow manual first.
+Reuse material and instructions already read in the current conversation; reopen them when changed, uncertain, or needed for an unread section. Read saved state when starting/resuming a session. Reuse loaded state during ordinary replies; follow the batching and refresh rules in [references/state.md](references/state.md) for writes and personalized artifacts. Keep ordinary answers focused on the requested concept; a greeting and one or two orientation sentences suffice when a task is already supplied. Explain setup details when relevant rather than presenting a workflow manual first.
 
 Begin each student-facing tutoring reply with this standalone line:
 
@@ -55,13 +55,13 @@ Label solution evidence **Instructor key / Verified computation / Reasoned solut
 
 ## 5. Save selected learning evidence
 
-Before finishing every tutoring turn, decide whether an attempt, specific reported difficulty, correction, improvement, source gap, or preference changed. Read [references/state.md](references/state.md) when importing attempts or creating/updating records; follow its duplicate/revision checks and verified-write procedure. Save only meaningful changes; otherwise leave the file unchanged. Save before claiming persistence.
+Before finishing a tutoring turn, retain only meaningful new evidence or preferences in a compact pending summary in the current conversation. Read [references/state.md](references/state.md) when starting/resuming, importing attempts, or saving records; it defines the default five-change-turn checkpoint, early-save triggers, duplicate/revision checks, and verified writes. Distinguish pending evidence from saved evidence; claim persistence only after a successful write.
 
 Keep evidence and assistance explicit: self-report differs from reviewed work; a correct response after hints/reveals differs from independent transfer. Include meaningful concept predictions, explanations, constructions, revisions, and transfer attempts when reviewed. Remember improvements and valid alternatives, remove stale weakness labels, and preserve useful original reasoning. Do not infer weaknesses from silence, clicks, time on a page, a blank answer, reading a solution, temporary tiredness, or unrelated remarks. Never save a transcript dump or label one success “mastered.”
 
 ## 6. Generate the next practice
 
-Read [references/practice-and-feedback.md](references/practice-and-feedback.md) for substantial practice. Build a blueprint from confirmed scope, supported formats, and the current learning record. Honor requested length; if unspecified, start with a manageable short set. Use weak concepts for focused drills; retain course breadth in mock exams and include unfamiliar applications.
+Read [references/practice-and-feedback.md](references/practice-and-feedback.md) for substantial practice. Build a blueprint from confirmed scope, supported formats, and the current learning record. Honor requested length; if unspecified, start with a manageable short set. Use weak concepts for focused drills; retain course breadth in mock exams and include unfamiliar applications. Requests to revisit mistakes or make variants follow the mistake-review and domain-adaptation guidance in that reference.
 
 A mock-exam request defaults to an HTML exam worksheet, even when the student does not say "webpage." Read [references/interactive-review.md](references/interactive-review.md) and [references/mock-exam-layout.md](references/mock-exam-layout.md) for the numbered-paper layout, answer controls, navigation, and independent-attempt export. Keep the checked key in a separate file. Honor an explicitly requested alternative format; ordinary practice questions may stay in chat.
 
@@ -69,7 +69,7 @@ Create and check the separate key before delivering questions. Retain topic IDs,
 
 ## 7. Make a personalized review output
 
-Read [references/review-artifacts.md](references/review-artifacts.md) and the current learning record. Small recaps stay in chat. A requested study/review guide defaults to an actual PDF file; create it and inspect rendered pages with available tools before delivery. Honor explicit alternative formats. If PDF generation is unavailable, provide an editable source as a clearly labeled fallback and explain the specific limitation. Provide personalized drills, HTML mock exams, PDF guides, or permitted reference sheets when requested. Present interactive concept learning as an optional aid, not a required format menu.
+Read [references/review-artifacts.md](references/review-artifacts.md) and use current learning evidence, saving pending changes before a personalized artifact. That reference covers adaptive use of corrected mistakes in guides and permitted reference sheets. Small recaps stay in chat. A requested study/review guide defaults to an actual PDF file; create it and inspect rendered pages with available tools before delivery. Honor explicit alternative formats. If PDF generation is unavailable, provide an editable source as a clearly labeled fallback and explain the specific limitation. Provide personalized drills, HTML mock exams, PDF guides, or permitted reference sheets when requested. Present interactive concept learning as an optional aid, not a required format menu.
 
 Connect each section/question to supplied content, documented difficulty evidence, and a retrieval/transfer goal. Briefly explain what was personalized. With no useful student evidence, label a course-based starter or offer a short diagnostic rather than invent personalization.
 
@@ -79,4 +79,4 @@ For an exam-room sheet, establish the actual sheet/side allowance and format/con
 
 ## Close and continue
 
-Deliver the result, material uncertainty, and one useful next step. When records changed, link the actual saved record and update its next-session pointer. A new chat must be able to read those files; if persistence is unavailable, provide a compact handoff. This workflow does not supply cloud memory, code runtimes, PDF rendering, or past-chat access. Use available tools and offer supported alternatives.
+Deliver the result, material uncertainty, and one useful next step. At a save checkpoint, link the actual saved record and update its next-session pointer. At a substantial-session close or requested new-chat handoff, save pending evidence and a compact continuation summary under [references/state.md](references/state.md). A new chat must be able to read those files; if persistence is unavailable, provide a compact handoff. This workflow does not supply cloud memory, code runtimes, PDF rendering, or past-chat access. Use available tools and offer supported alternatives.

@@ -4,6 +4,7 @@
 
 - Quick start shown: No
 - Preferred review output: Unknown; conversational review by default, with artifacts when requested
+- Save preference: Batch after five tutoring turns with meaningful changes, or earlier at checkpoints; honor an explicit override
 
 ## Active course and exam
 
@@ -37,6 +38,8 @@ None recorded.
 ## Next session
 
 - Current activity: Establish from request
+- Current question/source locator and unresolved step: Record when applicable
+- Useful student reasoning and assistance already shown: Summarize briefly; keep long attempts/solutions in linked files
 - Unresolved scope/source gaps: Record when identified
 - Concepts to revisit: Determine from evidence
 - Artifacts to reopen: Record actual paths

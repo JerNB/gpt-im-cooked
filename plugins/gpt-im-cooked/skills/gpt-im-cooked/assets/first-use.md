@@ -14,7 +14,7 @@ Mock exams default to an HTML exam worksheet with a separate key; study guides d
 
 You can also bring a full review packet without choosing a concept: I'll map the supported topics, suggest where to start, and begin explaining in chat. You do not need a detailed prompt, a diagnostic, or a webpage to start learning.
 
-Explain file continuity when saving or resuming: a new chat needs access to the study files. Explain the opening marker once when introducing it; it is not a context meter.
+Explain file continuity when saving or resuming: a new chat needs access to the study files. Briefly explain that meaningful changes are normally saved in batches of five change-bearing tutoring turns, or earlier at checkpoints; recent pending changes can be lost to a new chat after an abrupt close. The student can ask to save now. A local record supports a concise new-chat handoff but does not clear the current context or disable automatic compaction. Explain the opening marker once when introducing it; it is not a context meter.
 
 If the course or materials are still unknown, ask: **What course are you preparing for, and what useful material can we start with?** Otherwise proceed with the requested task.
 
@@ -25,4 +25,4 @@ Use $gpt-im-cooked to help me prepare for my exam.
 Here are my course notes and practice paper.
 ```
 
-Useful follow-ups: “Explain this in simpler terms”; “Give me a small hint”; “Check my answers and reasoning”; “Make a short mock exam”; “Make my study guide”; “Continue from my saved learning record.” For an optional visual aid: “Make an interactive page for these two concepts.” These are examples, not required commands. See [concept-tutoring.md](../references/concept-tutoring.md) for the teaching approach and [webpage-prompts.md](../references/webpage-prompts.md) for optional page briefs.
+Useful follow-ups: “Explain this in simpler terms”; “Give me a small hint”; “Check my answers and reasoning”; “Make a short mock exam”; “Make my study guide”; “Continue from my saved learning record”; “Review my mistakes”; “Make a variant targeting this mistake”; “Save my progress now.” For an optional visual aid: “Make an interactive page for these two concepts.” These are examples, not required commands. See [concept-tutoring.md](../references/concept-tutoring.md) for the teaching approach and [webpage-prompts.md](../references/webpage-prompts.md) for optional page briefs.

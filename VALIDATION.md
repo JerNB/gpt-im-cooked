@@ -1,5 +1,34 @@
 # Validation status
 
+## V2 / 2.0.0 — October 31, 2026
+
+The V2 release adds checkpoint-based record saves, concise continuation summaries,
+mistake review and variants, adaptive guide content, and humanities feedback.
+The author reports an additional study-session test; its transcript, timing,
+and results were not supplied for independent review. No quantitative result
+is inferred from that report.
+
+Release verification uses an isolated copy of tracked repository files plus the
+new changelog and v2.0.0 downloads. An unrelated untracked local reference is
+left in place and excluded from the release. Both archives are checked against
+the exact source allowlists, extracted, and checked for resource resolution.
+Both bundled skills passed format validation. All eight release checks passed:
+package structure (398 files), extracted distribution/source matching, record-I/O
+safety, archived run evidence, archived evidence fingerprints, demo state,
+concept retries, and the evidence chain. Documentation and landing-page links
+resolved, and whitespace checks passed. No new runtime code was introduced;
+type checking, lint tooling, and coverage measurement were not added for this
+instruction-and-packaging release. Archive checksums are published
+with the downloads in `docs/downloads/SHA256SUMS-v2.0.0.txt`.
+
+These checks validate packaging and existing mechanical behavior. They do not
+establish a reduction in response time or token usage, independent learning
+gains, humanities grading reliability, or automatic desktop plugin discovery.
+The five-change-turn save interval is a workflow default, not a background
+service or guaranteed protection against abrupt closure before a checkpoint.
+
+## Earlier validation evidence
+
 Version 0.5.1 adds a repaired standalone concept example and narrow guidance for
 feedback-based answer exposure and contradictory imported flags. The original
 October 15 page's exposed retry was reproduced by executing its actual script;
