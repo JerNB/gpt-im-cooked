@@ -1,0 +1,1 @@
+This is an isolated synthetic course study directory. Use only the supplied frozen skill and course files. Write study records here only. Do not read other directories, use the web, delegate, or modify the skill.

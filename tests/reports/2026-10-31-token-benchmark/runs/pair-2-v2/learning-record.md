@@ -1,0 +1,41 @@
+# Learning record
+
+## Study setup
+- Quick start shown: Yes
+- Preferred review output: English conversation
+
+## Active course and exam
+Synthetic statistics mini-course / practice-only. Profile: course-profile.md
+
+## Concepts
+| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |
+|---|---|---|---|---|---|
+| C1 | Conditional probability | Demonstrated | Lower priority: Q1 denominator error followed by correct explained Q3 and Q5 in student/resident and employee/remote-worker contexts; no question-specific hints reported for Q3/Q5 after general teaching | Use the conditioned population, not the first total mentioned | Later recheck with changed wording; demonstrated here is limited evidence, not mastery |
+| C2 | Grouped row counts | Needs practice | High: Q2 assumes grouping always produces one row per group | Scalar summary collapses to one row per nonempty group; grouped mutate retains all original rows | Fresh grouped-mutate versus scalar-summary comparison |
+| C3 | Inner joins | Needs practice | High: Q4 counts each right row once despite duplicate left keys | Count every matching pair: L times R per matching key | Fresh duplicate-key join application |
+
+## Attempt history
+| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |
+|---|---|---|---|---|---|---|---|
+| 2026-10-31 | Q1 / materials/packet.md S1 | C1 | 2/10 = 20%; used all ten students because the question starts with ten students | Incorrect denominator; arithmetic correct | Submitted before tutor feedback; other assistance unspecified | Instructor key: 2/8 = 1/4 | Of commuters restricts denominator to 8; full solution shown |
+| 2026-10-31 | Q2 / materials/packet.md S2 | C2 | 2 rows because there are two regions; grouping means the result always has one row per group | Incorrect | Submitted before item feedback; other assistance unspecified | Instructor key: 8 | Grouped mutate retains eight original rows; scalar summary would give two; solution shown |
+| 2026-10-31 | Q3 / materials/packet.md S1 | C1 | 3/12 = 25%; considering residents, so denominator is 12 residents, not all 20 students | Correct answer and explanation; same-structure application after Q1 teaching | No question-specific hint reported; prior general teaching exposed | Instructor key: 3/12 = 1/4 | Correctly selects conditioned population; C1 became Improving |
+| 2026-10-31 | Q4 / materials/packet.md S3 | C3 | 3 rows; each right-table row matches once even though K occurs twice on the left | Incorrect matching-pair count | Submitted before item feedback; other assistance unspecified | Instructor key: 6 | Each of three right rows matches both left rows: 2 times 3 = 6; solution shown |
+| 2026-10-31 | Q5 / materials/packet.md S1 | C1 | 5/20 = 25%; conditioned population is remote workers, and five of those twenty are trainees | Correct answer and explanation; application in employee/trainee context | No question-specific hint reported; prior general teaching exposed | Instructor key: 5/20 = 1/4 | Correctly transfers population selection to workplace context; together with Q3 supports Demonstrated under skill defaults |
+
+## Import ledger
+No imports.
+
+## Student-reported difficulties
+None separately reported; reviewed reasoning errors are recorded above.
+
+## Open questions
+None recorded.
+
+## Next session
+- Session closed: 2026-10-31 at student request; Q1-Q5 reviewed and all evidence saved. All five instructor answers exposed. No new attempts at close.
+- Concepts to revisit: C2 summary versus mutate; C3 duplicate-key matching pairs. C1 improved after Q1, with correct explained Q3 and Q5; recheck later.
+- Next action: Fresh unaided C2 comparison, then a C3 join example; do not count displayed solutions as new attempts.
+- Unanswered optional checks: Q1 changing only class total to 100; Q2 eight rows across three regions under grouped mutate; Q4 four left and three right K rows. No response evidence for these checks.
+- Resume sources: course-profile.md; this learning record; materials/packet.md S1-S3; frozen skill/SKILL.md and relevant references. No unresolved source gaps or generated study artifacts.
+- Closing preference: brief handoff only; no guide, webpage, or further questions at session close.

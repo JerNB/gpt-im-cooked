@@ -80,11 +80,11 @@ Keep summaries separate from original attempts. Student preferences are separate
 |---|---|
 | Unassessed | No useful attempt evidence yet |
 | Needs practice | Reviewed error or explicit self-report; say which |
-| Improving | Correct after assistance, or one correct independent attempt after difficulty |
-| Demonstrated | Correct independent explanation/application in at least two distinct contexts, including a transfer task |
+| Improving | Correct after assistance, or one or more correct independent same-structure applications after difficulty |
+| Demonstrated | Correct independent explanation/application in at least two distinct contexts, at least one of which is a reviewed transfer task |
 | Recheck | A later contradictory attempt or an unresolved inconsistency |
 
-These are operational defaults, not claims of measured mastery. Never change a status only because an answer was displayed or a guide was read. A correct answer without reasoning supplies weaker evidence than a correct explained solution. If an assisted example is later answered unaided, record both events.
+These are operational defaults, not claims of measured mastery. Before promoting to Demonstrated, name the transfer task and what it changed. A transfer task changes the setting or the reasoning demand (a new setting requiring the same principle, or a changed condition where the student must decide whether the method still applies). Same-structure applications, however many, stay Improving: new names, new numbers, or a new story around the same setup and steps are not distinct contexts. If no transfer task has been reviewed, keep Improving and record the transfer check as the next task. Never change a status only because an answer was displayed or a guide was read. A correct answer without reasoning supplies weaker evidence than a correct explained solution. If an assisted example is later answered unaided, record both events.
 
 Prioritize repeated, well-supported errors and foundational dependencies. Keep uncertain diagnoses tentative. Recheck previously demonstrated concepts periodically when planning extended study, with frequency chosen to fit the exam timeline rather than a fixed scheduling promise. The skill does not schedule notifications by itself.
 
