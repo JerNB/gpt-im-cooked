@@ -1,0 +1,20 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "pairs": 2,
+  "turns_per_arm": 6,
+  "revisions": {
+    "baseline": "4212af7",
+    "v2": "a2d5d9b"
+  },
+  "cli_version": "codex-cli 0.162.1",
+  "usage_source": "turn.completed JSONL event, schema validated during execution",
+  "design": "Paired AB/BA, turn-interleaved, serial execution; same small initial record.",
+  "limits": "Whole-skill comparison, not batching-only causality; no API-dollar or compaction claim.",
+  "resolved_revisions": {
+    "baseline": "4212af7b72664d22a86f6b7b463285f9afb57df9",
+    "v2": "a2d5d9b27031a5ebf0e2440b830cd74915061bca"
+  },
+  "usage_semantics_verified": "CLI turn.completed reports session-cumulative usage; differences match own-session token_count totals.",
+  "capture_note": "This execution used a sidecar to mirror generated synthetic workspace files; the runner now integrates the same final capture for future reproductions. Model prompts and configuration did not change."
+}

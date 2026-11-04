@@ -1,0 +1,78 @@
+[
+  {
+    "total_token_usage": {
+      "input_tokens": 14778,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 83,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 14861
+    },
+    "last_token_usage": {
+      "input_tokens": 14778,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 83,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 14861
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 33267,
+      "cached_input_tokens": 24832,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 142,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 33409
+    },
+    "last_token_usage": {
+      "input_tokens": 18489,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 59,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 18548
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 56137,
+      "cached_input_tokens": 43264,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 702,
+      "reasoning_output_tokens": 67,
+      "total_tokens": 56839
+    },
+    "last_token_usage": {
+      "input_tokens": 22870,
+      "cached_input_tokens": 18432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 560,
+      "reasoning_output_tokens": 67,
+      "total_tokens": 23430
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 80132,
+      "cached_input_tokens": 66560,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 949,
+      "reasoning_output_tokens": 67,
+      "total_tokens": 81081
+    },
+    "last_token_usage": {
+      "input_tokens": 23995,
+      "cached_input_tokens": 23296,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 247,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 24242
+    },
+    "model_context_window": 475000
+  }
+]

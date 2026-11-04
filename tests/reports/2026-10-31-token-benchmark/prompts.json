@@ -1,0 +1,11 @@
+{
+  "initial_prefix": "Use the frozen study skill at skill/SKILL.md and its relevant references\nto continue my course review. My existing profile is course-profile.md, learning\nrecord is learning-record.md, and supplied teaching material is materials/packet.md.\nThe course and study directory are already established. Keep ordinary feedback\nto about 120-180 words, excluding the opening marker and any short saved-state\nnote. Do not make additional artifacts unless I ask. Use only files in this\nstudy directory and do not browse, invoke other skills, or contact services.\n\n",
+  "turns": [
+    "For packet Q1, my answer is 2/10 = 20%. I used all ten students as the denominator because the question starts with ten students. Please check my answer and reasoning.",
+    "For packet Q2, my answer is 2 rows because there are two regions. I think grouping means the result always has one row per group. Please check my answer and reasoning.",
+    "For packet Q3, my answer is 3/12 = 25%. We are considering residents, so the denominator is the 12 residents, not all 20 students. I worked this new question without a question-specific hint. Please check it.",
+    "For packet Q4, my answer is 3 rows. I thought each right-table row matches once, even though K occurs twice on the left. Please check my answer and reasoning.",
+    "For packet Q5, my answer is 5/20 = 25%. The conditioned population is remote workers, and five of those twenty are trainees. I worked it without a question-specific hint. Please check my answer and reasoning.",
+    "I am ending this study session now. Please save my progress and give me a brief handoff for next time. Do not generate a guide, a webpage, or more questions."
+  ]
+}
