@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- **Mock exams render from a tested template.** The tutor writes the questions and checked key as JSON; `scripts/render_mock_exam.py` fills `assets/mock-exam-template.html` and writes a worksheet plus a separate key. The template carries the answer-status, revisit, print, and schema 1.0 export/exposure logic that previously had to be rebuilt per exam. The script checks structure only (IDs, answer counts, per-option explanations, evidence labels, unsafe SVG, key text leaking into the worksheet); it does not judge academic correctness. Covered by `tests/check_mock_render.py` and `tests/check_mock_template.cjs`, plus one manual browser check of the example at desktop and 375px widths. Not yet exercised by a fresh-model run.
+- Progress labels: Demonstrated now requires a named, reviewed transfer task (wording only; not yet retested with a fresh model).
+
 ## v2.0.0 — V2 workflow update — October 31, 2026
 
 **Less recordkeeping between questions. More practice built around how you learn.**
