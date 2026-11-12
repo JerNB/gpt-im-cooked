@@ -1,0 +1,34 @@
+[
+  {
+    "run": "pair-1-baseline",
+    "key": "model-recovery/runs/pair-1-baseline/final-study/mock-exam-key.html",
+    "width": 1280,
+    "no_document_overflow": true,
+    "page_errors": [],
+    "screenshot": "browser/pair-1-baseline-key-1280.png"
+  },
+  {
+    "run": "pair-1-baseline",
+    "key": "model-recovery/runs/pair-1-baseline/final-study/mock-exam-key.html",
+    "width": 375,
+    "no_document_overflow": true,
+    "page_errors": [],
+    "screenshot": "browser/pair-1-baseline-key-375.png"
+  },
+  {
+    "run": "pair-1-v2",
+    "key": "model-recovery/runs/pair-1-v2/final-study/outputs/course-mock-a-v1.0-key.html",
+    "width": 1280,
+    "no_document_overflow": true,
+    "page_errors": [],
+    "screenshot": "browser/pair-1-v2-key-1280.png"
+  },
+  {
+    "run": "pair-1-v2",
+    "key": "model-recovery/runs/pair-1-v2/final-study/outputs/course-mock-a-v1.0-key.html",
+    "width": 375,
+    "no_document_overflow": true,
+    "page_errors": [],
+    "screenshot": "browser/pair-1-v2-key-375.png"
+  }
+]

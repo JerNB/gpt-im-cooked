@@ -1,0 +1,6 @@
+interface:
+  display_name: "GPT, I'm Cooked"
+  short_description: "Clear concept tutoring, study records, and exam review"
+  default_prompt: "Use $gpt-im-cooked to help me understand and review these course materials."
+policy:
+  allow_implicit_invocation: true

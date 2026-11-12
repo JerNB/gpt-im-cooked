@@ -1,0 +1,4 @@
+START pair=1 arm=baseline turn=1
+START pair=1 arm=baseline turn=1
+START pair=1 arm=baseline turn=1
+PASS: synthetic quota/timeout/malformed CLI failures retain artifacts/raw output/metadata; no auth or false complete results.

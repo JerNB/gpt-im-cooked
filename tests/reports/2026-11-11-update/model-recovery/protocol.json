@@ -1,0 +1,15 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "pairs": 1,
+  "turns_per_arm": 4,
+  "revisions": {
+    "baseline": "0dc295bf7fc9f6bc614f659d819676bf0a53b6de",
+    "v2": "97be1720f890745b3b59be52ad9ec3dea740393e"
+  },
+  "start_arm": "v2",
+  "cli_version": "codex-cli 0.162.1",
+  "usage_source": "turn.completed JSONL event, schema validated during execution",
+  "design": "Paired AB/BA, turn-interleaved, serial execution; same small initial record.",
+  "limits": "Whole-skill comparison, not batching-only causality; no API-dollar or compaction claim."
+}

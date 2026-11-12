@@ -1,0 +1,79 @@
+{
+  "status": "INCOMPLETE",
+  "attempted_calls": 16,
+  "completed_calls": 15,
+  "failed_calls": 1,
+  "failure": "Usage limit in pair2 baseline turn4 after 4 completed command batches; failed-turn usage/wall duration not retained by legacy runner.",
+  "sessions": [
+    {
+      "pair": 1,
+      "arm": "baseline",
+      "completed_turns": 4,
+      "usage": {
+        "input_tokens": 797254,
+        "cached_input_tokens": 754048,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 10875,
+        "reasoning_output_tokens": 494
+      },
+      "total_tokens": 808129,
+      "wall_seconds": 283.493
+    },
+    {
+      "pair": 1,
+      "arm": "v2",
+      "completed_turns": 4,
+      "usage": {
+        "input_tokens": 903905,
+        "cached_input_tokens": 854656,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8121,
+        "reasoning_output_tokens": 546
+      },
+      "total_tokens": 912026,
+      "wall_seconds": 231.684
+    },
+    {
+      "pair": 2,
+      "arm": "baseline",
+      "completed_turns": 3,
+      "usage": {
+        "input_tokens": 412467,
+        "cached_input_tokens": 374144,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3379,
+        "reasoning_output_tokens": 101
+      },
+      "total_tokens": 415846,
+      "wall_seconds": 101.979
+    },
+    {
+      "pair": 2,
+      "arm": "v2",
+      "completed_turns": 4,
+      "usage": {
+        "input_tokens": 765821,
+        "cached_input_tokens": 651648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 8556,
+        "reasoning_output_tokens": 557
+      },
+      "total_tokens": 774377,
+      "wall_seconds": 222.209
+    }
+  ],
+  "complete_pair1_only": {
+    "total_tokens": {
+      "baseline": 808129,
+      "candidate": 912026,
+      "reduction_percent": -12.856487021255269
+    },
+    "wall_seconds": {
+      "baseline": 283.493,
+      "candidate": 231.684,
+      "reduction_percent": 18.275230781712423
+    }
+  },
+  "not_pooled": "Pair2 has unequal completed lengths; never pool it with complete sessions as if16calls succeeded.",
+  "capture_limit": "Legacy runner waited for whole experiment before final-study capture; temporary HTML/JSON artifact files not retained. Original logs/record snapshots preserved; no reconstructed files are presented as originals."
+}

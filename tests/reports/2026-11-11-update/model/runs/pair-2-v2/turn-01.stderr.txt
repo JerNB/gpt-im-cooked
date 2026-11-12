@@ -1,0 +1,2 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<USER_HOME>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<BENCHMARK_ROOT>\\home-2-v2"))
+2026-11-12T04:38:25.166998Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell

@@ -1,0 +1,44 @@
+[
+  {
+    "batch": "model",
+    "run": "pair-1-baseline",
+    "record_snapshots": 4,
+    "all_100_historical_rows_exact": true,
+    "one_continued_session": true
+  },
+  {
+    "batch": "model",
+    "run": "pair-1-v2",
+    "record_snapshots": 4,
+    "all_100_historical_rows_exact": true,
+    "one_continued_session": true
+  },
+  {
+    "batch": "model",
+    "run": "pair-2-baseline",
+    "record_snapshots": 3,
+    "all_100_historical_rows_exact": true,
+    "one_continued_session": true
+  },
+  {
+    "batch": "model",
+    "run": "pair-2-v2",
+    "record_snapshots": 4,
+    "all_100_historical_rows_exact": true,
+    "one_continued_session": true
+  },
+  {
+    "batch": "model-recovery",
+    "run": "pair-1-baseline",
+    "record_snapshots": 4,
+    "all_100_historical_rows_exact": true,
+    "one_continued_session": true
+  },
+  {
+    "batch": "model-recovery",
+    "run": "pair-1-v2",
+    "record_snapshots": 4,
+    "all_100_historical_rows_exact": true,
+    "one_continued_session": true
+  }
+]

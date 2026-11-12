@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Synthetic statistics — Short Mock A</title>
+<style>
+:root{--page:#fff;--ink:#1f2723;--muted:#5d6862;--accent:#235d46;--line:#dfe3dd;--wash:#f3f5f1;--field:#a9b3ab;--focus:#ae7c32}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+h1,h2,h3{line-height:1.2;font-weight:650;letter-spacing:-.01em}
+h1{font-size:clamp(30px,4vw,40px);margin:0 0 10px}
+code,pre,textarea.code{font-family:ui-monospace,Consolas,"Cascadia Mono",monospace;font-size:.92em}
+p code,li code,td code,.option code{background:var(--wash);padding:1px 5px;border-radius:3px}
+pre{background:var(--wash);border-left:3px solid var(--accent);padding:14px 16px;overflow:auto;line-height:1.55;margin:16px 0}
+table{border-collapse:collapse;margin:16px 0;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--wash);font-weight:650}
+caption,figcaption{caption-side:bottom;text-align:left;font-size:14px;color:var(--muted);padding-top:6px}
+figure{margin:16px 0}figure svg,figure img{display:block;max-width:100%;height:auto}
+.table-wrap{overflow-x:auto}
+.muted{color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,840px) 210px;gap:56px;max-width:1150px;margin:0 auto;padding:48px 28px}
+.paper-head{padding-bottom:26px;border-bottom:1px solid var(--line)}
+.subtitle{color:var(--muted);margin:0 0 14px}
+.paper-head details{margin-top:12px}
+summary{cursor:pointer}
+.question,.shared{padding:34px 0;border-bottom:1px solid var(--line)}
+.shared{background:linear-gradient(var(--wash),var(--wash)) left/3px 100% no-repeat;padding-left:20px}
+.shared h2{font-size:19px;margin:0 0 6px}
+.q-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.q-head h2{font-size:22px;margin:0 0 4px}
+.q-kind{font-weight:500;color:var(--muted);font-size:17px}
+.flag{font-size:15px;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.shared-ref{font-size:14px;color:var(--muted)}
+fieldset{border:0;padding:0;margin:14px 0 0}
+.option{display:flex;align-items:flex-start;gap:12px;padding:9px 10px;margin:0 -10px;border-radius:4px;cursor:pointer;min-height:44px}
+.option:hover{background:var(--wash)}
+.option input{margin:5px 0 0;accent-color:var(--accent);width:18px;height:18px;flex:0 0 18px}
+.option b{display:inline-block;min-width:24px}
+.field-label{display:block;margin:14px 0 6px;font-size:15px;font-weight:600}
+textarea,input.short{width:100%;background:#fff;border:1px solid var(--field);border-radius:4px;padding:10px 12px;resize:vertical}
+input.short{max-width:320px}
+select{background:#fff;border:1px solid var(--field);border-radius:4px;padding:7px}
+.reasoning{margin:16px 0 4px}.reasoning summary{font-size:15px;color:var(--muted)}
+.source{font-size:14px;color:var(--muted);margin:12px 0 0}
+.outline{align-self:start;position:sticky;top:24px;font-size:15px}
+.outline .label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:650;margin:0 0 8px}
+.outline progress{width:100%;height:6px;accent-color:var(--accent)}
+.outline ol{list-style:none;padding:0;margin:12px 0}
+.outline li a{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;border-left:2px solid var(--line);text-decoration:none;color:var(--ink)}
+.outline li a:hover{background:var(--wash);border-color:var(--accent)}
+.outline .status{color:var(--muted)}
+.submission{padding-top:34px}
+.submission h2{font-size:24px;margin:0 0 8px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+button{background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:4px;padding:10px 18px;min-height:44px;cursor:pointer}
+button.secondary{background:#fff;color:var(--accent)}
+#feedback{min-height:28px;color:var(--accent)}
+#export-output{font-size:13px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.note{border-left:3px solid var(--focus);padding:4px 14px;margin:16px 0}
+footer{max-width:1150px;margin:0 auto;padding:20px 28px 40px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){
+ .layout{display:flex;flex-direction:column-reverse;gap:0;padding:24px 16px}
+ .outline{position:static;margin:0 0 8px;border-bottom:1px solid var(--line);padding-bottom:10px}
+ .outline ol{display:flex;flex-wrap:wrap;gap:6px}
+ .outline li a{border:1px solid var(--line);border-radius:4px;padding:8px 12px;min-width:44px;justify-content:center}
+ .outline .nav-title{display:none}
+ .q-head h2{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{
+ body{font-size:12pt}
+ .outline,.actions,.flag,.submission,.reasoning,noscript,footer{display:none!important}
+ textarea{min-height:7em}
+ .layout{display:block;padding:0;max-width:none}
+ .question,.shared{break-inside:avoid;padding:18px 0}
+ pre{white-space:pre-wrap}
+ a{color:inherit;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<main>
+<header class="paper-head">
+<p class="muted">Synthetic statistics mini-course · Practice-only mock A · Original practice</p>
+<h1>Synthetic statistics — Short Mock A</h1>
+<p class="subtitle">5 questions · choose one, short answer, choose all that apply, code · Suggested practice time (estimate): 15 minutes</p>
+<p>Five original questions. Work independently and explain your reasoning. All observations are equally weighted. For grouped transformations, assume no filtering, missing groups, or vector outputs. Code is defined pseudocode, not a programming-language test; the answer field does not execute code. Submit/export your attempt before consulting the separate key. Bring the export back for tutor review. This is course-based practice, not a prediction of an instructor exam.</p>
+<p class="muted">On “choose all that apply” items, select every supported option. Code and written answers are reviewed by your tutor.</p>
+<details><summary>Why these questions?</summary><p>Two probability questions check reference-group selection and a changed condition after your correctly explained Q3 and Q5 attempts. Two grouped-transformation questions and one join question preserve coverage of the other course topics.</p></details>
+</header>
+<noscript><p class="note">JavaScript is off. You can read and print the questions, but answer status and export will not work. Write your answers in a separate document and share it with your tutor.</p></noscript>
+<form id="exam" autocomplete="off">
+<section class="question" id="q1" data-kind="single" data-topic="C1" data-source="S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5" aria-labelledby="q1-title"><div class="q-head"><h2 id="q1-title">Question 1: Evaluate a reported rate <span class="q-kind">— Choose one</span></h2><label class="flag"><input type="checkbox" data-flag> Revisit</label></div><p>A shop records 40 orders. Of these, 16 are express orders; 10 express orders arrived on time. An analyst writes: &quot;10/40 is the fraction of express orders that arrived on time.&quot; Which evaluation is correct?</p><fieldset><legend class="sr-only">Your answer for Evaluate a reported rate</legend><label class="option"><input type="radio" name="q1" value="A"><span><b>A.</b> The statement is correct because all 40 orders were recorded.</span></label><label class="option"><input type="radio" name="q1" value="B"><span><b>B.</b> The requested fraction is 10/16; 10/40 instead measures express-and-on-time orders among all orders.</span></label><label class="option"><input type="radio" name="q1" value="C"><span><b>C.</b> The requested fraction is 16/10 because express orders are the condition.</span></label><label class="option"><input type="radio" name="q1" value="D"><span><b>D.</b> The requested fraction is 16/40 because there are 16 express orders.</span></label></fieldset><details class="reasoning"><summary>Add reasoning or confidence (optional)</summary><label class="field-label" for="q1-reason">Your reasoning</label><textarea id="q1-reason" name="reasoning" rows="3"></textarea><label class="field-label" for="q1-confidence">Confidence</label><select id="q1-confidence" name="confidence"><option value="">Not recorded</option><option>Low</option><option>Medium</option><option>High</option></select></details><p class="source">Source: S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5</p></section>
+<section class="question" id="q2" data-kind="short" data-topic="C1" data-source="S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5" aria-labelledby="q2-title"><div class="q-head"><h2 id="q2-title">Question 2: Change the condition <span class="q-kind">— Short answer</span></h2><label class="flag"><input type="checkbox" data-flag> Revisit</label></div><p>A courier records the following 30 parcels. Each parcel appears once.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Service</th><th scope="col">Delivered today</th><th scope="col">Not delivered today</th></tr></thead><tbody><tr><td>Express</td><td>6</td><td>4</td></tr><tr><td>Standard</td><td>9</td><td>11</td></tr></tbody></table></div>
+<p>Give (a) the fraction of express parcels delivered today, and (b) the fraction of parcels delivered today that were express. Name each denominator and explain whether the two fractions must be equal.</p><label class="field-label" for="q2-answer">Your answer</label><textarea id="q2-answer" name="answer" rows="2"></textarea><details class="reasoning"><summary>Add reasoning or confidence (optional)</summary><label class="field-label" for="q2-reason">Your reasoning</label><textarea id="q2-reason" name="reasoning" rows="3"></textarea><label class="field-label" for="q2-confidence">Confidence</label><select id="q2-confidence" name="confidence"><option value="">Not recorded</option><option>Low</option><option>Medium</option><option>High</option></select></details><p class="source">Source: S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5</p></section>
+<section class="question" id="q3" data-kind="multi" data-topic="C2" data-source="S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2" aria-labelledby="q3-title"><div class="q-head"><h2 id="q3-title">Question 3: Compare grouped outputs <span class="q-kind">— Choose all that apply</span></h2><label class="flag"><input type="checkbox" data-flag> Revisit</label></div><p>A dataset has nine observations in three nonempty groups of sizes 2, 3, and 4. Consider two separate operations on the original data: M attaches each group&#x27;s scalar mean using a grouped mutate-style transformation; S computes one scalar mean per group using a grouped summary. Select every true statement.</p><fieldset><legend class="sr-only">Your answer for Compare grouped outputs</legend><label class="option"><input type="checkbox" name="q3" value="A"><span><b>A.</b> M returns nine rows.</span></label><label class="option"><input type="checkbox" name="q3" value="B"><span><b>B.</b> S returns three rows.</span></label><label class="option"><input type="checkbox" name="q3" value="C"><span><b>C.</b> M returns three rows because there are three distinct group means.</span></label><label class="option"><input type="checkbox" name="q3" value="D"><span><b>D.</b> In M, each of the four original rows in the largest group receives its group mean.</span></label></fieldset><details class="reasoning"><summary>Add reasoning or confidence (optional)</summary><label class="field-label" for="q3-reason">Your reasoning</label><textarea id="q3-reason" name="reasoning" rows="3"></textarea><label class="field-label" for="q3-confidence">Confidence</label><select id="q3-confidence" name="confidence"><option value="">Not recorded</option><option>Low</option><option>Medium</option><option>High</option></select></details><p class="source">Source: S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2</p></section>
+<section class="question" id="q4" data-kind="code" data-topic="C2" data-source="S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2" aria-labelledby="q4-title"><div class="q-head"><h2 id="q4-title">Question 4: Choose the transformation <span class="q-kind">— Code</span></h2><label class="flag"><input type="checkbox" data-flag> Revisit</label></div><p>Use only these defined pseudocode operations: <code>GROUP_BY(data, region)</code> groups the input by region; <code>MUTATE_MEAN(grouped)</code> attaches the scalar group mean to every original row; <code>SUMMARY_MEAN(grouped)</code> produces one mean row per nonempty group. No other behavior is implied.</p>
+<p>The input has 11 observations in four nonempty regions. A report must retain every original observation and add its regional mean. Fill the blank with the required operation, state the output row count, and explain why the other operation fails the report requirement.</p>
+<pre><code class="language-text">grouped = GROUP_BY(data, region)
+result = ______(grouped)</code></pre><label class="field-label" for="q4-answer">Your code</label><textarea id="q4-answer" name="answer" rows="5" class="code" spellcheck="false"></textarea><details class="reasoning"><summary>Add reasoning or confidence (optional)</summary><label class="field-label" for="q4-reason">Your reasoning</label><textarea id="q4-reason" name="reasoning" rows="3"></textarea><label class="field-label" for="q4-confidence">Confidence</label><select id="q4-confidence" name="confidence"><option value="">Not recorded</option><option>Low</option><option>Medium</option><option>High</option></select></details><p class="source">Source: S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2</p></section>
+<section class="question" id="q5" data-kind="short" data-topic="C3" data-source="S3: Supplied synthetic statistics packet, materials/packet.md, S3: Duplicate-key inner joins; Q4" aria-labelledby="q5-title"><div class="q-head"><h2 id="q5-title">Question 5: Count matching pairs across keys <span class="q-kind">— Short answer</span></h2><label class="flag"><input type="checkbox" data-flag> Revisit</label></div><p>The tables below show row identifiers and join keys. Inner join on key only, returning every matching pair.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Left row</th><th scope="col">Key</th></tr></thead><tbody><tr><td>L1</td><td>K</td></tr><tr><td>L2</td><td>K</td></tr><tr><td>L3</td><td>M</td></tr><tr><td>L4</td><td>N</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th scope="col">Right row</th><th scope="col">Key</th></tr></thead><tbody><tr><td>R1</td><td>K</td></tr><tr><td>R2</td><td>K</td></tr><tr><td>R3</td><td>M</td></tr><tr><td>R4</td><td>M</td></tr><tr><td>R5</td><td>M</td></tr><tr><td>R6</td><td>P</td></tr></tbody></table></div>
+<p>How many output rows are returned? Show each key&#x27;s contribution and list every output pair involving L1. Explain what happens to L4 and R6.</p><label class="field-label" for="q5-answer">Your answer</label><textarea id="q5-answer" name="answer" rows="2"></textarea><details class="reasoning"><summary>Add reasoning or confidence (optional)</summary><label class="field-label" for="q5-reason">Your reasoning</label><textarea id="q5-reason" name="reasoning" rows="3"></textarea><label class="field-label" for="q5-confidence">Confidence</label><select id="q5-confidence" name="confidence"><option value="">Not recorded</option><option>Low</option><option>Medium</option><option>High</option></select></details><p class="source">Source: S3: Supplied synthetic statistics packet, materials/packet.md, S3: Duplicate-key inner joins; Q4</p></section>
+</form>
+<section class="submission" id="submission" aria-labelledby="submission-title">
+<h2 id="submission-title">Finished? Export your attempt.</h2>
+<p>Export before closing or reloading: unexported answers live only in this open page. Attach the exported JSON file in chat and ask your tutor to review your answers and reasoning. The tutor can then update your learning record.</p>
+<div class="actions"><button type="button" id="export">Export my attempt</button><button type="button" class="secondary" id="retry">Start another attempt</button></div>
+<p id="feedback" role="status" aria-live="polite"></p>
+<details id="export-panel"><summary>Copy the attempt JSON if the download did not start</summary><label class="field-label" for="export-output">Attempt JSON</label><textarea id="export-output" rows="8" readonly></textarea></details>
+<details><summary>Open the separate answer key</summary><p>Only after you finish. <a id="key-link" href="course-mock-a-v1.0-key.html" target="_blank" rel="noopener">Open the answer key</a>. Opening it from here is recorded in your export so your tutor does not count later answers as independent.</p></details>
+</section>
+</main>
+<aside class="outline" aria-label="Question outline">
+<p class="label">Questions</p>
+<p id="progress-text" aria-live="polite">0 of 5 answered</p>
+<progress id="progress" max="5" value="0" aria-label="Answered questions"></progress>
+<ol>
+<li><a href="#q1" data-nav="q1"><span>1 <span class="nav-title">Evaluate a reported rate</span></span><span class="status" aria-label="Unanswered">○</span></a></li>
+<li><a href="#q2" data-nav="q2"><span>2 <span class="nav-title">Change the condition</span></span><span class="status" aria-label="Unanswered">○</span></a></li>
+<li><a href="#q3" data-nav="q3"><span>3 <span class="nav-title">Compare grouped outputs</span></span><span class="status" aria-label="Unanswered">○</span></a></li>
+<li><a href="#q4" data-nav="q4"><span>4 <span class="nav-title">Choose the transformation</span></span><span class="status" aria-label="Unanswered">○</span></a></li>
+<li><a href="#q5" data-nav="q5"><span>5 <span class="nav-title">Count matching pairs across keys</span></span><span class="status" aria-label="Unanswered">○</span></a></li>
+</ol>
+<p class="muted" style="font-size:14px">○ unanswered · ● answered · ⚑ revisit</p>
+<a href="#submission">Finish and export ↓</a>
+</aside>
+</div>
+<footer>Original practice made with GPT, I'm Cooked from your supplied course materials. It does not predict your real exam. The answer key is a separate file; keeping it separate supports an honest attempt but does not lock it.</footer>
+<script type="application/json" id="artifact-data">{"schema_version": "1.0", "package_version": "2.0.0", "artifact_id": "course-mock-a", "artifact_version": "1.0", "artifact_type": "mock-exam-worksheet", "course": "Synthetic statistics mini-course", "exam": "Practice-only mock A", "key_file": "course-mock-a-v1.0-key.html"}</script>
+<script>
+'use strict';
+// Attempt identity, snapshots and exposure follow references/interactive-review.md (schema 1.0).
+const artifact=JSON.parse(document.getElementById('artifact-data').textContent);
+const sections=[...document.querySelectorAll('.question')];
+const total=sections.length;
+const sessionId=globalThis.crypto?.randomUUID?.()||('session-'+Date.now()+'-'+Math.random().toString(36).slice(2));
+let attemptNumber=1,events=[],snapshots=[],keyOpened=false,dirty=false;
+const attemptId=()=>sessionId+':'+attemptNumber;
+const now=()=>new Date().toISOString();
+function answerOf(s){
+  if(s.dataset.kind==='single'||s.dataset.kind==='multi')return [...s.querySelectorAll('fieldset input:checked')].map(x=>x.value);
+  return s.querySelector('[name="answer"]').value;
+}
+function collect(){return sections.map(s=>({item_id:s.id,item_type:s.dataset.kind,topic_id:s.dataset.topic,source_basis:s.dataset.source,
+  original_answer:answerOf(s),explanation:s.querySelector('[name="reasoning"]').value,confidence:s.querySelector('[name="confidence"]').value,
+  revisit:s.querySelector('[data-flag]').checked,provisional_check:'not graded',
+  assistance:{hint_used:false,key_opened_in_page:keyOpened,external_help:'not tracked; tell your tutor'}}));}
+function answered(item){return Array.isArray(item.original_answer)?item.original_answer.length>0:item.original_answer.trim().length>0;}
+function refresh(){
+  const items=collect(),count=items.filter(answered).length;
+  document.getElementById('progress-text').textContent=count+' of '+total+' answered';
+  document.getElementById('progress').value=count;
+  items.forEach(item=>{const span=document.querySelector('[data-nav="'+item.item_id+'"] .status');if(!span)return;
+    span.textContent=item.revisit?'⚑':answered(item)?'●':'○';
+    span.setAttribute('aria-label',(answered(item)?'Answered':'Unanswered')+(item.revisit?', marked to revisit':''));});
+}
+function snapshot(reason){snapshots.push({attempt_id:attemptId(),attempt_order:attemptNumber,reason,time:now(),items:collect()});}
+const form=document.getElementById('exam');
+form.addEventListener('submit',e=>e.preventDefault());
+form.addEventListener('input',e=>{const s=e.target.closest&&e.target.closest('.question');
+  if(s)events.push({event:'edit',item_id:s.id,attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});dirty=true;refresh();});
+function keyAccess(){
+  snapshot('before key access');keyOpened=true;dirty=true;  // the exposure itself is unexported evidence
+  events.push({event:'key_opened',attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});}
+// Click covers mouse and keyboard; auxclick covers middle-click "open in new tab". Opening the key file directly is not detectable.
+const keyLink=document.getElementById('key-link');
+keyLink.addEventListener('click',keyAccess);
+keyLink.addEventListener('auxclick',e=>{if(e.button===1)keyAccess();});
+document.getElementById('export').addEventListener('click',()=>{
+  snapshot('export');
+  const items=collect();
+  const data={...artifact,session_id:sessionId,exported_at:now(),attempt_id:attemptId(),attempt_order:attemptNumber,
+    items,attempt_history:snapshots,events,persistence:'Exported file only; no automatic tutor or workspace update'};
+  const json=JSON.stringify(data,null,2);
+  document.getElementById('export-output').value=json;
+  document.getElementById('export-panel').open=true;
+  try{const url=URL.createObjectURL(new Blob([json],{type:'application/json'}));const a=document.createElement('a');
+    a.href=url;a.download=artifact.artifact_id+'-v'+artifact.artifact_version+'-attempt-'+attemptNumber+'.json';document.body.append(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),10000);}catch(err){/* The copy panel above remains available. */}
+  dirty=false;
+  document.getElementById('feedback').textContent='Attempt exported: '+items.filter(answered).length+' of '+total+' answered. Attach the JSON file in chat for reviewed feedback.';
+});
+document.getElementById('retry').addEventListener('click',()=>{
+  snapshot('before retry');
+  events.push({event:'retry',attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});
+  attemptNumber++;form.reset();
+  document.getElementById('export-output').value='';document.getElementById('export-panel').open=false;
+  refresh();  // dirty is kept: an unexported earlier attempt still lives only in this page
+  document.getElementById('feedback').textContent='New attempt started. Earlier answers and any key access stay in the export history.';
+});
+globalThis.addEventListener?.('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
+refresh();
+</script>
+</body>
+</html>

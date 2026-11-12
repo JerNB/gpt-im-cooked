@@ -1,0 +1,197 @@
+[
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 1,
+    "wall_seconds": 51.277,
+    "usage": {
+      "input_tokens": 160992,
+      "cached_input_tokens": 142336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1642,
+      "reasoning_output_tokens": 185
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 1,
+    "wall_seconds": 46.216,
+    "usage": {
+      "input_tokens": 161763,
+      "cached_input_tokens": 142464,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1370,
+      "reasoning_output_tokens": 137
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 2,
+    "wall_seconds": 36.033,
+    "usage": {
+      "input_tokens": 277380,
+      "cached_input_tokens": 251008,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2975,
+      "reasoning_output_tokens": 206
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 2,
+    "wall_seconds": 34.979,
+    "usage": {
+      "input_tokens": 263710,
+      "cached_input_tokens": 241280,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2568,
+      "reasoning_output_tokens": 153
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 3,
+    "wall_seconds": 36.94,
+    "usage": {
+      "input_tokens": 404450,
+      "cached_input_tokens": 375296,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4250,
+      "reasoning_output_tokens": 206
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 3,
+    "wall_seconds": 34.266,
+    "usage": {
+      "input_tokens": 377011,
+      "cached_input_tokens": 351488,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3751,
+      "reasoning_output_tokens": 153
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 4,
+    "wall_seconds": 159.243,
+    "usage": {
+      "input_tokens": 797254,
+      "cached_input_tokens": 754048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 10875,
+      "reasoning_output_tokens": 494
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 4,
+    "wall_seconds": 116.223,
+    "usage": {
+      "input_tokens": 903905,
+      "cached_input_tokens": 854656,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8121,
+      "reasoning_output_tokens": 546
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "v2",
+    "turn": 1,
+    "wall_seconds": 42.648,
+    "usage": {
+      "input_tokens": 137214,
+      "cached_input_tokens": 112000,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1421,
+      "reasoning_output_tokens": 189
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "baseline",
+    "turn": 1,
+    "wall_seconds": 39.903,
+    "usage": {
+      "input_tokens": 140453,
+      "cached_input_tokens": 116736,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1240,
+      "reasoning_output_tokens": 60
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "v2",
+    "turn": 2,
+    "wall_seconds": 36.808,
+    "usage": {
+      "input_tokens": 257097,
+      "cached_input_tokens": 197632,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2756,
+      "reasoning_output_tokens": 204
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "baseline",
+    "turn": 2,
+    "wall_seconds": 31.04,
+    "usage": {
+      "input_tokens": 264723,
+      "cached_input_tokens": 233728,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2352,
+      "reasoning_output_tokens": 101
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "v2",
+    "turn": 3,
+    "wall_seconds": 35.999,
+    "usage": {
+      "input_tokens": 390202,
+      "cached_input_tokens": 328320,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4087,
+      "reasoning_output_tokens": 204
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "baseline",
+    "turn": 3,
+    "wall_seconds": 31.036,
+    "usage": {
+      "input_tokens": 412467,
+      "cached_input_tokens": 374144,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3379,
+      "reasoning_output_tokens": 101
+    }
+  },
+  {
+    "pair": 2,
+    "arm": "v2",
+    "turn": 4,
+    "wall_seconds": 106.754,
+    "usage": {
+      "input_tokens": 765821,
+      "cached_input_tokens": 651648,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8556,
+      "reasoning_output_tokens": 557
+    }
+  }
+]

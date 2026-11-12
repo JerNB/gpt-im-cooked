@@ -1,0 +1,81 @@
+{
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "added_lines": 10,
+      "removed_lines": 0
+    },
+    {
+      "path": "CLAUDE.md",
+      "added_lines": 2,
+      "removed_lines": 0
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md",
+      "added_lines": 1,
+      "removed_lines": 1
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/assets/mock-exam-example.json",
+      "added_lines": 141,
+      "removed_lines": 0
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/assets/mock-exam-template.html",
+      "added_lines": 185,
+      "removed_lines": 0
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/references/mock-exam-layout.md",
+      "added_lines": 15,
+      "removed_lines": 0
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/references/state.md",
+      "added_lines": 4,
+      "removed_lines": 2
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/scripts/record_io.py",
+      "added_lines": 236,
+      "removed_lines": 14
+    },
+    {
+      "path": "plugins/gpt-im-cooked/skills/gpt-im-cooked/scripts/render_mock_exam.py",
+      "added_lines": 584,
+      "removed_lines": 0
+    },
+    {
+      "path": "scripts/build_packages.py",
+      "added_lines": 2,
+      "removed_lines": 0
+    },
+    {
+      "path": "tests/check_mock_render.py",
+      "added_lines": 143,
+      "removed_lines": 0
+    },
+    {
+      "path": "tests/check_mock_template.cjs",
+      "added_lines": 114,
+      "removed_lines": 0
+    },
+    {
+      "path": "tests/check_state_io.py",
+      "added_lines": 113,
+      "removed_lines": 1
+    }
+  ],
+  "file_count": 13,
+  "added_lines": 1550,
+  "removed_lines": 18,
+  "commits": [
+    "97be1720f890745b3b59be52ad9ec3dea740393e Merge pull request #3: mock-exam renderer and section updates [T001]",
+    "a1265ffc73e8ef7aeea9e5eea2ec384421d29a1a fix: read tag attributes with HTMLParser in mock-exam checks",
+    "cccacaf8cb32f5f224c68816ab77956f0d267cbe fix: reject duplicate element ids in rendered mock-exam pages",
+    "f019ba2801e028cab2a04f26778ffdd0fc002c40 fix: close second-review gaps in renderer and section updates",
+    "a32e170cc54402b85336ca77bf74a75c0d33658d feat: section-level record updates; harden mock-exam renderer",
+    "dac1badb89257e788d6110cdaefc8c931e52c1f5 feat: render mock exams from a tested template"
+  ],
+  "note": "Product delta under test; task benchmark/bootstrap edits are separately described."
+}

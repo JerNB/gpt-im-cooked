@@ -1,0 +1,3 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<USER_HOME>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<BENCHMARK_ROOT>\\home-1-baseline"))
+2026-11-12T16:29:41.991578Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-11-12T16:30:02.356001Z  WARN codex_core::responses_retry: stream disconnected - retrying sampling request (1/5 in 218ms)... turn_id=01a1d097-f912-7eb3-bc9e-9982be05cecb retries=1 max_retries=5 sampling_error=stream disconnected before completion: WebSocket protocol error: Connection reset without closing handshake

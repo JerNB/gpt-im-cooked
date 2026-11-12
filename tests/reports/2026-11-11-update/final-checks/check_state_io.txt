@@ -1,0 +1,1 @@
+PASS: create/no-change/backup/conflict/lock/invalid/write failure, section read/replace/append/upsert-rows (other sections unchanged, rejections leave bytes alone, CRLF/BOM kept) and package rejection

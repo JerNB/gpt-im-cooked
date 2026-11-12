@@ -1,0 +1,154 @@
+[
+  {
+    "total_token_usage": {
+      "input_tokens": 15466,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 84,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 15550
+    },
+    "last_token_usage": {
+      "input_tokens": 15466,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 84,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 15550
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 39718,
+      "cached_input_tokens": 24832,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 130,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 39848
+    },
+    "last_token_usage": {
+      "input_tokens": 24252,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 46,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 24298
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 68925,
+      "cached_input_tokens": 48896,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 218,
+      "reasoning_output_tokens": 51,
+      "total_tokens": 69143
+    },
+    "last_token_usage": {
+      "input_tokens": 29207,
+      "cached_input_tokens": 24064,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 88,
+      "reasoning_output_tokens": 51,
+      "total_tokens": 29295
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 102240,
+      "cached_input_tokens": 77952,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1181,
+      "reasoning_output_tokens": 189,
+      "total_tokens": 103421
+    },
+    "last_token_usage": {
+      "input_tokens": 33315,
+      "cached_input_tokens": 29056,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 963,
+      "reasoning_output_tokens": 138,
+      "total_tokens": 34278
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 137214,
+      "cached_input_tokens": 112000,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1421,
+      "reasoning_output_tokens": 189,
+      "total_tokens": 138635
+    },
+    "last_token_usage": {
+      "input_tokens": 34974,
+      "cached_input_tokens": 34048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 240,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 35214
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 172491,
+      "cached_input_tokens": 147072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1524,
+      "reasoning_output_tokens": 189,
+      "total_tokens": 174015
+    },
+    "last_token_usage": {
+      "input_tokens": 35277,
+      "cached_input_tokens": 35072,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 103,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 35380
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 214193,
+      "cached_input_tokens": 162432,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2535,
+      "reasoning_output_tokens": 204,
+      "total_tokens": 216728
+    },
+    "last_token_usage": {
+      "input_tokens": 41702,
+      "cached_input_tokens": 15360,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1011,
+      "reasoning_output_tokens": 15,
+      "total_tokens": 42713
+    },
+    "model_context_window": 475000
+  },
+  {
+    "total_token_usage": {
+      "input_tokens": 257097,
+      "cached_input_tokens": 197632,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2756,
+      "reasoning_output_tokens": 204,
+      "total_tokens": 259853
+    },
+    "last_token_usage": {
+      "input_tokens": 42904,
+      "cached_input_tokens": 35200,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 221,
+      "reasoning_output_tokens": 0,
+      "total_tokens": 43125
+    },
+    "model_context_window": 475000
+  }
+]
