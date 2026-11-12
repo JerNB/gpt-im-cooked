@@ -79,6 +79,21 @@ def check():
     rejects(lambda e: e['questions'][2]['prompt'].append(e['questions'][2]['key']['explanation']), 'key-only text appears')
     rejects(lambda e: e['questions'][1]['prompt'].append(e['questions'][1]['personal_target']), 'key-only text appears')
     rejects(lambda e: e.update(time_estimate={'minutes': 20}), 'time_estimate')
+    # Bypasses found in review of the first version.
+    rejects(lambda e: e['questions'][0]['prompt'].append({'svg': '<svg/onload=alert(1)></svg>', 'alt': 'a'}), 'event handlers')
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': '<svg><a href="java&#115;cript:alert(1)">x</a></svg>', 'alt': 'a'}), 'event handlers')
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': '<svg><style>@import "https://x.test/a.css";</style></svg>', 'alt': 'a'}), 'external links')
+    rejects(lambda e: e['questions'][0]['prompt'].append({'image': ' HTTPS://x.test/a.png', 'alt': 'a'}), 'network URL')
+    rejects(lambda e: e['questions'][0]['prompt'].append({'image': 'data:text/html,<b>x</b>', 'alt': 'a'}), 'data:image/')
+    rejects(lambda e: e['questions'].__setitem__(0, 'oops'), 'questions[0] must be an object')
+    rejects(lambda e: e['questions'][0].update(options='A, B'), 'list of {id, text} objects')
+    rejects(lambda e: e.update(artifact_version='1 final/2'), 'artifact_version must be')
+    safe = copy.deepcopy(EXAMPLE)
+    safe['questions'][0]['prompt'].append(
+        {'svg': '<svg viewBox="0 0 10 10"><image href="data:image/png;base64,AA"/><use href="#m"/></svg>', 'alt': 'a'})
+    rm.render(safe)  # data: images and in-document references stay allowed
 
     with tempfile.TemporaryDirectory(prefix='cooked-mock-') as temp:
         script = SKILL / 'scripts/render_mock_exam.py'
@@ -91,8 +106,8 @@ def check():
         second = run()
         assert second.returncode == 1 and 'Refusing to replace' in second.stderr
         assert run('--force').returncode == 0
-        assert sorted(p.name for p in Path(temp).iterdir()) == ['fictional-stats-mock-a-key.html', 'fictional-stats-mock-a.html']
-    print('PASS: example renders, key text stays out of the worksheet, escaping, 16 invalid-exam rejections, overwrite refusal.')
+        assert sorted(p.name for p in Path(temp).iterdir()) == ['fictional-stats-mock-a-v1.0-key.html', 'fictional-stats-mock-a-v1.0.html']
+    print('PASS: example renders, key text stays out of the worksheet, escaping, 24 invalid-exam rejections, overwrite refusal.')
     print('Structure only; question correctness still needs the checked key and tutor review.')
 
 

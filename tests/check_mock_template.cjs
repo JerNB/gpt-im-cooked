@@ -12,7 +12,7 @@ const python = process.env.PYTHON || (process.platform === 'win32' ? 'python' : 
 execFileSync(python, ['-B', path.join(skill, 'scripts/render_mock_exam.py'),
   path.join(skill, 'assets/mock-exam-example.json'), '--out', out]);
 const exam = JSON.parse(fs.readFileSync(path.join(skill, 'assets/mock-exam-example.json'), 'utf8'));
-const html = fs.readFileSync(path.join(out, exam.artifact_id + '.html'), 'utf8');
+const html = fs.readFileSync(path.join(out, `${exam.artifact_id}-v${exam.artifact_version}.html`), 'utf8');
 const dataJson = html.match(/<script type="application\/json" id="artifact-data">([\s\S]*?)<\/script>/)[1];
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1];
 const sectionRe = /<section class="question" id="([^"]+)" data-kind="([^"]+)" data-topic="([^"]+)" data-source="([^"]+)"/g;
@@ -87,8 +87,19 @@ assert.notEqual(after.done, true, 'no warning right after export');
 click('export');
 assert.equal(exported().attempt_id, first.attempt_id, 'repeat export keeps the attempt identity');
 click('retry');
+const pending = {preventDefault() { this.done = true; }};
+input(byId('q4'));
+click('retry');
+unload(pending);
+assert.equal(pending.done, true, 'retry must not clear the warning for an unexported attempt');
+get('key-link').handlers.auxclick({button: 2});
 click('export');
 const retry = exported();
+assert.equal(retry.attempt_order, 3);
+assert.ok(!retry.events.some(e => e.event === 'key_opened' && e.attempt_order === 3), 'right-click is not key access');
+get('key-link').handlers.auxclick({button: 1});
+click('export');
+assert.ok(exported().events.some(e => e.event === 'key_opened' && e.attempt_order === 3), 'middle-click records key access');
 assert.notEqual(retry.attempt_id, first.attempt_id);
 assert.equal(retry.session_id, first.session_id);
 assert.equal(retry.items.find(i => i.item_id === 'q2').assistance.key_opened_in_page, true, 'exposure survives retry');
@@ -96,4 +107,4 @@ assert.deepEqual(retry.items.find(i => i.item_id === 'q2').original_answer, []);
 assert.equal(retry.attempt_history[0].items.find(i => i.item_id === 'q2').assistance.key_opened_in_page, false,
   'earlier snapshot is not rewritten');
 fs.rmSync(out, {recursive: true, force: true});
-console.log('PASS: rendered worksheet status/flags, unload warning, pre-key snapshot, stable export identity, retry exposure.');
+console.log('PASS: rendered worksheet status/flags, unload warning, pre-key snapshot, stable export identity, retry exposure, unexported-retry warning, middle-click key access.');

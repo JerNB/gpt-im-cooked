@@ -149,9 +149,13 @@ const form=document.getElementById('exam');
 form.addEventListener('submit',e=>e.preventDefault());
 form.addEventListener('input',e=>{const s=e.target.closest&&e.target.closest('.question');
   if(s)events.push({event:'edit',item_id:s.id,attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});dirty=true;refresh();});
-document.getElementById('key-link').addEventListener('click',()=>{
+function keyAccess(){
   snapshot('before key access');keyOpened=true;
-  events.push({event:'key_opened',attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});});
+  events.push({event:'key_opened',attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});}
+// Click covers mouse and keyboard; auxclick covers middle-click "open in new tab". Opening the key file directly is not detectable.
+const keyLink=document.getElementById('key-link');
+keyLink.addEventListener('click',keyAccess);
+keyLink.addEventListener('auxclick',e=>{if(e.button===1)keyAccess();});
 document.getElementById('export').addEventListener('click',()=>{
   snapshot('export');
   const items=collect();
@@ -161,7 +165,7 @@ document.getElementById('export').addEventListener('click',()=>{
   document.getElementById('export-output').value=json;
   document.getElementById('export-panel').open=true;
   try{const url=URL.createObjectURL(new Blob([json],{type:'application/json'}));const a=document.createElement('a');
-    a.href=url;a.download=artifact.artifact_id+'-attempt-'+attemptNumber+'.json';document.body.append(a);a.click();a.remove();
+    a.href=url;a.download=artifact.artifact_id+'-v'+artifact.artifact_version+'-attempt-'+attemptNumber+'.json';document.body.append(a);a.click();a.remove();
     setTimeout(()=>URL.revokeObjectURL(url),10000);}catch(err){/* The copy panel above remains available. */}
   dirty=false;
   document.getElementById('feedback').textContent='Attempt exported: '+items.filter(answered).length+' of '+total+' answered. Attach the JSON file in chat for reviewed feedback.';
@@ -171,7 +175,7 @@ document.getElementById('retry').addEventListener('click',()=>{
   events.push({event:'retry',attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});
   attemptNumber++;form.reset();
   document.getElementById('export-output').value='';document.getElementById('export-panel').open=false;
-  dirty=false;refresh();
+  refresh();  // dirty is kept: an unexported earlier attempt still lives only in this page
   document.getElementById('feedback').textContent='New attempt started. Earlier answers and any key access stay in the export history.';
 });
 globalThis.addEventListener?.('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});

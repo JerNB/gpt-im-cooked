@@ -33,7 +33,12 @@ CHOICE = {'single', 'multi'}
 EVIDENCE = {'Instructor key', 'Verified computation', 'Reasoned solution'}
 SLUG = re.compile(r'^[a-z0-9][a-z0-9-]{0,63}$')
 OPTION_ID = re.compile(r'^[A-Z0-9]{1,3}$')
-UNSAFE_SVG = re.compile(r'<\s*script|<\s*foreignObject|\son[a-z]+\s*=|javascript:|(?:href|src)\s*=\s*["\']?\s*https?:', re.I)
+VERSION = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]{0,31}$')
+# Checked against the raw and the entity-decoded markup. `[\s/"']on` also catches `<svg/onload=`.
+UNSAFE_SVG = re.compile(
+    r'<\s*(?:script|foreignObject|iframe|embed|object)\b|[\s/"\']on[a-z]+\s*=|javascript:|@import'
+    r'|(?:href|src)\s*=\s*["\']?\s*(?:[a-z][a-z0-9+.-]*:(?<!data:)|//)|url\(\s*["\']?\s*(?:https?:|//)', re.I)
+NETWORK = re.compile(r'^\s*(?:[a-z][a-z0-9+.-]*:|//|\\\\)', re.I)
 
 
 class ExamError(ValueError):
@@ -84,17 +89,20 @@ def check_blocks(blocks, where, errors, warnings):
             svg = str(block['svg'])
             if not svg.lstrip().startswith('<svg'):
                 errors.append(f'{at}: svg must start with <svg')
-            if UNSAFE_SVG.search(svg):
-                errors.append(f'{at}: svg contains script, event handlers, foreignObject, or external links')
+            if UNSAFE_SVG.search(svg) or UNSAFE_SVG.search(html.unescape(svg)):
+                errors.append(f'{at}: svg contains script, event handlers, embedded documents, or external links')
             if not block.get('alt'):
                 errors.append(f'{at}: svg needs alt text describing what it shows')
         elif kind == 'image':
-            src = str(block['image'])
+            src = str(block['image']).strip()
             if not block.get('alt'):
                 errors.append(f'{at}: image needs alt text')
-            if src.startswith(('http:', 'https:', '//', 'javascript:')):
+            if src.lower().startswith('data:'):
+                if not src.lower().startswith('data:image/'):
+                    errors.append(f'{at}: a data: URI image must be data:image/...')
+            elif NETWORK.match(src):
                 errors.append(f'{at}: image must be a data: URI or a relative file, not a network URL')
-            elif not src.startswith('data:image/'):
+            else:
                 warnings.append(f'{at}: relative image {src!r} must be delivered beside the worksheet; it is not self-contained')
         elif kind == 'list':
             if not isinstance(block['list'], list) or not block['list']:
@@ -103,13 +111,43 @@ def check_blocks(blocks, where, errors, warnings):
             errors.append(f'{at}: empty {kind}')
 
 
+def shape(exam):
+    """Reject wrong JSON shapes up front so later checks can assume objects and lists."""
+    if not isinstance(exam, dict):
+        return ['the exam file must contain one JSON object']
+    errors = []
+    for name in ('sources', 'shared', 'questions'):
+        want = dict if name == 'sources' else list
+        if name in exam and not isinstance(exam[name], want):
+            errors.append(f'{name} must be a JSON {"object" if want is dict else "list"}')
+    for i, item in enumerate(exam.get('shared', []) if isinstance(exam.get('shared', []), list) else []):
+        if not isinstance(item, dict):
+            errors.append(f'shared[{i}] must be an object')
+    for i, q in enumerate(exam.get('questions', []) if isinstance(exam.get('questions'), list) else []):
+        if not isinstance(q, dict):
+            errors.append(f'questions[{i}] must be an object')
+            continue
+        if 'key' in q and not isinstance(q['key'], dict):
+            errors.append(f'questions[{i}].key must be an object')
+        elif not isinstance(q.get('key', {}).get('option_notes', {}), dict):
+            errors.append(f'questions[{i}].key.option_notes must map option ids to text')
+        if 'options' in q and (not isinstance(q['options'], list) or not all(isinstance(o, dict) for o in q['options'])):
+            errors.append(f'questions[{i}].options must be a list of {{id, text}} objects')
+    return errors
+
+
 def validate(exam):
-    errors, warnings = [], []
+    errors = shape(exam)
+    if errors:
+        raise ExamError('\n'.join(errors))
+    warnings = []
     if exam.get('format') != FORMAT:
         errors.append(f'format must be {FORMAT!r}')
     if not SLUG.match(str(exam.get('artifact_id', ''))):
         errors.append('artifact_id must be a lowercase slug (letters, digits, hyphens)')
-    for field in ('artifact_version', 'course', 'exam'):
+    if not VERSION.match(str(exam.get('artifact_version', ''))):
+        errors.append('artifact_version must be a short label such as 1, 1.1, or 2026-11-a (used in file names)')
+    for field in ('course', 'exam'):
         if not str(exam.get(field, '')).strip():
             errors.append(f'{field} is required')
     estimate = exam.get('time_estimate')
@@ -326,8 +364,12 @@ def artifact_meta(exam):
     return raw.replace('&', '\\u0026').replace('<', '\\u003c').replace('>', '\\u003e')
 
 
+def worksheet_name(exam):
+    return f'{exam["artifact_id"]}-v{exam["artifact_version"]}.html'
+
+
 def key_name(exam):
-    return f'{exam["artifact_id"]}-key.html'
+    return f'{exam["artifact_id"]}-v{exam["artifact_version"]}-key.html'
 
 
 def fill(template, values):
@@ -435,15 +477,16 @@ def main():
         result = {'valid': True, 'questions': len(exam['questions']), 'warnings': warnings}
         if not args.check:
             args.out.mkdir(parents=True, exist_ok=True)
-            paths = {'worksheet': args.out / f'{exam["artifact_id"]}.html', 'key': args.out / key_name(exam)}
+            paths = {'worksheet': args.out / worksheet_name(exam), 'key': args.out / key_name(exam)}
             existing = [str(p) for p in paths.values() if p.exists()]
             if existing and not args.force:
-                raise ExamError(f'Refusing to replace {existing}; bump artifact_version and use --force, or choose another --out')
+                raise ExamError(f'Refusing to replace {existing}. A changed paper needs a new artifact_version '
+                                '(earlier versions stay beside it); use --force only to re-render the same version')
             paths['worksheet'].write_text(worksheet, encoding='utf-8')
             paths['key'].write_text(key, encoding='utf-8')
             result.update({k: str(v) for k, v in paths.items()})
         print(json.dumps(result, ensure_ascii=True, indent=2))
-    except (OSError, ValueError, KeyError, TypeError) as error:
+    except (OSError, ValueError, KeyError, TypeError, AttributeError) as error:
         parser.exit(1, f'Mock exam not rendered:\n{error}\n')
 
 
