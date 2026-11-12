@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0",
+  "package_version": "2.0.0",
+  "artifact_id": "course-mock-a",
+  "artifact_version": "1.0",
+  "artifact_type": "mock-exam-worksheet",
+  "course": "Synthetic statistics mini-course",
+  "exam": "Practice-only mock A",
+  "key_file": "course-mock-a-v1.0-key.html",
+  "session_id": "3e13b23f-9fe3-4f22-950e-911d6ed9a886",
+  "exported_at": "2026-11-12T16:37:21.466Z",
+  "attempt_id": "3e13b23f-9fe3-4f22-950e-911d6ed9a886:1",
+  "attempt_order": 1,
+  "items": [
+    {
+      "item_id": "q1",
+      "item_type": "single",
+      "topic_id": "C1",
+      "source_basis": "S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5",
+      "original_answer": [
+        "A"
+      ],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q2",
+      "item_type": "short",
+      "topic_id": "C1",
+      "source_basis": "S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5",
+      "original_answer": "Independent synthetic browser check; this is not a student attempt.",
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q3",
+      "item_type": "multi",
+      "topic_id": "C2",
+      "source_basis": "S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2",
+      "original_answer": [],
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q4",
+      "item_type": "code",
+      "topic_id": "C2",
+      "source_basis": "S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2",
+      "original_answer": "",
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    },
+    {
+      "item_id": "q5",
+      "item_type": "short",
+      "topic_id": "C3",
+      "source_basis": "S3: Supplied synthetic statistics packet, materials/packet.md, S3: Duplicate-key inner joins; Q4",
+      "original_answer": "",
+      "explanation": "",
+      "confidence": "",
+      "revisit": false,
+      "provisional_check": "not graded",
+      "assistance": {
+        "hint_used": false,
+        "key_opened_in_page": false,
+        "external_help": "not tracked; tell your tutor"
+      }
+    }
+  ],
+  "attempt_history": [
+    {
+      "attempt_id": "3e13b23f-9fe3-4f22-950e-911d6ed9a886:1",
+      "attempt_order": 1,
+      "reason": "export",
+      "time": "2026-11-12T16:37:21.466Z",
+      "items": [
+        {
+          "item_id": "q1",
+          "item_type": "single",
+          "topic_id": "C1",
+          "source_basis": "S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5",
+          "original_answer": [
+            "A"
+          ],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q2",
+          "item_type": "short",
+          "topic_id": "C1",
+          "source_basis": "S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5",
+          "original_answer": "Independent synthetic browser check; this is not a student attempt.",
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q3",
+          "item_type": "multi",
+          "topic_id": "C2",
+          "source_basis": "S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2",
+          "original_answer": [],
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q4",
+          "item_type": "code",
+          "topic_id": "C2",
+          "source_basis": "S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2",
+          "original_answer": "",
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        },
+        {
+          "item_id": "q5",
+          "item_type": "short",
+          "topic_id": "C3",
+          "source_basis": "S3: Supplied synthetic statistics packet, materials/packet.md, S3: Duplicate-key inner joins; Q4",
+          "original_answer": "",
+          "explanation": "",
+          "confidence": "",
+          "revisit": false,
+          "provisional_check": "not graded",
+          "assistance": {
+            "hint_used": false,
+            "key_opened_in_page": false,
+            "external_help": "not tracked; tell your tutor"
+          }
+        }
+      ]
+    }
+  ],
+  "events": [
+    {
+      "event": "edit",
+      "item_id": "q1",
+      "attempt_id": "3e13b23f-9fe3-4f22-950e-911d6ed9a886:1",
+      "attempt_order": 1,
+      "time": "2026-11-12T16:37:20.997Z"
+    },
+    {
+      "event": "edit",
+      "item_id": "q2",
+      "attempt_id": "3e13b23f-9fe3-4f22-950e-911d6ed9a886:1",
+      "attempt_order": 1,
+      "time": "2026-11-12T16:37:21.033Z"
+    }
+  ],
+  "persistence": "Exported file only; no automatic tutor or workspace update"
+}

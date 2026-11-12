@@ -1,0 +1,1 @@
+PASS: actual page script preserves pre-feedback response, exposed retry, stable exports, original answers and blank/locked-submit handling.

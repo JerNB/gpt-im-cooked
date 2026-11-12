@@ -1,0 +1,2 @@
+PASS: generated pre/post-key snapshots, identity/retry/exposure, unknown external help, blank fields, equivalent values, historical response-time flags and denominator counterexamples.
+This checks raw evidence invariants only; tutor verdicts require separate adjudication.

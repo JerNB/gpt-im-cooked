@@ -1,0 +1,257 @@
+{
+  "format": "gpt-im-cooked-mock-exam/1",
+  "artifact_id": "course-mock-a",
+  "artifact_version": "1.0",
+  "course": "Synthetic statistics mini-course",
+  "exam": "Practice-only mock A",
+  "title": "Synthetic statistics \u2014 Short Mock A",
+  "time_estimate": {
+    "minutes": 15,
+    "basis": "practice estimate"
+  },
+  "instructions": "Five original questions. Work independently and explain your reasoning. All observations are equally weighted. For grouped transformations, assume no filtering, missing groups, or vector outputs. Code is defined pseudocode, not a programming-language test; the answer field does not execute code. Submit/export your attempt before consulting the separate key. Bring the export back for tutor review. This is course-based practice, not a prediction of an instructor exam.",
+  "personalization": "Two probability questions check reference-group selection and a changed condition after your correctly explained Q3 and Q5 attempts. Two grouped-transformation questions and one join question preserve coverage of the other course topics.",
+  "sources": {
+    "S1": {
+      "title": "Supplied synthetic statistics packet",
+      "locator": "materials/packet.md, S1: Conditional probability; Q1, Q3, Q5"
+    },
+    "S2": {
+      "title": "Supplied synthetic statistics packet",
+      "locator": "materials/packet.md, S2: Grouped transformations; Q2"
+    },
+    "S3": {
+      "title": "Supplied synthetic statistics packet",
+      "locator": "materials/packet.md, S3: Duplicate-key inner joins; Q4"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "title": "Evaluate a reported rate",
+      "type": "single",
+      "topic_id": "C1",
+      "source": "S1",
+      "personal_target": "Distinguish a conditioned rate from a full-sample fraction; prior Q1 denominator error, with improvement on Q3/Q5.",
+      "prompt": [
+        "A shop records 40 orders. Of these, 16 are express orders; 10 express orders arrived on time. An analyst writes: \"10/40 is the fraction of express orders that arrived on time.\" Which evaluation is correct?"
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "The statement is correct because all 40 orders were recorded."
+        },
+        {
+          "id": "B",
+          "text": "The requested fraction is 10/16; 10/40 instead measures express-and-on-time orders among all orders."
+        },
+        {
+          "id": "C",
+          "text": "The requested fraction is 16/10 because express orders are the condition."
+        },
+        {
+          "id": "D",
+          "text": "The requested fraction is 16/40 because there are 16 express orders."
+        }
+      ],
+      "key": {
+        "answer": [
+          "B"
+        ],
+        "explanation": "S1 conditions on express orders, giving 10 qualifying orders out of 16 express orders. The full-sample fraction describes a different event.",
+        "evidence": "Verified computation",
+        "verification": "Python fractions verified 10/16 = 5/8 = 62.5% and 10/40 = 1/4 = 25%. Each option checked against S1.",
+        "option_notes": {
+          "A": "False: the recorded full sample is not the conditioned group.",
+          "B": "True: both the denominator and the interpretation of 10/40 are correct.",
+          "C": "False: reverses the numerator and denominator.",
+          "D": "False: 16/40 measures express orders among all orders, without counting on-time arrival."
+        }
+      }
+    },
+    {
+      "id": "q2",
+      "title": "Change the condition",
+      "type": "short",
+      "topic_id": "C1",
+      "source": "S1",
+      "personal_target": "Pending transfer check: reverse the conditioned group and compare two conditional fractions. This changes the reasoning demand, not just the story or numbers.",
+      "prompt": [
+        "A courier records the following 30 parcels. Each parcel appears once.",
+        {
+          "table": {
+            "columns": [
+              "Service",
+              "Delivered today",
+              "Not delivered today"
+            ],
+            "rows": [
+              [
+                "Express",
+                "6",
+                "4"
+              ],
+              [
+                "Standard",
+                "9",
+                "11"
+              ]
+            ]
+          }
+        },
+        "Give (a) the fraction of express parcels delivered today, and (b) the fraction of parcels delivered today that were express. Name each denominator and explain whether the two fractions must be equal."
+      ],
+      "key": {
+        "answer": "(a) 6/10 = 3/5 = 60%; denominator: all 10 express parcels. (b) 6/15 = 2/5 = 40%; denominator: all 15 parcels delivered today. They need not be equal.",
+        "explanation": "The intersection has six parcels in both calculations, but changing the condition changes the population counted in the denominator. S1 does not permit swapping the condition while retaining the same denominator. Accept equivalent fractions/percentages with correct group explanations.",
+        "evidence": "Verified computation",
+        "verification": "Python verified table total 30, express total 10, delivered total 15, 6/10 = 3/5 and 6/15 = 2/5. Transfer evidence requires an actual reviewed response and checked assistance history; generating this item does not change status."
+      }
+    },
+    {
+      "id": "q3",
+      "title": "Compare grouped outputs",
+      "type": "multi",
+      "topic_id": "C2",
+      "source": "S2",
+      "personal_target": "C2 unassessed: distinguish original-row preservation from one-row-per-group output.",
+      "prompt": [
+        "A dataset has nine observations in three nonempty groups of sizes 2, 3, and 4. Consider two separate operations on the original data: M attaches each group's scalar mean using a grouped mutate-style transformation; S computes one scalar mean per group using a grouped summary. Select every true statement."
+      ],
+      "options": [
+        {
+          "id": "A",
+          "text": "M returns nine rows."
+        },
+        {
+          "id": "B",
+          "text": "S returns three rows."
+        },
+        {
+          "id": "C",
+          "text": "M returns three rows because there are three distinct group means."
+        },
+        {
+          "id": "D",
+          "text": "In M, each of the four original rows in the largest group receives its group mean."
+        }
+      ],
+      "key": {
+        "answer": [
+          "A",
+          "B",
+          "D"
+        ],
+        "explanation": "S2 says grouped mutate retains original rows and attaches the result to each of them. A scalar summary returns one row per nonempty group.",
+        "evidence": "Verified computation",
+        "verification": "Python constructed groups of sizes 2, 3, 4 and checked nine attached rows, three group summaries, and four attached rows in the largest group. Every option also checked directly against S2.",
+        "option_notes": {
+          "A": "True: all nine original rows remain.",
+          "B": "True: the three nonempty groups contribute one summary row each.",
+          "C": "False: distinct group results do not collapse rows in a mutate-style operation.",
+          "D": "True: attaching the group result applies to every original row in that group."
+        }
+      }
+    },
+    {
+      "id": "q4",
+      "title": "Choose the transformation",
+      "type": "code",
+      "topic_id": "C2",
+      "source": "S2",
+      "personal_target": "C2 unassessed: construct an operation from a required row structure, beyond recognizing a count.",
+      "prompt": [
+        "Use only these defined pseudocode operations: `GROUP_BY(data, region)` groups the input by region; `MUTATE_MEAN(grouped)` attaches the scalar group mean to every original row; `SUMMARY_MEAN(grouped)` produces one mean row per nonempty group. No other behavior is implied.",
+        "The input has 11 observations in four nonempty regions. A report must retain every original observation and add its regional mean. Fill the blank with the required operation, state the output row count, and explain why the other operation fails the report requirement.",
+        {
+          "code": "grouped = GROUP_BY(data, region)\nresult = ______(grouped)",
+          "lang": "text"
+        }
+      ],
+      "key": {
+        "answer": "MUTATE_MEAN; 11 output rows. SUMMARY_MEAN would produce four rows and would not retain every original observation.",
+        "explanation": "The required output has the original row structure with an added group result, which is the mutate-style rule in S2. Accept the completed line result = MUTATE_MEAN(grouped), or equivalent wording that identifies the defined operation and both counts.",
+        "evidence": "Verified computation",
+        "verification": "Python used a controlled 11-row, four-group example to verify 11 attached rows and four summary rows. The question uses defined pseudocode; no R or other external-language execution is claimed."
+      }
+    },
+    {
+      "id": "q5",
+      "title": "Count matching pairs across keys",
+      "type": "short",
+      "topic_id": "C3",
+      "source": "S3",
+      "personal_target": "C3 unassessed: apply pair counting to multiple keys and unmatched rows, beyond packet Q4's single key.",
+      "prompt": [
+        "The tables below show row identifiers and join keys. Inner join on key only, returning every matching pair.",
+        {
+          "table": {
+            "columns": [
+              "Left row",
+              "Key"
+            ],
+            "rows": [
+              [
+                "L1",
+                "K"
+              ],
+              [
+                "L2",
+                "K"
+              ],
+              [
+                "L3",
+                "M"
+              ],
+              [
+                "L4",
+                "N"
+              ]
+            ]
+          }
+        },
+        {
+          "table": {
+            "columns": [
+              "Right row",
+              "Key"
+            ],
+            "rows": [
+              [
+                "R1",
+                "K"
+              ],
+              [
+                "R2",
+                "K"
+              ],
+              [
+                "R3",
+                "M"
+              ],
+              [
+                "R4",
+                "M"
+              ],
+              [
+                "R5",
+                "M"
+              ],
+              [
+                "R6",
+                "P"
+              ]
+            ]
+          }
+        },
+        "How many output rows are returned? Show each key's contribution and list every output pair involving L1. Explain what happens to L4 and R6."
+      ],
+      "key": {
+        "answer": "Seven rows: K contributes 2 x 2 = 4; M contributes 1 x 3 = 3; N and P contribute zero. L1 pairs with R1 and R2. L4 and R6 have no matching keys and contribute no pairs.",
+        "explanation": "S3 counts every matching left-right pair for each key. Add the per-key contributions. Matching on key does not pair rows by position or retain unmatched rows.",
+        "evidence": "Verified computation",
+        "verification": "Python explicitly enumerated all matching pairs and verified seven total, four for K, three for M, exactly (L1,R1) and (L1,R2) for L1, and no pair involving L4 or R6."
+      }
+    }
+  ]
+}

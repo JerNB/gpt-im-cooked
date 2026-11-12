@@ -1,0 +1,62 @@
+[
+  {
+    "path": "model/runs/pair-1-baseline/learning-record.md",
+    "status": "ALIAS_OF_LAST_CAPTURED_RECORD",
+    "source": "model/runs/pair-1-baseline/learning-record-after-04.md",
+    "sha256": "16c7d864b0b2a0e5f45c540a6ad3e7d90ac4bd06db67bc27f0dc9b2ff0a81225"
+  },
+  {
+    "path": "model/runs/pair-1-baseline/outputs/mock-1.html",
+    "status": "CAPTURE_LOSS_NOTICE_ONLY",
+    "referenced_by": "model/runs/pair-1-baseline/response-04.md",
+    "original_artifact_sha256": null
+  },
+  {
+    "path": "model/runs/pair-1-baseline/outputs/mock-1-key.html",
+    "status": "CAPTURE_LOSS_NOTICE_ONLY",
+    "referenced_by": "model/runs/pair-1-baseline/response-04.md",
+    "original_artifact_sha256": null
+  },
+  {
+    "path": "model/runs/pair-1-v2/learning-record.md",
+    "status": "ALIAS_OF_LAST_CAPTURED_RECORD",
+    "source": "model/runs/pair-1-v2/learning-record-after-04.md",
+    "sha256": "1f06c07475344728bc1d8f2253831e8d4208eeb20419d7fa906b7b0ec71b8c29"
+  },
+  {
+    "path": "model/runs/pair-1-v2/course-mock-a-v1.0.html",
+    "status": "CAPTURE_LOSS_NOTICE_ONLY",
+    "referenced_by": "model/runs/pair-1-v2/response-04.md",
+    "original_artifact_sha256": null
+  },
+  {
+    "path": "model/runs/pair-1-v2/course-mock-a-v1.0-key.html",
+    "status": "CAPTURE_LOSS_NOTICE_ONLY",
+    "referenced_by": "model/runs/pair-1-v2/response-04.md",
+    "original_artifact_sha256": null
+  },
+  {
+    "path": "model/runs/pair-2-baseline/learning-record.md",
+    "status": "ALIAS_OF_LAST_CAPTURED_RECORD",
+    "source": "model/runs/pair-2-baseline/learning-record-after-03.md",
+    "sha256": "5a5bfa34a02e624292b95d657ece9a01ab0c63591209d8871f5bbb792ee593b1"
+  },
+  {
+    "path": "model/runs/pair-2-v2/learning-record.md",
+    "status": "ALIAS_OF_LAST_CAPTURED_RECORD",
+    "source": "model/runs/pair-2-v2/learning-record-after-04.md",
+    "sha256": "7196d876a9ce376c6999da55ce443aef2ee2caf8e13740613193dc5c86f7c5e7"
+  },
+  {
+    "path": "model/runs/pair-2-v2/outputs/course-mock-a-v1.html",
+    "status": "CAPTURE_LOSS_NOTICE_ONLY",
+    "referenced_by": "model/runs/pair-2-v2/response-04.md",
+    "original_artifact_sha256": null
+  },
+  {
+    "path": "model/runs/pair-2-v2/outputs/course-mock-a-v1-key.html",
+    "status": "CAPTURE_LOSS_NOTICE_ONLY",
+    "referenced_by": "model/runs/pair-2-v2/response-04.md",
+    "original_artifact_sha256": null
+  }
+]

@@ -1,0 +1,106 @@
+[
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 1,
+    "wall_seconds": 58.297,
+    "usage": {
+      "input_tokens": 138208,
+      "cached_input_tokens": 115712,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1677,
+      "reasoning_output_tokens": 247
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 1,
+    "wall_seconds": 75.554,
+    "usage": {
+      "input_tokens": 193217,
+      "cached_input_tokens": 171392,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2197,
+      "reasoning_output_tokens": 303
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 2,
+    "wall_seconds": 39.53,
+    "usage": {
+      "input_tokens": 269062,
+      "cached_input_tokens": 237440,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3012,
+      "reasoning_output_tokens": 256
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 2,
+    "wall_seconds": 34.756,
+    "usage": {
+      "input_tokens": 313193,
+      "cached_input_tokens": 282880,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3310,
+      "reasoning_output_tokens": 303
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 3,
+    "wall_seconds": 39.527,
+    "usage": {
+      "input_tokens": 415909,
+      "cached_input_tokens": 379648,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4358,
+      "reasoning_output_tokens": 256
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 3,
+    "wall_seconds": 48.633,
+    "usage": {
+      "input_tokens": 441527,
+      "cached_input_tokens": 410496,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4452,
+      "reasoning_output_tokens": 303
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "v2",
+    "turn": 4,
+    "wall_seconds": 131.038,
+    "usage": {
+      "input_tokens": 842364,
+      "cached_input_tokens": 782592,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 9806,
+      "reasoning_output_tokens": 708
+    }
+  },
+  {
+    "pair": 1,
+    "arm": "baseline",
+    "turn": 4,
+    "wall_seconds": 173.646,
+    "usage": {
+      "input_tokens": 969194,
+      "cached_input_tokens": 923136,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 11380,
+      "reasoning_output_tokens": 641
+    }
+  }
+]

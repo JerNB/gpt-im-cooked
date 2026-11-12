@@ -1,0 +1,2 @@
+PASS: 213 archived fingerprints, 12 contexts/24 turns, unchanged duplicate hashes, identical comparison inputs, two changed instruction references, and manual-verdict evidence paths.
+This validates evidence integrity, not the correctness of author semantic judgments.

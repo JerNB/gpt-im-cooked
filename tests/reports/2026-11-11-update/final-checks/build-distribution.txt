@@ -1,0 +1,5 @@
+gpt-im-cooked-skill-v2.0.0.zip: 16 files, 64202 bytes
+gpt-im-cooked-plugin-v2.0.0.zip: 23 files, 69893 bytes
+PASS plugin: 23 exact source files; extracted resources resolve; SHA256 b470d3414660bd3c1695517e11d5b7dc5e1d037ba20ae2e9cb44a9ac65d86a37
+PASS skill: 16 exact source files; extracted resources resolve; SHA256 8a2b922d6357e79fae22186aa7012954511c8d634083216a4cb72fa060d0ce96
+These checks verify distribution structure, not desktop installation or model behavior.

@@ -1,0 +1,25 @@
+{
+  "date_label": "2026-11-11 America/New_York",
+  "started_at": "2026-11-12T04:28:44.676482+00:00",
+  "refs": {
+    "baseline": "0dc295bf7fc9f6bc614f659d819676bf0a53b6de",
+    "candidate": "97be1720f890745b3b59be52ad9ec3dea740393e"
+  },
+  "python": "3.13.12 (tags/v3.13.12:1cbe481, Feb  3 2026, 18:22:25) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "node": "v24.13.0",
+  "repetitions_per_cell": 30,
+  "warmups_per_cell": 1,
+  "sizes_history_rows": [
+    10,
+    100,
+    1000,
+    5000
+  ],
+  "record_design": "Matched final bytes, full read/commit vs Concepts read/upsert; serial alternating AB/BA; setup excluded.",
+  "timing_scope": "Warm-process stdlib helper runtime on temporary local disk, includes lock/backup/fsync/write verification.",
+  "payload_proxy": "UTF-8 supplied content plus JSON read/write response bytes (backup paths omitted); not measured model tokens.",
+  "disk_writes": "Both methods rewrite the complete record and previous-byte backup. No reduced disk-write claim.",
+  "renderer_comparator": "First renderer dac1bad vs hardened a1265ff; pre-PR3 has no renderer, so no pre-PR3 render-speed claim.",
+  "limits": "Synthetic data, one host, repeated local timings not independent users; no learning, billing, or model-latency claim."
+}

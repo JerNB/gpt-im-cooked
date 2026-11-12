@@ -1,0 +1,59 @@
+{
+  "browser": "Chromium 148.0.7778.96",
+  "playwright": "1.60.0",
+  "headless": true,
+  "viewport_heights": 900,
+  "limits": "Desktop and emulated CSS viewport, not a physical phone or accessibility certification; no print check.",
+  "results": [
+    {
+      "run": "pair-1-baseline",
+      "worksheet": "model-recovery/runs/pair-1-baseline/final-study/mock-exam.html",
+      "checks": {
+        "no_document_overflow_1280": true,
+        "no_document_overflow_375": true,
+        "no_document_overflow_css_zoom_150_percent": true,
+        "keyboard_reaches_control": true,
+        "starts_without_checked_answers": true,
+        "export_schema_1_0": true,
+        "five_exported_items": true,
+        "repeat_export_stable_attempt": true,
+        "repeat_export_stable_session": true,
+        "no_page_javascript_errors": true,
+        "no_http_requests": true
+      },
+      "page_errors": [],
+      "http_requests": [],
+      "screenshots": [
+        "browser/pair-1-baseline-1280.png",
+        "browser/pair-1-baseline-375.png"
+      ]
+    },
+    {
+      "run": "pair-1-v2",
+      "worksheet": "model-recovery/runs/pair-1-v2/final-study/outputs/course-mock-a-v1.0.html",
+      "checks": {
+        "no_document_overflow_1280": true,
+        "no_document_overflow_375": true,
+        "no_document_overflow_css_zoom_150_percent": true,
+        "keyboard_reaches_control": true,
+        "starts_without_checked_answers": true,
+        "export_schema_1_0": true,
+        "five_exported_items": true,
+        "repeat_export_stable_attempt": true,
+        "repeat_export_stable_session": true,
+        "retry_has_new_attempt": true,
+        "retry_keeps_session": true,
+        "retry_keeps_key_exposure": true,
+        "prior_snapshot_keeps_pre_key_exposure": true,
+        "no_page_javascript_errors": true,
+        "no_http_requests": true
+      },
+      "page_errors": [],
+      "http_requests": [],
+      "screenshots": [
+        "browser/pair-1-v2-1280.png",
+        "browser/pair-1-v2-375.png"
+      ]
+    }
+  ]
+}

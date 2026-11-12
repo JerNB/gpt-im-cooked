@@ -1,0 +1,94 @@
+{
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "tests/check_state_io.py"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_state_io.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tests/check_mock_render.py"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_mock_render.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tests/check_benchmark_capture.py"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_benchmark_capture.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tests/check_run_evidence.py"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_run_evidence.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tests/check_evidence_archive.py"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_evidence_archive.txt"
+    },
+    {
+      "command": [
+        "node",
+        "tests/check_mock_template.cjs"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_mock_template.txt"
+    },
+    {
+      "command": [
+        "node",
+        "tests/check_demo_state.cjs"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_demo_state.txt"
+    },
+    {
+      "command": [
+        "node",
+        "tests/check_concept_retry.cjs"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_concept_retry.txt"
+    },
+    {
+      "command": [
+        "node",
+        "tests/check_evidence_chain.cjs"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/check_evidence_chain.txt"
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "tests/validate_package.py"
+      ],
+      "exit_code": 0,
+      "log": "final-checks/validate_package.txt"
+    }
+  ],
+  "python_syntax": "PASS: four task Python files parsed; not type checking or measured coverage",
+  "temporary_build_and_distribution": "PASS: published archives untouched; see final-checks/build-distribution.txt",
+  "product_diff_unchanged": true,
+  "whitespace_exit_code": 0
+}

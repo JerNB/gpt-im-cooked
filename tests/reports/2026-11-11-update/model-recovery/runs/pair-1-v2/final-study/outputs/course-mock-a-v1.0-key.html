@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Answer key · Synthetic statistics — Short Mock A</title><style>
+:root{--page:#fff;--ink:#1f2723;--muted:#5d6862;--accent:#235d46;--line:#dfe3dd;--wash:#f3f5f1;--field:#a9b3ab;--focus:#ae7c32}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--page);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+h1,h2,h3{line-height:1.2;font-weight:650;letter-spacing:-.01em}
+h1{font-size:clamp(30px,4vw,40px);margin:0 0 10px}
+code,pre,textarea.code{font-family:ui-monospace,Consolas,"Cascadia Mono",monospace;font-size:.92em}
+p code,li code,td code,.option code{background:var(--wash);padding:1px 5px;border-radius:3px}
+pre{background:var(--wash);border-left:3px solid var(--accent);padding:14px 16px;overflow:auto;line-height:1.55;margin:16px 0}
+table{border-collapse:collapse;margin:16px 0;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--wash);font-weight:650}
+caption,figcaption{caption-side:bottom;text-align:left;font-size:14px;color:var(--muted);padding-top:6px}
+figure{margin:16px 0}figure svg,figure img{display:block;max-width:100%;height:auto}
+.table-wrap{overflow-x:auto}
+.muted{color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,840px) 210px;gap:56px;max-width:1150px;margin:0 auto;padding:48px 28px}
+.paper-head{padding-bottom:26px;border-bottom:1px solid var(--line)}
+.subtitle{color:var(--muted);margin:0 0 14px}
+.paper-head details{margin-top:12px}
+summary{cursor:pointer}
+.question,.shared{padding:34px 0;border-bottom:1px solid var(--line)}
+.shared{background:linear-gradient(var(--wash),var(--wash)) left/3px 100% no-repeat;padding-left:20px}
+.shared h2{font-size:19px;margin:0 0 6px}
+.q-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.q-head h2{font-size:22px;margin:0 0 4px}
+.q-kind{font-weight:500;color:var(--muted);font-size:17px}
+.flag{font-size:15px;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;min-height:44px}
+.shared-ref{font-size:14px;color:var(--muted)}
+fieldset{border:0;padding:0;margin:14px 0 0}
+.option{display:flex;align-items:flex-start;gap:12px;padding:9px 10px;margin:0 -10px;border-radius:4px;cursor:pointer;min-height:44px}
+.option:hover{background:var(--wash)}
+.option input{margin:5px 0 0;accent-color:var(--accent);width:18px;height:18px;flex:0 0 18px}
+.option b{display:inline-block;min-width:24px}
+.field-label{display:block;margin:14px 0 6px;font-size:15px;font-weight:600}
+textarea,input.short{width:100%;background:#fff;border:1px solid var(--field);border-radius:4px;padding:10px 12px;resize:vertical}
+input.short{max-width:320px}
+select{background:#fff;border:1px solid var(--field);border-radius:4px;padding:7px}
+.reasoning{margin:16px 0 4px}.reasoning summary{font-size:15px;color:var(--muted)}
+.source{font-size:14px;color:var(--muted);margin:12px 0 0}
+.outline{align-self:start;position:sticky;top:24px;font-size:15px}
+.outline .label{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:650;margin:0 0 8px}
+.outline progress{width:100%;height:6px;accent-color:var(--accent)}
+.outline ol{list-style:none;padding:0;margin:12px 0}
+.outline li a{display:flex;justify-content:space-between;gap:8px;padding:6px 10px;border-left:2px solid var(--line);text-decoration:none;color:var(--ink)}
+.outline li a:hover{background:var(--wash);border-color:var(--accent)}
+.outline .status{color:var(--muted)}
+.submission{padding-top:34px}
+.submission h2{font-size:24px;margin:0 0 8px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
+button{background:var(--accent);color:#fff;border:1px solid var(--accent);border-radius:4px;padding:10px 18px;min-height:44px;cursor:pointer}
+button.secondary{background:#fff;color:var(--accent)}
+#feedback{min-height:28px;color:var(--accent)}
+#export-output{font-size:13px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.note{border-left:3px solid var(--focus);padding:4px 14px;margin:16px 0}
+footer{max-width:1150px;margin:0 auto;padding:20px 28px 40px;font-size:13px;color:var(--muted)}
+@media (max-width:900px){
+ .layout{display:flex;flex-direction:column-reverse;gap:0;padding:24px 16px}
+ .outline{position:static;margin:0 0 8px;border-bottom:1px solid var(--line);padding-bottom:10px}
+ .outline ol{display:flex;flex-wrap:wrap;gap:6px}
+ .outline li a{border:1px solid var(--line);border-radius:4px;padding:8px 12px;min-width:44px;justify-content:center}
+ .outline .nav-title{display:none}
+ .q-head h2{font-size:20px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{
+ body{font-size:12pt}
+ .outline,.actions,.flag,.submission,.reasoning,noscript,footer{display:none!important}
+ textarea{min-height:7em}
+ .layout{display:block;padding:0;max-width:none}
+ .question,.shared{break-inside:avoid;padding:18px 0}
+ pre{white-space:pre-wrap}
+ a{color:inherit;text-decoration:none}
+}
+</style></head><body><div class="layout" style="grid-template-columns:minmax(0,900px)"><main><header class="paper-head"><p class="muted">Synthetic statistics mini-course · Practice-only mock A · Answer key</p><h1>Answer key: Synthetic statistics — Short Mock A</h1><p class="note">Open this only after you finish and export your attempt. If you open it earlier, tell your tutor: later answers count as assisted.</p><p class="muted">Questions are original practice built from your course materials, not instructor questions. Artifact course-mock-a version 1.0.</p></header><section class="question"><h2>Blueprint</h2><div class="table-wrap"><table><thead><tr><th>Item</th><th>Topic ID</th><th>Format</th><th>Scope/style basis</th><th>Personal target</th><th>Answer evidence</th></tr></thead><tbody><tr><td><a href="#q1">1</a></td><td>C1</td><td>Choose one</td><td>S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5</td><td>Distinguish a conditioned rate from a full-sample fraction; prior Q1 denominator error, with improvement on Q3/Q5.</td><td>Verified computation</td></tr><tr><td><a href="#q2">2</a></td><td>C1</td><td>Short answer</td><td>S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5</td><td>Pending transfer check: reverse the conditioned group and compare two conditional fractions. This changes the reasoning demand, not just the story or numbers.</td><td>Verified computation</td></tr><tr><td><a href="#q3">3</a></td><td>C2</td><td>Choose all that apply</td><td>S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2</td><td>C2 unassessed: distinguish original-row preservation from one-row-per-group output.</td><td>Verified computation</td></tr><tr><td><a href="#q4">4</a></td><td>C2</td><td>Code</td><td>S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2</td><td>C2 unassessed: construct an operation from a required row structure, beyond recognizing a count.</td><td>Verified computation</td></tr><tr><td><a href="#q5">5</a></td><td>C3</td><td>Short answer</td><td>S3: Supplied synthetic statistics packet, materials/packet.md, S3: Duplicate-key inner joins; Q4</td><td>C3 unassessed: apply pair counting to multiple keys and unmatched rows, beyond packet Q4&#x27;s single key.</td><td>Verified computation</td></tr></tbody></table></div></section><section class="question" id="q1"><div class="q-head"><h2>Question 1: Evaluate a reported rate <span class="q-kind">— Choose one</span></h2></div><p>A shop records 40 orders. Of these, 16 are express orders; 10 express orders arrived on time. An analyst writes: &quot;10/40 is the fraction of express orders that arrived on time.&quot; Which evaluation is correct?</p><p><strong>Answer:</strong> B</p><div class="table-wrap"><table><thead><tr><th>Verdict</th><th>Option</th><th>Why</th></tr></thead><tbody><tr><td>Incorrect</td><td><b>A.</b> The statement is correct because all 40 orders were recorded.</td><td>False: the recorded full sample is not the conditioned group.</td></tr><tr><td>✓ Correct</td><td><b>B.</b> The requested fraction is 10/16; 10/40 instead measures express-and-on-time orders among all orders.</td><td>True: both the denominator and the interpretation of 10/40 are correct.</td></tr><tr><td>Incorrect</td><td><b>C.</b> The requested fraction is 16/10 because express orders are the condition.</td><td>False: reverses the numerator and denominator.</td></tr><tr><td>Incorrect</td><td><b>D.</b> The requested fraction is 16/40 because there are 16 express orders.</td><td>False: 16/40 measures express orders among all orders, without counting on-time arrival.</td></tr></tbody></table></div><p><strong>Why:</strong> S1 conditions on express orders, giving 10 qualifying orders out of 16 express orders. The full-sample fraction describes a different event.</p><p><strong>Answer evidence:</strong> Verified computation. Python fractions verified 10/16 = 5/8 = 62.5% and 10/40 = 1/4 = 25%. Each option checked against S1.</p><p class="source">Source: S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5 · Topic C1</p></section>
+<section class="question" id="q2"><div class="q-head"><h2>Question 2: Change the condition <span class="q-kind">— Short answer</span></h2></div><p>A courier records the following 30 parcels. Each parcel appears once.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Service</th><th scope="col">Delivered today</th><th scope="col">Not delivered today</th></tr></thead><tbody><tr><td>Express</td><td>6</td><td>4</td></tr><tr><td>Standard</td><td>9</td><td>11</td></tr></tbody></table></div>
+<p>Give (a) the fraction of express parcels delivered today, and (b) the fraction of parcels delivered today that were express. Name each denominator and explain whether the two fractions must be equal.</p><p><strong>Answer:</strong></p><pre><code>(a) 6/10 = 3/5 = 60%; denominator: all 10 express parcels. (b) 6/15 = 2/5 = 40%; denominator: all 15 parcels delivered today. They need not be equal.</code></pre><p><strong>Why:</strong> The intersection has six parcels in both calculations, but changing the condition changes the population counted in the denominator. S1 does not permit swapping the condition while retaining the same denominator. Accept equivalent fractions/percentages with correct group explanations.</p><p><strong>Answer evidence:</strong> Verified computation. Python verified table total 30, express total 10, delivered total 15, 6/10 = 3/5 and 6/15 = 2/5. Transfer evidence requires an actual reviewed response and checked assistance history; generating this item does not change status.</p><p class="source">Source: S1: Supplied synthetic statistics packet, materials/packet.md, S1: Conditional probability; Q1, Q3, Q5 · Topic C1</p></section>
+<section class="question" id="q3"><div class="q-head"><h2>Question 3: Compare grouped outputs <span class="q-kind">— Choose all that apply</span></h2></div><p>A dataset has nine observations in three nonempty groups of sizes 2, 3, and 4. Consider two separate operations on the original data: M attaches each group&#x27;s scalar mean using a grouped mutate-style transformation; S computes one scalar mean per group using a grouped summary. Select every true statement.</p><p><strong>Answer:</strong> A, B, D</p><div class="table-wrap"><table><thead><tr><th>Verdict</th><th>Option</th><th>Why</th></tr></thead><tbody><tr><td>✓ Correct</td><td><b>A.</b> M returns nine rows.</td><td>True: all nine original rows remain.</td></tr><tr><td>✓ Correct</td><td><b>B.</b> S returns three rows.</td><td>True: the three nonempty groups contribute one summary row each.</td></tr><tr><td>Incorrect</td><td><b>C.</b> M returns three rows because there are three distinct group means.</td><td>False: distinct group results do not collapse rows in a mutate-style operation.</td></tr><tr><td>✓ Correct</td><td><b>D.</b> In M, each of the four original rows in the largest group receives its group mean.</td><td>True: attaching the group result applies to every original row in that group.</td></tr></tbody></table></div><p><strong>Why:</strong> S2 says grouped mutate retains original rows and attaches the result to each of them. A scalar summary returns one row per nonempty group.</p><p><strong>Answer evidence:</strong> Verified computation. Python constructed groups of sizes 2, 3, 4 and checked nine attached rows, three group summaries, and four attached rows in the largest group. Every option also checked directly against S2.</p><p class="source">Source: S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2 · Topic C2</p></section>
+<section class="question" id="q4"><div class="q-head"><h2>Question 4: Choose the transformation <span class="q-kind">— Code</span></h2></div><p>Use only these defined pseudocode operations: <code>GROUP_BY(data, region)</code> groups the input by region; <code>MUTATE_MEAN(grouped)</code> attaches the scalar group mean to every original row; <code>SUMMARY_MEAN(grouped)</code> produces one mean row per nonempty group. No other behavior is implied.</p>
+<p>The input has 11 observations in four nonempty regions. A report must retain every original observation and add its regional mean. Fill the blank with the required operation, state the output row count, and explain why the other operation fails the report requirement.</p>
+<pre><code class="language-text">grouped = GROUP_BY(data, region)
+result = ______(grouped)</code></pre><p><strong>Answer:</strong></p><pre><code>MUTATE_MEAN; 11 output rows. SUMMARY_MEAN would produce four rows and would not retain every original observation.</code></pre><p><strong>Why:</strong> The required output has the original row structure with an added group result, which is the mutate-style rule in S2. Accept the completed line result = MUTATE_MEAN(grouped), or equivalent wording that identifies the defined operation and both counts.</p><p><strong>Answer evidence:</strong> Verified computation. Python used a controlled 11-row, four-group example to verify 11 attached rows and four summary rows. The question uses defined pseudocode; no R or other external-language execution is claimed.</p><p class="source">Source: S2: Supplied synthetic statistics packet, materials/packet.md, S2: Grouped transformations; Q2 · Topic C2</p></section>
+<section class="question" id="q5"><div class="q-head"><h2>Question 5: Count matching pairs across keys <span class="q-kind">— Short answer</span></h2></div><p>The tables below show row identifiers and join keys. Inner join on key only, returning every matching pair.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Left row</th><th scope="col">Key</th></tr></thead><tbody><tr><td>L1</td><td>K</td></tr><tr><td>L2</td><td>K</td></tr><tr><td>L3</td><td>M</td></tr><tr><td>L4</td><td>N</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th scope="col">Right row</th><th scope="col">Key</th></tr></thead><tbody><tr><td>R1</td><td>K</td></tr><tr><td>R2</td><td>K</td></tr><tr><td>R3</td><td>M</td></tr><tr><td>R4</td><td>M</td></tr><tr><td>R5</td><td>M</td></tr><tr><td>R6</td><td>P</td></tr></tbody></table></div>
+<p>How many output rows are returned? Show each key&#x27;s contribution and list every output pair involving L1. Explain what happens to L4 and R6.</p><p><strong>Answer:</strong></p><pre><code>Seven rows: K contributes 2 x 2 = 4; M contributes 1 x 3 = 3; N and P contribute zero. L1 pairs with R1 and R2. L4 and R6 have no matching keys and contribute no pairs.</code></pre><p><strong>Why:</strong> S3 counts every matching left-right pair for each key. Add the per-key contributions. Matching on key does not pair rows by position or retain unmatched rows.</p><p><strong>Answer evidence:</strong> Verified computation. Python explicitly enumerated all matching pairs and verified seven total, four for K, three for M, exactly (L1,R1) and (L1,R2) for L1, and no pair involving L4 or R6.</p><p class="source">Source: S3: Supplied synthetic statistics packet, materials/packet.md, S3: Duplicate-key inner joins; Q4 · Topic C3</p></section></main></div></body></html>

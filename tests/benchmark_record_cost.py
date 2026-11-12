@@ -4,6 +4,7 @@ Uses the existing Codex login and its quota. Run from the repository root.
 No API prices or learning gains are inferred from the reported token counts.
 """
 from pathlib import Path
+from datetime import datetime, timezone
 import argparse
 import hashlib
 import io
@@ -135,12 +136,70 @@ def safe(value, temporary):
     return value
 
 
+def capture_study(run, output, temporary):
+    """Capture before temporary cleanup, including when a later call fails; never copy the separate login home."""
+    current = set()
+    for path in run.rglob('*'):
+        rel = path.relative_to(run)
+        if '__pycache__' in rel.parts or not path.is_file():
+            continue
+        if path.is_symlink():
+            raise ValueError('A synthetic study workspace must not contain symlinks')
+        data = path.read_bytes()
+        if path.suffix in ('.md', '.txt', '.json', '.jsonl', '.py', '.yaml', '.bak', '.html', '.js'):
+            data = safe(data.decode('utf-8-sig'), temporary).encode('utf-8')
+        destinations = [output / rel]
+        if 'skill' not in rel.parts:
+            destinations.append(output / 'final-study' / rel)
+            current.add(rel.as_posix())
+        for destination in destinations:
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(data)
+    inventory = output / 'workspace-files.json'
+    previous = set(json.loads(inventory.read_text(encoding='utf-8'))['files']) if inventory.exists() else set()
+    snapshot = (output / 'final-study').resolve()
+    for name in previous - current:
+        target = (snapshot / name).resolve()
+        if not target.is_relative_to(snapshot):
+            raise ValueError('Snapshot file path escapes the capture directory')
+        target.unlink(missing_ok=True)
+    dump(inventory, {'files': sorted(current), 'scope': 'final-study: current non-skill files; root mirror: cumulative evidence'})
+
+
+def execute_call(cmd, prompt, run, env, output, turn, temporary):
+    start = time.perf_counter()
+    started = datetime.now(timezone.utc).isoformat()
+    try:
+        try:
+            proc = subprocess.run(cmd, input=prompt, cwd=run, env=env, stdout=subprocess.PIPE,
+                                  stderr=subprocess.PIPE, text=True, encoding='utf-8', errors='replace', timeout=600)
+            elapsed = time.perf_counter() - start
+            stdout, stderr, timed_out = proc.stdout, proc.stderr, False
+        except subprocess.TimeoutExpired as error:
+            elapsed = time.perf_counter() - start
+            decode = lambda value: value.decode('utf-8', errors='replace') if isinstance(value, bytes) else value or ''
+            stdout, stderr, timed_out = decode(error.stdout), decode(error.stderr), True
+            proc = None
+        # Write before JSON parsing or completion checks, so malformed/partial output survives too.
+        (output / f'turn-{turn:02}.jsonl').write_text(safe(stdout, temporary), encoding='utf-8')
+        (output / f'turn-{turn:02}.stderr.txt').write_text(safe(stderr, temporary), encoding='utf-8')
+        dump(output / f'turn-{turn:02}.execution.json', {'started_at': started, 'wall_seconds': round(elapsed, 3),
+             'returncode': None if proc is None else proc.returncode, 'timed_out': timed_out})
+        if timed_out:
+            raise RuntimeError('CLI call timed out; partial output and workspace captured')
+        return proc, elapsed
+    finally:
+        capture_study(run, output, temporary)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--pairs', type=int, default=2)
+    parser.add_argument('--start-arm', choices=['baseline', 'v2'], default='baseline')
     args = parser.parse_args()
     assert 1 <= args.pairs <= 3
-    assert not (REPORT / 'results.json').exists(), 'Existing results must not be overwritten'
+    if any((REPORT / name).exists() for name in ('results.json', 'partial-results.json', 'protocol.json')):
+        raise FileExistsError('Existing complete or partial benchmark evidence must not be overwritten')
     cli = shutil.which('codex')
     assert cli, 'Codex CLI is required'
     auth = Path.home() / '.codex/auth.json'
@@ -149,6 +208,7 @@ def main():
     dump(REPORT / 'protocol.json', {
         'model': MODEL, 'reasoning_effort': 'medium', 'pairs': args.pairs,
         'turns_per_arm': len(TURNS), 'revisions': REVISIONS,
+        'start_arm': args.start_arm,
         'cli_version': subprocess.check_output([cli, '--version'], text=True).strip(),
         'usage_source': 'turn.completed JSONL event, schema validated during execution',
         'design': 'Paired AB/BA, turn-interleaved, serial execution; same small initial record.',
@@ -188,6 +248,8 @@ def main():
                 runs[(pair, arm)] = {'cwd': run, 'home': home, 'session': None}
         for pair in range(1, args.pairs + 1):
             order = ['baseline', 'v2'] if pair % 2 else ['v2', 'baseline']
+            if args.start_arm == 'v2':
+                order.reverse()
             for turn, text in enumerate(TURNS, 1):
                 for arm in order:
                     state = runs[(pair, arm)]
@@ -208,16 +270,17 @@ def main():
                     env['CODEX_HOME'] = str(state['home'])
                     env['PYTHONUTF8'] = '1'
                     print(f'START pair={pair} arm={arm} turn={turn}', flush=True)
-                    start = time.perf_counter()
-                    proc = subprocess.run(cmd, input=prompt, cwd=run, env=env,
-                                          stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                          text=True, encoding='utf-8', errors='replace', timeout=600)
-                    elapsed = time.perf_counter() - start
+                    try:
+                        proc, elapsed = execute_call(cmd, prompt, run, env, output, turn, temporary)
+                    except RuntimeError:
+                        dump(REPORT / 'partial-results.json', rows)
+                        raise
                     events = []
                     for line in proc.stdout.splitlines():
                         try:
                             events.append(json.loads(line))
                         except json.JSONDecodeError:
+                            dump(REPORT / 'partial-results.json', rows)
                             raise RuntimeError('CLI stdout was not JSONL')
                     cleaned = safe(events, temporary)
                     (output / f'turn-{turn:02}.jsonl').write_text(''.join(json.dumps(e, ensure_ascii=False) + '\n' for e in cleaned), encoding='utf-8')
@@ -253,8 +316,7 @@ def main():
                     print(f'DONE pair={pair} arm={arm} turn={turn}: {usage}, seconds={elapsed:.1f}', flush=True)
         for (pair, arm), state in runs.items():
             target = REPORT / 'runs' / f'pair-{pair}-{arm}'
-            shutil.copytree(state['cwd'], target / 'final-study', dirs_exist_ok=True, ignore=shutil.ignore_patterns('skill', '__pycache__'))
-            shutil.copytree(state['cwd'], target, dirs_exist_ok=True, ignore=shutil.ignore_patterns('__pycache__'))
+            capture_study(state['cwd'], target, temporary)
         dump(REPORT / 'results.json', rows)
     fingerprints = {}
     for p in sorted(REPORT.rglob('*')):

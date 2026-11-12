@@ -1,3 +1,9 @@
+# Collaboration entry
+
+- AGENT_ID: `cc`; Codex identity: `codex`.
+- Before project work, read `docs/agents/COLLAB_PROTOCOL.md` completely and follow section 11.
+- Use the primary repository's shared `.collab/` in linked worktrees; do not create per-branch coordination state.
+
 # GPT, I'm Cooked — project knowledge
 
 Consolidated from the repository (`JerNB/gpt-im-cooked`), its GitHub issues/PRs/releases, test reports, and local notes as of 2026-11-04. Maintainer: Jerry Wu (JerNB).
