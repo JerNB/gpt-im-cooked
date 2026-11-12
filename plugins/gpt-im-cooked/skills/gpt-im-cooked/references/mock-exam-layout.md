@@ -2,6 +2,21 @@
 
 Use this reference whenever a student requests a mock exam or exam simulation without specifying another format. Deliver an actual HTML worksheet, not just questions pasted in chat or a Markdown file. Read [practice-and-feedback.md](practice-and-feedback.md) for original content and a checked blueprint, and [interactive-review.md](interactive-review.md) for exam behavior, evidence export, and browser verification.
 
+## Render from the template (preferred)
+
+When Python 3.10+ is available, do not hand-write the worksheet. Write the exam and its checked key as one JSON file in the student's workspace, shaped like [mock-exam-example.json](../assets/mock-exam-example.json), and run:
+
+```text
+python <skill>/scripts/render_mock_exam.py <exam.json> --check
+python <skill>/scripts/render_mock_exam.py <exam.json> --out <study outputs directory>
+```
+
+The script fills [mock-exam-template.html](../assets/mock-exam-template.html), which already implements this layout, answer status, revisit flags, print styles, and the tested schema 1.0 export with key-exposure tracking. It writes `<artifact_id>-v<artifact_version>.html` (worksheet, no key data) and `<artifact_id>-v<artifact_version>-key.html` (blueprint, answers, per-option reasons, answer evidence). Your effort goes into the questions and the key. The worksheet records key access through its own link (click, keyboard, middle-click); opening the key file directly is not detectable, so ask about it when reviewing.
+
+JSON essentials: `format` `gpt-im-cooked-mock-exam/1`; `artifact_id` slug and `artifact_version`; `course`, `exam`; `sources` mapping IDs to title and locator; optional `time_estimate` with basis `practice estimate` or `confirmed`, `allowed_aids` (confirmed only), `instructions`, `personalization` (student-facing "why these questions"), and `shared` stimuli that questions cite with `shared_ref`. Each question has `id`, `title`, `type` (`single`, `multi`, `short`, `numeric`, `code`, `long`), `topic_id`, `source`, `prompt` blocks, `options` for choice items, optional `personal_target` (key only), and `key` with `answer`, `explanation`, `evidence` (`Instructor key`, `Verified computation`, or `Reasoned solution`), `verification`, and `option_notes` (required for every multi-select option). Prompt blocks are plain strings (with `` `code` `` and `**bold**`) or one of `code` (+`lang`), `table` (`columns`, `rows`, `caption`), `list`, `svg` (+`alt`, no scripts or external links; any `id` inside it must be unique across the page, e.g. `arrow-q3`), or `image` (data URI preferred, +`alt`).
+
+The script rejects structural errors (duplicate IDs, wrong answer counts, unexplained multi-select options, `Unresolved` items, unknown sources, unsafe SVG, network images, key text appearing in the worksheet) and refuses to overwrite existing files unless `--force`. A changed paper gets a new `artifact_version`, so earlier versions and the attempts exported from them stay valid; use `--force` only to re-render the same version. Fix every reported error rather than working around it. It does not check academic correctness: verify each item and the key as described below, then open the worksheet in a browser when tools allow. Without Python, hand-author the worksheet from the specification below.
+
 ## Layout reference
 
 The default visual reference is [STA 199 — Mock Practice B](https://jernb.github.io/gpt-im-cooked/examples/sta199/practice/STA199_Mock_Practice_B.html). Its rendered page and source were inspected: white document surface, restrained typography, comfortable central reading column, right-side table of contents, title/subtitle, usage instructions, numbered question headings with task types, nearby figures/tables/code, answer and confidence space, and separate solutions. It is a browser-readable Quarto worksheet; answers are edited in its QMD source, not automatically graded in HTML.

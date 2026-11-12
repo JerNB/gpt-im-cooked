@@ -50,6 +50,8 @@ python tests/validate_package.py        # manifests, links, YAML, SVG, no person
 python scripts/build_packages.py         # rebuild both ZIPs from the allowlist
 python tests/check_distribution.py       # extracted ZIPs match source byte-for-byte
 python tests/check_state_io.py           # record_io.py safety
+python tests/check_mock_render.py        # mock-exam renderer validation, escaping, key separation
+node tests/check_mock_template.cjs       # rendered worksheet export/exposure logic
 node tests/check_demo_state.cjs          # demo page state/export
 node tests/check_concept_retry.cjs       # answer exposure across retries
 node tests/check_evidence_chain.cjs

@@ -17,6 +17,8 @@ SKILL_FILES = {
     'references/concept-tutoring.md',
     'references/mock-exam-layout.md',
     'scripts/record_io.py',
+    'scripts/render_mock_exam.py',
+    'assets/mock-exam-template.html', 'assets/mock-exam-example.json',
 }
 PLUGIN_FILES = {
     'plugin.json', '.codex-plugin/plugin.json',
