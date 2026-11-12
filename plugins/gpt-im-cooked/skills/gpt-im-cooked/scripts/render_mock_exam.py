@@ -12,6 +12,7 @@ Usage:
 
 Requires Python 3.10+ and only its standard library.
 """
+from html.parser import HTMLParser
 from pathlib import Path
 import argparse
 import html
@@ -59,7 +60,13 @@ def svg_problem(svg):
         return True
     if re.search(r'(?:java|vb)script:', URL_NOISE.sub('', decoded), re.I):
         return True
-    return any(unsafe_url(next(v for v in m.groups() if v is not None)) for m in URL_ATTR.finditer(svg))
+    if any(unsafe_url(next(v for v in m.groups() if v is not None)) for m in URL_ATTR.finditer(svg)):
+        return True
+    # Second pass with the stdlib tokenizer, so attribute boundaries match how the markup is actually parsed.
+    for _, name, value in attributes(svg):
+        if name.startswith('on') or (name.split(':')[-1] in ('href', 'src') and unsafe_url(value)):
+            return True
+    return False
 
 
 class ExamError(ValueError):
@@ -498,25 +505,38 @@ def leak_check(worksheet, exam):
     return warnings
 
 
-TAG = re.compile(r'<[A-Za-z][^>]*>')
-ID_ATTR = re.compile(r'[\s/"\']id\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))', re.I)
+class _Attributes(HTMLParser):
+    """Collect (tag, attribute, value) with the stdlib tokenizer: quoted `>` and entities handled, script bodies skipped."""
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.found = []
+
+    def handle_starttag(self, tag, attrs):
+        self.found += [(tag, name, value or '') for name, value in attrs]
+
+
+def attributes(markup):
+    parser = _Attributes()
+    parser.feed(markup)
+    parser.close()
+    return parser.found
 
 
 def duplicate_ids(page, label):
     """Every id in the final HTML, including ids inside author-supplied SVG, must be unique.
 
     A second `artifact-data` (or any repeated id) breaks getElementById, anchors, and `url(#…)`.
-    Script bodies are skipped; text content is escaped, so `<` only starts real tags.
     """
-    markup = re.sub(r'(<script\b[^>]*>).*?</script>', r'\1', page, flags=re.S | re.I)
     seen, errors = set(), []
-    for tag in TAG.findall(markup):
-        for match in ID_ATTR.finditer(tag):
-            element_id = html.unescape(next(v for v in match.groups() if v is not None)).strip()
-            if element_id in seen:
-                errors.append(f'{label}: id {element_id!r} appears more than once; '
-                              'rename ids inside svg blocks so they are unique across the page')
-            seen.add(element_id)
+    for _, name, value in attributes(page):
+        if name != 'id':
+            continue
+        element_id = value.strip()
+        if element_id in seen:
+            errors.append(f'{label}: id {element_id!r} appears more than once; '
+                          'rename ids inside svg blocks so they are unique across the page')
+        seen.add(element_id)
     return errors
 
 

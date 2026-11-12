@@ -108,6 +108,14 @@ def check():
     rejects(lambda e: e['questions'][0]['prompt'].append({'svg': '<svg><g id=q2 /></svg>', 'alt': 'a'}), "'q2' appears")
     rejects(lambda e: [e['questions'][i]['prompt'].append(
         {'svg': '<svg><marker id="arrow"/></svg>', 'alt': 'a'}) for i in (0, 1)], "'arrow' appears more than once")
+    # Fourth review: a quoted `>` must not end the tag early (attributes are read with HTMLParser).
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': '<svg data-label="x > y" id="artifact-data"><text>Figure</text></svg>', 'alt': 'a'}),
+        "'artifact-data' appears more than once")
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': '<svg data-label="x > y" onload="alert(1)"></svg>', 'alt': 'a'}), 'event handlers')
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': '<svg><a title="a > b" href="java&#x09;script:alert(1)">x</a></svg>', 'alt': 'a'}), 'external links')
     safe = copy.deepcopy(EXAMPLE)
     safe['questions'][0]['prompt'].append(
         {'svg': '<svg viewBox="0 0 10 10"><image href="data:image/png;base64,AA"/><use href="#m"/></svg>', 'alt': 'a'})
@@ -127,7 +135,7 @@ def check():
         assert second.returncode == 1 and 'Refusing to replace' in second.stderr
         assert run('--force').returncode == 0
         assert sorted(p.name for p in Path(temp).iterdir()) == ['fictional-stats-mock-a-v1.0-key.html', 'fictional-stats-mock-a-v1.0.html']
-    print('PASS: example renders, key text stays out of the worksheet, escaping, 37 invalid-exam rejections, overwrite refusal.')
+    print('PASS: example renders, key text stays out of the worksheet, escaping, 40 invalid-exam rejections, overwrite refusal.')
     print('Structure only; question correctness still needs the checked key and tutor review.')
 
 
