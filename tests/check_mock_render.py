@@ -90,6 +90,16 @@ def check():
     rejects(lambda e: e['questions'].__setitem__(0, 'oops'), 'questions[0] must be an object')
     rejects(lambda e: e['questions'][0].update(options='A, B'), 'list of {id, text} objects')
     rejects(lambda e: e.update(artifact_version='1 final/2'), 'artifact_version must be')
+    # Second review: browsers drop tab/newline inside a URL scheme, so normalise before checking.
+    for href in ('java&#x09;script:alert(1)', 'java\tscript:alert(1)', 'java&#x0A;script:alert(1)',
+                 '&#x20;JaVaScRiPt:alert(1)', '//x.test/a.svg'):
+        rejects(lambda e, h=href: e['questions'][0]['prompt'].append(
+            {'svg': f'<svg><a xlink:href="{h}">x</a></svg>', 'alt': 'a'}), 'external links')
+    # Element ids must stay unique: a question named after a template element stops the page script.
+    rejects(lambda e: e['questions'][0].update(id='artifact-data'), "'artifact-data' is used by both")
+    rejects(lambda e: e['questions'][0].update(id='export-panel'), 'the page template')
+    rejects(lambda e: e['questions'][1].update(id='q1-answer'), "'q1-answer' is used by both")
+    rejects(lambda e: e['questions'][0].update(id='shared-tickets'), "'shared-tickets' is used by both")
     safe = copy.deepcopy(EXAMPLE)
     safe['questions'][0]['prompt'].append(
         {'svg': '<svg viewBox="0 0 10 10"><image href="data:image/png;base64,AA"/><use href="#m"/></svg>', 'alt': 'a'})
@@ -107,7 +117,7 @@ def check():
         assert second.returncode == 1 and 'Refusing to replace' in second.stderr
         assert run('--force').returncode == 0
         assert sorted(p.name for p in Path(temp).iterdir()) == ['fictional-stats-mock-a-v1.0-key.html', 'fictional-stats-mock-a-v1.0.html']
-    print('PASS: example renders, key text stays out of the worksheet, escaping, 24 invalid-exam rejections, overwrite refusal.')
+    print('PASS: example renders, key text stays out of the worksheet, escaping, 33 invalid-exam rejections, overwrite refusal.')
     print('Structure only; question correctness still needs the checked key and tutor review.')
 
 

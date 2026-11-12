@@ -83,6 +83,10 @@ assert.ok(first.items.every(i => i.source_basis && i.topic_id && i.item_type));
 const after = {preventDefault() { this.done = true; }};
 unload(after);
 assert.notEqual(after.done, true, 'no warning right after export');
+click('key-link');
+const exposed = {preventDefault() { this.done = true; }};
+unload(exposed);
+assert.equal(exposed.done, true, 'key access after export is unexported evidence and must warn');
 
 click('export');
 assert.equal(exported().attempt_id, first.attempt_id, 'repeat export keeps the attempt identity');

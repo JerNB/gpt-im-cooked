@@ -150,7 +150,7 @@ form.addEventListener('submit',e=>e.preventDefault());
 form.addEventListener('input',e=>{const s=e.target.closest&&e.target.closest('.question');
   if(s)events.push({event:'edit',item_id:s.id,attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});dirty=true;refresh();});
 function keyAccess(){
-  snapshot('before key access');keyOpened=true;
+  snapshot('before key access');keyOpened=true;dirty=true;  // the exposure itself is unexported evidence
   events.push({event:'key_opened',attempt_id:attemptId(),attempt_order:attemptNumber,time:now()});}
 // Click covers mouse and keyboard; auxclick covers middle-click "open in new tab". Opening the key file directly is not detectable.
 const keyLink=document.getElementById('key-link');

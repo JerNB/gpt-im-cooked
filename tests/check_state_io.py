@@ -56,14 +56,21 @@ def check_sections(io, root):
     assert 'Demonstrated' in text and '| Improving |' not in text and text.index('stats-cond') < text.index('stats-bayes')
 
     # Rows go after the table, before the section's trailing note; keyed by the attempt column, not the first one.
-    ledger_key = 'Session / attempt ID'
+    ledger_key = ['Course/artifact/version', 'Session / attempt ID']
     frag.write_text('| STA/mock-a/1.0 | s1 / s1:1 | exports/a.json / abc | export | 2026-11-11 / review.md | — |', encoding='utf-8')
     io.update_section(record, 'Import ledger', frag, sha(), 'upsert-rows', ledger_key)
     frag.write_text('| STA/mock-a/1.0 | s1 / s1:2 | exports/b.json / def | retry | 2026-11-11 / review.md | — |', encoding='utf-8')
     assert io.update_section(record, 'Import ledger', frag, sha(), 'upsert-rows', ledger_key)['rows_added'] == 1
     ledger = io.read_section(record, 'Import ledger')['content']
     assert 's1 / s1:1' in ledger and ledger.index('s1 / s1:2') < ledger.index('Use existing entries'), ledger
-    fails(lambda: io.update_section(record, 'Import ledger', frag, sha(), 'upsert-rows', 'No such column'))
+    fails(lambda: io.update_section(record, 'Import ledger', frag, sha(), 'upsert-rows', ['No such column']))
+    # Same session/attempt ID on another paper is a different row; on the same paper it is a revision.
+    frag.write_text('| STA/mock-b/1.0 | s1 / s1:1 | exports/c.json / 123 | export | 2026-11-12 / r.md | — |', encoding='utf-8')
+    assert io.update_section(record, 'Import ledger', frag, sha(), 'upsert-rows', ledger_key)['rows_added'] == 1
+    frag.write_text('| STA/mock-a/1.0 | s1 / s1:1 | exports/a2.json / 456 | re-export | 2026-11-12 / r.md | revision |', encoding='utf-8')
+    assert io.update_section(record, 'Import ledger', frag, sha(), 'upsert-rows', ledger_key)['rows_replaced'] == 1
+    ledger = io.read_section(record, 'Import ledger')['content']
+    assert 'mock-b/1.0 | s1 / s1:1' in ledger and 'a2.json' in ledger and 'exports/a.json' not in ledger, ledger
     day = '| 2026-11-11 | s1:{n} / q3 | stats-cond | answers/{n}.md | Correct | None | Reasoned solution | ok |'
     for n in (1, 2):
         frag.write_text(day.format(n=n), encoding='utf-8')
@@ -94,6 +101,19 @@ def check_sections(io, root):
     record.write_text('# R\n\n## A\n\nx\n\n## A\n\ny\n', encoding='utf-8')
     fails(lambda: update('A', 'append', 'z'))
     fails(lambda: io.update_section(root/'absent.md', 'A', frag, io.digest(b''), 'append'))
+
+    # Code fences follow CommonMark; an unclosed one would swallow later sections (second review repro).
+    record.write_bytes(b'# R\n\n## A\n\nx\n\n## B\n\nkeep me\n')
+    for bad in ('```\nunclosed', '````\ncode\n```', '~~~\n## x\n```', '   ## indented heading', 'Title\n---', '##'):
+        fails(lambda b=bad: update('A', 'append', b))
+    assert record.read_bytes() == b'# R\n\n## A\n\nx\n\n## B\n\nkeep me\n'
+    update('A', 'append', '````md\n```\n## inside\n```\n````\n\n| a |\n|---|')  # nested fence; table separator is not setext
+    update('A', 'replace', 'new')
+    assert record.read_bytes() == b'# R\n\n## A\n\nnew\n\n## B\n\nkeep me\n'
+    record.write_bytes(b'# R\n\n## A\n\n```\nnever closed\n\n## B\n\nkeep me\n')
+    fails(lambda: update('A', 'replace', 'x'))
+    fails(lambda: io.read_section(record, 'B'))
+    assert b'keep me' in record.read_bytes()
 
     # CRLF and a BOM survive a section update.
     record.write_bytes(io.BOM + b'# R\r\n\r\n## A\r\n\r\nold\r\n\r\n## B\r\n\r\nkeep\r\n')

@@ -8,9 +8,9 @@ Commands:
                                         change one `## NAME` section; every other byte is kept
       replace      FILE becomes the section body
       append       FILE is added after the section's existing body (prose or lists)
-      upsert-rows  FILE holds Markdown table rows; a row whose key cell (first column, or
-                   --key-column HEADER) matches an existing row replaces it, otherwise it is
-                   added after the table's last row
+      upsert-rows  FILE holds Markdown table rows; a row whose key cells (first column, or
+                   every --key-column HEADER given) match an existing row replaces it,
+                   otherwise it is added after the table's last row
 
 Every write checks the whole-file SHA-256, takes a lock, keeps `<record>.bak`, and
 verifies the written bytes. No semantic grading, multi-file transaction, or
@@ -25,8 +25,10 @@ import re
 import tempfile
 
 BOM = b'\xef\xbb\xbf'
-HEADING = re.compile(r'^(#{1,2})[ \t]+(.+?)[ \t#]*$')
-FENCE = re.compile(r'^\s*(```|~~~)')
+# CommonMark: up to three spaces of indent; `##` alone is an (empty) heading; `#tag` is not.
+HEADING = re.compile(r'^ {0,3}(#{1,2})(?:[ \t]+(.*?))?[ \t#]*$')
+FENCE_OPEN = re.compile(r'^ {0,3}(`{3,}|~{3,})(.*)$')
+SETEXT = re.compile(r'^ {0,3}(?:=+|-+)[ \t]*$')
 CELL_SPLIT = re.compile(r'(?<!\\)\|')
 
 
@@ -100,23 +102,41 @@ def commit_record(path, candidate, expected):
 
 # ------------------------------------------------------------------ sections
 
+def fence_step(line, fence):
+    """CommonMark fences: return (fence still open after this line, whether the line is fence/code)."""
+    text = line.rstrip('\r\n')
+    if fence:
+        char, size = fence
+        closing = re.match(r'^ {0,3}' + re.escape(char) + '{' + str(size) + r',}[ \t]*$', text)
+        return (None if closing else fence), True
+    mark = FENCE_OPEN.match(text)
+    if mark and not (mark.group(1)[0] == '`' and '`' in mark.group(2)):
+        return (mark.group(1)[0], len(mark.group(1))), True
+    return None, False
+
+
 def split_sections(text):
     """Return (lines, sections); each section is [name, heading_line, end_line) for `## ` headings.
 
     Headings inside fenced code blocks are ignored; `# ` and `## ` both end a section.
+    An unclosed fence would swallow every later section, so it is refused.
     """
     lines = text.splitlines(keepends=True)
-    found, fence = [], None
+    found, fence, opened = [], None, 0
     for i, line in enumerate(lines):
-        mark = FENCE.match(line)
-        if mark:
-            fence = None if fence == mark.group(1) else (fence or mark.group(1))
+        was_open = fence
+        fence, code = fence_step(line, fence)
+        if fence and not was_open:
+            opened = i + 1
+        if code:
             continue
-        heading = None if fence else HEADING.match(line.rstrip('\r\n'))
+        heading = HEADING.match(line.rstrip('\r\n'))
         if heading:
             if found and found[-1][2] is None:
                 found[-1][2] = i
-            found.append([heading.group(2).strip() if len(heading.group(1)) == 2 else None, i, None])
+            found.append([(heading.group(2) or '').strip() if len(heading.group(1)) == 2 else None, i, None])
+    if fence:
+        raise ValueError(f'Code fence opened on line {opened} is never closed; fix the record by hand before section updates')
     if found and found[-1][2] is None:
         found[-1][2] = len(lines)
     return lines, [s for s in found if s[0] is not None]
@@ -145,13 +165,17 @@ def fragment_lines(raw):
     text = raw.decode('utf-8-sig').replace('\r\n', '\n').strip('\n')
     if not text.strip():
         raise ValueError('Fragment is empty')
-    lines, fence = text.split('\n'), None
+    lines, fence, previous = text.split('\n'), None, ''
     for line in lines:
-        mark = FENCE.match(line)
-        if mark:
-            fence = None if fence == mark.group(1) else (fence or mark.group(1))
-        elif not fence and HEADING.match(line):
-            raise ValueError('Fragment must not contain # or ## headings; it changes one section body only')
+        fence, code = fence_step(line, fence)
+        if not code:
+            setext = SETEXT.match(line) and previous.strip() and not previous.lstrip().startswith('|')
+            if HEADING.match(line) or setext:
+                raise ValueError('Fragment must not contain # or ## headings (including underlined ones); '
+                                 'it changes one section body only')
+        previous = '' if code else line
+    if fence:
+        raise ValueError('Fragment opens a code fence it never closes; that would swallow later sections')
     return lines
 
 
@@ -162,7 +186,7 @@ def cells(row):
     return [c.strip() for c in CELL_SPLIT.split(row[1:-1])]
 
 
-def upsert_rows(body, new_rows, key_column=None):
+def upsert_rows(body, new_rows, key_columns=None):
     table = [i for i, line in enumerate(body) if line.strip().startswith('|')]
     if len(table) < 2:
         raise ValueError('Section has no Markdown table (header and separator row) for upsert-rows')
@@ -175,32 +199,33 @@ def upsert_rows(body, new_rows, key_column=None):
         raise ValueError('Section table needs a header row followed by a separator row')
     header = cells(body[first])
     width = len(header)
-    if key_column is None:
-        k = 0
-    else:
-        named = [i for i, h in enumerate(header) if h.casefold() == key_column.strip().casefold()]
+    if isinstance(key_columns, str):
+        key_columns = [key_columns]
+    ks = []
+    for name in key_columns or [header[0]]:
+        named = [i for i, h in enumerate(header) if h.casefold() == name.strip().casefold()]
         if len(named) != 1:
-            raise ValueError(f'Key column {key_column!r} not found; columns: {header}')
-        k = named[0]
+            raise ValueError(f'Key column {name!r} not found; columns: {header}')
+        ks.append(named[0])
+    key_of = lambda row_cells: tuple(row_cells[k] for k in ks)
     keys = {}
     for i in range(first + 2, last + 1):
-        keys.setdefault(cells(body[i])[k], []).append(i)
+        keys.setdefault(key_of(cells(body[i])), []).append(i)
     for row in new_rows:
         if len(cells(row)) != width:
             raise ValueError(f'Row has {len(cells(row))} cells; the table has {width}: {row[:60]!r}')
-    new_keys = [cells(r)[k] for r in new_rows]
+    new_keys = [key_of(cells(r)) for r in new_rows]
     if len(set(new_keys)) != len(new_keys):
         raise ValueError('The fragment repeats a row key')
     replaced, added = 0, []
     for row in new_rows:
         row_cells = cells(row)
-        if len(row_cells) != width:
-            raise ValueError(f'Row has {len(row_cells)} cells; the table has {width}: {row[:60]!r}')
-        if not row_cells[k]:
-            raise ValueError(f'The key cell ({header[k]!r}) must not be empty')
-        hits = keys.get(row_cells[k], [])
+        key = key_of(row_cells)
+        if not all(key):
+            raise ValueError(f'Key cells {[header[k] for k in ks]} must not be empty')
+        hits = keys.get(key, [])
         if len(hits) > 1:
-            raise ValueError(f'Key {row_cells[k]!r} matches {len(hits)} existing rows; use replace and merge by hand')
+            raise ValueError(f'Key {key!r} matches {len(hits)} existing rows; use replace and merge by hand')
         if hits:
             body[hits[0]] = row.strip()
             replaced += 1
@@ -210,7 +235,7 @@ def upsert_rows(body, new_rows, key_column=None):
     return {'rows_replaced': replaced, 'rows_added': len(added)}
 
 
-def update_section(path, name, fragment, expected, mode, key_column=None):
+def update_section(path, name, fragment, expected, mode, key_columns=None):
     if mode not in ('replace', 'append', 'upsert-rows'):
         raise ValueError('mode must be replace, append, or upsert-rows')
     new = fragment_lines(separate(path, fragment).read_bytes())
@@ -234,11 +259,13 @@ def update_section(path, name, fragment, expected, mode, key_column=None):
         elif mode == 'append':
             body = body + new
         else:
-            details.update(upsert_rows(body, new, key_column))
+            details.update(upsert_rows(body, new, key_columns))
         is_last = end == len(lines)
         block = nl + nl.join(body) + nl + ('' if is_last else nl)
         heading = lines[start] if lines[start].endswith(('\n', '\r')) else lines[start] + nl
         result = ''.join(lines[:start]) + heading + block + ''.join(lines[end:])
+        if [s[0] for s in split_sections(result)[1]] != [s[0] for s in sections]:
+            raise ValueError('The update would change the record\'s section structure; nothing was written')
         return bom + result.encode('utf-8'), details
 
     return locked_write(path, expected, build)
@@ -260,7 +287,8 @@ if __name__ == '__main__':
     update.add_argument('--fragment', type=Path, required=True)
     update.add_argument('--expected-sha256', required=True)
     update.add_argument('--mode', required=True, choices=['replace', 'append', 'upsert-rows'])
-    update.add_argument('--key-column', help='upsert-rows: header of the column that identifies a row (default: first column)')
+    update.add_argument('--key-column', action='append', help='upsert-rows: header of a column that identifies a row; '
+                        'repeat for a composite key (default: first column)')
     args = parser.parse_args()
     try:
         if args.command == 'read':

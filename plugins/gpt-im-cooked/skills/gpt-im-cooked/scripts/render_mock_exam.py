@@ -34,11 +34,32 @@ EVIDENCE = {'Instructor key', 'Verified computation', 'Reasoned solution'}
 SLUG = re.compile(r'^[a-z0-9][a-z0-9-]{0,63}$')
 OPTION_ID = re.compile(r'^[A-Z0-9]{1,3}$')
 VERSION = re.compile(r'^[A-Za-z0-9][A-Za-z0-9._-]{0,31}$')
-# Checked against the raw and the entity-decoded markup. `[\s/"']on` also catches `<svg/onload=`.
+# Markup checks run on the raw and the entity-decoded SVG. `[\s/"']on` also catches `<svg/onload=`.
 UNSAFE_SVG = re.compile(
-    r'<\s*(?:script|foreignObject|iframe|embed|object)\b|[\s/"\']on[a-z]+\s*=|javascript:|@import'
-    r'|(?:href|src)\s*=\s*["\']?\s*(?:[a-z][a-z0-9+.-]*:(?<!data:)|//)|url\(\s*["\']?\s*(?:https?:|//)', re.I)
+    r'<\s*(?:script|foreignObject|iframe|embed|object)\b|[\s/"\']on[a-z]+\s*=|@import'
+    r'|attributeName\s*=\s*["\']?\s*(?:xlink:)?href|url\(\s*["\']?\s*(?:[a-z][a-z0-9+.-]*:|//)', re.I)
+URL_ATTR = re.compile(r'[\s/"\'](?:xlink:)?(?:href|src)\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))', re.I)
+# Browsers drop ASCII tab/newline and trim control characters before reading a URL scheme.
+URL_NOISE = re.compile(r'[\x00-\x20\x7f]')
 NETWORK = re.compile(r'^\s*(?:[a-z][a-z0-9+.-]*:|//|\\\\)', re.I)
+
+
+def unsafe_url(value):
+    """True unless the value is an in-document reference, a relative path, or a data:image URI."""
+    url = URL_NOISE.sub('', html.unescape(value)).lower()
+    if url.startswith(('//', '\\\\', '/\\', '\\/')):
+        return True
+    scheme = re.match(r'([a-z][a-z0-9+.-]*):', url)
+    return bool(scheme) and not url.startswith('data:image/')
+
+
+def svg_problem(svg):
+    decoded = html.unescape(svg)
+    if UNSAFE_SVG.search(svg) or UNSAFE_SVG.search(decoded):
+        return True
+    if re.search(r'(?:java|vb)script:', URL_NOISE.sub('', decoded), re.I):
+        return True
+    return any(unsafe_url(next(v for v in m.groups() if v is not None)) for m in URL_ATTR.finditer(svg))
 
 
 class ExamError(ValueError):
@@ -89,7 +110,7 @@ def check_blocks(blocks, where, errors, warnings):
             svg = str(block['svg'])
             if not svg.lstrip().startswith('<svg'):
                 errors.append(f'{at}: svg must start with <svg')
-            if UNSAFE_SVG.search(svg) or UNSAFE_SVG.search(html.unescape(svg)):
+            if svg_problem(svg):
                 errors.append(f'{at}: svg contains script, event handlers, embedded documents, or external links')
             if not block.get('alt'):
                 errors.append(f'{at}: svg needs alt text describing what it shows')
@@ -97,10 +118,10 @@ def check_blocks(blocks, where, errors, warnings):
             src = str(block['image']).strip()
             if not block.get('alt'):
                 errors.append(f'{at}: image needs alt text')
-            if src.lower().startswith('data:'):
-                if not src.lower().startswith('data:image/'):
+            if URL_NOISE.sub('', html.unescape(src)).lower().startswith('data:'):
+                if not URL_NOISE.sub('', html.unescape(src)).lower().startswith('data:image/'):
                     errors.append(f'{at}: a data: URI image must be data:image/...')
-            elif NETWORK.match(src):
+            elif NETWORK.match(src) or unsafe_url(src):
                 errors.append(f'{at}: image must be a data: URI or a relative file, not a network URL')
             else:
                 warnings.append(f'{at}: relative image {src!r} must be delivered beside the worksheet; it is not self-contained')
@@ -231,9 +252,32 @@ def validate(exam):
                 errors.append(f'{at}: only single/multi items take options')
             if not str(key.get('answer', '')).strip():
                 errors.append(f'{at}: key.answer is required')
+    errors += id_collisions(exam)
     if errors:
         raise ExamError('\n'.join(errors))
     return warnings
+
+
+def page_ids(exam):
+    """Every element id the worksheet will contain, with what owns it (template, question, shared)."""
+    owners = [(i, 'the page template') for i in re.findall(r'\bid="([^"{}]+)"', TEMPLATE.read_text(encoding='utf-8'))]
+    for item in exam.get('shared', []):
+        sid = str(item.get('id', ''))
+        owners += [(f'shared-{sid}', f'shared {sid}'), (f'shared-{sid}-title', f'shared {sid}')]
+    for q in exam.get('questions', []):
+        qid = str(q.get('id', ''))
+        owners += [(f'{qid}{suffix}', f'question {qid}') for suffix in ('', '-title', '-answer', '-reason', '-confidence')]
+    return owners
+
+
+def id_collisions(exam):
+    """A repeated element id breaks getElementById and anchors, e.g. a question named `artifact-data`."""
+    seen, errors = {}, []
+    for element_id, owner in page_ids(exam):
+        if element_id in seen and seen[element_id] != owner:
+            errors.append(f'id {element_id!r} is used by both {seen[element_id]} and {owner}; rename the question or shared item')
+        seen.setdefault(element_id, owner)
+    return errors
 
 
 # ------------------------------------------------------------------ rendering
