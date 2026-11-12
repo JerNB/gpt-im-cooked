@@ -498,12 +498,38 @@ def leak_check(worksheet, exam):
     return warnings
 
 
+TAG = re.compile(r'<[A-Za-z][^>]*>')
+ID_ATTR = re.compile(r'[\s/"\']id\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))', re.I)
+
+
+def duplicate_ids(page, label):
+    """Every id in the final HTML, including ids inside author-supplied SVG, must be unique.
+
+    A second `artifact-data` (or any repeated id) breaks getElementById, anchors, and `url(#…)`.
+    Script bodies are skipped; text content is escaped, so `<` only starts real tags.
+    """
+    markup = re.sub(r'(<script\b[^>]*>).*?</script>', r'\1', page, flags=re.S | re.I)
+    seen, errors = set(), []
+    for tag in TAG.findall(markup):
+        for match in ID_ATTR.finditer(tag):
+            element_id = html.unescape(next(v for v in match.groups() if v is not None)).strip()
+            if element_id in seen:
+                errors.append(f'{label}: id {element_id!r} appears more than once; '
+                              'rename ids inside svg blocks so they are unique across the page')
+            seen.add(element_id)
+    return errors
+
+
 def render(exam):
     warnings = validate(exam)
     template = TEMPLATE.read_text(encoding='utf-8')
     worksheet = render_worksheet(exam, template)
     warnings += leak_check(worksheet, exam)
-    return worksheet, render_key(exam, template), warnings
+    key = render_key(exam, template)
+    errors = duplicate_ids(worksheet, 'worksheet') + duplicate_ids(key, 'answer key')
+    if errors:
+        raise ExamError('\n'.join(dict.fromkeys(errors)))
+    return worksheet, key, warnings
 
 
 def main():

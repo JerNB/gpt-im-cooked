@@ -100,10 +100,20 @@ def check():
     rejects(lambda e: e['questions'][0].update(id='export-panel'), 'the page template')
     rejects(lambda e: e['questions'][1].update(id='q1-answer'), "'q1-answer' is used by both")
     rejects(lambda e: e['questions'][0].update(id='shared-tickets'), "'shared-tickets' is used by both")
+    # Third review: ids inside author SVG count too; the final HTML is scanned, not just generated ids.
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': '<svg id="artifact-data"><text>Figure</text></svg>', 'alt': 'a'}), "'artifact-data' appears more than once")
+    rejects(lambda e: e['questions'][0]['prompt'].append(
+        {'svg': "<svg><g id='artifact&#45;data'/></svg>", 'alt': 'a'}), "'artifact-data' appears more than once")
+    rejects(lambda e: e['questions'][0]['prompt'].append({'svg': '<svg><g id=q2 /></svg>', 'alt': 'a'}), "'q2' appears")
+    rejects(lambda e: [e['questions'][i]['prompt'].append(
+        {'svg': '<svg><marker id="arrow"/></svg>', 'alt': 'a'}) for i in (0, 1)], "'arrow' appears more than once")
     safe = copy.deepcopy(EXAMPLE)
     safe['questions'][0]['prompt'].append(
         {'svg': '<svg viewBox="0 0 10 10"><image href="data:image/png;base64,AA"/><use href="#m"/></svg>', 'alt': 'a'})
-    rm.render(safe)  # data: images and in-document references stay allowed
+    safe['questions'][1]['prompt'].append({'svg': '<svg><marker id="arrow-q2"/><path marker-end="url(#arrow-q2)"/></svg>',
+                                            'alt': 'a'})
+    rm.render(safe)  # data: images, in-document references, and unique svg ids stay allowed
 
     with tempfile.TemporaryDirectory(prefix='cooked-mock-') as temp:
         script = SKILL / 'scripts/render_mock_exam.py'
@@ -117,7 +127,7 @@ def check():
         assert second.returncode == 1 and 'Refusing to replace' in second.stderr
         assert run('--force').returncode == 0
         assert sorted(p.name for p in Path(temp).iterdir()) == ['fictional-stats-mock-a-v1.0-key.html', 'fictional-stats-mock-a-v1.0.html']
-    print('PASS: example renders, key text stays out of the worksheet, escaping, 33 invalid-exam rejections, overwrite refusal.')
+    print('PASS: example renders, key text stays out of the worksheet, escaping, 37 invalid-exam rejections, overwrite refusal.')
     print('Structure only; question correctness still needs the checked key and tutor review.')
 
 
