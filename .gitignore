@@ -11,3 +11,7 @@ __pycache__/
 Thumbs.db
 .env
 .env.*
+
+# Shared local agent coordination and isolated checkouts.
+.collab/
+.worktrees/

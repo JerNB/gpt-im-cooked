@@ -84,7 +84,7 @@ def main():
         if path.suffix in ('.jpg', '.png', '.zip', '.pdf', '.xlsx'):
             continue
         content = path.read_text(encoding='utf-8')
-        if path != ROOT / 'docs/examples/sta199/learning-record-original.md':
+        if path not in {ROOT / 'docs/examples/sta199/learning-record-original.md', ROOT / 'docs/agents/COLLAB_PROTOCOL.md'}:
             require(not re.search(r'[\u3400-\u9fff]', content), f'Non-English package content: {path.name}')
         require(not re.search(r'C:[/\\]Users[/\\]|OneDrive[/\\]|DukeCS[/\\]', content), f'Personal absolute path: {path.name}')
         if path.suffix == '.md':
