@@ -1,0 +1,5 @@
+{
+  "A1": "The reference group is the 30 students with a part-time job. 12 of them take evening classes, so 12/30 x 100 = 40.0%. 40.0% of students with a part-time job take evening classes.",
+  "A2": "No, I can't determine it. \"Of cyclists\" makes all cyclists the reference group, so I would need the total number of cyclists as the denominator. The data only say 10 of the commuters cycle; they don't say how many of the 15 non-commuters cycle, so the denominator is unknown.",
+  "B": "The reference group is the students who bring lunch: 9 commuters + 6 noncommuters = 15 students. Of those 15, 9 are commuters, so 9/15 x 100 = 60.0%. 60.0% of students who bring lunch are commuters."
+}

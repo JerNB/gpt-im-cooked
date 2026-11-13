@@ -1,0 +1,1 @@
+No, the conclusion is wrong. "Of cyclists" makes the 10 cyclists the reference group, not the 20 commuters. 8 of the 10 cyclists commute, so 8/10 x 100 = 80.0%. 80.0% of cyclists are commuters, while 40.0% of commuters cycle; reversing the condition changes the denominator.

@@ -1,0 +1,182 @@
+[
+  {
+    "arm": "A1",
+    "turn": 7,
+    "seconds": 7.5,
+    "usage": {
+      "input_tokens": 353389,
+      "cached_input_tokens": 332800,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1438,
+      "reasoning_output_tokens": 139
+    }
+  },
+  {
+    "arm": "A1",
+    "turn": 8,
+    "seconds": 20.7,
+    "usage": {
+      "input_tokens": 372171,
+      "cached_input_tokens": 351360,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1922,
+      "reasoning_output_tokens": 242
+    }
+  },
+  {
+    "arm": "A1",
+    "turn": 9,
+    "seconds": 12.7,
+    "usage": {
+      "input_tokens": 391458,
+      "cached_input_tokens": 369664,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2201,
+      "reasoning_output_tokens": 242
+    }
+  },
+  {
+    "arm": "A1",
+    "turn": 10,
+    "seconds": 14.8,
+    "usage": {
+      "input_tokens": 411048,
+      "cached_input_tokens": 388992,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2497,
+      "reasoning_output_tokens": 242
+    }
+  },
+  {
+    "arm": "A1",
+    "turn": 11,
+    "seconds": 22.9,
+    "usage": {
+      "input_tokens": 48176,
+      "cached_input_tokens": 40192,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 390,
+      "reasoning_output_tokens": 101
+    }
+  },
+  {
+    "arm": "A2",
+    "turn": 7,
+    "seconds": 15.3,
+    "usage": {
+      "input_tokens": 418446,
+      "cached_input_tokens": 392704,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2681,
+      "reasoning_output_tokens": 163
+    }
+  },
+  {
+    "arm": "A2",
+    "turn": 8,
+    "seconds": 20.4,
+    "usage": {
+      "input_tokens": 482823,
+      "cached_input_tokens": 454912,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3091,
+      "reasoning_output_tokens": 238
+    }
+  },
+  {
+    "arm": "A2",
+    "turn": 9,
+    "seconds": 15.5,
+    "usage": {
+      "input_tokens": 549745,
+      "cached_input_tokens": 518784,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3422,
+      "reasoning_output_tokens": 238
+    }
+  },
+  {
+    "arm": "A2",
+    "turn": 10,
+    "seconds": 36.5,
+    "usage": {
+      "input_tokens": 620909,
+      "cached_input_tokens": 587008,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 4355,
+      "reasoning_output_tokens": 269
+    }
+  },
+  {
+    "arm": "A2",
+    "turn": 11,
+    "seconds": 40.7,
+    "usage": {
+      "input_tokens": 66394,
+      "cached_input_tokens": 55808,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 846,
+      "reasoning_output_tokens": 465
+    }
+  },
+  {
+    "arm": "B",
+    "turn": 7,
+    "seconds": 15.6,
+    "usage": {
+      "input_tokens": 769060,
+      "cached_input_tokens": 729600,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7108,
+      "reasoning_output_tokens": 1581
+    }
+  },
+  {
+    "arm": "B",
+    "turn": 8,
+    "seconds": 14.8,
+    "usage": {
+      "input_tokens": 805345,
+      "cached_input_tokens": 765696,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7444,
+      "reasoning_output_tokens": 1770
+    }
+  },
+  {
+    "arm": "B",
+    "turn": 9,
+    "seconds": 19.1,
+    "usage": {
+      "input_tokens": 879011,
+      "cached_input_tokens": 838784,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7756,
+      "reasoning_output_tokens": 1847
+    }
+  },
+  {
+    "arm": "B",
+    "turn": 10,
+    "seconds": 26.0,
+    "usage": {
+      "input_tokens": 916207,
+      "cached_input_tokens": 875776,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8324,
+      "reasoning_output_tokens": 2058
+    }
+  },
+  {
+    "arm": "B",
+    "turn": 11,
+    "seconds": 21.0,
+    "usage": {
+      "input_tokens": 83752,
+      "cached_input_tokens": 67712,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 376,
+      "reasoning_output_tokens": 0
+    }
+  }
+]

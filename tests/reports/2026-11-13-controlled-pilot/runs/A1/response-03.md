@@ -1,0 +1,1 @@
+**25.0% of remote workers are trainees.** Calculation: \(6 \div 24 \times 100 = 25.0\%\).

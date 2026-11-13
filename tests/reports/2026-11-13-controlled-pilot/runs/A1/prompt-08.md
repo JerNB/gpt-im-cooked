@@ -1,0 +1,1 @@
+Can you explain Bayes' rule? It is on the outline.

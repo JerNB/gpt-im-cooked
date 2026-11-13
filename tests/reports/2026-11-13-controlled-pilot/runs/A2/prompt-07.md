@@ -1,0 +1,1 @@
+No, I can't determine it. "Of cyclists" makes all cyclists the reference group, so I would need the total number of cyclists as the denominator. The data only say 10 of the commuters cycle; they don't say how many of the 15 non-commuters cycle, so the denominator is unknown.

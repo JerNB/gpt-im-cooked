@@ -1,0 +1,1 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<ROOT>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<ROOT>\\AppData\\Local\\Temp\\claude\\de2315b34466d46b\\600f0fb3-df16-42b8-92a1-e36bdfe5b5b0\\scratchpad\\pilot-run\\home-A1"))

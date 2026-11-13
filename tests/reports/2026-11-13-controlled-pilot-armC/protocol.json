@@ -1,0 +1,39 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "arms": [
+    "C"
+  ],
+  "skill_revision_B": "a1265ff",
+  "cli_version": "codex-cli 0.162.1",
+  "design": "Pilot: one session per arm, 10 scripted turns + 1 new-session resume turn; arms run in parallel, turns serial within an arm.",
+  "fixture_sha256": {
+    "materials/midterm-2025.md": "ec22653040ddd54b1083a452d09a9ced4e3b0a0755a053330c3853ed08c3b476",
+    "materials/notes.md": "7b6bdc54ba46fca754c6bd0ad346b208b14b2e84c49f1712e4c88b5162f39503",
+    "materials/outline.md": "07822feababbf1d720767eaf4312918a4a60a4758d4908394d9eb5371f5e0932",
+    "materials/practice-key.md": "09b2b4010e196f6ad0382c03dbeb6e1de3bc2ef1184c92d75b77e3e3ff537e56",
+    "materials/practice.md": "f7e374ca5f81f1073c86fffff6743ff3a94c02ef62bbd6daf0b78c672a9ba91b",
+    "rubric.json": "c5e3899588f86d897281b5d4f6472b82aaffec9f4bc703d9ff300463beaa3083",
+    "script.json": "620cff2ccc7c281e5f656b72a5d316f6771f9be080a54207814c005d7b03aacc"
+  },
+  "skill_C_source": "working tree on top of a1265ff",
+  "skill_C_sha256": {
+    "agents/openai.yaml": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c",
+    "assets/course-profile.md": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6",
+    "assets/first-use.md": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219",
+    "assets/learning-record.md": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a",
+    "assets/mock-exam-example.json": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee",
+    "assets/mock-exam-template.html": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0",
+    "references/concept-tutoring.md": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00",
+    "references/interactive-review.md": "a9f3d72e0c582132e579bfc9938455ba906d7abf66a2a529f5be2ef426b31feb",
+    "references/mock-exam-layout.md": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29",
+    "references/practice-and-feedback.md": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9",
+    "references/review-artifacts.md": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e",
+    "references/state.md": "62a57cf6decb062cb732da222f68f4b043372ea8de52d770c441fb28d880b00a",
+    "references/webpage-prompts.md": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3",
+    "scripts/record_io.py": "9f9b6c2b48aaf9dd201e7933ff1e57c18d7032183d1ccc7a4390841908b44b77",
+    "scripts/render_mock_exam.py": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698",
+    "SKILL.md": "76b7156b4e245ec5d20f6b80d7c4a1ca9384f2b320484a3eda6a21d0f9663697"
+  },
+  "limits": "Synthetic packet, one model, one replicate, scripted student; not a learning-outcome study."
+}

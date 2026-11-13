@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1d6fb-ee83-7911-a460-93b95c4d1f31"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "Please paste Q2’s wording. I couldn’t access your course files, so I need the question to give you its answer."}}
+{"type": "turn.completed", "usage": {"input_tokens": 138828, "cached_input_tokens": 119040, "cache_write_input_tokens": 0, "output_tokens": 765, "reasoning_output_tokens": 59}}

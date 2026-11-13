@@ -1,0 +1,1 @@
+The reference group is the students who bring lunch: 9 commuters + 6 noncommuters = 15 students. Of those 15, 9 are commuters, so 9/15 x 100 = 60.0%. 60.0% of students who bring lunch are commuters.
