@@ -1,0 +1,30 @@
+from pathlib import Path
+import os
+import shutil
+import subprocess
+
+work = Path('<ROOT>')
+work.mkdir(parents=True, exist_ok=False)
+home = work / 'home'
+home.mkdir()
+shutil.copy2(Path.home() / '.codex/auth.json', home / 'auth.json')
+(work / 'probe.txt').write_text('T004_LOCAL_READ_7319')
+env = dict(os.environ, CODEX_HOME=str(home))
+for key in list(env):
+    if key.startswith('CODEX_') and key != 'CODEX_HOME':
+        env.pop(key, None)
+skills = sorted({str(p.resolve()).replace('\\','/') for directory in (Path.home()/'.agents/skills', Path.home()/'.codex/skills') for p in directory.rglob('SKILL.md')})
+import json
+config = 'skills.config=[' + ','.join('{path='+json.dumps(p)+',enabled=false}' for p in skills) + ']'
+extra = ['--strict-config', '-c', config, '-c', 'skills.bundled.enabled=false', '-c', 'allow_login_shell=false', '-c', 'shell_environment_policy.experimental_use_profile=false']
+try:
+    result = subprocess.run([shutil.which('codex'), 'exec', '--json', '--skip-git-repo-check',
+        *extra, '--ignore-user-config', '-m', 'gpt-6.1-sol', '-c', 'model_reasoning_effort="medium"',
+        '-c', 'approval_policy="never"', '-c', 'sandbox_mode="workspace-write"',
+        '-c', 'windows.sandbox="unelevated"', '-C', str(work),
+        'Read probe.txt with a shell command and report its exact content.'],
+        env=env, capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=180)
+    (work / 'events.jsonl').write_text(result.stdout, encoding='utf-8')
+    print(result.stdout[-8000:]); print('Disabled skill paths:', len(skills))
+finally:
+    (home / 'auth.json').unlink(missing_ok=True)

@@ -1,0 +1,128 @@
+{
+  "fixture_sha256": {
+    "materials/notes.md": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+    "materials/outline.md": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+    "materials/practice-key.md": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "materials/practice.md": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "materials/quiz-3.md": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db",
+    "rubric-v2.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "rubric.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "script.json": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51"
+  },
+  "rows": [
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 2,
+      "turn": 1,
+      "start_unix": 1794670638.8021896,
+      "wall_seconds": 316.62,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 412277,
+        "cached_input_tokens": 369152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1936,
+        "reasoning_output_tokens": 464
+      },
+      "complete": true,
+      "error": null,
+      "external_skill_commands": []
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 2,
+      "turn": 2,
+      "start_unix": 1794670955.9631674,
+      "wall_seconds": 18.3,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 474667,
+        "cached_input_tokens": 423936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2233,
+        "reasoning_output_tokens": 514
+      },
+      "complete": true,
+      "error": null,
+      "external_skill_commands": []
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 2,
+      "turn": 3,
+      "start_unix": 1794670974.814077,
+      "wall_seconds": 7.53,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 507136,
+        "cached_input_tokens": 456192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2330,
+        "reasoning_output_tokens": 548
+      },
+      "complete": true,
+      "error": null,
+      "external_skill_commands": []
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 2,
+      "turn": 4,
+      "start_unix": 1794670982.8652503,
+      "wall_seconds": 12.32,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 539747,
+        "cached_input_tokens": 488576,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2509,
+        "reasoning_output_tokens": 634
+      },
+      "complete": true,
+      "error": null,
+      "external_skill_commands": []
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 2,
+      "turn": 5,
+      "start_unix": 1794670995.7153847,
+      "wall_seconds": 20.55,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 572598,
+        "cached_input_tokens": 521216,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2907,
+        "reasoning_output_tokens": 888
+      },
+      "complete": true,
+      "error": null,
+      "external_skill_commands": []
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 2,
+      "turn": 6,
+      "start_unix": 1794671018.0017865,
+      "wall_seconds": 22.17,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 610596,
+        "cached_input_tokens": 554240,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3330,
+        "reasoning_output_tokens": 1181
+      },
+      "complete": true,
+      "error": null,
+      "external_skill_commands": []
+    }
+  ]
+}

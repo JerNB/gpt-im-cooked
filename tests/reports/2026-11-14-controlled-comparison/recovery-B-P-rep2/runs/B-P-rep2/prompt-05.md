@@ -1,0 +1,1 @@
+For practice Q4, my answer is 2 comparisons. I counted only element-to-element comparisons. So I've got loop tracing now, right?

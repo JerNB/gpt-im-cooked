@@ -1,0 +1,132 @@
+{
+  "case": "CASE-01",
+  "packet": "S",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "\n\nCorrect\u2014you identified the reference group and explained what the reversed fraction means. This gives stronger evidence of understanding than repeating the same calculation. I\u2019ll save your progress, including the earlier error and your improvement.\n\n\n\nCorrect\u2014including your interpretation of the reversed fraction:\n\n- **50.0% of yoga participants attend mornings:** reference group = 16 yoga participants.\n- **40.0% of morning attendees take yoga:** reference group = 20 morning attendees.\n\nYou\u2019ve now demonstrated the core idea across direct calculations and a question requiring you to spot reversed conditioning, consistent with Notes \u00a71.2\u20131.3. We can move on to two-way tables and recheck this later.\n\nI saved your progress in your [learning record](/<ROOT>/run-B-S-rep1/study/stat-110/midterm-1/learning-record.md).",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability and reference groups | Demonstrated |",
+            "| 2026-11-14 | Practice-A-Q3 | T1 |",
+            "| 2026-11-14 | Gym-transfer-1 | T1 |"
+          ],
+          "recheck_lines": [
+            " T1 | Conditional probability and reference groups | Demonstrated | Maintenance recheck: Q1 whole-sample denominator error followed by independently correct Q3 and correct Q4 with referen",
+            "umber or whole sample. Report one decimal percentage and group. | Later unaided recheck with a two-way table under Notes section 2; retain course breadth. |",
+            "- Concepts to revisit: Later conditional-probability recheck; status Demonstrated applies to supplied count-based reference-group concept, not all probability."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "\n\nI\u2019ll check whether your local materials include a Bayes\u2019 rule explanation beyond the outline.\n\n\n\nBayes\u2019 rule is in scope, but your outline says **\u201ccovered in lecture; notes to be posted\u201d** ([outline, T3](materials/outline.md)). I checked the local materials and found no explanation of it.\n\nYour [study skill]([workflow reference]) requires: **\u201cTeach from accessible supplied content only.\u201d** Please add the relevant lecture notes or excerpt to `materials/` so I can explain Bayes\u2019 rule using your course\u2019s treatment.\n\nThe supported prerequisite is the distinction you just demonstrated: **the share of yoga participants who attend mornings differs from the share of morning attendees who take yoga because the reference groups differ** (Notes \u00a71.3). Your explanation correctly handled that distinction.",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability and reference groups | Demonstrated |",
+            "| 2026-11-14 | Practice-A-Q3 | T1 |",
+            "| 2026-11-14 | Gym-transfer-1 | T1 |"
+          ],
+          "recheck_lines": [
+            " T1 | Conditional probability and reference groups | Demonstrated | Maintenance recheck: Q1 whole-sample denominator error followed by independently correct Q3 and correct Q4 with referen",
+            "umber or whole sample. Report one decimal percentage and group. | Later unaided recheck with a two-way table under Notes section 2; retain course breadth. |",
+            "- Concepts to revisit: Later conditional-probability recheck; status Demonstrated applies to supplied count-based reference-group concept, not all probability."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability and reference groups | Demonstrated |",
+            "| 2026-11-14 | Practice-A-Q3 | T1 |",
+            "| 2026-11-14 | Gym-transfer-1 | T1 |"
+          ],
+          "recheck_lines": [
+            " T1 | Conditional probability and reference groups | Demonstrated | Maintenance recheck: Q1 whole-sample denominator error followed by independently correct Q3 and correct Q4 with referen",
+            "umber or whole sample. Report one decimal percentage and group. | Later unaided recheck with a two-way table under Notes section 2; retain course breadth. |",
+            "- Concepts to revisit: Later conditional-probability recheck; status Demonstrated applies to supplied count-based reference-group concept, not all probability."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\n**You\u2019ve made clear progress, but we don\u2019t yet have enough evidence to call you ready for the whole midterm.**\n\n| Topic | What your work shows |\n|---|---|\n| **Conditional probability** | Demonstrated: after Q1\u2019s denominator error, you correctly explained Q3 and Q4, then identified and explained reversed conditioning in the gym question. Q2\u2019s supplied answer doesn\u2019t count as independent evidence. |\n| **Two-way tables** | Untested. We haven\u2019t reviewed row versus column percentages or choosing the reference group from a table. |\n| **Bayes\u2019 rule** | Untested and not taught here. It is in scope, but the outline says its notes are still to be posted. |\n| **Grouped summaries** | Untested. We haven\u2019t reviewed group summaries, the number of resulting rows, or comparing the same summary across groups. |\n\nThose four topics are listed in your current outline. **Hypothesis testing is excluded**, so it isn\u2019t a gap for this midterm.\n\n\u201cUntested\u201d means I don\u2019t know whether you already understand it\u2014not that you necessarily don\u2019t. We also haven\u2019t checked your performance across a mixed set without hints.\n\nThe next useful step is **two-way tables**, followed by grouped summaries. Add the Bayes\u2019 rule lecture notes when available so we can cover that remaining topic.",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability and reference groups | Demonstrated |",
+            "| 2026-11-14 | Practice-A-Q3 | T1 |",
+            "| 2026-11-14 | Gym-transfer-1 | T1 |"
+          ],
+          "recheck_lines": [
+            " T1 | Conditional probability and reference groups | Demonstrated | Maintenance recheck: Q1 whole-sample denominator error followed by independently correct Q3 and correct Q4 with referen",
+            "umber or whole sample. Report one decimal percentage and group. | Later unaided recheck with a two-way table under Notes section 2; retain course breadth. |",
+            "- Concepts to revisit: Later conditional-probability recheck; status Demonstrated applies to supplied count-based reference-group concept, not all probability."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability and reference groups | Demonstrated |",
+            "| 2026-11-14 | Practice-A-Q3 | T1 |",
+            "| 2026-11-14 | Gym-transfer-1 | T1 |"
+          ],
+          "recheck_lines": [
+            " T1 | Conditional probability and reference groups | Demonstrated | Maintenance recheck: Q1 whole-sample denominator error followed by independently correct Q3 and correct Q4 with referen",
+            "umber or whole sample. Report one decimal percentage and group. | Later unaided recheck with a two-way table under Notes section 2; retain course breadth. |",
+            "- Concepts to revisit: Later conditional-probability recheck; status Demonstrated applies to supplied count-based reference-group concept, not all probability."
+          ]
+        }
+      }
+    }
+  ]
+}

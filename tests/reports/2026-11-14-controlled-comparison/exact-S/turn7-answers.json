@@ -1,0 +1,13 @@
+{
+  "S-rep1": {
+    "A1": "50.0% of volunteers are seniors. The reference group is the 16 volunteers, and 8 are seniors, so I use 8/16 rather than 8/20 or 8/50.",
+    "A2": "There is not enough information. The reference group is all volunteers. We know 4 senior volunteers, but do not know how many non-seniors volunteer, or the total number of volunteers. I need the total volunteer count; then 4 divided by that total gives the percentage of volunteers who are seniors.",
+    "B": "Alex is not correct. 50.0% of yoga participants attend morning sessions. The reference group is all 16 yoga participants, 8 of whom attend mornings, so I divide 8 by 16. The fraction 8/20 instead describes morning attendees who take yoga.",
+    "C": "60.0% of volunteers are seniors. The reference group is all volunteers: 12 seniors plus 8 non-seniors, giving 20 volunteers. The numerator is 12 senior volunteers, so 12/(12+8)=12/20 gives 60.0%. The 30 seniors and 50 club members are not the requested reference group."
+  },
+  "S-rep2": {
+    "C": "60.0% of members who borrowed a book are students. The reference group is the 15 book borrowers, 9 of whom are students. So I use 9/15, not 9/20 or 9/50.",
+    "B": "60.0% of students who do not cycle are commuters. The reference group is the noncyclists: 15 commuters plus 10 noncommuters, totaling 25. Of those, 15 are commuters, so 15/(15+10)=60.0%.",
+    "A2": "Not enough information. The denominator must be all trainees. We know 6 remote workers are trainees, but the number of nonremote trainees is not given. We need the total number of trainees, or the number of nonremote trainees; then 6 divided by total trainees gives the requested percentage of trainees who work remotely."
+  }
+}

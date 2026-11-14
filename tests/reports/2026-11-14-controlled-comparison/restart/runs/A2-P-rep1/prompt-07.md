@@ -1,0 +1,1 @@
+Report 0 element-to-element comparisons. A one-element list has no adjacent pair, so n-1=0. The assignment and loop-condition check are excluded by the course convention.

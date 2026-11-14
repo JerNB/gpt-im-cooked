@@ -1,0 +1,1 @@
+Step 1 compares 6>2 and swaps to [2,6,5,1]. Step 2 compares 6>5 in the updated list and swaps to [2,5,6,1]. Then it stops. Report 2 element-to-element comparisons. I exclude assignments and swap operations from the runtime count.

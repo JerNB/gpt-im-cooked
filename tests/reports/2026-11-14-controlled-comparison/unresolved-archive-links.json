@@ -1,0 +1,58 @@
+[
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-08.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-09.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "recovery-B-P-rep2/runs/B-P-rep2/response-08.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "recovery-B-P-rep2/runs/B-P-rep2/response-09.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "isolated/runs/A2-P-rep2/response-08.md",
+    "target": "materials/outline.md:9"
+  },
+  {
+    "file": "isolated/runs/A2-P-rep2/response-09.md",
+    "target": "materials/quiz-3.md:3"
+  },
+  {
+    "file": "isolated/runs/C-S-rep1/response-08.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "isolated/runs/C-S-rep1/response-09.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "isolated/runs/C-S-rep2/response-01.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "isolated/runs/C-S-rep2/response-08.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "isolated/runs/C-S-rep2/response-09.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "exact-S/runs/B-S-rep1/response-08.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "exact-S/runs/B-S-rep2/response-08.md",
+    "target": "skill/SKILL.md"
+  },
+  {
+    "file": "exact-S/runs/B-S-rep2/response-09.md",
+    "target": "skill/SKILL.md"
+  }
+]

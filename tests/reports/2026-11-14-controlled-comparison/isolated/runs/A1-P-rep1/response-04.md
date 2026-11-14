@@ -1,0 +1,1 @@
+Correct—**7 element-to-element comparisons**. You counted the 7 adjacent pairs and correctly excluded assignments, index updates, and loop-condition checks. You solved Q3 independently.

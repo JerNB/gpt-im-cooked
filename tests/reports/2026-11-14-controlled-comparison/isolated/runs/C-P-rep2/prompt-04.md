@@ -1,0 +1,1 @@
+Q3: 7 element-to-element comparisons, since 8 elements have 7 adjacent pairs. I excluded assignments, index updates, and loop-condition checks. I did not use a hint.

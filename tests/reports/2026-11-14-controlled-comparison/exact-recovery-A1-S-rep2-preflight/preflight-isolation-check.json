@@ -1,0 +1,6 @@
+{
+  "fresh_tutor_thread": true,
+  "preflight_marker_absent_from_initial_tutor_context": true,
+  "workspace_inventory_unchanged_enforced_before_tutor_start": true,
+  "note": "Preflight is separate environment preparation; not one of the eleven student turns."
+}

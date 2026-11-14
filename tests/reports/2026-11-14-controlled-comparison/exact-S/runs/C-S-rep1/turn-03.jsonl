@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1dad1-4192-72e0-9099-2782d3261927"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "**Hi student, let's get you uncooked.**\n\n**25.0% of remote workers are trainees.** Divide the 6 remote trainees by the 24 remote workers: \\(6 \\div 24 \\times 100 = 25.0\\%\\). ([Instructor key, Q2](materials/practice-key.md))"}}
+{"type": "turn.completed", "usage": {"input_tokens": 835499, "cached_input_tokens": 780160, "cache_write_input_tokens": 0, "output_tokens": 4313, "reasoning_output_tokens": 363}}

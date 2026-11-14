@@ -1,0 +1,1 @@
+The final count variable is 1. At i=0, 3>1 is true so count becomes 1; at i=1, 1>2 is false so count stays 1. The list is never changed. The runtime count is 2 element-to-element comparisons, regardless of how many were true. I exclude assignment/increment operations, index updates, and loop-condition checks.

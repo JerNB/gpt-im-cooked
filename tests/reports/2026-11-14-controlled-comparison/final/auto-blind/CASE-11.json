@@ -1,0 +1,62 @@
+{
+  "case": "CASE-11",
+  "packet": "S",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 10,
+      "reply": "**You\u2019ve made solid progress, but I don\u2019t yet have enough evidence to say you\u2019re ready for the whole midterm.**\n\nBased on your current outline and our work:\n\n| Topic | What you\u2019ve demonstrated | What remains |\n|---|---|---|\n| Conditional probability | You solved Q3, Q4, and the reversed-group question independently, with correct denominators and reporting. | Applying it in two-way tables. |\n| Two-way tables | We haven\u2019t practiced this yet. | Choosing row versus column percentages and interpreting them. |\n| Bayes\u2019 rule | You\u2019ve read an explanation. | Independently setting up and solving a new problem. |\n| Grouped summaries | We haven\u2019t covered this yet. | Computing and comparing summaries by group; understanding that the result has one row per non-empty group. |\n\nYour initial denominator mistake on Q1 was followed by three independent correct answers\u2014that\u2019s meaningful evidence of learning. Q2 was supplied to you, so it doesn\u2019t count as evidence of independent understanding.\n\n**Your biggest remaining gaps are two-way tables, Bayes\u2019 practice, and grouped summaries.** Hypothesis testing is excluded from this year\u2019s midterm.\n\nI\u2019d start with a two-way-table question, then check Bayes and grouped summaries without hints. That will give us a much firmer readiness assessment.",
+      "files": {}
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    }
+  ]
+}

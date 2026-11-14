@@ -1,0 +1,1 @@
+I’ll check the remaining course files for Bayes’ rule so I can match the explanation to your course.

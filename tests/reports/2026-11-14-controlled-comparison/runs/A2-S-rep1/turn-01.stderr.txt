@@ -1,0 +1,9 @@
+2026-11-13T23:19:13.378112Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-11-13T23:20:28.684528Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"Failed to create unified exec process: registered Core process has no package identity\")" }
+2026-11-13T23:20:45.300245Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"Failed to create unified exec process: registered Core process has no package identity\")" }
+2026-11-13T23:20:52.098690Z  WARN codex_sandboxing::violation: recorded sandbox violation: resource=filesystem backend=windows_sandbox reason=failed_to_write_file path=unknown
+2026-11-13T23:20:52.103077Z ERROR codex_core::tools::router: error=Exit code: 1
+Wall time: 0.3 seconds
+Output:
+Failed to write file <ROOT>\run-A2-S-rep1\stat110-progress.md
+

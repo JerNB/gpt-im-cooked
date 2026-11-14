@@ -1,0 +1,170 @@
+[
+  {
+    "file": "exact-S/runs/B-S-rep1/response-07.md",
+    "old_target": "/<ROOT>/run-B-S-rep1/study/stat-110/midterm-1/learning-record.md",
+    "new_target": "study/stat-110/midterm-1/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "isolated/runs/B-P-rep1/response-05.md",
+    "old_target": "/<ROOT>/run-B-P-rep1/study/cs-101/quiz-4/learning-record.md",
+    "new_target": "study/cs-101/quiz-4/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-B-P-rep2/runs/B-P-rep2/response-07.md",
+    "old_target": "/<ROOT>/run-B-P-rep2/study/cs-101/quiz-4/learning-record.md",
+    "new_target": "study/cs-101/quiz-4/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-01.md",
+    "old_target": "<ROOT>/run-B-S-rep2/materials/notes.md",
+    "new_target": "materials/notes.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-01.md",
+    "old_target": "<ROOT>/run-B-S-rep2/materials/notes.md",
+    "new_target": "materials/notes.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-01.md",
+    "old_target": "<ROOT>/run-B-S-rep2/materials/outline.md",
+    "new_target": "materials/outline.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-02.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/materials/practice-key.md",
+    "new_target": "materials/practice-key.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-02.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/materials/notes.md",
+    "new_target": "materials/notes.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-02.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/study/stat-110/midterm-1/learning-record.md",
+    "new_target": "study/stat-110/midterm-1/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-04.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/study/stat-110/midterm-1/learning-record.md",
+    "new_target": "study/stat-110/midterm-1/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-05.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/study/stat-110/midterm-1/learning-record.md",
+    "new_target": "study/stat-110/midterm-1/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-07.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/study/stat-110/midterm-1/learning-record.md",
+    "new_target": "study/stat-110/midterm-1/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-09.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/materials/midterm-2025.md",
+    "new_target": "materials/midterm-2025.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "recovery-C-S-rep1/runs/C-S-rep1/response-10.md",
+    "old_target": "/<ROOT>/run-C-S-rep1/study/stat-110/midterm-1/learning-record.md",
+    "new_target": "study/stat-110/midterm-1/learning-record.md",
+    "kind": "internal-workspace-link"
+  },
+  {
+    "file": "exact-S/runs/B-S-rep1/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "exact-S/runs/B-S-rep2/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "exact-S/runs/B-S-rep2/response-09.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "isolated/runs/A2-P-rep2/response-08.md",
+    "old_target": "materials/outline.md:9",
+    "new_target": "materials/outline.md",
+    "kind": "source-line-locator"
+  },
+  {
+    "file": "isolated/runs/A2-P-rep2/response-09.md",
+    "old_target": "materials/quiz-3.md:3",
+    "new_target": "materials/quiz-3.md",
+    "kind": "source-line-locator"
+  },
+  {
+    "file": "isolated/runs/C-S-rep1/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-C/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "isolated/runs/C-S-rep1/response-09.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-C/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "isolated/runs/C-S-rep2/response-01.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-C/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "isolated/runs/C-S-rep2/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-C/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "isolated/runs/C-S-rep2/response-09.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-C/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "recovery-B-P-rep2/runs/B-P-rep2/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "recovery-B-P-rep2/runs/B-P-rep2/response-09.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "recovery-B-S-rep2/runs/B-S-rep2/response-09.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-B/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  }
+]

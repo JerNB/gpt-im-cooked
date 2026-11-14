@@ -1,0 +1,139 @@
+{
+  "case": "CASE-02",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "\n\nQ4 is correct. Your answers to Q3 and Q4 show improvement on adjacent-pair counting. I\u2019ll save that progress, with the broader loop-tracing check still open.\n\n\n\n**Q4 is correct: 2 element-to-element comparisons**\u2014`0` with `-1`, then `-1` with `3`. This matches the instructor key, `materials/practice-key.md`, Q4.\n\nYour Q3 reasoning and Q4 answer show progress with **adjacent-pair counting**. I\u2019d mark this **Improving**: broader loop tracing also involves following changing values, which we haven\u2019t checked yet.\n\nTry the pending transfer check: **an eight-element list\u2019s pass stops after comparing the first two adjacent pairs. How many comparisons occur, and why?**\n\nSaved your progress in your [learning record](/<ROOT>/run-B-P-rep1/study/cs-101/quiz-4/learning-record.md).",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\n**You\u2019ve demonstrated part of Quiz 4\u2019s material, but we haven\u2019t established readiness for the whole quiz.** The remaining topics are mostly unassessed\u2014not proven weaknesses.\n\n| Quiz 4 topic | What your work shows | What remains |\n|---|---|---|\n| **Loop tracing and comparison counts** | Q3 and Q4 were correct. You also correctly traced changing values and counted an early-stopping pass. | Check another loop trace to confirm consistency. |\n| **List aliasing** | No reviewed attempt yet. | References, mutation through shared names, and shallow copies of nested lists. |\n| **Big-O** | No teaching or attempt yet. | Explanation and practice; the supplied teaching notes are missing. |\n| **Nested data summaries** | No reviewed attempt yet. | Compute statistics separately for each group and identify what each result represents. |\n\nThose requirements come from `materials/outline.md` and `materials/notes.md`, \u00a7\u00a71\u20133.\n\nYour initial Q1 mistake was counting elements instead of adjacent pairs. Your later reasoning shows you corrected that. **Q2 was an answer reveal, so it supplies no evidence of understanding.** Your strongest evidence is the later transfer question, where you correctly handled both updated values and an early stop.\n\n**Recursion is excluded from Quiz 4**, so it isn\u2019t a current readiness gap.\n\nThe best next step is **list aliasing**, followed by nested summaries, while obtaining a teaching source for Big-O. Then a mixed check can assess your readiness across the quiz\u2019s full scope.",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving |",
+            "| P2-state / P2 | Trace indices, values, state changes | Unassessed |",
+            "| 2026-11-13 | Practice B Q3 | P2-adjacent |",
+            "| 2026-11-13 | Practice B Q4 | P2-adjacent |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    }
+  ]
+}

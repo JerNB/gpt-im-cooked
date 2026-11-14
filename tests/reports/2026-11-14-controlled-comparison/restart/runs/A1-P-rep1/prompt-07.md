@@ -1,0 +1,1 @@
+After i=0, values is [1,4,3,2] and swaps=1. After i=1 it is [1,3,4,2] and swaps=2. After i=2 it is [1,3,2,4] and swaps=3. Final values=[1,3,2,4], swaps=3. Report 3 element-to-element comparisons: 4>1, 4>3, and 4>2. Assignments, swaps, index updates, and loop-condition checks are excluded.

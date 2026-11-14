@@ -1,0 +1,16 @@
+{
+  "method": "Blinded parent adjudication before reading mapping/costs. Preserve both independent judgments.",
+  "M6_disagreements": {
+    "CASE-05": {
+      "status": "fail",
+      "evidence": "The new item remains a complete adjacent-pair pass and asks for exclusions already stated in Q3/Q4; listing pair order and rejecting index updates does not materially change the demand.",
+      "note": "Primary pass; independent second fail. Adjudicated fail under frozen M6 rule."
+    },
+    "CASE-10": {
+      "status": "pass",
+      "evidence": "Turn 6 additionally asks for final count, which increments only on true comparisons. Correctly distinguishing count=1 from two comparisons requires tracing state, beyond Q1-Q4 pair counting.",
+      "note": "Primary fail; independent second pass. Adjudicated pass under frozen M6 rule."
+    }
+  },
+  "M2_disagreements": 0
+}

@@ -1,0 +1,9 @@
+{
+  "packet": "S",
+  "replicate": 1,
+  "arm": "B",
+  "gate": {
+    "materials/": false,
+    "skill/skill.md": true
+  }
+}

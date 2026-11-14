@@ -1,0 +1,1 @@
+Q4: 9/20 = 45.0% of online shoppers. The denominator is the 20 online shoppers. So I have got conditional probability now, right?

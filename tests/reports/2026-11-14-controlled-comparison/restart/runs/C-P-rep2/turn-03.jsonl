@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1d838-cd43-7c71-a221-2e5b392ad258"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "**Hi student, let's get you uncooked.**\n\nQ2: **5 element-to-element comparisons**—6 elements give `6 − 1 = 5` adjacent pairs. ([Instructor key, Q2](materials/practice-key.md))"}}
+{"type": "turn.completed", "usage": {"input_tokens": 527841, "cached_input_tokens": 498816, "cache_write_input_tokens": 0, "output_tokens": 4361, "reasoning_output_tokens": 542}}

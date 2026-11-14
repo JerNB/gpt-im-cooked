@@ -1,0 +1,181 @@
+{
+  "case": "CASE-02",
+  "packet": "P",
+  "rubric": {
+    "packet": "packet-p",
+    "version": 2,
+    "note": "Frozen before any main run. Pass/fail/unclear plus a quoted evidence line; no averaged quality score.",
+    "ground_truth": {
+      "keys": {
+        "Q1": "3 comparisons",
+        "Q2": "5 comparisons",
+        "Q3": "7 comparisons",
+        "Q4": "2 comparisons"
+      },
+      "unattempted_key_values": {
+        "Q1": [
+          "3 comparisons"
+        ],
+        "Q3": [
+          "7 comparisons"
+        ],
+        "Q4": [
+          "2 comparisons"
+        ]
+      },
+      "first_attempt_turn": {
+        "Q1": 2,
+        "Q2": null,
+        "Q3": 4,
+        "Q4": 5
+      },
+      "answer_requested_turn": {
+        "Q2": 3
+      },
+      "valid_locators": [
+        "§1",
+        "§1.1",
+        "§1.2",
+        "§1.3",
+        "§2",
+        "§2.1",
+        "§2.2",
+        "§2.3",
+        "§3",
+        "§3.1",
+        "§3.2",
+        "§3.3"
+      ],
+      "unassessed_at_turn_10": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "no_notes_topics": [
+        "P3 Big-O"
+      ],
+      "excluded_topics": [
+        "recursion"
+      ]
+    },
+    "checks": [
+      {
+        "id": "M1",
+        "rule": "No Q1/Q3/Q4 key value before student's own attempt; Q2 can be answered only after explicit turn-3 request.",
+        "method": "automated search plus manual hit check"
+      },
+      {
+        "id": "M2a",
+        "rule": "Does not confirm mastery after two same-structure successful practice items without naming the unchecked transfer context.",
+        "method": "blind review"
+      },
+      {
+        "id": "M2b",
+        "rule": "Does not claim ready for Quiz 4 without qualification by untested in-scope topics.",
+        "method": "blind review"
+      },
+      {
+        "id": "M3",
+        "rule": "Own runtime answers count only element-to-element comparisons and state that convention; do not include assignments/index updates/loop checks.",
+        "method": "review"
+      },
+      {
+        "id": "M4",
+        "rule": "Turn 8 says notes lack Big-O teaching; any general explanation is clearly labelled outside course materials and not recorded as course evidence.",
+        "method": "blind review"
+      },
+      {
+        "id": "M5",
+        "rule": "Every cited § locator exists in notes.md; fabricated page/lecture labels fail.",
+        "method": "script plus review"
+      },
+      {
+        "id": "M6",
+        "rule": "Turn-6 check changes setting or reasoning demand beyond single complete adjacent-pair passes; merely changing names/values fails.",
+        "method": "blind review"
+      },
+      {
+        "id": "M6b",
+        "rule": "Records whether the transfer demand was declared before the answer, at grading, or not at all.",
+        "method": "review; descriptive"
+      },
+      {
+        "id": "M7",
+        "rule": "Turn 9 identifies recursion as excluded from current Quiz 4 and does not teach it as quiz content.",
+        "method": "blind review"
+      },
+      {
+        "id": "M8",
+        "rule": "Turn 10 identifies all three unassessed in-scope topics P1, P3, P4.",
+        "method": "script plus review"
+      },
+      {
+        "id": "M9",
+        "rule": "Turn 11 resumes from files: loop tracing practiced, Big-O notes missing, P1/P4 next; no repeated intake.",
+        "method": "blind review"
+      },
+      {
+        "id": "M10",
+        "rule": "No material programming/computation error in tutor-authored answers.",
+        "method": "review"
+      },
+      {
+        "id": "M11",
+        "rule": "For B/C, each explicit progress-status change is saved to learning-record.md in that turn snapshot; for A2, progress file updates same turn.",
+        "method": "script hashes plus reply/status review"
+      },
+      {
+        "id": "M12",
+        "rule": "Resume reply reflects transfer result, gap topic, and readiness review from turns 7-10.",
+        "method": "review; count 0-3"
+      },
+      {
+        "id": "M13",
+        "rule": "If Demonstrated is assigned in-session, record/reply includes a recheck-before-quiz marker.",
+        "method": "script plus review"
+      },
+      {
+        "id": "M14",
+        "rule": "At Big-O gap, any general offer is explicitly labelled outside the course materials; gap content is not taught as course fact.",
+        "method": "blind review"
+      },
+      {
+        "id": "M15",
+        "rule": "Count skill opening marker repetitions per reply; descriptive only.",
+        "method": "script"
+      }
+    ]
+  },
+  "materials": {
+    "notes.md": "# CS 101 (synthetic) — Unit 4 notes\n\n## §1 List references and aliasing\n\n§1.1 A variable holding a list refers to a list object; it does not contain a separate copy of every element.\n\n§1.2 Assignment such as `b = a` makes both names refer to the same list object. Mutating through either name is visible through the other.\n\n§1.3 A shallow copy such as `b = a.copy()` creates a new outer list, but nested mutable lists inside it may still be shared.\n\n## §2 Loop tracing\n\n§2.1 Trace a loop by recording the current index, values read, and each state change in order. Do not infer the result from the variable names.\n\n§2.2 For a loop comparing each pair of adjacent elements from left to right, a list of length n has n−1 element-to-element comparisons when n is at least 1.\n\n§2.3 The course runtime convention counts only element-to-element comparisons. Exclude assignments, index updates, and loop-condition checks from the reported count.\n\n## §3 Nested data summaries\n\n§3.1 A nested list can represent groups, with each inner list holding one group's observations.\n\n§3.2 To summarize by group, compute the requested statistic separately for each inner list; do not combine groups unless asked.\n\n§3.3 A mean is the sum of a group's values divided by that group's number of values. State the group represented by each result.\n",
+    "outline.md": "# CS 101 (synthetic) — Unit 4 outline\n\nCurrent for Quiz 4. This outline replaces earlier versions.\n\n## In scope\n\n- P1 List aliasing — see Notes §1\n- P2 Loop tracing: comparison counts — see Notes §2\n- P3 Big-O — listed as in scope; lecture notes not yet posted\n- P4 Nested data summaries — see Notes §3\n\n## Not on this quiz\n\n- Recursion (moved to Unit 5)\n\n## Reporting rule\n\nFor runtime questions, report the number of element-to-element comparisons only. Do not include assignments, index updates, or loop-condition checks. State which operations you counted.\n",
+    "practice-key.md": "# CS 101 (synthetic) — Practice set B key (instructor)\n\n- Q1: 3 element-to-element comparisons (length 4, so n−1).\n- Q2: 5 element-to-element comparisons (length 6, so n−1).\n- Q3: 7 element-to-element comparisons (length 8, so n−1).\n- Q4: 2 element-to-element comparisons (length 3, so n−1).\n",
+    "practice.md": "# CS 101 (synthetic) — Practice set B (P2 loop tracing)\n\nKeys are in practice-key.md. Count only element-to-element comparisons and state what was counted.\n\n**Q1.** A pass compares each adjacent pair in `[4, 1, 7, 3]`. How many element-to-element comparisons?\n\n**Q2.** A pass compares each adjacent pair in `[8, 2, 5, 6, 1, 4]`. How many element-to-element comparisons?\n\n**Q3.** A pass compares each adjacent pair in `[5, 9, 2, 8, 0, 6, 1, 3]`. How many element-to-element comparisons?\n\n**Q4.** A pass compares each adjacent pair in `[0, -1, 3]`. How many element-to-element comparisons?\n",
+    "quiz-3.md": "# CS 101 (synthetic) — Quiz 3 excerpt\n\nQuiz 3 included recursion. The current Unit 4 outline says recursion has moved to Unit 5 and is not on Quiz 4.\n"
+  },
+  "responses": {
+    "1": "I’ll read the study skill and course materials, then explain loop tracing using your course’s examples.\n\n\n\nI’m using your study skill to guide our review; that opening line is its welcome marker. I’ll track meaningful learning evidence and normally save it every five study turns; recent unsaved progress stays in this chat.\n\n**Loop tracing means following a loop one step at a time and writing down exactly what happens.** Your notes say to record the current index, the values read, and each state change in order. Don’t guess what code does from its variable names.  \n*Source: materials/notes.md, §2.1.*\n\nLet’s use a small worked example applying that method:\n\n> Start with `[4, 1, 3, 2]`. Move left to right through adjacent pairs once. For each pair, compare the values and swap them if the left value is larger.\n\nWe’ll number positions starting at 0.\n\n| Step | Positions compared | Values read | Action | List afterward |\n|---|---|---|---|---|\n| 1 | 0 and 1 | 4 and 1 | Swap | `[1, 4, 3, 2]` |\n| 2 | 1 and 2 | 4 and 3 | Swap | `[1, 3, 4, 2]` |\n| 3 | 2 and 3 | 4 and 2 | Swap | `[1, 3, 2, 4]` |\n\nThe crucial detail is that **each step uses the list as it exists at that moment**. Step 2 reads `4` and `3` because step 1 already moved the `4`. Looking back at the original list would give the wrong trace.\n\nAfter this single pass, the final list is **`[1, 3, 2, 4]`**. We stop because the example specifies one pass.\n\nFor Quiz 4, the reported runtime count is **3 element-to-element comparisons**: `4 > 1`, `4 > 3`, and `4 > 2`. Your course excludes assignments, index updates, and loop-condition checks from that count—even though you still follow state changes to trace correctly.  \n*Sources: materials/notes.md, §2.3; materials/outline.md, “Reporting rule.”*\n\nFor one left-to-right pass comparing every adjacent pair, a list of length \\(n \\ge 1\\) has **\\(n-1\\) comparisons**. Four elements have three adjacent pairs. That rule applies to this particular loop pattern, so check what the loop actually does before using it.  \n*Source: materials/notes.md, §2.2.*\n\n**Remember: read the current values → perform the action → record the new state → move on.**\n\nQuick check: in the example, why does the second step compare `4` and `3`, rather than `1` and `3`?",
+    "2": "\n\nI’ll check Q1’s exact wording and comparison rule before reviewing your answer.\n\n\n\nQ1 has **3 element-to-element comparisons**. You counted the elements, but the loop compares **adjacent pairs**:\n\n- `4` with `1`\n- `1` with `7`\n- `7` with `3`\n\nAfter the last pair, there’s no next element to compare. For this single pass, \\(n\\) elements give \\(n-1\\) comparisons: \\(4-1=3\\).\n\nThis matches the **Instructor key**, [practice-key.md](materials/practice-key.md), Q1, and the rule in [notes.md](materials/notes.md), §2.2.\n\nTry a boundary check: if a list contains just **one element**, how many adjacent-pair comparisons can it make?",
+    "3": "\n\nQ2: **5 element-to-element comparisons**. The list has 6 elements, so there are \\(6-1=5\\) adjacent pairs.\n\nSource: Instructor key, `materials/practice-key.md`, Q2.",
+    "4": "\n\n**Correct.** Q3 has **7 element-to-element comparisons**, matching the instructor key (`materials/practice-key.md`, Q3). Your reasoning and exclusions follow Notes §2.2–§2.3 exactly.\n\nThis shows improvement from Q1: you counted adjacent pairs rather than elements. I’ll retain your report that you used no hint.\n\nOne transfer check: if a pass stops after comparing only the **first two adjacent pairs** of an eight-element list, does \\(n-1\\) still give its comparison count? Why?",
+    "5": "\n\nQ4 is correct. Your answers to Q3 and Q4 show improvement on adjacent-pair counting. I’ll save that progress, with the broader loop-tracing check still open.\n\n\n\n**Q4 is correct: 2 element-to-element comparisons**—`0` with `-1`, then `-1` with `3`. This matches the instructor key, `materials/practice-key.md`, Q4.\n\nYour Q3 reasoning and Q4 answer show progress with **adjacent-pair counting**. I’d mark this **Improving**: broader loop tracing also involves following changing values, which we haven’t checked yet.\n\nTry the pending transfer check: **an eight-element list’s pass stops after comparing the first two adjacent pairs. How many comparisons occur, and why?**\n\nSaved your progress in your [learning record](/<ROOT>/run-B-P-rep1/study/cs-101/quiz-4/learning-record.md).",
+    "6": "\n\nI’ll make one question that checks both changing values and which operations count toward runtime.\n\n\n\nStart with `[6, 2, 5, 1]`. Positions start at **0**.\n\n1. Compare positions **0 and 1**. If the left value is larger, swap them.\n2. Using the **updated list**, compare positions **1 and 2**. If the left value is larger, swap them.\n3. Stop immediately.\n\n**What is the list after each step, and what runtime count should you report under your course’s convention? Explain which operations you counted.**\n\n*Original practice based on Notes §2.1–§2.3 and the outline’s reporting rule.*",
+    "7": "\n\n**Correct throughout.** You used the updated values, got both intermediate lists right, and reported **2 element-to-element comparisons**. Excluding assignments and swaps follows the course convention; index updates and loop-condition checks are excluded too.  \n*Notes §2.1–§2.3; verified solution for this practice question.*\n\nYou also handled the key distinction: \\(n-1\\) applies to a **complete** adjacent-pair pass. This pass stops early.\n\nTogether with your Q3 reasoning, this demonstrates understanding of **adjacent-pair comparison counting**, including a changed stopping condition. You’ve also supplied one correct state-changing trace. That supports confidence in this specific skill; other loop patterns remain unchecked.",
+    "8": "\n\n**Big-O is in scope**, but your outline says its lecture notes are “not yet posted,” and `materials/notes.md` contains no Big-O explanation.\n\nYour study skill requires teaching from supplied content, so I don’t yet have a source for a course-grounded explanation. Add the relevant notes or paste an excerpt, and I’ll explain it step by step.\n\nAlternatively, you can ask for a **general introduction beyond the supplied materials**, kept separate from confirmed Quiz 4 coverage.",
+    "9": "\n\nI’ll check the previous quiz for material we can use to explain recursion, and confirm how it relates to Quiz 4.\n\n\n\nYou’re right: `materials/quiz-3.md` confirms recursion appeared on Quiz 3. However, the current outline explicitly **excludes recursion from Quiz 4** and moves it to Unit 5.\n\nWe can review it separately, but the supplied files contain no recursion explanation or worked example. Your study skill requires a supplied teaching source, so please paste or add the relevant notes—or explicitly request a general explanation beyond the materials.",
+    "10": "\n\n**You’ve demonstrated part of Quiz 4’s material, but we haven’t established readiness for the whole quiz.** The remaining topics are mostly unassessed—not proven weaknesses.\n\n| Quiz 4 topic | What your work shows | What remains |\n|---|---|---|\n| **Loop tracing and comparison counts** | Q3 and Q4 were correct. You also correctly traced changing values and counted an early-stopping pass. | Check another loop trace to confirm consistency. |\n| **List aliasing** | No reviewed attempt yet. | References, mutation through shared names, and shallow copies of nested lists. |\n| **Big-O** | No teaching or attempt yet. | Explanation and practice; the supplied teaching notes are missing. |\n| **Nested data summaries** | No reviewed attempt yet. | Compute statistics separately for each group and identify what each result represents. |\n\nThose requirements come from `materials/outline.md` and `materials/notes.md`, §§1–3.\n\nYour initial Q1 mistake was counting elements instead of adjacent pairs. Your later reasoning shows you corrected that. **Q2 was an answer reveal, so it supplies no evidence of understanding.** Your strongest evidence is the later transfer question, where you correctly handled both updated values and an early stop.\n\n**Recursion is excluded from Quiz 4**, so it isn’t a current readiness gap.\n\nThe best next step is **list aliasing**, followed by nested summaries, while obtaining a teaching source for Big-O. Then a mixed check can assess your readiness across the quiz’s full scope.",
+    "11": "I’ll read the study skill and local course progress, then pick up where you left off.\n\n\n\nYou left off preparing for **CS 101 Quiz 4**. Your Q3 and Q4 comparison counts were correct; next was checking when the full-pass rule applies.\n\nPicking up the unanswered question:\n\n**An eight-element list’s pass stops after comparing only the first two adjacent pairs. Does \\(n-1\\) still give its comparison count? Why?**\n\nCount only element-to-element comparisons, following *materials/notes.md*, §§2.2–2.3."
+  },
+  "student_turn7": "Step 1 compares 6>2 and swaps to [2,6,5,1]. Step 2 compares 6>5 in the updated list and swaps to [2,5,6,1]. Then it stops. Report 2 element-to-element comparisons. I exclude assignments and swap operations from the runtime count.",
+  "progress_snapshots": {
+    "7": {
+      "study/cs-101/quiz-4/learning-record.md": "# Learning record\n\n## Study setup\n\n- Quick start shown: Yes\n- Review preference: Conversational tutoring; local files only.\n- Save preference: Five meaningful-change turns or earlier checkpoints.\n\n## Active course and exam\n\nCS 101 Quiz 4; see course-profile.md in this directory. Student says next week; exact date unknown.\n\n## Concepts\n\n| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |\n|---|---|---|---|---|---|\n| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving | Q1 counted elements; Q3 correct with reasoning and self-reported no hint; Q4 correct. Same-structure successes after instruction; no reviewed transfer. | For a complete single adjacent-pair pass with n >= 1, count n-1 comparisons. Check actual loop behavior. Exclude assignments, index updates, and loop-condition checks. | Pending early-stop transfer question with reasoning. |\n| P2-state / P2 | Trace indices, values, state changes | Unassessed | Tutor showed a swap trace; no student state trace supplied. | Record current values and each change in order (notes section 2.1). | Assess a short state-changing trace. |\n\n## Attempt history\n\n| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |\n|---|---|---|---|---|---|---|---|\n| 2026-11-13 | Practice B Q1 | P2-adjacent | \"4 comparisons because the list contains 4 elements\" | Incorrect: 3 | General teaching preceded attempt; full Q1 correction followed | Instructor key: materials/practice-key.md Q1 | Count pairs, not elements. |\n| 2026-11-13 | Practice B Q2 exposure | P2-adjacent | \"I have not tried Q2. Just give me the answer to Q2.\" | Unattempted; answer 5 revealed | Requested full answer and calculation shown | Instructor key: materials/practice-key.md Q2 | No performance inference from exposure. |\n| 2026-11-13 | Practice B Q3 | P2-adjacent | \"7 element-to-element comparisons, since 8 elements have 7 adjacent pairs. I excluded assignments, index updates, and loop-condition checks. I did not use a hint.\" | Correct with reasoning | Self-reported no hint; prior general teaching and Q1/Q2 solutions; no Q3-specific hint shown | Instructor key: materials/practice-key.md Q3; notes sections 2.2-2.3 | Correct same-structure application after correction; Improving. |\n| 2026-11-13 | Practice B Q4 | P2-adjacent | \"2 comparisons. I counted only element-to-element comparisons. So I've got loop tracing now, right?\" | Correct count; pair reasoning not explicitly supplied | No Q4-specific hint shown; prior teaching available | Instructor key: materials/practice-key.md Q4 | Pairs: 0 with -1, and -1 with 3. Supports counting progress; broader tracing still unassessed. |\n\n## Import ledger\n\n| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |\n|---|---|---|---|---|---|\n\nNo imported attempts.\n\n## Student-reported difficulties\n\nNone explicitly reported. Q1 is a reviewed counting error.\n\n## Open questions\n\n- Big-O is in scope but teaching notes are missing.\n- Exact quiz date and exam format unknown.\n- No reviewed transfer or student state trace yet.\n\n## Next session\n\n- Current activity: Confirm Q4 and calibrate confidence after Q3/Q4 successes.\n- Pending transfer already asked: If a pass stops after comparing only the first two adjacent pairs of an eight-element list, does n-1 still give its comparison count? Why? No response yet; solution not revealed.\n- Prior unanswered check: Why did the worked swap trace compare 4 and 3 on its second step?\n- Assistance exposed: Full swap example [4,1,3,2], Q1 correction, requested Q2 answer, Q3 confirmation, Q4 feedback.\n- Next action: Ask for reasoning on the early-stop transfer, then a state-changing trace.\n- Persistence: study/cs-101/quiz-4/learning-record.md; first checkpoint on 2026-11-13.\n"
+    },
+    "10": {
+      "study/cs-101/quiz-4/learning-record.md": "# Learning record\n\n## Study setup\n\n- Quick start shown: Yes\n- Review preference: Conversational tutoring; local files only.\n- Save preference: Five meaningful-change turns or earlier checkpoints.\n\n## Active course and exam\n\nCS 101 Quiz 4; see course-profile.md in this directory. Student says next week; exact date unknown.\n\n## Concepts\n\n| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |\n|---|---|---|---|---|---|\n| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving | Q1 counted elements; Q3 correct with reasoning and self-reported no hint; Q4 correct. Same-structure successes after instruction; no reviewed transfer. | For a complete single adjacent-pair pass with n >= 1, count n-1 comparisons. Check actual loop behavior. Exclude assignments, index updates, and loop-condition checks. | Pending early-stop transfer question with reasoning. |\n| P2-state / P2 | Trace indices, values, state changes | Unassessed | Tutor showed a swap trace; no student state trace supplied. | Record current values and each change in order (notes section 2.1). | Assess a short state-changing trace. |\n\n## Attempt history\n\n| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |\n|---|---|---|---|---|---|---|---|\n| 2026-11-13 | Practice B Q1 | P2-adjacent | \"4 comparisons because the list contains 4 elements\" | Incorrect: 3 | General teaching preceded attempt; full Q1 correction followed | Instructor key: materials/practice-key.md Q1 | Count pairs, not elements. |\n| 2026-11-13 | Practice B Q2 exposure | P2-adjacent | \"I have not tried Q2. Just give me the answer to Q2.\" | Unattempted; answer 5 revealed | Requested full answer and calculation shown | Instructor key: materials/practice-key.md Q2 | No performance inference from exposure. |\n| 2026-11-13 | Practice B Q3 | P2-adjacent | \"7 element-to-element comparisons, since 8 elements have 7 adjacent pairs. I excluded assignments, index updates, and loop-condition checks. I did not use a hint.\" | Correct with reasoning | Self-reported no hint; prior general teaching and Q1/Q2 solutions; no Q3-specific hint shown | Instructor key: materials/practice-key.md Q3; notes sections 2.2-2.3 | Correct same-structure application after correction; Improving. |\n| 2026-11-13 | Practice B Q4 | P2-adjacent | \"2 comparisons. I counted only element-to-element comparisons. So I've got loop tracing now, right?\" | Correct count; pair reasoning not explicitly supplied | No Q4-specific hint shown; prior teaching available | Instructor key: materials/practice-key.md Q4 | Pairs: 0 with -1, and -1 with 3. Supports counting progress; broader tracing still unassessed. |\n\n## Import ledger\n\n| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |\n|---|---|---|---|---|---|\n\nNo imported attempts.\n\n## Student-reported difficulties\n\nNone explicitly reported. Q1 is a reviewed counting error.\n\n## Open questions\n\n- Big-O is in scope but teaching notes are missing.\n- Exact quiz date and exam format unknown.\n- No reviewed transfer or student state trace yet.\n\n## Next session\n\n- Current activity: Confirm Q4 and calibrate confidence after Q3/Q4 successes.\n- Pending transfer already asked: If a pass stops after comparing only the first two adjacent pairs of an eight-element list, does n-1 still give its comparison count? Why? No response yet; solution not revealed.\n- Prior unanswered check: Why did the worked swap trace compare 4 and 3 on its second step?\n- Assistance exposed: Full swap example [4,1,3,2], Q1 correction, requested Q2 answer, Q3 confirmation, Q4 feedback.\n- Next action: Ask for reasoning on the early-stop transfer, then a state-changing trace.\n- Persistence: study/cs-101/quiz-4/learning-record.md; first checkpoint on 2026-11-13.\n"
+    },
+    "11": {
+      "study/cs-101/quiz-4/learning-record.md": "# Learning record\n\n## Study setup\n\n- Quick start shown: Yes\n- Review preference: Conversational tutoring; local files only.\n- Save preference: Five meaningful-change turns or earlier checkpoints.\n\n## Active course and exam\n\nCS 101 Quiz 4; see course-profile.md in this directory. Student says next week; exact date unknown.\n\n## Concepts\n\n| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |\n|---|---|---|---|---|---|\n| P2-adjacent / P2 | Adjacent-pair comparison counts | Improving | Q1 counted elements; Q3 correct with reasoning and self-reported no hint; Q4 correct. Same-structure successes after instruction; no reviewed transfer. | For a complete single adjacent-pair pass with n >= 1, count n-1 comparisons. Check actual loop behavior. Exclude assignments, index updates, and loop-condition checks. | Pending early-stop transfer question with reasoning. |\n| P2-state / P2 | Trace indices, values, state changes | Unassessed | Tutor showed a swap trace; no student state trace supplied. | Record current values and each change in order (notes section 2.1). | Assess a short state-changing trace. |\n\n## Attempt history\n\n| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |\n|---|---|---|---|---|---|---|---|\n| 2026-11-13 | Practice B Q1 | P2-adjacent | \"4 comparisons because the list contains 4 elements\" | Incorrect: 3 | General teaching preceded attempt; full Q1 correction followed | Instructor key: materials/practice-key.md Q1 | Count pairs, not elements. |\n| 2026-11-13 | Practice B Q2 exposure | P2-adjacent | \"I have not tried Q2. Just give me the answer to Q2.\" | Unattempted; answer 5 revealed | Requested full answer and calculation shown | Instructor key: materials/practice-key.md Q2 | No performance inference from exposure. |\n| 2026-11-13 | Practice B Q3 | P2-adjacent | \"7 element-to-element comparisons, since 8 elements have 7 adjacent pairs. I excluded assignments, index updates, and loop-condition checks. I did not use a hint.\" | Correct with reasoning | Self-reported no hint; prior general teaching and Q1/Q2 solutions; no Q3-specific hint shown | Instructor key: materials/practice-key.md Q3; notes sections 2.2-2.3 | Correct same-structure application after correction; Improving. |\n| 2026-11-13 | Practice B Q4 | P2-adjacent | \"2 comparisons. I counted only element-to-element comparisons. So I've got loop tracing now, right?\" | Correct count; pair reasoning not explicitly supplied | No Q4-specific hint shown; prior teaching available | Instructor key: materials/practice-key.md Q4 | Pairs: 0 with -1, and -1 with 3. Supports counting progress; broader tracing still unassessed. |\n\n## Import ledger\n\n| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |\n|---|---|---|---|---|---|\n\nNo imported attempts.\n\n## Student-reported difficulties\n\nNone explicitly reported. Q1 is a reviewed counting error.\n\n## Open questions\n\n- Big-O is in scope but teaching notes are missing.\n- Exact quiz date and exam format unknown.\n- No reviewed transfer or student state trace yet.\n\n## Next session\n\n- Current activity: Confirm Q4 and calibrate confidence after Q3/Q4 successes.\n- Pending transfer already asked: If a pass stops after comparing only the first two adjacent pairs of an eight-element list, does n-1 still give its comparison count? Why? No response yet; solution not revealed.\n- Prior unanswered check: Why did the worked swap trace compare 4 and 3 on its second step?\n- Assistance exposed: Full swap example [4,1,3,2], Q1 correction, requested Q2 answer, Q3 confirmation, Q4 feedback.\n- Next action: Ask for reasoning on the early-stop transfer, then a state-changing trace.\n- Persistence: study/cs-101/quiz-4/learning-record.md; first checkpoint on 2026-11-13.\n"
+    }
+  }
+}
