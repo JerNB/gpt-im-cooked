@@ -68,7 +68,7 @@ One session, run after the pilot with the same model, CLI, packet and student tu
 | Saved on each status change | no (t7 Demonstrated unsaved) | yes | record bytes changed at t1, t2, t4, t5, t7, t10 |
 | Same-session Demonstrated marked for recheck | no | yes | record: "Recheck before exam"; t10 lists it |
 | Marker repeated within a reply | 3 of 11 | **6 of 11** | t2, t4, t5, t6, t7, t10 |
-| Processed tokens / summed turn time | 6.71M / 462 s | 6.38M / 435 s | CLI counters, not a bill |
+| Processed tokens / summed turn time | 1.01M / 462 s | 1.14M / 435 s | CLI counters, not a bill. Corrected 2026-11-14: the first version summed cumulative per-turn counters (6.71M / 6.38M) and wrongly showed C below B; C used about 13% more |
 | Words, 11 replies | 1,397 | 1,611 | |
 
 Scoring is the author's, against the frozen pilot rubric; no blind or second review yet.
@@ -78,7 +78,7 @@ Scoring is the author's, against the frozen pilot rubric; no blind or second rev
 - The three targeted behaviours appeared in C where they were absent in B: evidence was saved at the status change and the readiness review, the new session resumed correctly, the same-session promotion carried a recheck, and the gap got a labelled offer.
 - n = 1 per arm, one statistics packet, one model, scripted student, author scoring. B and C ran at different times; run-to-run variation alone could explain any single cell. This is a smoke check, not a comparison result.
 - It does **not** show that the skill beats A2 (the strong-prompt plain model). In the pilot A2 tied B on every scored check except resume, where it won; C now ties A2 on resume too. Whether any check separates the skill from a well-prompted plain model is the open question for T004.
-- More saves cost something: the 2026-10-31 benchmark measured checkpoint turns ~82% slower. In this run C's total time was not higher than B's, but one session cannot settle that.
+- More saves cost something: the 2026-10-31 benchmark measured checkpoint turns ~82% slower. In this run C's summed turn time was not higher than B's, but its processed tokens were about 13% higher, and one session cannot settle either.
 
 ## Known issues not addressed
 

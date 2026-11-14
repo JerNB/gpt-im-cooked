@@ -40,10 +40,12 @@ Descriptive, not scored:
 | Status language after t7 | "strong evidence you understand" after a same-structure check | "present understanding … not mastery; retention untested" | Demonstrated, same session |
 | Opening marker repeated within one reply | — | — | 3 of 11 turns |
 | Words, all 11 replies | 1,302 | 1,218 | 1,397 |
-| Processed tokens (incl. cached input) | 3.32M | 3.81M | 6.71M |
+| Processed tokens (incl. cached input), corrected 2026-11-14 | 0.46M | 0.69M | 1.01M |
 | Summed wall time per turn | 243 s | 291 s | 462 s |
 
 Token and time figures are reported CLI counters, not a bill; arms ran in parallel, so wall time is per-arm turn time.
+
+**Correction (2026-11-14).** The CLI `usage` counter is cumulative per thread. The first version of this report summed the per-turn values (3.32M / 3.81M / 6.71M), which overstated every arm several-fold. The figures above are the thread-final value at turn 10 plus the separate turn-11 thread, the accounting used in the T004 run. The raw `results-phase*.json` files are unchanged.
 
 ## Findings
 
@@ -51,7 +53,7 @@ Token and time figures are reported CLI counters, not a bill; arms ran in parall
 2. **A one-paragraph strong prompt matched the skill on every scored check in this run, and beat it on resume.** On this packet, a capable AI user got most of the skill's behaviour for free. The pilot does not show an advantage of B over A2. This is the most important result and the direct answer to "why use the skill if I can prompt well": on this evidence, not yet demonstrated. It may differ for artifacts (mock exams, guides), longer courses, or students who would not write that paragraph — none of which this pilot tested.
 3. **Batched saving lost real evidence.** B saved at turn 6 (five meaningful turns), then held turns 7–10 as pending. The session then ended the way real sessions often do — without an explicit "save and close" — so the new session lost the transfer success, the Demonstrated label, the Bayes gap and the readiness review, and re-posed a question the student had already answered. A2 rewrote its progress file every turn and resumed correctly. The skill does disclose this risk at setup; the pilot shows its practical cost.
 4. **Review items partly revised.** R6 (offer a labelled general explanation on a gap) is supported: A2 and B both stopped at the gap, A1 filled it unlabelled. R3 (default end-of-explanation check) and R1 (pre-declare transfer) were already met by B under current wording in this run, so they are lower priority than the plan assumed. R4 (same-session Demonstrated) applies: B promoted within minutes of instruction.
-5. **B used 1.8–2.0× the processed tokens and 1.6–1.9× the turn time** of the plain arms, largely from reading skill references and record I/O.
+5. **B used 1.5× (vs A2) to 2.2× (vs A1) the processed tokens and 1.6–1.9× the turn time** of the plain arms, largely from reading skill references and record I/O.
 
 ## Limitations
 
