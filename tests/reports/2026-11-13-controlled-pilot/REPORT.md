@@ -57,6 +57,7 @@ Token and time figures are reported CLI counters, not a bill; arms ran in parall
 
 ## Limitations
 
+- **Plain-arm isolation was not enforced (added 2026-11-14 after the T003 review).** This run isolated `CODEX_HOME` and ignored user config, but did not disable user-global skills, which the CLI can still discover. The A1/A2 event logs contain no command touching a skill directory and no skill marker in any reply, but logs do not show what was injected into model context, so absence of contamination is not proven. The harness now disables global skills and invalidates a session on any such access; this pilot was not rerun.
 - One replicate per arm; any cell could flip on a rerun. Counts only, no rates.
 - The A2 prompt was written by the author, who also wrote the rubric; it avoided naming the planted traps, but it is plausibly a stronger prompt than a typical student writes.
 - Turn 7 and all semantic scores are the author's; the M2/M4/M6/M9 judgments still need an independent second review.
