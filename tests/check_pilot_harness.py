@@ -53,6 +53,21 @@ def main():
         text = 'x ' + home.replace(bs, bs * level) + bs * level + 'file ' + str(ROOT).replace(bs, bs * level)
         cleaned = pilot.scrub(text, Path('C:/nowhere'))
         assert Path.home().name not in cleaned and ROOT.name not in cleaned, level
+        # Windows paths are case-insensitive: every casing must be redacted, other text left alone.
+        for variant in (str.upper, str.lower, str.swapcase):
+            cleaned = pilot.scrub('KeepCase ' + variant(text) + ' KeepCase', Path('C:/nowhere'))
+            low = cleaned.lower()
+            assert Path.home().name.lower() not in low and ROOT.name.lower() not in low, (level, variant.__name__)
+            assert cleaned.startswith('KeepCase ') and cleaned.endswith(' KeepCase') and '<ROOT>' in cleaned
+    # Access gate: separator style, repeated separators and casing must not hide a global-skill read.
+    def gate(command):
+        return pilot.external_skill_commands([{'item': {'type': 'command_execution', 'id': 'c', 'command': command}}])
+    for agent_dir in ('.agents', '.codex'):
+        for sep in ('/', bs, bs * 2, bs * 4, '//'):
+            for variant in (str.lower, str.upper, str.swapcase):
+                command = variant('type C:' + sep + 'Users' + sep + 'x' + sep + agent_dir + sep + 'skills' + sep + 'tutor' + sep + 'SKILL.md')
+                assert gate(command) == ['c'], command
+    assert gate('type skill' + bs + 'SKILL.md') == [] and gate('rg --files materials') == [], 'local skill/material reads are allowed'
     flags, _ = pilot.skill_isolation_flags()
     assert 'skills.bundled.enabled=false' in flags and any(f.startswith('skills.config=[') for f in flags)
 

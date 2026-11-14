@@ -65,8 +65,9 @@ def scrub(text, work):
         variants.add(base.replace(BS, '/'))
         for level in (1, 2, 4, 8):  # raw, JSON-escaped, and JSON-inside-JSON escaped paths
             variants.add(base.replace(BS, BS * level))
-    for a in sorted(variants, key=len, reverse=True):
-        text = text.replace(a, '<ROOT>')
+    # Windows paths are case-insensitive: match any casing, replace only the matched span.
+    pattern = '|'.join(re.escape(a) for a in sorted(variants, key=len, reverse=True))
+    text = re.sub(pattern, '<ROOT>', text, flags=re.IGNORECASE)
     # After path replacement: a permitted root may itself contain such characters.
     return re.sub('[' + chr(0x3400) + '-' + chr(0x9fff) + ']', chr(0xfffd), text)
 
@@ -168,7 +169,8 @@ def external_skill_commands(events):
     for e in events:
         item = e.get('item') or {}
         if item.get('type') == 'command_execution':
-            command = str(item.get('command', '')).replace(BS, '/')
+            # Any separator style, any repetition (escaped backslashes), any casing.
+            command = re.sub('/+', '/', str(item.get('command', '')).replace(BS, '/')).lower()
             if '.agents/skills' in command or '.codex/skills' in command:
                 hits.append(item.get('id') or command[:80])
     return hits
