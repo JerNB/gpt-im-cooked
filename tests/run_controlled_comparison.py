@@ -142,8 +142,9 @@ def call(script, state, arm, turn, work, cli, phase):
               '-c', 'sandbox_mode="workspace-write"', '-c', 'windows.sandbox="unelevated"']
     cmd = [cli, 'exec'] + (['resume'] + common + [a['session'], '-'] if a['session'] else common + ['-C', str(run), '-'])
     env = dict(os.environ, CODEX_HOME=str(home), PYTHONUTF8='1')
-    for key in ('CODEX_WINDOWS_REGISTERED_CORE', 'CODEX_APP_TOOLS_PIPE_PATH', 'CODEX_APP_RUNTIME_CLI_PATH'):
-        env.pop(key, None)
+    for key in list(env):
+        if key.startswith('CODEX_') and key != 'CODEX_HOME':
+            env.pop(key, None)
     out = REPORT / 'runs' / f'{arm}-{state["packet"]}-rep{state["replicate"]}'
     out.mkdir(parents=True, exist_ok=True)
     n = int(turn['id'])
