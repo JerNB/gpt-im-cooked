@@ -22,6 +22,7 @@ EFFORT = 'medium'
 ARMS = ['A1', 'A2', 'B', 'C']
 PACKETS = ['S', 'P']
 PACKET_OVERRIDE = None
+NONLOGIN = False
 
 
 def dump(path, value):
@@ -140,6 +141,8 @@ def call(script, state, arm, turn, work, cli, phase):
               '-c', 'skills.bundled.enabled=false', '-m', MODEL,
               '-c', f'model_reasoning_effort="{EFFORT}"', '-c', 'approval_policy="never"',
               '-c', 'sandbox_mode="workspace-write"', '-c', 'windows.sandbox="unelevated"']
+    if NONLOGIN:
+        common += ['--strict-config', '-c', 'allow_login_shell=false', '-c', 'shell_environment_policy.experimental_use_profile=false']
     cmd = [cli, 'exec'] + (['resume'] + common + [a['session'], '-'] if a['session'] else common + ['-C', str(run), '-'])
     env = dict(os.environ, CODEX_HOME=str(home), PYTHONUTF8='1')
     for key in list(env):
@@ -242,7 +245,7 @@ def run_session(packet, rep, arm_order, work, script, state, cli, turn_ids, answ
 
 
 def main():
-    global REPORT, ARMS, PACKET_OVERRIDE
+    global REPORT, ARMS, PACKET_OVERRIDE, NONLOGIN
     ap = argparse.ArgumentParser()
     ap.add_argument('--packet', choices=PACKETS, required=True)
     ap.add_argument('--replicate', type=int, choices=[1, 2], required=True)
@@ -251,7 +254,9 @@ def main():
     ap.add_argument('--arms', default='A1,A2,B,C')
     ap.add_argument('--report', type=Path)
     ap.add_argument('--packet-source', type=Path)
+    ap.add_argument('--nonlogin-shell', action='store_true')
     args = ap.parse_args()
+    NONLOGIN = args.nonlogin_shell
     ARMS = args.arms.split(',')
     assert len(set(ARMS)) == len(ARMS) and set(ARMS) <= {'A1','A2','B','C'}
     if args.report:
