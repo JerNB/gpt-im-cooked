@@ -255,6 +255,7 @@ def main():
     ap.add_argument('--report', type=Path)
     ap.add_argument('--packet-source', type=Path)
     ap.add_argument('--nonlogin-shell', action='store_true')
+    ap.add_argument('--warmup-probe', action='store_true')
     args = ap.parse_args()
     NONLOGIN = args.nonlogin_shell
     ARMS = args.arms.split(',')
@@ -293,6 +294,26 @@ def main():
         arm_order = ['A1', 'A2', 'B', 'C'] if args.replicate == 1 else ['C', 'B', 'A2', 'A1']
         arm_order = [a for a in arm_order if a in ARMS]
         try:
+            if args.warmup_probe:
+                assert ARMS == ['A1'], 'Warmup is an explicitly labelled A1 environment recovery only'
+                run = Path(state['arms']['A1']['cwd'])
+                inventory = {p.relative_to(run).as_posix(): sha(p) for p in run.rglob('*') if p.is_file()}
+                probe = run / 'environment-probe.txt'
+                probe.write_text('T004_ENVIRONMENT_PREFLIGHT_7319', encoding='utf-8')
+                study_report = REPORT
+                REPORT = study_report / 'environment-preflight'
+                try:
+                    warm = {'context': '', 'openers': {'A1': ''}}
+                    call(warm, state, 'A1', {'id': 0, 'text': 'Read environment-probe.txt with a shell command and report its exact content. Do not modify any file.'}, work, cli, 'preflight')
+                    events = [json.loads(line) for line in (REPORT / 'runs' / f'A1-{args.packet}-rep{args.replicate}' / 'turn-00.jsonl').read_text(encoding='utf-8').splitlines()]
+                    assert any(e.get('type') == 'item.completed' and e.get('item', {}).get('type') == 'command_execution' and e['item'].get('exit_code') == 0 and 'T004_ENVIRONMENT_PREFLIGHT_7319' in e['item'].get('aggregated_output', '') for e in events), 'Environment preflight did not read its file'
+                finally:
+                    REPORT = study_report
+                    probe.unlink(missing_ok=True)
+                assert inventory == {p.relative_to(run).as_posix(): sha(p) for p in run.rglob('*') if p.is_file()}, 'Preflight changed the study workspace'
+                state['arms']['A1']['preflight_session'] = state['arms']['A1']['session']
+                state['arms']['A1']['session'] = None
+                dump(work / 'state.json', state)
             rows = run_session(args.packet, args.replicate, arm_order, work, script, state, cli, range(1, 7))
         finally:
             for a in state['arms'].values():
