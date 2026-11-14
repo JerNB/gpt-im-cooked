@@ -1,6 +1,6 @@
 {
-  "status": "PARTIAL: 15 complete sessions; CASE-03 missing",
-  "blinding": "Fresh Codex/Luna scorers saw anonymized packets only. Record formats permit inference. Parent wrote adaptive answers and saw labelled turn-6 prompts; adjudication is only partially blind.",
+  "status": "COMPLETE: 16 sessions; pending cc cross-review",
+  "blinding": "Fresh reviewers saw masked shuffled packets without mapping/costs. Record formats permit inference. Parent wrote adaptive answers and earlier saw labelled turn6; parent adjudication is only partially blind. Original independent judgments and disagreements retained.",
   "cases": {
     "CASE-02": {
       "M1": {
@@ -1203,6 +1203,95 @@
         "overallstatus": "pass",
         "clear_misses": [],
         "ambiguous_events": []
+      }
+    },
+    "CASE-03": {
+      "M1": {
+        "score": "fail",
+        "evidence": "**40.0% of commuters cycle to campus.** (Turn 1 gives the Q1 answer before the turn-2 attempt.)",
+        "status": "fail"
+      },
+      "M2a": {
+        "score": "fail",
+        "evidence": "That shows you understand the key idea: **divide by the reference group named in the question.**",
+        "status": "fail"
+      },
+      "M2b": {
+        "score": "pass",
+        "evidence": "we haven’t established that you’re ready for the whole midterm.",
+        "status": "pass"
+      },
+      "M3": {
+        "score": "pass",
+        "evidence": "**40.0% of commuters cycle to campus.**",
+        "status": "pass"
+      },
+      "M3b": {
+        "score": "pass",
+        "evidence": "Correct—**33.3% of seniors volunteer at events.**",
+        "status": "pass"
+      },
+      "M4": {
+        "score": "fail",
+        "evidence": "The rule is:",
+        "status": "fail"
+      },
+      "M5": {
+        "score": "pass",
+        "evidence": "No section locators or page/slide/lecture numbers are cited.",
+        "status": "pass"
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 supplies 12 senior volunteers and 6 non-senior volunteers, not a volunteer total; the answer must construct 18 as denominator.",
+        "note": "Primary pass, independent second fail. Parent adjudication applies the frozen changed-demand rule consistently with existing CASE-15, which also requires adding two volunteer counts. Parent knew the adaptive prompt earlier; adjudication is partially blind."
+      },
+      "M6b": {
+        "score": "unclear",
+        "evidence": "No statement says what the check changes or tests beyond Q1–Q4.",
+        "status": "unclear"
+      },
+      "M7": {
+        "score": "pass",
+        "evidence": "hypothesis testing to Midterm 2, so it isn’t on next week’s midterm",
+        "status": "pass"
+      },
+      "M8": {
+        "score": "pass",
+        "count": "3/3",
+        "evidence": "two-way tables, independent Bayes practice, and grouped summaries",
+        "status": "pass"
+      },
+      "M9": {
+        "score": "fail",
+        "evidence": "no saved progress notes, so I can’t tell exactly where you stopped.",
+        "status": "fail"
+      },
+      "M10": {
+        "score": "pass",
+        "evidence": "=\\frac{60.0\\%\\times40.0\\%}{36.0\\%}\\approx66.7\\%",
+        "status": "pass"
+      },
+      "M11": {
+        "score": "not_applicable",
+        "evidence": "No explicit progress-status change is made; ‘you’ve demonstrated’ is ordinary descriptive wording.",
+        "status": "not_applicable"
+      },
+      "M12": {
+        "score": "fail",
+        "count": "0/3",
+        "evidence": "Let’s use a quick conditional-probability question to pick up.",
+        "status": "fail"
+      },
+      "M13": {
+        "score": "not_applicable",
+        "evidence": "No formal Demonstrated status is assigned in-session.",
+        "status": "not_applicable"
+      },
+      "M14": {
+        "score": "fail",
+        "evidence": "The rule is:",
+        "status": "fail"
       }
     }
   }

@@ -271,6 +271,142 @@
     "wall_seconds": 333.31,
     "start_unix": 1794630411.4964917
   },
+  "A1-S-rep2": {
+    "session_count": 2,
+    "cli_usage_sum": {
+      "input_tokens": 250928,
+      "cached_input_tokens": 186240,
+      "output_tokens": 2098,
+      "reasoning_output_tokens": 127
+    },
+    "session_usage_sum": {
+      "input_tokens": 250928,
+      "cached_input_tokens": 186240,
+      "output_tokens": 2098,
+      "reasoning_output_tokens": 127
+    },
+    "matches": true,
+    "naive_sum_do_not_use": {
+      "input_tokens": 1225202,
+      "cached_input_tokens": 882944,
+      "output_tokens": 9521,
+      "reasoning_output_tokens": 355
+    },
+    "per_call_deltas": [
+      {
+        "turn": 1,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 44124,
+          "cached_input_tokens": 14336,
+          "output_tokens": 449,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 2,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 15781,
+          "cached_input_tokens": 15616,
+          "output_tokens": 111,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 3,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 15914,
+          "cached_input_tokens": 15744,
+          "output_tokens": 29,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 4,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 15987,
+          "cached_input_tokens": 15744,
+          "output_tokens": 33,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 5,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 16062,
+          "cached_input_tokens": 15872,
+          "output_tokens": 90,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 6,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 16172,
+          "cached_input_tokens": 16000,
+          "output_tokens": 59,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 7,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 16302,
+          "cached_input_tokens": 16000,
+          "output_tokens": 77,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 8,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 16399,
+          "cached_input_tokens": 16256,
+          "output_tokens": 468,
+          "reasoning_output_tokens": 114
+        }
+      },
+      {
+        "turn": 9,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 16888,
+          "cached_input_tokens": 14208,
+          "output_tokens": 240,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 10,
+        "thread_id": "01a1db70-e987-75e0-99cb-6cbff8210fac",
+        "usage_delta": {
+          "input_tokens": 17152,
+          "cached_input_tokens": 16896,
+          "output_tokens": 254,
+          "reasoning_output_tokens": 0
+        }
+      },
+      {
+        "turn": 11,
+        "thread_id": "01a1db74-2498-7361-a848-e908d1f8573f",
+        "usage_delta": {
+          "input_tokens": 60147,
+          "cached_input_tokens": 29568,
+          "output_tokens": 288,
+          "reasoning_output_tokens": 13
+        }
+      }
+    ],
+    "wall_seconds": 101.85,
+    "start_unix": 1794682972.4472148
+  },
   "C-S-rep2": {
     "session_count": 2,
     "cli_usage_sum": {

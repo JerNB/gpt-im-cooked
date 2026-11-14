@@ -1,0 +1,1 @@
+66.7% of volunteers are seniors. The reference group is all volunteers: 12 seniors plus 6 non-seniors, so 18 volunteers. I use 12/(12+6)=12/18, rounded to one decimal place, rather than dividing by the 20 seniors or all 50 members.

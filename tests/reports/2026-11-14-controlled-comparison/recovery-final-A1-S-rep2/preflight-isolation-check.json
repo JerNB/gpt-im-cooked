@@ -1,0 +1,11 @@
+{
+  "before_start_auth_copies": 0,
+  "after_completion_auth_copies": 0,
+  "fresh_tutor_thread": true,
+  "preflight_marker_absent_from_initial_tutor_context": true,
+  "unchanged_workspace_inventory_enforced_by_runner": true,
+  "B": "97be172",
+  "C": "4d102f6",
+  "C_files_matched": 16,
+  "S_original_files_matched": 7
+}

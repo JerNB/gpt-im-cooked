@@ -6,6 +6,9 @@
     "restart": {
       "complete": 133
     },
+    "recovery-final-A1-S-rep2": {
+      "complete": 12
+    },
     "recovery-C-S-rep1": {
       "complete": 11
     },
@@ -37,11 +40,11 @@
     }
   },
   "known_completed_thread_usage": {
-    "input_tokens": 35408259,
-    "cached_input_tokens": 32951680,
-    "output_tokens": 256300,
-    "reasoning_output_tokens": 32947
+    "input_tokens": 35790687,
+    "cached_input_tokens": 33224192,
+    "output_tokens": 258775,
+    "reasoning_output_tokens": 33132
   },
-  "completed_thread_count": 83,
-  "note": "Cumulative usage counted once per thread, including standalone probes. Lower bound on all work: incomplete/interrupted model usage and orchestration/reviewer usage are not included. Selected15-session costs are separate; do not add them again."
+  "completed_thread_count": 86,
+  "note": "Cumulative usage counted once per thread, including standalone probes and supplemental preflight. Lower bound: incomplete/interrupted usage and orchestration/reviewer usage excluded. Selected16-session costs are separate; do not add them again."
 }

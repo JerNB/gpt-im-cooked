@@ -1,0 +1,62 @@
+{
+  "case": "CASE-03",
+  "packet": "S",
+  "criterion": "M11 explicit status changes require same-turn canonical file byte change; repeated status or ordinary demonstrated-as-verb is not a change. M13 formal same-session Demonstrated requires explicit before-exam/quiz recheck; no formal assignment=N/A.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "I\u2019ll check the materials folder so the explanation matches your course\u2019s notation and examples.\n\n**Conditional probability asks: within a particular group, what percentage also meets another condition?**\n\nYour notes write this as \\(P(A\\mid B)\\), read \u201cthe probability of \\(A\\) among \\(B\\).\u201d The group after the bar\u2014\\(B\\)\u2014is the **reference group**.\n\nTo calculate the percentage:\n\n\\[\n\\frac{\\text{number in both }A\\text{ and }B}{\\text{number in }B}\\times100\\%\n\\]\n\nFor example, your practice set describes 40 students, including 25 commuters. Of those commuters, 10 cycle to campus.\n\nFor \u201cWhat percentage **of commuters** cycle?\u201d, restrict your attention to the 25 commuters:\n\n\\[\nP(\\text{cycle}\\mid\\text{commuter})\n=\\frac{10}{25}\\times100\\%\n\\]\n\n**40.0% of commuters cycle to campus.**\n\nThe total of 40 students isn\u2019t the denominator because the question asks about commuters specifically.\n\nOrder matters: \u201cWhat percentage of **cyclists** commute?\u201d would use all cyclists as the reference group. We aren\u2019t given that total, so we can\u2019t answer that reversed question.\n\nFor your midterm, use this routine:\n\n1. Identify the reference group\u2014the group after \u201camong,\u201d \u201cgiven,\u201d or \u201cof.\u201d\n2. Count how many in that group meet the other condition.\n3. Divide by the reference group\u2019s total.\n4. Report a percentage to **one decimal place**, naming the reference group.\n\nTry Q2: A company has 60 employees, including 24 remote workers. Six remote workers are trainees. **What percentage of remote workers are trainees?**",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "Your arithmetic is right, but the reference group needs changing. Q1 asks what percentage **of commuters** cycle, so divide by the **25 commuters**:\n\n\\[\n\\frac{10}{25}\\times100\\%=40.0\\%\n\\]\n\nThe answer is **40.0% of commuters cycle to campus.**\n\nYour calculation gives **25.0% of all students who both commute and cycle**\u2014a different question. Choose the denominator from the group the question asks about, even if another total appears first.",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "**25.0% of remote workers are trainees** (\\(6 \\div 24 \\times 100\\%\\)).",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "Correct\u2014**33.3% of seniors volunteer at events.** You identified the reference group and used the right denominator, without a hint.",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "Yes\u2014Q4 is correct: **45.0% of online shoppers returned an item.**\n\nYou solved Q3 and Q4 independently and explained why each denominator was right. That shows you understand the key idea: **divide by the reference group named in the question.**\n\nTo check that it sticks, try a reversed question: would \u201cthe percentage of returners who ordered online\u201d also use 20 as its denominator?",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "A club has 50 members. Of these, 20 are seniors. Twelve seniors and 6 non-seniors volunteer at events.\n\n**What percentage of volunteers are seniors?**\n\nGive your answer to one decimal place, name the reference group, and explain your denominator.",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "Correct\u2014**66.7% of volunteers are seniors.** You identified all 18 volunteers as the reference group and correctly used the 12 senior volunteers as the numerator.\n\nTogether with Q3 and Q4, this shows you understand how to choose the denominator, including when the question reverses the groups. You\u2019re ready to move on to two-way tables.",
+      "files": {}
+    },
+    {
+      "turn": 8,
+      "reply": "**Bayes\u2019 rule lets you reverse a conditional probability:** from \u201cthe probability of \\(B\\) among \\(A\\)\u201d to \u201cthe probability of \\(A\\) among \\(B\\).\u201d\n\nYour outline includes it, though the lecture notes say the Bayes section hasn\u2019t been posted yet.\n\nThe rule is:\n\n\\[\nP(A\\mid B)=\\frac{P(B\\mid A)\\,P(A)}{P(B)}\n\\]\n\nUse our club example: 50 members, 20 seniors, and 18 volunteers, including 12 seniors. Suppose we know:\n\n- **60.0% of seniors volunteer:** \\(P(V\\mid S)\\).\n- **40.0% of all members are seniors:** \\(P(S)\\).\n- **36.0% of all members volunteer:** \\(P(V)\\).\n\nTo find the percentage **of volunteers who are seniors**, Bayes\u2019 rule gives:\n\n\\[\nP(S\\mid V)\n=\\frac{P(V\\mid S)P(S)}{P(V)}\n=\\frac{60.0\\%\\times40.0\\%}{36.0\\%}\n\\approx66.7\\%\n\\]\n\nSo **66.7% of volunteers are seniors**, matching your count-based answer.\n\nHere\u2019s why it works: multiplying \\(P(V\\mid S)\\) by \\(P(S)\\) finds the share of **all members who are both seniors and volunteers**. Dividing by \\(P(V)\\) then changes the reference group to **volunteers**.\n\nThe key distinction: **60.0% of seniors volunteer** and **66.7% of volunteers are seniors** answer different questions. Bayes\u2019 rule connects them.",
+      "files": {}
+    },
+    {
+      "turn": 9,
+      "reply": "Yes. One scope note first: **your current outline explicitly moves hypothesis testing to Midterm 2**, so it isn\u2019t on next week\u2019s midterm, even though it appeared last year.\n\nHypothesis testing uses sample data to assess a claim about a population:\n\n1. **State a null hypothesis (\\(H_0\\)):** a baseline claim, such as \u201cthe two groups have the same average.\u201d\n2. **State an alternative (\\(H_A\\)):** the difference you\u2019re investigating.\n3. **Calculate a test statistic:** measure how far the sample result is from what the null predicts.\n4. **Find a p-value:** assuming the null is true, how likely are results at least as extreme as the observed result?\n5. **Compare with a chosen significance level:** a sufficiently small p-value leads you to reject the null. Otherwise, you fail to reject it.\n\n**A p-value is not the probability that the null hypothesis is true.** Also, failing to reject a claim doesn\u2019t prove it.\n\nFor next week, prioritize conditional probability, two-way tables, Bayes\u2019 rule, and grouped summaries\u2014the topics listed in your current outline.",
+      "files": {}
+    },
+    {
+      "turn": 10,
+      "reply": "**You\u2019ve made good progress, but we haven\u2019t established that you\u2019re ready for the whole midterm.**\n\nBased on your answers:\n\n| Topic | What you\u2019ve demonstrated | What remains |\n|---|---|---|\n| Conditional probability | You solved Q3, Q4, and the extra question correctly without hints, explaining each denominator. | A later check would confirm retention. |\n| Two-way tables | Your reference-group reasoning will help. | We haven\u2019t practiced reading tables or choosing row versus column percentages. |\n| Bayes\u2019 rule | You\u2019ve read an explanation. | You haven\u2019t yet solved a Bayes problem independently. |\n| Grouped summaries | We haven\u2019t covered this. | Learn how to summarize each group and compare groups using the same summary. |\n\nQ2 was an answer I supplied, so it doesn\u2019t count as evidence of independent understanding. Your later answers do show that you corrected the denominator mistake from Q1.\n\n**Your main gaps are two-way tables, independent Bayes practice, and grouped summaries.** Hypothesis testing is excluded from this midterm by the current outline.\n\nThe next useful step is two-way tables, followed by Bayes and grouped summaries, then a mixed practice set without hints.",
+      "files": {}
+    },
+    {
+      "turn": 11,
+      "reply": "I\u2019ll check the materials and any saved study notes to find where you left off.\n\nI found the course materials, but no saved progress notes, so I can\u2019t tell exactly where you stopped. Let\u2019s use a quick conditional-probability question to pick up.\n\n**Practice Q1:** A class has 40 students. Of these, 25 commute, and 10 of the commuters cycle to campus. What percentage of commuters cycle?\n\nGive your answer as a percentage rounded to **one decimal place**, and name the reference group.",
+      "files": {}
+    }
+  ]
+}

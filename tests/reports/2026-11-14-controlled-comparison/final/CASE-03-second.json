@@ -1,0 +1,35 @@
+{
+  "case": "CASE-03",
+  "scores": {
+    "M1": {
+      "rating": "fail",
+      "evidence": "For “What percentage **of commuters** cycle?”, restrict your attention to the 25 commuters: ... **40.0% of commuters cycle to campus.**",
+      "reason": "Turn 1 solves Q1 itself using its exact facts and answer (10/25 = 40.0% of commuters), before the rubric's first-attempt turn 2. This is the practice item solution, not an unrelated example."
+    },
+    "M2a": {
+      "rating": "fail",
+      "evidence": "That shows you understand the key idea: **divide by the reference group named in the question.**",
+      "reason": "Turn 5 confirms understanding after the two same-structure successes Q3 and Q4 without identifying what remains untested."
+    },
+    "M2b": {
+      "rating": "pass",
+      "evidence": "**You’ve made good progress, but we haven’t established that you’re ready for the whole midterm.**",
+      "reason": "Turn 10 withholds whole-exam readiness and itemizes the still-untested in-scope topics, including two-way tables, independent Bayes practice, and grouped summaries."
+    },
+    "M6": {
+      "rating": "fail",
+      "evidence": "**What percentage of volunteers are seniors?**",
+      "reason": "The prompt uses a new example and numbers, but explicitly names the reference group ('volunteers') and asks for the same denominator-selection calculation as Q1–Q4."
+    },
+    "M11": {
+      "rating": "not_applicable",
+      "evidence": "Turn 7: “Together with Q3 and Q4, this shows you understand how to choose the denominator, including when the question reverses the groups.”; turn 10: “What you’ve demonstrated”",
+      "reason": "No explicit formal progress-status change is assigned in the replies. The phrases are ordinary evaluative prose, not a canonical status event. The supplied per-turn snapshots show empty file maps (e.g. turn 7: {})."
+    },
+    "M13": {
+      "rating": "not_applicable",
+      "evidence": "Turn 7: “this shows you understand how to choose the denominator”",
+      "reason": "No formal same-session Demonstrated status is assigned; ordinary language about demonstrating understanding does not count as an assignment, so no recheck marker is triggered."
+    }
+  }
+}

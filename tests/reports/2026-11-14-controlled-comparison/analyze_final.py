@@ -13,7 +13,7 @@ def masked(text):
  return text.replace('GPT, I’m Cooked','[workflow]').replace("GPT, I'm Cooked",'[workflow]')
 sessions=sorted((base/'isolated/runs').iterdir())
 sessions=[base/'exact-S/runs'/s.name if '-S-' in s.name else s for s in sessions]
-sessions=[base/'exact-recovery-A1-S-rep2-preflight/runs'/s.name if s.name=='A1-S-rep2' else s for s in sessions]
+sessions=[base/'recovery-final-A1-S-rep2/runs'/s.name if s.name=='A1-S-rep2' else s for s in sessions]
 sessions=[(base/('recovery-'+s.name)/'runs'/s.name) if any(not json.loads(p.read_text(encoding='utf-8'))['complete'] for p in s.glob('*.meta.json')) else s for s in sessions]
 assert len(sessions)==16
 if '--allow-partial' not in sys.argv:

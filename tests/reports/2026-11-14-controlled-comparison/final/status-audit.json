@@ -261,5 +261,19 @@
       "status": "fail",
       "evidence": "Record assigns Demonstrated; recheck is Lower priority, periodic recheck, not an explicit before-exam/quiz marker."
     }
+  },
+  {
+    "case": "CASE-03",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": [],
+      "evidence": "No explicit progress-status change is made; ‘you’ve demonstrated’ is ordinary descriptive wording."
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No formal Demonstrated status is assigned in-session."
+    }
   }
 ]

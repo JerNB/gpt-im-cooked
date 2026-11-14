@@ -1,0 +1,187 @@
+{
+  "note": "Actual returned course text proves reading. B-S rep1/2 composite commands end with an empty rg search (exit1) after successful Get-Content; full material text remains in events.",
+  "sessions": {
+    "A1-P-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content materials/outline.md, materials/notes.md, materials/practice.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A1-P-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command 'Get-Content -LiteralPath materials/outline.md,materials/notes.md,materials/practice.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A1-S-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command 'Get-Content materials/outline.md, materials/notes.md, materials/practice.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A1-S-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command 'Get-Content materials/outline.md; Get-Content materials/notes.md; Get-Content materials/practice.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A2-P-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content AGENTS.md; Get-Content materials/outline.md; Get-Content materials/notes.md; Get-Content materials/practice.md; Get-Content materials/quiz-3.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A2-P-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command 'Get-Content AGENTS.md, materials/outline.md, materials/notes.md, materials/practice.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A2-S-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command 'Get-Content materials/outline.md; Get-Content materials/notes.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        },
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command 'Get-Content materials/practice.md; Get-Content AGENTS.md'",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "A2-S-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath AGENTS.md,materials\\\\outline.md,materials\\\\notes.md\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "B-P-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content -LiteralPath skill/references/state.md,skill/references/concept-tutoring.md,skill/assets/first-use.md,materials/outline.md,materials/notes.md; rg --files -g '\"'!skill/**'\"' -g '\"'!materials/**'\"' -g '\"'! .git/**'\"'\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "B-P-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath skill/references/state.md,skill/references/concept-tutoring.md,skill/assets/first-use.md,materials/outline.md,materials/notes.md; rg --files -g '*profile*' -g '*record*' -g '*AGENTS.md' -g '\"'!skill/**'\"'\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "B-S-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath skill/references/state.md,skill/references/concept-tutoring.md,skill/assets/first-use.md,materials/outline.md,materials/notes.md; rg --files -g '*profile*' -g '*record*' -g '\"'!skill/**'\"' -g '\"'!materials/**'\"'\"",
+          "exit_code": 1,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "B-S-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content -LiteralPath skill/references/concept-tutoring.md,skill/references/state.md,skill/assets/first-use.md,materials/outline.md,materials/notes.md; rg --files -g '*profile*' -g '*record*' -g '\"'!skill/**'\"' -g '\"'!materials/**'\"'\"",
+          "exit_code": 1,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "C-P-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content skill/references/state.md, skill/references/concept-tutoring.md, skill/assets/first-use.md, skill/assets/course-profile.md, skill/assets/learning-record.md, materials/outline.md, materials/notes.md; rg --files -g '\"'!skill/**'\"' -g '\"'!materials/**'\"' -g '\"'! .git/**'\"'\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "C-P-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content skill/references/state.md; Get-Content skill/references/concept-tutoring.md; Get-Content skill/assets/first-use.md; Get-Content materials/outline.md; Get-Content materials/notes.md; rg --files -g '*.md' -g '\"'!skill/**'\"' -g '\"'!materials/**'\"'\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "C-S-rep1": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -NoProfile -Command \"Get-Content skill/references/state.md; Get-Content skill/references/concept-tutoring.md; Get-Content skill/assets/first-use.md; Get-Content materials/outline.md; Get-Content materials/notes.md; rg --files -g '\"'!skill/**'\"' -g '\"'!materials/**'\"' -g '\"'!.*'\"'\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    },
+    "C-S-rep2": {
+      "actual_material_reads": [
+        {
+          "file": "turn-01.jsonl",
+          "command": "\"C:\\\\Windows\\\\system32\\\\cmd.exe\" /c \"type skill\\\\references\\\\state.md skill\\\\references\\\\concept-tutoring.md skill\\\\assets\\\\first-use.md skill\\\\assets\\\\course-profile.md skill\\\\assets\\\\learning-record.md materials\\\\outline.md materials\\\\notes.md\"",
+          "exit_code": 0,
+          "course_header_present": true
+        }
+      ],
+      "external_skill_commands": []
+    }
+  }
+}
