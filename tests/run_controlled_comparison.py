@@ -21,6 +21,7 @@ MODEL = 'gpt-6.1-sol'
 EFFORT = 'medium'
 ARMS = ['A1', 'A2', 'B', 'C']
 PACKETS = ['S', 'P']
+PACKET_OVERRIDE = None
 
 
 def dump(path, value):
@@ -76,6 +77,8 @@ def verify_fingerprint():
 
 
 def packet_files(packet):
+    if PACKET_OVERRIDE is not None:
+        return PACKET_OVERRIDE
     return ROOT / f'tests/fixtures/controlled-comparison/packet-{packet.lower()}'
 
 
@@ -238,7 +241,7 @@ def run_session(packet, rep, arm_order, work, script, state, cli, turn_ids, answ
 
 
 def main():
-    global REPORT, ARMS
+    global REPORT, ARMS, PACKET_OVERRIDE
     ap = argparse.ArgumentParser()
     ap.add_argument('--packet', choices=PACKETS, required=True)
     ap.add_argument('--replicate', type=int, choices=[1, 2], required=True)
@@ -246,11 +249,14 @@ def main():
     ap.add_argument('--work', type=Path, required=True)
     ap.add_argument('--arms', default='A1,A2,B,C')
     ap.add_argument('--report', type=Path)
+    ap.add_argument('--packet-source', type=Path)
     args = ap.parse_args()
     ARMS = args.arms.split(',')
     assert len(set(ARMS)) == len(ARMS) and set(ARMS) <= {'A1','A2','B','C'}
     if args.report:
         REPORT = args.report.resolve()
+    if args.packet_source:
+        PACKET_OVERRIDE = args.packet_source.resolve()
     work = args.work.resolve()
     cli = shutil.which('codex')
     if not cli:
