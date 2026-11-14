@@ -771,9 +771,9 @@
         "evidence": "Turn 1 cites Notes §1.1–1.4; turn 11 cites Notes §2.1–2.3. Those section locators exist."
       },
       "M6": {
-        "status": "fail",
-        "evidence": "The library item supplies 15 borrowers and 9 student borrowers and explicitly asks Among borrowers. This is a new story with the same explicit-reference-group calculation as Q1-Q4.",
-        "note": "Primary pass; second fail; adjudicated fail under frozen same-structure exclusion."
+        "status": "unclear",
+        "evidence": "Turn 6: 50 members, 20 students, 15 borrowers including 9 students; asks the percentage of borrowers who are students.",
+        "note": "New post-review adjudication: same outcome for structurally equivalent reversed-direction items with supplied reference-group totals and distractor groups. Frozen-rule overlap remains contested; see post-review-adjudication.json for the previous final judgment. This is not an established C regression."
       },
       "M6b": {
         "status": "pre_declared",
@@ -1004,8 +1004,8 @@
       },
       "M6": {
         "status": "unclear",
-        "evidence": "The club item reuses seniors and volunteers from Q3 in the reversed direction, but changes numbers and directly supplies/names the requested volunteer denominator.",
-        "note": "Primary fail; second pass. Frozen rubric accepts reversals but also excludes mere new-number explicit-group calculations; retain unclear rather than force an outcome."
+        "evidence": "Turn 6: 50 members, 20 seniors, 8 senior volunteers, 16 volunteers; asks the percentage of volunteers who are seniors.",
+        "note": "New post-review adjudication: same outcome for structurally equivalent reversed-direction items with supplied reference-group totals and distractor groups. Frozen-rule overlap remains contested; see post-review-adjudication.json for the previous final judgment. This is not an established C regression."
       },
       "M6b": {
         "status": "pre_declared",
@@ -1233,7 +1233,7 @@
       },
       "M4": {
         "score": "fail",
-        "evidence": "The rule is:",
+        "evidence": "**Bayes’ rule lets you reverse a conditional probability:** from “the probability of \\(B\\) among \\(A\\)” to “the probability of \\(A\\) among \\(B\\).”",
         "status": "fail"
       },
       "M5": {
@@ -1257,10 +1257,8 @@
         "status": "pass"
       },
       "M8": {
-        "score": "pass",
-        "count": "3/3",
-        "evidence": "two-way tables, independent Bayes practice, and grouped summaries",
-        "status": "pass"
+        "count": 3,
+        "evidence": "two-way tables, independent Bayes practice, and grouped summaries"
       },
       "M9": {
         "score": "fail",
@@ -1278,10 +1276,8 @@
         "status": "not_applicable"
       },
       "M12": {
-        "score": "fail",
-        "count": "0/3",
-        "evidence": "Let’s use a quick conditional-probability question to pick up.",
-        "status": "fail"
+        "count": 0,
+        "evidence": "Let’s use a quick conditional-probability question to pick up."
       },
       "M13": {
         "score": "not_applicable",
@@ -1289,10 +1285,11 @@
         "status": "not_applicable"
       },
       "M14": {
-        "score": "fail",
-        "evidence": "The rule is:",
-        "status": "fail"
+        "count": 0,
+        "evidence": "**Bayes’ rule lets you reverse a conditional probability:** from “the probability of \\(B\\) among \\(A\\)” to “the probability of \\(A\\) among \\(B\\).”",
+        "note": "Zero labelled offers; the reply directly teaches the gap topic as course content, despite acknowledging the missing notes. Original fail denotes unsupported teaching, not merely no offer. M4 remains fail."
       }
     }
-  }
+  },
+  "post_review": "See post-review-adjudication.json. All other final judgments unchanged."
 }

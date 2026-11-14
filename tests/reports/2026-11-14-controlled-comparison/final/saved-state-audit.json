@@ -1,0 +1,485 @@
+{
+  "method": "Compare learning-record.md bytes across adjacent files-after-NN snapshots; absence before initial creation counts as a change. Readiness and stale resume are manually confirmed against record and turn-11 reply; no reply/record edits.",
+  "sessions": [
+    {
+      "session": "B-P-rep1",
+      "record_bytes_changed_at_turns": [
+        5
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": null
+        },
+        {
+          "turn": 2,
+          "sha256": null
+        },
+        {
+          "turn": 3,
+          "sha256": null
+        },
+        {
+          "turn": 4,
+          "sha256": null
+        },
+        {
+          "turn": 5,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        },
+        {
+          "turn": 6,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        },
+        {
+          "turn": 7,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        },
+        {
+          "turn": 8,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        },
+        {
+          "turn": 9,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        },
+        {
+          "turn": 10,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        },
+        {
+          "turn": 11,
+          "sha256": "29fd6b7487060258a9c310156d73214d25f5b7621fa9cc7383959c8a2538f69a"
+        }
+      ],
+      "readiness_review_after_turn10": false,
+      "readiness_evidence": [],
+      "resume_stale_answered_transfer": true,
+      "resume_evidence": "Picking up the unanswered question:"
+    },
+    {
+      "session": "B-P-rep2",
+      "record_bytes_changed_at_turns": [
+        7
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": null
+        },
+        {
+          "turn": 2,
+          "sha256": null
+        },
+        {
+          "turn": 3,
+          "sha256": null
+        },
+        {
+          "turn": 4,
+          "sha256": null
+        },
+        {
+          "turn": 5,
+          "sha256": null
+        },
+        {
+          "turn": 6,
+          "sha256": null
+        },
+        {
+          "turn": 7,
+          "sha256": "f18d2c8ffa8b6218324e40f9e1f6e9d068fa2cc92d6f4447f841da3fbf669bfb"
+        },
+        {
+          "turn": 8,
+          "sha256": "f18d2c8ffa8b6218324e40f9e1f6e9d068fa2cc92d6f4447f841da3fbf669bfb"
+        },
+        {
+          "turn": 9,
+          "sha256": "f18d2c8ffa8b6218324e40f9e1f6e9d068fa2cc92d6f4447f841da3fbf669bfb"
+        },
+        {
+          "turn": 10,
+          "sha256": "f18d2c8ffa8b6218324e40f9e1f6e9d068fa2cc92d6f4447f841da3fbf669bfb"
+        },
+        {
+          "turn": 11,
+          "sha256": "f18d2c8ffa8b6218324e40f9e1f6e9d068fa2cc92d6f4447f841da3fbf669bfb"
+        }
+      ],
+      "readiness_review_after_turn10": false,
+      "readiness_evidence": [],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "You left off with correct comparison counts for both full passes and early stops. Next was tracing a loop that **changes the list**."
+    },
+    {
+      "session": "B-S-rep1",
+      "record_bytes_changed_at_turns": [
+        7
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": null
+        },
+        {
+          "turn": 2,
+          "sha256": null
+        },
+        {
+          "turn": 3,
+          "sha256": null
+        },
+        {
+          "turn": 4,
+          "sha256": null
+        },
+        {
+          "turn": 5,
+          "sha256": null
+        },
+        {
+          "turn": 6,
+          "sha256": null
+        },
+        {
+          "turn": 7,
+          "sha256": "a9b8efbd30072747f4d506e076f6c606e8fd380b9083f315cb9884ce049b6473"
+        },
+        {
+          "turn": 8,
+          "sha256": "a9b8efbd30072747f4d506e076f6c606e8fd380b9083f315cb9884ce049b6473"
+        },
+        {
+          "turn": 9,
+          "sha256": "a9b8efbd30072747f4d506e076f6c606e8fd380b9083f315cb9884ce049b6473"
+        },
+        {
+          "turn": 10,
+          "sha256": "a9b8efbd30072747f4d506e076f6c606e8fd380b9083f315cb9884ce049b6473"
+        },
+        {
+          "turn": 11,
+          "sha256": "a9b8efbd30072747f4d506e076f6c606e8fd380b9083f315cb9884ce049b6473"
+        }
+      ],
+      "readiness_review_after_turn10": false,
+      "readiness_evidence": [],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "Last time, you correctly explained both reference groups in the gym question. Your saved next step was **two-way tables**, so let’s continue there."
+    },
+    {
+      "session": "B-S-rep2",
+      "record_bytes_changed_at_turns": [
+        7
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": null
+        },
+        {
+          "turn": 2,
+          "sha256": null
+        },
+        {
+          "turn": 3,
+          "sha256": null
+        },
+        {
+          "turn": 4,
+          "sha256": null
+        },
+        {
+          "turn": 5,
+          "sha256": null
+        },
+        {
+          "turn": 6,
+          "sha256": null
+        },
+        {
+          "turn": 7,
+          "sha256": "935cc7b82334cd1edec1781eec9f961a07079d4c48465118ae7ce7b24b188bbb"
+        },
+        {
+          "turn": 8,
+          "sha256": "935cc7b82334cd1edec1781eec9f961a07079d4c48465118ae7ce7b24b188bbb"
+        },
+        {
+          "turn": 9,
+          "sha256": "935cc7b82334cd1edec1781eec9f961a07079d4c48465118ae7ce7b24b188bbb"
+        },
+        {
+          "turn": 10,
+          "sha256": "935cc7b82334cd1edec1781eec9f961a07079d4c48465118ae7ce7b24b188bbb"
+        },
+        {
+          "turn": 11,
+          "sha256": "935cc7b82334cd1edec1781eec9f961a07079d4c48465118ae7ce7b24b188bbb"
+        }
+      ],
+      "readiness_review_after_turn10": false,
+      "readiness_evidence": [],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "Last time, you correctly explained why the noncyclist column total was the denominator. Your saved next step is more two-way table practice, so let’s continue there."
+    },
+    {
+      "session": "C-P-rep1",
+      "record_bytes_changed_at_turns": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": "c876750612c96f354c2f09ece633bbf482612ace55ef4f4d3c51479b8d1fa8bd"
+        },
+        {
+          "turn": 2,
+          "sha256": "6fc959eb7c0b755c7a3a35ca8c4158b4db984188ca6bb617234b66401aada690"
+        },
+        {
+          "turn": 3,
+          "sha256": "6fc959eb7c0b755c7a3a35ca8c4158b4db984188ca6bb617234b66401aada690"
+        },
+        {
+          "turn": 4,
+          "sha256": "01e5bae29d93cc609073a33cb282ca25886505baa13c0bcda23e737d6bc281b2"
+        },
+        {
+          "turn": 5,
+          "sha256": "5923ece76e2a512dc417125a409ca0fff55d1eb6e174999f029107076ec9c6d5"
+        },
+        {
+          "turn": 6,
+          "sha256": "5923ece76e2a512dc417125a409ca0fff55d1eb6e174999f029107076ec9c6d5"
+        },
+        {
+          "turn": 7,
+          "sha256": "9f518fe3d2c83e0372c11cee94eec16412e71c17666dd1f1d10a810a02306eea"
+        },
+        {
+          "turn": 8,
+          "sha256": "9f518fe3d2c83e0372c11cee94eec16412e71c17666dd1f1d10a810a02306eea"
+        },
+        {
+          "turn": 9,
+          "sha256": "9f518fe3d2c83e0372c11cee94eec16412e71c17666dd1f1d10a810a02306eea"
+        },
+        {
+          "turn": 10,
+          "sha256": "bdaad8efa09248c0492bb5ecd1d7c2f9c244c9a5e754a122898abe6addaa817f"
+        },
+        {
+          "turn": 11,
+          "sha256": "bdaad8efa09248c0492bb5ecd1d7c2f9c244c9a5e754a122898abe6addaa817f"
+        }
+      ],
+      "readiness_review_after_turn10": true,
+      "readiness_evidence": [
+        "- Current activity: Overall readiness review requested by student. Evidence does not establish readiness across Quiz 4; avoid claiming student lacks unassessed knowledge."
+      ],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "You left off after correctly handling full-pass and early-stop comparison counts. Your saved next step was **list aliasing**, so let’s continue there."
+    },
+    {
+      "session": "C-P-rep2",
+      "record_bytes_changed_at_turns": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": "9da27fff0bd03f5493b0962f9c095e2efc784a1ede0b069612f3927dffc970ce"
+        },
+        {
+          "turn": 2,
+          "sha256": "fde71862c98f725fd8c1bc13ac0bb2884090fee86eb6f4317715580cdeac42d0"
+        },
+        {
+          "turn": 3,
+          "sha256": "fde71862c98f725fd8c1bc13ac0bb2884090fee86eb6f4317715580cdeac42d0"
+        },
+        {
+          "turn": 4,
+          "sha256": "9b10013fa96bd36a48f01bd02b950dcb6aa1655324842424a21ec2de14dd3214"
+        },
+        {
+          "turn": 5,
+          "sha256": "a386ecdb15e5ff857ecbd34b851cb6673c899266b0793e9aec642e298a6b007e"
+        },
+        {
+          "turn": 6,
+          "sha256": "a386ecdb15e5ff857ecbd34b851cb6673c899266b0793e9aec642e298a6b007e"
+        },
+        {
+          "turn": 7,
+          "sha256": "d12102e05b220131ec478da53085d957ea34f07fd42c206fcd2d1fc8f97a6543"
+        },
+        {
+          "turn": 8,
+          "sha256": "d12102e05b220131ec478da53085d957ea34f07fd42c206fcd2d1fc8f97a6543"
+        },
+        {
+          "turn": 9,
+          "sha256": "d12102e05b220131ec478da53085d957ea34f07fd42c206fcd2d1fc8f97a6543"
+        },
+        {
+          "turn": 10,
+          "sha256": "85578d652d67cb663c11cc5d32fca70d653138db651470a7437593b4c4dddb7d"
+        },
+        {
+          "turn": 11,
+          "sha256": "85578d652d67cb663c11cc5d32fca70d653138db651470a7437593b4c4dddb7d"
+        }
+      ],
+      "readiness_review_after_turn10": true,
+      "readiness_evidence": [
+        "- Full-quiz readiness cannot be confirmed: only P2 has reviewed success; P1/P4 unassessed and P3 lacks teaching support. No score prediction justified.",
+        "- Current activity: Quiz 4 readiness review requested; assessment: insufficient evidence for whole-quiz readiness, not a claim the student lacks unassessed knowledge."
+      ],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "Welcome back. Your saved next step is **list aliasing**. You previously demonstrated loop tracing; a later recheck is still due. Big-O remains in scope, but its teaching notes are missing."
+    },
+    {
+      "session": "C-S-rep1",
+      "record_bytes_changed_at_turns": [
+        1,
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": "cd997f80b066e73c5c57ee9eed90c1d22f6e75241db0d3b28d9813c61d494910"
+        },
+        {
+          "turn": 2,
+          "sha256": "917ca9ba479812715bc339ad991f7c5c8106c7993f3cc2ce2c3045305cfc7c26"
+        },
+        {
+          "turn": 3,
+          "sha256": "917ca9ba479812715bc339ad991f7c5c8106c7993f3cc2ce2c3045305cfc7c26"
+        },
+        {
+          "turn": 4,
+          "sha256": "dd7b6dd279cf21a6d32b6045e873efb27a9cf49435b31783413889180cd455d7"
+        },
+        {
+          "turn": 5,
+          "sha256": "59bd155d5b064e1200059988a6c353f6edcfb4244ac1278ab8b909c730109811"
+        },
+        {
+          "turn": 6,
+          "sha256": "59bd155d5b064e1200059988a6c353f6edcfb4244ac1278ab8b909c730109811"
+        },
+        {
+          "turn": 7,
+          "sha256": "8cc1e8c359cfbb888901e29d65448c35ec36a265f9c04bbf00419ff2962e7541"
+        },
+        {
+          "turn": 8,
+          "sha256": "8cc1e8c359cfbb888901e29d65448c35ec36a265f9c04bbf00419ff2962e7541"
+        },
+        {
+          "turn": 9,
+          "sha256": "8cc1e8c359cfbb888901e29d65448c35ec36a265f9c04bbf00419ff2962e7541"
+        },
+        {
+          "turn": 10,
+          "sha256": "22d351a429e5de21624e9dd57bae7ef5f8aed8adc52b0e90397ca73cce4d628a"
+        },
+        {
+          "turn": 11,
+          "sha256": "22d351a429e5de21624e9dd57bae7ef5f8aed8adc52b0e90397ca73cce4d628a"
+        }
+      ],
+      "readiness_review_after_turn10": true,
+      "readiness_evidence": [
+        "- Current activity: Whole-midterm readiness review.",
+        "- Readiness: Insufficient evidence to call student ready for whole exam. T1 Demonstrated in same session; Recheck before exam. T2/T3/T4 Unassessed, not diagnosed weaknesses."
+      ],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "Your saved next step is **two-way tables: row versus column percentages**. You previously demonstrated conditional probability; we’ll recheck it later for retention. I’m using the study skill at `skill/SKILL.md` and your saved learning record."
+    },
+    {
+      "session": "C-S-rep2",
+      "record_bytes_changed_at_turns": [
+        2,
+        4,
+        5,
+        7,
+        10
+      ],
+      "snapshots": [
+        {
+          "turn": 1,
+          "sha256": null
+        },
+        {
+          "turn": 2,
+          "sha256": "1cd59f0a5916ae822c4b51aa81b06bb0af58710faeaceb7d0178015f7ae4df20"
+        },
+        {
+          "turn": 3,
+          "sha256": "1cd59f0a5916ae822c4b51aa81b06bb0af58710faeaceb7d0178015f7ae4df20"
+        },
+        {
+          "turn": 4,
+          "sha256": "f17a4cb7a7abb891ccbddb1f093678346dc1c1b9276f08856f2eee4891467ad1"
+        },
+        {
+          "turn": 5,
+          "sha256": "e1c682e80894eee4c17efe70125abb28bd3718019d9629ecf35abd8030dec58e"
+        },
+        {
+          "turn": 6,
+          "sha256": "e1c682e80894eee4c17efe70125abb28bd3718019d9629ecf35abd8030dec58e"
+        },
+        {
+          "turn": 7,
+          "sha256": "e457705919d383988bf5a129460efd9ded9b9fc5a0140b6f6a8f70a760a0d493"
+        },
+        {
+          "turn": 8,
+          "sha256": "e457705919d383988bf5a129460efd9ded9b9fc5a0140b6f6a8f70a760a0d493"
+        },
+        {
+          "turn": 9,
+          "sha256": "e457705919d383988bf5a129460efd9ded9b9fc5a0140b6f6a8f70a760a0d493"
+        },
+        {
+          "turn": 10,
+          "sha256": "ae9ad5b7a6e20c6b19cad3f85920b0d5119b4ac2575c24f401dce246df0e382f"
+        },
+        {
+          "turn": 11,
+          "sha256": "ae9ad5b7a6e20c6b19cad3f85920b0d5119b4ac2575c24f401dce246df0e382f"
+        }
+      ],
+      "readiness_review_after_turn10": true,
+      "readiness_evidence": [
+        "## Readiness review",
+        "- 2026-11-14: Insufficient evidence to call the student ready for the whole midterm. T1 reference-group selection demonstrated in same-session practice and independent transfer; later retention check due before exam. T2, T3, T4 unassessed, not confirmed weaknesses or proof of being unlearned.",
+        "- Next study route is course-based: T2 using Notes §2, T4 using Notes §3, obtain missing T3 teaching notes, and later recheck T1 unaided. After source gaps are resolved and remaining topics reviewed, assess mixed independent practice for whole-exam readiness; format/timing still unknown.",
+        "- Current activity: Whole-midterm readiness review; insufficient evidence to establish readiness across current scope."
+      ],
+      "resume_stale_answered_transfer": false,
+      "resume_evidence": "I’m using the study skill and your saved progress. Last time, you demonstrated correct reference-group reasoning; a later retention check is still due. Your next topic was **two-way tables**, so let’s continue there."
+    }
+  ]
+}

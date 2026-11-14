@@ -1,0 +1,19 @@
+{
+  "agent": "codex",
+  "date": "2026-11-14",
+  "reviewed_head": "49f074b",
+  "publication": "PASS",
+  "privacy_text_files": 6587,
+  "privacy_findings": 0,
+  "credential_findings": 0,
+  "python_syntax_files": 78,
+  "frozen_C_files": 16,
+  "frozen_S_files": 7,
+  "selected_sessions": 16,
+  "selected_student_calls": 176,
+  "dataset_changed": false,
+  "model_calls_or_tutor_benchmark_runs": 0,
+  "manifest": "Manifest generated LAST after this record; all planned Git-blob bytes and baseline entries verified separately.",
+  "temporary_auth_copies": 0,
+  "publication_package_files": 7316
+}

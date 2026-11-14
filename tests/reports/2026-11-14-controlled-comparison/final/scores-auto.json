@@ -1829,10 +1829,8 @@
         "status": "pass"
       },
       "M8": {
-        "score": "pass",
-        "count": "3/3",
-        "evidence": "two-way tables, independent Bayes practice, and grouped summaries",
-        "status": "pass"
+        "count": 3,
+        "evidence": "two-way tables, independent Bayes practice, and grouped summaries"
       },
       "M11": {
         "score": "not_applicable",
