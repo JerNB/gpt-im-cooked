@@ -13,7 +13,7 @@ import time
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-REPORT = ROOT / 'tests/reports/2026-11-14-controlled-comparison/restart'
+REPORT = ROOT / 'tests/reports/2026-11-14-controlled-comparison/isolated'
 SKILL = 'plugins/gpt-im-cooked/skills/gpt-im-cooked'
 B_REV = '97be1720f890745b3b59be52ad9ec3dea740393e'
 C_REV = '4d102f605260559af16d2f6620cd926bf0b8f6fd'
@@ -131,7 +131,10 @@ def call(script, state, arm, turn, work, cli, phase):
         prompt = script['context'] + script.get('resume_openers', {}).get(key, '') + prompt
     elif a['session'] is None:
         prompt = script['context'] + script['openers'][key] + prompt
-    common = ['--json', '--skip-git-repo-check', '--ignore-user-config', '-m', MODEL,
+    disabled = sorted({p.resolve().as_posix() for d in (Path.home() / '.agents/skills', Path.home() / '.codex/skills') for p in d.rglob('SKILL.md')})
+    selectors = 'skills.config=[' + ','.join('{path=' + json.dumps(p) + ',enabled=false}' for p in disabled) + ']'
+    common = ['--json', '--skip-git-repo-check', '--ignore-user-config', '-c', selectors,
+              '-c', 'skills.bundled.enabled=false', '-m', MODEL,
               '-c', f'model_reasoning_effort="{EFFORT}"', '-c', 'approval_policy="never"',
               '-c', 'sandbox_mode="workspace-write"', '-c', 'windows.sandbox="unelevated"']
     cmd = [cli, 'exec'] + (['resume'] + common + [a['session'], '-'] if a['session'] else common + ['-C', str(run), '-'])
@@ -180,6 +183,16 @@ def call(script, state, arm, turn, work, cli, phase):
            'start_unix': started, 'wall_seconds': elapsed, 'returncode': rc,
            'usage': done[0].get('usage') if len(done) == 1 else None,
            'complete': rc == 0 and len(done) == 1, 'error': error}
+    external_reads = []
+    for event in events:
+        item = event.get('item', {})
+        command = item.get('command', '').replace('\\', '/').lower()
+        if item.get('type') == 'command_execution' and ('.agents/skills' in command or '.codex/skills' in command):
+            external_reads.append(item.get('id'))
+    row['external_skill_commands'] = external_reads
+    if external_reads:
+        row['complete'] = False
+        row['error'] = 'external_skill_access_invalidates_session'
     dump(out / f'{stem}.meta.json', row)
     if not row['complete']:
         a['failed'] = True
