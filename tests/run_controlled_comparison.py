@@ -238,12 +238,19 @@ def run_session(packet, rep, arm_order, work, script, state, cli, turn_ids, answ
 
 
 def main():
+    global REPORT, ARMS
     ap = argparse.ArgumentParser()
     ap.add_argument('--packet', choices=PACKETS, required=True)
     ap.add_argument('--replicate', type=int, choices=[1, 2], required=True)
     ap.add_argument('--phase', choices=['phase1', 'phase2'], required=True)
     ap.add_argument('--work', type=Path, required=True)
+    ap.add_argument('--arms', default='A1,A2,B,C')
+    ap.add_argument('--report', type=Path)
     args = ap.parse_args()
+    ARMS = args.arms.split(',')
+    assert len(set(ARMS)) == len(ARMS) and set(ARMS) <= {'A1','A2','B','C'}
+    if args.report:
+        REPORT = args.report.resolve()
     work = args.work.resolve()
     cli = shutil.which('codex')
     if not cli:
@@ -254,8 +261,8 @@ def main():
         raise RuntimeError(f'CLI version {version} differs from pilot; protocol requires aborting comparison')
     protocol_path = REPORT / 'protocol.json'
     if not protocol_path.exists():
-        if args.phase != 'phase1' or args.packet != 'S' or args.replicate != 1:
-            raise RuntimeError('first call must initialize S/rep1 phase1')
+        if args.phase != 'phase1':
+            raise RuntimeError('first call must initialize phase1')
         (REPORT / 'skill-B').mkdir(parents=True)
         skill_archive(B_REV, REPORT / 'skill-B')
         (REPORT / 'skill-C').mkdir(parents=True)
@@ -272,6 +279,7 @@ def main():
         if args.packet == 'S':
             shutil.copytree(source, REPORT / 'fixtures' / 'packet-s', dirs_exist_ok=True)
         arm_order = ['A1', 'A2', 'B', 'C'] if args.replicate == 1 else ['C', 'B', 'A2', 'A1']
+        arm_order = [a for a in arm_order if a in ARMS]
         try:
             rows = run_session(args.packet, args.replicate, arm_order, work, script, state, cli, range(1, 7))
         finally:
@@ -288,9 +296,10 @@ def main():
         if key not in answers:
             raise RuntimeError('turn7 answers missing for this packet/replicate')
         order = ['A1', 'A2', 'B', 'C'] if args.replicate == 1 else ['C', 'B', 'A2', 'A1']
+        order = [a for a in order if a in ARMS]
         rows = []
-        for a in state['arms'].values():
-            shutil.copy2(Path.home() / '.codex/auth.json', Path(a['home']) / 'auth.json')
+        for arm in ARMS:
+            shutil.copy2(Path.home() / '.codex/auth.json', Path(state['arms'][arm]['home']) / 'auth.json')
         try:
             rows = run_session(args.packet, args.replicate, order, work, script, state, cli, range(7, 12), answers[key], 'phase2')
         finally:
