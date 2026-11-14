@@ -1,0 +1,1 @@
+Correct—**7 element-to-element comparisons**. Your reasoning and exclusions match the course’s counting rule, and you solved it without a hint.

@@ -1,0 +1,1 @@
+It stays the same: 40.0% of students borrow a laptop before and after. The reference group is the 30 students, 12 of whom borrow a laptop. Adding nonstudents changes neither 12 nor 30, so 12/30 stays the same.

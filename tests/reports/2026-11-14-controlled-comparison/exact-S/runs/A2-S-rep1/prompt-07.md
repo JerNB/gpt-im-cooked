@@ -1,0 +1,1 @@
+There is not enough information. The reference group is all volunteers. We know 4 senior volunteers, but do not know how many non-seniors volunteer, or the total number of volunteers. I need the total volunteer count; then 4 divided by that total gives the percentage of volunteers who are seniors.

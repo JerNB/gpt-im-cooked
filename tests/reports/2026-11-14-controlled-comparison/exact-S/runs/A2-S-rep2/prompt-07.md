@@ -1,0 +1,1 @@
+Not enough information. The denominator must be all trainees. We know 6 remote workers are trainees, but the number of nonremote trainees is not given. We need the total number of trainees, or the number of nonremote trainees; then 6 divided by total trainees gives the requested percentage of trainees who work remotely.

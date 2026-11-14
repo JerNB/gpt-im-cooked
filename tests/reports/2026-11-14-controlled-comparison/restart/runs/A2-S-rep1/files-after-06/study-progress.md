@@ -1,0 +1,14 @@
+# STAT 110 study progress
+
+- Source: materials/outline.md and materials/notes.md; practice prompts from materials/practice.md.
+- Preferences: course files only; no practice answers before an attempt unless requested; check understanding after explanations; assess learning cautiously.
+- Midterm: T1 conditional probability, T2 two-way tables, T3 Bayes rule (notes pending), T4 grouped summaries. Hypothesis testing excluded.
+- Reporting: every proportion as a percentage to one decimal place, with reference group named.
+- Current topic: T1 conditional probability, Notes §1. Initial explanation provided: P(A | B) means A among B; denominator is B; reversing order changes reference group.
+- Next check: Explain why 40 is not the denominator for Q1; student to state the group their original calculation describes.
+- Evidence: Q1 attempt used 10/40 and reported 25%, choosing the whole class because it appeared first. Arithmetic correct; reference-group selection incorrect. Needs one decimal place and group label. Feedback gives 40.0% of commuters (10 divided by 25). Conditional reference-group selection not yet demonstrated independently.
+
+- Q2: Student explicitly requested the answer before attempting. Answer supplied: 25.0% of remote workers are trainees (6 divided by 24). This is not evidence of independent understanding. Follow-up: why use 24 rather than 60 as denominator?
+- Q3: Correct answer, 33.3% of seniors; correctly identified the 12 seniors as the reference group and denominator. Student reports no hint. Evidence of one successful independent application, not mastery; earlier Q1 denominator error remains relevant. Next check: Q4, identify reference group and report percentage to one decimal place.
+- Q4: Correct answer, 45.0% of online shoppers; correctly chose the 20 online shoppers as denominator. Two consecutive correct independent applications (Q3 and Q4), with correct reporting. Basic reference-group selection is improving; mastery is not established. Still to assess: reversed conditional probabilities and consistency with less familiar wording. Next check: explain how reference groups differ for P(A | B) and P(B | A), with A = cycling and B = commuting.
+- Additional check posed using Q1 data: can the percentage of cyclists who commute be calculated from 40 students, 25 commuters, and 10 commuters who cycle? Student to identify denominator and whether supplied data suffice. Pending response; no answer supplied.

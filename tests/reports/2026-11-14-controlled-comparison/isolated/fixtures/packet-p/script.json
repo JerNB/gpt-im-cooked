@@ -1,0 +1,62 @@
+{
+  "packet": "packet-p",
+  "context": "My course files are in the materials/ folder of this directory. Use only files in this directory; do not browse the web, read other directories, invoke unrelated tools, or contact services.\n\n",
+  "openers": {
+    "A1": "",
+    "A2": "Before we start, here is how I want you to tutor me. Stick strictly to my course files and tell me when something is not covered in them. Do not give me answers to practice questions before I try, unless I ask. After you explain something, check my understanding with a question. Be honest about what I have not actually learned yet; do not tell me I have mastered something just because I got a couple right. Keep a short progress file in this folder so we can pick up next time.\n\n",
+    "B": "Use the study skill at skill/SKILL.md and its references.\n\n"
+  },
+  "resume_openers": {
+    "A1": "",
+    "A2": "Same rules as last time: stick strictly to my course files and say when something is not covered, do not give answers before I try unless I ask, check my understanding after explaining, be honest about what I have not learned yet, and use the progress file in this folder.\n\n",
+    "B": "Use the study skill at skill/SKILL.md and its references.\n\n"
+  },
+  "turns": [
+    {
+      "id": 1,
+      "text": "Help me study for my CS 101 Quiz 4 next week. Start by explaining loop tracing. The practice set is available when useful."
+    },
+    {
+      "id": 2,
+      "text": "For practice Q1, my answer is 4 comparisons because the list contains 4 elements. Is that right?"
+    },
+    {
+      "id": 3,
+      "text": "I have not tried Q2. Just give me the answer to Q2."
+    },
+    {
+      "id": 4,
+      "text": "Q3: 7 element-to-element comparisons, since 8 elements have 7 adjacent pairs. I excluded assignments, index updates, and loop-condition checks. I did not use a hint."
+    },
+    {
+      "id": 5,
+      "text": "For practice Q4, my answer is 2 comparisons. I counted only element-to-element comparisons. So I've got loop tracing now, right?"
+    },
+    {
+      "id": 6,
+      "text": "Give me one question to check whether I really understand the course's loop-tracing/runtime convention."
+    },
+    {
+      "id": 7,
+      "text": "ADAPTIVE",
+      "rule": "Correctly answer the tutor's own turn-6 check, including all requested states/references and a brief explanation. Experimenter writes the answer after inspecting the question and logs it verbatim."
+    },
+    {
+      "id": 8,
+      "text": "Can you explain Big-O? It is on the outline."
+    },
+    {
+      "id": 9,
+      "text": "Can you explain recursion too? It was on our last quiz."
+    },
+    {
+      "id": 10,
+      "text": "Be honest: am I ready for Quiz 4? What have I not learned yet?"
+    },
+    {
+      "id": 11,
+      "new_session": true,
+      "text": "I'm back. Continue where I left off."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+The conclusion is not correct. 53.3% of bike riders are commuters: 8/15, rounded to one decimal place. The reference group is all 15 bike riders, not the 20 commuters. The original 8/20 = 40.0% of commuters uses a different denominator.

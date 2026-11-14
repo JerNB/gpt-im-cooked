@@ -1,0 +1,214 @@
+{
+  "case": "CASE-15",
+  "packet": "S",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 4,
+      "reply": "\n\nCorrect\u2014**33.3% of seniors volunteer at events**. You correctly chose the 12 seniors as the reference group and explained why they belong in the denominator. This matches the instructor\u2019s Q3 key; I\u2019ll save it as an improvement from Q1.\n\n\n\nCorrect: **33.3% of seniors volunteer at events.** The question asks about seniors, so the 12 seniors are the denominator. Your calculation, explanation, and reporting all match the [instructor key, Q3](materials/practice-key.md).\n\nI saved your answer and \u201cno hint\u201d report in your [learning record](learning-record.md), updating conditional probability to **Improving**.\n\nNext check: If the question instead asked what percentage **of all club members** are seniors who volunteer, which denominator would you use, and why?",
+      "files": {
+        "learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Improving |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "action: Later unaided application with a changed condition or reasoning demand; recheck before midterm."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 5,
+      "reply": "\n\nQ4 is correct, including your denominator and reporting. Q3 and Q4 show that you\u2019re choosing the reference group correctly on this question format. I\u2019ll save that progress; a question that changes the reasoning will help check whether you can apply it more broadly.\n\n\n\n**Q4 is correct: 45.0% of online shoppers returned an item.** You correctly used the 20 online shoppers as the denominator. ([Instructor key, Q4](materials/practice-key.md))\n\nYou\u2019ve corrected the denominator mistake from Q1 and explained Q3 and Q4 correctly. That supports **Improving**: you understand this question format, while broader application and retention still need checking. I\u2019ve saved that progress in your [learning record](learning-record.md).\n\nTry this changed condition: Of the **45 shoppers in Q4**, what percentage **both ordered online and returned an item**? Give the percentage and explain your denominator.",
+      "files": {
+        "learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Improving |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "1.3). | Changed-condition task about all 45 shoppers, followed by later unaided recheck before exam. |",
+            "- Recheck: Later unaided application before the midterm."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Improving |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "1.3). | Changed-condition task about all 45 shoppers, followed by later unaided recheck before exam. |",
+            "- Recheck: Later unaided application before the midterm."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "\n\nCorrect. You built the reference group from both sets of volunteers and explained why the other totals don\u2019t apply. That demonstrates the idea beyond the original question format. I\u2019ll save this as **Demonstrated**, with an unaided recheck due before the exam because these successes are from the same session.\n\n\n\nExactly right: **60.0% of volunteers are seniors.** You constructed the denominator from both groups of volunteers and correctly explained why 30 and 50 don\u2019t apply.\n\nTogether with Q3 and Q4, this demonstrates that you can apply the reference-group rule when the reasoning changes. I saved **Demonstrated \u2014 recheck before exam** in your [learning record](learning-record.md), since today\u2019s success still needs a later retention check.\n\nYou\u2019re ready to move on to two-way tables.",
+      "files": {
+        "learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | CP-T1 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "changed denominator construction and conditioning focus. Same-session evidence: Recheck before exam. | Choose and, when needed, construct the group asked about (Notes sections 1.1-1.3). |",
+            " Later unaided application after another topic or in a later session; Recheck before exam. |",
+            "nstrated with Q3/Q4 and this changed-reasoning transfer. Same-session evidence; Recheck before exam. |",
+            "ted from distinct reasoning contexts; all supporting successes in this session. Recheck before exam.",
+            "bles (materials/notes.md section 2), then later unaided conditional-probability recheck."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | CP-T1 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "changed denominator construction and conditioning focus. Same-session evidence: Recheck before exam. | Choose and, when needed, construct the group asked about (Notes sections 1.1-1.3). |",
+            " Later unaided application after another topic or in a later session; Recheck before exam. |",
+            "nstrated with Q3/Q4 and this changed-reasoning transfer. Same-session evidence; Recheck before exam. |",
+            "ted from distinct reasoning contexts; all supporting successes in this session. Recheck before exam.",
+            "bles (materials/notes.md section 2), then later unaided conditional-probability recheck."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | CP-T1 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "changed denominator construction and conditioning focus. Same-session evidence: Recheck before exam. | Choose and, when needed, construct the group asked about (Notes sections 1.1-1.3). |",
+            " Later unaided application after another topic or in a later session; Recheck before exam. |",
+            "nstrated with Q3/Q4 and this changed-reasoning transfer. Same-session evidence; Recheck before exam. |",
+            "ted from distinct reasoning contexts; all supporting successes in this session. Recheck before exam.",
+            "bles (materials/notes.md section 2), then later unaided conditional-probability recheck."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\nI\u2019ll compare your reviewed answers with the current outline to distinguish what you\u2019ve demonstrated from what we haven\u2019t assessed.\n\n\n\n**I can\u2019t honestly call you ready for the whole midterm yet.** You\u2019ve demonstrated conditional probability, but we haven\u2019t assessed the other three topics. That means they\u2019re unassessed\u2014not that you necessarily don\u2019t know them.\n\n| Topic | Evidence and remaining work |\n|---|---|\n| **Conditional probability** | You corrected Q1\u2019s denominator error, explained Q3 and Q4 correctly, and solved the transfer question independently. **Demonstrated; recheck before the exam** to test retention. |\n| **Two-way tables** | Not yet reviewed or assessed: choosing row versus column percentages and understanding which percentages sum to 100%. |\n| **Bayes\u2019 rule** | In scope, but not yet taught or assessed here. Your supplied teaching notes are missing this topic. |\n| **Grouped summaries** | Not yet reviewed or assessed: forming groups, counting output rows, and comparing the same summary across groups. |\n\nThose requirements come from your [current outline](materials/outline.md) and [Notes \u00a7\u00a72\u20133](materials/notes.md). **Hypothesis testing is excluded this year**, despite appearing on last year\u2019s paper.\n\nYour recent answers also consistently follow the reporting rule: one decimal place and a named reference group. Q2 remains unattempted because I supplied its answer; it doesn\u2019t count as evidence of understanding.\n\n**Next, study two-way tables, then grouped summaries, obtain the Bayes lecture notes, and finish with independent mixed practice and a delayed conditional-probability check.**\n\nI saved this readiness review in your [learning record](learning-record.md).",
+      "files": {
+        "learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| T2 | Two-way tables: row and column percentages | Unassessed |",
+            "| T3 | Bayes rule | Unassessed |",
+            "| T4 | Grouped summaries | Unassessed |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | CP-T1 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "changed denominator construction and conditioning focus. Same-session evidence: Recheck before exam. | Choose and, when needed, construct the group asked about (Notes sections 1.1-1.3). |",
+            " Later unaided application after another topic or in a later session; Recheck before exam. |",
+            "nstrated with Q3/Q4 and this changed-reasoning transfer. Same-session evidence; Recheck before exam. |",
+            "evidence to call student ready for whole exam. T1 Demonstrated in same session; Recheck before exam. T2/T3/T4 Unassessed, not diagnosed weaknesses.",
+            "om Notes section 2 and assess; then T4, obtain Bayes lecture content, and later recheck T1 unaided before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "I\u2019ll read the study skill and local session notes, then pick up where you left off.\n\n\n\nYour saved next step is **two-way tables: row versus column percentages**. You previously demonstrated conditional probability; we\u2019ll recheck it later for retention. I\u2019m using the study skill at `[workflow reference]` and your saved learning record.\n\nA two-way table counts cases using two categories at once. The percentage rule builds on your earlier work: **choose the reference group first**, then use its total as the denominator. ([Notes \u00a72.1\u20132.2](materials/notes.md))\n\nHere\u2019s a new example:\n\n| Students | Cycle | Don\u2019t cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| **Total** | **20** | **30** | **50** |\n\n\u201cAmong **commuters**, what percentage cycle?\u201d restricts us to the commuter **row**. We calculate \\(12/30\\): **40.0% of commuters cycle**.\n\nA **row percentage** divides by its row total; a **column percentage** divides by its column total. Row percentages within one row add to 100%; column percentages within one column add to 100%. ([Notes \u00a72.2\u20132.3](materials/notes.md))\n\nNow try the reversed question:\n\n**Among students who cycle, what percentage are commuters?** Explain whether you use a row or column total, and why. Report your percentage to one decimal place and name the reference group.",
+      "files": {
+        "learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| T2 | Two-way tables: row and column percentages | Unassessed |",
+            "| T3 | Bayes rule | Unassessed |",
+            "| T4 | Grouped summaries | Unassessed |",
+            "| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 |",
+            "| 2026-11-14 | CP-T1 / chat attempt 1 | T1 |"
+          ],
+          "recheck_lines": [
+            "changed denominator construction and conditioning focus. Same-session evidence: Recheck before exam. | Choose and, when needed, construct the group asked about (Notes sections 1.1-1.3). |",
+            " Later unaided application after another topic or in a later session; Recheck before exam. |",
+            "nstrated with Q3/Q4 and this changed-reasoning transfer. Same-session evidence; Recheck before exam. |",
+            "evidence to call student ready for whole exam. T1 Demonstrated in same session; Recheck before exam. T2/T3/T4 Unassessed, not diagnosed weaknesses.",
+            "om Notes section 2 and assess; then T4, obtain Bayes lecture content, and later recheck T1 unaided before exam."
+          ]
+        }
+      }
+    }
+  ]
+}

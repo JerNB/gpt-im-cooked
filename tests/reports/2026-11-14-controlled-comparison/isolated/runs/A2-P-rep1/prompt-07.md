@@ -1,0 +1,1 @@
+Report 4 element-to-element comparisons: five elements give four adjacent pairs in one complete pass. I exclude assignments, index updates, and loop-condition checks. Those may still matter for tracing program state, but they are not included in this course runtime count.

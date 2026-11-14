@@ -1,0 +1,18 @@
+{
+  "A1-P-rep1": "isolated/runs/A1-P-rep1",
+  "A1-P-rep2": "isolated/runs/A1-P-rep2",
+  "A1-S-rep1": "exact-S/runs/A1-S-rep1",
+  "A1-S-rep2": "recovery-A1-S-rep2/runs/A1-S-rep2",
+  "A2-P-rep1": "isolated/runs/A2-P-rep1",
+  "A2-P-rep2": "isolated/runs/A2-P-rep2",
+  "A2-S-rep1": "exact-S/runs/A2-S-rep1",
+  "A2-S-rep2": "exact-S/runs/A2-S-rep2",
+  "B-P-rep1": "isolated/runs/B-P-rep1",
+  "B-P-rep2": "recovery-B-P-rep2/runs/B-P-rep2",
+  "B-S-rep1": "exact-S/runs/B-S-rep1",
+  "B-S-rep2": "exact-S/runs/B-S-rep2",
+  "C-P-rep1": "isolated/runs/C-P-rep1",
+  "C-P-rep2": "isolated/runs/C-P-rep2",
+  "C-S-rep1": "exact-S/runs/C-S-rep1",
+  "C-S-rep2": "exact-S/runs/C-S-rep2"
+}

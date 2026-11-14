@@ -1,0 +1,1 @@
+53.3% of volunteers are seniors. The reference group is the 15 volunteers, and 8 are seniors, so I divide 8 by 15 and round to one decimal place.

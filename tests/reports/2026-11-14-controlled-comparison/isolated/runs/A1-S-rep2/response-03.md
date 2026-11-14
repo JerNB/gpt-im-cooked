@@ -1,0 +1,1 @@
+**25.0% of remote workers are trainees.**

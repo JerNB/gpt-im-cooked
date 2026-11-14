@@ -1,0 +1,18 @@
+{
+  "arm": "A1",
+  "packet": "S",
+  "replicate": 1,
+  "turn": 2,
+  "start_unix": 1794611912.4191446,
+  "wall_seconds": 10.03,
+  "returncode": 0,
+  "usage": {
+    "input_tokens": 211109,
+    "cached_input_tokens": 183040,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1185,
+    "reasoning_output_tokens": 154
+  },
+  "complete": true,
+  "error": null
+}

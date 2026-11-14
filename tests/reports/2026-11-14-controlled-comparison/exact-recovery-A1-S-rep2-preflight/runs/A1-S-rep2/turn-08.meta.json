@@ -1,0 +1,13 @@
+{
+  "arm": "A1",
+  "packet": "S",
+  "replicate": 2,
+  "turn": 8,
+  "start_unix": 1794674106.408545,
+  "wall_seconds": 8.59,
+  "returncode": 1,
+  "usage": null,
+  "complete": false,
+  "error": null,
+  "external_skill_commands": []
+}

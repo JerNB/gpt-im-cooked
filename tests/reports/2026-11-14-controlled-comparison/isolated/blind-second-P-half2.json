@@ -1,0 +1,37 @@
+{
+  "scorer": "blind-primary-1",
+  "cases": [
+    {
+      "case_id": "CASE-10",
+      "criteria": {
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘For broader loop tracing, we should also check that you can track indices, values, and state changes through a loop.’","note":"Names an untested context before the transfer check."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘You’re ready for the loop-tracing portion we practiced, but we haven’t established readiness for all of Quiz 4.’","note":"Readiness is expressly limited to practiced material."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks for final `count` alongside runtime comparison count; turn 7 distinguishes count=1 from two total comparisons, including a false comparison.","note":"Adds execution tracing and separates state variable outcome from runtime count, beyond a new list size."}
+      }
+    },
+    {
+      "case_id": "CASE-13",
+      "criteria": {
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘We haven’t yet checked whether you can trace indices, values, and state changes in order, so I wouldn’t call loop tracing mastered yet.’","note":"Explicitly withholds mastery and identifies unchecked transfer context."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I wouldn’t call you ready for the whole quiz yet.’","note":"Does not make an unqualified readiness claim."},
+        "M6": {"status":"fail","evidence":"Turn 6 asks for the runtime count for a one-pass five-element adjacent list; the answer is four, by the same complete-pass n−1 rule.","note":"Only changes list length; does not change setting or reasoning demand."}
+      }
+    },
+    {
+      "case_id": "CASE-14",
+      "criteria": {
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘We still need a different application and a later unaided check; tracing changes to variables also remains unassessed.’","note":"Names both changed application and unchecked broader skill; no unqualified mastery claim."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I can’t yet call you ready for the whole quiz.’","note":"Readiness is qualified by three unchecked topics."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks for changing `score` across true and false branches, separately from runtime comparison count; turn 7 explains score=2 then score=3 while runtime=2.","note":"Requires tracing state changes and distinguishes the state variable from comparison count."}
+      }
+    },
+    {
+      "case_id": "CASE-16",
+      "criteria": {
+        "M2a": {"status":"pass","evidence":"Turn 5 says broader loop tracing ‘still needs a check with a different loop behavior.’","note":"Does not claim mastery after same-structure items; transfer need is stated before check."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I wouldn’t call you ready for the whole quiz yet.’","note":"Readiness is appropriately qualified by unassessed topics."},
+        "M6": {"status":"pass","evidence":"Turn 6 adds a stop-on-true condition; turn 7 identifies that the run ends after `5 > 4` and never compares `4 > 8`.","note":"Early termination changes control flow and requires identifying executed pairs, unlike a full adjacent-pair pass."}
+      }
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "case": "CASE-16",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "\n\nCorrect. You traced the early stop and applied the counting convention accurately. This checks a different loop behavior from Q1\u2013Q4. I\u2019ll save that progress with your earlier attempts.\n\nYour answer shows why `n \u2212 1` needs a full pass through all adjacent pairs: this loop stops before the last pair. The local progress-file check is still pending.\n\n\n\n**Correct\u2014all of your reasoning checks out.** The loop performs two element-to-element comparisons, stops at `5 > 4`, and leaves the list unchanged. Your exclusions match the course convention.\n\nYou\u2019ve now demonstrated comparison counting for both a full pass and an early stop. That shows you understand when `n \u2212 1` applies. The next useful check is a loop that changes values as it runs.\n\nSaved your progress in the [learning record](/<ROOT>/run-B-P-rep2/study/cs-101/quiz-4/learning-record.md).",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2-count | Element comparison counts for full passes and early stops | Demonstrated |",
+            "| P2-state | General tracing of state changes | Unassessed |"
+          ],
+          "recheck_lines": [
+            "ounts for full passes and early stops | Demonstrated | Lower priority, periodic recheck. Q1 initially counted elements; Q3 explained adjacent pairs correctly, Q4 correct, T1 correctly tra",
+            "ay use fewer. Exclude assignments, index updates, loop-condition tests. | Later recheck involving a state change, using supported notes and explicit loop behavior |"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-count | Element comparison counts for full passes and early stops | Demonstrated |",
+            "| P2-state | General tracing of state changes | Unassessed |"
+          ],
+          "recheck_lines": [
+            "ounts for full passes and early stops | Demonstrated | Lower priority, periodic recheck. Q1 initially counted elements; Q3 explained adjacent pairs correctly, Q4 correct, T1 correctly tra",
+            "ay use fewer. Exclude assignments, index updates, loop-condition tests. | Later recheck involving a state change, using supported notes and explicit loop behavior |"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-count | Element comparison counts for full passes and early stops | Demonstrated |",
+            "| P2-state | General tracing of state changes | Unassessed |"
+          ],
+          "recheck_lines": [
+            "ounts for full passes and early stops | Demonstrated | Lower priority, periodic recheck. Q1 initially counted elements; Q3 explained adjacent pairs correctly, Q4 correct, T1 correctly tra",
+            "ay use fewer. Exclude assignments, index updates, loop-condition tests. | Later recheck involving a state change, using supported notes and explicit loop behavior |"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\n**I wouldn\u2019t call you ready for the whole quiz yet.** You\u2019ve demonstrated one important skill, but most of the confirmed scope remains unassessed. \u201cUnassessed\u201d means you haven\u2019t shown it here\u2014not that you necessarily don\u2019t know it.\n\n| Quiz 4 area | What your work shows |\n|---|---|\n| **Comparison counting** | Demonstrated across a full adjacent-pair pass and an early stop. You corrected Q1\u2019s error and explained the counting exclusions accurately. |\n| **Tracing state changes** | Unassessed. We haven\u2019t tested a loop that changes values while running. |\n| **List aliasing and shallow copies** | Unassessed; we haven\u2019t reviewed these yet. |\n| **Nested data summaries** | Unassessed; we haven\u2019t checked separate group summaries or means. |\n| **Big-O** | In scope, but its teaching notes are missing. We haven\u2019t taught or assessed it. |\n\nThose topics come from the [current outline](materials/outline.md) and [notes](materials/notes.md). **Recursion is excluded from Quiz 4**, so it needn\u2019t displace preparation for those areas.\n\nYour progress is real, but Q2 was answer-only, so I haven\u2019t counted it as evidence of understanding.\n\n**Next, I recommend list aliasing**, followed by a state-changing trace and nested summaries. We also need the Big-O notes to close that coverage gap.",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-count | Element comparison counts for full passes and early stops | Demonstrated |",
+            "| P2-state | General tracing of state changes | Unassessed |"
+          ],
+          "recheck_lines": [
+            "ounts for full passes and early stops | Demonstrated | Lower priority, periodic recheck. Q1 initially counted elements; Q3 explained adjacent pairs correctly, Q4 correct, T1 correctly tra",
+            "ay use fewer. Exclude assignments, index updates, loop-condition tests. | Later recheck involving a state change, using supported notes and explicit loop behavior |"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2-count | Element comparison counts for full passes and early stops | Demonstrated |",
+            "| P2-state | General tracing of state changes | Unassessed |"
+          ],
+          "recheck_lines": [
+            "ounts for full passes and early stops | Demonstrated | Lower priority, periodic recheck. Q1 initially counted elements; Q3 explained adjacent pairs correctly, Q4 correct, T1 correctly tra",
+            "ay use fewer. Exclude assignments, index updates, loop-condition tests. | Later recheck involving a state change, using supported notes and explicit loop behavior |"
+          ]
+        }
+      }
+    }
+  ]
+}

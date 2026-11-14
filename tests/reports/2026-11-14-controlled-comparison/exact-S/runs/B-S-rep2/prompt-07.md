@@ -1,0 +1,1 @@
+60.0% of students who do not cycle are commuters. The reference group is the noncyclists: 15 commuters plus 10 noncommuters, totaling 25. Of those, 15 are commuters, so 15/(15+10)=60.0%.

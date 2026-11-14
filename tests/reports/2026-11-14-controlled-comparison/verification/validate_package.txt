@@ -1,0 +1,3 @@
+PASS: 1169 package files, 2 skills, onboarding paths, starter prompts, links, and synthetic arithmetic.
+This command checks package structure only; see VALIDATION.md for behavioral evidence and host limits.
+

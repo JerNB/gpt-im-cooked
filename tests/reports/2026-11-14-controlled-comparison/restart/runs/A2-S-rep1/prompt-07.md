@@ -1,0 +1,1 @@
+There is not enough information to determine the percentage of cyclists who commute. The denominator must be all cyclists, but we only know 10 commuters cycle; noncommuting cyclists are not specified. If there are x noncommuting cyclists, it would be 100 times 10/(10+x)% of cyclists. We cannot supply a numeric percentage to one decimal place without that total.

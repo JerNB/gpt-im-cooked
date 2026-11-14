@@ -1,0 +1,204 @@
+{
+  "case": "CASE-04",
+  "packet": "S",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 4,
+      "reply": "Your answer and reasoning are correct. I\u2019ll record Q3 as an unaided attempt and update your progress to Improving.\n\n\n\nCorrect: **33.3% of seniors volunteer.** You correctly identified the 12 seniors as the reference group and denominator, and followed the reporting rule. ([Instructor key, Q3](materials/practice-key.md))\n\nI saved Q3 as an unaided correct attempt and updated your [learning record](study/stat-110/midterm-1/learning-record.md) to **Improving**. Next, we can check your reasoning when the question changes the reference group.",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Improving |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            " the group. | Independent changed-condition transfer task, then a later unaided recheck before exam. |",
+            " success established, independent transfer and later retention still unchecked. Recheck before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 5,
+      "reply": "Q4 is correct, including your denominator and reporting format. Q3 and Q4 show improvement on this question pattern; a question that changes the reference group will help check whether you can apply the idea more broadly.\n\n\n\n**Q4 is correct: 45.0% of online shoppers returned an item.** Your denominator and explanation match the [instructor key, Q4](materials/practice-key.md).\n\nYou\u2019ve shown that you can apply the basic rule in Q3 and Q4. Both follow the same pattern, so I\u2019ve saved your progress as **Improving** in your [learning record](study/stat-110/midterm-1/learning-record.md). We still need to check a changed reference group and revisit it later for retention.\n\nTry this variation using Q4\u2019s data: **What percentage of all 45 shoppers both ordered online and returned an item? Explain your denominator.**",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Improving |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "Independent changed-condition transfer task T1-transfer-1, then a later unaided recheck before exam. |",
+            " success established, independent transfer and later retention still unchecked. Recheck before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Improving |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "Independent changed-condition transfer task T1-transfer-1, then a later unaided recheck before exam. |",
+            " success established, independent transfer and later retention still unchecked. Recheck before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "Correct. You identified the 15 borrowers as the reference group and explained why the other totals don\u2019t apply. This supports Demonstrated status for choosing reference groups; I\u2019ll save that with a reminder to recheck it before the exam.\n\n\n\nCorrect: **60.0% of members who borrowed a book are students.** You identified the reference group and correctly rejected both competing denominators. That shows you can apply the rule when the question changes. ([Notes \u00a71.2\u20131.3](materials/notes.md))\n\nI\u2019ve saved **Demonstrated** for reference-group selection in your [learning record](study/stat-110/midterm-1/learning-record.md), with **Recheck before exam** because these successes occurred in one session.\n\nYou\u2019re ready to move on to two-way tables; we\u2019ll revisit this later to check retention.",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |",
+            "| 2026-11-14 | T1-transfer-2, library question, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "lution revealed; not success evidence. All reviewed successes are same-session: Recheck before exam. Priority reduced to later retention check. | Identify the group restricted by the fina",
+            "spite competing student total and full membership total. Same-session evidence; Recheck before exam. |",
+            "- Next action: Move to Notes \u00a72 two-way tables if desired; recheck T1 unaided after other topics intervene or in a later session before exam.",
+            "t status: T1 Demonstrated for reference-group selection; same-session evidence, Recheck before exam. Later retention not yet established."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |",
+            "| 2026-11-14 | T1-transfer-2, library question, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "lution revealed; not success evidence. All reviewed successes are same-session: Recheck before exam. Priority reduced to later retention check. | Identify the group restricted by the fina",
+            "spite competing student total and full membership total. Same-session evidence; Recheck before exam. |",
+            "- Next action: Move to Notes \u00a72 two-way tables if desired; recheck T1 unaided after other topics intervene or in a later session before exam.",
+            "t status: T1 Demonstrated for reference-group selection; same-session evidence, Recheck before exam. Later retention not yet established."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |",
+            "| 2026-11-14 | T1-transfer-2, library question, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "lution revealed; not success evidence. All reviewed successes are same-session: Recheck before exam. Priority reduced to later retention check. | Identify the group restricted by the fina",
+            "spite competing student total and full membership total. Same-session evidence; Recheck before exam. |",
+            "- Next action: Move to Notes \u00a72 two-way tables if desired; recheck T1 unaided after other topics intervene or in a later session before exam.",
+            "t status: T1 Demonstrated for reference-group selection; same-session evidence, Recheck before exam. Later retention not yet established."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "I\u2019ll compare your reviewed work with the current outline and save an assessment of what\u2019s demonstrated and what still needs work.\n\n\n\n**I don\u2019t yet have enough evidence to call you ready for the whole midterm.** You\u2019ve demonstrated conditional-probability reference-group selection, including the library transfer question. We still need a later unaided check to confirm retention.\n\nHere\u2019s where you stand against the [current outline](materials/outline.md):\n\n| Topic | Evidence so far | What remains |\n|---|---|---|\n| Conditional probability | Q3, Q4, and transfer correct with reasoning | Recheck before the exam |\n| Two-way tables | Unassessed | Review and practise row versus column percentages\u2014[Notes \u00a72](materials/notes.md) |\n| Bayes\u2019 rule | Unassessed; explanation not yet covered | Obtain the missing lecture notes, then review and practise |\n| Grouped summaries | Unassessed | Review grouping, output rows, and valid group comparisons\u2014[Notes \u00a73](materials/notes.md) |\n\n**Unassessed doesn\u2019t mean you haven\u2019t learned it**\u2014you haven\u2019t shown me your understanding yet. Q2 was answer-only, so it provides no independent success evidence.\n\nHypothesis testing is **excluded from this midterm** under the current outline.\n\nI saved this assessment in your [learning record](study/stat-110/midterm-1/learning-record.md). The next useful step is two-way tables, followed by grouped summaries, then mixed independent practice once Bayes\u2019 materials are available.",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| T2 | Two-way tables: row and column percentages | Unassessed |",
+            "| T3 | Bayes' rule | Unassessed |",
+            "| T4 | Grouped summaries | Unassessed |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |",
+            "| 2026-11-14 | T1-transfer-2, library question, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "lution revealed; not success evidence. All reviewed successes are same-session: Recheck before exam. Priority reduced to later retention check. | Identify the group restricted by the fina",
+            "spite competing student total and full membership total. Same-session evidence; Recheck before exam. |",
+            " using Notes \u00a72, T4 using Notes \u00a73, obtain missing T3 teaching notes, and later recheck T1 unaided. After source gaps are resolved and remaining topics reviewed, assess mixed independent ",
+            "two-way tables; then Notes \u00a73 grouped summaries. Obtain Bayes' lecture excerpt. Recheck T1 unaided after other topics or in a later session before exam.",
+            "t status: T1 Demonstrated for reference-group selection; same-session evidence, Recheck before exam. Later retention not yet established."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "I\u2019ll read the study skill and local progress notes to pick up where you left off.\n\n\n\nI\u2019m using the study skill and your saved progress. Last time, you demonstrated correct reference-group reasoning; a later retention check is still due. Your next topic was **two-way tables**, so let\u2019s continue there.\n\nA two-way table counts cases using two categories at once. Here\u2019s a new example applying your notes (\u00a72.1\u20132.2):\n\n| Student group | Cycles | Does not cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| Total | 20 | 30 | 50 |\n\nThe same cell\u201412 commuters who cycle\u2014can answer two different questions:\n\n- **What percentage of commuters cycle?** Restrict attention to the commuter row: \\(12/30 = 40.0\\%\\) **of commuters**. This is a row percentage.\n- **What percentage of cyclists are commuters?** Restrict attention to the cyclist column: \\(12/20 = 60.0\\%\\) **of cyclists**. This is a column percentage.\n\nThis connects directly to what you learned last time: **choose the reference group first; its total becomes the denominator.** \u201cRow\u201d and \u201ccolumn\u201d describe where that group appears in the table. *(Source: materials/notes.md, \u00a71.2\u20131.3 and \u00a72.2.)*\n\nWithin one row, row percentages add to **100.0% of that row\u2019s group**. Within one column, column percentages add to **100.0% of that column\u2019s group**, because each calculation uses the same denominator. *(\u00a72.3.)*\n\nIn your own words, what determines whether you should use row percentages or column percentages?",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability: reference group | Demonstrated |",
+            "| T2 | Two-way tables: row and column percentages | Unassessed |",
+            "| T3 | Bayes' rule | Unassessed |",
+            "| T4 | Grouped summaries | Unassessed |",
+            "| 2026-11-14 | Practice A Q3, first submitted attempt | T1 |",
+            "| 2026-11-14 | Practice A Q4, first submitted attempt | T1 |",
+            "| 2026-11-14 | T1-transfer-2, library question, first submitted attempt | T1 |"
+          ],
+          "recheck_lines": [
+            "lution revealed; not success evidence. All reviewed successes are same-session: Recheck before exam. Priority reduced to later retention check. | Identify the group restricted by the fina",
+            "spite competing student total and full membership total. Same-session evidence; Recheck before exam. |",
+            " using Notes \u00a72, T4 using Notes \u00a73, obtain missing T3 teaching notes, and later recheck T1 unaided. After source gaps are resolved and remaining topics reviewed, assess mixed independent ",
+            "two-way tables; then Notes \u00a73 grouped summaries. Obtain Bayes' lecture excerpt. Recheck T1 unaided after other topics or in a later session before exam.",
+            "t status: T1 Demonstrated for reference-group selection; same-session evidence, Recheck before exam. Later retention not yet established."
+          ]
+        }
+      }
+    }
+  ]
+}

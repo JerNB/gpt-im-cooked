@@ -1,0 +1,1 @@
+Report 5 element-to-element comparisons, not 11 operations. The pairs in order are (8,2), (2,5), (5,6), (6,1), and (1,4). I include these five comparisons and exclude the five index updates and the assignment under the course convention.

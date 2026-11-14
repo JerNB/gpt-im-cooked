@@ -1,0 +1,265 @@
+[
+  {
+    "case": "CASE-01",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "fail",
+      "evidence": "Record assigns Demonstrated; recorded recheck is later, with no explicit before-exam/quiz marker."
+    }
+  },
+  {
+    "case": "CASE-02",
+    "m11": {
+      "events": [
+        {
+          "label": "Improving",
+          "quoted_evidence": "I mark this Improving",
+          "status": "pass",
+          "turn": 5,
+          "file_changed": true
+        }
+      ],
+      "overallstatus": "pass",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No same-session formal Demonstrated assignment."
+    }
+  },
+  {
+    "case": "CASE-04",
+    "m11": {
+      "events": [
+        {
+          "label": "Improving",
+          "quoted_evidence": "update your progress to Improving",
+          "status": "pass",
+          "turn": 4,
+          "file_changed": true
+        },
+        {
+          "label": "Demonstrated",
+          "quoted_evidence": "saved Demonstrated for reference-group selection",
+          "status": "pass",
+          "turn": 7,
+          "file_changed": true
+        }
+      ],
+      "overallstatus": "pass",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "pass",
+      "evidence": "Demonstrated assigned; record says all reviewed successes are same-session: Recheck before exam."
+    }
+  },
+  {
+    "case": "CASE-05",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No formal same-session Demonstrated assignment."
+    }
+  },
+  {
+    "case": "CASE-06",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No formal same-session Demonstrated assignment."
+    }
+  },
+  {
+    "case": "CASE-07",
+    "m11": {
+      "events": [
+        {
+          "label": "Improving",
+          "quoted_evidence": "I saved your progress as Improving",
+          "status": "pass",
+          "turn": 4,
+          "file_changed": true
+        },
+        {
+          "label": "Demonstrated",
+          "quoted_evidence": "Supports Demonstrated for adjacent-pair tracing",
+          "status": "pass",
+          "turn": 7,
+          "file_changed": true
+        }
+      ],
+      "overallstatus": "pass",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "pass",
+      "evidence": "Demonstrated assigned; record explicitly says same-session: Recheck before exam."
+    }
+  },
+  {
+    "case": "CASE-08",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No formal same-session Demonstrated assignment."
+    }
+  },
+  {
+    "case": "CASE-09",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "Progress prose says demonstrated, but no formal status assignment is present."
+    }
+  },
+  {
+    "case": "CASE-10",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No formal same-session Demonstrated assignment."
+    }
+  },
+  {
+    "case": "CASE-11",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "No formal same-session Demonstrated assignment."
+    }
+  },
+  {
+    "case": "CASE-12",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "fail",
+      "evidence": "Record assigns Demonstrated; recheck text says Later spaced recheck, with no explicit before-exam/quiz marker."
+    }
+  },
+  {
+    "case": "CASE-13",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "not_applicable",
+      "evidence": "Progress assessment says demonstrated, but no formal status assignment is recorded."
+    }
+  },
+  {
+    "case": "CASE-14",
+    "m11": {
+      "events": [
+        {
+          "label": "Improving",
+          "quoted_evidence": "I saved your progress as Improving",
+          "status": "pass",
+          "turn": 4,
+          "file_changed": true
+        },
+        {
+          "label": "Demonstrated",
+          "quoted_evidence": "supports Demonstrated",
+          "status": "pass",
+          "turn": 7,
+          "file_changed": true
+        }
+      ],
+      "overallstatus": "pass",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "pass",
+      "evidence": "Demonstrated assigned; record says same-session evidence, Recheck before exam."
+    }
+  },
+  {
+    "case": "CASE-15",
+    "m11": {
+      "events": [
+        {
+          "label": "Improving",
+          "quoted_evidence": "updating conditional probability to Improving",
+          "status": "pass",
+          "turn": 4,
+          "file_changed": true
+        },
+        {
+          "label": "Demonstrated",
+          "quoted_evidence": "Demonstrated — recheck before exam",
+          "status": "pass",
+          "turn": 7,
+          "file_changed": true
+        }
+      ],
+      "overallstatus": "pass",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "pass",
+      "evidence": "Demonstrated assigned; reply says recheck before exam."
+    }
+  },
+  {
+    "case": "CASE-16",
+    "m11": {
+      "events": [],
+      "overallstatus": "not_applicable",
+      "clear_misses": [],
+      "ambiguous_events": []
+    },
+    "m13": {
+      "status": "fail",
+      "evidence": "Record assigns Demonstrated; recheck is Lower priority, periodic recheck, not an explicit before-exam/quiz marker."
+    }
+  }
+]

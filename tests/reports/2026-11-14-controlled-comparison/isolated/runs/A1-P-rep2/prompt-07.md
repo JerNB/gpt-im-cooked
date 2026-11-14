@@ -1,0 +1,1 @@
+The list never changes. Compare 6>2 (true, count=1), 2>5 (false, count remains 1), then 5>1 (true, count=2). Final count=2, but the course runtime count is 3 element-to-element comparisons. I exclude the count assignments, index updates, and loop-condition checks.

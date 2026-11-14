@@ -1,0 +1,2 @@
+PASS: rendered worksheet status/flags, unload warning, pre-key snapshot, stable export identity, retry exposure, unexported-retry warning, middle-click key access.
+

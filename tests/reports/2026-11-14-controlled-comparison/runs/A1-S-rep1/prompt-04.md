@@ -1,0 +1,1 @@
+Q3: 4/12 = 33.3% of seniors. The reference group is the 12 seniors, so they are the denominator. I did not use a hint.

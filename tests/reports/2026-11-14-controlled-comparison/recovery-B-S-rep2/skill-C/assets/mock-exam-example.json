@@ -1,0 +1,141 @@
+{
+  "format": "gpt-im-cooked-mock-exam/1",
+  "artifact_id": "fictional-stats-mock-a",
+  "artifact_version": "1.0",
+  "course": "Fictional intro statistics",
+  "exam": "Midterm 1",
+  "title": "Intro statistics. Mock Exam A.",
+  "time_estimate": {"minutes": 20, "basis": "practice estimate"},
+  "instructions": "Work independently. You can leave questions unanswered. No score, hints, or solutions appear during this attempt.",
+  "personalization": "A fictional learning record shows repeated denominator errors in grouped proportions, so Questions 2 and 3 target that skill. Questions 1, 4, and 5 keep coverage of the other confirmed topics.",
+  "sources": {
+    "S1": {"title": "Course packet", "locator": "Section 1, observations and variables"},
+    "S3": {"title": "Course packet", "locator": "Section 3, grouped proportions"},
+    "S4": {"title": "Course packet", "locator": "Section 4, summaries and missing values"}
+  },
+  "shared": [
+    {
+      "id": "tickets",
+      "title": "Shared data: support tickets",
+      "blocks": [
+        "The `tickets` data has one row per support ticket. Questions 2 and 3 use this summary table.",
+        {"table": {
+          "columns": ["plan", "resolved", "n"],
+          "rows": [["Basic", "yes", "12"], ["Basic", "no", "4"], ["Plus", "yes", "18"], ["Plus", "no", "6"]],
+          "caption": "Fictional counts of tickets by plan and resolution."
+        }}
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "title": "Read the dataset",
+      "type": "multi",
+      "topic_id": "T1-observations",
+      "source": "S1",
+      "prompt": [
+        "The `tickets` tibble has 40 rows and three columns: `ticket_id`, `plan`, and `wait_min`. Which statements are true?"
+      ],
+      "options": [
+        {"id": "A", "text": "Each row represents one support ticket."},
+        {"id": "B", "text": "The variable `plan` is categorical."},
+        {"id": "C", "text": "The dataset has 40 variables."},
+        {"id": "D", "text": "The variable `wait_min` is numerical."}
+      ],
+      "key": {
+        "answer": ["A", "B", "D"],
+        "option_notes": {
+          "A": "True: the prompt states that each row describes one ticket.",
+          "B": "True: plan names a group membership, not a measured quantity.",
+          "C": "False: 40 is the number of rows (observations); there are three variables.",
+          "D": "True: wait times are measured in minutes."
+        },
+        "explanation": "Rows are observations and columns are variables (packet Section 1).",
+        "evidence": "Reasoned solution",
+        "verification": "Checked each option against the packet definitions."
+      }
+    },
+    {
+      "id": "q2",
+      "title": "Name the denominator",
+      "type": "single",
+      "topic_id": "T3-grouped-proportions",
+      "source": "S3",
+      "shared_ref": "tickets",
+      "personal_target": "Repeated reference-group errors in the learning record.",
+      "prompt": [
+        "Using the shared table, what is the proportion of **Plus** tickets that were resolved?"
+      ],
+      "options": [
+        {"id": "A", "text": "18 / 40"},
+        {"id": "B", "text": "18 / 24"},
+        {"id": "C", "text": "18 / 30"},
+        {"id": "D", "text": "24 / 40"}
+      ],
+      "key": {
+        "answer": ["B"],
+        "option_notes": {
+          "A": "Uses every ticket as the denominator instead of the Plus group.",
+          "B": "Correct: 18 resolved out of 18 + 6 = 24 Plus tickets.",
+          "C": "Uses all resolved tickets as the denominator, reversing the condition.",
+          "D": "This is the share of all tickets that are Plus, not a resolution rate."
+        },
+        "explanation": "The reference group is the group named after 'of': Plus tickets. Count that group first, then the target cases inside it.",
+        "evidence": "Verified computation",
+        "verification": "18 / (18 + 6) = 0.75 computed with Python fractions."
+      }
+    },
+    {
+      "id": "q3",
+      "title": "Decide whether the method still applies",
+      "type": "short",
+      "topic_id": "T3-grouped-proportions",
+      "source": "S3",
+      "shared_ref": "tickets",
+      "personal_target": "Transfer check: the condition changes, so the student must choose a new reference group.",
+      "prompt": [
+        "Among **resolved** tickets, what proportion came from the Basic plan? Give the fraction and say which group is the denominator."
+      ],
+      "key": {
+        "answer": "12 / 30 = 0.4; the denominator is all resolved tickets (12 + 18).",
+        "explanation": "Conditioning on resolved changes the reference group from a plan to the resolved tickets.",
+        "evidence": "Verified computation",
+        "verification": "12 / 30 = 0.4 computed with Python fractions; equivalent forms 2/5 and 40% accepted."
+      }
+    },
+    {
+      "id": "q4",
+      "title": "Complete the summary",
+      "type": "code",
+      "topic_id": "T4-summaries",
+      "source": "S4",
+      "prompt": [
+        "Fill in the blank so the pipeline computes the mean wait for each plan while ignoring missing waits.",
+        {"code": "tickets |>\n  group_by(plan) |>\n  summarize(avg_wait = mean(wait_min, ________))", "lang": "r"}
+      ],
+      "key": {
+        "answer": "na.rm = TRUE",
+        "explanation": "mean() returns NA when any value is missing unless missing values are removed for that calculation (packet Section 4).",
+        "evidence": "Reasoned solution",
+        "verification": "Traced from the packet's mean() rule; not executed in R."
+      }
+    },
+    {
+      "id": "q5",
+      "title": "Count the output rows",
+      "type": "numeric",
+      "topic_id": "T4-summaries",
+      "source": "S4",
+      "prompt": [
+        "The `tickets` data has 40 rows and 2 plans. How many rows does `tickets |> group_by(plan) |> summarize(n = n())` return?"
+      ],
+      "key": {
+        "answer": "2",
+        "explanation": "summarize() returns one row per group, and there are two plans.",
+        "evidence": "Reasoned solution",
+        "verification": "Follows the packet's one-row-per-group rule; not executed in R."
+      }
+    }
+  ]
+}

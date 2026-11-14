@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED",
+  "complete_sessions": 15,
+  "target_sessions": 16,
+  "complete_selected_calls": 165,
+  "missing": "A1-S-rep2",
+  "latest_failed_attempt": "exact-recovery-A1-S-rep2-preflight, turn 8, quota failure after 7 completed turns",
+  "service_message": "Try again at 3:35 PM (2026-11-14; client America/New_York)",
+  "next_step": "After quota reset, rerun A1-S-rep2 from turn 1 under a new label. Never continue failed turn 8. Then replace final selection, regenerate all final scores/counts/accounting/manifest, review, commit and draft PR."
+}

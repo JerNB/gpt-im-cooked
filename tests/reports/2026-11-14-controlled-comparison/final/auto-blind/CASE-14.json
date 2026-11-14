@@ -1,0 +1,197 @@
+{
+  "case": "CASE-14",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Loop tracing | Unassessed |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Loop tracing | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Loop tracing | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 4,
+      "reply": "\n\nYour Q3 answer and reasoning are correct. I\u2019ll record that improvement and keep Q2 marked as an answer you requested without attempting it.\n\n\n\n\n**Correct: 7 element-to-element comparisons.** You counted adjacent pairs and correctly excluded assignments, index updates, and loop-condition checks. *(Instructor key, Q3; Notes \u00a72.2\u20132.3.)*\n\nI saved your progress as **Improving** in your [learning record](study/cs-101/quiz-4/learning-record.md), including your report that you used no hint.\n\nA different case: if the list contains just `[5]`, how many adjacent-pair comparisons occur, and why?",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Loop tracing | Improving |"
+          ],
+          "recheck_lines": [
+            "er: a one-element list; explain whether any adjacent pair exists; later unaided recheck before quiz |",
+            "- Later task: Unaided loop-tracing recheck before Quiz 4."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 5,
+      "reply": "\n\nQ4 is correct. Your last two answers show improvement with adjacent-pair counts. I\u2019ll check your progress against what we\u2019ve actually practiced and save the update.\n\n\n\n\n**Q4 is correct: 2 comparisons**\u2014`0` with `\u22121`, then `\u22121` with `3`. *(Instructor key, Q4.)*\n\nYou\u2019re getting adjacent-pair counting: Q3 and Q4 were both correct after the Q1 correction. I\u2019d call that **Improving**. We still need a different application and a later unaided check; tracing changes to variables also remains unassessed. *(Notes \u00a72.1\u20132.3.)*\n\nTry the pending boundary case: **for `[5]`, how many adjacent-pair comparisons occur, and why?**\n\nI saved this progress assessment in your [learning record](study/cs-101/quiz-4/learning-record.md).",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Loop tracing | Improving |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "er: a one-element list; explain whether any adjacent pair exists; later unaided recheck before quiz |",
+            "- Later task: Unaided recheck before Quiz 4; no claim of mastery or full readiness."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Loop tracing | Improving |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "er: a one-element list; explain whether any adjacent pair exists; later unaided recheck before quiz |",
+            "- Later task: Unaided recheck before Quiz 4; no claim of mastery or full readiness."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "\n\nThat\u2019s fully correct. You traced both score changes and explained why the runtime count differs from the final score. This adds evidence beyond the earlier pair-counting questions; I\u2019ll save it with an unaided recheck due before the quiz.\n\n\n\n\n**Fully correct.** Your trace gives `score = 2`, then `score = 3`, while runtime is **2 element-to-element comparisons**. You correctly counted the false comparison and excluded score updates and loop-control operations. *(Notes \u00a72.1\u20132.3; verified practice solution.)*\n\nYour explanation that \u201cscore is not itself a comparison counter\u201d shows the key distinction. Together with Q3, this supports **Demonstrated** for this topic: you moved from counting pairs to tracing changing state.\n\nI saved that in your [learning record](study/cs-101/quiz-4/learning-record.md), with an unaided recheck before the quiz to check retention.",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Loop tracing | Demonstrated |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |",
+            "| 2026-11-13 | loop-convention-check-1 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "rom comparison count. Transfer changes reasoning demand. Same-session evidence: Recheck before exam | Trace index, values read, state changes; count only element-to-element comparisons (N",
+            " separates program state from counted operation; supports Demonstrated with Q3; Recheck before exam |",
+            "nt reasoning and conditional state-tracing transfer; all evidence same session. Recheck before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Loop tracing | Demonstrated |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |",
+            "| 2026-11-13 | loop-convention-check-1 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "rom comparison count. Transfer changes reasoning demand. Same-session evidence: Recheck before exam | Trace index, values read, state changes; count only element-to-element comparisons (N",
+            " separates program state from counted operation; supports Demonstrated with Q3; Recheck before exam |",
+            "nt reasoning and conditional state-tracing transfer; all evidence same session. Recheck before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Loop tracing | Demonstrated |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |",
+            "| 2026-11-13 | loop-convention-check-1 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "rom comparison count. Transfer changes reasoning demand. Same-session evidence: Recheck before exam | Trace index, values read, state changes; count only element-to-element comparisons (N",
+            " separates program state from counted operation; supports Demonstrated with Q3; Recheck before exam |",
+            "nt reasoning and conditional state-tracing transfer; all evidence same session. Recheck before exam."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\nI\u2019ll compare your saved learning evidence with the Quiz 4 outline and identify what\u2019s demonstrated, what\u2019s unassessed, and where materials are missing.\n\n\n\n\n**I can\u2019t yet call you ready for the whole quiz.** You\u2019ve demonstrated loop tracing and the comparison-counting convention, but we haven\u2019t checked the other three topics.\n\n| Quiz 4 topic | What your work shows | What remains |\n|---|---|---|\n| Loop tracing | Correct pair counts and a complete state-change trace | A later unaided recheck before the quiz |\n| List aliasing | Unassessed | References, shared mutations, and shallow copies\u2014Notes \u00a71 |\n| Big-O | Unassessed; not explained here | Course teaching notes are missing\u2014Outline, \u201cIn scope\u201d |\n| Nested data summaries | Unassessed | Separate group summaries and means\u2014Notes \u00a73 |\n\n**Unassessed means I don\u2019t know whether you understand it**, not that you definitely haven\u2019t learned it. Q2 was answer-only, so it provides no evidence either way.\n\nRecursion is **excluded** from Quiz 4 by the current outline.\n\nThe next useful step is **list aliasing**, followed by nested summaries. We also need the Big-O teaching material. I saved this assessment and next steps in your [learning record](study/cs-101/quiz-4/learning-record.md).",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Loop tracing | Demonstrated |",
+            "| P1 | List aliasing | Unassessed |",
+            "| P3 | Big-O | Unassessed |",
+            "| P4 | Nested data summaries | Unassessed |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |",
+            "| 2026-11-13 | loop-convention-check-1 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "rom comparison count. Transfer changes reasoning demand. Same-session evidence: Recheck before exam | Trace index, values read, state changes; count only element-to-element comparisons (N",
+            " separates program state from counted operation; supports Demonstrated with Q3; Recheck before exam |",
+            "monstrated on Q3 and conditional state-tracing transfer; same-session evidence. Recheck before exam with a later unaided trace/boundary case."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "I\u2019ll read the study skill and local progress notes to find where you left off.\n\n\n\nWelcome back. Your saved next step is **list aliasing**. You previously demonstrated loop tracing; a later recheck is still due. Big-O remains in scope, but its teaching notes are missing.\n\nA list variable refers to a list object. With `b = a`, both names refer to **the same list**, so changing it through either name is visible through the other. ([Notes \u00a71.1\u20131.2](materials/notes.md))\n\nFor example:\n\n```python\na = [2, 4]\nb = a\nb[0] = 9\n```\n\nBoth `a` and `b` now show `[9, 4]`. The assignment `b = a` gave the existing list another name.\n\nBy comparison, `b = a.copy()` creates a **new outer list**. Its nested lists can still be shared, which is the key detail in a *shallow copy*. ([Notes \u00a71.3](materials/notes.md))\n\n```python\na = [[2], [4]]\nb = a.copy()\nb[0][0] = 9\n```\n\nHere, `a` also becomes `[[9], [4]]`: the outer lists are separate, but their first elements refer to the same inner list.\n\nTry this short check:\n\n```python\nx = [[3], [6]]\ny = x\nz = x.copy()\n\ny[1][0] = 8\n```\n\nWhat do `x`, `y`, and `z` contain afterward? Explain which lists are shared.",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Loop tracing | Demonstrated |",
+            "| P1 | List aliasing | Unassessed |",
+            "| P3 | Big-O | Unassessed |",
+            "| P4 | Nested data summaries | Unassessed |",
+            "| 2026-11-13 | Practice B Q4 / chat attempt 1 | P2 |",
+            "| 2026-11-13 | loop-convention-check-1 / chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "rom comparison count. Transfer changes reasoning demand. Same-session evidence: Recheck before exam | Trace index, values read, state changes; count only element-to-element comparisons (N",
+            " separates program state from counted operation; supports Demonstrated with Q3; Recheck before exam |",
+            "monstrated on Q3 and conditional state-tracing transfer; same-session evidence. Recheck before exam with a later unaided trace/boundary case."
+          ]
+        }
+      }
+    }
+  ]
+}

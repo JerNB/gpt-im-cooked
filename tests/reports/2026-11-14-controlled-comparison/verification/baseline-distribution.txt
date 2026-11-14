@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<ROOT>\.codex\worktrees\codex-t004-controlled-comparison\GPT, I'm cooked\tests\check_distribution.py", line 67, in <module>
+    check()
+    ~~~~~^^
+  File "<ROOT>\.codex\worktrees\codex-t004-controlled-comparison\GPT, I'm cooked\tests\check_distribution.py", line 34, in check
+    assert set(archive.namelist()) == set(expected), f'Unexpected archive contents: {kind}'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Unexpected archive contents: plugin

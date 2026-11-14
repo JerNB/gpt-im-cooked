@@ -1,0 +1,132 @@
+{
+  "case": "CASE-12",
+  "packet": "S",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| T1 | Conditional probability reference group | Demonstrated |",
+            "| T2 | Column percentage in two-way table | Improving |",
+            "| 2026-11-14 | Practice A Q4 | T1 |",
+            "| 2026-11-14 | TT1 chat-generated table transfer | T1, T2 |"
+          ],
+          "recheck_lines": [
+            "d group before counting; divide overlap by reference-group count | Later spaced recheck with reversed conditioning or missing denominator |",
+            "- Next action: Proceed to further two-way table work if desired; later recheck T1 with reversed conditioning or insufficient information."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability reference group | Demonstrated |",
+            "| T2 | Column percentage in two-way table | Improving |",
+            "| 2026-11-14 | Practice A Q4 | T1 |",
+            "| 2026-11-14 | TT1 chat-generated table transfer | T1, T2 |"
+          ],
+          "recheck_lines": [
+            "d group before counting; divide overlap by reference-group count | Later spaced recheck with reversed conditioning or missing denominator |",
+            "- Next action: Proceed to further two-way table work if desired; later recheck T1 with reversed conditioning or insufficient information."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability reference group | Demonstrated |",
+            "| T2 | Column percentage in two-way table | Improving |",
+            "| 2026-11-14 | Practice A Q4 | T1 |",
+            "| 2026-11-14 | TT1 chat-generated table transfer | T1, T2 |"
+          ],
+          "recheck_lines": [
+            "d group before counting; divide overlap by reference-group count | Later spaced recheck with reversed conditioning or missing denominator |",
+            "- Next action: Proceed to further two-way table work if desired; later recheck T1 with reversed conditioning or insufficient information."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\n**You\u2019ve made clear progress, but I don\u2019t yet have enough evidence to say you\u2019re ready for the whole midterm.**\n\n| In-scope topic | What your work shows | What remains |\n|---|---|---|\n| Conditional probability | You corrected the denominator mistake and explained Q3, Q4, and the table question correctly. | A later retention check and reversed-conditioning questions. |\n| Two-way tables | You correctly constructed a column total and calculated its percentage. | Choosing between row and column percentages, and understanding which percentages add to 100%. |\n| Bayes\u2019 rule | Not assessed. | Your outline includes it, but the supplied teaching notes are missing. |\n| Grouped summaries | Not assessed. | Review Notes \u00a73, then check your understanding with practice. |\n\nThese topics come from the [current outline](materials/outline.md). **Hypothesis testing is excluded from this midterm.**\n\nQ2 doesn\u2019t count as evidence of understanding because you requested its answer without attempting it. Your later correct explanations *do* count.\n\nYour strongest demonstrated skill is choosing the conditional-probability reference group. The best next step is to finish two-way tables, then review grouped summaries and obtain the Bayes\u2019 rule notes. \u201cNot assessed\u201d means we haven\u2019t checked it\u2014not that you necessarily cannot do it.",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability reference group | Demonstrated |",
+            "| T2 | Column percentage in two-way table | Improving |",
+            "| 2026-11-14 | Practice A Q4 | T1 |",
+            "| 2026-11-14 | TT1 chat-generated table transfer | T1, T2 |"
+          ],
+          "recheck_lines": [
+            "d group before counting; divide overlap by reference-group count | Later spaced recheck with reversed conditioning or missing denominator |",
+            "- Next action: Proceed to further two-way table work if desired; later recheck T1 with reversed conditioning or insufficient information."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/stat-110/midterm-1/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| T1 | Conditional probability reference group | Demonstrated |",
+            "| T2 | Column percentage in two-way table | Improving |",
+            "| 2026-11-14 | Practice A Q4 | T1 |",
+            "| 2026-11-14 | TT1 chat-generated table transfer | T1, T2 |"
+          ],
+          "recheck_lines": [
+            "d group before counting; divide overlap by reference-group count | Later spaced recheck with reversed conditioning or missing denominator |",
+            "- Next action: Proceed to further two-way table work if desired; later recheck T1 with reversed conditioning or insufficient information."
+          ]
+        }
+      }
+    }
+  ]
+}

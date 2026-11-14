@@ -1,0 +1,1 @@
+Maya is not right. Before and after, 40.0% of commuters cycle. The reference group is the 20 commuters and the numerator is 8 cyclists among them. Adding noncommuters changes neither the 8 nor the 20, so 8/20 remains the fraction.

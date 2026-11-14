@@ -1,0 +1,3 @@
+I’ll check Q2 and note that you requested its answer before attempting it.
+
+**25.0% of remote workers are trainees.**

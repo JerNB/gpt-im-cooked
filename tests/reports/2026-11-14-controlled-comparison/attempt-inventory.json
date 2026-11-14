@@ -1,0 +1,47 @@
+{
+  "groups": {
+    "runs": {
+      "complete": 13
+    },
+    "restart": {
+      "complete": 133
+    },
+    "recovery-C-S-rep1": {
+      "complete": 11
+    },
+    "recovery-B-S-rep2": {
+      "complete": 11
+    },
+    "recovery-B-P-rep2": {
+      "complete": 11
+    },
+    "isolated": {
+      "complete": 165,
+      "incomplete": 3
+    },
+    "exact-S": {
+      "complete": 78
+    },
+    "exact-recovery-A1-S-rep2-preflight": {
+      "complete": 8,
+      "incomplete": 1
+    },
+    "exact-recovery-A1-S-rep2-nonlogin": {
+      "complete": 1
+    },
+    "exact-recovery-A1-S-rep2": {
+      "complete": 1
+    },
+    "diagnostic-probes": {
+      "complete": 4
+    }
+  },
+  "known_completed_thread_usage": {
+    "input_tokens": 35408259,
+    "cached_input_tokens": 32951680,
+    "output_tokens": 256300,
+    "reasoning_output_tokens": 32947
+  },
+  "completed_thread_count": 83,
+  "note": "Cumulative usage counted once per thread, including standalone probes. Lower bound on all work: incomplete/interrupted model usage and orchestration/reviewer usage are not included. Selected15-session costs are separate; do not add them again."
+}

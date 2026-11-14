@@ -1,0 +1,1 @@
+Report 4 element-to-element comparisons: three adjacent pairs (4,1), (1,7), (7,3), plus the extra first-last comparison (4,3). I exclude assignments, index updates, and loop-condition checks. The n-1 adjacent-pair count alone would omit the extra comparison.

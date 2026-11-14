@@ -1,0 +1,62 @@
+{
+  "case": "CASE-06",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 10,
+      "reply": "**You\u2019re ready for the loop-tracing material we\u2019ve checked, but we haven\u2019t established readiness for all of Quiz 4.**\n\n| Quiz topic | Evidence so far | What remains |\n|---|---|---|\n| **List aliasing** | We haven\u2019t covered it. | Learn shared references, mutation, and shallow copies, including nested lists. |\n| **Loop tracing / comparison counts** | You solved Q3 and Q4 correctly and independently traced the code example, distinguishing `count = 2` from 3 comparisons. | You\u2019ve demonstrated the course\u2019s counting convention. |\n| **Big-O** | You\u2019ve had an introduction. | Practice identifying growth rates; you haven\u2019t answered a Big-O check yet. The course lecture notes are still missing from the supplied materials. |\n| **Nested data summaries** | We haven\u2019t covered it. | Practice computing a separate summary for each inner list, including means, and labeling each group. |\n\nRecursion is **excluded from Quiz 4** by the current outline.\n\nI can\u2019t tell whether you already know the untested topics. Based on what you\u2019ve demonstrated here, **list aliasing and nested data summaries are the biggest gaps in our preparation**, followed by Big-O practice. I\u2019d start with list aliasing next.",
+      "files": {}
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    }
+  ]
+}

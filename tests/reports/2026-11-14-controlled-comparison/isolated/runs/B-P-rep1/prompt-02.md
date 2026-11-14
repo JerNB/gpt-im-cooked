@@ -1,0 +1,1 @@
+For practice Q1, my answer is 4 comparisons because the list contains 4 elements. Is that right?

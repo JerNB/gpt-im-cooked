@@ -1,0 +1,1 @@
+60.0% of shoppers who returned an item had ordered online. The reference group is the 15 returners, 9 of whom ordered online, so 9/15=60.0%. The 20 online shoppers and 45 total shoppers are different groups and are not the denominator requested.

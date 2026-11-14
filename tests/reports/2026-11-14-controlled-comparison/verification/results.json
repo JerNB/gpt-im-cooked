@@ -1,0 +1,72 @@
+[
+  {
+    "command": [
+      "python",
+      "tests/validate_package.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/check_state_io.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/check_mock_render.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/check_run_evidence.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/check_evidence_archive.py"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "python",
+      "tests/check_distribution.py"
+    ],
+    "returncode": 1
+  },
+  {
+    "command": [
+      "node",
+      "tests/check_mock_template.cjs"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "node",
+      "tests/check_demo_state.cjs"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "node",
+      "tests/check_concept_retry.cjs"
+    ],
+    "returncode": 0
+  },
+  {
+    "command": [
+      "node",
+      "tests/check_evidence_chain.cjs"
+    ],
+    "returncode": 0
+  }
+]

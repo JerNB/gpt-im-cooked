@@ -1,0 +1,47 @@
+# Learning record
+
+## Study setup
+
+- Quick start shown: Yes
+- Preferred review output: Unknown; conversational review by default, with artifacts when requested
+- Save preference: Batch after five tutoring turns with meaningful changes, or earlier at checkpoints; honor an explicit override
+
+## Active course and exam
+
+STAT 110 Midterm 1; see course-profile.md.
+
+## Concepts
+
+| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |
+|---|---|---|---|---|---|
+| T1 | Conditional probability: reference group | Needs practice | Reviewed Q1 error: selected total 40 because it appears first; numerator 10 correct. | Choose the group asked about: 25 commuters (Notes section 1.2). | Explain the denominator when the condition changes. |
+
+## Attempt history
+
+| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |
+|---|---|---|---|---|---|---|---|
+| 2026-11-14 | Practice A Q1 / chat attempt 1 | T1 | "10/40 = 25%. I divided by all 40 students because the question starts with 40 students." | Incorrect denominator; arithmetic correct; reporting incomplete | Prior general concept explanation; no Q1-specific hint before answer; solution revealed in feedback | Instructor key: materials/practice-key.md Q1 | Use 10/25; report 40.0% of commuters cycle. |
+
+## Import ledger
+
+| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |
+|---|---|---|---|---|---|
+
+Use existing entries to avoid counting repeat imports as new attempts. Missing legacy identities remain explicitly unknown.
+
+## Student-reported difficulties
+
+None recorded. Preserve self-reports separately from verified attempts.
+
+## Open questions
+
+None recorded.
+
+## Next session
+
+- Current activity: Review Practice A Q1 (materials/practice.md).
+- Original reasoning: Chose all 40 students because that number opens the question.
+- Assistance: Q1 solution explained; do not count a repetition as independent success.
+- Next action: Ask which denominator applies if the target group changes to all students, and why.
+- Source gap: Bayes teaching notes not posted (outline).
+- Persistence: Saved in learning-record.md.

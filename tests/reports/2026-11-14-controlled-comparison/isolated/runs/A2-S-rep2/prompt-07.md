@@ -1,0 +1,1 @@
+The reference group is all shoppers who returned an item. Nine online shoppers returned an item, but the total returners is not provided: we do not know how many in-person shoppers returned one. I need that total; then 9 divided by total returners gives the share of returners who ordered online. No numeric percentage is determined by these facts.

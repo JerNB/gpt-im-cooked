@@ -1,0 +1,1248 @@
+{
+  "note": "Automated candidates require human/semantic confirmation; not all pattern matches are failures.",
+  "sessions": {
+    "B-S-rep1": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        },
+        {
+          "item": "Q2",
+          "turn": 2,
+          "matched": "25.0%"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1.1",
+          "§1.3"
+        ],
+        "2": [
+          "§1.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [
+          "§1.2"
+        ],
+        "8": [
+          "§1.3"
+        ],
+        "9": [],
+        "10": [],
+        "11": [
+          "§§2.1"
+        ]
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 7,
+          "phrases": [
+            "You’ve now demonstrated the core idea across direct calculations and a question requiring you to spot reversed conditioning, consistent with Notes §1.2–1.3. We can move on to two-way ",
+            "tables and recheck this later."
+          ],
+          "changed_files": [
+            "study/stat-110/midterm-1/course-profile.md",
+            "study/stat-110/midterm-1/learning-record.md",
+            "study/stat-110/midterm-1/profile-candidate.md",
+            "study/stat-110/midterm-1/record-candidate.md"
+          ]
+        },
+        {
+          "turn": 8,
+          "phrases": [
+            "The supported prerequisite is the distinction you just demonstrated: **the share of yoga participants who attend mornings differs from the share of morning attendees who take yoga because the reference groups differ** (Notes §1"
+          ],
+          "changed_files": []
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "| **Conditional probability** | Demonstrated: after Q1’s denominator error, you correctly explained Q3 and Q4, then identified and explained reversed conditioning in the gym question. Q2’s supplied answer"
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "7",
+          "text": "**Hi student, let's get you uncooked.**\n\nCorrect—you identified the reference group and explained what the reversed fraction means. This gives stronger evidence of understanding than repeating the same calculation. I’ll save your progress, including the earlier error and your improvement.\n\n**Hi student, let's get you uncooked.**\n\nCorrect—including your interpretation of the reversed fraction:\n\n- **50.0% of yoga participants attend mornings:** reference group = 16 yoga participants.\n- **40.0% of morning attendees take yoga:** reference group = 20 morning attendees.\n\nYou’ve now demonstrated the core idea across direct calculations and a question requiring you to spot reversed conditioning, consistent with Notes §1.2–1.3. We can move on to two-way tables and recheck this later.\n\nI saved your progress in your [learning record](/<ROOT>/run-B-S-rep1/study/stat-110/midterm-1/learning-record.md)."
+        },
+        {
+          "turn": "8",
+          "text": "**Hi student, let's get you uncooked.**\n\nI’ll check whether your local materials include a Bayes’ rule explanation beyond the outline.\n\n**Hi student, let's get you uncooked.**\n\nBayes’ rule is in scope, but your outline says **“covered in lecture; notes to be posted”** ([outline, T3](materials/outline.md)). I checked the local materials and found no explanation of it.\n\nYour [study skill](skill/SKILL.md) requires: **“Teach from accessible supplied content only.”** Please add the relevant lecture notes or excerpt to `materials/` so I can explain Bayes’ rule using your course’s treatment.\n\nThe supported prerequisite is the distinction you just demonstrated: **the share of yoga participants who attend mornings differs from the share of morning attendees who take yoga because the reference groups differ** (Notes §1.3). Your explanation correctly handled that distinction."
+        },
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\n**You’ve made clear progress, but we don’t yet have enough evidence to call you ready for the whole midterm.**\n\n| Topic | What your work shows |\n|---|---|\n| **Conditional probability** | Demonstrated: after Q1’s denominator error, you correctly explained Q3 and Q4, then identified and explained reversed conditioning in the gym question. Q2’s supplied answer doesn’t count as independent evidence. |\n| **Two-way tables** | Untested. We haven’t reviewed row versus column percentages or choosing the reference group from a table. |\n| **Bayes’ rule** | Untested and not taught here. It is in scope, but the outline says its notes are still to be posted. |\n| **Grouped summaries** | Untested. We haven’t reviewed group summaries, the number of resulting rows, or comparing the same summary across groups. |\n\nThose four topics are listed in your current outline. **Hypothesis testing is excluded**, so it isn’t a gap for this midterm.\n\n“Untested” means I don’t know whether you already understand it—not that you necessarily don’t. We also haven’t checked your performance across a mixed set without hints.\n\nThe next useful step is **two-way tables**, followed by grouped summaries. Add the Bayes’ rule lecture notes when available so we can cover that remaining topic."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 2,
+        "8": 2,
+        "9": 1,
+        "10": 1,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 3
+    },
+    "B-P-rep1": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§2.1",
+          "§2.3",
+          "§2.2"
+        ],
+        "2": [
+          "§2.2"
+        ],
+        "3": [],
+        "4": [
+          "§2.2",
+          "§2.3"
+        ],
+        "5": [],
+        "6": [
+          "§2.1",
+          "§2.3"
+        ],
+        "7": [
+          "§2.1",
+          "§2.3"
+        ],
+        "8": [],
+        "9": [],
+        "10": [
+          "§§1"
+        ],
+        "11": [
+          "§§2.2"
+        ]
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 5,
+          "phrases": [
+            "Your Q3 reasoning and Q4 answer show progress with **adjacent-pair counting**. I’d mark this **Improving**: broader loop tracing also involves following changing values, which we haven’t checked yet."
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/course-profile.md",
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "**You’ve demonstrated part of Quiz 4’s material, but we haven’t established readiness for the whole quiz.** The remaining topics are mostly unassessed—not proven weaknesses."
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\n**You’ve demonstrated part of Quiz 4’s material, but we haven’t established readiness for the whole quiz.** The remaining topics are mostly unassessed—not proven weaknesses.\n\n| Quiz 4 topic | What your work shows | What remains |\n|---|---|---|\n| **Loop tracing and comparison counts** | Q3 and Q4 were correct. You also correctly traced changing values and counted an early-stopping pass. | Check another loop trace to confirm consistency. |\n| **List aliasing** | No reviewed attempt yet. | References, mutation through shared names, and shallow copies of nested lists. |\n| **Big-O** | No teaching or attempt yet. | Explanation and practice; the supplied teaching notes are missing. |\n| **Nested data summaries** | No reviewed attempt yet. | Compute statistics separately for each group and identify what each result represents. |\n\nThose requirements come from `materials/outline.md` and `materials/notes.md`, §§1–3.\n\nYour initial Q1 mistake was counting elements instead of adjacent pairs. Your later reasoning shows you corrected that. **Q2 was an answer reveal, so it supplies no evidence of understanding.** Your strongest evidence is the later transfer question, where you correctly handled both updated values and an early stop.\n\n**Recursion is excluded from Quiz 4**, so it isn’t a current readiness gap.\n\nThe best next step is **list aliasing**, followed by nested summaries, while obtaining a teaching source for Big-O. Then a mixed check can assess your readiness across the quiz’s full scope."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 1,
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 2,
+        "6": 2,
+        "7": 1,
+        "8": 1,
+        "9": 2,
+        "10": 1,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 4
+    },
+    "C-S-rep2": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        },
+        {
+          "item": "Q2",
+          "turn": 2,
+          "matched": "25.0%"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1.1",
+          "§1.2",
+          "§1.3"
+        ],
+        "2": [
+          "§1.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+          "§1.1"
+        ],
+        "7": [
+          "§1.2"
+        ],
+        "8": [],
+        "9": [],
+        "10": [
+          "§2",
+          "§3"
+        ],
+        "11": [
+          "§2.1",
+          "§1.2",
+          "§2.2",
+          "§2.3"
+        ]
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            " answer and reasoning are correct. I’ll record Q3 as an unaided attempt and update your progress to Improving.",
+            "orrect attempt and updated your [learning record](study/stat-110/midterm-1/learning-record.md) to **Improving**. Next, we can check your reasoning when the question changes the reference group."
+          ],
+          "changed_files": [
+            "study/stat-110/midterm-1/course-profile.md",
+            "study/stat-110/midterm-1/learning-record.md"
+          ]
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "n apply the basic rule in Q3 and Q4. Both follow the same pattern, so I’ve saved your progress as **Improving** in your [learning record](study/stat-110/midterm-1/learning-record.md). We still need to check a changed reference group and revisit it later for retention."
+          ],
+          "changed_files": [
+            "study/stat-110/midterm-1/learning-record.md",
+            "study/stat-110/midterm-1/outputs/reference-group-check-key.md"
+          ]
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            "e 15 borrowers as the reference group and explained why the other totals don’t apply. This supports Demonstrated status for choosing reference groups; I’ll save that with a reminder to recheck it before the exam.",
+            "I’ve saved **Demonstrated** for reference-group selection in your [learning record](study/stat-110/midterm-1/learning-record.md), with **Recheck before exam** because these successes oc"
+          ],
+          "changed_files": [
+            "study/stat-110/midterm-1/learning-record.md"
+          ]
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your reviewed work with the current outline and save an assessment of what’s demonstrated and what still needs work.",
+            "**I don’t yet have enough evidence to call you ready for the whole midterm.** You’ve demonstrated conditional-probability reference-group selection, including the library transfer question. We still need a later unaided check to confirm retention.",
+            "| Conditional probability | Q3, Q4, and transfer correct with reasoning | Recheck before the exam |"
+          ],
+          "changed_files": [
+            "study/stat-110/midterm-1/course-profile.md",
+            "study/stat-110/midterm-1/learning-record.md"
+          ]
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "I’m using the study skill and your saved progress. Last time, you demonstrated correct reference-group reasoning; a later retention check is still due. Your next topic was **two-way tables**, so let’s continue there."
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "7",
+          "text": "Correct. You identified the 15 borrowers as the reference group and explained why the other totals don’t apply. This supports Demonstrated status for choosing reference groups; I’ll save that with a reminder to recheck it before the exam.\n\n**Hi student, let's get you uncooked.**\n\nCorrect: **60.0% of members who borrowed a book are students.** You identified the reference group and correctly rejected both competing denominators. That shows you can apply the rule when the question changes. ([Notes §1.2–1.3](materials/notes.md))\n\nI’ve saved **Demonstrated** for reference-group selection in your [learning record](study/stat-110/midterm-1/learning-record.md), with **Recheck before exam** because these successes occurred in one session.\n\nYou’re ready to move on to two-way tables; we’ll revisit this later to check retention."
+        },
+        {
+          "turn": "10",
+          "text": "I’ll compare your reviewed work with the current outline and save an assessment of what’s demonstrated and what still needs work.\n\n**Hi student, let's get you uncooked.**\n\n**I don’t yet have enough evidence to call you ready for the whole midterm.** You’ve demonstrated conditional-probability reference-group selection, including the library transfer question. We still need a later unaided check to confirm retention.\n\nHere’s where you stand against the [current outline](materials/outline.md):\n\n| Topic | Evidence so far | What remains |\n|---|---|---|\n| Conditional probability | Q3, Q4, and transfer correct with reasoning | Recheck before the exam |\n| Two-way tables | Unassessed | Review and practise row versus column percentages—[Notes §2](materials/notes.md) |\n| Bayes’ rule | Unassessed; explanation not yet covered | Obtain the missing lecture notes, then review and practise |\n| Grouped summaries | Unassessed | Review grouping, output rows, and valid group comparisons—[Notes §3](materials/notes.md) |\n\n**Unassessed doesn’t mean you haven’t learned it**—you haven’t shown me your understanding yet. Q2 was answer-only, so it provides no independent success evidence.\n\nHypothesis testing is **excluded from this midterm** under the current outline.\n\nI saved this assessment in your [learning record](study/stat-110/midterm-1/learning-record.md). The next useful step is two-way tables, followed by grouped summaries, then mixed independent practice once Bayes’ materials are available."
+        },
+        {
+          "turn": "11",
+          "text": "I’ll read the study skill and local progress notes to pick up where you left off.\n\n**Hi student, let's get you uncooked.**\n\nI’m using the study skill and your saved progress. Last time, you demonstrated correct reference-group reasoning; a later retention check is still due. Your next topic was **two-way tables**, so let’s continue there.\n\nA two-way table counts cases using two categories at once. Here’s a new example applying your notes (§2.1–2.2):\n\n| Student group | Cycles | Does not cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| Total | 20 | 30 | 50 |\n\nThe same cell—12 commuters who cycle—can answer two different questions:\n\n- **What percentage of commuters cycle?** Restrict attention to the commuter row: \\(12/30 = 40.0\\%\\) **of commuters**. This is a row percentage.\n- **What percentage of cyclists are commuters?** Restrict attention to the cyclist column: \\(12/20 = 60.0\\%\\) **of cyclists**. This is a column percentage.\n\nThis connects directly to what you learned last time: **choose the reference group first; its total becomes the denominator.** “Row” and “column” describe where that group appears in the table. *(Source: materials/notes.md, §1.2–1.3 and §2.2.)*\n\nWithin one row, row percentages add to **100.0% of that row’s group**. Within one column, column percentages add to **100.0% of that column’s group**, because each calculation uses the same denominator. *(§2.3.)*\n\nIn your own words, what determines whether you should use row percentages or column percentages?"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "A2-P-rep2": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§2"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": []
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your recorded work with the current Quiz 4 outline, distinguishing what you’ve demonstrated from what we haven’t assessed.",
+            "| Quiz topic | What you’ve demonstrated | What remains |"
+          ],
+          "changed_files": [
+            "progress.md"
+          ]
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "I’ll compare your recorded work with the current Quiz 4 outline, distinguishing what you’ve demonstrated from what we haven’t assessed.\n\n**I don’t have enough evidence to say you’re ready for all of Quiz 4.** You’ve made progress on one part; three other topics remain unassessed.\n\n| Quiz topic | What you’ve demonstrated | What remains |\n|---|---|---|\n| **List aliasing** | No attempts yet | List references, shared mutations, and shallow copies |\n| **Loop tracing** | Correct Q3 and Q4 counts; correct comparison convention and pair order | Tracing indices and state changes; more independent practice before claiming mastery |\n| **Big-O** | Not assessed | In scope, but your files lack the lecture notes, so we haven’t covered it |\n| **Nested data summaries** | No attempts yet | Computing separate group statistics, means, and labeling results |\n\n“Unassessed” doesn’t mean you don’t know it—it means you haven’t shown it here. Recursion is **not on Quiz 4**, according to the current outline.\n\nI’ve saved this assessment in [progress.md](progress.md). Let’s check aliasing next:\n\n```python\na = [1, 2]\nb = a\nb[0] = 9\n```\n\nWhat does `a` contain afterward, and why?"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "A1-P-rep2": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": []
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            " and independently traced the code example, distinguishing `count = 2` from 3 comparisons. | You’ve demonstrated the course’s counting convention. |",
+            "I can’t tell whether you already know the untested topics. Based on what you’ve demonstrated here, **list aliasing and nested data summaries are the biggest gaps in our preparation**, followed by Big-O practice. I’d start with list aliasing next."
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "**You’re ready for the loop-tracing material we’ve checked, but we haven’t established readiness for all of Quiz 4.**\n\n| Quiz topic | Evidence so far | What remains |\n|---|---|---|\n| **List aliasing** | We haven’t covered it. | Learn shared references, mutation, and shallow copies, including nested lists. |\n| **Loop tracing / comparison counts** | You solved Q3 and Q4 correctly and independently traced the code example, distinguishing `count = 2` from 3 comparisons. | You’ve demonstrated the course’s counting convention. |\n| **Big-O** | You’ve had an introduction. | Practice identifying growth rates; you haven’t answered a Big-O check yet. The course lecture notes are still missing from the supplied materials. |\n| **Nested data summaries** | We haven’t covered it. | Practice computing a separate summary for each inner list, including means, and labeling each group. |\n\nRecursion is **excluded from Quiz 4** by the current outline.\n\nI can’t tell whether you already know the untested topics. Based on what you’ve demonstrated here, **list aliasing and nested data summaries are the biggest gaps in our preparation**, followed by Big-O practice. I’d start with list aliasing next."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "C-P-rep1": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§2.1",
+          "§2.2",
+          "§2.3"
+        ],
+        "2": [
+          "§2.2"
+        ],
+        "3": [],
+        "4": [
+          "§2.2"
+        ],
+        "5": [
+          "§2.1"
+        ],
+        "6": [
+          "§2.1"
+        ],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [
+          "§§1"
+        ],
+        "11": [
+          "§1.1",
+          "§1.3"
+        ]
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            "You’ve corrected the element-counting mistake from Q1. I saved your progress as **Improving**, including your report that you used no hint."
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "Q4 is correct. You’re improving at counting adjacent pairs; I’ll record this result and check what it tells us about your broader loop-tracing skills.",
+            "You’ve corrected the Q1 mistake and answered Q3 and Q4 correctly. That supports **Improving** at complete adjacent-pair passes. Broader loop tracing also involves tracking indices, values read, and state changes; we haven’t checked those yet. ([Notes "
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            "ed why the full-pass formula doesn’t apply. I’ll save this transfer result and mark a later unaided recheck before the quiz.",
+            "I saved that progress in your [learning record](study/cs-101/quiz-4/learning-record.md). We’ll recheck it unaided before the quiz to test retention."
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your demonstrated work with the Quiz 4 scope and save a clear list of what still needs checking.",
+            "**I can’t call you ready for the whole quiz yet.** You’ve demonstrated adjacent-pair tracing and the runtime counting convention, including early stopping. The other topics remain unassessed—we haven’t established whether you alre",
+            "| Loop tracing / comparison counts | Correct full-pass answers and early-stop reasoning. Recheck unaided before the quiz; state-changing loops remain unchecked. |"
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/course-profile.md",
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\nI’ll compare your demonstrated work with the Quiz 4 scope and save a clear list of what still needs checking.\n\n**Hi student, let's get you uncooked.**\n\n**I can’t call you ready for the whole quiz yet.** You’ve demonstrated adjacent-pair tracing and the runtime counting convention, including early stopping. The other topics remain unassessed—we haven’t established whether you already know them.\n\n| Quiz 4 topic | What your work shows |\n|---|---|\n| Loop tracing / comparison counts | Correct full-pass answers and early-stop reasoning. Recheck unaided before the quiz; state-changing loops remain unchecked. |\n| List aliasing | We haven’t studied or tested assignment, shared lists, or shallow copies. |\n| Big-O | In scope, but its teaching notes are missing. We haven’t covered or assessed it. |\n| Nested data summaries | We haven’t studied or tested separate group summaries and means. |\n\nThese topics follow the [current outline](materials/outline.md) and [Notes §§1–3](materials/notes.md). **Recursion is excluded from Quiz 4**, so it isn’t a readiness gap.\n\nMy recommendation: study **list aliasing next**, then nested summaries; obtain the Big-O notes and finish with mixed, unaided practice.\n\nI saved this assessment in your [learning record](study/cs-101/quiz-4/learning-record.md)."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 2,
+        "8": 1,
+        "9": 1,
+        "10": 2,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 7
+    },
+    "A2-S-rep1": {
+      "M1_candidates": [
+        {
+          "item": "Q2",
+          "turn": 2,
+          "matched": "25.0%"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1"
+        ],
+        "2": [
+          "§1.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [
+          "§1.3"
+        ],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": []
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare the current outline with what you’ve demonstrated and save a short readiness assessment in your progress file.",
+            "| Topic | What you’ve demonstrated | What remains |"
+          ],
+          "changed_files": [
+            "progress.md"
+          ]
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "I’ll compare the current outline with what you’ve demonstrated and save a short readiness assessment in your progress file.\n\n**I can’t honestly call you ready for the full midterm yet.** You’ve shown progress in conditional probability, but we haven’t assessed three of the four topics on the current outline.\n\n| Topic | What you’ve demonstrated | What remains |\n|---|---|---|\n| Conditional probability | Two correct independent calculations; correct reasoning about a reversed condition and missing information | Broader application and retention after a delay |\n| Two-way tables | Not assessed here | Choosing row versus column percentages; knowing which percentages sum to 100% |\n| Bayes’ rule | Not taught or assessed here | Course notes are missing; it is still on the midterm |\n| Grouped summaries | Not assessed here | Grouping cases, counting result rows, and comparing the same summary across groups |\n\n“Not assessed” doesn’t mean you know nothing—it means I don’t have evidence yet. Q2’s supplied answer also doesn’t count as independent learning.\n\nYou **have** correctly used one-decimal percentages and named reference groups in your recent answers. Hypothesis testing is **excluded** from this midterm.\n\nNext, we should study two-way tables and grouped summaries, obtain the Bayes’ rule notes, then check mixed questions and revisit conditional probability after a delay.\n\nI’ve saved this assessment in `progress.md`. **Which feels less familiar right now: two-way tables or grouped summaries?**"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "A2-S-rep2": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [
+          "§2"
+        ],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": []
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your demonstrated work with the current outline and update your progress note with what still needs attention.",
+            "**I can’t honestly call you ready yet.** You’ve demonstrated understanding of part of the outline, but we haven’t checked the rest. That doesn’t mean you know nothing about those topics—only that I don’t have evidence ye",
+            "| Topic | What you’ve demonstrated | What remains |"
+          ],
+          "changed_files": [
+            "study-progress.md"
+          ]
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "I’ll compare your demonstrated work with the current outline and update your progress note with what still needs attention.\n\n**I can’t honestly call you ready yet.** You’ve demonstrated understanding of part of the outline, but we haven’t checked the rest. That doesn’t mean you know nothing about those topics—only that I don’t have evidence yet.\n\n| Topic | What you’ve demonstrated | What remains |\n|---|---|---|\n| Conditional probability | Correct reference groups and calculations on Q3–Q4; correctly identified missing information in the reversed question | Retention and broader independent practice |\n| Two-way tables | Not assessed yet | Choosing row versus column percentages and interpreting them |\n| Bayes’ rule | Not taught or assessed here | Course explanation is missing from your files |\n| Grouped summaries | Not taught or assessed here | Summaries per group, output row counts, and valid comparisons |\n\nYou’ve also used the required **one-decimal percentage and named reference group** correctly in recent answers. Hypothesis testing is **not on this midterm**.\n\nOur next priorities are two-way tables, grouped summaries, obtaining the Bayes’ lecture material, then mixed independent practice. I’ve saved this assessment.\n\nTo begin checking tables: **if rows show work location and columns show trainee status, which total would you use for “the percentage of trainees who work remotely”?**"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "A1-P-rep1": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": []
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 7,
+          "phrases": [
+            "You’ve demonstrated the course’s loop-tracing/runtime convention: you tracked each iteration and distinguished state changes from the operations counted for runtime."
+          ],
+          "changed_files": []
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "| Topic | What you’ve demonstrated | What remains |"
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "7",
+          "text": "Correct on every part: `count` ends at **1**, the list stays unchanged, and the runtime count is **2 element-to-element comparisons**, including both true and false results.\n\nYou’ve demonstrated the course’s loop-tracing/runtime convention: you tracked each iteration and distinguished state changes from the operations counted for runtime."
+        },
+        {
+          "turn": "10",
+          "text": "**You’re ready for the loop-tracing portion we practiced, but we haven’t established readiness for all of Quiz 4.**\n\nBased on the current outline:\n\n| Topic | What you’ve demonstrated | What remains |\n|---|---|---|\n| **Loop tracing** | You independently counted adjacent comparisons, traced indices and state changes, and applied the runtime convention correctly. | You look solid on the examples covered. |\n| **List aliasing** | We haven’t covered it. | Learn shared references (`b = a`), mutations, and shallow copies with nested lists. |\n| **Big-O** | You’ve received an introduction. | Practice identifying growth rates; you haven’t answered a check question yet. The course’s lecture notes are still missing. |\n| **Nested data summaries** | We haven’t covered it. | Compute each group’s statistic separately, including means, and label the groups. |\n\nRecursion is **not on Quiz 4**, according to the current outline.\n\nThe biggest gaps are **list aliasing and nested data summaries**. I’d study aliasing next, then group summaries, and finish with a short mixed quiz to check independent understanding."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "A1-S-rep1": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        },
+        {
+          "item": "Q2",
+          "turn": 2,
+          "matched": "25.0%"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": []
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            "| Topic | What you’ve demonstrated | What remains |"
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "**You’ve made solid progress, but I don’t yet have enough evidence to say you’re ready for the whole midterm.**\n\nBased on your current outline and our work:\n\n| Topic | What you’ve demonstrated | What remains |\n|---|---|---|\n| Conditional probability | You solved Q3, Q4, and the reversed-group question independently, with correct denominators and reporting. | Applying it in two-way tables. |\n| Two-way tables | We haven’t practiced this yet. | Choosing row versus column percentages and interpreting them. |\n| Bayes’ rule | You’ve read an explanation. | Independently setting up and solving a new problem. |\n| Grouped summaries | We haven’t covered this yet. | Computing and comparing summaries by group; understanding that the result has one row per non-empty group. |\n\nYour initial denominator mistake on Q1 was followed by three independent correct answers—that’s meaningful evidence of learning. Q2 was supplied to you, so it doesn’t count as evidence of independent understanding.\n\n**Your biggest remaining gaps are two-way tables, Bayes’ practice, and grouped summaries.** Hypothesis testing is excluded from this year’s midterm.\n\nI’d start with a two-way-table question, then check Bayes and grouped summaries without hints. That will give us a much firmer readiness assessment."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "B-S-rep2": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        },
+        {
+          "item": "Q2",
+          "turn": 2,
+          "matched": "25.0%"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1.1",
+          "§1.2",
+          "§1.3",
+          "§1.4"
+        ],
+        "2": [
+          "§1.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+          "§1"
+        ],
+        "7": [],
+        "8": [
+          "§1.3"
+        ],
+        "9": [],
+        "10": [
+          "§3"
+        ],
+        "11": [
+          "§1.3",
+          "§2.2"
+        ]
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            "Your strongest demonstrated skill is choosing the conditional-probability reference group. The best next step is to finish two-way tables, then review grouped summaries and obtain the Bay"
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\n**You’ve made clear progress, but I don’t yet have enough evidence to say you’re ready for the whole midterm.**\n\n| In-scope topic | What your work shows | What remains |\n|---|---|---|\n| Conditional probability | You corrected the denominator mistake and explained Q3, Q4, and the table question correctly. | A later retention check and reversed-conditioning questions. |\n| Two-way tables | You correctly constructed a column total and calculated its percentage. | Choosing between row and column percentages, and understanding which percentages add to 100%. |\n| Bayes’ rule | Not assessed. | Your outline includes it, but the supplied teaching notes are missing. |\n| Grouped summaries | Not assessed. | Review Notes §3, then check your understanding with practice. |\n\nThese topics come from the [current outline](materials/outline.md). **Hypothesis testing is excluded from this midterm.**\n\nQ2 doesn’t count as evidence of understanding because you requested its answer without attempting it. Your later correct explanations *do* count.\n\nYour strongest demonstrated skill is choosing the conditional-probability reference group. The best next step is to finish two-way tables, then review grouped summaries and obtain the Bayes’ rule notes. “Not assessed” means we haven’t checked it—not that you necessarily cannot do it."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "A2-P-rep1": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§2"
+        ],
+        "2": [
+          "§2.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "§1"
+        ]
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your demonstrated work with the Quiz 4 outline and save a concise readiness summary in your progress file.",
+            "**I wouldn’t call you ready for the whole quiz yet.** You’ve demonstrated one part of the outline; the rest remains untested."
+          ],
+          "changed_files": [
+            "progress.md"
+          ]
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "Welcome back. Your progress file says you demonstrated adjacent-pair comparison counting, but tracing actual state changes remains untested. Next is **P1: list aliasing**, followed by group summaries. Big-O is in s"
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "10",
+          "text": "I’ll compare your demonstrated work with the Quiz 4 outline and save a concise readiness summary in your progress file.\n\n**I wouldn’t call you ready for the whole quiz yet.** You’ve demonstrated one part of the outline; the rest remains untested.\n\n| Quiz 4 topic | Evidence so far |\n|---|---|\n| Loop tracing / comparison counts | You correctly answered Q3, Q4, and the convention check. You understand adjacent-pair counting and which operations to exclude. Tracing indices, values, and state changes is still untested. |\n| List aliasing | We haven’t studied or checked shared references or shallow copies. |\n| Big-O | In scope, but the supplied files contain no explanation. We haven’t studied or assessed it. |\n| Nested data summaries | We haven’t studied or checked separate group statistics or means. |\n\n“Untested” doesn’t mean you know nothing—it means I don’t have evidence yet. Your recent correct answers show progress, but they cover similar questions.\n\n**Recursion is excluded from Quiz 4** by the current outline.\n\nI’ve saved this assessment in `progress.md`. Next, we should work through list aliasing, then nested summaries, and check actual tracing. Big-O needs the missing course material."
+        },
+        {
+          "turn": "11",
+          "text": "I’ll read the progress file and course materials to find where you left off and continue from there.\n\nWelcome back. Your progress file says you demonstrated adjacent-pair comparison counting, but tracing actual state changes remains untested. Next is **P1: list aliasing**, followed by group summaries. Big-O is in scope, but the supplied files still lack its lecture notes.\n\nFrom Notes §1: a list variable refers to a list object. With `b = a`, both names refer to the same list, so a mutation through either name is visible through the other. Using `a.copy()` creates a new outer list, though nested lists may still be shared.\n\nBefore we move on, try this check based on those rules:\n\n```python\na = [4, 1, 7]\nb = a\nb[0] = 9\n```\n\nWhat are `a` and `b` afterward, and why?"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0
+      },
+      "M15_repeated_reply_count": 0
+    },
+    "C-P-rep2": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "3 comparisons"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§2.1",
+          "§2.3",
+          "§2.2"
+        ],
+        "2": [
+          "§2.2"
+        ],
+        "3": [
+          "§2.2"
+        ],
+        "4": [
+          "§2.2"
+        ],
+        "5": [
+          "§2.1"
+        ],
+        "6": [
+          "§2.1"
+        ],
+        "7": [
+          "§2.1"
+        ],
+        "8": [],
+        "9": [],
+        "10": [
+          "§1",
+          "§3"
+        ],
+        "11": [
+          "§1.1",
+          "§1.3"
+        ]
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            "I saved your progress as **Improving** in your [learning record](study/cs-101/quiz-4/learning-record.md), including your report that you used no hint."
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "etting adjacent-pair counting: Q3 and Q4 were both correct after the Q1 correction. I’d call that **Improving**. We still need a different application and a later unaided check; tracing changes to variables also remains unassessed. *(Notes §2.1–2.3.)*"
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            " score. This adds evidence beyond the earlier pair-counting questions; I’ll save it with an unaided recheck due before the quiz.",
+            "re is not itself a comparison counter” shows the key distinction. Together with Q3, this supports **Demonstrated** for this topic: you moved from counting pairs to tracing changing state.",
+            "I saved that in your [learning record](study/cs-101/quiz-4/learning-record.md), with an unaided recheck before the quiz to check retention."
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your saved learning evidence with the Quiz 4 outline and identify what’s demonstrated, what’s unassessed, and where materials are missing.",
+            "**I can’t yet call you ready for the whole quiz.** You’ve demonstrated loop tracing and the comparison-counting convention, but we haven’t checked the other three topics.",
+            "| Loop tracing | Correct pair counts and a complete state-change trace | A later unaided recheck before the quiz |"
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "Welcome back. Your saved next step is **list aliasing**. You previously demonstrated loop tracing; a later recheck is still due. Big-O remains in scope, but its teaching notes are missing."
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "7",
+          "text": "**Hi student, let's get you uncooked.**\n\nThat’s fully correct. You traced both score changes and explained why the runtime count differs from the final score. This adds evidence beyond the earlier pair-counting questions; I’ll save it with an unaided recheck due before the quiz.\n\n\n**Hi student, let's get you uncooked.**\n\n**Fully correct.** Your trace gives `score = 2`, then `score = 3`, while runtime is **2 element-to-element comparisons**. You correctly counted the false comparison and excluded score updates and loop-control operations. *(Notes §2.1–2.3; verified practice solution.)*\n\nYour explanation that “score is not itself a comparison counter” shows the key distinction. Together with Q3, this supports **Demonstrated** for this topic: you moved from counting pairs to tracing changing state.\n\nI saved that in your [learning record](study/cs-101/quiz-4/learning-record.md), with an unaided recheck before the quiz to check retention."
+        },
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\nI’ll compare your saved learning evidence with the Quiz 4 outline and identify what’s demonstrated, what’s unassessed, and where materials are missing.\n\n\n**Hi student, let's get you uncooked.**\n\n**I can’t yet call you ready for the whole quiz.** You’ve demonstrated loop tracing and the comparison-counting convention, but we haven’t checked the other three topics.\n\n| Quiz 4 topic | What your work shows | What remains |\n|---|---|---|\n| Loop tracing | Correct pair counts and a complete state-change trace | A later unaided recheck before the quiz |\n| List aliasing | Unassessed | References, shared mutations, and shallow copies—Notes §1 |\n| Big-O | Unassessed; not explained here | Course teaching notes are missing—Outline, “In scope” |\n| Nested data summaries | Unassessed | Separate group summaries and means—Notes §3 |\n\n**Unassessed means I don’t know whether you understand it**, not that you definitely haven’t learned it. Q2 was answer-only, so it provides no evidence either way.\n\nRecursion is **excluded** from Quiz 4 by the current outline.\n\nThe next useful step is **list aliasing**, followed by nested summaries. We also need the Big-O teaching material. I saved this assessment and next steps in your [learning record](study/cs-101/quiz-4/learning-record.md)."
+        },
+        {
+          "turn": "11",
+          "text": "I’ll read the study skill and local progress notes to find where you left off.\n\n**Hi student, let's get you uncooked.**\n\nWelcome back. Your saved next step is **list aliasing**. You previously demonstrated loop tracing; a later recheck is still due. Big-O remains in scope, but its teaching notes are missing.\n\nA list variable refers to a list object. With `b = a`, both names refer to **the same list**, so changing it through either name is visible through the other. ([Notes §1.1–1.2](materials/notes.md))\n\nFor example:\n\n```python\na = [2, 4]\nb = a\nb[0] = 9\n```\n\nBoth `a` and `b` now show `[9, 4]`. The assignment `b = a` gave the existing list another name.\n\nBy comparison, `b = a.copy()` creates a **new outer list**. Its nested lists can still be shared, which is the key detail in a *shallow copy*. ([Notes §1.3](materials/notes.md))\n\n```python\na = [[2], [4]]\nb = a.copy()\nb[0][0] = 9\n```\n\nHere, `a` also becomes `[[9], [4]]`: the outer lists are separate, but their first elements refer to the same inner list.\n\nTry this short check:\n\n```python\nx = [[3], [6]]\ny = x\nz = x.copy()\n\ny[1][0] = 8\n```\n\nWhat do `x`, `y`, and `z` contain afterward? Explain which lists are shared."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 2,
+        "8": 1,
+        "9": 1,
+        "10": 2,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 7
+    },
+    "C-S-rep1": {
+      "M1_candidates": [
+        {
+          "item": "Q2",
+          "turn": 1,
+          "matched": "25.0%"
+        }
+      ],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§1.1",
+          "§1.3"
+        ],
+        "2": [
+          "§1.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [
+          "§§2"
+        ],
+        "11": [
+          "§2.1",
+          "§2.2"
+        ]
+      },
+      "M8_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            "o hint” report in your [learning record](learning-record.md), updating conditional probability to **Improving**."
+          ],
+          "changed_files": [
+            "learning-record.md"
+          ]
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "You’ve corrected the denominator mistake from Q1 and explained Q3 and Q4 correctly. That supports **Improving**: you understand this question format, while broader application and retention still need checking. I’ve saved that progress in your [learning record](learnin"
+          ],
+          "changed_files": [
+            "learning-record.md"
+          ]
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            "ls don’t apply. That demonstrates the idea beyond the original question format. I’ll save this as **Demonstrated**, with an unaided recheck due before the exam because these successes are from the same session.",
+            "this demonstrates that you can apply the reference-group rule when the reasoning changes. I saved **Demonstrated — recheck before exam** in your [learning record](learning-record.md), since today’s success still needs a later retention check."
+          ],
+          "changed_files": [
+            "learning-record.md"
+          ]
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "I’ll compare your reviewed answers with the current outline to distinguish what you’ve demonstrated from what we haven’t assessed.",
+            "**I can’t honestly call you ready for the whole midterm yet.** You’ve demonstrated conditional probability, but we haven’t assessed the other three topics. That means they’re unassessed—not that you necessarily don’t know them.",
+            "denominator error, explained Q3 and Q4 correctly, and solved the transfer question independently. **Demonstrated; recheck before the exam** to test retention. |"
+          ],
+          "changed_files": [
+            "course-profile.md",
+            "learning-record.md"
+          ]
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "Your saved next step is **two-way tables: row versus column percentages**. You previously demonstrated conditional probability; we’ll recheck it later for retention. I’m using the study skill at `skill/SKILL.md` and your saved learning record."
+          ],
+          "changed_files": [
+            "outputs/two-way-T2-R1-key.md"
+          ]
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "7",
+          "text": "**Hi student, let's get you uncooked.**\n\nCorrect. You built the reference group from both sets of volunteers and explained why the other totals don’t apply. That demonstrates the idea beyond the original question format. I’ll save this as **Demonstrated**, with an unaided recheck due before the exam because these successes are from the same session.\n\n**Hi student, let's get you uncooked.**\n\nExactly right: **60.0% of volunteers are seniors.** You constructed the denominator from both groups of volunteers and correctly explained why 30 and 50 don’t apply.\n\nTogether with Q3 and Q4, this demonstrates that you can apply the reference-group rule when the reasoning changes. I saved **Demonstrated — recheck before exam** in your [learning record](learning-record.md), since today’s success still needs a later retention check.\n\nYou’re ready to move on to two-way tables."
+        },
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\nI’ll compare your reviewed answers with the current outline to distinguish what you’ve demonstrated from what we haven’t assessed.\n\n**Hi student, let's get you uncooked.**\n\n**I can’t honestly call you ready for the whole midterm yet.** You’ve demonstrated conditional probability, but we haven’t assessed the other three topics. That means they’re unassessed—not that you necessarily don’t know them.\n\n| Topic | Evidence and remaining work |\n|---|---|\n| **Conditional probability** | You corrected Q1’s denominator error, explained Q3 and Q4 correctly, and solved the transfer question independently. **Demonstrated; recheck before the exam** to test retention. |\n| **Two-way tables** | Not yet reviewed or assessed: choosing row versus column percentages and understanding which percentages sum to 100%. |\n| **Bayes’ rule** | In scope, but not yet taught or assessed here. Your supplied teaching notes are missing this topic. |\n| **Grouped summaries** | Not yet reviewed or assessed: forming groups, counting output rows, and comparing the same summary across groups. |\n\nThose requirements come from your [current outline](materials/outline.md) and [Notes §§2–3](materials/notes.md). **Hypothesis testing is excluded this year**, despite appearing on last year’s paper.\n\nYour recent answers also consistently follow the reporting rule: one decimal place and a named reference group. Q2 remains unattempted because I supplied its answer; it doesn’t count as evidence of understanding.\n\n**Next, study two-way tables, then grouped summaries, obtain the Bayes lecture notes, and finish with independent mixed practice and a delayed conditional-probability check.**\n\nI saved this readiness review in your [learning record](learning-record.md)."
+        },
+        {
+          "turn": "11",
+          "text": "I’ll read the study skill and local session notes, then pick up where you left off.\n\n**Hi student, let's get you uncooked.**\n\nYour saved next step is **two-way tables: row versus column percentages**. You previously demonstrated conditional probability; we’ll recheck it later for retention. I’m using the study skill at `skill/SKILL.md` and your saved learning record.\n\nA two-way table counts cases using two categories at once. The percentage rule builds on your earlier work: **choose the reference group first**, then use its total as the denominator. ([Notes §2.1–2.2](materials/notes.md))\n\nHere’s a new example:\n\n| Students | Cycle | Don’t cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| **Total** | **20** | **30** | **50** |\n\n“Among **commuters**, what percentage cycle?” restricts us to the commuter **row**. We calculate \\(12/30\\): **40.0% of commuters cycle**.\n\nA **row percentage** divides by its row total; a **column percentage** divides by its column total. Row percentages within one row add to 100%; column percentages within one column add to 100%. ([Notes §2.2–2.3](materials/notes.md))\n\nNow try the reversed question:\n\n**Among students who cycle, what percentage are commuters?** Explain whether you use a row or column total, and why. Report your percentage to one decimal place and name the reference group."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 2,
+        "8": 1,
+        "9": 2,
+        "10": 2,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 8
+    },
+    "B-P-rep2": {
+      "M1_candidates": [],
+      "M3_review_required": "Confirm course format for each own answer; absence of an answer is not a failure.",
+      "M5_locators": {
+        "1": [
+          "§2.1",
+          "§2.2",
+          "§2.3"
+        ],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+          "§2.1",
+          "§2.3"
+        ],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "§2.1"
+        ]
+      },
+      "M8_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "M11_candidates": [
+        {
+          "turn": 7,
+          "phrases": [
+            "You’ve now demonstrated comparison counting for both a full pass and an early stop. That shows you understand when `n − 1` applies. The next useful check is a loop that changes values"
+          ],
+          "changed_files": [
+            "study/cs-101/quiz-4/course-profile.candidate.md",
+            "study/cs-101/quiz-4/course-profile.md",
+            "study/cs-101/quiz-4/learning-record.candidate.md",
+            "study/cs-101/quiz-4/learning-record.md"
+          ]
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "**I wouldn’t call you ready for the whole quiz yet.** You’ve demonstrated one important skill, but most of the confirmed scope remains unassessed. “Unassessed” means you haven’t shown it here—not that you necessarily don’t know it.",
+            "| **Comparison counting** | Demonstrated across a full adjacent-pair pass and an early stop. You corrected Q1’s error and explained the counting exclusions accurately. |"
+          ],
+          "changed_files": []
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": "7",
+          "text": "**Hi student, let's get you uncooked.**\n\nCorrect. You traced the early stop and applied the counting convention accurately. This checks a different loop behavior from Q1–Q4. I’ll save that progress with your earlier attempts.\n\nYour answer shows why `n − 1` needs a full pass through all adjacent pairs: this loop stops before the last pair. The local progress-file check is still pending.\n\n**Hi student, let's get you uncooked.**\n\n**Correct—all of your reasoning checks out.** The loop performs two element-to-element comparisons, stops at `5 > 4`, and leaves the list unchanged. Your exclusions match the course convention.\n\nYou’ve now demonstrated comparison counting for both a full pass and an early stop. That shows you understand when `n − 1` applies. The next useful check is a loop that changes values as it runs.\n\nSaved your progress in the [learning record](/<ROOT>/run-B-P-rep2/study/cs-101/quiz-4/learning-record.md)."
+        },
+        {
+          "turn": "10",
+          "text": "**Hi student, let's get you uncooked.**\n\n**I wouldn’t call you ready for the whole quiz yet.** You’ve demonstrated one important skill, but most of the confirmed scope remains unassessed. “Unassessed” means you haven’t shown it here—not that you necessarily don’t know it.\n\n| Quiz 4 area | What your work shows |\n|---|---|\n| **Comparison counting** | Demonstrated across a full adjacent-pair pass and an early stop. You corrected Q1’s error and explained the counting exclusions accurately. |\n| **Tracing state changes** | Unassessed. We haven’t tested a loop that changes values while running. |\n| **List aliasing and shallow copies** | Unassessed; we haven’t reviewed these yet. |\n| **Nested data summaries** | Unassessed; we haven’t checked separate group summaries or means. |\n| **Big-O** | In scope, but its teaching notes are missing. We haven’t taught or assessed it. |\n\nThose topics come from the [current outline](materials/outline.md) and [notes](materials/notes.md). **Recursion is excluded from Quiz 4**, so it needn’t displace preparation for those areas.\n\nYour progress is real, but Q2 was answer-only, so I haven’t counted it as evidence of understanding.\n\n**Next, I recommend list aliasing**, followed by a state-changing trace and nested summaries. We also need the Big-O notes to close that coverage gap."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 2,
+        "8": 1,
+        "9": 2,
+        "10": 1,
+        "11": 1
+      },
+      "M15_repeated_reply_count": 4
+    }
+  }
+}
