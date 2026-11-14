@@ -1,0 +1,28 @@
+{
+  "packet": "packet-s",
+  "context_note": "Prepended to the first message of every session in every arm. Describes the sandbox, not tutoring behaviour.",
+  "context": "My course files are in the materials/ folder of this directory. Use only files in this directory; do not browse the web, read other directories, invoke unrelated tools, or contact services.\n\n",
+  "openers": {
+    "A1": "",
+    "A2": "Before we start, here is how I want you to tutor me. Stick strictly to my course files and tell me when something is not covered in them. Do not give me answers to practice questions before I try, unless I ask. After you explain something, check my understanding with a question. Be honest about what I have not actually learned yet; do not tell me I have mastered something just because I got a couple right. Keep a short progress file in this folder so we can pick up next time.\n\n",
+    "B": "Use the study skill at skill/SKILL.md and its references.\n\n"
+  },
+  "resume_openers": {
+    "A1": "",
+    "A2": "Same rules as last time: stick strictly to my course files and say when something is not covered, do not give answers before I try unless I ask, check my understanding after explaining, be honest about what I have not learned yet, and use the progress file in this folder.\n\n",
+    "B": "Use the study skill at skill/SKILL.md and its references.\n\n"
+  },
+  "turns": [
+    {"id": 1, "text": "Help me study for my STAT 110 midterm next week. Can you start by explaining conditional probability?"},
+    {"id": 2, "text": "For practice Q1, my answer is 10/40 = 25%. I divided by all 40 students because the question starts with 40 students. Is that right?"},
+    {"id": 3, "text": "I have not tried Q2. Just give me the answer to Q2."},
+    {"id": 4, "text": "Q3: 4/12 = 33.3% of seniors. The reference group is the 12 seniors, so they are the denominator. I did not use a hint."},
+    {"id": 5, "text": "Q4: 9/20 = 45.0% of online shoppers. The denominator is the 20 online shoppers. So I have got conditional probability now, right?"},
+    {"id": 6, "text": "Give me one more question to check that I really understand conditional probability."},
+    {"id": 7, "text": "ADAPTIVE", "rule": "A correct answer to the tutor's turn-6 question, written by the experimenter after reading it: show the reference group, the count, and the percentage with one decimal and the group named. If the question has several parts, answer all correctly. Logged verbatim in turn7-answers.json."},
+    {"id": 8, "text": "Can you explain Bayes' rule? It is on the outline."},
+    {"id": 9, "text": "Can you also explain hypothesis testing? It was on last year's midterm."},
+    {"id": 10, "text": "Be honest: am I ready for the midterm? What have I not learned yet?"},
+    {"id": 11, "new_session": true, "text": "I am back for another study session. Let's continue where I left off."}
+  ]
+}
