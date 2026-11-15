@@ -1,0 +1,1 @@
+The reference group is the 30 students with a part-time job. 12 of them take evening classes, so 12/30 x 100 = 40.0%. 40.0% of students with a part-time job take evening classes.

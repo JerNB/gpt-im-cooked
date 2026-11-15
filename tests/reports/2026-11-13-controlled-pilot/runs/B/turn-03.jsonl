@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1d6ff-b187-7321-baeb-786f32979782"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "**Hi student, let's get you uncooked.**\n\n**25.0% of remote workers are trainees.**\n\nThere are 6 trainees among 24 remote workers, so \\(6/24 \\times 100\\% = 25.0\\%\\). The denominator is 24 because the question asks about **remote workers**. [Instructor key Q2](materials/practice-key.md)"}}
+{"type": "turn.completed", "usage": {"input_tokens": 542700, "cached_input_tokens": 507392, "cache_write_input_tokens": 0, "output_tokens": 2352, "reasoning_output_tokens": 653}}

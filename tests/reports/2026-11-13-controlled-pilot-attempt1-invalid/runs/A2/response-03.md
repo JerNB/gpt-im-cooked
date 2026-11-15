@@ -1,0 +1,1 @@
+Please paste Q2—I haven’t been able to read your course files. Since you’ve explicitly asked for its answer, I can give it without requiring an attempt first.
