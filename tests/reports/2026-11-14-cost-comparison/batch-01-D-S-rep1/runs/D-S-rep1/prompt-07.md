@@ -1,0 +1,1 @@
+The claim is not correct. 60.0% of students who passed attended tutoring: 18/30 = 60.0%. The reference group is all 30 students who passed, so 30 is the denominator, rather than all 60 students or the 24 tutoring attendees. The 75.0% calculation is 18/24 and describes the different reference group of tutoring attendees; reversing the condition changes the denominator.

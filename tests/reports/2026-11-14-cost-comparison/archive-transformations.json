@@ -1,0 +1,248 @@
+[
+  {
+    "path": "batch-01-C-S-rep1/fixtures/packet-s/rubric-v2.json",
+    "before_sha256": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+    "after_sha256": "7ad261f0b2062911bc98d5459ce0bc635f99d55be986385a49a6095f05420921",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-01/study/stat-110/midterm-1/course-profile.md",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-02/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-03/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-04/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-05/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-06/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-07/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-08/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-09/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-10/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-11/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/runs/C-S-rep1/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "259bf2077a7932e2f398a0926641a02ae43333ac737ea0783af2389a18270455",
+    "after_sha256": "7f348a2533721fe51738f0d46c69c4ee5fc1afcf72941e5ddd506cc5f233e943",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-C-S-rep1/turn7-answers.json",
+    "before_sha256": "c9af10f56ec92deed8753944c0b62e141023389db9baf419b40cc12a2be6f4e4",
+    "after_sha256": "678a65f4a813725571c2030637ab15e2e369169e2b0b68f4e8825191b066e9e9",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/fixtures/packet-s/rubric-v2.json",
+    "before_sha256": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+    "after_sha256": "7ad261f0b2062911bc98d5459ce0bc635f99d55be986385a49a6095f05420921",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-06/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-07/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-08/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-09/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-10/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-11/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-11/study/stat-110/midterm-1/outputs/table-check-1-key.md",
+    "before_sha256": "97b87a9667f7a59feda2e6e78770af74dff4871f5d8f8facb7d389cf7a2b37c0",
+    "after_sha256": "35660631afa0fe00479c0a50ec1a538108348f05ec83a949d4d9d9b57d7d89d1",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "978297850db21bdd1ac33944b7e0a5030fec2b2470f9defca1b9ade299f81d17",
+    "after_sha256": "4536af80e987ac7922cdec220e9b1cf6a8cc481b8f6edeaab1f29f528fc2e8b0",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/runs/D-S-rep1/study/stat-110/midterm-1/outputs/table-check-1-key.md",
+    "before_sha256": "97b87a9667f7a59feda2e6e78770af74dff4871f5d8f8facb7d389cf7a2b37c0",
+    "after_sha256": "35660631afa0fe00479c0a50ec1a538108348f05ec83a949d4d9d9b57d7d89d1",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-01-D-S-rep1/turn7-answers.json",
+    "before_sha256": "fc8d88973f179bb012794bcbd6226d9e56d28c3a908a2f3659f8000f5d71cb85",
+    "after_sha256": "ecf0ba22012708f64813470c91d79807c9d08f985d6a547e9df689620f0807ad",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "capability-probe/model.jsonl",
+    "before_sha256": "dec05977f39b82e53f3a1023106ce2a3c348e4705a453966db988a5027fbe82d",
+    "after_sha256": "c370fd511add330280d86cb492d8f85eab69578bbda1b2a4509aaab7f98b47a5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "capability-probe/model.stderr.txt",
+    "before_sha256": "5dc10bdf4d7bda13bec71fcb868e493efaaa6f5ab6bf49442761c68f0717534e",
+    "after_sha256": "dafc90a45921b0a31c0d59523f0274f3649c892bf62fcadd3edde7cc2e13dee8",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "capability-probe/probe-result.json",
+    "before_sha256": "65c1725484987652e135686acbd73e04685380ccc593d3083659a2e886d9d512",
+    "after_sha256": "d4e2e9d7daa6ab7ad371577e4cba53cf614bbc2f75146ac61e5dd6be7dd1e1e3",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "fixtures/packet-p/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "fixtures/packet-p/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "fixtures/packet-p/rubric-v2.json",
+    "before_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "after_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "fixtures/packet-p/rubric.json",
+    "before_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "after_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "fixtures/packet-p/script.json",
+    "before_sha256": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51",
+    "after_sha256": "fd4a82d2d713ddf7482650015ef57cf85edd47cbaa12c930e7d626c2346b5e5b",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "fixtures/packet-s/rubric-v2.json",
+    "before_sha256": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+    "after_sha256": "7ad261f0b2062911bc98d5459ce0bc635f99d55be986385a49a6095f05420921",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "per-turn-deltas.csv",
+    "before_sha256": "fd1a46766d2358d45f16535f49432c537119572e75d6e1cbf88115924b55db20",
+    "after_sha256": "1b984c25678206c7d1919b5899374d8ad1e560c63cfd69c8a3a5ff05bd0c8e30",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "resources.csv",
+    "before_sha256": "9e6c25d9d0e2068b1b4571e22b1cf4c9b4386d7c0d25d570c72934b8c5f4d4ea",
+    "after_sha256": "10833e353ff28b157eee28473ad16adda220a3a9b55847108402715ceb5b8611",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "smoke-001/fixtures/packet-s/rubric-v2.json",
+    "before_sha256": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+    "after_sha256": "7ad261f0b2062911bc98d5459ce0bc635f99d55be986385a49a6095f05420921",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "normalize_archive_links.py",
+    "before_sha256": "012ac7ec080a4ae04fedefd440ecb32ee98da48b2571d7d69ebc318517fdb81d",
+    "after_sha256": "b62f94ad2d9f1ba1bfa6e233597a8043214a053726350b4eeac14f91a96799fc",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "per-turn-deltas.csv",
+    "before_sha256": "fd1a46766d2358d45f16535f49432c537119572e75d6e1cbf88115924b55db20",
+    "after_sha256": "1b984c25678206c7d1919b5899374d8ad1e560c63cfd69c8a3a5ff05bd0c8e30",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "REPORT.md",
+    "before_sha256": "e701d01a6ac3185b61f8295ad2ae3b51c7d5cdabb6b6e773aa327811a0436933",
+    "after_sha256": "4d425f2dcc54ec16e64f343098461ac5197167ed53e49bb038849ae83f63438c",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "resources.csv",
+    "before_sha256": "9e6c25d9d0e2068b1b4571e22b1cf4c9b4386d7c0d25d570c72934b8c5f4d4ea",
+    "after_sha256": "10833e353ff28b157eee28473ad16adda220a3a9b55847108402715ceb5b8611",
+    "kind": "LF-preview"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "file": "batch-01-C-S-rep1/runs/C-S-rep1/response-11.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-C/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
+  }
+]

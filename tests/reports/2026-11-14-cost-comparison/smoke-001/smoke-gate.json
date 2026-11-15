@@ -1,0 +1,10 @@
+{
+  "materials_read": true,
+  "skill_read": true,
+  "no_global_access": true,
+  "record_files_absent_turn1": true,
+  "both_record_files_present_turn2": true,
+  "one_successful_save_command": true,
+  "no_separate_read_update_commit": true,
+  "no_inline_save_wrapper": true
+}
