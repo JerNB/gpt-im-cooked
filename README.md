@@ -8,13 +8,57 @@ Designed for English-language college and graduate study, including internationa
 
 **V2 · v2.0.1** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
 
-**[v2.0.1 — Steadier progress records — November 15, 2026](CHANGELOG.md)** · Progress changes are saved in the same turn, same-session "Demonstrated" carries a recheck, gaps in your notes get a labelled offer, and saving takes one command. Measured in [two exploratory scripted comparisons](tests/reports/2026-11-14-cost-comparison/REPORT.md); no learning-gain claim.
+**[v2.0.1 — Steadier progress records — November 15, 2026](#whats-new-in-201)** · Progress changes are saved in the same turn, same-session "Demonstrated" carries a recheck, gaps in your notes get a labelled offer, and saving takes one command. [See what changed and what the tests showed.](#whats-new-in-201)
 
 **[V2 workflow update — October 31, 2026](CHANGELOG.md)** · Checkpoint-based learning records, targeted mistake review, adaptive guides, and humanities feedback.
 
 The October 17 patch preserves answer exposure across retries in a [repaired concept-page example](examples/grouped-transformations.html), adds an executable regression, and clarifies how tutors review contradictory export labels. [Evidence, repeated tutor runs, and limits](tests/reports/2026-10-17/REPORT.md) distinguish the reproduced page defect from model judgments and unmeasured learning gains.
 
 The October 15 update makes conversation the primary review experience, with optional interactive pages for selected concepts. A simple mock-exam request produces an HTML paper with a separate key; a study-guide request produces a PDF when the host supports generation. See the [v0.5.0 changes and package checks](tests/reports/2026-10-15/RELEASE.md).
+
+## What's new in 2.0.1
+
+**Your progress is kept when it changes, "Demonstrated" asks for a later recheck, and saving takes one step.**
+
+| | 2.0.0 | 2.0.1 |
+|---|---|---|
+| **When progress is saved** | In batches, after five tutoring turns with meaningful changes | A status change (Needs practice, Improving, Demonstrated, Recheck) and an answer to "am I ready?" are saved in the same turn; other evidence still batches |
+| **"Demonstrated"** | Needs a reviewed transfer task | Same, and if all of it happened in one sitting, the record says `Recheck before exam` and schedules a later unaided try |
+| **A topic your notes don't cover** | The tutor states the gap and asks for the notes | It also offers, once, a general explanation clearly labelled *not from your course materials*; given only if you accept, never counted as course content |
+| **How a save happens** | The tutor assembles a multi-step save each time | One `record_io.py save` command updates the course profile and learning record together, and undoes its own writes if a later write fails |
+| **Record files** | Created on the first explanation | Created at the first save that has something to keep |
+| **Opening line** | Could repeat inside one reply | Appears once per reply |
+
+Existing course directories and learning records work as before; no migration is needed. Full details are in the [changelog](CHANGELOG.md).
+
+### What the tests showed
+
+Two exploratory comparisons on synthetic statistics and programming courses, with a scripted student, one model, and four study sessions per version. Numbers are counts of sessions (or replies), not rates.
+
+**The behaviour changes** ([controlled comparison](tests/reports/2026-11-14-controlled-comparison/REPORT.md)): the pre-release skill versus the revision that introduced them.
+
+| Check | Before | After |
+|---|---|---|
+| Readiness review saved in the learning record | 0 of 4 | 4 of 4 |
+| New session resumed from an out-of-date record | 1 of 4 | 0 of 4 |
+| Same-sitting "Demonstrated" marked for a recheck | 0 of 3 | 4 of 4 |
+| Missing-notes topic got a labelled general-explanation offer | 1 of 4 | 4 of 4 |
+
+That revision cost about 31% more tokens. 2.0.1 keeps those behaviours and takes most of the extra cost back out:
+
+**The cost changes** ([cost comparison](tests/reports/2026-11-14-cost-comparison/REPORT.md)): the revision versus 2.0.1, run side by side.
+
+| Measure | Revision | 2.0.1 |
+|---|---|---|
+| Tokens over four sessions (input + output) | 4,032,907 | 3,364,701 (about 17% fewer) |
+| Sessions where 2.0.1 was cheaper than its matched pair | — | 4 of 4 |
+| Saves done with the one-step command | 0 (multi-step saves instead) | 20 of 20, none failed |
+| Replies with a repeated opening line | 15 of 44 | 0 of 44 |
+| Readiness saved / out-of-date resume / recheck marker / labelled offer | 4/4 · 0/4 · 4/4 · 4/4 | 4/4 · 0/4 · 4/4 · 4/4 |
+
+Every other rubric check tied. On the transfer-check question both versions scored 3 passes and 1 unclear, and one 2.0.1 pass is disputed by a second reviewer.
+
+**Limits.** These are small scripted tests with one model, not a study of learning. Tokens are tool counters, not a bill. 2.0.1 was not run side by side with the pre-release skill or with a plain AI chat, and the same frozen skill used 27% fewer tokens in one run than in another, so compare numbers only within a table. Scoring was by model reviewers on masked sessions; blinding was partial. Not measured: learning gains, real students, other models, mock exams and study guides, and what happens when you accept the general explanation.
 
 ## Try an exam-style demo
 
