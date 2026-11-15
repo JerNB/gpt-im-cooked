@@ -1,0 +1,14 @@
+{
+  "status": "REVIEW_PENDING_CC",
+  "selected_sessions": 8,
+  "selected_student_calls": 88,
+  "original_failed_session_excluded": true,
+  "fresh_recovery_completed": true,
+  "diagnostic_successful_calls": 3,
+  "total_current_CLI_invocations": 95,
+  "total_current_completed_CLI_turns": 94,
+  "quota_failures": 1,
+  "automatic_retries": 0,
+  "no_more_model_CLI_calls_required": true,
+  "acceptance": "MEETS_PRE_REGISTERED_CRITERIA_ON_THIS_SAMPLE"
+}

@@ -1,0 +1,57 @@
+{
+  "disagreements": [
+    {
+      "case": "CASE-02",
+      "metric": "M1",
+      "source": "primary",
+      "original_status": "pass",
+      "selected_status": "fail"
+    },
+    {
+      "case": "CASE-02",
+      "metric": "M6",
+      "source": "primary",
+      "original_status": "pass",
+      "selected_status": "unclear"
+    },
+    {
+      "case": "CASE-03",
+      "metric": "M6",
+      "source": "primary",
+      "original_status": "pass",
+      "selected_status": "unclear"
+    },
+    {
+      "case": "CASE-04",
+      "metric": "M6",
+      "source": "secondary",
+      "original_status": "unclear",
+      "selected_status": "pass"
+    },
+    {
+      "case": "CASE-05",
+      "metric": "M6",
+      "source": "primary",
+      "original_status": "unclear",
+      "selected_status": "pass"
+    },
+    {
+      "case": "CASE-07",
+      "metric": "M6",
+      "source": "secondary",
+      "original_status": "unclear",
+      "selected_status": "pass"
+    }
+  ],
+  "selection": "M1/M6 use fresh independent consistency review v2; status events use independently corrected v3; remaining metrics use latest primaries.",
+  "corrections_preserved": [
+    "Wrong-case readiness quotes corrected",
+    "Recheck flag removed as duplicate status event",
+    "Readiness source changed from reply to actual snapshot",
+    "M9/M12 reply-only audit separated from file freshness",
+    "T1 recheck not counted as whole-exam readiness",
+    "CASE07 M3b/M6b case-specific correction",
+    "LaTeX percent and actual CASE04 question corrected in consistency review"
+  ],
+  "evidence_policy": "Raw review drafts preserved even when quotes paraphrased/inaccurate. Compiled evidence uses verbatim source text/paths; conclusions and unresolved M6 dissent are disclosed."
+}

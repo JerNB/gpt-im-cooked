@@ -1,6 +1,6 @@
 {
   "task": "T007",
-  "status": "BLOCKED_QUOTA:7/8 complete;fresh C-P-rep2 required",
+  "status": "COMPLETE:8 valid sessions; pending cc cross-review",
   "C": "4d102f605260559af16d2f6620cd926bf0b8f6fd",
   "D": "9938d36d8538cc4476b0fcf3e37db9e8faa79d59",
   "model": "gpt-6.1-sol",
@@ -82,5 +82,6 @@
     "D_total_tokens_max": 4238431
   },
   "blinding": "Human authorized independent Luna reviewers;shuffled content-only packets without mapping/costs. Parent knows assignments and authored adaptive answers. Record format may permit inference.",
-  "limits": "Synthetic packets,one model alias,scripted student,n4/arm;not learning gains,real students,other models,artifacts,billing or causal timing."
+  "limits": "Synthetic packets,one model alias,scripted student,n4/arm;not learning gains,real students,other models,artifacts,billing or causal timing.",
+  "recovery": "C-P-rep2 fresh11 after explicit quota confirmation; paired D-P-rep2 from earlier window retained; no splice"
 }

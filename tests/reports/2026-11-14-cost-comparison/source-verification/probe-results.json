@@ -1,0 +1,62 @@
+[
+  {
+    "probe": "create both",
+    "pass": true
+  },
+  {
+    "probe": "malformed",
+    "pass": true
+  },
+  {
+    "probe": "unknown section",
+    "pass": true
+  },
+  {
+    "probe": "wrong width",
+    "pass": true
+  },
+  {
+    "probe": "stale",
+    "pass": true
+  },
+  {
+    "probe": "missing without create",
+    "pass": true
+  },
+  {
+    "probe": "record-only create",
+    "pass": true
+  },
+  {
+    "probe": "foreign lock record-only",
+    "pass": true
+  },
+  {
+    "probe": "foreign lock valid two-file",
+    "pass": true
+  },
+  {
+    "probe": "second replacement failure originals restored",
+    "pass": true
+  },
+  {
+    "probe": "previous backups restored",
+    "pass": true
+  },
+  {
+    "probe": "second replacement failure create rollback",
+    "pass": true
+  },
+  {
+    "probe": "intervening change retained no checkpoint writes",
+    "pass": true
+  },
+  {
+    "probe": "default composite identities",
+    "pass": true
+  },
+  {
+    "probe": "two-file save succeeds after failures",
+    "pass": true
+  }
+]

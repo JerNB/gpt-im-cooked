@@ -1,0 +1,9 @@
+{
+  "completed_CLI_turns": 3,
+  "input_tokens": 272518,
+  "cached_input_tokens": 227584,
+  "output_tokens": 2157,
+  "total_tokens": 274675,
+  "active_CLI_seconds": 146.2,
+  "note": "One successful probe plus two-turn smoke; smoke uses final counter only. Not included in selected session table."
+}

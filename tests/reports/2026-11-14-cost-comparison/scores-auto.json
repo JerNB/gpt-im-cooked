@@ -4,6 +4,11 @@
     "C-S-rep1": {
       "M1_candidates": [
         {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        },
+        {
           "item": "Q2",
           "turn": 2,
           "matched": "25.0%"
@@ -528,6 +533,11 @@
     "C-S-rep2": {
       "M1_candidates": [
         {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        },
+        {
           "item": "Q2",
           "turn": 2,
           "matched": "25.0%"
@@ -732,6 +742,113 @@
         "8": 1,
         "9": 1,
         "10": 1,
+        "11": 1
+      },
+      "M8_unassessed_ground_truth": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "semantic_review_required": true
+    },
+    "C-P-rep2": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "3 comparisons"
+        }
+      ],
+      "M5_locators": {
+        "1": [
+          "\u00a72.1",
+          "\u00a7\u00a72.2"
+        ],
+        "2": [
+          "\u00a72.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [
+          "\u00a72.1"
+        ],
+        "6": [
+          "\u00a7\u00a72.1"
+        ],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [
+          "\u00a7\u00a71"
+        ],
+        "11": [
+          "\u00a7\u00a71.1"
+        ]
+      },
+      "M11_status_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            "I saved your progress as **Improving** in your [learning record](study/cs-101/quiz-4/learning-record.md): you applied the rule correctly without a Q3 hint. Q2 remains recorded as unattempted with "
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "I saved Q4 and kept your status at **Improving** in your [learning record](study/cs-101/quiz-4/learning-record.md). We\u2019ll also want a later unaided check before the quiz."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            "I saved your status as **Demonstrated \u2014 recheck before exam** in your [learning record](study/cs-101/quiz-4/learning-record.md). A fresh unaided trace after another topic or in a later session will check ret"
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "I\u2019ll compare your reviewed work with the current Quiz 4 scope, separating what you\u2019ve demonstrated from what we haven\u2019t assessed.",
+            "**I can\u2019t yet say you\u2019re ready for the whole quiz.** You demonstrated loop tracing and the runtime convention, but we haven\u2019t assessed the other three topics. That doesn\u2019t mean you don\u2019t know them\u2014we lack evidence.",
+            "| Loop tracing | **Demonstrated:** accurate state changes, comparisons, and exclusions | A fresh unaided check later, before the quiz |"
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "I\u2019m using the study skill. Your saved record puts **list aliasing** next. You demonstrated loop tracing; an unaided recheck is still due before the quiz."
+          ],
+          "record_changed": false
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": 7,
+          "reply": "**Hi student, let's get you uncooked.**\n\nYour trace and runtime count are correct, including the false comparison. I\u2019ll save this as evidence that you can apply the convention while tracking state changes.\n\n**Hi student, let's get you uncooked.**\n\n**Correct throughout.** You tracked the current list values accurately and explained the key distinction: **3 comparisons were evaluated, but only 2 caused updates.** The false comparison still counts, and your exclusions match the course convention.\n\nThis demonstrates understanding beyond memorizing `n \u2212 1`: you handled changing state and distinguished comparisons from successful updates.\n\nI saved your status as **Demonstrated \u2014 recheck before exam** in your [learning record](study/cs-101/quiz-4/learning-record.md). A fresh unaided trace after another topic or in a later session will check retention."
+        },
+        {
+          "turn": 10,
+          "reply": "**Hi student, let's get you uncooked.**\n\nI\u2019ll compare your reviewed work with the current Quiz 4 scope, separating what you\u2019ve demonstrated from what we haven\u2019t assessed.\n\n**Hi student, let's get you uncooked.**\n\n**I can\u2019t yet say you\u2019re ready for the whole quiz.** You demonstrated loop tracing and the runtime convention, but we haven\u2019t assessed the other three topics. That doesn\u2019t mean you don\u2019t know them\u2014we lack evidence.\n\n| Quiz 4 topic | What your work shows | What remains |\n|---|---|---|\n| Loop tracing | **Demonstrated:** accurate state changes, comparisons, and exclusions | A fresh unaided check later, before the quiz |\n| List aliasing | **Unassessed** | References, shared mutations, and shallow copies |\n| Big-O | **Unassessed; explanation still missing** | Obtain the course\u2019s teaching notes, then learn and apply its rules |\n| Nested data summaries | **Unassessed** | Separate group summaries and means |\n\nThese topics come from the [current outline](materials/outline.md) and [Notes \u00a7\u00a71\u20133](materials/notes.md). **Recursion is excluded from Quiz 4**, despite appearing previously.\n\nYour Q3, Q4, and changing-list trace support the loop-tracing judgment. Q2 was an answer reveal, so it supplies no evidence of understanding.\n\n**Start next with list aliasing**, then nested summaries; get the Big-O notes and revisit tracing after another topic. I saved this assessment and next steps in your [learning record](study/cs-101/quiz-4/learning-record.md)."
+        },
+        {
+          "turn": 11,
+          "reply": "I\u2019ll read the study skill and the local course progress, then continue from where you left off.\n\n**Hi student, let's get you uncooked.**\n\nI\u2019m using the study skill. Your saved record puts **list aliasing** next. You demonstrated loop tracing; an unaided recheck is still due before the quiz.\n\nA list variable refers to a list object. With `b = a`, both names refer to **the same list**, so changing an element through either name is visible through both. With `b = a.copy()`, you get a new outer list, though nested lists may still be shared. ([Notes \u00a7\u00a71.1\u20131.3](materials/notes.md))\n\nFor example:\n\n```python\na = [2, 5]\nb = a\na[1] = 8\n```\n\nBoth `a` and `b` now show `[2, 8]`: the assignment gave one list two names.\n\nTry this short application:\n\n```python\na = [4, 7]\nb = a\nb[0] = 9\n```\n\n**What are `a` and `b` afterward, and why?**"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 2,
+        "2": 2,
+        "3": 1,
+        "4": 2,
+        "5": 2,
+        "6": 2,
+        "7": 2,
+        "8": 1,
+        "9": 2,
+        "10": 2,
         "11": 1
       },
       "M8_unassessed_ground_truth": [

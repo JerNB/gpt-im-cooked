@@ -87,7 +87,7 @@ def main():
                 first=truth['first_attempt_turn'].get(item) or truth.get('answer_requested_turn',{}).get(item)
                 if first and n<first:
                     for value in values:
-                        if value in reply:
+                        if value in reply.replace('\\%', '%'):
                             auto[label]['M1_candidates'].append({'item':item,'turn':n,'matched':value})
         ten=json.loads((path/'turn-10.meta.json').read_text(encoding='utf-8'))['usage'];eleven=json.loads((path/'turn-11.meta.json').read_text(encoding='utf-8'))['usage']
         assert all(total[k]==ten.get(k,0)+eleven.get(k,0) for k in keys)
@@ -100,6 +100,31 @@ def main():
     dump('scores-auto.json',{'note':'Automatic candidates are not semantic pass/fail scores. In particular a common number alone does not establish a premature answer. Confirm M1/M3/M5/status/readiness semantically; M15 counts all agent messages within each student reply.','sessions':auto})
     dump('record-byte-audit.json',{'note':'Readiness/status-change/stale-resume semantics require blinded review; hashes alone do not establish them.','sessions':snapshots})
     dump('selected-completion.json',{'completed_sessions':len(complete),'student_calls':11*len(complete),'partial_mode':args.allow_partial,'selected':{k:p.relative_to(BASE).as_posix() for k,p in complete.items()},'note':'Probe/smoke excluded. Cached input is subset of input, reasoning subset of output; do not add twice.'})
+    numeric=(*keys,'total_tokens','uncached_input_tokens','commands','failed_commands')
+    totals={}
+    for arm in 'CD':
+        rows=[x for x in summaries if x['arm']==arm]
+        totals[arm]={'sessions':len(rows),**{k:sum(x[k] for x in rows) for k in numeric},
+                     'active_cli_seconds':round(sum(x['active_cli_seconds'] for x in rows),2)}
+    by_label={x['session']:x for x in summaries};pairs=[]
+    for packet in 'SP':
+        for rep in (1,2):
+            c=by_label.get(f'C-{packet}-rep{rep}');d=by_label.get(f'D-{packet}-rep{rep}')
+            if c and d:
+                pairs.append({'packet':packet,'replicate':rep,'C_tokens':c['total_tokens'],'D_tokens':d['total_tokens'],
+                              'C_minus_D':c['total_tokens']-d['total_tokens'],'D_lower':d['total_tokens']<c['total_tokens'],
+                              'cross_quota_recovery':packet=='P' and rep==2})
+    dump('resources-summary.json',{'arms':totals,'matched_pairs':pairs,'D_lower_pairs':sum(x['D_lower'] for x in pairs),
+         'D_ceiling':4238431,'D_ceiling_met':totals['D']['total_tokens']<=4238431,
+         'note':'Counters not billing; cached/reasoning subsets not added twice. P-rep2 C recovery crosses quota window; timing is not a skill effect.'})
+    grouped={}
+    for n in (1,2,4,5,7,10):
+        grouped[str(n)]={}
+        for arm in 'CD':
+            rows=[x for x in turns if x['turn']==n and x['session'].startswith(arm+'-')]
+            grouped[str(n)][arm]={**{k:sum(x[k] for x in rows) for k in ('input_tokens','cached_input_tokens','output_tokens','commands')},
+                                  'input_plus_output':sum(x['input_tokens']+x['output_tokens'] for x in rows)}
+    dump('save-turn-resource-summary.json',grouped)
     print(f'{len(complete)} completed selected sessions analyzed; cumulative accounting checks pass.')
 
 

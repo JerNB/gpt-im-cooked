@@ -1,0 +1,98 @@
+{
+  "1": {
+    "C": {
+      "input_tokens": 588220,
+      "cached_input_tokens": 444032,
+      "output_tokens": 7683,
+      "commands": 18,
+      "input_plus_output": 595903
+    },
+    "D": {
+      "input_tokens": 488394,
+      "cached_input_tokens": 368512,
+      "output_tokens": 4155,
+      "commands": 8,
+      "input_plus_output": 492549
+    }
+  },
+  "2": {
+    "C": {
+      "input_tokens": 408317,
+      "cached_input_tokens": 379136,
+      "output_tokens": 6204,
+      "commands": 10,
+      "input_plus_output": 414521
+    },
+    "D": {
+      "input_tokens": 562856,
+      "cached_input_tokens": 521472,
+      "output_tokens": 4936,
+      "commands": 16,
+      "input_plus_output": 567792
+    }
+  },
+  "4": {
+    "C": {
+      "input_tokens": 393167,
+      "cached_input_tokens": 383744,
+      "output_tokens": 4115,
+      "commands": 8,
+      "input_plus_output": 397282
+    },
+    "D": {
+      "input_tokens": 255567,
+      "cached_input_tokens": 251776,
+      "output_tokens": 3319,
+      "commands": 4,
+      "input_plus_output": 258886
+    }
+  },
+  "5": {
+    "C": {
+      "input_tokens": 424116,
+      "cached_input_tokens": 415744,
+      "output_tokens": 4663,
+      "commands": 8,
+      "input_plus_output": 428779
+    },
+    "D": {
+      "input_tokens": 264413,
+      "cached_input_tokens": 260736,
+      "output_tokens": 3373,
+      "commands": 4,
+      "input_plus_output": 267786
+    }
+  },
+  "7": {
+    "C": {
+      "input_tokens": 468678,
+      "cached_input_tokens": 459008,
+      "output_tokens": 5274,
+      "commands": 8,
+      "input_plus_output": 473952
+    },
+    "D": {
+      "input_tokens": 281309,
+      "cached_input_tokens": 278528,
+      "output_tokens": 3817,
+      "commands": 4,
+      "input_plus_output": 285126
+    }
+  },
+  "10": {
+    "C": {
+      "input_tokens": 521680,
+      "cached_input_tokens": 503424,
+      "output_tokens": 6114,
+      "commands": 8,
+      "input_plus_output": 527794
+    },
+    "D": {
+      "input_tokens": 392215,
+      "cached_input_tokens": 375424,
+      "output_tokens": 5401,
+      "commands": 6,
+      "input_plus_output": 397616
+    }
+  }
+}

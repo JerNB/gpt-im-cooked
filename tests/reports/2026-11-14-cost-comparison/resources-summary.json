@@ -1,0 +1,70 @@
+{
+  "arms": {
+    "C": {
+      "sessions": 4,
+      "input_tokens": 3989971,
+      "cached_input_tokens": 3649664,
+      "output_tokens": 42936,
+      "reasoning_output_tokens": 4331,
+      "total_tokens": 4032907,
+      "uncached_input_tokens": 340307,
+      "commands": 79,
+      "failed_commands": 4,
+      "active_cli_seconds": 1474.13
+    },
+    "D": {
+      "sessions": 4,
+      "input_tokens": 3331870,
+      "cached_input_tokens": 3020800,
+      "output_tokens": 32831,
+      "reasoning_output_tokens": 4698,
+      "total_tokens": 3364701,
+      "uncached_input_tokens": 311070,
+      "commands": 60,
+      "failed_commands": 3,
+      "active_cli_seconds": 1343.64
+    }
+  },
+  "matched_pairs": [
+    {
+      "packet": "S",
+      "replicate": 1,
+      "C_tokens": 951267,
+      "D_tokens": 929649,
+      "C_minus_D": 21618,
+      "D_lower": true,
+      "cross_quota_recovery": false
+    },
+    {
+      "packet": "S",
+      "replicate": 2,
+      "C_tokens": 1156554,
+      "D_tokens": 783880,
+      "C_minus_D": 372674,
+      "D_lower": true,
+      "cross_quota_recovery": false
+    },
+    {
+      "packet": "P",
+      "replicate": 1,
+      "C_tokens": 936192,
+      "D_tokens": 702404,
+      "C_minus_D": 233788,
+      "D_lower": true,
+      "cross_quota_recovery": false
+    },
+    {
+      "packet": "P",
+      "replicate": 2,
+      "C_tokens": 988894,
+      "D_tokens": 948768,
+      "C_minus_D": 40126,
+      "D_lower": true,
+      "cross_quota_recovery": true
+    }
+  ],
+  "D_lower_pairs": 4,
+  "D_ceiling": 4238431,
+  "D_ceiling_met": true,
+  "note": "Counters not billing; cached/reasoning subsets not added twice. P-rep2 C recovery crosses quota window; timing is not a skill effect."
+}

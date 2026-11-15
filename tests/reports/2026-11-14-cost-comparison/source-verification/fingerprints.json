@@ -1,0 +1,20 @@
+{
+  "SKILL.md": true,
+  "agents/openai.yaml": true,
+  "assets/course-profile.md": true,
+  "assets/first-use.md": true,
+  "assets/learning-record.md": true,
+  "assets/mock-exam-example.json": true,
+  "assets/mock-exam-template.html": true,
+  "references/concept-tutoring.md": true,
+  "references/interactive-review.md": true,
+  "references/mock-exam-layout.md": true,
+  "references/practice-and-feedback.md": true,
+  "references/review-artifacts.md": true,
+  "references/state-imports.md": true,
+  "references/state-reference.md": true,
+  "references/state.md": true,
+  "references/webpage-prompts.md": true,
+  "scripts/record_io.py": true,
+  "scripts/render_mock_exam.py": true
+}

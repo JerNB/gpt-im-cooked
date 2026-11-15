@@ -1,0 +1,453 @@
+{
+  "reviewer": "independent_luna_secondary",
+  "cases": {
+    "CASE-01": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5: \u201cQ3 and Q4 answers show improvement\u201d; \u201cbroader loop tracing still needs a check where you track values and state changes.\u201d",
+        "note": "Explicitly limits the two similar successes and identifies unchecked transfer."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet call you ready for the whole quiz\u201d; lists P1/P3/P4 as unassessed and retention recheck due.",
+        "note": "Qualification reflects all in-scope gaps."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 asks for final list and total comparisons over two passes; T7 traces intermediate mutations and both false comparisons, then obtains the correct final list/count.",
+        "note": "Requires state carry-over across repeated passes, beyond one complete pair pass."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply: \u201cDemonstrated \u2014 recheck before exam\u201d; turn-7 saved learning record includes \u201cRecheck before exam.\u201d",
+        "note": "Demonstrated assignment has recheck marker in reply and saved record."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Readiness review 2026-11-14: insufficient evidence to call student ready for all of CS 101 Quiz 4 (next week, exact date unknown).",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved Next session retains \u201cNext recommended supported topic: list aliasing\u201d; T11 reply resumes with \u201cNext was list aliasing\u201d and the due loop recheck."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-02": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5: \u201cQ3 and Q4 show improvement on this question format\u201d; \u201ca question that changes the setup will help check\u201d broader application.",
+        "note": "Does not infer mastery from repeated structure."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet say you\u2019re ready for the whole quiz\u201d; identifies other topics as unassessed and Big-O notes missing.",
+        "note": "Readiness claim is qualified by untested scope."
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "T6 reverses conditioning and supplies 24 tutoring attendees, 18 passed, and 30 total passers; T7 correctly uses 18/30 and contrasts 18/24.",
+        "note": "Reversal adds reasoning, but the explicit denominator/reference-group inputs leave the overlap flagged by the guide unresolved."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply says \u201cwith an unaided recheck before the exam\u201d; turn-10 saved record lists \u201cRecheck before exam.\u201d",
+        "note": "Demonstrated assignment carries recheck marker."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Readiness review: cannot establish readiness for whole Quiz 4. P2 comparison-counting/runtime convention Demonstrated via single-pass work and two-pass conditional-swap transfer; all evidence this session, so later unaided recheck due before exam.",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 Next session says \u201cRecommended course-based route: explain P1 next\u201d; T11 reply begins \u201cYour saved next step was list aliasing\u201d and repeats the due Big-O/recheck items."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-03": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5: \u201cBoth questions use the same structure, so a changed question and a later unaided check\u201d are needed.",
+        "note": "Clearly names unchecked transfer and retention."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 saved Next session: \u201cOverall readiness not established\u201d; T2/T3/T4 \u201cUnassessed, not inferred failures or confirmed unlearned topics.\u201d",
+        "note": "Correctly distinguishes unassessed topics from inability."
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "T6 asks whether a reversed-condition claim is correct, giving 20 seniors/8 volunteers and 16 total volunteers; T7 calculates 8/16 and contrasts 8/20.",
+        "note": "Meaningful reversal, but explicit denominator/group values trigger the guide\u2019s unresolved overlap."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply: \u201cdemonstrates understanding ... Recheck before exam\u201d; turn-10 record retains \u201cRecheck before exam.\u201d",
+        "note": "Marker appears alongside Demonstrated status."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "- Readiness assessment: Overall readiness not established. T1 Demonstrated from Q3/Q4 and reversed-conditioning transfer-1; all same-session, Recheck before exam. T2/T3/T4 Unassessed, not inferred failures or confirmed unlearned topics.",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved Next session recommends explaining/assessing T2 and T4; T11 reply says \u201cYour saved next step is two-way tables\u201d and resumes the reference-group topic."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-04": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 says Q3/Q4 show the adjacent-pair rule but \u201cwe still need a changed-condition question and a trace where values change.\u201d",
+        "note": "Explicitly limits same-structure practice."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet say you\u2019re ready for the whole quiz\u201d; other topics unassessed, Big-O material missing.",
+        "note": "Whole-quiz readiness appropriately qualified."
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "T6 supplies two complete adjacent-pair passes on four values with conditional swaps; T7 computes 3 comparisons/pass \u00d7 2 = 6 and notes swaps do not affect count.",
+        "note": "Two passes exceed one pass, but the response solves by multiplying a fixed per-pass count; actual changed-state tracing is expressly still unassessed in the turn-10 record."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply states \u201cwith an unaided recheck due before the quiz\u201d; turn-10 saved record says \u201cRecheck before exam.\u201d",
+        "note": "Recheck marker accompanies Demonstrated."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Readiness review: cannot establish readiness for whole Quiz 4. P2 comparison-counting/runtime convention Demonstrated via single-pass work and two-pass conditional-swap transfer; all evidence this session, so later unaided recheck due before exam. Actual state-by-state tracing remains unassessed (Notes 2.1).",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved next session recommends P1 then P4; T11 reply resumes \u201cYour saved next step was list aliasing\u201d and notes Big-O and recheck."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-05": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 identifies Q3/Q4 as same-structure and says \u201ca changed-condition check will give us stronger evidence.\u201d",
+        "note": "Explicitly states transfer context remains unchecked."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 saved Next session: \u201cOverall readiness not yet established\u201d; \u201cT2-T4 unassessed; do not infer inability from absent attempts.\u201d",
+        "note": "Appropriate whole-midterm qualification."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 changes club membership by adding six nonseniors who all volunteer; T7 explains the 12 seniors and 4 senior volunteers remain unchanged, so the senior rate stays 33.3%.",
+        "note": "Tests invariance of the requested group rate under a relevant changed condition."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply: \u201cDemonstrated\u2014recheck before exam\u201d; saved turn-10 learning record retains Demonstrated and recheck-before-exam.",
+        "note": "Demonstrated assignment includes recheck marker."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "- Current activity: Midterm readiness review. Overall readiness not yet established; T1 reference-group selection Demonstrated, with Recheck before exam. T2-T4 unassessed; do not infer inability from absent attempts.",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved Next session says T2/T4 remain unassessed and Bayes notes are missing; T11 reply resumes with two-way tables as saved next step and retains the later T1 check."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-06": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 says Q3/Q4 are same-method single-pass counts and broader loop tracing still needs checking.",
+        "note": "Properly limits same-structure evidence."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet say you\u2019re ready for the whole quiz\u201d; other three topics are unassessed.",
+        "note": "Readiness appropriately limited."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 asks for final list and changes counter in a mutating single pass; T7 traces each current pair, including false branch, and reports 3 comparisons versus 2 updates.",
+        "note": "New state/counter and branch-tracing reasoning, not just another pair-count calculation."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply assigns Demonstrated and says \u201cRecheck before exam\u201d; turn-10 saved Next session: \u201cP2 Demonstrated. Recheck before exam.\u201d",
+        "note": "Saved record and reply both include marker."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "- Current activity: T2 transfer reviewed as fully correct; P2 Demonstrated. Recheck before exam.",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved Next session says the next topic is pending and retention recheck due; T11 begins \u201cYour saved record puts list aliasing next\u201d and repeats the due recheck."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-07": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5: \u201cQ3/Q4 correct with reference-group reasoning\u201d; the transfer question is needed to test changed conditioning.",
+        "note": "Same-structure success is not overclaimed."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI don\u2019t yet have enough evidence to call you ready for the whole midterm\u201d; T2-T4 unchecked.",
+        "note": "Correctly qualifies readiness."
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "T6 supplies 30% of 40 commuters and 20 total cyclists, asking what percentage of cyclists are commuters; T7 reconstructs 12 then divides by 20.",
+        "note": "Reverses conditioning and reconstructs the overlap, but explicit group totals/denominator leave the guide\u2019s overlap concern unresolved."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply calls this \u201cdemonstrated understanding\u201d with \u201can unaided recheck due\u201d; turn-10 learning record says \u201cRecheck before exam.\u201d",
+        "note": "Marker is present with Demonstrated."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "- Readiness review: insufficient evidence to call student ready for full midterm. T1 Demonstrated with Recheck before exam; T2, T3, T4 Unassessed, not diagnosed weaknesses.",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved next step is to teach T2 two-way tables; T11 reply resumes with \u201ctwo-way tables next\u201d and the T1 retention check still due."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    },
+    "CASE-08": {
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 says Q3/Q4 consistently apply adjacent pairs but \u201cwe haven\u2019t yet checked a changed condition or your ability to track changing values.\u201d",
+        "note": "Unchecked transfer context named directly."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply says the loop-tracing topic is Demonstrated but \u201cI can\u2019t yet say you\u2019re ready for the whole quiz\u201d; three other in-scope topics listed.",
+        "note": "Readiness is scoped to the whole quiz."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 requires final list and comparisons over two passes, carrying the first-pass result into pass two; T7 traces all four comparisons and resulting list.",
+        "note": "Requires tracking updated state across repeated passes."
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply marks the topic Demonstrated \u201cwith a later unaided recheck before the quiz\u201d; saved turn-10 record also says \u201cRecheck before exam.\u201d",
+        "note": "Marker present in reply and saved record."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "- Current activity: Quiz 4 readiness review on 2026-11-14. Overall readiness not established: P1, P3, P4 unassessed. This does not establish that student has never learned them.",
+          "note": "Turn-10 learning-record snapshot itself preserves a whole-assessment readiness review; compared with turn 11 snapshot."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T10 saved next session names P1 list aliasing as next; T11 reply resumes after the two-pass trace and says list aliasing was next."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 learning-record snapshot assigns Needs practice after the reviewed Q1 error."
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply explicitly records improvement; turn 4 learning-record snapshot shows Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated; turn 7 saved learning-record snapshot shows Demonstrated with recheck-before-exam marker."
+          }
+        ]
+      }
+    }
+  }
+}

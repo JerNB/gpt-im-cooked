@@ -26,5 +26,12 @@
     "total_tokens": 428785
   },
   "usage_limit_error_file": "batch-04-C-P-rep2/runs/C-P-rep2/turn-04.stdout.txt",
-  "recovery": "Fresh complete C-P-rep2 from turn1 under a NEW report/work label after explicit quota confirmation;never resume turn4 or splice. New quota window must be disclosed."
+  "recovery": "Fresh complete C-P-rep2 from turn1 under a NEW report/work label after explicit quota confirmation;never resume turn4 or splice. New quota window must be disclosed.",
+  "resolution": {
+    "status": "RECOVERED_FROM_TURN1",
+    "new_complete_report": "recovery-C-P-rep2-20261115",
+    "selected_via": "session-overrides.json",
+    "old_failed_attempt_retained_and_excluded": true,
+    "cross_quota_window_disclosed": true
+  }
 }

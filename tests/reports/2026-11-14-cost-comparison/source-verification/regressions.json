@@ -1,0 +1,57 @@
+[
+  {
+    "script": "check_state_io.py",
+    "exit": 0,
+    "tail": "PASS: create/no-change/backup/conflict/lock/invalid/write failure, section read/replace/append/upsert-rows (other sections unchanged, rejections leave bytes alone, CRLF/BOM kept), one-command save (templates, default keys, no-op, conflict merge data, all-or-nothing, lock, CLI) and package rejection\r\n"
+  },
+  {
+    "script": "validate_package.py",
+    "exit": 0,
+    "tail": "PASS: 1173 package files, 2 skills, onboarding paths, starter prompts, links, and synthetic arithmetic.\r\nThis command checks package structure only; see VALIDATION.md for behavioral evidence and host limits.\r\n"
+  },
+  {
+    "script": "check_mock_render.py",
+    "exit": 0,
+    "tail": "PASS: example renders, key text stays out of the worksheet, escaping, 40 invalid-exam rejections, overwrite refusal.\r\nStructure only; question correctness still needs the checked key and tutor review.\r\n"
+  },
+  {
+    "script": "check_pilot_harness.py",
+    "exit": 0,
+    "tail": "PASS: path scrub levels, global-skill isolation flags and access gate, CODEX_* env stripping, credential removal on success and three failure paths, report binding, completed-report guard, raw output kept before parsing. Fake CLI only; no model behaviour is tested.\r\n"
+  },
+  {
+    "script": "check_run_evidence.py",
+    "exit": 0,
+    "tail": "PASS: downloaded/text export equality, 9 event checks, assistance across reset, no-change record hash, markers, and selective retention.\r\nThese assertions verify archived evidence only; semantic behavior is reviewed in REPORT.md.\r\n"
+  },
+  {
+    "script": "check_evidence_archive.py",
+    "exit": 0,
+    "tail": "PASS: 213 archived fingerprints, 12 contexts/24 turns, unchanged duplicate hashes, identical comparison inputs, two changed instruction references, and manual-verdict evidence paths.\r\nThis validates evidence integrity, not the correctness of author semantic judgments.\r\n"
+  },
+  {
+    "script": "check_distribution.py",
+    "exit": 1,
+    "tail": "Traceback (most recent call last):\r\n  File \"<ROOT>\\codex-runs\\T007-review\\D-9938d36\\tests\\check_distribution.py\", line 67, in <module>\r\n    check()\r\n    ~~~~~^^\r\n  File \"<ROOT>\\codex-runs\\T007-review\\D-9938d36\\tests\\check_distribution.py\", line 34, in check\r\n    assert set(archive.namelist()) == set(expected), f'Unexpected archive contents: {kind}'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nAssertionError: Unexpected archive contents: plugin\r\n"
+  },
+  {
+    "script": "check_mock_template.cjs",
+    "exit": 0,
+    "tail": "PASS: rendered worksheet status/flags, unload warning, pre-key snapshot, stable export identity, retry exposure, unexported-retry warning, middle-click key access.\n"
+  },
+  {
+    "script": "check_demo_state.cjs",
+    "exit": 0,
+    "tail": "PASS: pre-key answers, immutable snapshots, stable export identity, retry identity and exposure\n"
+  },
+  {
+    "script": "check_concept_retry.cjs",
+    "exit": 0,
+    "tail": "PASS: actual page script preserves pre-feedback response, exposed retry, stable exports, original answers and blank/locked-submit handling.\n"
+  },
+  {
+    "script": "check_evidence_chain.cjs",
+    "exit": 0,
+    "tail": "PASS: generated pre/post-key snapshots, identity/retry/exposure, unknown external help, blank fields, equivalent values, historical response-time flags and denominator counterexamples.\nThis checks raw evidence invariants only; tutor verdicts require separate adjudication.\n"
+  }
+]
