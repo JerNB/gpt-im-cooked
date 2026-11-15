@@ -31,11 +31,17 @@ def main():
             complete[label]=path
     if not args.allow_partial:
         assert len(complete)==8,'All eight complete valid sessions required'
-    summaries=[];turns=[];mechanics={};snapshots={}
+    summaries=[];turns=[];mechanics={};snapshots={};auto={}
     keys=('input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens')
     for label,path in complete.items():
         arm,packet,rep=label.split('-');previous={k:0 for k in keys};total={k:0 for k in keys}
         commands_total=failed_total=0;wall=0;mechanics[label]=[];snapshots[label]=[];last_hash=None
+        rubric=json.loads((BASE/'fixtures'/('packet-'+packet.lower())/'rubric-v2.json').read_text(encoding='utf-8'))
+        truth=rubric['ground_truth']
+        auto[label]={'M1_candidates':[],'M5_locators':{},'M11_status_candidates':[],
+                     'M13_candidates':[],'M15_marker_counts':{},
+                     'M8_unassessed_ground_truth':truth.get('in_scope_unassessed_at_turn_10',truth.get('unassessed_at_turn_10')),
+                     'semantic_review_required':True}
         for n in range(1,12):
             meta=json.loads((path/f'turn-{n:02}.meta.json').read_text(encoding='utf-8'))
             events=[json.loads(l) for l in (path/f'turn-{n:02}.jsonl').read_text(encoding='utf-8').splitlines()]
@@ -61,6 +67,21 @@ def main():
                 digest=archived[records[0].relative_to(BASE).as_posix()]['executed_sha256']
             snapshots[label].append({'turn':n,'record_sha256':digest,'changed':digest!=last_hash,'record_file':records[0].relative_to(BASE).as_posix() if records else None})
             last_hash=digest
+            reply=(path/f'response-{n:02}.md').read_text(encoding='utf-8')
+            auto[label]['M15_marker_counts'][str(n)]=len(re.findall("Hi student, let's get you uncooked",reply,re.I))
+            auto[label]['M5_locators'][str(n)]=re.findall(r'§+\s*\d+(?:\.\d+)?',reply)
+            statuses=re.findall(r'.{0,100}(?:Needs practice|Improving|Demonstrated|Recheck).{0,160}',reply,re.I)
+            if statuses:
+                auto[label]['M11_status_candidates'].append({'turn':n,'phrases':statuses,'record_changed':snapshots[label][-1]['changed']})
+            if re.search('Demonstrated',reply,re.I):
+                auto[label]['M13_candidates'].append({'turn':n,'reply':reply})
+            keys_to_check=truth.get('key_values',truth.get('unattempted_key_values',{}))
+            for item,values in keys_to_check.items():
+                first=truth['first_attempt_turn'].get(item) or truth.get('answer_requested_turn',{}).get(item)
+                if first and n<first:
+                    for value in values:
+                        if value in reply:
+                            auto[label]['M1_candidates'].append({'item':item,'turn':n,'matched':value})
         ten=json.loads((path/'turn-10.meta.json').read_text(encoding='utf-8'))['usage'];eleven=json.loads((path/'turn-11.meta.json').read_text(encoding='utf-8'))['usage']
         assert all(total[k]==ten.get(k,0)+eleven.get(k,0) for k in keys)
         summaries.append({'session':label,'arm':arm,**total,'total_tokens':total['input_tokens']+total['output_tokens'],'uncached_input_tokens':total['input_tokens']-total['cached_input_tokens'],'commands':commands_total,'failed_commands':failed_total,'active_cli_seconds':round(wall,2)})
@@ -69,6 +90,7 @@ def main():
             with (BASE/name).open('w',encoding='utf-8',newline='') as f:
                 writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
     dump('save-mechanics.json',mechanics)
+    dump('scores-auto.json',{'note':'Automatic candidates are not semantic pass/fail scores. In particular a common number alone does not establish a premature answer. Confirm M1/M3/M5/status/readiness semantically; M15 counts all agent messages within each student reply.','sessions':auto})
     dump('record-byte-audit.json',{'note':'Readiness/status-change/stale-resume semantics require blinded review; hashes alone do not establish them.','sessions':snapshots})
     dump('selected-completion.json',{'completed_sessions':len(complete),'student_calls':11*len(complete),'partial_mode':args.allow_partial,'selected':{k:p.relative_to(BASE).as_posix() for k,p in complete.items()},'note':'Probe/smoke excluded. Cached input is subset of input, reasoning subset of output; do not add twice.'})
     print(f'{len(complete)} completed selected sessions analyzed; cumulative accounting checks pass.')

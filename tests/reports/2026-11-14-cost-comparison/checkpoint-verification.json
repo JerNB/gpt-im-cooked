@@ -1,15 +1,11 @@
 {
-  "selected_sessions_complete": 2,
-  "student_calls": 22,
-  "probe_calls": 1,
-  "smoke_calls": 2,
-  "quota_failures": 0,
-  "temporary_auth_copies": 0,
+  "selected_sessions_complete": 4,
+  "student_calls": 44,
+  "completed_session_auth_copies": 0,
+  "runtime_skill_fingerprints_unchanged": true,
   "privacy_hits": [],
-  "external_frozen_packet_hashes_match": true,
-  "C16_D18_runtime_skill_sources_unchanged": true,
   "syntax": "PASS",
-  "fake_CLI": "PASS",
-  "publication": "PASS;7858 files at last check",
-  "note": "WIP; six sessions remain; final blind scoring and acceptance pending."
+  "publication_last_completed_batch": "PASS8260 files before third batch began",
+  "quota_failures": 0,
+  "note": "WIP checkpoint;4 sessions remain. Authorized batch03 is active; its incomplete folder is excluded from checkpoint manifest and staging, and its live auth is removed by phase finally."
 }

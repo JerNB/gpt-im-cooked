@@ -244,5 +244,533 @@
     "before_sha256": "9e6c25d9d0e2068b1b4571e22b1cf4c9b4386d7c0d25d570c72934b8c5f4d4ea",
     "after_sha256": "10833e353ff28b157eee28473ad16adda220a3a9b55847108402715ceb5b8611",
     "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/fixtures/packet-p/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/fixtures/packet-p/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/fixtures/packet-p/rubric-v2.json",
+    "before_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "after_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/fixtures/packet-p/rubric.json",
+    "before_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "after_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/fixtures/packet-p/script.json",
+    "before_sha256": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51",
+    "after_sha256": "fd4a82d2d713ddf7482650015ef57cf85edd47cbaa12c930e7d626c2346b5e5b",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-01/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-01/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-02/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-02/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-02/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-03/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-03/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-03/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-04/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-04/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-04/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-05/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-05/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-05/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-06/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-06/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-06/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-06/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-07/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-07/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-07/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-07/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-08/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-08/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-08/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-08/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-09/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-09/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-09/study/cs-101/quiz-4/course-profile.md",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-09/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/study/cs-101/quiz-4/course-profile.md.bak",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-11/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-11/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-11/study/cs-101/quiz-4/course-profile.md.bak",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-11/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/study/cs-101/quiz-4/course-profile.md.bak",
+    "before_sha256": "53df024a9946e75fdbecd0a84216d93241789f7fc8752ae6076bbdeb558b5a1a",
+    "after_sha256": "d16bd7de00fcbfd0166e0975b6178e6d18ef3247971021e3d7bb6a37d73c85d4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/runs/C-P-rep1/study/cs-101/quiz-4/outputs/loop-transfer-1-key.md",
+    "before_sha256": "f11369cc57aa7a581a7b89beb9ef19fbe66ef04b8d882f6f2d252077b99129a8",
+    "after_sha256": "200d9655b299a0eb40159fddac67068dfa23546d0152450f46f882d7b2a4e4df",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-C-P-rep1/turn7-answers.json",
+    "before_sha256": "92c2cb0d738b1bde8d045ffed99e53041b940d9486ce02d587be707405e2c613",
+    "after_sha256": "2e47874a64c4bae7fd13b5e45b0fdaba91f6d9280e67b6dedd43b642c8f2239c",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/fixtures/packet-p/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/fixtures/packet-p/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/fixtures/packet-p/rubric-v2.json",
+    "before_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "after_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/fixtures/packet-p/rubric.json",
+    "before_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "after_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/fixtures/packet-p/script.json",
+    "before_sha256": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51",
+    "after_sha256": "fd4a82d2d713ddf7482650015ef57cf85edd47cbaa12c930e7d626c2346b5e5b",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-01/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-01/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-02/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-02/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-03/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-03/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-04/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-04/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-05/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-05/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-06/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-06/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-06/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-07/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-07/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-07/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-08/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-08/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-08/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-09/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-09/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-09/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-10/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-10/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-10/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-11/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-11/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-11/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/materials/practice-key.md",
+    "before_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "after_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/materials/practice.md",
+    "before_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "after_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/runs/D-P-rep1/study/cs-101/quiz-4/outputs/loop-convention-check-key.md",
+    "before_sha256": "dfc03999c53b2de9658b415b40df1e7cffc89e4b039e05adafa4f2ba06bff26b",
+    "after_sha256": "ddab27ef6afb41c52d76ca6fecfbf2c0705eddffa2397e59dd5ce5fe9c052116",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-02-D-P-rep1/turn7-answers.json",
+    "before_sha256": "7ea02aed53eaf1fa6a7bb53e8d546fc3a7b25164bde3c9753d17eb9f92f96d43",
+    "after_sha256": "acd850ad54c345f3c6b12be2c16cae99bb0a7e0def71ad969121e8c73ea85f41",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "per-turn-deltas.csv",
+    "before_sha256": "92b6a2d030d0c7f61ccb498a8b761565df625be2a18291a250fc1c19345d0478",
+    "after_sha256": "00f911badbf92750ed4e7e4cc7c36957166d91f96b92b3215ab24521ec0f02c4",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "resources.csv",
+    "before_sha256": "2570a98762a1ebfd7fb06577a03453431856a50adc28515ba4e43bcbb052e27a",
+    "after_sha256": "862a231102c737d613ac818b28912ce34ada7e8d913328483eb32b965712c78e",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "REPORT.md",
+    "before_sha256": "328f040b8ab922135f4d3806856e257c8222690c3db87c6ee324469c4094f876",
+    "after_sha256": "f03218965f72a281ad3c169d53f02fadeca92e01aa462e220d2ad996cce6b7a9",
+    "kind": "LF-preview"
   }
 ]

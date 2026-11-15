@@ -136,6 +136,142 @@
         "changed": false,
         "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-11/study/stat-110/midterm-1/learning-record.md"
       }
+    ],
+    "C-P-rep1": [
+      {
+        "turn": 1,
+        "record_sha256": null,
+        "changed": false,
+        "record_file": null
+      },
+      {
+        "turn": 2,
+        "record_sha256": "fe86aebe890a707792342a809e90f6ba2d0eced32eec67a3062338820c8103a8",
+        "changed": true,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-02/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 3,
+        "record_sha256": "fe86aebe890a707792342a809e90f6ba2d0eced32eec67a3062338820c8103a8",
+        "changed": false,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-03/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 4,
+        "record_sha256": "a98eba14e9568020ec435688b91388ff8ca6b1df4725718c9a7621eb3dac37d3",
+        "changed": true,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-04/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 5,
+        "record_sha256": "42db1a998bd5b1e17bfb03f720520d39fa9cc5e7ce417c27f8dc3d13302aaca4",
+        "changed": true,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-05/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 6,
+        "record_sha256": "42db1a998bd5b1e17bfb03f720520d39fa9cc5e7ce417c27f8dc3d13302aaca4",
+        "changed": false,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-06/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 7,
+        "record_sha256": "a99f1d5c05cd446c8db160f248d5170f33f816496156be28e742317963820783",
+        "changed": true,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-07/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 8,
+        "record_sha256": "a99f1d5c05cd446c8db160f248d5170f33f816496156be28e742317963820783",
+        "changed": false,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-08/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 9,
+        "record_sha256": "a99f1d5c05cd446c8db160f248d5170f33f816496156be28e742317963820783",
+        "changed": false,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-09/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 10,
+        "record_sha256": "743d698c3673ee55a510f7237f28400d36e7fe22644441a5fc8178ddf44b3e21",
+        "changed": true,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 11,
+        "record_sha256": "743d698c3673ee55a510f7237f28400d36e7fe22644441a5fc8178ddf44b3e21",
+        "changed": false,
+        "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-11/study/cs-101/quiz-4/learning-record.md"
+      }
+    ],
+    "D-P-rep1": [
+      {
+        "turn": 1,
+        "record_sha256": null,
+        "changed": false,
+        "record_file": null
+      },
+      {
+        "turn": 2,
+        "record_sha256": "87ac6f1cddf156795f648e4f7df359b7891f42b85949a8ce31d45495b5b9dbd9",
+        "changed": true,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-02/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 3,
+        "record_sha256": "87ac6f1cddf156795f648e4f7df359b7891f42b85949a8ce31d45495b5b9dbd9",
+        "changed": false,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-03/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 4,
+        "record_sha256": "def06153076780d46c1cc49cd76a864e26eb3bdda20ab172b7832031e9bbcb45",
+        "changed": true,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-04/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 5,
+        "record_sha256": "b8f243e2f1c61652fd9a4f0aab3602e3812ab441816526e7747d3a48ac01dd45",
+        "changed": true,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-05/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 6,
+        "record_sha256": "b8f243e2f1c61652fd9a4f0aab3602e3812ab441816526e7747d3a48ac01dd45",
+        "changed": false,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-06/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 7,
+        "record_sha256": "c7556fd34acf0c51a32060089789b20d96c4a3b56f058fe46dd4de1047e85a9c",
+        "changed": true,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-07/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 8,
+        "record_sha256": "c7556fd34acf0c51a32060089789b20d96c4a3b56f058fe46dd4de1047e85a9c",
+        "changed": false,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-08/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 9,
+        "record_sha256": "c7556fd34acf0c51a32060089789b20d96c4a3b56f058fe46dd4de1047e85a9c",
+        "changed": false,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-09/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 10,
+        "record_sha256": "b9519216d6f8305fa78f87fdec0a5ea4d7395022c4f00baaa5e29f553f3c3e67",
+        "changed": true,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-10/study/cs-101/quiz-4/learning-record.md"
+      },
+      {
+        "turn": 11,
+        "record_sha256": "b9519216d6f8305fa78f87fdec0a5ea4d7395022c4f00baaa5e29f553f3c3e67",
+        "changed": false,
+        "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-11/study/cs-101/quiz-4/learning-record.md"
+      }
     ]
   }
 }

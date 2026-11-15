@@ -13,6 +13,14 @@ import run_cost_comparison as runner
 
 def main():
     scratch=Path.home()/'codex-runs/T007-review'
+    active=set()
+    for report in BASE.iterdir():
+        statefile=scratch/report.name/'state.json'
+        if report.is_dir() and statefile.is_file():
+            state=json.loads(statefile.read_text(encoding='utf-8'))
+            finished=state['last_turn']==11 or (state['diagnostic'] and state['last_turn']==2)
+            if not state['failed'] and not finished:
+                active.add(report.name)
     # Later batches consume these executed bytes even after Git-portable previews use LF.
     for source in (BASE/'fixtures').iterdir():
         target=scratch/'frozen-packets'/source.name
@@ -25,7 +33,7 @@ def main():
         if not statefiles:
             continue
         state=json.loads(statefiles[0].read_text(encoding='utf-8'))
-        if state['failed'] or state['last_turn'] not in (2,11):
+        if report.name in active or state['failed'] or state['last_turn'] not in (2,11):
             continue
         work=Path(state['cwd']);out=report/'runs'/state['label']
         for p in work.rglob('*'):
@@ -45,6 +53,8 @@ def main():
             if not p.is_file():
                 continue
             rel=p.relative_to(BASE)
+            if rel.parts[0] in active:
+                continue
             is_input=any(x in ('fixtures','skill-C','skill-D') for x in rel.parts)
             is_record=p.name in ('learning-record.md','course-profile.md')
             if not (is_input or is_record):
@@ -55,7 +65,7 @@ def main():
             index[name]={'executed_sha256':hashlib.sha256(z.read(name)).hexdigest()}
     transformations=[]
     for p in sorted(BASE.rglob('*')):
-        if not p.is_file() or p.suffix not in (runner.TEXT|{'.py','.csv'}):
+        if not p.is_file() or p.suffix not in (runner.TEXT|{'.py','.csv'}) or p.relative_to(BASE).parts[0] in active:
             continue
         old=p.read_bytes();new=old.replace(b'\r\n',b'\n')
         if old!=new:
@@ -67,7 +77,7 @@ def main():
     ledger=BASE/'archive-transformations.json'
     prior=json.loads(ledger.read_text(encoding='utf-8')) if ledger.exists() else []
     runner.frozen.dump(ledger,prior+transformations)
-    manifest={p.relative_to(BASE).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(BASE.rglob('*')) if p.is_file() and p!=BASE/'manifest.json' and '__pycache__' not in p.parts}
+    manifest={p.relative_to(BASE).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(BASE.rglob('*')) if p.is_file() and p!=BASE/'manifest.json' and '__pycache__' not in p.parts and p.relative_to(BASE).parts[0] not in active}
     runner.frozen.dump(BASE/'manifest.json',manifest)
     print(f'Archive preserved {len(index)} byte-exact entries; manifest {len(manifest)} files written last.')
 

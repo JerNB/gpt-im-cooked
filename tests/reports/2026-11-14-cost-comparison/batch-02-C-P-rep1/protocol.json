@@ -1,0 +1,38 @@
+{
+  "run_id": "360d009a0eed4b6eb6e1834488f543cb",
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "cli": "codex-cli 0.162.1",
+  "C": "4d102f605260559af16d2f6620cd926bf0b8f6fd",
+  "D": "9938d36d8538cc4476b0fcf3e37db9e8faa79d59",
+  "diagnostic": false,
+  "nonlogin_shell": true,
+  "skill_sha256": {
+    "SKILL.md": "76b7156b4e245ec5d20f6b80d7c4a1ca9384f2b320484a3eda6a21d0f9663697",
+    "agents/openai.yaml": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c",
+    "assets/course-profile.md": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6",
+    "assets/first-use.md": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219",
+    "assets/learning-record.md": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a",
+    "assets/mock-exam-example.json": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee",
+    "assets/mock-exam-template.html": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0",
+    "references/concept-tutoring.md": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00",
+    "references/interactive-review.md": "a9f3d72e0c582132e579bfc9938455ba906d7abf66a2a529f5be2ef426b31feb",
+    "references/mock-exam-layout.md": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29",
+    "references/practice-and-feedback.md": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9",
+    "references/review-artifacts.md": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e",
+    "references/state.md": "62a57cf6decb062cb732da222f68f4b043372ea8de52d770c441fb28d880b00a",
+    "references/webpage-prompts.md": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3",
+    "scripts/record_io.py": "9f9b6c2b48aaf9dd201e7933ff1e57c18d7032183d1ccc7a4390841908b44b77",
+    "scripts/render_mock_exam.py": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698"
+  },
+  "fixture_sha256": {
+    "rubric-v2.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "rubric.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "script.json": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51",
+    "materials/notes.md": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+    "materials/outline.md": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+    "materials/practice-key.md": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "materials/practice.md": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "materials/quiz-3.md": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db"
+  }
+}

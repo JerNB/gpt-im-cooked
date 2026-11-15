@@ -1,0 +1,86 @@
+{
+  "task": "T007",
+  "status": "IN_PROGRESS",
+  "C": "4d102f605260559af16d2f6620cd926bf0b8f6fd",
+  "D": "9938d36d8538cc4476b0fcf3e37db9e8faa79d59",
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "CLI": "0.162.1",
+  "source_runner": "T00479f3676",
+  "adapter": "tests/run_cost_comparison.py",
+  "adapter_sha256": "c6accf968c92f40e887e7e65e21c6cb0af1e56447d1d1aa4293adeb42c215e99",
+  "design": "C/D x S/P x 2 replicates;8 fresh sessions,88 student calls;smoke/probe excluded",
+  "batches": [
+    {
+      "packet": "S",
+      "replicate": 1,
+      "order": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "packet": "P",
+      "replicate": 1,
+      "order": [
+        "C",
+        "D"
+      ]
+    },
+    {
+      "packet": "S",
+      "replicate": 2,
+      "order": [
+        "D",
+        "C"
+      ]
+    },
+    {
+      "packet": "P",
+      "replicate": 2,
+      "order": [
+        "D",
+        "C"
+      ]
+    }
+  ],
+  "packet_sha256": {
+    "s": {
+      "materials/midterm-2025.md": "ec22653040ddd54b1083a452d09a9ced4e3b0a0755a053330c3853ed08c3b476",
+      "materials/notes.md": "7b6bdc54ba46fca754c6bd0ad346b208b14b2e84c49f1712e4c88b5162f39503",
+      "materials/outline.md": "07822feababbf1d720767eaf4312918a4a60a4758d4908394d9eb5371f5e0932",
+      "materials/practice-key.md": "09b2b4010e196f6ad0382c03dbeb6e1de3bc2ef1184c92d75b77e3e3ff537e56",
+      "materials/practice.md": "f7e374ca5f81f1073c86fffff6743ff3a94c02ef62bbd6daf0b78c672a9ba91b",
+      "rubric-v2.json": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+      "rubric.json": "c5e3899588f86d897281b5d4f6472b82aaffec9f4bc703d9ff300463beaa3083",
+      "script.json": "620cff2ccc7c281e5f656b72a5d316f6771f9be080a54207814c005d7b03aacc"
+    },
+    "p": {
+      "materials/notes.md": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+      "materials/outline.md": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+      "materials/practice-key.md": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+      "materials/practice.md": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+      "materials/quiz-3.md": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db",
+      "rubric-v2.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "rubric.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "script.json": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51"
+    }
+  },
+  "nonlogin_shell": true,
+  "quota_policy": "Explicit confirmation before each22-call pair;failure stops,no automatic retries or splicing",
+  "accounting": "Per-thread cumulative:turn10+independent turn11;deltas perturn;cached/reasoning subsets not added twice",
+  "acceptance_source": "Pre-registered shared handoff/T007.md before runs",
+  "acceptance": {
+    "D_readiness_record_after10": "4/4",
+    "D_stale_resume": "0/4",
+    "D_status_save": "every status-change turn",
+    "D_M13": "recheck in every applicable case",
+    "D_M14": "4/4 labelled offers",
+    "M1_to_M10": "no D check worse than concurrent C by more than one session",
+    "D_failed_commands_max": 4,
+    "D_cheaper_matched_pairs_min": 3,
+    "D_total_tokens_max": 4238431
+  },
+  "blinding": "Human authorized independent Luna reviewers;shuffled content-only packets without mapping/costs. Parent knows assignments and authored adaptive answers. Record format may permit inference.",
+  "limits": "Synthetic packets,one model alias,scripted student,n4/arm;not learning gains,real students,other models,artifacts,billing or causal timing."
+}

@@ -1,3 +1,5 @@
 session,arm,input_tokens,cached_input_tokens,output_tokens,reasoning_output_tokens,total_tokens,uncached_input_tokens,commands,failed_commands,active_cli_seconds
 C-S-rep1,C,941204,875264,10063,938,951267,65940,18,1,367.56
 D-S-rep1,D,921148,858624,8501,942,929649,62524,17,2,353.73
+C-P-rep1,C,924616,859392,11576,1551,936192,65224,18,2,364.58
+D-P-rep1,D,694785,635008,7619,1069,702404,59777,13,0,302.19
