@@ -272,6 +272,142 @@
         "changed": false,
         "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-11/study/cs-101/quiz-4/learning-record.md"
       }
+    ],
+    "D-S-rep2": [
+      {
+        "turn": 1,
+        "record_sha256": null,
+        "changed": false,
+        "record_file": null
+      },
+      {
+        "turn": 2,
+        "record_sha256": "992896cec90f8b65d2d3c31e4da2bd4a8e5a041c3aa74e507681bd646080ea6a",
+        "changed": true,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-02/learning-record.md"
+      },
+      {
+        "turn": 3,
+        "record_sha256": "992896cec90f8b65d2d3c31e4da2bd4a8e5a041c3aa74e507681bd646080ea6a",
+        "changed": false,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-03/learning-record.md"
+      },
+      {
+        "turn": 4,
+        "record_sha256": "84e89373be9f8547ddf42a1e17ec029edd501fd5507ae2381d180bbcd6e90f11",
+        "changed": true,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-04/learning-record.md"
+      },
+      {
+        "turn": 5,
+        "record_sha256": "c695abb84f30b5435e3f977161424ca71ee7e675c766c2c51c41c27b95ff4502",
+        "changed": true,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-05/learning-record.md"
+      },
+      {
+        "turn": 6,
+        "record_sha256": "c695abb84f30b5435e3f977161424ca71ee7e675c766c2c51c41c27b95ff4502",
+        "changed": false,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-06/learning-record.md"
+      },
+      {
+        "turn": 7,
+        "record_sha256": "b7fa7d16d5e81e876b8d6803c31524a2d4b585b27c362466195a908d0ea168ec",
+        "changed": true,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-07/learning-record.md"
+      },
+      {
+        "turn": 8,
+        "record_sha256": "b7fa7d16d5e81e876b8d6803c31524a2d4b585b27c362466195a908d0ea168ec",
+        "changed": false,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-08/learning-record.md"
+      },
+      {
+        "turn": 9,
+        "record_sha256": "b7fa7d16d5e81e876b8d6803c31524a2d4b585b27c362466195a908d0ea168ec",
+        "changed": false,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-09/learning-record.md"
+      },
+      {
+        "turn": 10,
+        "record_sha256": "ea8dcadb29a611a19c7525567f6a9f80d486f21c97c0e3bbf176a61bca09feef",
+        "changed": true,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-10/learning-record.md"
+      },
+      {
+        "turn": 11,
+        "record_sha256": "ea8dcadb29a611a19c7525567f6a9f80d486f21c97c0e3bbf176a61bca09feef",
+        "changed": false,
+        "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-11/learning-record.md"
+      }
+    ],
+    "C-S-rep2": [
+      {
+        "turn": 1,
+        "record_sha256": "90ffbc71307e3fb79ccce33435e17bbb08ae3cf53dd9b23b42735d675aa5328c",
+        "changed": true,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-01/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 2,
+        "record_sha256": "e52878e218da52e8b780ced2f862831f86587a069a7c8fa93fb5fc2e31bf06c2",
+        "changed": true,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-02/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 3,
+        "record_sha256": "e52878e218da52e8b780ced2f862831f86587a069a7c8fa93fb5fc2e31bf06c2",
+        "changed": false,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-03/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 4,
+        "record_sha256": "f0af419be508e1338047adf2e2bea50a5228ff134760b5b8549c91fbb0dcb6e7",
+        "changed": true,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-04/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 5,
+        "record_sha256": "8a7bc9cc7188a56c6f49e02eb2fb2a44e4f976ccc491a9f765b23ab40344d6c8",
+        "changed": true,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-05/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 6,
+        "record_sha256": "8a7bc9cc7188a56c6f49e02eb2fb2a44e4f976ccc491a9f765b23ab40344d6c8",
+        "changed": false,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-06/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 7,
+        "record_sha256": "4b6e0936a02754f4dffd0b99b235a229266b0d53c1fe23b44867cfd0a0a61ad0",
+        "changed": true,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-07/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 8,
+        "record_sha256": "4b6e0936a02754f4dffd0b99b235a229266b0d53c1fe23b44867cfd0a0a61ad0",
+        "changed": false,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-08/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 9,
+        "record_sha256": "4b6e0936a02754f4dffd0b99b235a229266b0d53c1fe23b44867cfd0a0a61ad0",
+        "changed": false,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-09/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 10,
+        "record_sha256": "eb0e07e5521e3ffe098622fd5aa9079bc7d7c5e47a1583d7656e35a8449b7f9e",
+        "changed": true,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-10/study/stat-110/midterm-1/learning-record.md"
+      },
+      {
+        "turn": 11,
+        "record_sha256": "eb0e07e5521e3ffe098622fd5aa9079bc7d7c5e47a1583d7656e35a8449b7f9e",
+        "changed": false,
+        "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-11/study/stat-110/midterm-1/learning-record.md"
+      }
     ]
   }
 }

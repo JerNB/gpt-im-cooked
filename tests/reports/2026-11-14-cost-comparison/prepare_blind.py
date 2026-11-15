@@ -32,8 +32,8 @@ def main():
             turns.append({'turn':n,'student':mask((path/f'prompt-{n:02}.md').read_text(encoding='utf-8')),
                           'reply':mask((path/f'response-{n:02}.md').read_text(encoding='utf-8')),'saved_records':records})
         materials={p.relative_to(BASE/'fixtures'/('packet-'+packet)).as_posix():p.read_text(encoding='utf-8') for p in (BASE/'fixtures'/('packet-'+packet)/'materials').glob('*.md')}
-        payload={'case':case,'rubric':rubric,'materials':materials,'turns':turns,'limits':'Arm mapping, cost counters and skill source excluded. Record format can permit inference; parent wrote adaptive answers and is not blind.'}
-        (dest/(case+'.json')).write_text(json.dumps(payload,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='')
+        payload={'case':case,'rubric':rubric,'materials':materials,'turns':turns,'limits':'Arm mapping, cost counters and skill source excluded. Record format can permit inference; parent wrote adaptive answers and is not blind. Check section locators against actual notes; legacy rubric metadata is retained unchanged.'}
+        (dest/(case+'.json')).write_text(json.dumps(payload,indent=2,ensure_ascii=True)+'\n',encoding='utf-8',newline='')
     (BASE/'blind-map.json').write_text(json.dumps(mapping,indent=2)+'\n',encoding='utf-8',newline='')
     print('Eight shuffled review packets prepared; mapping kept outside review folder.')
 

@@ -772,5 +772,167 @@
     "before_sha256": "328f040b8ab922135f4d3806856e257c8222690c3db87c6ee324469c4094f876",
     "after_sha256": "f03218965f72a281ad3c169d53f02fadeca92e01aa462e220d2ad996cce6b7a9",
     "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/fixtures/packet-s/rubric-v2.json",
+    "before_sha256": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+    "after_sha256": "7ad261f0b2062911bc98d5459ce0bc635f99d55be986385a49a6095f05420921",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-01/study/stat-110/midterm-1/course-profile.md",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-01/study/stat-110/midterm-1/learning-record.md",
+    "before_sha256": "90ffbc71307e3fb79ccce33435e17bbb08ae3cf53dd9b23b42735d675aa5328c",
+    "after_sha256": "bfd7f45735c594d763bdce3bb3b39db826c0843245e07d6c04aeda583753fc2b",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-02/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-02/study/stat-110/midterm-1/learning-record.md.bak",
+    "before_sha256": "90ffbc71307e3fb79ccce33435e17bbb08ae3cf53dd9b23b42735d675aa5328c",
+    "after_sha256": "bfd7f45735c594d763bdce3bb3b39db826c0843245e07d6c04aeda583753fc2b",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-03/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-03/study/stat-110/midterm-1/learning-record.md.bak",
+    "before_sha256": "90ffbc71307e3fb79ccce33435e17bbb08ae3cf53dd9b23b42735d675aa5328c",
+    "after_sha256": "bfd7f45735c594d763bdce3bb3b39db826c0843245e07d6c04aeda583753fc2b",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-04/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-05/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-06/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-06/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-07/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-07/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-08/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-08/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-09/study/stat-110/midterm-1/course-profile.md.bak",
+    "before_sha256": "cc05cfb94299b9fa71193c44679a7e75ff71dd99c87489e8955f337cd3b84bde",
+    "after_sha256": "2614f45069c356b2af96ea2befd2a10f3c8c1e578f34894643450bc32881f636",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-09/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-10/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-11/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/runs/C-S-rep2/study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md",
+    "before_sha256": "8c2fb2588ffe82749cb7dd8ea4f9592d15d9d0994cc68e505e6db8754f62a4ef",
+    "after_sha256": "8b9a79eec598cb0785854fc6d76451d59c87049fa3cc4e16e788f98f1e6e4331",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-C-S-rep2/turn7-answers.json",
+    "before_sha256": "6d3f4d7e90261c6f6ce05c6ec9ced7cddff81c21303dd46aa869f0c23e9880c7",
+    "after_sha256": "dcd22170f66660d9a558e831e56df7d8b9769fb8f38172e995103e55e9b1a101",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-D-S-rep2/fixtures/packet-s/rubric-v2.json",
+    "before_sha256": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+    "after_sha256": "7ad261f0b2062911bc98d5459ce0bc635f99d55be986385a49a6095f05420921",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "batch-03-D-S-rep2/turn7-answers.json",
+    "before_sha256": "8ab747414dbbcdbfa7d2341e686318500711f338a06e08c3c34d39d33b0a5d72",
+    "after_sha256": "61f64e8efaa3fc0ae804b8e6e2d6744f74d3af5a282d3c4d3c7d578b60d08cc3",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "per-turn-deltas.csv",
+    "before_sha256": "f14562808dce434c4dfdf5001f88dbc70f12909417ac64d850a1789f381927cb",
+    "after_sha256": "b3bc47451ff760b3c5c13b32f7fab3a6c09af5190f1e622948e8b976465c8f24",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "resources.csv",
+    "before_sha256": "56638c736273507517ceecd599fabfdc2b36ed98b9ee0616f502f1be61436cbc",
+    "after_sha256": "7a88926047618cf85d92ceed51ccbc99d61bdb4e6b0911755bfc814774888c96",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "adaptive-answer-audit.json",
+    "before_sha256": "b0f2ba5055d9b2c6ba44be88f523b71260440f4c1adf05437399244d5e968921",
+    "after_sha256": "b8d78b8f682ef2febd2a1141f5ada06551f540eefcca7c475ef1dd5fd4566db2",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "REPORT.md",
+    "before_sha256": "2dbc2136805f55d8f5be9b4f7030068d8544d55572050cbd6524df19e3dca6c8",
+    "after_sha256": "b2b8c94499226e760618f3624a42a06b41394a5d3f1848fa0faa9556b9768a2e",
+    "kind": "LF-preview"
   }
 ]

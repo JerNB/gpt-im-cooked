@@ -1,12 +1,14 @@
 {
-  "completed_sessions": 4,
-  "student_calls": 44,
+  "completed_sessions": 6,
+  "student_calls": 66,
   "partial_mode": true,
   "selected": {
     "C-S-rep1": "batch-01-C-S-rep1/runs/C-S-rep1",
     "D-S-rep1": "batch-01-D-S-rep1/runs/D-S-rep1",
     "C-P-rep1": "batch-02-C-P-rep1/runs/C-P-rep1",
-    "D-P-rep1": "batch-02-D-P-rep1/runs/D-P-rep1"
+    "D-P-rep1": "batch-02-D-P-rep1/runs/D-P-rep1",
+    "D-S-rep2": "batch-03-D-S-rep2/runs/D-S-rep2",
+    "C-S-rep2": "batch-03-C-S-rep2/runs/C-S-rep2"
   },
   "note": "Probe/smoke excluded. Cached input is subset of input, reasoning subset of output; do not add twice."
 }

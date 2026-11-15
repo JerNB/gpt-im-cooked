@@ -4,5 +4,11 @@
     "old_target": "skill/SKILL.md",
     "new_target": "../../skill-C/SKILL.md",
     "kind": "shared-frozen-skill-reference"
+  },
+  {
+    "file": "batch-03-D-S-rep2/runs/D-S-rep2/response-08.md",
+    "old_target": "skill/SKILL.md",
+    "new_target": "../../skill-D/SKILL.md",
+    "kind": "shared-frozen-skill-reference"
   }
 ]

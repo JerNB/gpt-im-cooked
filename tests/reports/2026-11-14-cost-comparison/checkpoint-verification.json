@@ -1,11 +1,12 @@
 {
-  "selected_sessions_complete": 4,
-  "student_calls": 44,
-  "completed_session_auth_copies": 0,
+  "selected_sessions_complete": 6,
+  "student_calls": 66,
+  "temporary_auth_copies": 0,
   "runtime_skill_fingerprints_unchanged": true,
   "privacy_hits": [],
-  "syntax": "PASS",
-  "publication_last_completed_batch": "PASS8260 files before third batch began",
   "quota_failures": 0,
-  "note": "WIP checkpoint;4 sessions remain. Authorized batch03 is active; its incomplete folder is excluded from checkpoint manifest and staging, and its live auth is removed by phase finally."
+  "adaptive_answers_before_phase2": 6,
+  "adaptive_prompts_match_verbatim": 6,
+  "publication": "PASS8683 files at completed third-batch check",
+  "note": "WIP;two selected sessions remain;blind evaluation pending."
 }

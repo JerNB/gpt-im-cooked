@@ -415,6 +415,224 @@
         "P4 Nested data summaries"
       ],
       "semantic_review_required": true
+    },
+    "D-S-rep2": {
+      "M1_candidates": [
+        {
+          "item": "Q1",
+          "turn": 1,
+          "matched": "40.0%"
+        }
+      ],
+      "M5_locators": {
+        "1": [
+          "\u00a71.1",
+          "\u00a7\u00a71.2",
+          "\u00a71.3"
+        ],
+        "2": [
+          "\u00a71.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [
+          "\u00a7\u00a71.2"
+        ],
+        "7": [
+          "\u00a7\u00a71.2"
+        ],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "\u00a72",
+          "\u00a72.2"
+        ]
+      },
+      "M11_status_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            "Your reasoning fixes the reference-group mistake from Q1. I saved this independent success as **Improving** in your [learning record](learning-record.md); Q2 remains recorded as unattempted, with its answer supplied."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "ence group and reasoning. These questions follow the same structure, so I\u2019ve saved your status as **Improving** in your [learning record](learning-record.md). A changed question and a later unaided recheck will give stronger evidence before the exam."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            " group. This checks the change in direction that the earlier questions didn\u2019t test. I\u2019ll save it as demonstrated understanding, with an unaided recheck due before the exam.",
+            "Together with Q3 and Q4, this supports **Demonstrated** understanding: you handled both direct subgroup questions and a question that reversed the conditioning.",
+            "I saved that progress in your [learning record](learning-record.md), with **Recheck before exam** because these successes occurred in one session. You\u2019re ready to move on to two-way tables and revisit this later without help."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "ur reviewed work with the current outline, then save a readiness summary that separates what you\u2019ve demonstrated from what we haven\u2019t checked.",
+            "**I don\u2019t yet have enough evidence to call you ready for the whole midterm.** You\u2019ve demonstrated conditional probability, but three other topics remain unchecked. Unchecked doesn\u2019t mean you don\u2019t know them.",
+            "ty | Q3, Q4, and the reversed-conditioning question were correct with clear reasoning. | An unaided recheck later, before the exam. |"
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "Your saved notes point to **two-way tables next**. You had demonstrated conditional probability through a transfer question; an unaided retention check is still due before the exam."
+          ],
+          "record_changed": false
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": 7,
+          "reply": "Correct\u2014you found the 12 commuter cyclists, then used all 20 cyclists as the reference group. This checks the change in direction that the earlier questions didn\u2019t test. I\u2019ll save it as demonstrated understanding, with an unaided recheck due before the exam.\n\n**Hi student, let's get you uncooked.**\n\n**Correct\u2014and your reasoning shows understanding.** You reconstructed the 12 commuter cyclists, then correctly switched the reference group to all 20 cyclists: **60.0% of cyclists are commuters**. That applies the distinction in [Notes \u00a7\u00a71.2\u20131.3](materials/notes.md).\n\nTogether with Q3 and Q4, this supports **Demonstrated** understanding: you handled both direct subgroup questions and a question that reversed the conditioning.\n\nI saved that progress in your [learning record](learning-record.md), with **Recheck before exam** because these successes occurred in one session. You\u2019re ready to move on to two-way tables and revisit this later without help."
+        },
+        {
+          "turn": 10,
+          "reply": "I\u2019ll compare your reviewed work with the current outline, then save a readiness summary that separates what you\u2019ve demonstrated from what we haven\u2019t checked.\n\n**Hi student, let's get you uncooked.**\n\n**I don\u2019t yet have enough evidence to call you ready for the whole midterm.** You\u2019ve demonstrated conditional probability, but three other topics remain unchecked. Unchecked doesn\u2019t mean you don\u2019t know them.\n\n| Topic | What your work shows | What remains |\n|---|---|---|\n| Conditional probability | Q3, Q4, and the reversed-conditioning question were correct with clear reasoning. | An unaided recheck later, before the exam. |\n| Two-way tables | Not yet taught or assessed here. | Row versus column percentages and choosing the reference group. |\n| Bayes\u2019 rule | Not yet taught or assessed here. | Obtain the missing lecture notes, then explain and practise it. |\n| Grouped summaries | Not yet taught or assessed here. | Grouping cases, interpreting the resulting rows, and comparing consistent summaries. |\n\nThese are the four topics on your [current outline](materials/outline.md). **Hypothesis testing is excluded**, even though it appeared last year.\n\nYour improvement on conditional probability is supported by your reasoning, especially your explanation of why 20 cyclists was the denominator. Q2 doesn\u2019t count as independent evidence because I supplied its answer.\n\nI recommend **two-way tables next**, followed by grouped summaries, then Bayes once its teaching material is available. Afterward, mixed practice will help assess overall readiness.\n\nI saved this assessment and the outstanding checks in your [learning record](learning-record.md)."
+        },
+        {
+          "turn": 11,
+          "reply": "I\u2019ll read the study skill and local session notes to find where you left off.\n\n**Hi student, let's get you uncooked.**\n\nYour saved notes point to **two-way tables next**. You had demonstrated conditional probability through a transfer question; an unaided retention check is still due before the exam.\n\nA two-way table sorts cases by two categories at once. The key decision is familiar: **which group belongs in the denominator?** Row percentages use the row total; column percentages use the column total. ([Notes \u00a72](materials/notes.md))\n\nFor example, consider this new table:\n\n| | Cycles | Does not cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 28 | 40 |\n| Noncommuters | 8 | 12 | 20 |\n| Total | 20 | 40 | 60 |\n\n\u201cAmong commuters, what percentage cycle?\u201d restricts us to the commuter **row**. We calculate \\(12/40\\): **30.0% of commuters cycle**.\n\n\u201cAmong cyclists, what percentage commute?\u201d restricts us to the cycling **column**. We calculate \\(12/20\\): **60.0% of cyclists are commuters**.\n\nThe overlap stays at 12; the reference group changes. Each complete row of row percentages totals 100%, and each complete column of column percentages totals 100%. ([Notes \u00a72.2\u20132.3](materials/notes.md))\n\nYour turn: **Among people who do not cycle, what percentage are noncommuters?** Give your denominator and answer as a percentage to one decimal place, naming the reference group."
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 1,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1
+      },
+      "M8_unassessed_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "semantic_review_required": true
+    },
+    "C-S-rep2": {
+      "M1_candidates": [
+        {
+          "item": "Q2",
+          "turn": 2,
+          "matched": "25.0%"
+        }
+      ],
+      "M5_locators": {
+        "1": [
+          "\u00a71.1",
+          "\u00a71.3"
+        ],
+        "2": [
+          "\u00a71.2"
+        ],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": [],
+        "7": [],
+        "8": [],
+        "9": [],
+        "10": [],
+        "11": [
+          "\u00a72",
+          "\u00a71.2",
+          "\u00a72.1",
+          "\u00a72.3"
+        ]
+      },
+      "M11_status_candidates": [
+        {
+          "turn": 4,
+          "phrases": [
+            "Your reasoning fixes the denominator issue from Q1. I\u2019ve saved this as **Improving** in your [study record](study/stat-110/midterm-1/learning-record.md): a correct application without a Q3 hint."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 5,
+          "phrases": [
+            "I\u2019ll check Q4 and review your progress so far to distinguish what you\u2019ve demonstrated from what still needs a check.",
+            "I\u2019ve saved your progress as **Improving** in your [study record](study/stat-110/midterm-1/learning-record.md)."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 7,
+          "phrases": [
+            "ed conditioning. I\u2019ve updated your [study record](study/stat-110/midterm-1/learning-record.md) to **Demonstrated \u2014 recheck before exam**, since today\u2019s work doesn\u2019t yet establish lasting recall."
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 10,
+          "phrases": [
+            "\u2019ll compare your reviewed work with the current outline and save a readiness summary that separates demonstrated understanding from topics we haven\u2019t assessed.",
+            "**I can\u2019t yet say you\u2019re ready for the whole midterm.** You\u2019ve demonstrated conditional probability, but we haven\u2019t assessed the other three topics. That means their status is unknown\u2014not that you necessarily don\u2019t understand them.",
+            "| **Conditional probability** | Q3, Q4, and your reversed-condition explanation were correct. Recheck unaided later to confirm retention. |"
+          ],
+          "record_changed": true
+        },
+        {
+          "turn": 11,
+          "phrases": [
+            "Your saved next step is **two-way tables**. You previously demonstrated conditional probability, with a later retention check still due. We\u2019ll build on that reference-group reasoning."
+          ],
+          "record_changed": false
+        }
+      ],
+      "M13_candidates": [
+        {
+          "turn": 5,
+          "reply": "I\u2019ll check Q4 and review your progress so far to distinguish what you\u2019ve demonstrated from what still needs a check.\n\n**Hi student, let's get you uncooked.**\n\nCorrect\u2014**45.0% of online shoppers**, with the 20 online shoppers as the denominator. That matches the [Instructor key, Q4](materials/practice-key.md).\n\nYou\u2019re applying the reference-group rule correctly on Q3 and Q4. That shows improvement after Q1. Both questions use the same structure, so a changed question and a later unaided check will give stronger evidence that it has stuck.\n\nTry this change to Q4: **Of all 45 shoppers, what percentage ordered online and returned an item?** Explain your denominator.\n\nI\u2019ve saved your progress as **Improving** in your [study record](study/stat-110/midterm-1/learning-record.md)."
+        },
+        {
+          "turn": 7,
+          "reply": "I\u2019ll check your explanation against the solution and update your progress, including what this shows about handling a reversed condition.\n\n**Hi student, let's get you uncooked.**\n\nCorrect throughout. You explained both directions: **50.0% of volunteers are seniors**, while **40.0% of seniors volunteer**. You also explained why each denominator belongs to its question.\n\nTogether with Q3 and Q4, this demonstrates understanding of the reference-group rule, including reversed conditioning. I\u2019ve updated your [study record](study/stat-110/midterm-1/learning-record.md) to **Demonstrated \u2014 recheck before exam**, since today\u2019s work doesn\u2019t yet establish lasting recall.\n\nYou\u2019re ready to move on to two-way tables."
+        },
+        {
+          "turn": 10,
+          "reply": "I\u2019ll compare your reviewed work with the current outline and save a readiness summary that separates demonstrated understanding from topics we haven\u2019t assessed.\n\n**Hi student, let's get you uncooked.**\n\n**I can\u2019t yet say you\u2019re ready for the whole midterm.** You\u2019ve demonstrated conditional probability, but we haven\u2019t assessed the other three topics. That means their status is unknown\u2014not that you necessarily don\u2019t understand them.\n\n| Current topic | Evidence and remaining work |\n|---|---|\n| **Conditional probability** | Q3, Q4, and your reversed-condition explanation were correct. Recheck unaided later to confirm retention. |\n| **Two-way tables** | Not yet taught or assessed here. Review row versus column percentages. |\n| **Bayes\u2019 rule** | Not yet taught or assessed here. It\u2019s in scope, but its teaching notes are missing from your files. |\n| **Grouped summaries** | Not yet taught or assessed here. Review grouping, output row counts, and comparing summaries. |\n\nThese are the four topics in your [current outline](materials/outline.md). **Hypothesis testing is excluded**, even though it appeared last year.\n\nYour Q1 denominator mistake is no longer an unresolved weakness: your later reasoning directly addressed it. Q2 was an answer reveal, so it supplies no evidence either way.\n\nI recommend two-way tables next, then grouped summaries, the Bayes lecture material, and finally mixed practice with a delayed conditional-probability check. I\u2019ve saved this assessment in your [study record](study/stat-110/midterm-1/learning-record.md)."
+        },
+        {
+          "turn": 11,
+          "reply": "I\u2019ll read the study skill and your saved progress, then continue from where you left off.\n\n\n**Hi student, let's get you uncooked.**\n\nYour saved next step is **two-way tables**. You previously demonstrated conditional probability, with a later retention check still due. We\u2019ll build on that reference-group reasoning.\n\nA two-way table counts cases by two categories at once. Here\u2019s a new example applying your notes \u00a72:\n\n| Students | Cycle | Don\u2019t cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| Total | 20 | 30 | 50 |\n\nThe same cell\u201412 commuters who cycle\u2014can answer two different questions:\n\n- **Among commuters, what percentage cycle?** Use the commuter row total: \\(12/30 \\times 100 = 40.0\\%\\) **of commuters**.\n- **Among cyclists, what percentage commute?** Use the cyclist column total: \\(12/20 \\times 100 = 60.0\\%\\) **of cyclists**.\n\nThe numerator stays 12 because both questions concern students who commute **and** cycle. The denominator changes because each question names a different reference group. This is exactly the conditional-probability rule you practiced earlier. ([Notes \u00a71.2 and \u00a72.1\u20132.2](materials/notes.md))\n\nThere\u2019s also a useful check: row percentages within one row add to 100%; column percentages within one column add to 100%. For commuters, that\u2019s 40.0% who cycle plus 60.0% who don\u2019t. ([Notes \u00a72.3](materials/notes.md))\n\n**Retrieval cue: name the group first, then use its total.** Your outline requires every proportion to have one decimal place and name its reference group.\n\nTry identifying the denominator without calculating: **\u201cAmong students who don\u2019t cycle, what percentage are residents?\u201d** Which total would you use, and why?"
+        }
+      ],
+      "M15_marker_counts": {
+        "1": 2,
+        "2": 1,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "8": 1,
+        "9": 1,
+        "10": 1,
+        "11": 1
+      },
+      "M8_unassessed_ground_truth": [
+        "T2 two-way tables",
+        "T3 Bayes' rule",
+        "T4 grouped summaries"
+      ],
+      "semantic_review_required": true
     }
   }
 }
