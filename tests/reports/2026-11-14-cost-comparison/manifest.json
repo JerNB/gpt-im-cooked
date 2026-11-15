@@ -1235,6 +1235,7 @@
   "batch-03-D-S-rep2/skill-D/scripts/render_mock_exam.py": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698",
   "batch-03-D-S-rep2/skill-D/SKILL.md": "26a8acc69e9de3a3b4d7895df59fc8260794a887ea62885eb6c0d36efb42f1b7",
   "batch-03-D-S-rep2/turn7-answers.json": "61f64e8efaa3fc0ae804b8e6e2d6744f74d3af5a282d3c4d3c7d578b60d08cc3",
+  "BLIND-GUIDE.md": "40540c8724e33350ce0e55e785869f9bdfcec315528b59ae73c0d1de23e3504b",
   "capability-probe/model.jsonl": "c370fd511add330280d86cb492d8f85eab69578bbda1b2a4509aaab7f98b47a5",
   "capability-probe/model.stderr.txt": "dafc90a45921b0a31c0d59523f0274f3649c892bf62fcadd3edde7cc2e13dee8",
   "capability-probe/probe-result.json": "d4e2e9d7daa6ab7ad371577e4cba53cf614bbc2f75146ac61e5dd6be7dd1e1e3",
