@@ -1294,5 +1294,17 @@
     "before_sha256": "cc5dadffb3ab1d5260a3861d6e57dd9b2c9a9fa4e584d6013df1a2d8de4924bc",
     "after_sha256": "5b400ccacb8a77ef292ca8bf23d9162434c457dcfd8792dbf35c53de509facbb",
     "kind": "LF-preview"
+  },
+  {
+    "path": "per-turn-deltas.csv",
+    "before_sha256": "dfe874596b3daa544f04d47eecbf43006f6351bce19e3ab9fcbac581c2730c3b",
+    "after_sha256": "eb8ccb4b04ff2fffe8f5e245a373e70c867061722d3937cee77bde4d27984f5d",
+    "kind": "LF-preview"
+  },
+  {
+    "path": "resources.csv",
+    "before_sha256": "ae950bc1db8228441e02aff661226cf07eb1ab96ebc5b94f925d013d641134d6",
+    "after_sha256": "d416309d676423ad109f9e1901134cde01e5ec503de62bc7c8e3e7de97428d60",
+    "kind": "LF-preview"
   }
 ]

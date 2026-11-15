@@ -1,9 +1,9 @@
 {
   "adapter-source.json": "e0465a0c3ea39f7fdf7b9990853545592732d4f311b64742da0c9d5829fc9fc8",
   "adaptive-answer-audit.json": "6baa9adda849728dba9b854312ad3fa5769cbdc1a4ac2fa97a8f57e9e479f135",
-  "analyze_resources.py": "9f4543fa0873a66c93285bb2e31bd68f418b6ae1448f616b14d26a4b825484f3",
+  "analyze_resources.py": "398739dab53957a5da538365ce047d9526aa4b08edccca76d93c4132397dc74c",
   "archive-link-transformations.json": "d42f88a9afa8f49dda542f63d8210ae8fc537585ea7213efa0489268ef6ba242",
-  "archive-transformations.json": "ec843ccdbaa0390f89531aad57ca36070b056f33836994de4d2481b14a32f7b3",
+  "archive-transformations.json": "6def5c781c5f57a9d7b2f405d2c8877393ada941e0b19f6344536cf13a153657",
   "archive_evidence.py": "82471504fee65146e243783e86b85df3f05dee53e9434c483fe445e18156c1d3",
   "attempt-inventory.json": "5b400ccacb8a77ef292ca8bf23d9162434c457dcfd8792dbf35c53de509facbb",
   "batch-01-authorization.json": "4a94f28bb50271c4ed178acf1d69d5b874fcf8ed8699350af0389b795c320b52",

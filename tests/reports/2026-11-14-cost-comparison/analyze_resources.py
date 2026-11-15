@@ -24,6 +24,13 @@ def main():
         for arm in order:
             label=f'{arm}-{packet}-rep{rep}'
             selected[label]=BASE/f'batch-{batch:02}-{label}'/'runs'/label
+    override_file=BASE/'session-overrides.json'
+    if override_file.exists():
+        for label,relative in json.loads(override_file.read_text(encoding='utf-8')).items():
+            assert label in selected,'Unknown recovery label'
+            candidate=(BASE/relative).resolve()
+            assert candidate.is_relative_to(BASE.resolve()) and candidate.name==label,'Recovery source outside report or wrong label'
+            selected[label]=candidate
     complete={}
     for label,path in selected.items():
         metas=sorted(path.glob('turn-*.meta.json'))
