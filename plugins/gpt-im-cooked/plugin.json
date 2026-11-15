@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "gpt-im-cooked",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Review supplied course content with checkpoint-based learning records, targeted mistake practice, and personalized guides.",
   "repository": "https://github.com/JerNB/gpt-im-cooked",
   "author": {

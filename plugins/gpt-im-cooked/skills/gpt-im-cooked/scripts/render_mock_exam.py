@@ -19,7 +19,7 @@ import html
 import json
 import re
 
-PACKAGE_VERSION = '2.0.0'
+PACKAGE_VERSION = '2.0.1'
 FORMAT = 'gpt-im-cooked-mock-exam/1'
 TEMPLATE = Path(__file__).resolve().parents[1] / 'assets' / 'mock-exam-template.html'
 KINDS = {
