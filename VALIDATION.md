@@ -5,8 +5,10 @@
 Behaviour and cost evidence for this release comes from two exploratory
 comparisons on synthetic courses (statistics and programming) with a scripted
 student and one model (`gpt-6.1-sol`, Codex CLI 0.162.1), four sessions per
-arm, scored blind by model reviewers against a pre-registered rubric and
-cross-reviewed by the other agent:
+arm, scored by model reviewers on masked, shuffled sessions against a
+pre-registered rubric and cross-reviewed by the other agent. Blinding is
+partial: record formats allow the arm to be inferred, and final compilation
+and adjudication were not blind. Reports:
 [plain model vs. skill](tests/reports/2026-11-14-controlled-comparison/REPORT.md)
 (16 sessions) and
 [revision vs. cost-optimized release](tests/reports/2026-11-14-cost-comparison/REPORT.md)
@@ -19,7 +21,8 @@ use differed by 27% between the two runs.
 Mechanical checks were run from an isolated copy of the tracked release files
 (the untracked local design reference is excluded): package structure,
 extracted-distribution matching for the new v2.0.1 archives, record I/O
-(including the new `save` command's all-or-nothing two-file behaviour, stale
+(including the new `save` command's two-file rollback on handled write
+failures, stale
 hashes, locks and template creation), mock-exam rendering and template logic,
 demo state, concept retries, the evidence chain and archive, archived run
 evidence, the pilot and comparison harnesses (fake CLI only), and the
