@@ -1,0 +1,1 @@
+Can you explain Big-O? It is on the outline.

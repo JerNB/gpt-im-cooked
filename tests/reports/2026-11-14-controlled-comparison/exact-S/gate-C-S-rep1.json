@@ -1,0 +1,9 @@
+{
+  "packet": "S",
+  "replicate": 1,
+  "arm": "C",
+  "gate": {
+    "materials_content_read": true,
+    "skill_content_read": true
+  }
+}

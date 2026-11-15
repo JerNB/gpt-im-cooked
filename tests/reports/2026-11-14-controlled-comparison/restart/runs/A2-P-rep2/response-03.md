@@ -1,0 +1,1 @@
+Q2 has **5 element-to-element comparisons**, counting each adjacent pair once (`6 − 1 = 5`).

@@ -1,0 +1,1 @@
+50.0% of volunteers are seniors. The reference group is the 16 volunteers, and 8 are seniors, so I use 8/16 rather than 8/20 or 8/50.

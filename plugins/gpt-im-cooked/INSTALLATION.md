@@ -21,7 +21,9 @@ skill download. Registration alone is not installation.
 This plugin needs no connected service or API key. Its getting-started skill is
 `gpt-im-cooked-start`; ordinary studying uses `gpt-im-cooked`.
 
-Version 2.0.0 adds checkpoint-based record saves, concise study handoffs,
+Version 2.0.1 saves progress changes in the same turn, marks same-session
+Demonstrated results for a recheck, and saves records with one command.
+Version 2.0.0 added checkpoint-based record saves, concise study handoffs,
 targeted mistake variants, and humanities feedback. Existing course records
 remain usable without migration. Concept review stays in English conversation. Mock exams default
 to HTML exam worksheets with separate keys; study guides default to PDF when

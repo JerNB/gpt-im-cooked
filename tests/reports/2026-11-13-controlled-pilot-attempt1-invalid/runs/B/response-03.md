@@ -1,0 +1,1 @@
+Please paste Q2’s wording, including any table or diagram. I can’t access the course files, so I need the question to give you its answer.

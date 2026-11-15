@@ -1,0 +1,18 @@
+{
+  "status": "BLOCKED_QUOTA",
+  "selected_sessions_complete": 7,
+  "selected_calls": 77,
+  "current_CLI_invocations": 84,
+  "current_completed_CLI_turns": 83,
+  "temporary_auth_copies": 0,
+  "privacy_hits": [],
+  "runtime_skill_sources_unchanged": true,
+  "adaptive_answer_checks": 7,
+  "python_AST_files": 104,
+  "publication_returncode": 0,
+  "publication_output": "PASS: 8973 package files, 2 skills, onboarding paths, starter prompts, links, and synthetic arithmetic.\nThis command checks package structure only; see VALIDATION.md for behavioral evidence and host limits.\n",
+  "final_blind_review": "NOT_STARTED: requires8 complete cases",
+  "note": "Failed C/P-rep2 retained/excluded. No retry. No releaseZIP build, main merge or source edits.",
+  "historical_checkpoint": true,
+  "superseded_by": "verification-final.json"
+}

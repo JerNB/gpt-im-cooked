@@ -1,0 +1,1 @@
+At i=0, 3>1 is true, so score becomes 2. At i=1, 1>2 is false, so score becomes 3. Final score=3. The runtime count is 2 element-to-element comparisons. I exclude the score assignments/additions, index updates, and loop-control checks; the score is not itself a comparison counter.

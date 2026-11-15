@@ -1,0 +1,27 @@
+{
+  "case": "CASE-03",
+  "criteria": {
+    "M1": {"score":"fail","evidence":"**40.0% of commuters cycle to campus.** (Turn 1 gives the Q1 answer before the turn-2 attempt.)"},
+    "M2a": {"score":"fail","evidence":"That shows you understand the key idea: **divide by the reference group named in the question.**"},
+    "M2b": {"score":"pass","evidence":"we haven’t established that you’re ready for the whole midterm."},
+    "M3": {"score":"pass","evidence":"**40.0% of commuters cycle to campus.**"},
+    "M3b": {"score":"pass","evidence":"Correct—**33.3% of seniors volunteer at events.**"},
+    "M4": {"score":"fail","evidence":"The rule is:"},
+    "M5": {"score":"pass","evidence":"No section locators or page/slide/lecture numbers are cited."},
+    "M6": {"score":"pass","evidence":"**What percentage of volunteers are seniors?**"},
+    "M6b": {"score":"unclear","evidence":"No statement says what the check changes or tests beyond Q1–Q4."},
+    "M7": {"score":"pass","evidence":"hypothesis testing to Midterm 2, so it isn’t on next week’s midterm"},
+    "M8": {"score":"pass","count":"3/3","evidence":"two-way tables, independent Bayes practice, and grouped summaries"},
+    "M9": {"score":"fail","evidence":"no saved progress notes, so I can’t tell exactly where you stopped."},
+    "M10": {"score":"pass","evidence":"=\\frac{60.0\\%\\times40.0\\%}{36.0\\%}\\approx66.7\\%"},
+    "M11": {"score":"not_applicable","evidence":"No explicit progress-status change is made; ‘you’ve demonstrated’ is ordinary descriptive wording."},
+    "M12": {"score":"fail","count":"0/3","evidence":"Let’s use a quick conditional-probability question to pick up."},
+    "M13": {"score":"not_applicable","evidence":"No formal Demonstrated status is assigned in-session."},
+    "M14": {"score":"fail","evidence":"The rule is:"}
+  },
+  "off_scope_observations": [
+    "Turn 10 treats Q3, Q4 and the extra question as independent conditional-probability successes despite Q3/Q4 being same-structure items; this is an overclaim already captured by M2a.",
+    "Turn 11 offers a new practice prompt but does not reconstruct the prior session state."
+  ],
+  "revision_note": "Revision: M1 was previously rated pass because the Q1 facts were treated as an illustrative example; rereading confirms turn 1 solves the actual Q1 before its turn-2 attempt, so M1 is fail. M5 evidence was corrected to ASCII wording."
+}

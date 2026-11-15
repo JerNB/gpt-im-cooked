@@ -1,0 +1,13 @@
+{
+  "arm": "C",
+  "packet": "P",
+  "replicate": 2,
+  "turn": 4,
+  "start_unix": 1794718008.046401,
+  "wall_seconds": 8.04,
+  "returncode": 1,
+  "usage": null,
+  "complete": false,
+  "error": "incomplete_or_malformed",
+  "external_skill_commands": []
+}

@@ -1,0 +1,7 @@
+{
+  "runner": "tests/run_cost_comparison.py",
+  "runner_sha256": "c6accf968c92f40e887e7e65e21c6cb0af1e56447d1d1aa4293adeb42c215e99",
+  "frozen_T004_runner_sha256": "81fe95d0aaa6b0df500ae4b5f090fdb6571742680ca4a4f32119d5afcc414fcd",
+  "fake_cli_regression": "PASS; no real model/login used",
+  "nonlogin_shell": true
+}

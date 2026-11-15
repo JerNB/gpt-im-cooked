@@ -1,0 +1,1 @@
+No. The reference group would be all tournament competitors, not the 20 swimmers. We know 8 swimmers compete, but do not know the total competitors or the number of non-swimming competitors. The given 8/20=40.0% describes swimmers who compete; it does not determine the percentage of tournament competitors who swim.

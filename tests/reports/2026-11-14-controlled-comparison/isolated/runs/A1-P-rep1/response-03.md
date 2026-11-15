@@ -1,0 +1,1 @@
+Q2 has **5 element-to-element comparisons**: the list has 6 elements, so one pass compares \(6 - 1 = 5\) adjacent pairs.

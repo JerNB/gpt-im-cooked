@@ -1,6 +1,6 @@
 {
   "name": "gpt-im-cooked",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Review supplied course content with checkpoint-based learning records, targeted mistake practice, and personalized guides.",
   "skills": "./skills/",
   "repository": "https://github.com/JerNB/gpt-im-cooked",

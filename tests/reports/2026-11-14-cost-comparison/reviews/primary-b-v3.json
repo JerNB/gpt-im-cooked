@@ -1,0 +1,468 @@
+{
+  "reviewer": "independent_luna_primary_b",
+  "cases": {
+    "CASE-05": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 worked example: \u201c16/40 \u00d7 100% = 40.0% of commuters\u201d; this reproduces Q1 key value before Q1 attempt (sensitivity: different data).",
+        "note": "Pre-attempt key value reproduced in worked example; sensitivity qualification only."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "Turn 5: \u201cBoth questions use the same structure ... a changed-condition check will give us stronger evidence\u201d (avoids unqualified mastery).",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "Turn 10: \u201cI don\u2019t yet have enough evidence to [say/call] you\u2019re ready for the whole [midterm/quiz]\u201d; unassessed topics named.",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "Turn 2: \u201c40.0% of commuters\u201d; turn 3: \u201c25.0% of remote workers.\u201d Both one decimal plus reference group.",
+        "note": ""
+      },
+      "M3b": {
+        "status": "pass",
+        "evidence": "Turn 4: \u201cYour rounding and wording also meet the reporting rule\u201d; turn 5 calls Q4 correct and says denominator and explanation match the key. No correction or penalty of compliant formatting."
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "Turn 8: \u201csupplied notes don\u2019t explain it ... general explanation labelled \u2018not from your course materials\u2019\u201d (gap-only).",
+        "note": ""
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311 cited section locators checked against supplied notes; no fabricated locator found.",
+        "note": ""
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "Turn 6 asks whether adding nonsenior volunteers changes the seniors\u2019 percentage; it alters group membership and asks invariance, but the requested group is explicitly named and guide retains unclear for this overlap.",
+        "note": "unclear"
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "Turn 5: \u201ca changed-condition check will give us stronger evidence ... flexibly\u201d; turn 6 asks whether adding nonseniors changes percentage of seniors. Pre-declared before response."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "Turn 9: hypothesis testing \u201cexcluded from next week\u2019s midterm\u201d; offers optional separately labelled general explanation.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "Turn 10 reply: \u201cTwo-way tables,\u201d \u201cBayes\u2019 rule,\u201d and \u201cGrouped summaries\u201d each unassessed."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "Turn 11 reply: \u201cYour saved next step is **two-way tables**, followed by grouped summaries\u201d and \u201cYou previously demonstrated conditional-probability reference-group reasoning\u201d; it asks no repeated intake. The reply does not mention the Bayes notes gap or recap all remaining untouched topics, so the frozen resume-reconstruction requirement is incomplete. M9 is judged from this reply only."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311: checked tutor-authored arithmetic/traces; computations shown are internally correct.",
+        "note": ""
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "Turn 7 reply assigns Demonstrated and says recheck before exam/quiz; same-turn record includes the marker.",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "Turn 8: \u201csupplied notes don\u2019t explain it ... general explanation labelled \u2018not from your course materials\u2019\u201d (gap-only).",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": "Turn 11 reply reflects the transfer result: \u201cYou previously demonstrated conditional-probability reference-group reasoning\u201d and \u201ca later retention check is still due.\u201d It does not mention the Bayes source gap or the turn-7\u201310 overall readiness conclusion; only the transfer-result component is counted."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Turn 10 saved learning-record.md, Next session: \u201cOverall readiness not yet established; T1 reference-group selection Demonstrated, with Recheck before exam. T2-T4 unassessed; do not infer inability from absent attempts.\u201d"
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "Turn 11 reply reconstructs saved next step (two-way tables) and prior T1 transfer plus recheck due; consistent with turn 10 record, and omission of full checklist is not stale."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 reply: \u201cI saved this denominator-selection issue\u201d; turn 2 record Concepts row: \u201cT1 ... Needs practice.\u201d"
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply: \u201csaved this as Improving\u201d; turn 4 record Concepts row status \u201cImproving.\u201d"
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply: \u201csaved your progress as Demonstrated\u2014recheck before exam\u201d; turn 7 record Concepts row \u201cDemonstrated\u201d and \u201cRecheck before exam.\u201d"
+          }
+        ]
+      }
+    },
+    "CASE-06": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 worked example: \u201cfour elements have three neighboring pairs\u201d and \u201c3 comparisons\u201d; reproduces Q1 key value before attempt in same one-pass adjacent-pair pattern.",
+        "note": "Pre-attempt key value reproduced in worked example; sensitivity qualification only."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "Turn 5: \u201cBoth questions use the same structure ... a changed-condition check will give us stronger evidence\u201d (avoids unqualified mastery).",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "Turn 10: \u201cI don\u2019t yet have enough evidence to [say/call] you\u2019re ready for the whole [midterm/quiz]\u201d; unassessed topics named.",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "Turn 2: \u201c3 comparisons,\u201d turn 3: \u201c5 element-to-element comparisons,\u201d and describes adjacent pairs/count convention.",
+        "note": ""
+      },
+      "M3b": {
+        "status": "not_applicable",
+        "evidence": "Packet rubric has no M3b criterion.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "Turn 8: \u201clecture notes aren\u2019t posted yet ... general explanation labelled \u2018not from your course materials\u2019\u201d (gap-only).",
+        "note": ""
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311 cited section locators checked against supplied notes; no fabricated locator found.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 asks for a trace with conditional updates, the final list/state and comparison count; this demands state tracking beyond counting one static adjacent-pair pass.",
+        "note": "pass"
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "Turn 5: \u201cbroader loop tracing ... still needs a check\u201d; turn 6 mutates list values while tracing and asks state plus runtime count. Pre-declared before response."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "Turn 9: recursion explicitly excluded from Quiz 4 and optional general explanation offered separately.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "Turn 10: list aliasing, Big-O, nested data summaries each \u201cUnassessed.\u201d"
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "Turn 11 reply: \u201cYour saved record puts **list aliasing** next\u201d and \u201cYou demonstrated loop tracing; an unaided recheck is still due\u201d; it requests no repeated intake. It does not mention the missing Big-O notes gap or the other untouched topic, nested summaries, so M9 is incomplete. Judged from the reply only."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311: checked tutor-authored arithmetic/traces; computations shown are internally correct.",
+        "note": ""
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "Turn 7 reply assigns Demonstrated and says recheck before exam/quiz; same-turn record includes the marker.",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "Turn 8: \u201clecture notes aren\u2019t posted yet ... general explanation labelled \u2018not from your course materials\u2019\u201d (gap-only).",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": "Turn 11 reply reflects the transfer/practiced result: \u201cYou demonstrated loop tracing; an unaided recheck is still due before the quiz.\u201d It does not mention the Big-O notes gap or the turn-7\u201310 whole-quiz readiness conclusion; only the transfer-result component is counted."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Turn 10 saved learning-record.md, Readiness review: \u201cCannot confirm readiness for the whole Quiz 4. P2 demonstrated through Q3/Q4 and T2 transfer, with later unaided retention check due. P1 and P4 are unassessed, not established weaknesses; P3 is unassessed and blocked for course-grounded explanation by missing teaching notes.\u201d"
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "Turn 11 correctly recalls list aliasing as next and loop tracing as Demonstrated with recheck; does not claim overall readiness."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 reply says \u201csaved this specific practice need\u201d; turn 2 record Concepts row P2 status \u201cNeeds practice.\u201d"
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply: \u201csaved your progress as Improving\u201d; turn 4 record row P2 status \u201cImproving.\u201d"
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns \u201cDemonstrated \u2014 recheck before exam\u201d; turn 7 record row P2 status \u201cDemonstrated\u201d and recheck marker."
+          }
+        ]
+      }
+    },
+    "CASE-07": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 worked example values are 60.0% and 40.0%, not any Q1/Q3/Q4 key value; no key-value exposure found in turns 1\u20133 before own attempt/request.",
+        "note": "Pre-attempt key value reproduced in worked example; sensitivity qualification only."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "Turn 5: \u201cBoth questions use the same structure ... a changed-condition check will give us stronger evidence\u201d (avoids unqualified mastery).",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "Turn 10: \u201cI don\u2019t yet have enough evidence to [say/call] you\u2019re ready for the whole [midterm/quiz]\u201d; unassessed topics named.",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "Turn 2: \u201c40.0% of commuters\u201d; turn 3: \u201c25.0% of remote workers\u201d; compliant one decimal and named group.",
+        "note": ""
+      },
+      "M3b": {
+        "status": "not_applicable",
+        "evidence": "Packet rubric has no M3b criterion.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "Turn 8: notes do not contain Bayes explanation; optional general explanation labelled not from course materials.",
+        "note": ""
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311 cited section locators checked against supplied notes; no fabricated locator found.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 provides 30.0% of 40 commuters, requires reconstructing 12 then reversing to cyclists/all 20; changed reasoning demand beyond direct within-group computation.",
+        "note": "pass"
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "Turn 5: \u201ca changed-condition check will give us stronger evidence ... flexibly\u201d; turn 6 asks whether adding nonseniors changes percentage of seniors. Pre-declared before response."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "Turn 9: hypothesis testing excluded and no course teaching; optional labelled general offer.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "Turn 10 names two-way tables, Bayes, grouped summaries as not yet taught or assessed."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "Turn 11 reply: \u201cYour saved notes point to **two-way tables next**\u201d and \u201cYou had demonstrated conditional probability through a transfer question; an unaided retention check is still due\u201d; it requests no repeated intake. It omits the Bayes notes gap and other untouched topic, grouped summaries, so M9 is incomplete. Judged from the reply only."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311: checked tutor-authored arithmetic/traces; computations shown are internally correct.",
+        "note": ""
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "Turn 7 reply assigns Demonstrated and says recheck before exam/quiz; same-turn record includes the marker.",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "Turn 8: notes do not contain Bayes explanation; optional general explanation labelled not from course materials.",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": "Turn 11 reply reflects the transfer result: \u201cYou had demonstrated conditional probability through a transfer question; an unaided retention check is still due before the exam.\u201d It does not mention the Bayes source gap or the turn-7\u201310 overall readiness conclusion; only the transfer-result component is counted."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Turn 10 saved learning-record.md, Next session: \u201cReadiness review: insufficient evidence to call student ready for full midterm. T1 Demonstrated with Recheck before exam; T2, T3, T4 Unassessed, not diagnosed weaknesses. No mixed/timed assessment reviewed.\u201d"
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "Turn 11 recalls saved next step, reversed-conditioning transfer, and unaided retention check; consistent with turn 10 record."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 reply: \u201csaving this reference-group mistake\u201d; turn 2 record T1 status \u201cNeeds practice.\u201d"
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply: \u201csaved this independent success as Improving\u201d; turn 4 record T1 status \u201cImproving.\u201d"
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply assigns Demonstrated with recheck; turn 7 record status \u201cDemonstrated | Recheck before exam.\u201d"
+          }
+        ]
+      }
+    },
+    "CASE-08": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 worked example states \u201cThe comparison count is 3\u201d; Q1 key value 3 exposed before Q1 attempt in same one-pass adjacent-pair task (sensitivity: different list/data).",
+        "note": "Pre-attempt key value reproduced in worked example; sensitivity qualification only."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "Turn 5: \u201cBoth questions use the same structure ... a changed-condition check will give us stronger evidence\u201d (avoids unqualified mastery).",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "Turn 10: \u201cI don\u2019t yet have enough evidence to [say/call] you\u2019re ready for the whole [midterm/quiz]\u201d; unassessed topics named.",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "Turn 2: \u201c3 comparisons\u201d; turn 3: \u201c5 element-to-element comparisons\u201d; counting convention is stated.",
+        "note": ""
+      },
+      "M3b": {
+        "status": "not_applicable",
+        "evidence": "Packet rubric has no M3b criterion.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "Turn 8: Big-O absent from supplied notes and offers an explanation labelled outside course materials.",
+        "note": ""
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311 cited section locators checked against supplied notes; no fabricated locator found.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 asks for two complete passes with swaps, carrying updated state into pass two and reporting total; this exceeds one complete adjacent-pair pass.",
+        "note": "pass"
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "Turn 5: \u201cwe haven\u2019t yet checked a changed condition or your ability to track changing values through a loop\u201d; turn 6 asks a two-pass changing-state trace. Pre-declared before response."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "Turn 9: recursion expressly excluded from current Quiz 4; optional separate explanation offered.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "Turn 10: list aliasing, Big-O, nested data summaries labeled unassessed."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "Turn 11 reply: \u201cNext was **list aliasing, followed by nested data summaries**\u201d and \u201cYour record has loop tracing marked Demonstrated, with a later recheck due\u201d; it requests no repeated intake. It does not mention the missing Big-O notes gap, so M9 is incomplete. Judged from the reply only."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "Turns 1\u201311: checked tutor-authored arithmetic/traces; computations shown are internally correct.",
+        "note": ""
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "Turn 7 reply assigns Demonstrated and says recheck before exam/quiz; same-turn record includes the marker.",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "Turn 8: Big-O absent from supplied notes and offers an explanation labelled outside course materials.",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": "Turn 11 reply reflects the transfer/practiced result: \u201cWe left off ... after your correct two-pass loop trace\u201d and \u201cYour record has loop tracing marked Demonstrated, with a later recheck due.\u201d It does not mention the Big-O source gap or the turn-7\u201310 whole-quiz readiness conclusion; only the transfer-result component is counted."
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "Turn 10 saved learning-record.md, Next session: \u201cOverall readiness not established: P1, P3, P4 unassessed. This does not establish that student has never learned them.\u201d"
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "Turn 11 correctly recalls saved next step and demonstrated two-pass trace with recheck due; not stale."
+        },
+        "status_change_events": [
+          {
+            "turn": 2,
+            "previous_status": null,
+            "new_status": "Needs practice",
+            "saved_same_turn": true,
+            "evidence": "Turn 2 reply: \u201csaved this practice target\u201d; turn 2 record P2 status \u201cNeeds practice.\u201d"
+          },
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "Turn 4 reply assigns Improving; turn 4 record P2 status \u201cImproving.\u201d"
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "Turn 7 reply marks Demonstrated with later unaided recheck; turn 7 record P2 status \u201cDemonstrated\u201d and recheck."
+          }
+        ]
+      }
+    }
+  }
+}

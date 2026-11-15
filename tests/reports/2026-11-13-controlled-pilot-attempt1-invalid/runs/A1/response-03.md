@@ -1,0 +1,1 @@
+Please paste Q2’s wording. I couldn’t access your course files, so I need the question to give you its answer.

@@ -1,0 +1,114 @@
+{
+  "pre_registered_source": "handoff/T007.md, copied in protocol.json",
+  "gates": {
+    "readiness4": true,
+    "stale0": true,
+    "every_status_change_saved": true,
+    "M13_markers": true,
+    "M14_offers": true,
+    "M1_M10_nonregression": true,
+    "failed_commands_at_most4": true,
+    "D_lower_at_least3_pairs": true,
+    "D_total_below_ceiling": true
+  },
+  "result": "MEETS_PRE_REGISTERED_CRITERIA_ON_THIS_SAMPLE",
+  "relative_metric_check": {
+    "M1": {
+      "C_pass": 0,
+      "D_pass": 0,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M2a": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M2b": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M3": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M3b": {
+      "C_pass": 2,
+      "D_pass": 2,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M4": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M5": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M6": {
+      "C_pass": 3,
+      "D_pass": 3,
+      "C_unclear": 1,
+      "D_unclear": 1,
+      "worst_D_pass_deficit": 1,
+      "at_most_one_even_with_unclear": true
+    },
+    "M7": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M8": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M9": {
+      "C_pass": 0,
+      "D_pass": 0,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    },
+    "M10": {
+      "C_pass": 4,
+      "D_pass": 4,
+      "C_unclear": 0,
+      "D_unclear": 0,
+      "worst_D_pass_deficit": 0,
+      "at_most_one_even_with_unclear": true
+    }
+  },
+  "limits": "Descriptive synthetic sample only; not proof of learning gains, broad quality equivalence, billing savings or causal speed."
+}

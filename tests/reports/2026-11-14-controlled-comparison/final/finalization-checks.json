@@ -1,0 +1,14 @@
+{
+  "selected_sessions": 16,
+  "selected_student_calls": 176,
+  "accounting_matches": 16,
+  "preserved_prior_judgments": 15,
+  "prior_case_hashes_unchanged": true,
+  "M15_repeated_reply_counts_out_of44": {
+    "A1": 0,
+    "A2": 0,
+    "B": 11,
+    "C": 22
+  },
+  "status": "PASS: publication/privacy/auth/frozen-input checks; manifest generated after evidence files. Committed Git blobs verified separately after commit."
+}

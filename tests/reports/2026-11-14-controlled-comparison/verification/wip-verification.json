@@ -1,0 +1,34 @@
+{
+  "package_returncode": 0,
+  "python_ast_files": 51,
+  "remaining_temporary_auth_copies": 0,
+  "frozen_S_original_files": {
+    "materials/midterm-2025.md": true,
+    "materials/notes.md": true,
+    "materials/outline.md": true,
+    "materials/practice-key.md": true,
+    "materials/practice.md": true,
+    "rubric.json": true,
+    "script.json": true
+  },
+  "frozen_C_files": {
+    "agents/openai.yaml": true,
+    "assets/course-profile.md": true,
+    "assets/first-use.md": true,
+    "assets/learning-record.md": true,
+    "assets/mock-exam-example.json": true,
+    "assets/mock-exam-template.html": true,
+    "references/concept-tutoring.md": true,
+    "references/interactive-review.md": true,
+    "references/mock-exam-layout.md": true,
+    "references/practice-and-feedback.md": true,
+    "references/review-artifacts.md": true,
+    "references/state.md": true,
+    "references/webpage-prompts.md": true,
+    "scripts/record_io.py": true,
+    "scripts/render_mock_exam.py": true,
+    "SKILL.md": true
+  },
+  "privacy_scan_returncode": 1,
+  "privacy_scan_matching_files": []
+}

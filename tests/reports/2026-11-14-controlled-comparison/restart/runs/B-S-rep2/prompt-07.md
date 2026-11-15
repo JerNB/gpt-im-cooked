@@ -1,0 +1,1 @@
+Not enough information. The denominator is the total volunteers, which is unknown. We know 4 senior volunteers but not the number of non-senior volunteers. With the total volunteer count, I would divide 4 by that count and report a percentage to one decimal place of volunteers.

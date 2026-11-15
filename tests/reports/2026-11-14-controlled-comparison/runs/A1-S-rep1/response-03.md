@@ -1,0 +1,1 @@
+Please paste Q2, including any table or answer choices. I can’t access its wording from your materials, but once you share it, I’ll give you the answer directly.

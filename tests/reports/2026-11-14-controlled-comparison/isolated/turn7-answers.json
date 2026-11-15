@@ -1,0 +1,26 @@
+{
+  "S-rep1": {
+    "A1": "50.0% of instrument players also play a sport. The reference group is the 16 instrument players. Eight of them play a sport, so I use 8/16, not 8/20 or 8/50.",
+    "A2": "There is not enough information. The denominator must be all cyclists, but only the 10 commuting cyclists are known. We need the total number of cyclists, or how many noncommuters cycle. With total cyclists N, the answer would be 100 times 10/N percent of cyclists who commute.",
+    "B": "It stays the same: 40.0% of students borrow a laptop before and after. The reference group is the 30 students, 12 of whom borrow a laptop. Adding nonstudents changes neither 12 nor 30, so 12/30 stays the same.",
+    "C": "60.0% of shoppers who returned an item had ordered online. The reference group is all 15 returners: 9 online plus 6 in-person. The numerator is 9 online returners, so 9/(9+6)=9/15 gives 60.0%."
+  },
+  "P-rep1": {
+    "A1": "The final count variable is 1. At i=0, 3>1 is true so count becomes 1; at i=1, 1>2 is false so count stays 1. The list is never changed. The runtime count is 2 element-to-element comparisons, regardless of how many were true. I exclude assignment/increment operations, index updates, and loop-condition checks.",
+    "A2": "Report 4 element-to-element comparisons: five elements give four adjacent pairs in one complete pass. I exclude assignments, index updates, and loop-condition checks. Those may still matter for tracing program state, but they are not included in this course runtime count.",
+    "B": "Step 1 compares 6>2 and swaps to [2,6,5,1]. Step 2 compares 6>5 in the updated list and swaps to [2,5,6,1]. Then it stops. Report 2 element-to-element comparisons. I exclude assignments and swap operations from the runtime count.",
+    "C": "Report 2 element-to-element comparisons. It compares 1>4 (false), then 4>2 (true) and stops. It never compares 2 with 7 or 7 with 9. I exclude assignments, index updates, and loop-condition checks. n-1=4 describes a full pass, but this loop stops early so it does not apply to this execution."
+  },
+  "S-rep2": {
+    "A1": "50.0% of volunteers are seniors. The reference group is the 18 volunteers. Nine are seniors, so I divide 9 by 18 rather than by 24 or 60.",
+    "A2": "The reference group is all shoppers who returned an item. Nine online shoppers returned an item, but the total returners is not provided: we do not know how many in-person shoppers returned one. I need that total; then 9 divided by total returners gives the share of returners who ordered online. No numeric percentage is determined by these facts.",
+    "B": "No. The reference group would be all tournament competitors, not the 20 swimmers. We know 8 swimmers compete, but do not know the total competitors or the number of non-swimming competitors. The given 8/20=40.0% describes swimmers who compete; it does not determine the percentage of tournament competitors who swim.",
+    "C": "60.0% of shoppers who returned an item had ordered online. The reference group is the 15 returners, 9 of whom ordered online, so 9/15=60.0%. The 20 online shoppers and 45 total shoppers are different groups and are not the denominator requested."
+  },
+  "P-rep2": {
+    "A1": "The list never changes. Compare 6>2 (true, count=1), 2>5 (false, count remains 1), then 5>1 (true, count=2). Final count=2, but the course runtime count is 3 element-to-element comparisons. I exclude the count assignments, index updates, and loop-condition checks.",
+    "A2": "Report 5 element-to-element comparisons, not 11 operations. The pairs in order are (8,2), (2,5), (5,6), (6,1), and (1,4). I include these five comparisons and exclude the five index updates and the assignment under the course convention.",
+    "B": "Report 4 element-to-element comparisons: three adjacent pairs (4,1), (1,7), (7,3), plus the extra first-last comparison (4,3). I exclude assignments, index updates, and loop-condition checks. The n-1 adjacent-pair count alone would omit the extra comparison.",
+    "C": "At i=0, 3>1 is true, so score becomes 2. At i=1, 1>2 is false, so score becomes 3. Final score=3. The runtime count is 2 element-to-element comparisons. I exclude the score assignments/additions, index updates, and loop-control checks; the score is not itself a comparison counter."
+  }
+}

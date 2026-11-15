@@ -1,0 +1,221 @@
+{
+  "case": "CASE-05",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Preferences: course files only; learner attempts practice before answers; check understanding after explanations; assess learning cautiously.",
+            "- Evidence: no learner attempts yet; understanding and independent tracing remain unassessed."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Preferences: course files only; learner attempts practice before answers; check understanding after explanations; assess learning cautiously.",
+            "- Evidence: no learner attempts yet; understanding and independent tracing remain unassessed.",
+            "- Correction: adjacent pairs are (4, 1), (1, 7), (7, 3), giving 3 element-to-element comparisons. Count gaps between neighbors, not elements.",
+            "- Understanding: initial confusion between element count and comparison count; correction needs a follow-up attempt. No mastery established."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Preferences: course files only; learner attempts practice before answers; check understanding after explanations; assess learning cautiously.",
+            "- Evidence: no learner attempts yet; understanding and independent tracing remain unassessed.",
+            "- Correction: adjacent pairs are (4, 1), (1, 7), (7, 3), giving 3 element-to-element comparisons. Count gaps between neighbors, not elements.",
+            "- Understanding: initial confusion between element count and comparison count; correction needs a follow-up attempt. No mastery established.",
+            "- Evidence: Q2 was not independently solved; understanding remains unassessed after the Q1 correction."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Preferences: course files only; learner attempts practice before answers; check understanding after explanations; assess learning cautiously.",
+            "- Evidence: no learner attempts yet; understanding and independent tracing remain unassessed.",
+            "- Correction: adjacent pairs are (4, 1), (1, 7), (7, 3), giving 3 element-to-element comparisons. Count gaps between neighbors, not elements.",
+            "- Understanding: initial confusion between element count and comparison count; correction needs a follow-up attempt. No mastery established.",
+            "- Evidence: Q2 was not independently solved; understanding remains unassessed after the Q1 correction.",
+            "- Assessment: correct independent application of the adjacent-pair rule and reporting convention. One independent correct attempt supports progress, not mastery; tracing indices, values, and state changes is not yet demonstrated."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Preferences: course files only; learner attempts practice before answers; check understanding after explanations; assess learning cautiously.",
+            "- Evidence: no learner attempts yet; understanding and independent tracing remain unassessed.",
+            "- Correction: adjacent pairs are (4, 1), (1, 7), (7, 3), giving 3 element-to-element comparisons. Count gaps between neighbors, not elements.",
+            "- Understanding: initial confusion between element count and comparison count; correction needs a follow-up attempt. No mastery established.",
+            "- Evidence: Q2 was not independently solved; understanding remains unassessed after the Q1 correction.",
+            "- Assessment: correct independent application of the adjacent-pair rule and reporting convention. One independent correct attempt supports progress, not mastery; tracing indices, values, and state changes is not yet demonstrated.",
+            "- Learner answered 2 comparisons and counted only element-to-element comparisons. Correct.",
+            "- Assessment: Q3 and Q4 show progress applying the adjacent-pair count and reporting convention after the Q1 correction. This does not establish mastery of full loop tracing.",
+            "- Still unassessed: explicitly recording the current index, values read, and each state change in order (Notes \u00a72.1)."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": false,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Preferences: course files only; learner attempts practice before answers; check understanding after explanations; assess learning cautiously.",
+            "- Evidence: no learner attempts yet; understanding and independent tracing remain unassessed.",
+            "- Correction: adjacent pairs are (4, 1), (1, 7), (7, 3), giving 3 element-to-element comparisons. Count gaps between neighbors, not elements.",
+            "- Understanding: initial confusion between element count and comparison count; correction needs a follow-up attempt. No mastery established.",
+            "- Evidence: Q2 was not independently solved; understanding remains unassessed after the Q1 correction.",
+            "- Assessment: correct independent application of the adjacent-pair rule and reporting convention. One independent correct attempt supports progress, not mastery; tracing indices, values, and state changes is not yet demonstrated.",
+            "- Learner answered 2 comparisons and counted only element-to-element comparisons. Correct.",
+            "- Assessment: Q3 and Q4 show progress applying the adjacent-pair count and reporting convention after the Q1 correction. This does not establish mastery of full loop tracing.",
+            "- Still unassessed: explicitly recording the current index, values read, and each state change in order (Notes \u00a72.1)."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Tutoring preferences: let learner attempt before answers unless explicitly requested; check understanding after explanations; assess learning cautiously.",
+            "- Q1: initially counted 4 elements as 4 comparisons; corrected to 3 adjacent-pair comparisons.",
+            "- Q4: correctly answered 2, counting only element-to-element comparisons.",
+            "- Latest convention check: correctly reported 5 comparisons rather than 11 total operations, listed all five pairs in order, and excluded index updates and assignment. This reused Q2, whose count was previously supplied; supports correct reasoning an",
+            "- Assessment: evidence supports adjacent-pair counts and the course reporting convention on practiced examples. Full tracing of indices and state changes remains unassessed; no claim of mastery."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Tutoring preferences: let learner attempt before answers unless explicitly requested; check understanding after explanations; assess learning cautiously.",
+            "- Q1: initially counted 4 elements as 4 comparisons; corrected to 3 adjacent-pair comparisons.",
+            "- Q4: correctly answered 2, counting only element-to-element comparisons.",
+            "- Latest convention check: correctly reported 5 comparisons rather than 11 total operations, listed all five pairs in order, and excluded index updates and assignment. This reused Q2, whose count was previously supplied; supports correct reasoning an",
+            "- Assessment: evidence supports adjacent-pair counts and the course reporting convention on practiced examples. Full tracing of indices and state changes remains unassessed; no claim of mastery.",
+            "- Big-O remains uncovered and unassessed; no outside explanation supplied under the course-files-only constraint."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Tutoring preferences: let learner attempt before answers unless explicitly requested; check understanding after explanations; assess learning cautiously.",
+            "- Q1: initially counted 4 elements as 4 comparisons; corrected to 3 adjacent-pair comparisons.",
+            "- Q4: correctly answered 2, counting only element-to-element comparisons.",
+            "- Latest convention check: correctly reported 5 comparisons rather than 11 total operations, listed all five pairs in order, and excluded index updates and assignment. This reused Q2, whose count was previously supplied; supports correct reasoning an",
+            "- Assessment: evidence supports adjacent-pair counts and the course reporting convention on practiced examples. Full tracing of indices and state changes remains unassessed; no claim of mastery.",
+            "- Big-O remains uncovered and unassessed; no outside explanation supplied under the course-files-only constraint.",
+            "- Available files contain no recursion explanation or examples. No outside explanation supplied under the course-files-only constraint; recursion understanding remains unassessed."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "I\u2019ll compare your recorded work with the current Quiz 4 outline, distinguishing what you\u2019ve demonstrated from what we haven\u2019t assessed.\n\n**I don\u2019t have enough evidence to say you\u2019re ready for all of Quiz 4.** You\u2019ve made progress on one part; three other topics remain unassessed.\n\n| Quiz topic | What you\u2019ve demonstrated | What remains |\n|---|---|---|\n| **List aliasing** | No attempts yet | List references, shared mutations, and shallow copies |\n| **Loop tracing** | Correct Q3 and Q4 counts; correct comparison convention and pair order | Tracing indices and state changes; more independent practice before claiming mastery |\n| **Big-O** | Not assessed | In scope, but your files lack the lecture notes, so we haven\u2019t covered it |\n| **Nested data summaries** | No attempts yet | Computing separate group statistics, means, and labeling results |\n\n\u201cUnassessed\u201d doesn\u2019t mean you don\u2019t know it\u2014it means you haven\u2019t shown it here. Recursion is **not on Quiz 4**, according to the current outline.\n\nI\u2019ve saved this assessment in [progress.md](progress.md). Let\u2019s check aliasing next:\n\n```python\na = [1, 2]\nb = a\nb[0] = 9\n```\n\nWhat does `a` contain afterward, and why?",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Learner attempts questions before answers unless explicitly requested. Check understanding after explanations; do not infer mastery from a few correct answers.",
+            "- P2 Q1: initially counted 4 elements as 4 comparisons; corrected to 3.",
+            "- Q4: correctly answered 2 and counted only element-to-element comparisons.",
+            "- Later check reused Q2: correctly reported 5 comparisons rather than 11 operations, listed all adjacent pairs in order, and excluded updates and assignment. Supports reasoning and pair order, but count was previously supplied.",
+            "## Readiness assessment",
+            "- Cannot yet establish readiness for all of Quiz 4. Distinguish unassessed skills from proven lack of knowledge.",
+            "- P1 aliasing: not taught or assessed here. Need list references, shared mutation after b = a, and shallow copies with shared nested lists (Notes \u00a71).",
+            "- P2 loop tracing: progress on adjacent-pair counts and reporting convention; no mastery claim. Explicit tracing of indices and state changes remains unassessed (Notes \u00a72).",
+            "- P3 Big-O: in scope, but outline says lecture notes not posted. No definition or explanation in available materials; not taught or assessed."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": false,
+          "status_lines": [
+            "# CS 101 Quiz 4 progress",
+            "- Learner attempts questions before answers unless explicitly requested. Check understanding after explanations; do not infer mastery from a few correct answers.",
+            "- P2 Q1: initially counted 4 elements as 4 comparisons; corrected to 3.",
+            "- Q4: correctly answered 2 and counted only element-to-element comparisons.",
+            "- Later check reused Q2: correctly reported 5 comparisons rather than 11 operations, listed all adjacent pairs in order, and excluded updates and assignment. Supports reasoning and pair order, but count was previously supplied.",
+            "## Readiness assessment",
+            "- Cannot yet establish readiness for all of Quiz 4. Distinguish unassessed skills from proven lack of knowledge.",
+            "- P1 aliasing: not taught or assessed here. Need list references, shared mutation after b = a, and shallow copies with shared nested lists (Notes \u00a71).",
+            "- P2 loop tracing: progress on adjacent-pair counts and reporting convention; no mastery claim. Explicit tracing of indices and state changes remains unassessed (Notes \u00a72).",
+            "- P3 Big-O: in scope, but outline says lecture notes not posted. No definition or explanation in available materials; not taught or assessed."
+          ],
+          "recheck_lines": []
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1d836-3469-7600-8e55-808b67ac1729"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "**Hi student, let's get you uncooked.**\n\nHere’s an original practice question:\n\nA class has 50 students. Of these, 20 commute. Among the commuters, 8 cycle to campus.\n\nMaya says: “If 10 noncommuting students join the class, the percentage **of commuters who cycle** will decrease because the class is bigger.”\n\n**Is Maya right?** Give the percentage before and after, name the reference group, and explain your reasoning.\n\n*Based on [Notes §1.1–1.4](materials/notes.md).*"}}
+{"type": "turn.completed", "usage": {"input_tokens": 221730, "cached_input_tokens": 178560, "cache_write_input_tokens": 0, "output_tokens": 1557, "reasoning_output_tokens": 191}}

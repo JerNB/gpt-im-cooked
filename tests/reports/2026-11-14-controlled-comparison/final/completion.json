@@ -1,0 +1,11 @@
+{
+  "status": "REVIEW",
+  "complete_sessions": 16,
+  "complete_student_calls": 176,
+  "pending": "cc cross-review; no author self-approval or merge",
+  "new_session_source": "recovery-final-A1-S-rep2",
+  "frozen_B": "97be172",
+  "frozen_C": "4d102f6",
+  "preserved_existing_judgments": 15,
+  "later_cc_commits_used_in_tutoring_sample": false
+}

@@ -1,0 +1,56 @@
+# Learning record
+
+## Study setup
+
+- Quick start shown: Yes
+- Preferred review output: Unknown; conversational review by default, with artifacts when requested
+- Save preference: Batch after five tutoring turns with meaningful changes, or earlier at checkpoints; honor an explicit override
+
+## Active course and exam
+
+STAT 110 Midterm 1; see course-profile.md.
+
+## Concepts
+
+| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |
+|---|---|---|---|---|---|
+| T1 | Conditional probability: reference group | Demonstrated | Q1 total-sample denominator error followed by correct Q3/Q4 explanations and independent CP-T1 transfer: constructed 20 volunteers from 12 senior and 8 nonsenior volunteers, explicitly rejecting 30 seniors and 50 members. Transfer changed denominator construction and conditioning focus. Same-session evidence: Recheck before exam. | Choose and, when needed, construct the group asked about (Notes sections 1.1-1.3). | Later unaided application after another topic or in a later session; Recheck before exam. |
+| T2 | Two-way tables: row and column percentages | Unassessed | In scope; no student attempt reviewed. | Notes section 2; no diagnosed misconception. | Explain and assess row versus column percentages. |
+| T3 | Bayes rule | Unassessed | In scope; requested explanation but teaching source missing; no student attempt. | Await course excerpt; optional general explanation offered but not accepted. | Obtain teaching notes, explain, and assess. |
+| T4 | Grouped summaries | Unassessed | In scope; no student attempt reviewed. | Notes section 3; no diagnosed misconception. | Explain and assess grouping, output rows, comparable summaries. |
+
+## Attempt history
+
+| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |
+|---|---|---|---|---|---|---|---|
+| 2026-11-14 | Practice A Q1 / chat attempt 1 | T1 | "10/40 = 25%. I divided by all 40 students because the question starts with 40 students." | Incorrect denominator; arithmetic correct; reporting incomplete | Prior general concept explanation; no Q1-specific hint before answer; solution revealed in feedback | Instructor key: materials/practice-key.md Q1 | Use 10/25; report 40.0% of commuters cycle. |
+| 2026-11-14 | Practice A Q3 / chat attempt 1 | T1 | "4/12 = 33.3% of seniors. The reference group is the 12 seniors, so they are the denominator. I did not use a hint." | Correct result, reference group, reasoning, and reporting | Student reports no hint; no Q3-specific hint or solution shown in chat; follows general teaching and Q1 correction. Q2 answer previously revealed on request and is unattempted. | Instructor key: materials/practice-key.md Q3 | Correct same-structure application; Improving, not yet Demonstrated. |
+| 2026-11-14 | Practice A Q4 / chat attempt 1 | T1 | "9/20 = 45.0% of online shoppers. The denominator is the 20 online shoppers." | Correct calculation, reference group, reasoning, and reporting | No Q4-specific hint or solution shown before answer; follows concept teaching and Q1/Q3 feedback | Instructor key: materials/practice-key.md Q4 | Correct same-structure success; remains Improving. |
+| 2026-11-14 | CP-T1 / chat attempt 1 | T1 | "60.0% of volunteers are seniors. The reference group is all volunteers: 12 seniors plus 8 non-seniors, giving 20 volunteers. The numerator is 12 senior volunteers, so 12/(12+8)=12/20 gives 60.0%. The 30 seniors and 50 club members are not the requested reference group." | Correct transfer explanation and percentage; rejected irrelevant totals | Independent response in chat: no task-specific hint or solution exposed before submission; prior concept instruction | Verified computation and Reasoned solution: outputs/conditional-transfer-CP-T1-key.md; Notes sections 1.1-1.4 | Demonstrated with Q3/Q4 and this changed-reasoning transfer. Same-session evidence; Recheck before exam. |
+
+## Import ledger
+
+| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |
+|---|---|---|---|---|---|
+
+Use existing entries to avoid counting repeat imports as new attempts. Missing legacy identities remain explicitly unknown.
+
+## Student-reported difficulties
+
+None recorded. Preserve self-reports separately from verified attempts.
+
+## Open questions
+
+- Bayes rule teaching notes missing; general explanation offered but not yet accepted.
+- Exam duration and detailed format unknown.
+
+## Next session
+
+- Current activity: CP-T1 transfer reviewed; correct 60.0% of volunteers are seniors.
+- Transfer setup: 50 club members, 30 seniors, 12 senior volunteers, 8 nonsenior volunteers. Student independently constructed denominator 20 and rejected 30 and 50. Key: outputs/conditional-transfer-CP-T1-key.md.
+- Recent evidence: Q1 error preserved; Q2 unattempted with solution revealed; Q3/Q4 correct; CP-T1 independent changed-reasoning transfer.
+- Readiness judgment: T1 Demonstrated from distinct reasoning contexts; all supporting successes in this session. Recheck before exam.
+- Next action: Move to two-way tables (materials/notes.md section 2), then later unaided conditional-probability recheck.
+- Unattempted older prompts: Q3/Q4 all-members variants were not answered and do not count as evidence.
+- Source gap: Bayes teaching notes not posted (outline).
+- Persistence: Saved in learning-record.md.

@@ -1,0 +1,1 @@
+50.0% of instrument players also play a sport. The reference group is the 16 instrument players. Eight of them play a sport, so I use 8/16, not 8/20 or 8/50.

@@ -1,0 +1,13 @@
+{
+  "human_confirmed": true,
+  "packet": "S",
+  "replicate": 2,
+  "order": [
+    "D",
+    "C"
+  ],
+  "allowed_calls": 22,
+  "stop_on_quota_failure": true,
+  "batch04_requires_confirmation": true,
+  "independent_Luna_blind_review_authorized": true
+}

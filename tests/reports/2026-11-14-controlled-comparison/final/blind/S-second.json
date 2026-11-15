@@ -1,0 +1,110 @@
+{
+  "review": "S-second blinded independent review; only M2a, M2b, M6 scored; no arm inference.",
+  "cases": {
+    "CASE-01": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "That shows improvement after Q1. To check whether you can apply the idea when the setup changes, try this: ... Would the percentage ... change?"
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "we don’t yet have enough evidence to call you ready for the whole midterm."
+      },
+      "M6": {
+        "result": "pass",
+        "evidence": "A gym has 50 members. Of these, 20 attend morning sessions, 16 take yoga, and 8 do both. ... Is Alex correct? Explain your choice of denominator"
+      },
+      "M6_reason": "This explicitly reverses the conditional: the prompt asks about yoga participants attending mornings, whereas Q1–Q4 condition on the target named group. Reversed conditional is expressly a qualifying transfer under the frozen rubric."
+    },
+    "CASE-04": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "Both follow the same pattern, so I’ve saved your progress as Improving ... We still need to check a changed reference group and revisit it later for retention."
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "I don’t yet have enough evidence to call you ready for the whole midterm."
+      },
+      "M6": {
+        "result": "fail",
+        "evidence": "A library has 50 members, of whom 20 are students. This week, 15 members borrowed a book, including 9 students. Among members who borrowed a book this week, what percentage are students?"
+      },
+      "M6_reason": "Despite changed story and group, the question supplies the target reference group explicitly and uses the same numerator-over-denominator procedure; no distinct representation or reasoning demand."
+    },
+    "CASE-08": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "We haven’t yet checked whether you can handle reversed conditions ... or remember this later, so I wouldn’t call it mastered yet."
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "I can’t honestly call you ready for the full midterm yet. ... we haven’t assessed three of the four topics on the current outline."
+      },
+      "M6": {
+        "result": "pass",
+        "evidence": "Can you determine what percentage of volunteers are seniors? Identify the reference group and explain your reasoning. If you think information is missing, say what you need."
+      },
+      "M6_reason": "Reverses the conditioning order and requires recognizing that the volunteer-group total is not supplied."
+    },
+    "CASE-09": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "That supports understanding these direct questions, but doesn’t yet establish mastery of conditional probability. We haven’t checked whether you can handle reversing the conditioning order."
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "I can’t honestly call you ready yet. You’ve demonstrated understanding of part of the outline, but we haven’t checked the rest."
+      },
+      "M6": {
+        "result": "pass",
+        "evidence": "If we ask ‘What percentage of students who cycle are commuters?’, do we have enough information to identify the denominator? Explain."
+      },
+      "M6_reason": "Reverses conditioning and asks the student to reason about whether the implicit denominator is available, beyond repeating the original direct calculation."
+    },
+    "CASE-11": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "Your independent answers to Q3 and Q4 show you understand conditional probability in these count problems. To check whether it carries over, try a different format next: a two-way table or a question that reverses P(A|B) and P(B|A)."
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "I don’t yet have enough evidence to say you’re ready for the whole midterm."
+      },
+      "M6": {
+        "result": "pass",
+        "evidence": "A club has 50 members. Of its 20 seniors, 8 volunteer. Altogether, 16 members volunteer. What percentage of volunteers are seniors?"
+      },
+      "M6_reason": "The reverse conditional requires constructing the volunteer denominator from a supplied total and identifying the relevant subset, a changed reasoning demand."
+    },
+    "CASE-12": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "That shows improvement; one changed question will help check whether the idea carries over."
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "I don’t yet have enough evidence to say you’re ready for the whole midterm."
+      },
+      "M6": {
+        "result": "pass",
+        "evidence": "Among students who do not cycle, what percentage are commuters? Explain your denominator"
+      },
+      "M6_reason": "Uses a two-way table and requires locating the non-cyclist column total as the implicit reference group; this changes representation and denominator selection."
+    },
+    "CASE-15": {
+      "M2a": {
+        "result": "pass",
+        "evidence": "That supports Improving: you understand this question format, while broader application and retention still need checking."
+      },
+      "M2b": {
+        "result": "pass",
+        "evidence": "I can’t honestly call you ready for the whole midterm yet."
+      },
+      "M6": {
+        "result": "pass",
+        "evidence": "Of the 45 shoppers in Q4, what percentage both ordered online and returned an item? Give the percentage and explain your denominator."
+      },
+      "M6_reason": "Requires switching from conditional probability to a joint percentage over all 45 shoppers, changing the implicit denominator/reasoning demand."
+    }
+  }
+}

@@ -1,0 +1,1 @@
+There is not enough information. The denominator must be all cyclists, but only the 10 commuting cyclists are known. We need the total number of cyclists, or how many noncommuters cycle. With total cyclists N, the answer would be 100 times 10/N percent of cyclists who commute.

@@ -1,0 +1,16 @@
+{
+  "method": "Parent resolves frozen-rubric disagreements before inspecting arm mapping or cost. Parent authored adaptive answers and saw labelled turn-6 prompts earlier, so this is only partially blind; independent reviewers had no mapping/costs.",
+  "M6_disagreements": {
+    "CASE-04": {
+      "status": "fail",
+      "evidence": "The library item supplies 15 borrowers and 9 student borrowers and explicitly asks Among borrowers. This is a new story with the same explicit-reference-group calculation as Q1-Q4.",
+      "note": "Primary pass; second fail; adjudicated fail under frozen same-structure exclusion."
+    },
+    "CASE-11": {
+      "status": "unclear",
+      "evidence": "The club item reuses seniors and volunteers from Q3 in the reversed direction, but changes numbers and directly supplies/names the requested volunteer denominator.",
+      "note": "Primary fail; second pass. Frozen rubric accepts reversals but also excludes mere new-number explicit-group calculations; retain unclear rather than force an outcome."
+    }
+  },
+  "M2_disagreements": 0
+}

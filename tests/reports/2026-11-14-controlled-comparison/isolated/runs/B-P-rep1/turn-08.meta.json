@@ -1,0 +1,19 @@
+{
+  "arm": "B",
+  "packet": "P",
+  "replicate": 1,
+  "turn": 8,
+  "start_unix": 1794631100.8650243,
+  "wall_seconds": 17.66,
+  "returncode": 0,
+  "usage": {
+    "input_tokens": 513020,
+    "cached_input_tokens": 462848,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 7169,
+    "reasoning_output_tokens": 1127
+  },
+  "complete": true,
+  "error": null,
+  "external_skill_commands": []
+}

@@ -1,0 +1,1 @@
+50.0% of volunteers are seniors. The reference group is the 18 volunteers. Nine are seniors, so I divide 9 by 18 rather than by 24 or 60.

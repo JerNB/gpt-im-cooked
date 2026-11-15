@@ -1,0 +1,76 @@
+# Learning record
+
+## Study setup
+
+- Quick start shown: Yes
+- Preferred review output: Unknown; conversational review by default, with artifacts when requested
+- Save preference: Batch after five tutoring turns with meaningful changes, or earlier at checkpoints; honor an explicit override
+
+## Active course and exam
+
+STAT 110, Midterm 1; course-profile.md.
+
+## Concepts
+
+| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |
+|---|---|---|---|---|---|
+| T1 | Conditional probability | Demonstrated | Q3 and Q4 correct with reference-group reasoning; T1-reverse-01 correctly rejects reversed-conditional claim and explains changed denominator. Transfer changes the reasoning demand from direct computation to evaluating reversed conditioning. All successes in the same teaching session: Recheck before exam. Q1 error retained in history. | Choose the group after the condition as denominator; reversing conditioning changes the reference group (Notes 1.2-1.3) | Later unaided application after other topics or in a later session; recheck before exam |
+| T2 | Two-way tables: row and column percentages | Unassessed | In scope; not yet taught or attempted in this session; no error inferred | Notes 2.1-2.3 supply teaching basis | Explain reference-group choice in a two-way table, then check an unaided application |
+| T3 | Bayes' rule | Unassessed | In scope, but teaching content absent; student requested explanation, which was not given | No formula or method verified from course materials | Obtain supplied lecture notes; optional general explanation offered but not accepted |
+| T4 | Grouped summaries | Unassessed | In scope; not yet taught or attempted in this session; no error inferred | Notes 3.1-3.3 supply teaching basis | Review one row per non-empty group and comparisons using the same summary |
+
+## Attempt history
+
+| Date when known | Attempt ID / item locator | Concept ID | Student answer or link | Outcome | Assistance | Answer evidence | Feedback |
+|---|---|---|---|---|---|---|---|
+| 2026-11-13 | Practice A Q1, first submitted attempt | T1 | 10/40 = 25%; 'I divided by all 40 students because the question starts with 40 students.' | Incorrect reference group; arithmetic correct | Prior general worked example shown; no Q1-specific hint before submission | Instructor key, materials/practice-key.md Q1 | Denominator is 25 commuters; answer 40.0% of commuters; include reference group and one decimal place |
+| 2026-11-13 | Practice A Q2, answer request | T1 | Student explicitly had not tried Q2 and requested the answer | Unattempted; no correctness evidence | Full solution shown: 6/24 = 25.0% of remote workers | Instructor key, materials/practice-key.md Q2 | Answer exposure only; no progress credit |
+| 2026-11-13 | Practice A Q3, first submitted attempt | T1 | "4/12 = 33.3% of seniors. The reference group is the 12 seniors, so they are the denominator. I did not use a hint." | Correct calculation, reference-group reasoning, and reporting format | No Q3-specific hint or answer shown before response; student reports no hint; earlier examples and Q2 solution available | Instructor key, materials/practice-key.md Q3 | Improving following Q1 error; same-structure success, not independent transfer |
+| 2026-11-13 | Practice A Q4, first submitted attempt | T1 | "9/20 = 45.0% of online shoppers. The denominator is the 20 online shoppers." Asked whether conditional probability is now understood. | Correct calculation, denominator explanation, and reporting format | No Q4-specific hint or answer shown before response; previous worked examples and feedback available | Instructor key, materials/practice-key.md Q4 | Further same-structure success; keep Improving and check changed conditioning group plus later retention |
+| 2026-11-13 | T1-reverse-01, first submitted attempt | T1 | No, the conclusion is wrong. "Of cyclists" makes the 10 cyclists the reference group, not the 20 commuters. 8 of the 10 cyclists commute, so 8/10 x 100 = 80.0%. 80.0% of cyclists are commuters, while 40.0% of commuters cycle; reversing the condition changes the denominator. | Correct percentage, reference group, and explanation of reversed conditioning | No task-specific hint or solution before submission; earlier general teaching and practice feedback available; independent transfer within this session | Verified computation and reasoned solution, outputs/conditional-check-key.md T1-reverse-01 | Promote to Demonstrated based on explained Q3/Q4 applications plus reviewed transfer; Recheck before exam |
+
+## Import ledger
+
+| Course/artifact/version | Session / attempt ID | Original export path / SHA-256 when available | Reviewed snapshot or revision | Review date / feedback path | Supersedes / reason |
+|---|---|---|---|---|---|
+
+Use existing entries to avoid counting repeat imports as new attempts. Missing legacy identities remain explicitly unknown.
+
+## Student-reported difficulties
+
+None recorded. Preserve self-reports separately from verified attempts.
+
+## Open questions
+
+None recorded.
+
+## Next session
+
+- Current activity: Midterm readiness review on 2026-11-13. Cannot confirm whole-exam readiness: T1 Demonstrated in this session, T2-T4 unassessed; T3 teaching source missing.
+- Current question/source locator and unresolved step: T1-reverse-01 complete; key at outputs/conditional-check-key.md. Student explains 8/10 = 80.0% of cyclists versus 8/20 = 40.0% of commuters. No unresolved step on this question.
+- Useful student reasoning and assistance already shown: Correct reversed-condition reasoning on T1-reverse-01 without task-specific hint/reveal. Q1-Q4 and transfer solutions now exposed; Q2 was unattempted. Earlier optional Q3 whole-club and Q4 returners variations were not attempted and are not errors.
+- Unresolved scope/source gaps: Bayes teaching notes missing; exact exam date and format unconfirmed.
+- Concepts to revisit: T1 later unaided retention check before exam remains due. T2 and T4 need review and assessment; T3 needs course teaching source and assessment.
+- Artifacts to reopen: materials/notes.md; outputs/conditional-check-key.md (contains solution).
+- Next action: Move to two-way tables (Notes section 2); later return to an unaided conditional-probability application before the exam.
+- Persistence: learning-record.md in the student workspace.
+
+## Initial teaching context
+
+- T1 Conditional probability: Initially unassessed; superseded by reviewed Q1 evidence in Concepts and Attempt history.
+- Planned worked example: 100 students, 40 commuters, 10 commuters who bike, 20 total students who bike. Compare bike among commuters and commuters among cyclists using Notes 1.1-1.4. Tutor explanation supplies the solution; it is not student attempt evidence.
+- Bayes' rule is in scope but teaching notes are missing. Exact exam date and format remain unconfirmed.
+
+
+
+
+
+
+## Readiness review: 2026-11-13
+
+- Evidence supports conditional probability in this session: corrected trajectory after Q1, correct explained Q3 and Q4, and successful reversed-condition transfer T1-reverse-01. Recheck before exam; retention remains untested.
+- Two-way tables and grouped summaries have not been taught or assessed here. They are unassessed, not confirmed weaknesses or claims the student has never learned them elsewhere.
+- Bayes' rule is in scope (outline T3) but missing from supplied teaching notes. Explanation requested; missing-source limitation and optional general explanation offered, not accepted. No Bayes teaching or performance evidence.
+- Hypothesis testing is excluded from the current midterm (outline, Not on this midterm), despite the student's report about last year's paper. Explanation requested but no teaching given; optional general explanation not accepted. Historical paper remains unread and does not supersede current scope.
+- No numerical readiness score, pass prediction, or full-exam readiness claim is supported. Q2 remains unattempted with answer revealed, not a correct independent attempt.
+- Next action: Review two-way tables from Notes section 2, then grouped summaries from section 3; obtain Bayes notes and complete mixed independent practice. Include a later conditional-probability retention check.

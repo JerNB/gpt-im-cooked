@@ -1,0 +1,97 @@
+[
+  {
+    "arm": "C",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 7,
+    "start_unix": 1794716675.3162591,
+    "wall_seconds": 31.3,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 793970,
+      "cached_input_tokens": 725504,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8418,
+      "reasoning_output_tokens": 598
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "C",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 8,
+    "start_unix": 1794716707.0584478,
+    "wall_seconds": 13.02,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 880493,
+      "cached_input_tokens": 811392,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8680,
+      "reasoning_output_tokens": 660
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "C",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 9,
+    "start_unix": 1794716720.9671628,
+    "wall_seconds": 11.19,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 924077,
+      "cached_input_tokens": 854784,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8926,
+      "reasoning_output_tokens": 785
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "C",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 10,
+    "start_unix": 1794716733.2702546,
+    "wall_seconds": 44.69,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 1063315,
+      "cached_input_tokens": 990208,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 10662,
+      "reasoning_output_tokens": 824
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "C",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 11,
+    "start_unix": 1794716778.7518213,
+    "wall_seconds": 29.86,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 81859,
+      "cached_input_tokens": 56192,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 718,
+      "reasoning_output_tokens": 116
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  }
+]
