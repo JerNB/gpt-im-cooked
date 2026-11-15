@@ -1,6 +1,6 @@
 # Skill cost optimization — design (T006)
 
-Status: **design only. No skill or script change has been made.** Author: cc. Base: `cc/T003-skill-revision` at `656b5f7` (skill tree = arm C, `4d102f6`). Evidence: T004 controlled comparison at `79f3676` (`tests/reports/2026-11-14-controlled-comparison/` on `codex/T004-controlled-comparison`).
+Status: **D1-D5 implemented on `cc/T006-cost-optimization` as arm D; not yet measured with a model.** See "Implementation status" at the end. Author: cc. Base: `cc/T003-skill-revision` at `656b5f7` (skill tree = arm C, `4d102f6`). Evidence: T004 controlled comparison at `79f3676` (`tests/reports/2026-11-14-controlled-comparison/` on `codex/T004-controlled-comparison`).
 
 ## 1. Problem
 
@@ -142,3 +142,15 @@ S1 save triggers, R4, R6, grounding rules, progress labels, the six-column Conce
 3. cc: skill text (D1 wording, D2, D3 split, D4, D5) + allowlist; freeze as arm D.
 4. Codex: source review, then the C-vs-D comparison under a new task card.
 5. Version bump and new ZIPs only after cross-review; v2.0.0 archives untouched.
+
+## 9. Implementation status (2026-11-14)
+
+Implemented as designed, with these differences from the estimates above:
+
+- **D1** `record_io.py save`: JSON on standard input or `--changes`; `--create` starts missing files from the templates; all changes are validated in memory before any write, so a bad change to one file never lets the other file change; exit status 3 with `current_sections` on a stale hash; one JSON result line with hashes, concept statuses and a non-blocking warning for a Demonstrated row that names no transfer task (open question 2: warn, do not reject). `read`, `update` and `commit` are unchanged; `update` now shares the section-apply code.
+- **D2** records are created by the first save, not on a first explanation.
+- **D3** `state.md` is split into `state.md` (core), `state-imports.md` and `state-reference.md`; moved paragraphs are verbatim. **The core file is about 3.2k tokens, not the 1.5k target**: the save triggers, learning-record rules, progress labels and handoff rules were kept whole rather than condensed, to avoid changing behaviour in the same revision. The D3 saving should be expected nearer -40k than -100k per session.
+- **D4** explicit reading list in `SKILL.md` "Start from a short request"; **D5** marker once per reply.
+- Package allowlist lists the two new reference files. No version bump and no ZIP rebuild: `check_distribution.py` still fails against the v2.0.0 archives, as on main.
+
+Verified without model calls: `check_state_io.py` (extended for `save`: templates, default key columns, no-op, conflict merge data, all-or-nothing across both files, foreign lock, CLI exit codes), `validate_package.py`, and the eight other regression scripts. **Not verified:** that a model actually uses `save` in one call, the token effect of any change, and the absence of behaviour regressions. Those are the purpose of the C-versus-D comparison in section 6.

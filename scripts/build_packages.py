@@ -11,7 +11,8 @@ PLUGIN = ROOT / 'plugins/gpt-im-cooked'
 SKILL_FILES = {
     'SKILL.md', 'agents/openai.yaml', 'assets/first-use.md',
     'assets/course-profile.md', 'assets/learning-record.md',
-    'references/state.md', 'references/practice-and-feedback.md',
+    'references/state.md', 'references/state-imports.md', 'references/state-reference.md',
+    'references/practice-and-feedback.md',
     'references/review-artifacts.md', 'references/interactive-review.md',
     'references/webpage-prompts.md',
     'references/concept-tutoring.md',

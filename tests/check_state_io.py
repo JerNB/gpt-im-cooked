@@ -131,6 +131,102 @@ def check_sections(io, root):
     assert json.loads(run.stdout)['content'] == 'keep\r\nmore', run.stdout
 
 
+def check_save(io, root):
+    """One-command checkpoint: both study files, templates, defaults, conflicts, and all-or-nothing writes."""
+    import json, subprocess, sys
+    helper = ROOT / 'plugins/gpt-im-cooked/skills/gpt-im-cooked/scripts/record_io.py'
+    study = root / 'study' / 'stat' / 'midterm'
+    record, profile = study / 'learning-record.md', study / 'course-profile.md'
+    concept = '| T1 | Conditional probability | Needs practice | Q1 denominator error | Use the reference group | Retry |'
+    attempt = '| 2026-11-14 | Q1 / attempt 1 | T1 | 10/40 | Incorrect | None | Instructor key | Use 25 |'
+    first = {'record': {'Concepts': {'mode': 'upsert-rows', 'rows': [concept]},
+                        'Attempt history': {'mode': 'upsert-rows', 'rows': [attempt]},
+                        'Next session': {'mode': 'replace', 'text': '- Next action: retry Q1'}},
+             'profile': {'Course scope': {'mode': 'upsert-rows', 'rows': ['| T1 | Conditional probability | In | Notes 1 | None |']}}}
+
+    # Missing files are refused without --create and nothing appears on disk.
+    fails(lambda: io.save_records(study, first))
+    assert not study.exists()
+    saved = io.save_records(study, first, allow_create=True)
+    assert saved['saved'] and saved['changed'] == {'profile': True, 'record': True}
+    assert saved['statuses'] == {'T1': 'Needs practice'} and 'warnings' not in saved
+    text = record.read_text(encoding='utf-8')
+    assert concept in text and attempt in text and '- Next action: retry Q1' in text
+    assert '## Import ledger' in text and '## Open questions' in text, 'template sections are kept'
+    assert '| T1 | Conditional probability | In |' in profile.read_text(encoding='utf-8')
+    assert not list(study.glob('*.lock')) and not list(study.glob('*.tmp')) and not list(study.glob('*.bak'))
+
+    # A repeated identical save changes no bytes and writes no backup.
+    before = (record.read_bytes(), profile.read_bytes())
+    again = io.save_records(study, first)
+    assert again['changed'] == {'profile': False, 'record': False} and (record.read_bytes(), profile.read_bytes()) == before
+    assert not list(study.glob('*.bak'))
+
+    # Upsert replaces the concept row by ID; attempts key on the attempt column, so the same date can repeat.
+    promoted = concept.replace('Needs practice', 'Demonstrated')
+    second_attempt = '| 2026-11-14 | Q3 / attempt 1 | T1 | 4/12 | Correct | None | Instructor key | Good |'
+    saved = io.save_records(study, {'record': {'Concepts': {'mode': 'upsert-rows', 'rows': [promoted]},
+                                               'Attempt history': {'mode': 'upsert-rows', 'rows': [second_attempt]}}},
+                            expected={'record': again['record_sha256']})
+    text = record.read_text(encoding='utf-8')
+    assert text.count('| T1 |') == 3 and concept not in text and attempt in text and second_attempt in text
+    assert saved['statuses'] == {'T1': 'Demonstrated'} and saved['warnings'], 'Demonstrated without a transfer note warns'
+    assert Path(str(record) + '.bak').read_text(encoding='utf-8').count('Needs practice') == 1
+    assert 'profile' not in saved['changed'] and profile.read_bytes() == before[1], 'untouched file stays untouched'
+
+    # A stale hash writes nothing and returns only the requested sections for merging.
+    current = record.read_bytes()
+    try:
+        io.save_records(study, {'record': {'Next session': {'mode': 'replace', 'text': '- stale'}}},
+                        expected={'record': again['record_sha256']})
+        raise AssertionError('stale hash must conflict')
+    except io.SaveConflict as conflict:
+        assert conflict.payload['saved'] is False and conflict.payload['current_sha256'] == saved['record_sha256']
+        assert list(conflict.payload['current_sections']) == ['Next session']
+        assert conflict.payload['current_sections']['Next session'] == '- Next action: retry Q1'
+    assert record.read_bytes() == current
+
+    # All-or-nothing: a bad record change must not let the profile change through.
+    for bad in ({'Concepts': {'mode': 'upsert-rows', 'rows': ['| too | few |']}},
+                {'No such section': {'mode': 'replace', 'text': 'x'}},
+                {'Next session': {'mode': 'replace', 'text': '## Injected heading'}},
+                {'Next session': {'mode': 'rewrite', 'text': 'x'}},
+                {'Concepts': {'mode': 'upsert-rows', 'rows': []}},
+                {'Next session': {'mode': 'replace'}}):
+        fails(lambda bad=bad: io.save_records(study, {'profile': {'Course scope': {'mode': 'upsert-rows', 'rows': [
+            '| T9 | Leaked | In | none | none |']}}, 'record': bad}))
+        assert record.read_bytes() == current and profile.read_bytes() == before[1], bad
+    fails(lambda: io.save_records(study, {'other': {}}))
+    fails(lambda: io.save_records(study, {}))
+
+    # A lock left by another writer blocks the save and is not removed.
+    lock = Path(str(record) + '.lock')
+    lock.touch()
+    fails(lambda: io.save_records(study, {'record': {'Next session': {'mode': 'replace', 'text': '- blocked'}}}))
+    assert lock.exists() and record.read_bytes() == current
+    lock.unlink()
+
+    # CLI: JSON on standard input, one output line, exit 3 with merge data on conflict, exit 1 on bad input.
+    def cli(payload, *extra):
+        return subprocess.run([sys.executable, '-B', str(helper), 'save', '--dir', str(study), *extra],
+                              input=json.dumps(payload).encode('utf-8'), capture_output=True)
+    run = cli({'record': {'Next session': {'mode': 'replace', 'text': '- Next action: transfer check'}}},
+              '--expected-sha256', saved['record_sha256'])
+    assert run.returncode == 0 and len(run.stdout.strip().splitlines()) == 1, run.stderr
+    out = json.loads(run.stdout)
+    assert out['saved'] and '- Next action: transfer check' in record.read_text(encoding='utf-8')
+    run = cli({'record': {'Next session': {'mode': 'replace', 'text': '- stale'}}}, '--expected-sha256', saved['record_sha256'])
+    assert run.returncode == 3 and json.loads(run.stdout)['current_sha256'] == out['record_sha256']
+    assert '- Next action: transfer check' in record.read_text(encoding='utf-8')
+    run = subprocess.run([sys.executable, '-B', str(helper), 'save', '--dir', str(study)], input=b'{not json', capture_output=True)
+    assert run.returncode == 1 and not run.stdout.strip()
+    fresh = root / 'study' / 'new-course'
+    run = subprocess.run([sys.executable, '-B', str(helper), 'save', '--dir', str(fresh), '--create'],
+                         input=json.dumps({'record': {'Concepts': {'mode': 'upsert-rows', 'rows': [concept]}}}).encode('utf-8'),
+                         capture_output=True)
+    assert run.returncode == 0 and (fresh / 'learning-record.md').is_file() and not (fresh / 'course-profile.md').exists()
+
+
 def main():
     io = module('record_io', ROOT / 'plugins/gpt-im-cooked/skills/gpt-im-cooked/scripts/record_io.py')
     builder = module('builder', ROOT / 'scripts/build_packages.py')
@@ -170,6 +266,7 @@ def main():
         assert record.read_text() == Path(str(record)+'.bak').read_text()
         assert not lock.exists() and not list(root.glob('*.tmp'))
         check_sections(io, root)
+        check_save(io, root)
         package = root/'package'
         package.mkdir()
         (package/'SKILL.md').write_text('# Skill')
@@ -179,7 +276,8 @@ def main():
         (package/'private-attempt.json').unlink()
         fails(lambda: builder.collect_files(package, {'SKILL.md', 'missing.md'}))
     print('PASS: create/no-change/backup/conflict/lock/invalid/write failure, section read/replace/append/upsert-rows '
-          '(other sections unchanged, rejections leave bytes alone, CRLF/BOM kept) and package rejection')
+          '(other sections unchanged, rejections leave bytes alone, CRLF/BOM kept), one-command save '
+          '(templates, default keys, no-op, conflict merge data, all-or-nothing, lock, CLI) and package rejection')
 
 
 if __name__ == '__main__':

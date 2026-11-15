@@ -12,6 +12,17 @@ Commands:
                    every --key-column HEADER given) match an existing row replaces it,
                    otherwise it is added after the table's last row
 
+  save   --dir STUDY_DIR [--create] [--expected-sha256 HASH] [--changes FILE]
+                                        one checkpoint in one call. JSON on standard input:
+                                        {"record": {"<section>": {"mode": "upsert-rows", "rows": ["| ... |"]},
+                                                    "<section>": {"mode": "replace" | "append", "text": "..."}},
+                                         "profile": {...same shape, optional...}}
+      Applies every change to course-profile.md and learning-record.md (record last), creating
+      missing files from the bundled templates with --create. Attempt history and Import ledger
+      use their identity columns as row keys by default. Prints one JSON line with the new
+      hashes and concept statuses. If --expected-sha256 no longer matches, nothing is written,
+      exit status is 3, and the line holds the current text of the requested sections to merge.
+
 Every write checks the whole-file SHA-256, takes a lock, keeps `<record>.bak`, and
 verifies the written bytes. No semantic grading, multi-file transaction, or
 protection against writers that ignore this helper. Python 3.10+, stdlib only.
@@ -22,6 +33,7 @@ import hashlib
 import json
 import os
 import re
+import sys
 import tempfile
 
 BOM = b'\xef\xbb\xbf'
@@ -235,6 +247,34 @@ def upsert_rows(body, new_rows, key_columns=None):
     return {'rows_replaced': replaced, 'rows_added': len(added)}
 
 
+def apply_section(text, name, new, mode, key_columns=None):
+    """Return (new text, details) with one `## name` section changed; every other byte is kept."""
+    if mode not in ('replace', 'append', 'upsert-rows'):
+        raise ValueError('mode must be replace, append, or upsert-rows')
+    nl = '\r\n' if '\r\n' in text else '\n'
+    lines, sections = split_sections(text)
+    section, start, end = find_section(sections, name)
+    body = [line.rstrip('\r\n') for line in lines[start + 1:end]]
+    while body and not body[-1].strip():
+        body.pop()
+    while body and not body[0].strip():
+        body.pop(0)
+    details = {'section': section, 'mode': mode}
+    if mode == 'replace':
+        body = list(new)
+    elif mode == 'append':
+        body = body + list(new)
+    else:
+        details.update(upsert_rows(body, list(new), key_columns))
+    is_last = end == len(lines)
+    block = nl + nl.join(body) + nl + ('' if is_last else nl)
+    heading = lines[start] if lines[start].endswith(('\n', '\r')) else lines[start] + nl
+    result = ''.join(lines[:start]) + heading + block + ''.join(lines[end:])
+    if [s[0] for s in split_sections(result)[1]] != [s[0] for s in sections]:
+        raise ValueError('The update would change the record\'s section structure; nothing was written')
+    return result, details
+
+
 def update_section(path, name, fragment, expected, mode, key_columns=None):
     if mode not in ('replace', 'append', 'upsert-rows'):
         raise ValueError('mode must be replace, append, or upsert-rows')
@@ -244,31 +284,123 @@ def update_section(path, name, fragment, expected, mode, key_columns=None):
         if not exists:
             raise ValueError('Record does not exist; create it from the template with commit')
         bom = BOM if old.startswith(BOM) else b''
-        text = old.decode('utf-8-sig')
-        nl = '\r\n' if '\r\n' in text else '\n'
-        lines, sections = split_sections(text)
-        section, start, end = find_section(sections, name)
-        body = [line.rstrip('\r\n') for line in lines[start + 1:end]]
-        while body and not body[-1].strip():
-            body.pop()
-        while body and not body[0].strip():
-            body.pop(0)
-        details = {'section': section, 'mode': mode}
-        if mode == 'replace':
-            body = list(new)
-        elif mode == 'append':
-            body = body + new
-        else:
-            details.update(upsert_rows(body, new, key_columns))
-        is_last = end == len(lines)
-        block = nl + nl.join(body) + nl + ('' if is_last else nl)
-        heading = lines[start] if lines[start].endswith(('\n', '\r')) else lines[start] + nl
-        result = ''.join(lines[:start]) + heading + block + ''.join(lines[end:])
-        if [s[0] for s in split_sections(result)[1]] != [s[0] for s in sections]:
-            raise ValueError('The update would change the record\'s section structure; nothing was written')
+        result, details = apply_section(old.decode('utf-8-sig'), name, new, mode, key_columns)
         return bom + result.encode('utf-8'), details
 
     return locked_write(path, expected, build)
+
+
+# ---------------------------------------------------------------------- save
+
+SAVE_FILES = (('profile', 'course-profile.md'), ('record', 'learning-record.md'))  # record is written last
+DEFAULT_KEYS = {'attempt history': ['Attempt ID / item locator'],
+                'import ledger': ['Course/artifact/version', 'Session / attempt ID']}
+
+
+class SaveConflict(Exception):
+    def __init__(self, payload):
+        super().__init__('Record changed since the supplied hash')
+        self.payload = payload
+
+
+def plan_file(kind, path, updates, template, allow_create):
+    """Apply every requested section change to the current text in memory. Nothing is written."""
+    current = read_record(path)
+    if current['exists']:
+        raw = path.read_bytes()
+        bom, text = (BOM if raw.startswith(BOM) else b''), current['content']
+    elif not allow_create:
+        raise ValueError(f'{path.name} does not exist in this directory; pass --create to start it from the template')
+    else:
+        bom, text = b'', template.read_bytes().decode('utf-8-sig')
+    if not isinstance(updates, dict) or not updates:
+        raise ValueError(f'"{kind}" must map section names to changes')
+    details = []
+    for name, change in updates.items():
+        if not isinstance(change, dict):
+            raise ValueError(f'{kind}/{name}: expected an object with "mode" and "rows" or "text"')
+        mode = change.get('mode')
+        if mode == 'upsert-rows':
+            rows = change.get('rows')
+            if not isinstance(rows, list) or not rows or not all(isinstance(r, str) and r.strip() for r in rows):
+                raise ValueError(f'{kind}/{name}: upsert-rows needs a non-empty "rows" list of table-row strings')
+            new = fragment_lines('\n'.join(r.strip() for r in rows).encode('utf-8'))
+        else:
+            if not isinstance(change.get('text'), str):
+                raise ValueError(f'{kind}/{name}: {mode!r} needs a "text" string')
+            new = fragment_lines(change['text'].encode('utf-8'))
+        keys = change.get('key_columns') or DEFAULT_KEYS.get(name.strip().casefold())
+        text, info = apply_section(text, name, new, mode, keys)
+        details.append({'file': path.name, **info})
+    data = bom + text.encode('utf-8')
+    check_record(data)
+    return {'kind': kind, 'path': path, 'current': current, 'data': data, 'details': details, 'text': text}
+
+
+def concept_statuses(text):
+    """Concept ID -> status from the Concepts table, plus a note for unsupported Demonstrated rows."""
+    try:
+        lines, sections = split_sections(text)
+        _, start, end = find_section(sections, 'Concepts')
+    except ValueError:
+        return {}, []
+    rows = [line for line in lines[start + 1:end] if line.strip().startswith('|')]
+    if len(rows) < 3:
+        return {}, []
+    header = [h.casefold() for h in cells(rows[0])]
+    if 'status' not in header:
+        return {}, []
+    status_at, statuses, warnings = header.index('status'), {}, []
+    for row in rows[2:]:
+        row_cells = cells(row)
+        if len(row_cells) != len(header):
+            continue
+        statuses[row_cells[0]] = row_cells[status_at]
+        if row_cells[status_at].casefold() == 'demonstrated' and 'transfer' not in row.casefold():
+            warnings.append(f'{row_cells[0]} is Demonstrated but its row names no transfer task')
+    return statuses, warnings
+
+
+def save_records(directory, payload, expected=None, allow_create=False, templates=None):
+    """One checkpoint: change sections of the course profile and learning record in one call.
+
+    Everything is validated in memory first; on any error or hash conflict nothing is written.
+    """
+    directory = Path(directory)
+    templates = Path(templates) if templates else Path(__file__).resolve().parent.parent / 'assets'
+    if not isinstance(payload, dict):
+        raise ValueError('Expected a JSON object with "record" and/or "profile"')
+    unknown = set(payload) - {kind for kind, _ in SAVE_FILES}
+    if unknown or not payload:
+        raise ValueError(f'Use only "profile" and "record" keys; got {sorted(payload)}')
+    if not directory.is_dir() and not allow_create:
+        raise ValueError('Study directory does not exist; pass --create to start a new record')
+    plans = [plan_file(kind, directory / name, payload[kind], templates / name, allow_create)
+             for kind, name in SAVE_FILES if kind in payload]
+    expected = expected or {}
+    for plan in plans:
+        want = expected.get(plan['kind'])
+        if want and want != plan['current']['sha256']:
+            sections = {}
+            for name in payload[plan['kind']]:
+                try:
+                    sections[name] = read_section(plan['path'], name)['content']
+                except ValueError:
+                    sections[name] = None
+            raise SaveConflict({'saved': False, 'conflict': plan['path'].name,
+                                'current_sha256': plan['current']['sha256'], 'current_sections': sections,
+                                'next': 'Merge with these current sections and resend with current_sha256'})
+    result = {'saved': True, 'updates': [], 'changed': {}}
+    for plan in plans:
+        written = locked_write(plan['path'], plan['current']['sha256'], lambda old, exists, p=plan: (p['data'], {}))
+        result['changed'][plan['kind']] = written['changed']
+        result[plan['kind'] + '_sha256'] = written['sha256']
+        result['updates'] += plan['details']
+        if plan['kind'] == 'record':
+            result['statuses'], warnings = concept_statuses(plan['text'])
+            if warnings:
+                result['warnings'] = warnings
+    return result
 
 
 if __name__ == '__main__':
@@ -289,14 +421,31 @@ if __name__ == '__main__':
     update.add_argument('--mode', required=True, choices=['replace', 'append', 'upsert-rows'])
     update.add_argument('--key-column', action='append', help='upsert-rows: header of a column that identifies a row; '
                         'repeat for a composite key (default: first column)')
+    save = sub.add_parser('save', help='one checkpoint: JSON changes on stdin, both study files, one result line')
+    save.add_argument('--dir', type=Path, required=True, help='study directory holding course-profile.md and learning-record.md')
+    save.add_argument('--changes', type=Path, help='read the JSON changes from this file instead of standard input')
+    save.add_argument('--expected-sha256', help='learning-record hash returned by the previous save')
+    save.add_argument('--expected-profile-sha256', help='course-profile hash returned by the previous save')
+    save.add_argument('--create', action='store_true', help='start missing files from the bundled templates')
     args = parser.parse_args()
     try:
         if args.command == 'read':
             result = read_section(args.path, args.section) if args.section else read_record(args.path)
         elif args.command == 'commit':
             result = commit_record(args.path, args.candidate, args.expected_sha256)
+        elif args.command == 'save':
+            raw = args.changes.read_bytes() if args.changes else sys.stdin.buffer.read()
+            try:
+                changes = json.loads(raw.decode('utf-8-sig'))
+            except (UnicodeDecodeError, json.JSONDecodeError) as error:
+                raise ValueError(f'Changes are not valid UTF-8 JSON: {error}')
+            result = save_records(args.dir, changes, {'record': args.expected_sha256, 'profile': args.expected_profile_sha256},
+                                  args.create)
         else:
             result = update_section(args.path, args.section, args.fragment, args.expected_sha256, args.mode, args.key_column)
         print(json.dumps(result, ensure_ascii=True))
+    except SaveConflict as conflict:
+        print(json.dumps(conflict.payload, ensure_ascii=True))
+        parser.exit(3)
     except (OSError, ValueError) as error:
         parser.exit(1, f'{error}\n')
