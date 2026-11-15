@@ -1,0 +1,116 @@
+[
+  {
+    "arm": "A1",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 1,
+    "start_unix": 1794682972.4472148,
+    "wall_seconds": 16.88,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 44124,
+      "cached_input_tokens": 14336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 449,
+      "reasoning_output_tokens": 0
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "A1",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 2,
+    "start_unix": 1794682990.3487775,
+    "wall_seconds": 5.91,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 59905,
+      "cached_input_tokens": 29952,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 560,
+      "reasoning_output_tokens": 0
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "A1",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 3,
+    "start_unix": 1794682996.95679,
+    "wall_seconds": 4.93,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 75819,
+      "cached_input_tokens": 45696,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 589,
+      "reasoning_output_tokens": 0
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "A1",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 4,
+    "start_unix": 1794683002.8044283,
+    "wall_seconds": 4.63,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 91806,
+      "cached_input_tokens": 61440,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 622,
+      "reasoning_output_tokens": 0
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "A1",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 5,
+    "start_unix": 1794683008.3533874,
+    "wall_seconds": 6.1,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 107868,
+      "cached_input_tokens": 77312,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 712,
+      "reasoning_output_tokens": 0
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  },
+  {
+    "arm": "A1",
+    "packet": "S",
+    "replicate": 2,
+    "turn": 6,
+    "start_unix": 1794683015.4201236,
+    "wall_seconds": 8.58,
+    "returncode": 0,
+    "usage": {
+      "input_tokens": 124040,
+      "cached_input_tokens": 93312,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 771,
+      "reasoning_output_tokens": 0
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": []
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "selected_new_complete_session": "recovery-C-P-rep2-20261115",
+  "from_turn1": true,
+  "different_thread_from_failed_attempt": true,
+  "old_failed_attempt_retained": true,
+  "old_partial_never_spliced": true,
+  "selected_sessions": 8,
+  "selected_student_calls": 88,
+  "new_recovery_CLI_calls": 11,
+  "auth_copies_after": 0,
+  "cross_quota_window": true
+}

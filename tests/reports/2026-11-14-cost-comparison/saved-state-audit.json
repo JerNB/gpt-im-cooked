@@ -1,0 +1,890 @@
+{
+  "sessions": {
+    "D-P-rep2": {
+      "case": "CASE-01",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-10/learning-record.md",
+          "quote": "## Next session\n\nReadiness review 2026-11-14: insufficient evidence to call student ready for all of CS 101 Quiz 4 (next week, exact date unknown). P2 Demonstrated from Q3/Q4 and independent repeated-pass transfer; Recheck before exam remains due because successes followed instruction in the same session. P1 list aliasing and P4 nested data summaries Unassessed, not confirmed weaknesses; supported by notes sections 1 and 3 but not yet taught/reviewed here. P3 Big-O Unassessed with missing course teaching notes; student asked for explanation, optional general explanation offered but not accepted. Recursion explicitly excluded by current outline; quiz-3.md now read and confirms only historical inclusion, contains no teaching explanation. Student asked for recursion; optional general review offered but not accepted. Next recommended supported topic: list aliasing, then nested group summaries. Obtain Big-O teaching excerpt; later fresh unaided loop trace. Q1-Q4 answers and two-pass transfer solution exposed; Q2 unattempted. Transfer key outputs/loop-tracing-transfer-key.md. Reverse-count question (9 comparisons -> length) unanswered, not evidence of error. Quick start shown: Yes; opening marker explained.\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-04-D-P-rep2/runs/D-P-rep2/response-11.md",
+          "quote": "I\u2019ll read the study skill and local progress notes, then continue from where you left off.\n\n**Hi student, let's get you uncooked.**\n\nWe left off preparing for **CS 101 Quiz 4**. You demonstrated loop tracing, with a later unaided recheck still due. Next was **list aliasing**.\n\nA list variable refers to a list object. With `b = a`, both names refer to the **same list**, so changing an element through either name affects what both names see. ([Notes \u00a71.1\u20131.2](materials/notes.md))\n\n```python\na = [4, 7]\nb = a\nb[0] = 9\n```\n\nHere, both `a` and `b` show `[9, 7]`: the assignment gave the existing list another name.\n\nWith `b = a.copy()`, Python creates a new **outer list**. Nested lists inside it can still be shared. That distinction is what \u201cshallow copy\u201d means in your notes. ([Notes \u00a71.3](materials/notes.md))\n\nTry this fresh check:\n\n```python\na = [[4], [7]]\nb = a.copy()\nb[0][0] = 9\n```\n\n**What do `a` and `b` contain afterward, and why?** Explain which list was copied and which list was changed."
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| P2 | Loop tracing: comparison counts | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| P2 | Loop tracing: comparison counts | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| P2 | Loop tracing: comparison counts | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": null,
+          "changed": false,
+          "record_file": null
+        },
+        {
+          "turn": 2,
+          "record_sha256": "2779ea7e6738ed7965ea64d40db9294f441d98897a4839cdf1b2448d8767e5c6",
+          "changed": true,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-02/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "2779ea7e6738ed7965ea64d40db9294f441d98897a4839cdf1b2448d8767e5c6",
+          "changed": false,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-03/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "2339050dce953da93dfb4e435edd7b2c28d449dfb387a580d0a5f9a21256bb31",
+          "changed": true,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-04/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "47ac1485b4b69449ac013978d22a2280238e4eca25e2665745f541968af793c1",
+          "changed": true,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-05/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "47ac1485b4b69449ac013978d22a2280238e4eca25e2665745f541968af793c1",
+          "changed": false,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-06/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165",
+          "changed": true,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-07/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165",
+          "changed": false,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-08/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165",
+          "changed": false,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-09/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354",
+          "changed": true,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-10/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354",
+          "changed": false,
+          "record_file": "batch-04-D-P-rep2/runs/D-P-rep2/files-after-11/learning-record.md"
+        }
+      ]
+    },
+    "D-S-rep1": {
+      "case": "CASE-02",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-10/study/stat-110/midterm-1/learning-record.md",
+          "quote": "## Next session\n\nReadiness review 2026-11-14: overall midterm readiness not established. T1 Demonstrated after Q1 correction, independent Q3/Q4 same-structure successes and independent reversed-conditional transfer; later unaided recheck before exam still due because evidence all same-session. Q2 explicitly unattempted with full answer revealed, not performance evidence. T2 two-way tables and T4 grouped summaries are in scope with supplied notes but untaught/unassessed here; do not infer the student cannot do them. T3 Bayes is in scope but teaching notes absent, so neither taught nor assessed; general explanation offered but not accepted. Hypothesis testing is excluded by current outline despite materials/midterm-2025.md Q2. Student requested it; only scope/source gap explained, no hypothesis testing lesson. Recommended next step: T2 explanation and independent check, then T4; obtain Bayes lecture excerpt; later unaided T1 recheck. Exact exam date, structure and timing unconfirmed. Quick start shown: Yes.\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-01-D-S-rep1/runs/D-S-rep1/response-11.md",
+          "quote": "I\u2019ll read the study skill and local session notes to pick up where you left off.\n\n**Hi student, let's get you uncooked.**\n\nWe\u2019re continuing STAT 110 Midterm 1 with **two-way tables**, the next step in your saved notes. You demonstrated conditional-probability reasoning last session; a later unaided recheck is still due.\n\nA two-way table counts cases by two categorical variables. **Choose the reference group first; its total becomes your denominator.** A row percentage divides by the row total, and a column percentage divides by the column total. (*Your notes, \u00a7\u00a72.1\u20132.2.*)\n\nFor example:\n\n| | Cycles | Doesn\u2019t cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 6 | 14 | 20 |\n| Residents | 9 | 11 | 20 |\n| Total | 15 | 25 | 40 |\n\n\u201cAmong commuters, what percentage cycle?\u201d restricts us to the commuter **row**: \\(6/20 \\times 100 = 30.0\\%\\) **of commuters**.\n\n\u201cAmong cyclists, what percentage commute?\u201d restricts us to the cycling **column**: \\(6/15 \\times 100 = 40.0\\%\\) **of cyclists**.\n\nThe same cell supplies the numerator, but the question changes the denominator.\n\nTry this fresh table, assuming equally weighted students:\n\n| | Cycles | Doesn\u2019t cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| Total | 20 | 30 | 50 |\n\n1. What percentage **of commuters** cycle?\n2. What percentage **of cyclists** commute?\n\nFor each, explain your denominator and give a percentage to one decimal place with the reference group named, as your outline requires."
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| T1 | Conditional probability | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| T1 | Conditional probability | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| T1 | Conditional probability | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": null,
+          "changed": false,
+          "record_file": null
+        },
+        {
+          "turn": 2,
+          "record_sha256": "9a230ca715d14aa5d46e97cbfe2acaae405b78e2e662043cb540bcf9d8e2dd88",
+          "changed": true,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-02/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "9a230ca715d14aa5d46e97cbfe2acaae405b78e2e662043cb540bcf9d8e2dd88",
+          "changed": false,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-03/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "54b259dd25151b1de7b9ecfb656d66de773c8fe3f1a7a4cdd12cee620af7663e",
+          "changed": true,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-04/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "4a11f1ef54f9132032be2dff16e33128ad94501db85d66a15ea4cbbf712a866f",
+          "changed": true,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-05/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "4a11f1ef54f9132032be2dff16e33128ad94501db85d66a15ea4cbbf712a866f",
+          "changed": false,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-06/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "5978693d078565c4f825725f10df6c563eb1826b5ab097c2e37f3701b0f8c684",
+          "changed": true,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-07/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "5978693d078565c4f825725f10df6c563eb1826b5ab097c2e37f3701b0f8c684",
+          "changed": false,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-08/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "5978693d078565c4f825725f10df6c563eb1826b5ab097c2e37f3701b0f8c684",
+          "changed": false,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-09/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "5c561f74ab21064a83dfbd327114cfee671d0d704431e26d39630b90ed73af5b",
+          "changed": true,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-10/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "5c561f74ab21064a83dfbd327114cfee671d0d704431e26d39630b90ed73af5b",
+          "changed": false,
+          "record_file": "batch-01-D-S-rep1/runs/D-S-rep1/files-after-11/study/stat-110/midterm-1/learning-record.md"
+        }
+      ]
+    },
+    "C-S-rep2": {
+      "case": "CASE-03",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-10/study/stat-110/midterm-1/learning-record.md",
+          "quote": "## Next session\n\n- Current activity: Readiness review requested by student; saved after reviewing current outline and all learning evidence.\n- Readiness assessment: Overall readiness not established. T1 Demonstrated from Q3/Q4 and reversed-conditioning transfer-1; all same-session, Recheck before exam. T2/T3/T4 Unassessed, not inferred failures or confirmed unlearned topics.\n- Earlier evidence: Q1 denominator error corrected in later applications; Q2 unattempted and full answer exposed. Q3/Q4 and transfer-1 had no item-specific hints or solutions shown before response in chat.\n- Remaining work: Explain and assess T2 two-way tables and T4 grouped summaries; obtain T3 Bayes lecture content; later unaided T1 check and mixed practice across confirmed scope.\n- Scope: Hypothesis testing appears on 2025 paper Q2 but is explicitly excluded by current outline, moved to Midterm 2. Student asked for explanation; source gap and exclusion explained; no teaching or attempt occurred.\n- Sources: Historical paper now read; no Bayes explanation found in supplied files. General explanations offered for Bayes/testing but not accepted or delivered.\n- Artifacts: study/stat-110/midterm-1/outputs/conditional-transfer-1-key.md contains the reviewed transfer question and solution.\n- Next action: Begin T2 from materials/notes.md Section 2; student can supply Bayes lecture notes for later review.\n- Persistence: study/stat-110/midterm-1/learning-record.md\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-03-C-S-rep2/runs/C-S-rep2/response-11.md",
+          "quote": "I\u2019ll read the study skill and your saved progress, then continue from where you left off.\n\n\n**Hi student, let's get you uncooked.**\n\nYour saved next step is **two-way tables**. You previously demonstrated conditional probability, with a later retention check still due. We\u2019ll build on that reference-group reasoning.\n\nA two-way table counts cases by two categories at once. Here\u2019s a new example applying your notes \u00a72:\n\n| Students | Cycle | Don\u2019t cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 12 | 20 |\n| Total | 20 | 30 | 50 |\n\nThe same cell\u201412 commuters who cycle\u2014can answer two different questions:\n\n- **Among commuters, what percentage cycle?** Use the commuter row total: \\(12/30 \\times 100 = 40.0\\%\\) **of commuters**.\n- **Among cyclists, what percentage commute?** Use the cyclist column total: \\(12/20 \\times 100 = 60.0\\%\\) **of cyclists**.\n\nThe numerator stays 12 because both questions concern students who commute **and** cycle. The denominator changes because each question names a different reference group. This is exactly the conditional-probability rule you practiced earlier. ([Notes \u00a71.2 and \u00a72.1\u20132.2](materials/notes.md))\n\nThere\u2019s also a useful check: row percentages within one row add to 100%; column percentages within one column add to 100%. For commuters, that\u2019s 40.0% who cycle plus 60.0% who don\u2019t. ([Notes \u00a72.3](materials/notes.md))\n\n**Retrieval cue: name the group first, then use its total.** Your outline requires every proportion to have one decimal place and name its reference group.\n\nTry identifying the denominator without calculating: **\u201cAmong students who don\u2019t cycle, what percentage are residents?\u201d** Which total would you use, and why?"
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| T1 | Conditional probability: reference group | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| T1 | Conditional probability: reference group | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| T1 | Conditional probability: reference group | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": "90ffbc71307e3fb79ccce33435e17bbb08ae3cf53dd9b23b42735d675aa5328c",
+          "changed": true,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-01/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 2,
+          "record_sha256": "e52878e218da52e8b780ced2f862831f86587a069a7c8fa93fb5fc2e31bf06c2",
+          "changed": true,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-02/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "e52878e218da52e8b780ced2f862831f86587a069a7c8fa93fb5fc2e31bf06c2",
+          "changed": false,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-03/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "f0af419be508e1338047adf2e2bea50a5228ff134760b5b8549c91fbb0dcb6e7",
+          "changed": true,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-04/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "8a7bc9cc7188a56c6f49e02eb2fb2a44e4f976ccc491a9f765b23ab40344d6c8",
+          "changed": true,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-05/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "8a7bc9cc7188a56c6f49e02eb2fb2a44e4f976ccc491a9f765b23ab40344d6c8",
+          "changed": false,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-06/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "4b6e0936a02754f4dffd0b99b235a229266b0d53c1fe23b44867cfd0a0a61ad0",
+          "changed": true,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-07/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "4b6e0936a02754f4dffd0b99b235a229266b0d53c1fe23b44867cfd0a0a61ad0",
+          "changed": false,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-08/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "4b6e0936a02754f4dffd0b99b235a229266b0d53c1fe23b44867cfd0a0a61ad0",
+          "changed": false,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-09/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "eb0e07e5521e3ffe098622fd5aa9079bc7d7c5e47a1583d7656e35a8449b7f9e",
+          "changed": true,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-10/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "eb0e07e5521e3ffe098622fd5aa9079bc7d7c5e47a1583d7656e35a8449b7f9e",
+          "changed": false,
+          "record_file": "batch-03-C-S-rep2/runs/C-S-rep2/files-after-11/study/stat-110/midterm-1/learning-record.md"
+        }
+      ]
+    },
+    "D-P-rep1": {
+      "case": "CASE-04",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-10/study/cs-101/quiz-4/learning-record.md",
+          "quote": "## Next session\n\nReadiness review: cannot establish readiness for whole Quiz 4. P2 comparison-counting/runtime convention Demonstrated via single-pass work and two-pass conditional-swap transfer; all evidence same session, so later unaided recheck due before exam. Actual state-by-state tracing remains unassessed (Notes 2.1). P1 list aliasing and P4 nested summaries not studied or assessed together. P3 Big-O remains in scope but teaching source missing; request supplied excerpt, or teach a labelled general extension only if student accepts. Recursion excluded from current quiz. Recommended course-based route: explain P1 next, assess it, then P4; add P2 state trace and delayed count check, and resolve P3 source gap. Preserve Q1 original error, Q2 unattempted answer exposure, and Q3/Q4/transfer successes. Quick start shown Yes; exact quiz date unknown.\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-02-D-P-rep1/runs/D-P-rep1/response-11.md",
+          "quote": "I\u2019ll read the study skill and local progress notes, then resume from where you left off.\n\n**Hi student, let's get you uncooked.**\n\nYour saved next step was **list aliasing**. You demonstrated comparison counting last time; we\u2019ll recheck it before the quiz. Big-O still lacks teaching notes in your materials.\n\nA list variable refers to a list object. With `b = a`, both names refer to **the same list**, so changing an element through either name is visible through both. ([Notes \u00a71.1\u20131.2](materials/notes.md))\n\nFor example:\n\n```python\na = [3, 8]\nb = a\nb[0] = 5\n```\n\nNow both `a` and `b` show `[5, 8]`: there is one list with two names referring to it.\n\nWith `b = a.copy()`, the outer list is new, but nested lists inside it may still be shared. ([Notes \u00a71.3](materials/notes.md))\n\nTry this application:\n\n```python\na = [[2, 4], [6]]\nb = a.copy()\nb[0][1] = 9\n```\n\nWhat do `a` and `b` contain afterward, and why?"
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts and runtime convention | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": null,
+          "changed": false,
+          "record_file": null
+        },
+        {
+          "turn": 2,
+          "record_sha256": "87ac6f1cddf156795f648e4f7df359b7891f42b85949a8ce31d45495b5b9dbd9",
+          "changed": true,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-02/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "87ac6f1cddf156795f648e4f7df359b7891f42b85949a8ce31d45495b5b9dbd9",
+          "changed": false,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-03/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "def06153076780d46c1cc49cd76a864e26eb3bdda20ab172b7832031e9bbcb45",
+          "changed": true,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-04/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "b8f243e2f1c61652fd9a4f0aab3602e3812ab441816526e7747d3a48ac01dd45",
+          "changed": true,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-05/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "b8f243e2f1c61652fd9a4f0aab3602e3812ab441816526e7747d3a48ac01dd45",
+          "changed": false,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-06/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "c7556fd34acf0c51a32060089789b20d96c4a3b56f058fe46dd4de1047e85a9c",
+          "changed": true,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-07/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "c7556fd34acf0c51a32060089789b20d96c4a3b56f058fe46dd4de1047e85a9c",
+          "changed": false,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-08/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "c7556fd34acf0c51a32060089789b20d96c4a3b56f058fe46dd4de1047e85a9c",
+          "changed": false,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-09/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "b9519216d6f8305fa78f87fdec0a5ea4d7395022c4f00baaa5e29f553f3c3e67",
+          "changed": true,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-10/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "b9519216d6f8305fa78f87fdec0a5ea4d7395022c4f00baaa5e29f553f3c3e67",
+          "changed": false,
+          "record_file": "batch-02-D-P-rep1/runs/D-P-rep1/files-after-11/study/cs-101/quiz-4/learning-record.md"
+        }
+      ]
+    },
+    "C-S-rep1": {
+      "case": "CASE-05",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-10/study/stat-110/midterm-1/learning-record.md",
+          "quote": "## Next session\n\n- Current activity: Midterm readiness review. Overall readiness not yet established; T1 reference-group selection Demonstrated, with Recheck before exam. T2-T4 unassessed; do not infer inability from absent attempts.\n- Transfer item: Club has 30 members, 12 seniors, four senior volunteers; six nonsenior volunteers join. Student correctly explained percentage of seniors volunteering stays 33.3% because both relevant counts stay unchanged.\n- Evidence: Independent direct applications Q3/Q4 plus changed-condition reasoning on T1-transfer-01; all within this session shortly after teaching.\n- Assistance/exposure: No item-specific help before the transfer submission; earlier Q1 correction and Q2 answer exposed. Q2 remains unattempted and provides no success evidence. Transfer solution now confirmed in feedback.\n- Next action: Review two-way tables from materials/notes.md section 2 and assess independently; then grouped summaries section 3. Obtain Bayes lecture excerpt. Later assess mixed in-scope work and recheck conditional probability unaided, including reversed conditioning.\n- Recheck before exam: Required for same-session Demonstrated evidence; no delayed retention check yet.\n- Source gap: Bayes' rule teaching notes absent. Historical midterm remains unread.\n- Persistence: study/stat-110/midterm-1/learning-record.md.\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-01-C-S-rep1/runs/C-S-rep1/response-11.md",
+          "quote": "I\u2019ll read the study skill and local session notes, then pick up where you left off.\n\nI\u2019m using the study skill at [skill/SKILL.md](../../skill-C/SKILL.md). Your saved next step is two-way tables. You previously explained conditional probability correctly across calculation and transfer questions, with a later retention check still due.\n\n**Hi student, let's get you uncooked.**\n\nWelcome back. Your saved next step is **two-way tables**, followed by grouped summaries. You previously demonstrated conditional-probability reference-group reasoning; a later retention check is still due.\n\nA two-way table sorts cases by two categorical variables. Choosing a **row percentage or column percentage** comes down to choosing the reference group:\n\n- **Row percentage:** divide a cell by its row total.\n- **Column percentage:** divide a cell by its column total.\n\nFor example, if a row contains 10 students and 4 cycle, then **40.0% of students in that row cycle**. Percentages within that row add to 100%. The same principle applies down a column. ([Notes \u00a72.1\u20132.3](materials/notes.md))\n\nLet\u2019s apply that to this new practice table. Each of the 40 equally weighted students appears in exactly one cell.\n\n| Students | Bike | Do not bike | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 18 | 30 |\n| Residents | 8 | 2 | 10 |\n| **Total** | **20** | **20** | **40** |\n\n**a.** What percentage of commuters bike?  \n**b.** What percentage of students who bike are commuters?\n\nFor each, name your denominator and explain why it fits the question. Report one decimal place and the reference group in words, as required by your [outline](materials/outline.md)."
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| T1 | Conditional probability: reference group | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| T1 | Conditional probability: reference group | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| T1 | Conditional probability: reference group | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": "090b824400aab879afc97f3ae48f54ef0f60a81678af577824ff7eac612d157b",
+          "changed": true,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-01/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 2,
+          "record_sha256": "aa9e2069fa2a4b91105ab9e9018f5bcd071d7d123864966e818541f643029a65",
+          "changed": true,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-02/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "aa9e2069fa2a4b91105ab9e9018f5bcd071d7d123864966e818541f643029a65",
+          "changed": false,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-03/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "769637a91703f7664f6ac83327e792758a8f6e804f07ed19828fa3e36b4abb35",
+          "changed": true,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-04/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "0dde741bc39f68d719ad97fac3c5e7b9d1feb704f2459f9e58d98e492ecd7372",
+          "changed": true,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-05/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "0dde741bc39f68d719ad97fac3c5e7b9d1feb704f2459f9e58d98e492ecd7372",
+          "changed": false,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-06/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "548724f9db332334134bf4c5f34ca35aa6841e10871fc68da615111e4d49fbde",
+          "changed": true,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-07/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "548724f9db332334134bf4c5f34ca35aa6841e10871fc68da615111e4d49fbde",
+          "changed": false,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-08/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "548724f9db332334134bf4c5f34ca35aa6841e10871fc68da615111e4d49fbde",
+          "changed": false,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-09/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "19534be565f6809bb3192e22577305f4fced4254f9db63e6d94d4f7dd4915e02",
+          "changed": true,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-10/study/stat-110/midterm-1/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "19534be565f6809bb3192e22577305f4fced4254f9db63e6d94d4f7dd4915e02",
+          "changed": false,
+          "record_file": "batch-01-C-S-rep1/runs/C-S-rep1/files-after-11/study/stat-110/midterm-1/learning-record.md"
+        }
+      ]
+    },
+    "C-P-rep2": {
+      "case": "CASE-06",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-10/study/cs-101/quiz-4/learning-record.md",
+          "quote": "## Next session\n\n- Current activity: T2 transfer reviewed as fully correct; P2 Demonstrated. Recheck before exam.\n- Evidence: Q1 initially wrong; Q2 unattempted with answer revealed; Q3/Q4 correct same-structure responses; T2 independently traces changing list and distinguishes successful updates from all comparisons.\n- Transfer: T2 changes demand from counting static adjacent pairs to tracking mutations, branch outcomes, and a counter. All evidence is from one session; delayed retention remains unassessed.\n- Assistance: Prior teaching and practice feedback available; no T2-specific hint or answer before submission. T2 solution now confirmed in feedback.\n- Original attempt and review: outputs/loop-tracing-t2-attempt.md. Verified key and question: outputs/loop-tracing-t2-key.md.\n- T1 two-pass question remains unattempted; no evidence credit. Key: outputs/loop-transfer-key.md.\n- Next action: Start Notes \u00a71 list aliasing with a source-grounded explanation and independent application; then P4, obtain P3 notes, and later recheck P2 unaided.\n- Unresolved gap: Big-O notes not posted.\n- Persistence: study/cs-101/quiz-4/learning-record.md\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "recovery-C-P-rep2-20261115/runs/C-P-rep2/response-11.md",
+          "quote": "I\u2019ll read the study skill and the local course progress, then continue from where you left off.\n\n**Hi student, let's get you uncooked.**\n\nI\u2019m using the study skill. Your saved record puts **list aliasing** next. You demonstrated loop tracing; an unaided recheck is still due before the quiz.\n\nA list variable refers to a list object. With `b = a`, both names refer to **the same list**, so changing an element through either name is visible through both. With `b = a.copy()`, you get a new outer list, though nested lists may still be shared. ([Notes \u00a7\u00a71.1\u20131.3](materials/notes.md))\n\nFor example:\n\n```python\na = [2, 5]\nb = a\na[1] = 8\n```\n\nBoth `a` and `b` now show `[2, 8]`: the assignment gave one list two names.\n\nTry this short application:\n\n```python\na = [4, 7]\nb = a\nb[0] = 9\n```\n\n**What are `a` and `b` afterward, and why?**"
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| P2 | Loop tracing and course comparison-count convention | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": "0cffb19621d103cf9187f797d9dc019922b8e35315b4776b5774336e4823c796",
+          "changed": true,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-01/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 2,
+          "record_sha256": "062f4f635da252b3430f15af1dfbe3372f7aa51adb52577ad2396624c8a40ed0",
+          "changed": true,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-02/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "062f4f635da252b3430f15af1dfbe3372f7aa51adb52577ad2396624c8a40ed0",
+          "changed": false,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-03/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "e60dd380e07318d9f36fef50c014a3cfc566086c35f75f0585af1ce3bb072b8e",
+          "changed": true,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-04/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "572a01cccc628598129ef9f8b1687b8dde53b8bb47ea6bf4ae6d998c306050e2",
+          "changed": true,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-05/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "572a01cccc628598129ef9f8b1687b8dde53b8bb47ea6bf4ae6d998c306050e2",
+          "changed": false,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-06/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "dae4e14dee9259f1a7c2769b38126788f660dc3b304437345da580de601ad7c8",
+          "changed": true,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-07/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "dae4e14dee9259f1a7c2769b38126788f660dc3b304437345da580de601ad7c8",
+          "changed": false,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-08/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "dae4e14dee9259f1a7c2769b38126788f660dc3b304437345da580de601ad7c8",
+          "changed": false,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-09/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "75396d6beb4d1b9b6a0216d639642250a3dac5f88655b6b74d902480d87df488",
+          "changed": true,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-10/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "75396d6beb4d1b9b6a0216d639642250a3dac5f88655b6b74d902480d87df488",
+          "changed": false,
+          "record_file": "recovery-C-P-rep2-20261115/runs/C-P-rep2/files-after-11/study/cs-101/quiz-4/learning-record.md"
+        }
+      ]
+    },
+    "D-S-rep2": {
+      "case": "CASE-07",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-10/learning-record.md",
+          "quote": "## Next session\n\n- STAT 110 Midterm 1 next week, exact date unknown. Quick start shown: Yes.\n- Readiness review: insufficient evidence to call student ready for full midterm. T1 Demonstrated with Recheck before exam; T2, T3, T4 Unassessed, not diagnosed weaknesses. No mixed/timed assessment reviewed.\n- T1 evidence: Q3/Q4 correct with reference-group reasoning, plus independent reversed-conditioning transfer reconstructing 12 commuter cyclists and dividing by 20 cyclists for 60.0%. All same session after teaching. Q1 initially used whole-class denominator; Q2 explicitly unattempted with answer revealed.\n- Recommended next: teach T2 two-way tables from notes section 2, then T4 grouped summaries from section 3. Obtain Bayes lecture excerpt for T3; optional general explanation offered but not accepted. Later unaided T1 recheck and mixed assessment after remaining topics.\n- Hypothesis testing excluded by current outline; do not study as current exam requirement. Historical materials/midterm-2025.md unread.\n- Readiness checkpoint saved; no pending evidence.\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-03-D-S-rep2/runs/D-S-rep2/response-11.md",
+          "quote": "I\u2019ll read the study skill and local session notes to find where you left off.\n\n**Hi student, let's get you uncooked.**\n\nYour saved notes point to **two-way tables next**. You had demonstrated conditional probability through a transfer question; an unaided retention check is still due before the exam.\n\nA two-way table sorts cases by two categories at once. The key decision is familiar: **which group belongs in the denominator?** Row percentages use the row total; column percentages use the column total. ([Notes \u00a72](materials/notes.md))\n\nFor example, consider this new table:\n\n| | Cycles | Does not cycle | Total |\n|---|---:|---:|---:|\n| Commuters | 12 | 28 | 40 |\n| Noncommuters | 8 | 12 | 20 |\n| Total | 20 | 40 | 60 |\n\n\u201cAmong commuters, what percentage cycle?\u201d restricts us to the commuter **row**. We calculate \\(12/40\\): **30.0% of commuters cycle**.\n\n\u201cAmong cyclists, what percentage commute?\u201d restricts us to the cycling **column**. We calculate \\(12/20\\): **60.0% of cyclists are commuters**.\n\nThe overlap stays at 12; the reference group changes. Each complete row of row percentages totals 100%, and each complete column of column percentages totals 100%. ([Notes \u00a72.2\u20132.3](materials/notes.md))\n\nYour turn: **Among people who do not cycle, what percentage are noncommuters?** Give your denominator and answer as a percentage to one decimal place, naming the reference group."
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| T1 | Conditional probability | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| T1 | Conditional probability | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| T1 | Conditional probability | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": null,
+          "changed": false,
+          "record_file": null
+        },
+        {
+          "turn": 2,
+          "record_sha256": "992896cec90f8b65d2d3c31e4da2bd4a8e5a041c3aa74e507681bd646080ea6a",
+          "changed": true,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-02/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "992896cec90f8b65d2d3c31e4da2bd4a8e5a041c3aa74e507681bd646080ea6a",
+          "changed": false,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-03/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "84e89373be9f8547ddf42a1e17ec029edd501fd5507ae2381d180bbcd6e90f11",
+          "changed": true,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-04/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "c695abb84f30b5435e3f977161424ca71ee7e675c766c2c51c41c27b95ff4502",
+          "changed": true,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-05/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "c695abb84f30b5435e3f977161424ca71ee7e675c766c2c51c41c27b95ff4502",
+          "changed": false,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-06/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "b7fa7d16d5e81e876b8d6803c31524a2d4b585b27c362466195a908d0ea168ec",
+          "changed": true,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-07/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "b7fa7d16d5e81e876b8d6803c31524a2d4b585b27c362466195a908d0ea168ec",
+          "changed": false,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-08/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "b7fa7d16d5e81e876b8d6803c31524a2d4b585b27c362466195a908d0ea168ec",
+          "changed": false,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-09/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "ea8dcadb29a611a19c7525567f6a9f80d486f21c97c0e3bbf176a61bca09feef",
+          "changed": true,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-10/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "ea8dcadb29a611a19c7525567f6a9f80d486f21c97c0e3bbf176a61bca09feef",
+          "changed": false,
+          "record_file": "batch-03-D-S-rep2/runs/D-S-rep2/files-after-11/learning-record.md"
+        }
+      ]
+    },
+    "C-P-rep1": {
+      "case": "CASE-08",
+      "readiness_after10": {
+        "status": "pass",
+        "evidence": {
+          "source": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/study/cs-101/quiz-4/learning-record.md",
+          "quote": "## Next session\n\n- Current activity: Quiz 4 readiness review on 2026-11-14. Overall readiness not established: P1, P3, P4 unassessed. This does not establish that student has never learned them.\n- P2: Demonstrated from Q3/Q4 single-pass work and loop-transfer-1 changed-demand state trace. Same-session evidence: Recheck before exam with a later unaided task.\n- Provenance: Q1 initially incorrect then corrected; Q2 unattempted with answer revealed; Q3/Q4 correct; full correct transfer response in outputs/loop-transfer-1-attempt.md, verified key in outputs/loop-transfer-1-key.md.\n- Next action: Review P1 list aliasing from Notes section 1 and assess an application, then P4 nested summaries from Notes section 3. Seek missing Big-O course notes; no general explanation accepted yet.\n- Scope: Current outline controls; recursion excluded. Student recollection of last quiz not independently verified; quiz-3.md unread.\n- Optional boundary question [5] remains unattempted, not a deficiency or gate.\n- Persistence: study/cs-101/quiz-4/learning-record.md; course-profile.md has current source and scope registers.\n"
+        },
+        "note": "Quote is from this case\u2019s turn-10 learning-record snapshot, not the tutor reply."
+      },
+      "stale_resume11": {
+        "stale": false,
+        "evidence": {
+          "source": "batch-02-C-P-rep1/runs/C-P-rep1/response-11.md",
+          "quote": "I\u2019ll read the study skill and local course records to find where you left off.\n\n**Hi student, let's get you uncooked.**\n\nWe left off in **CS 101 Quiz 4** after your correct two-pass loop trace. Your record has loop tracing marked Demonstrated, with a later recheck due. Next was **list aliasing**, followed by nested data summaries.\n\nAliasing means **two variable names refer to the same list**. Your [notes \u00a71.1\u20131.2](materials/notes.md) explain that assigning a list to another variable does not make a copy:\n\n```python\na = [4, 1, 7]\nb = a\nb[0] = 9\n```\n\nBoth `a` and `b` now show `[9, 1, 7]`. There is one list: `b[0] = 9` changes that shared object, so the change is visible through either name.\n\nA shallow copy creates a separate **outer** list:\n\n```python\na = [4, 1, 7]\nb = a.copy()\nb[0] = 9\n```\n\nHere, `a` remains `[4, 1, 7]`, while `b` becomes `[9, 1, 7]`. But nested mutable lists can still be shared between a list and its shallow copy. ([Notes \u00a71.3](materials/notes.md))\n\nThe useful question is: **Which list object does each name refer to?**\n\nIn your own words, why did changing `b[0]` also change what `a` showed in the first example?"
+        }
+      },
+      "status_change_events": [
+        {
+          "turn": 2,
+          "previous_status": "not previously recorded",
+          "new_status": "Needs practice",
+          "saved_same_turn": true,
+          "evidence": "Turn 2 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts | Needs practice |`"
+        },
+        {
+          "turn": 4,
+          "previous_status": "Needs practice",
+          "new_status": "Improving",
+          "saved_same_turn": true,
+          "evidence": "Turn 4 saved learning-record.md Concepts Status row: `| P2 | Adjacent-pair comparison counts | Improving |`"
+        },
+        {
+          "turn": 7,
+          "previous_status": "Improving",
+          "new_status": "Demonstrated",
+          "saved_same_turn": true,
+          "evidence": "Turn 7 saved learning-record.md Concepts Status row: `| P2 | Loop tracing and adjacent-pair comparison counts | Demonstrated |`"
+        }
+      ],
+      "record_byte_changes": [
+        {
+          "turn": 1,
+          "record_sha256": null,
+          "changed": false,
+          "record_file": null
+        },
+        {
+          "turn": 2,
+          "record_sha256": "fe86aebe890a707792342a809e90f6ba2d0eced32eec67a3062338820c8103a8",
+          "changed": true,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-02/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 3,
+          "record_sha256": "fe86aebe890a707792342a809e90f6ba2d0eced32eec67a3062338820c8103a8",
+          "changed": false,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-03/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 4,
+          "record_sha256": "a98eba14e9568020ec435688b91388ff8ca6b1df4725718c9a7621eb3dac37d3",
+          "changed": true,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-04/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 5,
+          "record_sha256": "42db1a998bd5b1e17bfb03f720520d39fa9cc5e7ce417c27f8dc3d13302aaca4",
+          "changed": true,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-05/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 6,
+          "record_sha256": "42db1a998bd5b1e17bfb03f720520d39fa9cc5e7ce417c27f8dc3d13302aaca4",
+          "changed": false,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-06/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 7,
+          "record_sha256": "a99f1d5c05cd446c8db160f248d5170f33f816496156be28e742317963820783",
+          "changed": true,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-07/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 8,
+          "record_sha256": "a99f1d5c05cd446c8db160f248d5170f33f816496156be28e742317963820783",
+          "changed": false,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-08/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 9,
+          "record_sha256": "a99f1d5c05cd446c8db160f248d5170f33f816496156be28e742317963820783",
+          "changed": false,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-09/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 10,
+          "record_sha256": "743d698c3673ee55a510f7237f28400d36e7fe22644441a5fc8178ddf44b3e21",
+          "changed": true,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-10/study/cs-101/quiz-4/learning-record.md"
+        },
+        {
+          "turn": 11,
+          "record_sha256": "743d698c3673ee55a510f7237f28400d36e7fe22644441a5fc8178ddf44b3e21",
+          "changed": false,
+          "record_file": "batch-02-C-P-rep1/runs/C-P-rep1/files-after-11/study/cs-101/quiz-4/learning-record.md"
+        }
+      ]
+    }
+  },
+  "counts": {
+    "C": {
+      "readiness_pass": 4,
+      "fresh": 4,
+      "status_events": 12,
+      "status_misses": 0
+    },
+    "D": {
+      "readiness_pass": 4,
+      "fresh": 4,
+      "status_events": 12,
+      "status_misses": 0
+    }
+  }
+}

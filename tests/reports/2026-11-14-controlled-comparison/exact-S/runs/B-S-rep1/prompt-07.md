@@ -1,0 +1,1 @@
+Alex is not correct. 50.0% of yoga participants attend morning sessions. The reference group is all 16 yoga participants, 8 of whom attend mornings, so I divide 8 by 16. The fraction 8/20 instead describes morning attendees who take yoga.

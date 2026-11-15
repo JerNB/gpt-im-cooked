@@ -1,0 +1,132 @@
+"""Analyze completed selected T007 sessions only; cumulative CLI counters, not billing."""
+from pathlib import Path
+import argparse
+import csv
+import hashlib
+import json
+import re
+
+BASE = Path(__file__).resolve().parent
+
+
+def dump(name, value):
+    (BASE/name).write_text(json.dumps(value, indent=2)+'\n', encoding='utf-8', newline='')
+
+
+def main():
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--allow-partial',action='store_true')
+    args=ap.parse_args()
+    index_path=BASE/'executed-evidence-index.json'
+    archived=json.loads(index_path.read_text(encoding='utf-8'))['files'] if index_path.exists() else {}
+    selected={}
+    for batch,packet,rep,order in [(1,'S',1,'CD'),(2,'P',1,'CD'),(3,'S',2,'DC'),(4,'P',2,'DC')]:
+        for arm in order:
+            label=f'{arm}-{packet}-rep{rep}'
+            selected[label]=BASE/f'batch-{batch:02}-{label}'/'runs'/label
+    override_file=BASE/'session-overrides.json'
+    if override_file.exists():
+        for label,relative in json.loads(override_file.read_text(encoding='utf-8')).items():
+            assert label in selected,'Unknown recovery label'
+            candidate=(BASE/relative).resolve()
+            assert candidate.is_relative_to(BASE.resolve()) and candidate.name==label,'Recovery source outside report or wrong label'
+            selected[label]=candidate
+    complete={}
+    for label,path in selected.items():
+        metas=sorted(path.glob('turn-*.meta.json'))
+        if len(metas)==11 and all(json.loads(p.read_text(encoding='utf-8'))['complete'] for p in metas):
+            complete[label]=path
+    if not args.allow_partial:
+        assert len(complete)==8,'All eight complete valid sessions required'
+    summaries=[];turns=[];mechanics={};snapshots={};auto={}
+    keys=('input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens')
+    for label,path in complete.items():
+        arm,packet,rep=label.split('-');previous={k:0 for k in keys};total={k:0 for k in keys}
+        commands_total=failed_total=0;wall=0;mechanics[label]=[];snapshots[label]=[];last_hash=None
+        rubric=json.loads((BASE/'fixtures'/('packet-'+packet.lower())/'rubric-v2.json').read_text(encoding='utf-8'))
+        truth=rubric['ground_truth']
+        auto[label]={'M1_candidates':[],'M5_locators':{},'M11_status_candidates':[],
+                     'M13_candidates':[],'M15_marker_counts':{},
+                     'M8_unassessed_ground_truth':truth.get('in_scope_unassessed_at_turn_10',truth.get('unassessed_at_turn_10')),
+                     'semantic_review_required':True}
+        for n in range(1,12):
+            meta=json.loads((path/f'turn-{n:02}.meta.json').read_text(encoding='utf-8'))
+            events=[json.loads(l) for l in (path/f'turn-{n:02}.jsonl').read_text(encoding='utf-8').splitlines()]
+            done=[e for e in events if e.get('type')=='turn.completed'];assert len(done)==1
+            assert done[0]['usage']==meta['usage'] and not meta['external_skill_commands']
+            usage={k:meta['usage'].get(k,0) for k in keys}
+            if n==11:previous={k:0 for k in keys}
+            delta={k:usage[k]-previous[k] for k in keys};assert all(v>=0 for v in delta.values())
+            for k in keys:total[k]+=delta[k]
+            previous=usage
+            commands=[e['item'] for e in events if e.get('type')=='item.completed' and e.get('item',{}).get('type')=='command_execution']
+            failed=sum(x.get('exit_code')!=0 for x in commands);commands_total+=len(commands);failed_total+=failed;wall+=meta['wall_seconds']
+            turns.append({'session':label,'turn':n,**delta,'commands':len(commands),'failed_commands':failed,'active_cli_seconds':meta['wall_seconds']})
+            for index,x in enumerate(commands):
+                c=x.get('command','')
+                if 'record_io.py' in c or re.search(r'(?:write_text|Set-Content|Out-File)',c,re.I):
+                    method=re.search(r'record_io\.py[\"\x27]?\s+(save|read|update|commit)\b',c)
+                    mechanics[label].append({'turn':n,'command_index':index+1,'commands_in_turn':len(commands),'method':method.group(1) if method else 'manual_or_inline_candidate','exit_code':x.get('exit_code'),'command':c})
+            records=list((path/f'files-after-{n:02}').rglob('learning-record.md'));assert len(records)<=1
+            raw=records[0].read_bytes() if records else None
+            digest=hashlib.sha256(raw).hexdigest() if raw is not None else None
+            if records and records[0].relative_to(BASE).as_posix() in archived:
+                digest=archived[records[0].relative_to(BASE).as_posix()]['executed_sha256']
+            snapshots[label].append({'turn':n,'record_sha256':digest,'changed':digest!=last_hash,'record_file':records[0].relative_to(BASE).as_posix() if records else None})
+            last_hash=digest
+            reply=(path/f'response-{n:02}.md').read_text(encoding='utf-8')
+            auto[label]['M15_marker_counts'][str(n)]=len(re.findall("Hi student, let's get you uncooked",reply,re.I))
+            auto[label]['M5_locators'][str(n)]=re.findall(r'§+\s*\d+(?:\.\d+)?',reply)
+            statuses=re.findall(r'.{0,100}(?:Needs practice|Improving|Demonstrated|Recheck).{0,160}',reply,re.I)
+            if statuses:
+                auto[label]['M11_status_candidates'].append({'turn':n,'phrases':statuses,'record_changed':snapshots[label][-1]['changed']})
+            if re.search('Demonstrated',reply,re.I):
+                auto[label]['M13_candidates'].append({'turn':n,'reply':reply})
+            keys_to_check=truth.get('key_values',truth.get('unattempted_key_values',{}))
+            for item,values in keys_to_check.items():
+                first=truth['first_attempt_turn'].get(item) or truth.get('answer_requested_turn',{}).get(item)
+                if first and n<first:
+                    for value in values:
+                        if value in reply.replace('\\%', '%'):
+                            auto[label]['M1_candidates'].append({'item':item,'turn':n,'matched':value})
+        ten=json.loads((path/'turn-10.meta.json').read_text(encoding='utf-8'))['usage'];eleven=json.loads((path/'turn-11.meta.json').read_text(encoding='utf-8'))['usage']
+        assert all(total[k]==ten.get(k,0)+eleven.get(k,0) for k in keys)
+        summaries.append({'session':label,'arm':arm,**total,'total_tokens':total['input_tokens']+total['output_tokens'],'uncached_input_tokens':total['input_tokens']-total['cached_input_tokens'],'commands':commands_total,'failed_commands':failed_total,'active_cli_seconds':round(wall,2)})
+    for name,rows in [('resources.csv',summaries),('per-turn-deltas.csv',turns)]:
+        if rows:
+            with (BASE/name).open('w',encoding='utf-8',newline='') as f:
+                writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+    dump('save-mechanics.json',mechanics)
+    dump('scores-auto.json',{'note':'Automatic candidates are not semantic pass/fail scores. In particular a common number alone does not establish a premature answer. Confirm M1/M3/M5/status/readiness semantically; M15 counts all agent messages within each student reply.','sessions':auto})
+    dump('record-byte-audit.json',{'note':'Readiness/status-change/stale-resume semantics require blinded review; hashes alone do not establish them.','sessions':snapshots})
+    dump('selected-completion.json',{'completed_sessions':len(complete),'student_calls':11*len(complete),'partial_mode':args.allow_partial,'selected':{k:p.relative_to(BASE).as_posix() for k,p in complete.items()},'note':'Probe/smoke excluded. Cached input is subset of input, reasoning subset of output; do not add twice.'})
+    numeric=(*keys,'total_tokens','uncached_input_tokens','commands','failed_commands')
+    totals={}
+    for arm in 'CD':
+        rows=[x for x in summaries if x['arm']==arm]
+        totals[arm]={'sessions':len(rows),**{k:sum(x[k] for x in rows) for k in numeric},
+                     'active_cli_seconds':round(sum(x['active_cli_seconds'] for x in rows),2)}
+    by_label={x['session']:x for x in summaries};pairs=[]
+    for packet in 'SP':
+        for rep in (1,2):
+            c=by_label.get(f'C-{packet}-rep{rep}');d=by_label.get(f'D-{packet}-rep{rep}')
+            if c and d:
+                pairs.append({'packet':packet,'replicate':rep,'C_tokens':c['total_tokens'],'D_tokens':d['total_tokens'],
+                              'C_minus_D':c['total_tokens']-d['total_tokens'],'D_lower':d['total_tokens']<c['total_tokens'],
+                              'cross_quota_recovery':packet=='P' and rep==2})
+    dump('resources-summary.json',{'arms':totals,'matched_pairs':pairs,'D_lower_pairs':sum(x['D_lower'] for x in pairs),
+         'D_ceiling':4238431,'D_ceiling_met':totals['D']['total_tokens']<=4238431,
+         'note':'Counters not billing; cached/reasoning subsets not added twice. P-rep2 C recovery crosses quota window; timing is not a skill effect.'})
+    grouped={}
+    for n in (1,2,4,5,7,10):
+        grouped[str(n)]={}
+        for arm in 'CD':
+            rows=[x for x in turns if x['turn']==n and x['session'].startswith(arm+'-')]
+            grouped[str(n)][arm]={**{k:sum(x[k] for x in rows) for k in ('input_tokens','cached_input_tokens','output_tokens','commands')},
+                                  'input_plus_output':sum(x['input_tokens']+x['output_tokens'] for x in rows)}
+    dump('save-turn-resource-summary.json',grouped)
+    print(f'{len(complete)} completed selected sessions analyzed; cumulative accounting checks pass.')
+
+
+if __name__=='__main__':
+    main()

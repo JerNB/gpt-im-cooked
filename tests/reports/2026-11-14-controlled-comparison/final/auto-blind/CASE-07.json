@@ -1,0 +1,193 @@
+{
+  "case": "CASE-07",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| Concept ID / topic ID | Concept | Status | Priority and evidence | Corrective rule | Next task |",
+            "- Current activity: Introductory loop tracing explanation from Notes section 2; understanding unassessed."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts | Needs practice |"
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 4,
+      "reply": "\n\nYour Q3 answer and reasoning are correct. I\u2019ll save this improvement, including your report that you used no hint.\n\n\n\nCorrect\u2014**7 element-to-element comparisons**. Your reasoning counts the adjacent pairs, and you correctly excluded assignments, index updates, and loop-condition checks. ([Instructor key, Q3](materials/practice-key.md); [Notes \u00a72.2\u20132.3](materials/notes.md))\n\nYou\u2019ve corrected the element-counting mistake from Q1. I saved your progress as **Improving**, including your report that you used no hint.\n\nTry this changed condition: an eight-element list is processed left to right, but the pass stops after comparing only the first three adjacent pairs. Does `n \u2212 1` still give the actual comparison count? Explain why.",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts | Improving |"
+          ],
+          "recheck_lines": [
+            "ondition check: trace a pass that stops before all adjacent pairs are compared; recheck unaided before quiz |",
+            " asking whether n-1 still applies when a pass stops early; then a later unaided recheck before Quiz 4."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 5,
+      "reply": "\n\nQ4 is correct. You\u2019re improving at counting adjacent pairs; I\u2019ll record this result and check what it tells us about your broader loop-tracing skills.\n\n\n\n**Q4 is correct: 2 element-to-element comparisons**, comparing `0` with `\u22121`, then `\u22121` with `3`. ([Instructor key, Q4](materials/practice-key.md))\n\nYou\u2019ve corrected the Q1 mistake and answered Q3 and Q4 correctly. That supports **Improving** at complete adjacent-pair passes. Broader loop tracing also involves tracking indices, values read, and state changes; we haven\u2019t checked those yet. ([Notes \u00a72.1](materials/notes.md))\n\nLet\u2019s check whether you can adapt the rule: **an eight-element list\u2019s pass stops after comparing the first three adjacent pairs. Does `n \u2212 1` give the actual comparison count here? Why?**\n\nI saved this progress in your [learning record](study/cs-101/quiz-4/learning-record.md).",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts | Improving |"
+          ],
+          "recheck_lines": [
+            "me-structure applications after instruction; transfer unanswered; later unaided recheck due before quiz | Count adjacent pairs; n-1 for n>=1; exclude other operations | Changed-condition ",
+            "check: trace a pass that stops before all adjacent pairs are compared; recheck unaided before quiz |"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts | Improving |"
+          ],
+          "recheck_lines": [
+            "me-structure applications after instruction; transfer unanswered; later unaided recheck due before quiz | Count adjacent pairs; n-1 for n>=1; exclude other operations | Changed-condition ",
+            "check: trace a pass that stops before all adjacent pairs are compared; recheck unaided before quiz |"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "\n\nCorrect. You traced the stopping point and explained why the full-pass formula doesn\u2019t apply. I\u2019ll save this transfer result and mark a later unaided recheck before the quiz.\n\n\n\n**Correct throughout.** You traced the two comparisons, stopped at the right point, excluded the other operations, and explained why `n \u2212 1` applies only to a complete adjacent-pair pass.\n\nTogether with Q3 and Q4, this demonstrates understanding of **adjacent-pair tracing and the course\u2019s runtime convention**, including a changed stopping condition.\n\nI saved that progress in your [learning record](study/cs-101/quiz-4/learning-record.md). We\u2019ll recheck it unaided before the quiz to test retention.",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts and runtime convention | Demonstrated |",
+            "| 2026-11-13 | P2-transfer-early-stop-1, chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "ed demand: determine whether full-pass rule applies. All evidence same session: Recheck before exam. Broader state-changing loops remain unassessed | Trace actual comparisons in order; n-",
+            " Supports Demonstrated for adjacent-pair tracing/runtime convention with Q3/Q4; recheck before exam because evidence is same session |",
+            "- Recheck before exam: All supporting evidence is from this session. Next task should be a later unaided appl"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts and runtime convention | Demonstrated |",
+            "| 2026-11-13 | P2-transfer-early-stop-1, chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "ed demand: determine whether full-pass rule applies. All evidence same session: Recheck before exam. Broader state-changing loops remain unassessed | Trace actual comparisons in order; n-",
+            " Supports Demonstrated for adjacent-pair tracing/runtime convention with Q3/Q4; recheck before exam because evidence is same session |",
+            "- Recheck before exam: All supporting evidence is from this session. Next task should be a later unaided appl"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts and runtime convention | Demonstrated |",
+            "| 2026-11-13 | P2-transfer-early-stop-1, chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "ed demand: determine whether full-pass rule applies. All evidence same session: Recheck before exam. Broader state-changing loops remain unassessed | Trace actual comparisons in order; n-",
+            " Supports Demonstrated for adjacent-pair tracing/runtime convention with Q3/Q4; recheck before exam because evidence is same session |",
+            "- Recheck before exam: All supporting evidence is from this session. Next task should be a later unaided appl"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "\n\nI\u2019ll compare your demonstrated work with the Quiz 4 scope and save a clear list of what still needs checking.\n\n\n\n**I can\u2019t call you ready for the whole quiz yet.** You\u2019ve demonstrated adjacent-pair tracing and the runtime counting convention, including early stopping. The other topics remain unassessed\u2014we haven\u2019t established whether you already know them.\n\n| Quiz 4 topic | What your work shows |\n|---|---|\n| Loop tracing / comparison counts | Correct full-pass answers and early-stop reasoning. Recheck unaided before the quiz; state-changing loops remain unchecked. |\n| List aliasing | We haven\u2019t studied or tested assignment, shared lists, or shallow copies. |\n| Big-O | In scope, but its teaching notes are missing. We haven\u2019t covered or assessed it. |\n| Nested data summaries | We haven\u2019t studied or tested separate group summaries and means. |\n\nThese topics follow the [current outline](materials/outline.md) and [Notes \u00a7\u00a71\u20133](materials/notes.md). **Recursion is excluded from Quiz 4**, so it isn\u2019t a readiness gap.\n\nMy recommendation: study **list aliasing next**, then nested summaries; obtain the Big-O notes and finish with mixed, unaided practice.\n\nI saved this assessment in your [learning record](study/cs-101/quiz-4/learning-record.md).",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": true,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts and runtime convention | Demonstrated |",
+            "| P1 | List aliasing | Unassessed |",
+            "| P3 | Big-O | Unassessed |",
+            "| P4 | Nested data summaries | Unassessed |",
+            "| 2026-11-13 | P2-transfer-early-stop-1, chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "ed demand: determine whether full-pass rule applies. All evidence same session: Recheck before exam. Broader state-changing loops remain unassessed | Trace actual comparisons in order; n-",
+            " Supports Demonstrated for adjacent-pair tracing/runtime convention with Q3/Q4; recheck before exam because evidence is same session |",
+            "convention across full-pass and early-stop settings. All evidence same session; Recheck before exam. Broader state-change tracing unassessed.",
+            "then review a short application. Cover P4 and obtain P3 notes; later unaided P2 recheck before quiz."
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "study/cs-101/quiz-4/learning-record.md": {
+          "changed": false,
+          "status_lines": [
+            "| P2 | Adjacent-pair comparison counts and runtime convention | Demonstrated |",
+            "| P1 | List aliasing | Unassessed |",
+            "| P3 | Big-O | Unassessed |",
+            "| P4 | Nested data summaries | Unassessed |",
+            "| 2026-11-13 | P2-transfer-early-stop-1, chat attempt 1 | P2 |"
+          ],
+          "recheck_lines": [
+            "ed demand: determine whether full-pass rule applies. All evidence same session: Recheck before exam. Broader state-changing loops remain unassessed | Trace actual comparisons in order; n-",
+            " Supports Demonstrated for adjacent-pair tracing/runtime convention with Q3/Q4; recheck before exam because evidence is same session |",
+            "convention across full-pass and early-stop settings. All evidence same session; Recheck before exam. Broader state-change tracing unassessed.",
+            "then review a short application. Cover P4 and obtain P3 notes; later unaided P2 recheck before quiz."
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,446 @@
+{
+  "fixture_sha256": {
+    "materials/notes.md": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+    "materials/outline.md": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+    "materials/practice-key.md": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+    "materials/practice.md": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+    "materials/quiz-3.md": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db",
+    "rubric-v2.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "rubric.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+    "script.json": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51"
+  },
+  "rows": [
+    {
+      "arm": "A1",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 1,
+      "start_unix": 1794628931.9992745,
+      "wall_seconds": 70.26,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 128105,
+        "cached_input_tokens": 122624,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 632,
+        "reasoning_output_tokens": 70
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A1",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 2,
+      "start_unix": 1794629002.2679908,
+      "wall_seconds": 7.0,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 145396,
+        "cached_input_tokens": 139648,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 747,
+        "reasoning_output_tokens": 70
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A1",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 3,
+      "start_unix": 1794629009.2798405,
+      "wall_seconds": 4.9,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 162824,
+        "cached_input_tokens": 156928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 787,
+        "reasoning_output_tokens": 70
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A1",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 4,
+      "start_unix": 1794629014.1876855,
+      "wall_seconds": 6.04,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 180337,
+        "cached_input_tokens": 174208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 850,
+        "reasoning_output_tokens": 70
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A1",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 5,
+      "start_unix": 1794629020.2376783,
+      "wall_seconds": 7.74,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 197948,
+        "cached_input_tokens": 191616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 963,
+        "reasoning_output_tokens": 70
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A1",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 6,
+      "start_unix": 1794629027.98436,
+      "wall_seconds": 6.47,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 215697,
+        "cached_input_tokens": 209152,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1084,
+        "reasoning_output_tokens": 70
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A2",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 1,
+      "start_unix": 1794629034.465598,
+      "wall_seconds": 166.74,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 214606,
+        "cached_input_tokens": 197888,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1035,
+        "reasoning_output_tokens": 118
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A2",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 2,
+      "start_unix": 1794629201.2204473,
+      "wall_seconds": 18.92,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 269516,
+        "cached_input_tokens": 251136,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1407,
+        "reasoning_output_tokens": 118
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A2",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 3,
+      "start_unix": 1794629220.1448603,
+      "wall_seconds": 11.79,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 307156,
+        "cached_input_tokens": 288384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1627,
+        "reasoning_output_tokens": 152
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A2",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 4,
+      "start_unix": 1794629231.9862914,
+      "wall_seconds": 13.52,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 345433,
+        "cached_input_tokens": 325504,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1856,
+        "reasoning_output_tokens": 152
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A2",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 5,
+      "start_unix": 1794629245.5166707,
+      "wall_seconds": 13.2,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 384354,
+        "cached_input_tokens": 363776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2126,
+        "reasoning_output_tokens": 152
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "A2",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 6,
+      "start_unix": 1794629258.7224226,
+      "wall_seconds": 21.96,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 424119,
+        "cached_input_tokens": 402432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2470,
+        "reasoning_output_tokens": 316
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 1,
+      "start_unix": 1794629280.6929972,
+      "wall_seconds": 88.03,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 122577,
+        "cached_input_tokens": 102912,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1231,
+        "reasoning_output_tokens": 390
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 2,
+      "start_unix": 1794629368.7354503,
+      "wall_seconds": 62.51,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 304726,
+        "cached_input_tokens": 281856,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1677,
+        "reasoning_output_tokens": 410
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 3,
+      "start_unix": 1794629431.251413,
+      "wall_seconds": 8.76,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 332838,
+        "cached_input_tokens": 309760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1778,
+        "reasoning_output_tokens": 449
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 4,
+      "start_unix": 1794629440.014702,
+      "wall_seconds": 12.06,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 361096,
+        "cached_input_tokens": 337792,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2053,
+        "reasoning_output_tokens": 617
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 5,
+      "start_unix": 1794629452.08236,
+      "wall_seconds": 69.34,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 487017,
+        "cached_input_tokens": 444416,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4559,
+        "reasoning_output_tokens": 1008
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "B",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 6,
+      "start_unix": 1794629521.4262166,
+      "wall_seconds": 43.28,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 590774,
+        "cached_input_tokens": 545280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5809,
+        "reasoning_output_tokens": 1384
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "C",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 1,
+      "start_unix": 1794629564.7153976,
+      "wall_seconds": 71.83,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 139099,
+        "cached_input_tokens": 125568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1151,
+        "reasoning_output_tokens": 309
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "C",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 2,
+      "start_unix": 1794629636.561263,
+      "wall_seconds": 94.24,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 419720,
+        "cached_input_tokens": 399232,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3185,
+        "reasoning_output_tokens": 409
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "C",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 3,
+      "start_unix": 1794629730.8088098,
+      "wall_seconds": 7.0,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 452684,
+        "cached_input_tokens": 432000,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3251,
+        "reasoning_output_tokens": 409
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "C",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 4,
+      "start_unix": 1794629737.8138776,
+      "wall_seconds": 33.59,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 556358,
+        "cached_input_tokens": 532992,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4476,
+        "reasoning_output_tokens": 615
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "C",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 5,
+      "start_unix": 1794629771.4179575,
+      "wall_seconds": 30.95,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 670417,
+        "cached_input_tokens": 643968,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5587,
+        "reasoning_output_tokens": 777
+      },
+      "complete": true,
+      "error": null
+    },
+    {
+      "arm": "C",
+      "packet": "P",
+      "replicate": 1,
+      "turn": 6,
+      "start_unix": 1794629802.3843887,
+      "wall_seconds": 26.18,
+      "returncode": 0,
+      "usage": {
+        "input_tokens": 751298,
+        "cached_input_tokens": 724480,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6438,
+        "reasoning_output_tokens": 964
+      },
+      "complete": true,
+      "error": null
+    }
+  ]
+}

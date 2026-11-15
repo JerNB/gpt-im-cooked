@@ -1,0 +1,1 @@
+Q2 has **5 element-to-element comparisons**: the list has 6 elements, so one adjacent-pair pass makes **6 − 1 = 5** comparisons.

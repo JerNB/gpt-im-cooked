@@ -1,0 +1,1 @@
+60.0% of members who borrowed a book are students. The reference group is the 15 book borrowers, 9 of whom are students. So I use 9/15, not 9/20 or 9/50.

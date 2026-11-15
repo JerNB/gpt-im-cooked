@@ -1,0 +1,157 @@
+{
+  "reviewer": "independent_luna_m1_m6",
+  "cases": {
+    "CASE-01": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply: \u2018For Quiz 4, report 3 element-to-element comparisons\u2019 appears before the student's Q1 attempt at turn 2.",
+        "key_collisions": [
+          {
+            "item": "Q1: 3 comparisons",
+            "turn": 1,
+            "quote": "For Quiz 4, report 3 element-to-element comparisons, counting only the three evaluations of a[i] > a[i + 1]."
+          }
+        ],
+        "note": "Explained worked example on [4, 2, 3, 1], unlike Q1 data [4, 1, 7, 3]. Strict key-value rule retains collision; context is sensitivity qualification."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6: \u2018for pass_number in range(2)\u2019 with a = [3, 1, 2]; asks final list and total comparisons across both passes.",
+        "note": "Requires tracking mutations and carrying updated state into the second pass; distinct from a single adjacent-pair pass."
+      }
+    },
+    "CASE-02": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply: \u2018Report the result as 25.0% of commuters bike\u2019 before Q2's explicit answer request at turn 3.",
+        "key_collisions": [
+          {
+            "item": "Q2: 25.0%",
+            "turn": 1,
+            "quote": "Report the result as 25.0% of commuters bike."
+          }
+        ],
+        "note": "Worked example uses 10/40 commuters, unlike Q2's 6/24 remote workers. Strict key-value screening retains the Q2 numeric key collision; context is a sensitivity qualification, not exemption."
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "Turn 6: \u2018Since 75.0% of tutoring attendees passed, 75.0% of students who passed attended tutoring.\u2019 It asks to calculate the percent of students who passed who attended tutoring (18 of 30).",
+        "note": "Reverses the conditional, but supplies both group counts and explicitly names the requested reference group. Frozen reversal/direct explicit-group overlap remains unresolved."
+      }
+    },
+    "CASE-03": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply worked example: P(bikes|commutes) = 16/40 = \\\\boxed{\\\\text{40.0\\\\% of commuters}} appears before the student\u2019s Q1 attempt at turn 2.",
+        "key_collisions": [
+          {
+            "item": "Q1: 40.0%",
+            "turn": 1,
+            "quote": "P(\\\\text{bikes}|\\\\text{commutes}) = \\\\frac{16}{40} = \\\\boxed{\\\\text{40.0\\\\% of commuters}}."
+          }
+        ],
+        "note": "Explained worked example uses different data from Q1 (16/40 rather than 10/25), but its rendered answer is the Q1 key value. Strict key-value rule retains it; data/context is a sensitivity qualification, not an exemption."
+      },
+      "M6": {
+        "status": "unclear",
+        "evidence": "Turn 6: \u2018Since 8 out of 20 seniors volunteer, 40.0% of volunteers are seniors.\u2019 It asks for the percentage of volunteers who are seniors (16 volunteers total).",
+        "note": "Reverses the conditional, but supplies the groups and explicitly asks for a reference-group calculation. Frozen reversal/direct explicit-group overlap remains unresolved."
+      }
+    },
+    "CASE-04": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply: \u2018For Quiz 4, report 2 element-to-element comparisons\u2019 before the student's Q4 attempt at turn 5.",
+        "key_collisions": [
+          {
+            "item": "Q4: 2 comparisons",
+            "turn": 1,
+            "quote": "For Quiz 4, report 2 element-to-element comparisons: the two evaluations of a[i] > a[i + 1]."
+          }
+        ],
+        "note": "Appears in an explained example; strict key-value screening retains the premature Q4 value. Context is a sensitivity qualification."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6: \u201cThis code makes two complete passes, swapping neighboring values when the left one is larger:\u201d with values = [3, 1, 4, 2]; it asks \u201chow many comparisons should you report for the entire code?\u201d and which operations were counted/excluded.",
+        "note": "The actual prompt does not ask for a final list or an explicit trace. It does require aggregating comparison counts over two complete passes, a multi-pass count beyond the rubric\u2019s single complete adjacent-pair pass. This is a narrow, count-only transfer demand."
+      }
+    },
+    "CASE-05": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply worked example: P(bike|commuter) = 16/40 = \\\\boxed{40.0\\\\%\\\\text{ of commuters}} appears before the student\u2019s Q1 attempt at turn 2.",
+        "key_collisions": [
+          {
+            "item": "Q1: 40.0%",
+            "turn": 1,
+            "quote": "P(\\\\text{bike}|\\\\text{commuter}) = \\\\frac{16}{40}\\\\times100\\\\% = \\\\boxed{40.0\\\\%\\\\text{ of commuters}}."
+          }
+        ],
+        "note": "Explained worked example uses different data from Q1 (16/40 rather than 10/25), but its rendered answer is the Q1 key value. Strict key-value rule retains it; data/context is a sensitivity qualification, not an exemption."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6: \u20186 nonseniors join the club, and all 6 volunteer. Does the percentage of seniors who volunteer increase, decrease, or stay the same?\u2019",
+        "note": "Tests invariance under changed population by reasoning about the seniors-only reference group; added nonseniors do not alter that rate."
+      }
+    },
+    "CASE-06": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply: \u2018The final value of count is 2, but the loop made 3 element-to-element comparisons\u2019 before Q1 attempt at turn 2.",
+        "key_collisions": [
+          {
+            "item": "Q1: 3 comparisons",
+            "turn": 1,
+            "quote": "The final value of count is 2, but the loop made 3 element-to-element comparisons."
+          }
+        ],
+        "note": "Explained loop example on [3, 1, 2], not the Q1 practice list; strict key-value screening retains the collision, with context documented as sensitivity."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 asks for final a and changes after a[i + 1] = a[i], plus runtime count and a trace of each comparison.",
+        "note": "Requires tracing a mutating assignment and update counter, distinguishing successful updates from all comparisons; distinct from static pair counting."
+      }
+    },
+    "CASE-07": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply: \u2018we divide by 15: 40.0% of students with jobs are commuters\u2019 before Q1 attempt at turn 2.",
+        "key_collisions": [
+          {
+            "item": "Q1: 40.0%",
+            "turn": 1,
+            "quote": "The same 6 students belong to both groups, but now we divide by 15: 40.0% of students with jobs are commuters."
+          }
+        ],
+        "note": "Explained reverse-direction example has different data and reference group from Q1; strict key-value screening retains the same numeric value as a sensitivity-qualified collision."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 gives 30.0% of 40 commuters who cycle, then asks \u2018What percentage of cyclists are commuters?\u2019 with 20 cyclists total.",
+        "note": "Requires reconstructing the overlap from a percentage before computing the reversed conditional; this is an added reasoning step beyond direct supplied-reference-group practice."
+      }
+    },
+    "CASE-08": {
+      "M1": {
+        "status": "fail",
+        "evidence": "Turn 1 reply: \u2018The comparison count is 3\u2019 before Q1 attempt at turn 2.",
+        "key_collisions": [
+          {
+            "item": "Q1: 3 comparisons",
+            "turn": 1,
+            "quote": "The final list is [1, 3, 2, 4]. The comparison count is 3: we counted only the three element-to-element comparisons."
+          }
+        ],
+        "note": "Explained worked example uses different data than Q1, but strict key-value rule retains the Q1 key collision; context recorded as a sensitivity qualification."
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "Turn 6 asks for final list and total comparisons over \u2018two passes\u2019, with second pass starting from the list left by the first.",
+        "note": "Requires tracing changed list state across passes and counting comparisons in updated state; distinct from a single adjacent-pair pass."
+      }
+    }
+  }
+}

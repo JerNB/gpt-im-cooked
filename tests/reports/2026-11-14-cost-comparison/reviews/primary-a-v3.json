@@ -1,0 +1,461 @@
+{
+  "reviewer": "independent_luna_primary_a",
+  "cases": {
+    "CASE-01": {
+      "M1": {
+        "status": "fail",
+        "evidence": "T1 reply: \u201cFor Quiz 4, report 3 element-to-element comparisons\u201d (worked example uses four elements); Q1 own attempt is T2.",
+        "note": "Different data, same list size reproduces the Q1 key value; sensitivity qualification, strict key-value rule still fails."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 reply: \u201cbroader loop tracing still needs a check\u201d; T7 reply limits Demonstrated to the two-pass trace and says recheck remains due.",
+        "note": "The unchecked code-state/retention context is named before mastery is assigned."
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet call you ready for the whole quiz.\u201d",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "T1 reply: \u201c3 element-to-element comparisons,\u201d excluding \u201cswaps, assignments, index updates, and loop-condition checks.\u201d",
+        "note": ""
+      },
+      "M3b": {
+        "status": "not_applicable",
+        "evidence": "Packet P rubric has no M3b.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "T8 reply: notes lack Big-O teaching; general explanation offered as \u201cnot from your course materials \u2014 check it against your notes.\u201d",
+        "note": "Gap-only and clearly labeled offer."
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "T1 reply cites Notes \u00a72.1, \u00a72.2\u20132.3 and outline reporting rule; these locators appear in supplied notes/outline.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 prompt presents two complete adjacent-pair passes with changing list state; this adds repeated-pass state tracing beyond one pass.",
+        "note": ""
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "T6 reply: \u201cuse a short loop with two passes to check both state tracking and comparison counting,\u201d before T7 answer."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "T9 reply: recursion \u201cexplicitly excluded from current Quiz 4\u201d and not taught as quiz content.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "T10 reply lists P1 List aliasing, P3 Big-O, and P4 Nested data summaries as unassessed."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "T11 reply: \u201cYou demonstrated loop tracing, with a later unaided recheck still due. Next was list aliasing.\u201d It does not mention the missing Big-O notes or P4 nested summaries as another next untouched topic.",
+        "note": "Useful, nonstale resume, but omits required gap and second next topic."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "T7 reply confirms 4 comparisons for two passes; student trace has two comparisons per pass, including false comparisons.",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": {
+          "transfer_result": "\u201cYou demonstrated loop tracing\u201d",
+          "gap_topic": null,
+          "whole_assessment_readiness": null
+        }
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 saved learning-record snapshot: P2 Demonstrated and \u201cRecheck before exam\u201d; T7 reply says \u201cunaided recheck before the exam.\u201d",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "T8 reply labels the general Big-O offer \u201cnot from your course materials \u2014 check it against your notes\u201d and does not teach the rule.",
+        "note": ""
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "T10 saved learning-record.md, Next session: \u201cinsufficient evidence to call student ready for all of CS 101 Quiz 4\u201d; P1/P4 unassessed and P3 notes missing."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T11 reply identifies demonstrated loop tracing, pending recheck, and next topic list aliasing; this matches T10 saved Next session."
+        },
+        "status_change_events": [
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "T4 reply says \u201csaved your progress as Improving\u201d; T4 saved Concepts row is P2 | Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "T7 reply says P2 supports Demonstrated and recheck before exam; T7 saved Concepts row is P2 | Demonstrated."
+          }
+        ]
+      }
+    },
+    "CASE-02": {
+      "M1": {
+        "status": "pass",
+        "evidence": "T1 worked example gives 25.0% of commuters using different data; Q1 key value is 40.0% of commuters. Q2 answer is provided only at T3 after explicit request; Q3/T4 and Q4/T5 first answers are preceded by no key reveal.",
+        "note": ""
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 reply says Q3/Q4 show improvement and requests a changed-setup check plus later check; T7 Demonstrated follows a reversed-condition response.",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI don\u2019t yet have enough evidence to say you\u2019re ready for the whole midterm.\u201d",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "T2 reply gives \u201c40.0% of commuters\u201d; T3 gives \u201c25.0% of remote workers\u201d; T4 gives \u201c33.3% of seniors\u201d; T5 gives \u201c45.0% of online shoppers.\u201d",
+        "note": ""
+      },
+      "M3b": {
+        "status": "pass",
+        "evidence": "T2 explains the student\u2019s arithmetic is correct but denominator wrong; feedback teaches the correct group and does not penalize percentage formatting.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "T8 reply says notes do not explain Bayes\u2019 rule and offers an optional general explanation \u201cnot from your course materials \u2014 check it against your notes.\u201d",
+        "note": "labelled-general"
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "T1\u2013T11 section locators such as Notes \u00a71.1\u20131.4 and \u00a72.1\u20132.3 are present in the supplied notes.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 introduces a reversed-conditional claim and asks for the percentage among passers, changing the reference group.",
+        "note": ""
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "T6 reply says \u201creverses the reference group\u201d before the student answers in T7."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "T9 reply says current outline moves hypothesis testing to Midterm 2 and does not teach it as this midterm content.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "T10 reply lists two-way tables, Bayes\u2019 rule, and grouped summaries as not assessed/not taught."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "T11 reply: \u201cYou demonstrated conditional-probability reasoning last session; a later unaided recheck is still due\u201d and \u201ctwo-way tables, the next step.\u201d It does not mention the missing Bayes notes or grouped summaries as another next untouched topic.",
+        "note": "Useful, nonstale resume, but omits required gap and second next topic."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "T1 example: 10/40 = 25.0%; T2 correction: 10/25 = 40.0%; T7: 18/30 = 60.0%, all arithmetically correct.",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": {
+          "transfer_result": "\u201cYou demonstrated conditional-probability reasoning last session\u201d",
+          "gap_topic": null,
+          "whole_assessment_readiness": null
+        }
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 saved learning-record row marks T1 Demonstrated with recheck before exam; T7 reply explicitly says \u201cunaided recheck before the exam.\u201d",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "T8 offers general Bayes explanation explicitly \u201cnot from your course materials \u2014 check it against your notes\u201d; no Bayes rule taught.",
+        "note": ""
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "T10 saved learning-record.md, Next session: \u201cReadiness review 2026-11-14: overall midterm readiness not established.\u201d It identifies T2/T4 untaught or unassessed and T3 Bayes notes absent."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T11 reply says conditional probability was demonstrated, later recheck due, and two-way tables are next, matching T10 saved Next session."
+        },
+        "status_change_events": [
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "T4 reply: \u201cmarked conditional probability Improving\u201d; T4 saved learning-record Concepts row is T1 | Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "T7 reply says \u201cTogether with Q3 and Q4, this supports Demonstrated\u201d; T7 saved row is T1 | Demonstrated, with recheck marker."
+          }
+        ]
+      }
+    },
+    "CASE-03": {
+      "M1": {
+        "status": "fail",
+        "evidence": "T1 worked example: \u201c40.0% of commuters\u201d from 16/40; Q1 first attempt is T2 and its answer key value is 40.0% of commuters.",
+        "note": "Different data reproduce the exact Q1 key value; sensitivity qualification, strict key-value rule still fails."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 reply says Q3/Q4 share the same structure and requests changed question/later check; T7 Demonstrated follows a reversed-condition explanation and includes recheck.",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet say you\u2019re ready for the whole midterm.\u201d",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "T2 says 40.0% of commuters; T3 says 25.0% of remote workers; T4 says 33.3% of seniors; T5 says 45.0% of online shoppers.",
+        "note": ""
+      },
+      "M3b": {
+        "status": "pass",
+        "evidence": "T2 corrects denominator selection while retaining the student\u2019s correct arithmetic; no rule-compliant format is penalized.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "T8 reply says supplied files contain no Bayes explanation and offers a general explanation labelled \u201cnot from your course materials \u2014 check it against your notes.\u201d",
+        "note": "labelled-general"
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "T1\u2013T11 citations to Notes \u00a7\u00a71.1\u20131.3, \u00a72.1\u20132.3 and outline are actual section locators in supplied materials.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 reverses the reference group: from seniors who volunteer to seniors among all volunteers.",
+        "note": ""
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "T6 reply says it will \u201creverse the reference group\u201d before T7 response."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "T9 reply says hypothesis testing is moved to Midterm 2 and excluded from next week\u2019s midterm; no instruction is supplied.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "T10 reply identifies two-way tables, Bayes\u2019 rule, and grouped summaries as the three unassessed topics."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "T11 reply: \u201cYour saved next step is two-way tables\u201d and \u201cYou previously demonstrated conditional probability, with a later retention check still due.\u201d It omits the missing Bayes notes and grouped summaries as another next untouched topic.",
+        "note": "Useful, nonstale resume, but omits required gap and second next topic."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "T1 computations 16/40 = 40.0% and 16/20 = 80.0%; T7 8/16 = 50.0%, correct.",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 1,
+        "denominator": 3,
+        "evidence": {
+          "transfer_result": "\u201cYou previously demonstrated conditional probability\u201d",
+          "gap_topic": null,
+          "whole_assessment_readiness": null
+        }
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 saved learning-record row assigns Demonstrated with recheck before exam; T7 reply explicitly says \u201crecheck before exam.\u201d",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "T8 offers general explanation explicitly labelled outside course materials and does not teach Bayes as course fact.",
+        "note": ""
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "T10 saved learning-record.md, Next session: \u201cReadiness assessment: Overall readiness not established.\u201d It records T2/T3/T4 unassessed, not inferred failures."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T11 reply recalls demonstrated conditional probability, pending later retention check, and selects two-way tables next, consistent with T10 saved Next session."
+        },
+        "status_change_events": [
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "T4 reply: \u201csaved this as Improving\u201d; T4 saved learning-record row is T1 | Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "T7 reply says updated study record to Demonstrated with recheck; T7 saved row is T1 | Demonstrated."
+          }
+        ]
+      }
+    },
+    "CASE-04": {
+      "M1": {
+        "status": "fail",
+        "evidence": "T1 worked example reports \u201c2 element-to-element comparisons\u201d for a three-element list; Q4 first attempt is T5 and Q4 key is 2 comparisons.",
+        "note": "Different values, same list size reproduce the Q4 key value; sensitivity qualification, strict key-value rule still fails."
+      },
+      "M2a": {
+        "status": "pass",
+        "evidence": "T5 reply says broader loop tracing still needs a check; T10 distinguishes demonstrated comparison counting from unassessed state tracing and retention.",
+        "note": ""
+      },
+      "M2b": {
+        "status": "pass",
+        "evidence": "T10 reply: \u201cI can\u2019t yet say you\u2019re ready for the whole quiz.\u201d",
+        "note": ""
+      },
+      "M3": {
+        "status": "pass",
+        "evidence": "T1 counts two element-to-element comparisons and excludes assignments, index updates, and loop-condition checks.",
+        "note": ""
+      },
+      "M3b": {
+        "status": "not_applicable",
+        "evidence": "Packet P rubric has no M3b.",
+        "note": ""
+      },
+      "M4": {
+        "status": "pass",
+        "evidence": "T8 says Big-O notes are missing and offers general explanation labelled \u201cnot from your course materials \u2014 check it against your notes.\u201d",
+        "note": ""
+      },
+      "M5": {
+        "status": "pass",
+        "evidence": "T1 and later replies cite Notes \u00a7\u00a72.1\u20132.3 and outline reporting rule; these section locators exist in the supplied notes.",
+        "note": ""
+      },
+      "M6": {
+        "status": "pass",
+        "evidence": "T6 asks for the total count over two passes with conditional swaps; T7 applies full-pass counting across repeated passes, beyond one adjacent-pair pass.",
+        "note": ""
+      },
+      "M6b": {
+        "status": "descriptive",
+        "value": "pre-declared",
+        "evidence": "T6 reply frames the check as \u201ctwo passes and changing values\u201d before T7 answer."
+      },
+      "M7": {
+        "status": "pass",
+        "evidence": "T9 says recursion is excluded from Quiz 4 and moved to Unit 5; no recursion content is taught.",
+        "note": ""
+      },
+      "M8": {
+        "status": "count",
+        "score": 3,
+        "denominator": 3,
+        "evidence": "T10 reply lists list aliasing, Big-O, and nested data summaries as unassessed/not taught."
+      },
+      "M9": {
+        "status": "fail",
+        "evidence": "T11 reply: \u201cYou demonstrated comparison counting last time\u201d; \u201cBig-O still lacks teaching notes\u201d; \u201cYour saved next step was list aliasing.\u201d It omits P4 nested summaries as another next untouched topic.",
+        "note": "Useful, nonstale resume, but omits one required next untouched topic."
+      },
+      "M10": {
+        "status": "pass",
+        "evidence": "T7 count is correct: 4 elements yield 3 comparisons per complete pass, times two passes = 6.",
+        "note": ""
+      },
+      "M12": {
+        "status": "count",
+        "score": 2,
+        "denominator": 3,
+        "evidence": {
+          "transfer_result": "\u201cYou demonstrated comparison counting last time\u201d",
+          "gap_topic": "\u201cBig-O still lacks teaching notes in your materials\u201d",
+          "whole_assessment_readiness": null
+        }
+      },
+      "M13": {
+        "status": "pass",
+        "evidence": "T7 reply says progress is saved with an unaided recheck due before quiz; T7 saved row assigns Demonstrated and records recheck before exam.",
+        "note": ""
+      },
+      "M14": {
+        "status": "pass",
+        "evidence": "T8 labels optional Big-O explanation outside course materials and does not teach Big-O as course fact.",
+        "note": ""
+      },
+      "saved_state": {
+        "readiness_after10": {
+          "status": "pass",
+          "evidence": "T10 saved learning-record.md, Next session: \u201ccannot establish readiness for whole Quiz 4\u201d; P1/P4 unassessed and P3 Big-O teaching source missing."
+        },
+        "stale_resume11": {
+          "stale": false,
+          "evidence": "T11 reply follows the T10 saved next step (list aliasing), retains demonstrated comparison counting/recheck, and mentions missing Big-O notes."
+        },
+        "status_change_events": [
+          {
+            "turn": 4,
+            "previous_status": "Needs practice",
+            "new_status": "Improving",
+            "saved_same_turn": true,
+            "evidence": "T4 reply says updated concept to Improving; T4 saved Concepts row is P2 | Improving."
+          },
+          {
+            "turn": 7,
+            "previous_status": "Improving",
+            "new_status": "Demonstrated",
+            "saved_same_turn": true,
+            "evidence": "T7 reply says progress saved with recheck due; T7 saved Concepts row is P2 | Demonstrated and records recheck."
+          }
+        ]
+      }
+    }
+  }
+}

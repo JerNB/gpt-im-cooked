@@ -1,0 +1,128 @@
+{
+  "n_per_arm": 4,
+  "metrics": {
+    "C": {
+      "M1": {
+        "fail": 4
+      },
+      "M2a": {
+        "pass": 4
+      },
+      "M2b": {
+        "pass": 4
+      },
+      "M3": {
+        "pass": 4
+      },
+      "M3b": {
+        "pass": 2,
+        "not_applicable": 2
+      },
+      "M4": {
+        "pass": 4
+      },
+      "M5": {
+        "pass": 4
+      },
+      "M6": {
+        "unclear": 1,
+        "pass": 3
+      },
+      "M7": {
+        "pass": 4
+      },
+      "M8": {
+        "complete3": 4
+      },
+      "M9": {
+        "fail": 4
+      },
+      "M10": {
+        "pass": 4
+      },
+      "M11": {
+        "pass": 4
+      },
+      "M12": {
+        "partial1": 4
+      },
+      "M13": {
+        "pass": 4
+      },
+      "M14": {
+        "pass": 4
+      }
+    },
+    "D": {
+      "M1": {
+        "fail": 4
+      },
+      "M2a": {
+        "pass": 4
+      },
+      "M2b": {
+        "pass": 4
+      },
+      "M3": {
+        "pass": 4
+      },
+      "M3b": {
+        "not_applicable": 2,
+        "pass": 2
+      },
+      "M4": {
+        "pass": 4
+      },
+      "M5": {
+        "pass": 4
+      },
+      "M6": {
+        "pass": 3,
+        "unclear": 1
+      },
+      "M7": {
+        "pass": 4
+      },
+      "M8": {
+        "complete3": 4
+      },
+      "M9": {
+        "fail": 4
+      },
+      "M10": {
+        "pass": 4
+      },
+      "M11": {
+        "pass": 4
+      },
+      "M12": {
+        "partial1": 3,
+        "partial2": 1
+      },
+      "M13": {
+        "pass": 4
+      },
+      "M14": {
+        "pass": 4
+      }
+    }
+  },
+  "saved_state": {
+    "C": {
+      "readiness_pass": 4,
+      "fresh": 4,
+      "status_events": 12,
+      "status_misses": 0
+    },
+    "D": {
+      "readiness_pass": 4,
+      "fresh": 4,
+      "status_events": 12,
+      "status_misses": 0
+    }
+  },
+  "M15_repeated_replies_out_of44": {
+    "C": 15,
+    "D": 0
+  }
+}

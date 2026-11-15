@@ -1,0 +1,1 @@
+For practice Q1, my answer is 10/40 = 25%. I divided by all 40 students because the question starts with 40 students. Is that right?

@@ -1,0 +1,48 @@
+{
+  "current_CLI_invocations": 95,
+  "current_completed_CLI_turns": 94,
+  "selected_complete_student_turns": 88,
+  "excluded_completed_partial_turns": 3,
+  "completed_diagnostic_turns": 3,
+  "failed_CLI_turns": 1,
+  "groups": {
+    "batch-01-C-S-rep1": {
+      "complete": 11
+    },
+    "batch-01-D-S-rep1": {
+      "complete": 11
+    },
+    "batch-02-C-P-rep1": {
+      "complete": 11
+    },
+    "batch-02-D-P-rep1": {
+      "complete": 11
+    },
+    "batch-03-C-S-rep2": {
+      "complete": 11
+    },
+    "batch-03-D-S-rep2": {
+      "complete": 11
+    },
+    "batch-04-C-P-rep2": {
+      "complete": 3,
+      "failed": 1
+    },
+    "batch-04-D-P-rep2": {
+      "complete": 11
+    },
+    "recovery-C-P-rep2-20261115": {
+      "complete": 11
+    },
+    "smoke-001": {
+      "complete": 2
+    }
+  },
+  "known_completed_thread_usage_lower_bound": {
+    "input_tokens": 7984752,
+    "cached_input_tokens": 7241088,
+    "output_tokens": 82116,
+    "reasoning_output_tokens": 9677
+  },
+  "note": "Thread-cumulative counters counted once, probe once. Failed turn4 additional ledger usage kept separately, not added here; reviewer/orchestration cost excluded. Prior historical routing probe is separate, completed0/billing unknown."
+}

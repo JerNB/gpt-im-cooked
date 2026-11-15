@@ -1,0 +1,18 @@
+{
+  "returncode": 0,
+  "completed_turns": 1,
+  "messages": [
+    "T007_OK"
+  ],
+  "wall_seconds": 6.84,
+  "passed": true,
+  "usage": [
+    {
+      "input_tokens": 13949,
+      "cached_input_tokens": 12416,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7,
+      "reasoning_output_tokens": 0
+    }
+  ]
+}

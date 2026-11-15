@@ -1,0 +1,32 @@
+{
+  "model": "gpt-6-luna",
+  "human_explicitly_authorized": true,
+  "forked_without_parent_history": true,
+  "review_inputs": "Only masked CASE files and common guide; no mapping/cost/source/coordination logs",
+  "case_sha256": {
+    "CASE-01.json": "2f427627a51f4023a682d19aed042f0404f3f8e7eeb3bf482210db626a63a805",
+    "CASE-02.json": "0453474493b77a83f1069081d3543110d2c629078f4f74021b63c439095be4e7",
+    "CASE-03.json": "452981ac32e0b18121e42bf72c1523253a075f131ff6f54a3a330b6f98681d5e",
+    "CASE-04.json": "ce66dbce8f7689dbde2d5d4f4955846abd1929b8b177fa5230e8092a2a475052",
+    "CASE-05.json": "97841d29e932645db0ac90986461012321a34eb74426a808bc2550b611d8a933",
+    "CASE-06.json": "79c11af9a295faae07ed34619231d325e3776eea7cd96ca7da68a1d219d29264",
+    "CASE-07.json": "4b2bbc3096cd0d1a8b5b0b8d724be7a53e90797cb438a47f13242595f9392b56",
+    "CASE-08.json": "943c4250255a9b79c116559953b9770c0aae84cfef6b264a3d4c3d0c744b1132"
+  },
+  "guide_sha256": "40540c8724e33350ce0e55e785869f9bdfcec315528b59ae73c0d1de23e3504b",
+  "review_file_sha256": {
+    "reviews/m1-m6-independent-v2.json": "fef59d8929ffdc3315dce22420190616e7e21ec88d57919f09057654ed7eb9ad",
+    "reviews/m1-m6-independent.json": "d72961ea4cd39db589b6059638fe2fc01f433326aeff87369bfc21d93ed7c4c6",
+    "reviews/primary-a-v2.json": "42cc2fc0950fc02c40042e3b088c6895af7bc1d27a3cbd8d77fc1a550d9f01a5",
+    "reviews/primary-a-v3.json": "ea318ee52ef7d343556e0dd901c99b358731df39acda49fe0fede8d6a0687892",
+    "reviews/primary-a.json": "bd4221c2a3bbe7e707565c6cfecf7d35b2d0c6bfbcccc2e5884283be347dcca3",
+    "reviews/primary-b-v2.json": "ef908bbd907ade29acd77425e77fb7ee02ab67d583debde410416304451b39e3",
+    "reviews/primary-b-v3.json": "eacace4ef457b73d8bb2ec6001517277185ac048930324f6c23bb20d9d266bd8",
+    "reviews/primary-b-v4.json": "486cf2d24ea3d90b82da21775a885e236bc5e284f203e736b1408ff7d2f17cc8",
+    "reviews/primary-b.json": "9e0fd9c251ce1817ee3f8ec0c9d1c32246794b39952e3c71c184dc72a716ecdd",
+    "reviews/secondary-v2.json": "7d6a6d6c6f4c2f82c10f96f3f116d0577389f4e2a6d2a07b9f9e3f44e08ed13e",
+    "reviews/secondary-v3.json": "6f13d570f3b6a4c1859690ea45fab24b95012512be34ee691c9e846f7742b4de",
+    "reviews/secondary.json": "e73ae5da44e17a7d612de3d2bbc5bbbbb5d14b850a9f8cc18e942984a1625ccf"
+  },
+  "parent_compilation": "Unblinded; source-extracted quotes and documented version selection. Original drafts and revisions preserved. Formal cc cross-review pending."
+}

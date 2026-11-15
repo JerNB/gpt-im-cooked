@@ -1,0 +1,1 @@
+Can you also explain hypothesis testing? It was on last year's midterm.

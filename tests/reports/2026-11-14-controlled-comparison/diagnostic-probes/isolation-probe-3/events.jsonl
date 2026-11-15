@@ -1,0 +1,7 @@
+{"type":"thread.started","thread_id":"01a1d848-dd52-7630-b06f-0a07ed8932bd"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"I’ll read `probe.txt` with a shell command."}}
+{"type":"item.started","item":{"id":"item_1","type":"command_execution","command":"\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -LiteralPath probe.txt -Raw'","aggregated_output":"","exit_code":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"command_execution","command":"\"<ROOT>\\\\WindowsApps\\\\OpenAI.CodexPrimaryRuntime.v26-1110-973-0_26.1110.973.0_x64__3k8sg7r9htsxt\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-Content -LiteralPath probe.txt -Raw'","aggregated_output":"T004_LOCAL_READ_7319\r\n","exit_code":0,"status":"completed"}}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"```text\nT004_LOCAL_READ_7319\n```\n\nThe file ends with a CRLF newline (`\\r\\n`)."}}
+{"type":"turn.completed","usage":{"input_tokens":28466,"cached_input_tokens":24832,"cache_write_input_tokens":0,"output_tokens":85,"reasoning_output_tokens":0}}

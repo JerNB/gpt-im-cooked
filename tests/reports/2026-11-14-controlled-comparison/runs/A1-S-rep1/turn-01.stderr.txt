@@ -1,0 +1,2 @@
+2026-11-13T23:17:10.596729Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-11-13T23:18:14.942260Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"Failed to create unified exec process: registered Core process has no package identity\")" }

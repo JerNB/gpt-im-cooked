@@ -1,0 +1,14 @@
+{
+  "M1": "Both final reviewers fail: actual Q1 solution appears at turn1. Primary initial pass was corrected with revision note.",
+  "M2a": "Both fail",
+  "M2b": "Both pass",
+  "M11": "Both not_applicable",
+  "M13": "Both not_applicable",
+  "M6": {
+    "status": "pass",
+    "evidence": "Turn 6 supplies 12 senior volunteers and 6 non-senior volunteers, not a volunteer total; the answer must construct 18 as denominator.",
+    "note": "Primary pass, independent second fail. Parent adjudication applies the frozen changed-demand rule consistently with existing CASE-15, which also requires adding two volunteer counts. Parent knew the adaptive prompt earlier; adjudication is partially blind."
+  },
+  "preserved_prior_case_count": 15,
+  "prior_case_hashes_unchanged": true
+}

@@ -1,0 +1,1 @@
+Correct—**33.3% of seniors volunteer at events**. You identified the reference group and used the 12 seniors as the denominator, independently.

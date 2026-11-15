@@ -1,0 +1,1 @@
+Report 2 element-to-element comparisons. It compares 1>4 (false), then 4>2 (true) and stops. It never compares 2 with 7 or 7 with 9. I exclude assignments, index updates, and loop-condition checks. n-1=4 describes a full pass, but this loop stops early so it does not apply to this execution.

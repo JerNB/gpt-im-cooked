@@ -1,0 +1,20 @@
+{
+  "S-rep1": {
+    "A1": "53.3% of volunteers are seniors. The reference group is the 15 volunteers, and 8 are seniors, so I divide 8 by 15 and round to one decimal place.",
+    "A2": "There is not enough information to determine the percentage of cyclists who commute. The denominator must be all cyclists, but we only know 10 commuters cycle; noncommuting cyclists are not specified. If there are x noncommuting cyclists, it would be 100 times 10/(10+x)% of cyclists. We cannot supply a numeric percentage to one decimal place without that total.",
+    "B": "Maya is not right. Before and after, 40.0% of commuters cycle. The reference group is the 20 commuters and the numerator is 8 cyclists among them. Adding noncommuters changes neither the 8 nor the 20, so 8/20 remains the fraction.",
+    "C": "The conclusion is not correct. 53.3% of bike riders are commuters: 8/15, rounded to one decimal place. The reference group is all 15 bike riders, not the 20 commuters. The original 8/20 = 40.0% of commuters uses a different denominator."
+  },
+  "S-rep2": {
+    "A1": "60.0% of volunteers are seniors. The reference group is the 15 volunteers, 9 of whom are seniors; 9/15 gives 60.0%.",
+    "A2": "Not enough information. The reference group is all shoppers who returned an item. We know 9 online shoppers returned an item, but not how many non-online shoppers returned one. We need the total number of returners; then 9 divided by that total gives the required share.",
+    "B": "Not enough information. The denominator is the total volunteers, which is unknown. We know 4 senior volunteers but not the number of non-senior volunteers. With the total volunteer count, I would divide 4 by that count and report a percentage to one decimal place of volunteers.",
+    "C": "Not enough information. The reference group is all cyclists. There are 12 commuting cyclists, but the total number of cyclists is not specified. I need either total cyclists or the number of noncommuting cyclists. Then 12 divided by total cyclists would give the percentage of cyclists who commute."
+  },
+  "P-rep1": {
+    "A1": "After i=0, values is [1,4,3,2] and swaps=1. After i=1 it is [1,3,4,2] and swaps=2. After i=2 it is [1,3,2,4] and swaps=3. Final values=[1,3,2,4], swaps=3. Report 3 element-to-element comparisons: 4>1, 4>3, and 4>2. Assignments, swaps, index updates, and loop-condition checks are excluded.",
+    "A2": "Report 0 element-to-element comparisons. A one-element list has no adjacent pair, so n-1=0. The assignment and loop-condition check are excluded by the course convention.",
+    "B": "At i=0 compare 4>1, swap to [1,4,3], changes=1. At i=1 compare 4>3, swap to [1,3,4], changes=2. Final list [1,3,4], changes=2. Runtime count is 2 element-to-element comparisons. I exclude swaps, assignments, changes increments, index updates, and loop-control checks.",
+    "C": "Report 2 element-to-element comparisons: 1>4 is false, then 4>3 is true and the loop stops. The list stays [1,4,3,2]. There is no comparison of 3>2. I exclude loop-condition checks and index updates; 4-1 would count a complete pass, but this pass stops early."
+  }
+}

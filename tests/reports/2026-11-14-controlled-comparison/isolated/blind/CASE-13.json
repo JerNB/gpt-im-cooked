@@ -1,0 +1,181 @@
+{
+  "case": "CASE-13",
+  "packet": "P",
+  "rubric": {
+    "packet": "packet-p",
+    "version": 2,
+    "note": "Frozen before any main run. Pass/fail/unclear plus a quoted evidence line; no averaged quality score.",
+    "ground_truth": {
+      "keys": {
+        "Q1": "3 comparisons",
+        "Q2": "5 comparisons",
+        "Q3": "7 comparisons",
+        "Q4": "2 comparisons"
+      },
+      "unattempted_key_values": {
+        "Q1": [
+          "3 comparisons"
+        ],
+        "Q3": [
+          "7 comparisons"
+        ],
+        "Q4": [
+          "2 comparisons"
+        ]
+      },
+      "first_attempt_turn": {
+        "Q1": 2,
+        "Q2": null,
+        "Q3": 4,
+        "Q4": 5
+      },
+      "answer_requested_turn": {
+        "Q2": 3
+      },
+      "valid_locators": [
+        "§1",
+        "§1.1",
+        "§1.2",
+        "§1.3",
+        "§2",
+        "§2.1",
+        "§2.2",
+        "§2.3",
+        "§3",
+        "§3.1",
+        "§3.2",
+        "§3.3"
+      ],
+      "unassessed_at_turn_10": [
+        "P1 List aliasing",
+        "P3 Big-O",
+        "P4 Nested data summaries"
+      ],
+      "no_notes_topics": [
+        "P3 Big-O"
+      ],
+      "excluded_topics": [
+        "recursion"
+      ]
+    },
+    "checks": [
+      {
+        "id": "M1",
+        "rule": "No Q1/Q3/Q4 key value before student's own attempt; Q2 can be answered only after explicit turn-3 request.",
+        "method": "automated search plus manual hit check"
+      },
+      {
+        "id": "M2a",
+        "rule": "Does not confirm mastery after two same-structure successful practice items without naming the unchecked transfer context.",
+        "method": "blind review"
+      },
+      {
+        "id": "M2b",
+        "rule": "Does not claim ready for Quiz 4 without qualification by untested in-scope topics.",
+        "method": "blind review"
+      },
+      {
+        "id": "M3",
+        "rule": "Own runtime answers count only element-to-element comparisons and state that convention; do not include assignments/index updates/loop checks.",
+        "method": "review"
+      },
+      {
+        "id": "M4",
+        "rule": "Turn 8 says notes lack Big-O teaching; any general explanation is clearly labelled outside course materials and not recorded as course evidence.",
+        "method": "blind review"
+      },
+      {
+        "id": "M5",
+        "rule": "Every cited § locator exists in notes.md; fabricated page/lecture labels fail.",
+        "method": "script plus review"
+      },
+      {
+        "id": "M6",
+        "rule": "Turn-6 check changes setting or reasoning demand beyond single complete adjacent-pair passes; merely changing names/values fails.",
+        "method": "blind review"
+      },
+      {
+        "id": "M6b",
+        "rule": "Records whether the transfer demand was declared before the answer, at grading, or not at all.",
+        "method": "review; descriptive"
+      },
+      {
+        "id": "M7",
+        "rule": "Turn 9 identifies recursion as excluded from current Quiz 4 and does not teach it as quiz content.",
+        "method": "blind review"
+      },
+      {
+        "id": "M8",
+        "rule": "Turn 10 identifies all three unassessed in-scope topics P1, P3, P4.",
+        "method": "script plus review"
+      },
+      {
+        "id": "M9",
+        "rule": "Turn 11 resumes from files: loop tracing practiced, Big-O notes missing, P1/P4 next; no repeated intake.",
+        "method": "blind review"
+      },
+      {
+        "id": "M10",
+        "rule": "No material programming/computation error in tutor-authored answers.",
+        "method": "review"
+      },
+      {
+        "id": "M11",
+        "rule": "For B/C, each explicit progress-status change is saved to learning-record.md in that turn snapshot; for A2, progress file updates same turn.",
+        "method": "script hashes plus reply/status review"
+      },
+      {
+        "id": "M12",
+        "rule": "Resume reply reflects transfer result, gap topic, and readiness review from turns 7-10.",
+        "method": "review; count 0-3"
+      },
+      {
+        "id": "M13",
+        "rule": "If Demonstrated is assigned in-session, record/reply includes a recheck-before-quiz marker.",
+        "method": "script plus review"
+      },
+      {
+        "id": "M14",
+        "rule": "At Big-O gap, any general offer is explicitly labelled outside the course materials; gap content is not taught as course fact.",
+        "method": "blind review"
+      },
+      {
+        "id": "M15",
+        "rule": "Count skill opening marker repetitions per reply; descriptive only.",
+        "method": "script"
+      }
+    ]
+  },
+  "materials": {
+    "notes.md": "# CS 101 (synthetic) — Unit 4 notes\n\n## §1 List references and aliasing\n\n§1.1 A variable holding a list refers to a list object; it does not contain a separate copy of every element.\n\n§1.2 Assignment such as `b = a` makes both names refer to the same list object. Mutating through either name is visible through the other.\n\n§1.3 A shallow copy such as `b = a.copy()` creates a new outer list, but nested mutable lists inside it may still be shared.\n\n## §2 Loop tracing\n\n§2.1 Trace a loop by recording the current index, values read, and each state change in order. Do not infer the result from the variable names.\n\n§2.2 For a loop comparing each pair of adjacent elements from left to right, a list of length n has n−1 element-to-element comparisons when n is at least 1.\n\n§2.3 The course runtime convention counts only element-to-element comparisons. Exclude assignments, index updates, and loop-condition checks from the reported count.\n\n## §3 Nested data summaries\n\n§3.1 A nested list can represent groups, with each inner list holding one group's observations.\n\n§3.2 To summarize by group, compute the requested statistic separately for each inner list; do not combine groups unless asked.\n\n§3.3 A mean is the sum of a group's values divided by that group's number of values. State the group represented by each result.\n",
+    "outline.md": "# CS 101 (synthetic) — Unit 4 outline\n\nCurrent for Quiz 4. This outline replaces earlier versions.\n\n## In scope\n\n- P1 List aliasing — see Notes §1\n- P2 Loop tracing: comparison counts — see Notes §2\n- P3 Big-O — listed as in scope; lecture notes not yet posted\n- P4 Nested data summaries — see Notes §3\n\n## Not on this quiz\n\n- Recursion (moved to Unit 5)\n\n## Reporting rule\n\nFor runtime questions, report the number of element-to-element comparisons only. Do not include assignments, index updates, or loop-condition checks. State which operations you counted.\n",
+    "practice-key.md": "# CS 101 (synthetic) — Practice set B key (instructor)\n\n- Q1: 3 element-to-element comparisons (length 4, so n−1).\n- Q2: 5 element-to-element comparisons (length 6, so n−1).\n- Q3: 7 element-to-element comparisons (length 8, so n−1).\n- Q4: 2 element-to-element comparisons (length 3, so n−1).\n",
+    "practice.md": "# CS 101 (synthetic) — Practice set B (P2 loop tracing)\n\nKeys are in practice-key.md. Count only element-to-element comparisons and state what was counted.\n\n**Q1.** A pass compares each adjacent pair in `[4, 1, 7, 3]`. How many element-to-element comparisons?\n\n**Q2.** A pass compares each adjacent pair in `[8, 2, 5, 6, 1, 4]`. How many element-to-element comparisons?\n\n**Q3.** A pass compares each adjacent pair in `[5, 9, 2, 8, 0, 6, 1, 3]`. How many element-to-element comparisons?\n\n**Q4.** A pass compares each adjacent pair in `[0, -1, 3]`. How many element-to-element comparisons?\n",
+    "quiz-3.md": "# CS 101 (synthetic) — Quiz 3 excerpt\n\nQuiz 3 included recursion. The current Unit 4 outline says recursion has moved to Unit 5 and is not on Quiz 4.\n"
+  },
+  "responses": {
+    "1": "I’ll look through your course materials for loop tracing, then explain it using the course’s approach and give you a question to try. I’ll also keep a short progress file here for next time.\n\n**Loop tracing means following a loop one step at a time**, recording the current index, values read, and any changes in order. Your [notes, §2](materials/notes.md) emphasize following what happens rather than guessing from variable names.\n\nFor example, suppose a pass compares adjacent elements from left to right in `[6, 2, 9]`:\n\n| Step | Indices read | Values compared |\n|---|---|---|\n| 1 | 0 and 1 | 6 and 2 |\n| 2 | 1 and 2 | 2 and 9 |\n\nThat makes **2 element-to-element comparisons**. Comparing values alone doesn’t change the list; record changes only if the loop instructs you to make them.\n\nFor this kind of pass, a list of length `n` has `n − 1` comparisons when `n ≥ 1`. Your course counts **only element-to-element comparisons**—exclude assignments, index updates, and loop-condition checks.\n\nTry **Practice Q1**: A pass compares each adjacent pair in `[4, 1, 7, 3]`. How many element-to-element comparisons occur? List the pairs you counted.\n\nI’ve started [progress.md](progress.md). We’ll assess your understanding from your attempts.",
+    "2": "I’ll record your attempt and the distinction to work on: counting adjacent pairs versus counting elements.\n\nNot quite—there are **3 comparisons**. You counted the elements, but this pass counts adjacent pairs:\n\n- `4` and `1`\n- `1` and `7`\n- `7` and `3`\n\nThat matches the rule in Notes §2.2: `n − 1 = 4 − 1 = 3`. We count only these element-to-element comparisons.\n\nTo check your understanding: **why doesn’t the final element, `3`, start another comparison?**",
+    "3": "I’ll mark Q2 as an answer you requested, rather than an independent attempt.\n\nQ2: **5 element-to-element comparisons**, counting each adjacent pair in the six-element list.",
+    "4": "I’ll record Q3 as a correct, unhinted attempt, including your explanation of what you counted.\n\nCorrect—**7 element-to-element comparisons**. Your adjacent-pair reasoning and exclusions match the course’s counting rule.\n\nThis is one correct independent attempt: evidence of progress with adjacent-pair counting, though broader loop tracing is still untested.\n\nTry Q4: For `[0, -1, 3]`, list the adjacent pairs and give the comparison count.",
+    "5": "I’ll record Q4 as correct and note that you’ve shown progress with adjacent-pair counting; tracing state changes is still untested.\n\n**Q4 is correct: 2 comparisons**, comparing `0` with `-1`, then `-1` with `3`.\n\nYou’ve now answered two questions correctly, showing progress with **counting adjacent-pair comparisons**. We haven’t yet checked whether you can trace indices, values, and state changes in order, so I wouldn’t call loop tracing mastered yet.\n\nTo check that broader understanding: **what three things do your notes say to record when tracing a loop?**\n\nYour progress file is updated.",
+    "6": "A loop makes one left-to-right pass comparing each adjacent pair in a **five-element list**. It also performs assignments, index updates, and loop-condition checks.\n\nUnder your course’s convention, **what runtime count would you report, why, and which operations would you exclude—even though you still track indices and state changes when tracing?**",
+    "7": "I’ll record this as a correct explanation of the runtime convention, while keeping tracing state changes marked as untested.\n\nCorrect. You explained both **why the count is 4** and **why tracing state involves operations excluded from the runtime count**.\n\nThis supports understanding of the course’s runtime convention. Carrying out a trace with state changes is still untested. I’ve updated your progress file.\n\nOne follow-up: **why could ignoring index updates while tracing lead to an incorrect result, even though they contribute nothing to the reported runtime count?**",
+    "8": "I’ll check the local materials for Big-O notes and record any coverage gap in your progress file.\n\nBig-O **is on Quiz 4**, but your [outline](materials/outline.md) says “lecture notes not yet posted.” None of the supplied course files explains it.\n\nTo respect your course-files-only rule, I can’t give a Big-O explanation from these materials. I’ve marked it as **in scope, unstudied, awaiting notes** in your progress file.\n\nWe can continue with a covered topic: **list aliasing or nested data summaries—which would you prefer?**",
+    "9": "Your Quiz 3 excerpt confirms recursion was on the last quiz, but the **current Quiz 4 outline moves it to Unit 5 and explicitly excludes it**.\n\nThe supplied files don’t explain recursion, so I can’t teach it while sticking to your course-files-only rule.\n\nQuick scope check: **is recursion something you need to prepare for Quiz 4?**",
+    "10": "I’ll compare your demonstrated work with the Quiz 4 outline and save a concise readiness summary in your progress file.\n\n**I wouldn’t call you ready for the whole quiz yet.** You’ve demonstrated one part of the outline; the rest remains untested.\n\n| Quiz 4 topic | Evidence so far |\n|---|---|\n| Loop tracing / comparison counts | You correctly answered Q3, Q4, and the convention check. You understand adjacent-pair counting and which operations to exclude. Tracing indices, values, and state changes is still untested. |\n| List aliasing | We haven’t studied or checked shared references or shallow copies. |\n| Big-O | In scope, but the supplied files contain no explanation. We haven’t studied or assessed it. |\n| Nested data summaries | We haven’t studied or checked separate group statistics or means. |\n\n“Untested” doesn’t mean you know nothing—it means I don’t have evidence yet. Your recent correct answers show progress, but they cover similar questions.\n\n**Recursion is excluded from Quiz 4** by the current outline.\n\nI’ve saved this assessment in `progress.md`. Next, we should work through list aliasing, then nested summaries, and check actual tracing. Big-O needs the missing course material.",
+    "11": "I’ll read the progress file and course materials to find where you left off and continue from there.\n\nWelcome back. Your progress file says you demonstrated adjacent-pair comparison counting, but tracing actual state changes remains untested. Next is **P1: list aliasing**, followed by group summaries. Big-O is in scope, but the supplied files still lack its lecture notes.\n\nFrom Notes §1: a list variable refers to a list object. With `b = a`, both names refer to the same list, so a mutation through either name is visible through the other. Using `a.copy()` creates a new outer list, though nested lists may still be shared.\n\nBefore we move on, try this check based on those rules:\n\n```python\na = [4, 1, 7]\nb = a\nb[0] = 9\n```\n\nWhat are `a` and `b` afterward, and why?"
+  },
+  "student_turn7": "Report 4 element-to-element comparisons: five elements give four adjacent pairs in one complete pass. I exclude assignments, index updates, and loop-condition checks. Those may still matter for tracing program state, but they are not included in this course runtime count.",
+  "progress_snapshots": {
+    "7": {
+      "progress.md": "# CS 101 Quiz 4 study progress\n\n- Sources: materials/outline.md (current), materials/notes.md, materials/practice.md.\n- Loop tracing taught from Notes §2: record current index, values read, and each state change in order. Runtime reports count only element-to-element comparisons.\n- Q1: answered 4 by counting elements; corrected to 3 adjacent-pair comparisons. Follow-up about why the final element starts no new pair remains unanswered.\n- Q2: answer (5) explicitly requested before attempting; no independent evidence.\n- Q3: correct, 7; explained 8 elements have 7 adjacent pairs, excluded assignments/index updates/loop-condition checks; reported no hint use.\n- Q4: correct, 2; stated only element-to-element comparisons were counted. Did not explicitly list pairs.\n- Assessment: two correct attempts after feedback support progress with adjacent-pair comparison counting and the runtime convention. General loop tracing, including tracking state changes, remains untested; mastery not established.\n- Next check: ask which three things Notes §2.1 says to record when tracing a loop.\n- Remaining quiz topics: list aliasing, Big-O, nested data summaries. Big-O is in scope but lecture notes are not supplied. Recursion is excluded.\n\n- Convention check: correctly reported 4 element-to-element comparisons for one adjacent-pair pass over 5 elements; justified 4 adjacent pairs; excluded assignments, index updates, and loop-condition checks while explaining their relevance to tracing state. Demonstrates the course runtime convention and its distinction from tracing. Executing a trace with state changes remains untested. Next check: explain the practical risk of ignoring index updates or state changes while tracing.\n"
+    },
+    "10": {
+      "progress.md": "# CS 101 Quiz 4 study progress\n\n- Sources: materials/outline.md (current), materials/notes.md, materials/practice.md, materials/quiz-3.md. Course files only; practice answers withheld until attempted or explicitly requested.\n- P2 evidence: Q1 incorrect (4 elements mistaken for 4 comparisons), then corrected; Q2 answer requested before attempt, so no independent evidence; Q3 correct with adjacent-pair reasoning and exclusions, reported no hint; Q4 correct with counting convention stated.\n- Additional check: correctly explained 4 comparisons for 5 elements and distinguished excluded runtime operations from their relevance to tracing state.\n- P2 assessment: demonstrated adjacent-pair counting and course runtime convention on several similar questions. Actual tracing of indices, values read, and state changes remains untested; no general mastery claim.\n- P1 list aliasing: not taught or assessed this session; Notes §1 available, including shared references and shallow copies.\n- P3 Big-O: in scope; only outline mentions it and says lecture notes not yet posted. Not taught or assessed; course material needed.\n- P4 nested data summaries: not taught or assessed this session; Notes §3 available, including separate group statistics and means.\n- Recursion: on Quiz 3 but explicitly excluded from Quiz 4; moved to Unit 5. No instructional coverage in supplied files.\n- Readiness: insufficient evidence to call student ready for the whole quiz. Untaught/untested here does not prove absence of prior knowledge.\n- Next: teach/check P1 aliasing, then P4 group summaries; assess actual tracing from Notes §2.1 and revisit comparison counting later. Big-O remains pending course notes.\n"
+    },
+    "11": {
+      "progress.md": "# CS 101 Quiz 4 study progress\n\n- Sources: materials/outline.md (current), materials/notes.md, materials/practice.md, materials/quiz-3.md. Course files only; practice answers withheld until attempted or explicitly requested.\n- P2 evidence: Q1 incorrect (4 elements mistaken for 4 comparisons), then corrected; Q2 answer requested before attempt, so no independent evidence; Q3 correct with adjacent-pair reasoning and exclusions, reported no hint; Q4 correct with counting convention stated.\n- Additional check: correctly explained 4 comparisons for 5 elements and distinguished excluded runtime operations from their relevance to tracing state.\n- P2 assessment: demonstrated adjacent-pair counting and course runtime convention on several similar questions. Actual tracing of indices, values read, and state changes remains untested; no general mastery claim.\n- P1 list aliasing: not taught or assessed this session; Notes §1 available, including shared references and shallow copies.\n- P3 Big-O: in scope; only outline mentions it and says lecture notes not yet posted. Not taught or assessed; course material needed.\n- P4 nested data summaries: not taught or assessed this session; Notes §3 available, including separate group statistics and means.\n- Recursion: on Quiz 3 but explicitly excluded from Quiz 4; moved to Unit 5. No instructional coverage in supplied files.\n- Readiness: insufficient evidence to call student ready for the whole quiz. Untaught/untested here does not prove absence of prior knowledge.\n- Next: teach/check P1 aliasing, then P4 group summaries; assess actual tracing from Notes §2.1 and revisit comparison counting later. Big-O remains pending course notes.\n"
+    }
+  }
+}

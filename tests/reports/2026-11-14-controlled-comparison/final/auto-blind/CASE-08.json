@@ -1,0 +1,218 @@
+{
+  "case": "CASE-08",
+  "packet": "S",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "- Preferences: Use only course files; flag missing coverage; let student try practice before giving answers; check understanding after explanations; assess learning conservatively.",
+            "- Evidence: No student attempts yet; understanding and independent application not yet assessed."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "- Preferences: Use only course files; flag missing coverage; let student try practice before giving answers; check understanding after explanations; assess learning conservatively.",
+            "- Evidence: No student attempts yet; understanding and independent application not yet assessed.",
+            "- Arithmetic is correct for that fraction, but Q1 asks about commuters, so the reference group must be the 25 commuters (Notes \u00a71.2\u20131.3).",
+            "- Assessment: Choosing the reference group needs practice; no evidence of mastery yet."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "- Preferences: Use only course files; flag missing coverage; let student try practice before giving answers; check understanding after explanations; assess learning conservatively.",
+            "- Evidence: No student attempts yet; understanding and independent application not yet assessed.",
+            "- Arithmetic is correct for that fraction, but Q1 asks about commuters, so the reference group must be the 25 commuters (Notes \u00a71.2\u20131.3).",
+            "- Assessment: Choosing the reference group needs practice; no evidence of mastery yet."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "- Preferences: Use only course files; flag missing coverage; let student try practice before giving answers; check understanding after explanations; assess learning conservatively.",
+            "- Evidence: No student attempts yet; understanding and independent application not yet assessed.",
+            "- Arithmetic is correct for that fraction, but Q1 asks about commuters, so the reference group must be the 25 commuters (Notes \u00a71.2\u20131.3).",
+            "- Assessment: Choosing the reference group needs practice; no evidence of mastery yet.",
+            "- Correct calculation, reference-group reasoning, rounding, and group label.",
+            "- Evidence: One correct independent application after Q1 feedback and a provided Q2 answer. Encouraging progress; consistent independent performance and mastery are not yet established."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "- Preferences: Use only course files; flag missing coverage; let student try practice before giving answers; check understanding after explanations; assess learning conservatively.",
+            "- Evidence: No student attempts yet; understanding and independent application not yet assessed.",
+            "- Arithmetic is correct for that fraction, but Q1 asks about commuters, so the reference group must be the 25 commuters (Notes \u00a71.2\u20131.3).",
+            "- Assessment: Choosing the reference group needs practice; no evidence of mastery yet.",
+            "- Correct calculation, reference-group reasoning, rounding, and group label.",
+            "- Evidence: One correct independent application after Q1 feedback and a provided Q2 answer. Encouraging progress; consistent independent performance and mastery are not yet established.",
+            "## Q4 independent attempt and current assessment",
+            "- Correct: 45.0% of online shoppers returned an item; student selected the 20 online shoppers as the denominator.",
+            "- Q3 and Q4 show two correct independent applications of choosing a stated subgroup, computing the percentage, and naming the reference group with correct rounding."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "Use only course files. Flag missing coverage. Let student attempt practice before giving answers unless requested. Check understanding after explanations. Assess learning conservatively.",
+            "- Q1: Used 10/40 because the total appeared first. Corrected reference group to commuters.",
+            "- Q3: Correct without a hint: 33.3% of seniors; explained denominator as 12 seniors.",
+            "- Q4: Correct independent answer: 45.0% of online shoppers; denominator 20 online shoppers.",
+            "- Assessment: Two correct similar applications show progress in reference-group selection and reporting. Mastery, reversed conditions, and retention remain unverified."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 7,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "Use only course files; flag missing coverage. No practice answers before an attempt unless requested. Check understanding after explanations. Assess learning conservatively.",
+            "- Q1: Initially used whole class as denominator because its total appeared first; received correction.",
+            "- Q3: Correct without a hint: 33.3% of seniors; explained denominator.",
+            "- Q4: Correct independently: 45.0% of online shoppers; correct denominator.",
+            "- Reversed Q3: Correctly identified all volunteers as reference group, recognized total volunteers is missing, and proposed 4 divided by that total. No answer or hint supplied beforehand; prompt explicitly allowed identifying missing information.",
+            "- Assessment: Evidence supports basic calculation, reference-group selection, and reasoning about reversed conditions with missing data. Broader mastery and retention remain unverified."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "Use only course files; flag missing coverage. No practice answers before an attempt unless requested. Check understanding after explanations. Assess learning conservatively.",
+            "- Q1: Initially used whole class as denominator because its total appeared first; received correction.",
+            "- Q3: Correct without a hint: 33.3% of seniors; explained denominator.",
+            "- Q4: Correct independently: 45.0% of online shoppers; correct denominator.",
+            "- Reversed Q3: Correctly identified all volunteers as reference group, recognized total volunteers is missing, and proposed 4 divided by that total. No answer or hint supplied beforehand; prompt explicitly allowed identifying missing information.",
+            "- Assessment: Evidence supports basic calculation, reference-group selection, and reasoning about reversed conditions with missing data. Broader mastery and retention remain unverified.",
+            "- Bayes rule has not been taught or assessed here. Need course lecture notes/slides before explaining under the course-files-only preference."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": false,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "Use only course files; flag missing coverage. No practice answers before an attempt unless requested. Check understanding after explanations. Assess learning conservatively.",
+            "- Q1: Initially used whole class as denominator because its total appeared first; received correction.",
+            "- Q3: Correct without a hint: 33.3% of seniors; explained denominator.",
+            "- Q4: Correct independently: 45.0% of online shoppers; correct denominator.",
+            "- Reversed Q3: Correctly identified all volunteers as reference group, recognized total volunteers is missing, and proposed 4 divided by that total. No answer or hint supplied beforehand; prompt explicitly allowed identifying missing information.",
+            "- Assessment: Evidence supports basic calculation, reference-group selection, and reasoning about reversed conditions with missing data. Broader mastery and retention remain unverified.",
+            "- Bayes rule has not been taught or assessed here. Need course lecture notes/slides before explaining under the course-files-only preference."
+          ],
+          "recheck_lines": []
+        }
+      }
+    },
+    {
+      "turn": 10,
+      "reply": "I\u2019ll compare the current outline with what you\u2019ve demonstrated and save a short readiness assessment in your progress file.\n\n**I can\u2019t honestly call you ready for the full midterm yet.** You\u2019ve shown progress in conditional probability, but we haven\u2019t assessed three of the four topics on the current outline.\n\n| Topic | What you\u2019ve demonstrated | What remains |\n|---|---|---|\n| Conditional probability | Two correct independent calculations; correct reasoning about a reversed condition and missing information | Broader application and retention after a delay |\n| Two-way tables | Not assessed here | Choosing row versus column percentages; knowing which percentages sum to 100% |\n| Bayes\u2019 rule | Not taught or assessed here | Course notes are missing; it is still on the midterm |\n| Grouped summaries | Not assessed here | Grouping cases, counting result rows, and comparing the same summary across groups |\n\n\u201cNot assessed\u201d doesn\u2019t mean you know nothing\u2014it means I don\u2019t have evidence yet. Q2\u2019s supplied answer also doesn\u2019t count as independent learning.\n\nYou **have** correctly used one-decimal percentages and named reference groups in your recent answers. Hypothesis testing is **excluded** from this midterm.\n\nNext, we should study two-way tables and grouped summaries, obtain the Bayes\u2019 rule notes, then check mixed questions and revisit conditional probability after a delay.\n\nI\u2019ve saved this assessment in `progress.md`. **Which feels less familiar right now: two-way tables or grouped summaries?**",
+      "files": {
+        "progress.md": {
+          "changed": true,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "Use only course files. Flag missing coverage. No practice answers before an attempt unless requested. Check understanding after explanations. Assess learning conservatively.",
+            "- Conditional probability: Q1 initially used whole-class denominator; corrected with feedback. Q2 answer provided on request, so no independent evidence. Q3 and Q4 correct independently with correct reference groups, rounding, and labels. Reversed Q3",
+            "- Two-way tables: Not taught or assessed here. Need row versus column percentages and which percentages sum to 100% (Notes \u00a72).",
+            "- Bayes rule: In scope, but no explanation/formula in current files; outline says lecture notes to be posted. Not taught or assessed here; need course material.",
+            "- Grouped summaries: Not taught or assessed here. Need grouping, one row per non-empty group, and comparisons using the same summary (Notes \u00a73).",
+            "- Readiness: Insufficient evidence to call student ready for the full midterm. Unassessed topics are not proof of no prior knowledge.",
+            "Start two-way tables, then grouped summaries. Add Bayes lecture material when available. Recheck conditional probability after a delay and assess mixed in-scope questions before claiming readiness."
+          ],
+          "recheck_lines": [
+            "-way tables, then grouped summaries. Add Bayes lecture material when available. Recheck conditional probability after a delay and assess mixed in-scope questions before claiming readiness"
+          ]
+        }
+      }
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {
+        "progress.md": {
+          "changed": false,
+          "status_lines": [
+            "# STAT 110 study progress",
+            "Use only course files. Flag missing coverage. No practice answers before an attempt unless requested. Check understanding after explanations. Assess learning conservatively.",
+            "- Conditional probability: Q1 initially used whole-class denominator; corrected with feedback. Q2 answer provided on request, so no independent evidence. Q3 and Q4 correct independently with correct reference groups, rounding, and labels. Reversed Q3",
+            "- Two-way tables: Not taught or assessed here. Need row versus column percentages and which percentages sum to 100% (Notes \u00a72).",
+            "- Bayes rule: In scope, but no explanation/formula in current files; outline says lecture notes to be posted. Not taught or assessed here; need course material.",
+            "- Grouped summaries: Not taught or assessed here. Need grouping, one row per non-empty group, and comparisons using the same summary (Notes \u00a73).",
+            "- Readiness: Insufficient evidence to call student ready for the full midterm. Unassessed topics are not proof of no prior knowledge.",
+            "Start two-way tables, then grouped summaries. Add Bayes lecture material when available. Recheck conditional probability after a delay and assess mixed in-scope questions before claiming readiness."
+          ],
+          "recheck_lines": [
+            "-way tables, then grouped summaries. Add Bayes lecture material when available. Recheck conditional probability after a delay and assess mixed in-scope questions before claiming readiness"
+          ]
+        }
+      }
+    }
+  ]
+}

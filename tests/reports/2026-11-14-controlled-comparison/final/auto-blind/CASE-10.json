@@ -1,0 +1,62 @@
+{
+  "case": "CASE-10",
+  "packet": "P",
+  "criterion": "M11: whenever reply states a status CHANGE, canonical learning-record bytes (or progress file) change that turn. Mere repetition of a status or ordinary demonstrated-as-verb is not a change. Mark ambiguous cases unclear, do not count them as clear misses. M13: same-session formal Demonstrated needs explicit before-exam/quiz recheck marker.",
+  "turns": [
+    {
+      "turn": 1,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 2,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 3,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 4,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 5,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 6,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 7,
+      "reply": "Correct on every part: `count` ends at **1**, the list stays unchanged, and the runtime count is **2 element-to-element comparisons**, including both true and false results.\n\nYou\u2019ve demonstrated the course\u2019s loop-tracing/runtime convention: you tracked each iteration and distinguished state changes from the operations counted for runtime.",
+      "files": {}
+    },
+    {
+      "turn": 8,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 9,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    },
+    {
+      "turn": 10,
+      "reply": "**You\u2019re ready for the loop-tracing portion we practiced, but we haven\u2019t established readiness for all of Quiz 4.**\n\nBased on the current outline:\n\n| Topic | What you\u2019ve demonstrated | What remains |\n|---|---|---|\n| **Loop tracing** | You independently counted adjacent comparisons, traced indices and state changes, and applied the runtime convention correctly. | You look solid on the examples covered. |\n| **List aliasing** | We haven\u2019t covered it. | Learn shared references (`b = a`), mutations, and shallow copies with nested lists. |\n| **Big-O** | You\u2019ve received an introduction. | Practice identifying growth rates; you haven\u2019t answered a check question yet. The course\u2019s lecture notes are still missing. |\n| **Nested data summaries** | We haven\u2019t covered it. | Compute each group\u2019s statistic separately, including means, and label the groups. |\n\nRecursion is **not on Quiz 4**, according to the current outline.\n\nThe biggest gaps are **list aliasing and nested data summaries**. I\u2019d study aliasing next, then group summaries, and finish with a short mixed quiz to check independent understanding.",
+      "files": {}
+    },
+    {
+      "turn": 11,
+      "reply": "[No target status word in reply.]",
+      "files": {}
+    }
+  ]
+}

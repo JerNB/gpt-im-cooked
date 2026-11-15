@@ -1,0 +1,1 @@
+PASS: path scrub levels, global-skill isolation flags and access gate, CODEX_* env stripping, credential removal on success and three failure paths, report binding, completed-report guard, raw output kept before parsing. Fake CLI only; no model behaviour is tested.

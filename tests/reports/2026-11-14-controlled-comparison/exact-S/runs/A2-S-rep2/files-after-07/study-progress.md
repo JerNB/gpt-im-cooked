@@ -1,0 +1,13 @@
+# STAT 110 study progress
+
+- Goal: prepare for midterm next week using only materials/.
+- Tutoring preferences: follow course files; flag missing coverage; no practice answers before an attempt unless requested; check understanding after explanations; assess learning honestly.
+- Sources reviewed: outline.md, notes.md, practice.md in materials/.
+- Reporting: percentages to one decimal place, with reference group named.
+- Q1: initially used whole class (10/40); received correction to 40.0% of commuters.
+- Q2: answer supplied on explicit request before attempt; not evidence of independent understanding.
+- Q3: independently correct, 33.3% of seniors; explained denominator.
+- Q4: correct, 45.0% of online shoppers; explained denominator after reference-group prompt.
+- Reversed Q2 check: correctly explained that percentage of trainees working remotely needs all trainees as denominator; nonremote trainee count is missing. Recognized that 6 is the intersection and that total trainees (or nonremote trainees) would make calculation possible.
+- Assessment: demonstrated direct reference-group selection and recognition of missing information when conditioning order reverses. Retention and application in two-way tables remain unassessed; no claim of full mastery.
+- Next: Notes section 2, two-way tables and row versus column percentages. Pending check: if rows are work location and columns are trainee status, would percentage of trainees working remotely use a row total or column total?

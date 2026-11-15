@@ -1,0 +1,13 @@
+{
+  "human_confirmed": true,
+  "packet": "S",
+  "replicate": 1,
+  "order": [
+    "C",
+    "D"
+  ],
+  "allowed_calls": 22,
+  "fresh_sessions": true,
+  "stop_on_quota_failure": true,
+  "remaining_batches_require_confirmation": true
+}

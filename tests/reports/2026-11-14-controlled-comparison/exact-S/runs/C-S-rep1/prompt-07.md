@@ -1,0 +1,1 @@
+60.0% of volunteers are seniors. The reference group is all volunteers: 12 seniors plus 8 non-seniors, giving 20 volunteers. The numerator is 12 senior volunteers, so 12/(12+8)=12/20 gives 60.0%. The 30 seniors and 50 club members are not the requested reference group.

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "temporary_auth_copies": 0,
+  "privacy_findings": [],
+  "Python_AST_files": 107,
+  "selected_sessions": 8,
+  "selected_calls": 88,
+  "raw_ledger_accounts_match": 8,
+  "fresh_resume_threads": 8,
+  "actual_material_skill_reads": 8,
+  "global_skill_accesses": 0,
+  "adaptive_answer_provenance_matches": 8,
+  "runtime_C16_D18_sources_unchanged": true,
+  "ZIP_raw_entries_verified": 494,
+  "release_files_modified": false,
+  "fake_CLI_regression": "PASS",
+  "publication": {
+    "returncode": 0,
+    "output": "PASS: 9268 package files, 2 skills, onboarding paths, starter prompts, links, and synthetic arithmetic.\nThis command checks package structure only; see VALIDATION.md for behavioral evidence and host limits.\n"
+  },
+  "manifest": "generated LAST after this metadata; committed Git blobs checked after commit",
+  "runner_unchanged_since_smoke_and_batches": true
+}

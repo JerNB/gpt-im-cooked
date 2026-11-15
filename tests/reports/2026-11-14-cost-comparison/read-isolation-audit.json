@@ -1,0 +1,50 @@
+{
+  "C-S-rep1": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "D-S-rep1": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "C-P-rep1": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "D-P-rep1": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "D-S-rep2": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "C-S-rep2": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "D-P-rep2": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  },
+  "C-P-rep2": {
+    "actual_material_text_returned": true,
+    "actual_skill_text_returned": true,
+    "global_skill_accesses": [],
+    "runtime_skill_hashes_unchanged": true
+  }
+}

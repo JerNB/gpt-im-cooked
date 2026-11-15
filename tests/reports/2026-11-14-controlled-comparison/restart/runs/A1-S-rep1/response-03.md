@@ -1,0 +1,1 @@
+**25.0% of remote workers are trainees**: divide the 6 remote trainees by the 24 remote workers, then multiply by 100%.

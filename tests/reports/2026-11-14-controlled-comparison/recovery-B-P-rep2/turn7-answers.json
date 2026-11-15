@@ -1,0 +1,5 @@
+{
+  "P-rep2": {
+    "B": "Report 2 element-to-element comparisons: 2>5 is false, then 5>4 is true and the loop stops. It never compares 4>8. I count those two comparisons and exclude index updates, assignments, and loop-condition checks. The list is unchanged."
+  }
+}

@@ -1,0 +1,1 @@
+Please paste Q2—I still can’t access the course files. Since you’ve explicitly asked, I’ll give you the answer without requiring an attempt.

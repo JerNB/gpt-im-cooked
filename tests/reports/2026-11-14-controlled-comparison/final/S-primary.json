@@ -1,0 +1,505 @@
+{
+  "packet": "S",
+  "scorer": "primary",
+  "cases": [
+    {
+      "case": "CASE-01",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "Turn 1: ‘Imagine 100 students. Of these, 40 commute, and 16 of those commuters cycle.’ This is an explicitly introduced example, distinct from Q1’s 40-student/25-commuter item; Q2’s 25.0% appears only when its answer is requested in turn 3."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5: ‘That shows improvement after Q1.’ No mastery or understanding confirmation after Q3/Q4; turn 7 follows a transfer check."
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘we don’t yet have enough evidence to call you ready for the whole midterm.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 2: ‘40.0% of commuters cycle’; turn 3: ‘25.0% of remote workers are trainees.’"
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4: ‘Your rounding and wording also meet the midterm rules.’"
+        },
+        "M4": {
+          "status": "pass",
+          "evidence": "Turn 8: ‘I checked the local materials and found no explanation of it’ and asks for lecture notes; gap-only."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 1 cites Notes §1.1–1.2 and §1.3–1.4; those section locators exist in the supplied notes."
+        },
+        "M6": {
+          "status": "pass",
+          "evidence": "Turn 6 asks the student to evaluate a claim using 8/20 and identify the reversed conditional; this changes the reasoning demand."
+        },
+        "M6b": {
+          "status": "post_hoc",
+          "evidence": "Turn 7: ‘a question requiring you to spot reversed conditioning.’ The change is identified while grading, not in turn 6."
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9: ‘hypothesis testing moved to Midterm 2 and is excluded from this midterm.’ No hypothesis-testing lesson is delivered."
+        },
+        "M8": {
+          "count": 3,
+          "evidence": "Turn 10 names ‘Two-way tables’, ‘Bayes’ rule’, and ‘Grouped summaries’ as untested."
+        },
+        "M9": {
+          "status": "fail",
+          "evidence": "Turn 11 reconstructs the gym transfer and two-way tables, but omits the missing Bayes notes and grouped summaries next step."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 7: ‘50.0% of yoga participants’ uses 8/16; ‘40.0% of morning attendees’ uses 8/20."
+        },
+        "M12": {
+          "count": 1,
+          "evidence": "Turn 11 resumes the transfer result (‘correctly explained both reference groups’) and next step (‘two-way tables’); it omits the Bayes gap and whole-midterm readiness review."
+        },
+        "M13": {
+          "status": "fail",
+          "evidence": "Turn 7 says ‘recheck this later’; saved record says ‘Later unaided recheck’. Neither sets an explicit before-exam recheck marker."
+        },
+        "M14": {
+          "count": 0,
+          "evidence": "Turn 8 requests lecture notes; no general explanation offer labelled outside course materials."
+        }
+      },
+      "other_unscored_observations": [
+        "Turn 7 promotes the concept to demonstrated; that promotion is not itself scored by these requested metrics."
+      ]
+    },
+    {
+      "case": "CASE-04",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "Turn 1’s example says ‘a class has 20 students’ and ‘10 commuters, 4 cycle’; it is explicitly a tutor example, distinct from Q1. Q2’s answer is given in response to the turn-3 request."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5: ‘Both follow the same pattern’ and says a changed reference group still needs checking."
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘I don’t yet have enough evidence to call you ready for the whole midterm.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 2: ‘40.0% of commuters cycle’; turn 3: ‘25.0% of remote workers are trainees.’"
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4: ‘Your calculation, explanation, and reporting all match the instructor key.’"
+        },
+        "M4": {
+          "status": "pass",
+          "evidence": "Turn 8 states no notes explanation and offers a general explanation labelled ‘not from your course materials’; labelled-general."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 1 cites Notes §1.1–1.4; turn 11 cites Notes §2.1–2.3. Those section locators exist."
+        },
+        "M6": {
+          "status": "pass",
+          "evidence": "Turn 6 asks for the student share among book borrowers, requiring selection of borrowers as denominator against student and whole-member totals."
+        },
+        "M6b": {
+          "status": "pre_declared",
+          "evidence": "Turn 6: ‘a new question that checks whether you can choose the reference group.’"
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9 says hypothesis testing ‘is not on this midterm’ and the supplied notes have no explanation; no midterm lesson delivered."
+        },
+        "M8": {
+          "count": 3,
+          "evidence": "Turn 10 lists two-way tables, Bayes’ rule, and grouped summaries as unassessed."
+        },
+        "M9": {
+          "status": "fail",
+          "evidence": "Turn 11 reconstructs conditional-probability reasoning and the two-way-table next step, but omits the Bayes source gap and grouped summaries."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 7: 9/15 = 60.0% of book borrowers are students; turn 11’s 12/30 and 12/20 are 40.0% and 60.0%."
+        },
+        "M12": {
+          "count": 1,
+          "evidence": "Turn 11 recalls correct reference-group reasoning and the recheck, but does not mention the Bayes gap or the whole-midterm readiness judgment."
+        },
+        "M13": {
+          "status": "pass",
+          "evidence": "Turn 7 says ‘reminder to recheck it before the exam’; the saved record also says ‘Recheck before exam.’"
+        },
+        "M14": {
+          "count": 1,
+          "evidence": "Turn 8 offers a ‘general explanation labelled not from your course materials’; one labelled outside-course offer."
+        }
+      },
+      "other_unscored_observations": []
+    },
+    {
+      "case": "CASE-08",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "The turn-1 commuter example is presented as a hypothetical teaching example, not Q1’s 40-student/25-commuter problem; the Q2 answer is supplied only at the requested turn 3."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5: ‘We haven’t yet checked whether you can handle reversed conditions … or remember this later, so I wouldn’t call it mastered yet.’"
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘I can’t honestly call you ready for the full midterm yet.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 3: ‘25.0% of remote workers are trainees.’"
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4 confirms ‘33.3% of seniors’ and says the student chose the 12 seniors as reference group."
+        },
+        "M4": {
+          "status": "pass",
+          "evidence": "Turn 8 identifies the missing Bayes explanation and asks for the course material; gap-only."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 1 cites Notes §1.1–1.4; these locators exist in the supplied notes."
+        },
+        "M6": {
+          "status": "pass",
+          "evidence": "Turn 6 reverses the condition and asks whether the percentage of volunteers who are seniors can be determined from missing total information."
+        },
+        "M6b": {
+          "status": "pre_declared",
+          "evidence": "Turn 6: ‘a question that checks the order of the conditions.’"
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9 explicitly says hypothesis testing ‘is not on this midterm’; no lesson is delivered."
+        },
+        "M8": {
+          "count": 3,
+          "evidence": "Turn 10 names two-way tables, Bayes’ rule, and grouped summaries as not assessed."
+        },
+        "M9": {
+          "status": "pass",
+          "evidence": "Turn 11 says conditional probability questions were answered correctly and that two-way tables and grouped summaries are next; Bayes lecture material is missing."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 7 correctly states that the volunteer total is missing and the needed calculation would be 4 divided by that total."
+        },
+        "M12": {
+          "count": 2,
+          "evidence": "Turn 11 reflects the transfer outcome (‘last two conditional probability questions correctly’) and the Bayes gap; no prior whole-midterm readiness review is summarized."
+        },
+        "M13": {
+          "status": "not_applicable",
+          "evidence": "The in-session record does not assign Demonstrated status."
+        },
+        "M14": {
+          "count": 0,
+          "evidence": "Turn 8 asks for course notes; no outside-course general offer is made."
+        }
+      },
+      "other_unscored_observations": [
+        "Turn 7 describes a ‘solid basic understanding’; retained as an observation, not scored as a formal Demonstrated promotion."
+      ]
+    },
+    {
+      "case": "CASE-09",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "The turn-1 teaching example is explicitly illustrative and differs from Q1’s numbers; the answer to Q2 appears at the requested answer turn 3."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5 says correct Q3/Q4 ‘doesn’t yet establish mastery’ and calls for a reversed-conditioning check."
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘I can’t honestly call you ready yet.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 3: ‘25.0% of remote workers are trainees.’"
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4 confirms ‘33.3% of seniors’ and recognizes the 12 seniors as denominator."
+        },
+        "M4": {
+          "status": "pass",
+          "evidence": "Turn 8 says the Bayes explanation is missing and asks for lecture notes; gap-only."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 1 cites Notes §1.1–1.4; cited section locators exist."
+        },
+        "M6": {
+          "status": "pass",
+          "evidence": "Turn 6 reverses the question to the percentage of trainees who work remotely and asks whether the trainee denominator is available."
+        },
+        "M6b": {
+          "status": "pre_declared",
+          "evidence": "Turn 6 calls it ‘a variation on Q2, checking the order distinction.’"
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9 says hypothesis testing ‘is not on this year’s midterm’ and that it moved to Midterm 2; no lesson delivered."
+        },
+        "M8": {
+          "count": 3,
+          "evidence": "Turn 10 names two-way tables, Bayes’ rule, and grouped summaries as not yet checked."
+        },
+        "M9": {
+          "status": "fail",
+          "evidence": "Turn 11 recalls conditional-probability reasoning and a pending row-versus-column question, but omits the Bayes gap and grouped summaries as next work."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 7 correctly identifies that the total number of trainees is missing, so the requested reversed percentage cannot be computed."
+        },
+        "M12": {
+          "count": 1,
+          "evidence": "Turn 11 reflects the transfer reasoning/result and next two-way-table task; it does not mention the Bayes gap or prior whole-midterm readiness review."
+        },
+        "M13": {
+          "status": "not_applicable",
+          "evidence": "No in-session Demonstrated status is assigned."
+        },
+        "M14": {
+          "count": 0,
+          "evidence": "Turn 8 requests course notes and makes no labelled outside-course general offer."
+        }
+      },
+      "other_unscored_observations": []
+    },
+    {
+      "case": "CASE-11",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "Turn 1’s hypothetical example uses 20 students/10 commuters/4 cyclists, not Q1’s item data; Q2’s answer appears only in turn 3 when requested."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5 says the direct-question successes show understanding of those count problems and proposes a different format to check transfer; no mastery claim."
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘I don’t yet have enough evidence to say you’re ready for the whole midterm.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 3: ‘25.0% of remote workers are trainees.’"
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4 confirms the student’s ‘33.3% of seniors’ answer and denominator."
+        },
+        "M4": {
+          "status": "fail",
+          "evidence": "Turn 8 teaches ‘Bayes’ rule lets you reverse the direction of a conditional probability’ and supplies its formula without identifying the missing course notes or labelling this outside-course content."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 1 cites Notes §1.1–1.4; cited section locators exist."
+        },
+        "M6": {
+          "status": "fail",
+          "evidence": "Turn 6 asks ‘what percentage of volunteers are seniors?’ with the reference group expressly named and the same denominator-selection steps; this changes names/numbers, not the reasoning demand."
+        },
+        "M6b": {
+          "status": "pre_declared",
+          "evidence": "Turn 5 announces ‘a two-way table or a question that reverses P(A|B) and P(B|A)’ as the next check, though turn 6 does not enact that changed demand."
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9 first states the current outline excludes hypothesis testing and moved it to Midterm 2, then marks the explanation as optional; the scope is flagged before teaching."
+        },
+        "M8": {
+          "count": 3,
+          "evidence": "Turn 10 lists two-way tables, Bayes’ rule, and grouped summaries, with the respective remaining work."
+        },
+        "M9": {
+          "status": "fail",
+          "evidence": "Turn 11: ‘I found your course materials, but no saved progress … What topic or question did you reach?’ It asks the student to reconstruct instead of resuming from the record."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 8’s club computation gives 8/16 = 50.0% of volunteers are seniors; the listed intermediate proportions and Bayes result are arithmetically consistent."
+        },
+        "M12": {
+          "count": 0,
+          "evidence": "Turn 11 says there is no saved progress and restarts Q2; it reflects none of the prior transfer result, Bayes source gap, or readiness review."
+        },
+        "M13": {
+          "status": "not_applicable",
+          "evidence": "The in-session record does not assign Demonstrated status."
+        },
+        "M14": {
+          "count": 0,
+          "evidence": "Turn 8 offers no outside-course label; the explanation is presented directly as Bayes instruction."
+        }
+      },
+      "other_unscored_observations": [
+        "Turn 7 says ‘You’re ready to move on to conditional probability in two-way tables’; this is a next-topic transition, not whole-exam readiness."
+      ]
+    },
+    {
+      "case": "CASE-12",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "The turn-1 teaching example is presented as an example with its own setup, distinct from Q1; Q2’s answer is given at the answer-request turn 3."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5 says ‘That shows improvement; one changed question will help check whether the idea carries over.’"
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘I don’t yet have enough evidence to say you’re ready for the whole midterm.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 3 reports ‘25.0%’ and names remote workers as the reference group."
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4 confirms ‘33.3% of seniors’ and says the student identified the 12 seniors as reference group."
+        },
+        "M4": {
+          "status": "pass",
+          "evidence": "Turn 8 identifies the missing Bayes notes and only reviews the prerequisite distinction; gap-only."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 6 cites Notes §1–2 and turn 11 cites §1.3 and §2.2; these section locators exist."
+        },
+        "M6": {
+          "status": "pass",
+          "evidence": "Turn 6 uses a two-way table and asks for the share among noncyclists, requiring combining cells to form the denominator."
+        },
+        "M6b": {
+          "status": "post_hoc",
+          "evidence": "Turn 7 identifies the new step as ‘built the reference group from two table cells’; turn 6 does not declare what differs from Q1–Q4."
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9 says the current outline moves hypothesis testing to Midterm 2; no topic lesson is delivered."
+        },
+        "M8": {
+          "count": 1,
+          "evidence": "Turn 10 names Bayes’ rule as unassessed; two-way tables has been assessed and grouped summaries is not listed as unassessed."
+        },
+        "M9": {
+          "status": "fail",
+          "evidence": "Turn 11 recalls the correct noncyclist-column denominator and the two-way-table next step, but does not reconstruct the Bayes notes gap or grouped summaries as next work."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 7 computes 15/(15+10) = 60.0% of students who do not cycle are commuters."
+        },
+        "M12": {
+          "count": 1,
+          "evidence": "Turn 11 recalls the transfer result and next step, but not the Bayes gap or whole-midterm readiness review."
+        },
+        "M13": {
+          "status": "fail",
+          "evidence": "The record assigns T1 ‘Demonstrated’ but says only ‘Later spaced recheck’; no explicit before-exam recheck marker."
+        },
+        "M14": {
+          "count": 0,
+          "evidence": "Turn 8 requests the lecture excerpt; no labelled outside-course general explanation is offered."
+        }
+      },
+      "other_unscored_observations": [
+        "Turn 7 says ‘We’ll revisit it later to check retention’; this generic recheck does not satisfy M13’s explicit before-exam requirement."
+      ]
+    },
+    {
+      "case": "CASE-15",
+      "scores": {
+        "M1": {
+          "status": "pass",
+          "evidence": "The turn-1 commuter example is presented as a separate hypothetical; it is not the Q1 item. Q2’s 25.0% answer appears only in response to the answer request at turn 3."
+        },
+        "M2a": {
+          "status": "pass",
+          "evidence": "Turn 5 says the Q3/Q4 pattern supports Improving while ‘broader application and retention still need checking.’"
+        },
+        "M2b": {
+          "status": "pass",
+          "evidence": "Turn 10: ‘I can’t honestly call you ready for the whole midterm yet.’"
+        },
+        "M3": {
+          "status": "pass",
+          "evidence": "Turn 2: ‘40.0% of commuters cycle’; turn 3: ‘25.0% of remote workers are trainees.’"
+        },
+        "M3b": {
+          "status": "pass",
+          "evidence": "Turn 4 confirms ‘33.3% of seniors’ and the denominator of 12 seniors."
+        },
+        "M4": {
+          "status": "pass",
+          "evidence": "Turn 8 identifies the missing lecture notes and offers an explanation labelled ‘not from your course materials’; labelled-general."
+        },
+        "M5": {
+          "status": "pass",
+          "evidence": "Turn 1 cites Notes §1.1–1.4; these section locators exist."
+        },
+        "M6": {
+          "status": "pass",
+          "evidence": "Turn 6 requires constructing volunteers from 12 senior and 8 non-senior volunteers, rather than using the given 30 seniors or 50 members."
+        },
+        "M6b": {
+          "status": "pre_declared",
+          "evidence": "Turn 6: ‘work out the reference group from two counts.’"
+        },
+        "M7": {
+          "status": "pass",
+          "evidence": "Turn 9 says hypothesis testing is excluded from this midterm before offering it as an optional extension."
+        },
+        "M8": {
+          "count": 3,
+          "evidence": "Turn 10 identifies two-way tables, Bayes’ rule, and grouped summaries as unassessed."
+        },
+        "M9": {
+          "status": "fail",
+          "evidence": "Turn 11 recalls conditional-probability demonstration and a two-way-table next step, but omits the Bayes notes gap and grouped summaries."
+        },
+        "M10": {
+          "status": "pass",
+          "evidence": "Turn 7 gives 12/(12+8) = 60.0% of volunteers are seniors."
+        },
+        "M12": {
+          "count": 1,
+          "evidence": "Turn 11 reflects the demonstrated transfer and later recheck, but does not mention Bayes’ notes gap or the whole-midterm readiness review."
+        },
+        "M13": {
+          "status": "pass",
+          "evidence": "Turn 7 explicitly says ‘unaided recheck due before the exam’; the saved record repeats ‘Recheck before exam.’"
+        },
+        "M14": {
+          "count": 1,
+          "evidence": "Turn 8 offers a general explanation explicitly labelled ‘not from your course materials’; one outside-course offer."
+        }
+      },
+      "other_unscored_observations": []
+    }
+  ],
+  "scope_note": "Scores follow each case’s frozen rubric; M8 and M12 are counts, M14 is the count of explicitly labelled outside-course offers. M6b records pre-declared/post-hoc status. No arm inference made. Partial blinding noted in the case packet format."
+}

@@ -1,0 +1,1 @@
+Not enough information. The reference group is all cyclists. There are 12 commuting cyclists, but the total number of cyclists is not specified. I need either total cyclists or the number of noncommuting cyclists. Then 12 divided by total cyclists would give the percentage of cyclists who commute.

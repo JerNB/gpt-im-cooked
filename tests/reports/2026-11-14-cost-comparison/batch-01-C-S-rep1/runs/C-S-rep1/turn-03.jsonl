@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1dd4c-a5e8-71b0-90c6-471af7987322"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "**Hi student, let's get you uncooked.**\n\nQ2: \\(\\frac{6}{24}\\times100\\%=\\boxed{25.0\\%\\text{ of remote workers}}\\).\n\nThe denominator is **24 remote workers**, the reference group asked about. ([Instructor key, Q2](materials/practice-key.md))"}}
+{"type": "turn.completed", "usage": {"input_tokens": 281973, "cached_input_tokens": 251904, "cache_write_input_tokens": 0, "output_tokens": 3498, "reasoning_output_tokens": 229}}

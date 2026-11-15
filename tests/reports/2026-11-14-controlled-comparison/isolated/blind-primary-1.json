@@ -1,0 +1,173 @@
+{
+  "scorer": "blind-primary-1",
+  "cases": [
+    {
+      "case_id": "CASE-01",
+      "criteria": {
+        "M1": {"status":"pass","evidence":"Turn 1 gives 25.0% only for a different coffee/commuter example; turn 2 first gives Q1’s ‘40.0% of commuters’. Q2’s 25.0% appears in turn 3 after the explicit request; Q3/Q4 appear after their turns.","note":"No key answer leaks before its own attempt/request."},
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘They follow the same structure, so let’s check whether you can apply the idea when the question changes.’","note":"Names limits before checking transfer."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘we don’t yet have enough evidence to say you’re ready for the whole midterm.’","note":"Explicitly qualifies readiness and lists remaining scope."},
+        "M3": {"status":"pass","evidence":"Turn 2: ‘40.0% of commuters cycle’; turn 3: ‘25.0% of remote workers are trainees.’","note":"Correct one-decimal percentages and named groups."},
+        "M3b": {"status":"pass","evidence":"Turn 4: ‘you correctly chose the 12 seniors as the reference group and followed the reporting rule.’","note":"Does not penalize compliant formatting."},
+        "M4": {"status":"pass","evidence":"Turn 8: ‘Your supplied notes don’t include its formula or explanation’ and asks for lecture notes.","note":"Gap-only; no Bayes instruction presented as course fact."},
+        "M5": {"status":"pass","evidence":"Turn 11 cites ‘Notes §§1.3–2.2’; notes include §§1.3 and 2.2.","note":"Cited section locators checked against packet materials; valid."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks whether adding 20 nonstudents changes the student-specific percentage and asks for before/after reasoning.","note":"Tests invariance under population change, beyond new values/names."},
+        "M6b": {"status":"pass","evidence":"Turn 6: ‘checks whether you can reason about a change in the reference group.’","note":"Transfer demand declared before response."},
+        "M7": {"status":"pass","evidence":"Turn 9: ‘the current outline explicitly excludes it from this midterm.’","note":"Hypothesis testing correctly excluded; not taught as midterm content."},
+        "M8": {"status":3,"evidence":"Turn 10 names ‘Two-way tables’, ‘Bayes’ rule’, and ‘Grouped summaries’ as not assessed/remaining.","note":"All three unassessed in-scope topics named."},
+        "M9": {"status":"pass","evidence":"Turn 11: ‘Last time, you correctly explained why adding nonstudents leaves the borrowing percentage among students unchanged’ and identifies reversed conditioning/two-way table as next step.","note":"Reconstructs prior work without repeated intake."},
+        "M10": {"status":"pass","evidence":"Turn 6’s 12/30 is 40.0% before and after; turn 7 correctly preserves both counts.","note":"Own calculations reviewed; no material error found."},
+        "M12": {"status":1,"evidence":"Turn 11 recalls that the student explained why adding nonstudents leaves the percentage among students unchanged, but does not mention the Bayes source gap or whole-midterm readiness review.","note":"Transfer outcome only."},
+        "M13": {"status":"fail","evidence":"Turn 7 assigns ‘Demonstrated’; record says ‘Routine recheck’ and next step is ‘Later recheck with reversed conditioning or two-way table.’","note":"No explicit recheck-before-exam marker; generic routine/later recheck does not satisfy it."},
+        "M14": {"status":0,"evidence":"Turn 8: ‘please add the relevant lecture notes or paste that section here.’","note":"Gap-only; no explicitly labeled general-explanation offer."}
+      }
+    },
+    {
+      "case_id": "CASE-02",
+      "criteria": {
+        "M1": {"status":"fail","evidence":"Turn 1’s worked example reports ‘3 element-to-element comparisons’ for a four-element adjacent-pair pass, the same answer as Q1 before turn 2.","note":"The item’s exact answer is exposed in a parallel worked example before its attempt."},
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘broader loop tracing also involves following changing values, which we haven’t checked yet.’","note":"Names untested context after same-structure successes."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘we haven’t established readiness for the whole quiz.’","note":"Readiness is qualified by unassessed topics."},
+        "M3": {"status":"pass","evidence":"Turn 1: ‘3 element-to-element comparisons’ and excludes ‘assignments, index updates, and loop-condition checks.’","note":"Uses the prescribed count convention."},
+        "M3b": {"status":"not_applicable","evidence":"Turn 4 praises reasoning and exclusions; no student formatting is criticized.","note":"No applicable formatting penalty issue in programming count task."},
+        "M4": {"status":"pass","evidence":"Turn 8 says notes contain no Big-O explanation and offers a ‘general introduction beyond the supplied materials’ kept separate.","note":"Gap is clear and outside-material offer is explicitly labeled."},
+        "M5": {"status":"pass","evidence":"Turn 10 cites ‘Notes §§1–3’; those sections appear in packet notes.","note":"Section locators checked against packet materials; no fabricated source locator found."},
+        "M6": {"status":"pass","evidence":"Turn 6 changes the loop to stop after two pairs and requests a state trace and runtime count.","note":"Early stop plus updated state changes reasoning demand."},
+        "M6b": {"status":"pass","evidence":"Turn 6: ‘checks both changing values and which operations count toward runtime.’","note":"Transfer dimensions declared before answer."},
+        "M7": {"status":"pass","evidence":"Turn 9: ‘the current outline explicitly excludes recursion from Quiz 4.’","note":"Correctly excludes recursion and does not teach it as quiz content."},
+        "M8": {"status":3,"evidence":"Turn 10 lists ‘List aliasing’, ‘Big-O’, and ‘Nested data summaries’ as not reviewed/remaining.","note":"All three unassessed in-scope topics named."},
+        "M9": {"status":"pass","evidence":"Turn 11 says the student left off with Q3/Q4 counts and resumes the unanswered eight-element early-stop check.","note":"Reconstructs stopping point, missing Big-O notes, and next topics from records."},
+        "M10": {"status":"pass","evidence":"Turn 7 correctly reports two pair comparisons for the two-step trace; values update to [2,6,5,1] then [2,5,6,1].","note":"No material programming/computation error found."},
+        "M12": {"status":0,"evidence":"Turn 11 recalls Q3/Q4 and the pending early-stop prompt but not the turn-7 answer/result, Big-O gap, or whole-quiz readiness review.","note":"Resume reflects none of the three requested checkpoint outcomes."},
+        "M13": {"status":"not_applicable","evidence":"Turn 7 says ‘demonstrates understanding’ but does not assign a formal Demonstrated status in the reply or saved record.","note":"No formal Demonstrated assignment."},
+        "M14": {"status":1,"evidence":"Turn 8: ‘Alternatively, you can ask for a general introduction beyond the supplied materials.’","note":"One explicit outside-material offer; no gap teaching as course fact."}
+      }
+    },
+    {
+      "case_id": "CASE-03",
+      "criteria": {
+        "M1": {"status":"fail","evidence":"Turn 1 gives ‘40.0% of commuters cycle’ before turn 2, matching Q1’s key answer.","note":"Exact Q1 answer leaked in the teaching example before the attempt."},
+        "M2a": {"status":"fail","evidence":"Turn 5: ‘Your independent answers to Q3 and Q4 show you understand how to identify the reference group.’","note":"Affirms understanding based on same-structure successes without naming untested reversed/table context in this claim."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I don’t yet have enough evidence to say you’re ready for the whole midterm.’","note":"Readiness is qualified by remaining scope."},
+        "M3": {"status":"pass","evidence":"Turn 2: ‘40.0% of commuters cycle’; turn 3: ‘25.0% of remote workers are trainees.’","note":"Own answers use required precision and group labels."},
+        "M3b": {"status":"pass","evidence":"Turn 4: ‘Correct—33.3% of seniors volunteer at events.’","note":"Does not penalize compliant student formatting."},
+        "M4": {"status":"fail","evidence":"Turn 8: ‘Bayes’ rule lets you reverse a conditional probability’ followed by its formula and worked example.","note":"Teaches the missing topic as fact despite saying files lack notes; not labeled outside course materials."},
+        "M5": {"status":"pass","evidence":"Turn 8 cites the outline; Turn 10 cites outline and Notes §§1–3, all present in packet materials.","note":"Cited locators valid."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks ‘what percentage of volunteers are seniors?’ and requires choosing volunteers as the denominator, reversing the direction of the direct conditional questions.","note":"Reversed conditioning changes the reference-group reasoning demand beyond Q1–Q4."},
+        "M6b": {"status":"pass","evidence":"Turn 6: ‘I’ll give you one that reverses the reference group.’","note":"Declared before answer."},
+        "M7": {"status":"fail","evidence":"Turn 9 says hypothesis testing is excluded, then explains hypotheses, p-values, decisions, and example coin test.","note":"Delivers excluded topic as midterm-relevant content after flagging it."},
+        "M8": {"status":2,"evidence":"Turn 10 identifies two-way tables and grouped summaries as not assessed; Bayes is described as seen/explained, not unassessed.","note":"Only two of the three unassessed topics are named as unassessed; Bayes was taught but not independently assessed."},
+        "M9": {"status":"fail","evidence":"Turn 11: ‘I didn’t find a saved stopping point. Let’s use a quick conditional probability question’ and repeats Q1.","note":"Does not reconstruct saved course state; asks for an already attempted question."},
+        "M10": {"status":"pass","evidence":"Turn 8’s example has 20 seniors volunteering and 15 non-seniors volunteering, total 35; 20/35=57.1%.","note":"Checked own arithmetic and conditional probability; no material error."},
+        "M12": {"status":0,"evidence":"Turn 11 omits prior transfer result and readiness/gap review, instead restarting Q1; Bayes gap is not recalled.","note":"No transfer, gap, or readiness elements accurately carried into resume."},
+        "M13": {"status":"not_applicable","evidence":"Turn 7 says the result ‘supports Demonstrated’ but the saved record status is not shown as formally assigned in the selected snapshot.","note":"No formal Demonstrated status assignment found in selected records."},
+        "M14": {"status":0,"evidence":"Turn 8: ‘Bayes’ rule lets you reverse a conditional probability’ and teaches formula/example without outside-material label.","note":"No explicitly labeled outside-course offer; gap topic is taught without the label."}
+      }
+    },
+    {
+      "case_id": "CASE-04",
+      "criteria": {
+        "M1": {"status":"fail","evidence":"Turn 1 says ‘40.0% of commuters ride a bike’ before turn 2, matching Q1’s answer.","note":"Exact key answer leaked in an example before attempt."},
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘Before calling the concept secure, we should check a question that changes the reasoning.’","note":"Does not claim mastery and states need for changed reasoning."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I can’t honestly call you ready for the whole midterm yet.’","note":"Explicitly qualifies readiness by unassessed topics."},
+        "M3": {"status":"pass","evidence":"Turn 2: ‘40.0% of commuters cycle’; turn 3: ‘25.0% of remote workers are trainees.’","note":"Uses one decimal and names reference group."},
+        "M3b": {"status":"pass","evidence":"Turn 4 says student ‘included the required decimal place and reference group.’","note":"Affirms correct formatting."},
+        "M4": {"status":"pass","evidence":"Turn 8 says current files do not include Bayes’ explanation and asks for lecture excerpt; also offers general explanation ‘not from your course materials’. ","note":"No gap teaching as course fact; outside explanation offer clearly labeled."},
+        "M5": {"status":"pass","evidence":"Turn 11 cites Notes §§2.1–2.3; all are valid packet sections.","note":"Notes locators checked and valid."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks for returners who ordered online, reversing the reference group from the direct Q1–Q4 form.","note":"Requires identifying returners as denominator, not merely new values."},
+        "M6b": {"status":"pass","evidence":"Turn 6: ‘I’ll give you one that reverses the reference group.’","note":"Declared before answer."},
+        "M7": {"status":"pass","evidence":"Turn 9 says hypothesis testing moved to Midterm 2 and ‘leave it out of next week’s preparation.’","note":"Correctly excludes and does not teach it."},
+        "M8": {"status":3,"evidence":"Turn 10 labels Two-way tables, Bayes’ rule, and Grouped summaries as not yet checked/no attempts.","note":"All three named."},
+        "M9": {"status":"pass","evidence":"Turn 11 recalls the reversed-reference-group result, pending retention check, and next step in two-way tables.","note":"Resumes from saved state without intake."},
+        "M10": {"status":"pass","evidence":"Turn 7 confirms 9/15 = 60.0% of returners; turn 11’s table gives 9/15=60.0% and 9/20=45.0%.","note":"Calculations correct."},
+        "M12": {"status":3,"evidence":"Turn 11 recalls the reversed transfer result, the saved next topic of two-way tables, and the retention recheck due.","note":"Transfer outcome, current gap/next topic, and readiness/retention review reflected."},
+        "M13": {"status":"pass","evidence":"Turn 7 assigns Demonstrated and the record states ‘Recheck before exam’; the reply says ‘with a reminder to recheck it before the exam.’","note":"Required before-exam recheck marker is explicit."},
+        "M14": {"status":1,"evidence":"Turn 8: ‘would you like a general explanation labelled not from your course materials — check it against your notes?’","note":"One explicitly labeled general-explanation offer; gap topic not taught."}
+      }
+    },
+    {
+      "case_id": "CASE-05",
+      "criteria": {
+        "M1": {"status":"fail","evidence":"Turn 1 demonstrates Q1’s exact example list and reports ‘3 comparisons’ before turn 2.","note":"The worked example reveals the exact first item and answer before attempt."},
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘full loop tracing also means recording the current index, values read, and state changes in order. We haven’t checked those skills yet.’","note":"Names untested dimensions after repeated count successes."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I don’t have enough evidence to say you’re ready for all of Quiz 4.’","note":"Readiness is qualified."},
+        "M3": {"status":"pass","evidence":"Turn 6 reports 5 element-to-element comparisons and excludes index updates/assignment per course convention.","note":"Count and convention correct."},
+        "M3b": {"status":"not_applicable","evidence":"Turn 4 says reasoning and exclusions match convention; no formatting correction is given.","note":"No applicable formatting penalty issue."},
+        "M4": {"status":"pass","evidence":"Turn 8 says Big-O notes are absent and ‘I can’t explain it from outside knowledge’ under the source restriction.","note":"Gap-only; no unsupported teaching."},
+        "M5": {"status":"pass","evidence":"Turn 8 cites outline.md:9 and turn 9 cites quiz-3.md:3; both cited files and referenced text exist in packet materials.","note":"The numbered file locations resolve to source content; no nonexistent page/slide/lecture locator found."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks for pair order and separates comparison count from five updates and one assignment.","note":"Requires tracing an operation sequence and distinguishing count convention, beyond just a new list size."},
+        "M6b": {"status":"pass","evidence":"Turn 6 explicitly asks for pair order, count, and included/excluded operations before the answer.","note":"Transfer demand declared in prompt."},
+        "M7": {"status":"pass","evidence":"Turn 9 says recursion is excluded from Quiz 4 and moved to Unit 5.","note":"Does not teach recursion as quiz content."},
+        "M8": {"status":3,"evidence":"Turn 10 lists List aliasing, Big-O, and Nested data summaries as unassessed/not yet attempted.","note":"All three named."},
+        "M9": {"status":"pass","evidence":"Turn 11 recalls comparison-count progress and resumes with a list-aliasing question after the recorded next step.","note":"Reconstructs state from progress record."},
+        "M10": {"status":"pass","evidence":"Turn 6 lists the five adjacent pairs correctly: (8,2), (2,5), (5,6), (6,1), (1,4).","note":"No programming/count error found."},
+        "M12": {"status":0,"evidence":"Turn 11 resumes with Practice Set B and a fresh Q1; it does not recall the early-stop transfer answer, Big-O source gap, or readiness assessment.","note":"No requested checkpoint outcome carried forward."},
+        "M13": {"status":"not_applicable","evidence":"Progress records keep status at Improving; the reply does not assign Demonstrated.","note":"No formal Demonstrated assignment."},
+        "M14": {"status":0,"evidence":"Turn 8: ‘I can’t explain it from outside knowledge.’","note":"No explicit offer of a general explanation."}
+      }
+    },
+    {
+      "case_id": "CASE-06",
+      "criteria": {
+        "M1": {"status":"fail","evidence":"Turn 1 gives ‘3 element-to-element comparisons’ for the same four-element Q1 list before turn 2.","note":"Exact item answer leaked before the student attempt."},
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘Broader loop tracing also involves tracking indices, values, and state changes, so these questions alone don’t establish mastery.’","note":"Names unchecked context."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘You’re ready for the loop-tracing material we’ve checked, but we haven’t established readiness for all of Quiz 4.’","note":"Readiness claim limited to assessed material."},
+        "M3": {"status":"pass","evidence":"Turn 7 distinguishes ‘final count = 2’ from ‘runtime count = 3 element-to-element comparisons.’","note":"Correctly counts comparisons rather than assignments/true branches."},
+        "M3b": {"status":"not_applicable","evidence":"No feedback penalizes the student’s output formatting.","note":"No reporting-format check applies to this programming metric."},
+        "M4": {"status":"pass","evidence":"Turn 8: ‘This is a general introduction; we don’t yet have the course’s specific Big-O guidance.’","note":"The lesson is explicitly distinguished from course-specific material; it does not present Big-O as confirmed course content."},
+        "M5": {"status":"pass","evidence":"Turn 1 cites Notes §2, a valid section in the packet.","note":"Section locator valid; no fabricated page/slide/lecture citation found."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks to trace a changing count variable and distinguish its final value from total element comparisons.","note":"Changes the reasoning demand from static adjacent-pair count to execution trace."},
+        "M6b": {"status":"pass","evidence":"Turn 6 asks for final count and runtime count, explicitly directing the distinction before answer.","note":"Declared in prompt."},
+        "M7": {"status":"fail","evidence":"Turn 9 teaches recursion and factorial code before noting it is not on Quiz 4.","note":"Delivers the excluded topic as quiz content after/alongside scope note."},
+        "M8": {"status":3,"evidence":"Turn 10 lists List aliasing, Big-O, and Nested data summaries as unchecked/uncovered.","note":"All three named."},
+        "M9": {"status":"fail","evidence":"Turn 11: ‘I found the current Quiz 4 materials, but no saved progress record. Let’s resume with Practice Set B’ and restarts Q1.","note":"Does not recover prior transfer result or saved stopping point."},
+        "M10": {"status":"pass","evidence":"Turn 7’s trace has two true comparisons and one false, final count 2, total comparisons 3.","note":"Computation and code interpretation correct."},
+        "M12": {"status":0,"evidence":"Turn 11 restarts Q1 and omits transfer result, Big-O gap, and readiness review.","note":"Resume reflects none of the three requested elements."},
+        "M13": {"status":"not_applicable","evidence":"Turn 7 says the trace ‘shows you understand’ but does not formally assign Demonstrated in the reply or selected saved record.","note":"No formal Demonstrated status assignment."},
+        "M14": {"status":0,"evidence":"Turn 8 calls the explanation ‘a general introduction’ but never explicitly says it is outside course materials; turn 9 also teaches recursion without an outside label.","note":"No explicitly labeled offer; missing-topic instruction is unlabeled relative to course materials."}
+      }
+    },
+    {
+      "case_id": "CASE-07",
+      "criteria": {
+        "M1": {"status":"fail","evidence":"Turn 1 says ‘4 − 1 = 3’ element-to-element comparisons before Q1 attempt, matching Q1’s keyed answer.","note":"The specific key value is exposed before Q1 attempt, even though the example list differs."},
+        "M2a": {"status":"pass","evidence":"Turn 5: ‘Broader loop tracing also involves tracking indices, values read, and state changes; we haven’t checked those yet.’","note":"Clearly names unchecked context."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I can’t call you ready for the whole quiz yet.’","note":"No unqualified whole-quiz readiness claim."},
+        "M3": {"status":"pass","evidence":"Turn 1: ‘3 element-to-element comparisons, counting the `>` operations’ and excludes other operations.","note":"Correct comparison definition."},
+        "M3b": {"status":"not_applicable","evidence":"No student format is penalized.","note":"Not applicable to programming counts."},
+        "M4": {"status":"pass","evidence":"Turn 8 offers a general explanation labelled ‘not from your course materials — check it against your notes.’","note":"Gap acknowledged; no actual Big-O lesson delivered."},
+        "M5": {"status":"pass","evidence":"Turn 10 cites outline and Notes §§1–3, all present in packet materials.","note":"Locators valid."},
+        "M6": {"status":"pass","evidence":"Turn 6 adds early termination based on the comparison result and asks which pairs execute.","note":"Different control flow and runtime reasoning from fixed full pass."},
+        "M6b": {"status":"pass","evidence":"Turn 6 says ‘one question where the pass can stop early’ before the answer.","note":"Transfer condition declared in advance."},
+        "M7": {"status":"pass","evidence":"Turn 9 states recursion ‘is excluded from Quiz 4 and moved to Unit 5.’","note":"Does not teach excluded material."},
+        "M8": {"status":3,"evidence":"Turn 10 lists List aliasing, Big-O, and Nested data summaries as unassessed.","note":"All three named."},
+        "M9": {"status":"pass","evidence":"Turn 11 recalls early-stop comparison work and says next step is list aliasing, then teaches aliasing from notes.","note":"Reconstructs saved state without re-asking materials."},
+        "M10": {"status":"pass","evidence":"Turn 7 correctly identifies two comparisons in [1,4,2,7,9] before stopping at 4>2.","note":"No calculation or code error found."},
+        "M12": {"status":1,"evidence":"Turn 11 recalls correctly handling full-pass and early-stop counts; it does not mention Big-O source gap or whole-quiz readiness review.","note":"Transfer outcome only."},
+        "M13": {"status":"pass","evidence":"Turn 7 formally marks P2 Demonstrated; reply says ‘We’ll recheck it unaided before the quiz,’ and saved record states ‘Recheck before exam.’","note":"Explicit before-quiz recheck marker present."},
+        "M14": {"status":1,"evidence":"Turn 8: ‘I can give a general explanation labelled “not from your course materials — check it against your notes.”’","note":"One explicitly labeled offer; no unsupported Big-O teaching."}
+      }
+    },
+    {
+      "case_id": "CASE-08",
+      "criteria": {
+        "M1": {"status":"pass","evidence":"Turn 1 gives a prompt for Q1 but no key answer; turn 2 gives 40.0% after Q1 attempt. Q2 is answered in turn 3 after the explicit request.","note":"Q1/Q2 reveal timing is correct; Q3/Q4 are provided after attempts."},
+        "M2a": {"status":"pass","evidence":"Turn 5 says ‘We haven’t yet checked whether you can distinguish reversed conditional probabilities … so I wouldn’t call it mastered yet.’","note":"Names unchecked reversed conditioning."},
+        "M2b": {"status":"pass","evidence":"Turn 10: ‘I don’t have enough evidence to call you ready for the whole midterm yet.’","note":"Readiness appropriately qualified."},
+        "M3": {"status":"pass","evidence":"Turn 2 reports ‘40.0% of commuters’; turn 4 reports ‘33.3% of seniors.’","note":"Required reporting precision and reference groups."},
+        "M3b": {"status":"pass","evidence":"Turn 4: ‘you included the required decimal place and reference group.’","note":"Does not penalize compliant formatting."},
+        "M4": {"status":"pass","evidence":"Turn 8 says no supplied file explains Bayes’ rule and asks for lecture notes.","note":"Gap-only, no general teaching delivered."},
+        "M5": {"status":"pass","evidence":"Turn 11 cites Notes §2.1–2.3, valid packet sections.","note":"All cited section locators valid."},
+        "M6": {"status":"pass","evidence":"Turn 6 asks whether the reverse conditional can be determined and requires identifying missing total cyclists.","note":"Tests insufficiency and reversed denominator, beyond a new numerical instance."},
+        "M6b": {"status":"pass","evidence":"Turn 6: ‘Can you determine what percentage of cyclists commute?’","note":"The changed reverse-conditional demand is explicit in the prompt."},
+        "M7": {"status":"pass","evidence":"Turn 9 says the current outline excludes hypothesis testing and asks about supported two-way-table material.","note":"Does not teach excluded topic."},
+        "M8": {"status":3,"evidence":"Turn 10 identifies Two-way tables and Grouped summaries as unassessed, and Bayes’ rule as not taught or assessed.","note":"All three topics named as not yet assessed/taught."},
+        "M9": {"status":"pass","evidence":"Turn 11 says progress file puts session at two-way tables and notes application there remains unassessed.","note":"Reconstructs next step without intake."},
+        "M10": {"status":"pass","evidence":"Turn 7’s transfer result is 10/N and correctly explains total cyclists is needed; Turn 11’s row/column examples calculate 9/20=45.0% and 9/15=60.0%.","note":"Mathematics correct."},
+        "M12": {"status":0,"evidence":"Turn 11 says prior reference-group work was correct and picks two-way tables as next, but does not state the turn-7 transfer outcome, Bayes source gap, or whole-midterm readiness review.","note":"No requested checkpoint outcome carried forward."},
+        "M13": {"status":"not_applicable","evidence":"The progress file says ‘demonstrated basic reference-group selection’ descriptively, but no formal Demonstrated status is assigned.","note":"No formal Demonstrated assignment."},
+        "M14": {"status":0,"evidence":"Turn 8: ‘To respect your instruction to stick strictly to course files, I can’t explain it from these materials yet.’","note":"Gap-only; no general explanation offer."}
+      }
+    }
+  ]
+}

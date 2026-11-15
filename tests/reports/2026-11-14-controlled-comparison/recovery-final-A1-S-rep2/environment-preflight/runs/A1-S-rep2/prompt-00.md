@@ -1,0 +1,1 @@
+Read environment-probe.txt with a shell command and report its exact content. Do not modify any file.

@@ -1,0 +1,3 @@
+PASS: example renders, key text stays out of the worksheet, escaping, 40 invalid-exam rejections, overwrite refusal.
+Structure only; question correctness still needs the checked key and tutor review.
+

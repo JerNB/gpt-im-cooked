@@ -1,0 +1,25 @@
+{
+  "scorer":"blind-second-P-half1",
+  "cases":[
+    {"case":"CASE-02","criteria":{
+      "M2a":{"status":"pass","evidence":"Turn 5: \"I’d mark this Improving: broader loop tracing also involves following changing values, which we haven’t checked yet.\" Turn 7 limits conclusion to adjacent-pair comparison counting and says other loop patterns remain unchecked."},
+      "M2b":{"status":"pass","evidence":"Turn 10: \"we haven’t established readiness for the whole quiz\"; names unassessed topics."},
+      "M6":{"status":"pass","evidence":"Turn 6 requires a trace with updated list values and swaps at successive positions; not just new values for a complete adjacent-pair pass."}
+    }},
+    {"case":"CASE-05","criteria":{
+      "M2a":{"status":"pass","evidence":"Turn 5: \"full loop tracing also means recording the current index, values read, and state changes in order. We haven’t checked those skills yet, so I wouldn’t call loop tracing mastered.\""},
+      "M2b":{"status":"pass","evidence":"Turn 10: \"I don’t have enough evidence to say you’re ready for all of Quiz 4\"; identifies three other topics as unassessed."},
+      "M6":{"status":"fail","evidence":"Turn 6 asks for a left-to-right complete adjacent-pair pass on a new list, with operation count and pair order; it retains the same full-pass counting demand as Q1–Q4."}
+    }},
+    {"case":"CASE-06","criteria":{
+      "M2a":{"status":"pass","evidence":"Turn 5 limits evidence to \"comparison counting for a single adjacent-pair pass\" and says those questions alone don’t establish mastery of all loop tracing; turn 7 names a checked convention skill specifically."},
+      "M2b":{"status":"pass","evidence":"Turn 10: \"ready for the loop-tracing material we’ve checked, but we haven’t established readiness for all of Quiz 4.\""},
+      "M6":{"status":"pass","evidence":"Turn 6 adds code execution/state tracking and asks final count-variable value separately from runtime comparison count, with operation inclusions; this changes reasoning demand beyond pair counting."}
+    }},
+    {"case":"CASE-07","criteria":{
+      "M2a":{"status":"pass","evidence":"Turn 5 says broader loop tracing involves indices, values, and state changes that remain unchecked; status is only \"Improving\" for complete adjacent-pair passes. Turn 7 limits demonstrated skill to tracing/counting including changed stopping condition."},
+      "M2b":{"status":"pass","evidence":"Turn 10: \"I can’t call you ready for the whole quiz yet\" and states other topics remain unassessed."},
+      "M6":{"status":"pass","evidence":"Turn 6 makes the loop stop immediately when left exceeds right and requires identifying actual pairs and whether n−1 applies; this is an early-stop behavior change."}
+    }}
+  ]
+}

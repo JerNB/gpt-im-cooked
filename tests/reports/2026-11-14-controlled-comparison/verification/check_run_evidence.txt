@@ -1,0 +1,3 @@
+PASS: downloaded/text export equality, 9 event checks, assistance across reset, no-change record hash, markers, and selective retention.
+These assertions verify archived evidence only; semantic behavior is reviewed in REPORT.md.
+

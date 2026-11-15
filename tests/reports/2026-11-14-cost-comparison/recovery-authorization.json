@@ -1,0 +1,11 @@
+{
+  "human_confirmed": true,
+  "new_CLI_calls": 11,
+  "session": "C-P-rep2",
+  "report": "recovery-C-P-rep2-20261115",
+  "from_turn": 1,
+  "old_failed_session_retained_and_excluded": true,
+  "auth_before": 0,
+  "C16_D18_and_external_packets_reverified": true,
+  "crosses_quota_window": true
+}

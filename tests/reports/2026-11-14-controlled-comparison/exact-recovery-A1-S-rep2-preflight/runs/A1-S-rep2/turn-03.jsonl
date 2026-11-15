@@ -1,0 +1,4 @@
+{"type": "thread.started", "thread_id": "01a1dae7-58fa-74e1-88f2-24a551536ef4"}
+{"type": "turn.started"}
+{"type": "item.completed", "item": {"id": "item_0", "type": "agent_message", "text": "**25.0% of remote workers are trainees.**"}}
+{"type": "turn.completed", "usage": {"input_tokens": 75771, "cached_input_tokens": 59648, "cache_write_input_tokens": 0, "output_tokens": 500, "reasoning_output_tokens": 0}}

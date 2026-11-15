@@ -1,0 +1,10 @@
+{
+  "OS": "Windows",
+  "OS_version": "10.0.26300",
+  "Python": "3.13.12",
+  "CLI": "0.162.1",
+  "model": "gpt-6.1-sol",
+  "effort": "medium",
+  "fake_CLI_regression": "PASS",
+  "source_review_D": "APPROVE9938d36; prior11 regressions10PASS/1preexisting distributionFAIL and16 direct expectationsPASS; no release rebuild"
+}

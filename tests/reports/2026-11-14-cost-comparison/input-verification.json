@@ -1,0 +1,31 @@
+{
+  "C": "4d102f605260559af16d2f6620cd926bf0b8f6fd",
+  "D": "9938d36d8538cc4476b0fcf3e37db9e8faa79d59",
+  "C16_matches": true,
+  "D18_matches": true,
+  "frozen_runner_source": "79f3676",
+  "packet_sha256": {
+    "s": {
+      "materials/midterm-2025.md": "ec22653040ddd54b1083a452d09a9ced4e3b0a0755a053330c3853ed08c3b476",
+      "materials/notes.md": "7b6bdc54ba46fca754c6bd0ad346b208b14b2e84c49f1712e4c88b5162f39503",
+      "materials/outline.md": "07822feababbf1d720767eaf4312918a4a60a4758d4908394d9eb5371f5e0932",
+      "materials/practice-key.md": "09b2b4010e196f6ad0382c03dbeb6e1de3bc2ef1184c92d75b77e3e3ff537e56",
+      "materials/practice.md": "f7e374ca5f81f1073c86fffff6743ff3a94c02ef62bbd6daf0b78c672a9ba91b",
+      "rubric-v2.json": "c28bb345192a89f19fa0f4aebe35fec5a7fbbd7fcfd94c773798bead1ad3aa14",
+      "rubric.json": "c5e3899588f86d897281b5d4f6472b82aaffec9f4bc703d9ff300463beaa3083",
+      "script.json": "620cff2ccc7c281e5f656b72a5d316f6771f9be080a54207814c005d7b03aacc"
+    },
+    "p": {
+      "materials/notes.md": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+      "materials/outline.md": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+      "materials/practice-key.md": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+      "materials/practice.md": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+      "materials/quiz-3.md": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db",
+      "rubric-v2.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "rubric.json": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "script.json": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51"
+    }
+  },
+  "auth_copies_before_batch": 0,
+  "quota_confirmation": "Human confirmed first batch: connectivity probe plus D/S turns1-2 only; Step2 needs new confirmation."
+}

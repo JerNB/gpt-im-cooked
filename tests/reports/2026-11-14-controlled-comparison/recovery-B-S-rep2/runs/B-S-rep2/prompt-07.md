@@ -1,0 +1,1 @@
+The claim is not correct. 50.0% of swimmers play tennis, using the 18 swimmers as the reference group: 9/18. In the reverse direction, 37.5% of tennis players swim, using the 24 tennis players as the reference group: 9/24. The same overlap of 9 is divided by two different group totals.

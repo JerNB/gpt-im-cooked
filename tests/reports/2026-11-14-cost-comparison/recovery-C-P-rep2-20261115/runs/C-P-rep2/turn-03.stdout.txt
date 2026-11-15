@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1e000-4d40-75a0-858d-a6d9e13088c7"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"**Hi student, let's get you uncooked.**\n\nQ2’s answer is **5 element-to-element comparisons**: the list has 6 elements, so there are `6 − 1 = 5` adjacent pairs. ([Instructor key, Q2](materials/practice-key.md))"}}
+{"type":"turn.completed","usage":{"input_tokens":243894,"cached_input_tokens":185600,"cache_write_input_tokens":0,"output_tokens":2770,"reasoning_output_tokens":141}}

@@ -1,0 +1,27 @@
+{
+  "all_gates_passed": true,
+  "completed_student_turns": 2,
+  "selected_sessions": 0,
+  "save_calls": 1,
+  "fallback_calls": 0,
+  "auth_copies_after_smoke": 0,
+  "turns": [
+    {
+      "turn": 1,
+      "commands": 2,
+      "failed_commands": 0,
+      "state_opened": false,
+      "templates_opened": false,
+      "first_use_guidance_opened": true
+    },
+    {
+      "turn": 2,
+      "commands": 3,
+      "failed_commands": 0,
+      "state_opened": true,
+      "templates_opened": false,
+      "first_use_guidance_opened": false
+    }
+  ],
+  "note": "Diagnostic only; no selected-session cost/behaviour claim. One separate successful capability probe."
+}

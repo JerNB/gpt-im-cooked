@@ -1,0 +1,32 @@
+{
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "medium",
+  "cli_version": "codex-cli 0.162.1",
+  "baseline": "97be1720f890745b3b59be52ad9ec3dea740393e",
+  "arm_c_revision": "4d102f605260559af16d2f6620cd926bf0b8f6fd",
+  "arm_c_sha256": {
+    "agents/openai.yaml": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c",
+    "assets/course-profile.md": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6",
+    "assets/first-use.md": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219",
+    "assets/learning-record.md": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a",
+    "assets/mock-exam-example.json": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee",
+    "assets/mock-exam-template.html": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0",
+    "references/concept-tutoring.md": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00",
+    "references/interactive-review.md": "a9f3d72e0c582132e579bfc9938455ba906d7abf66a2a529f5be2ef426b31feb",
+    "references/mock-exam-layout.md": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29",
+    "references/practice-and-feedback.md": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9",
+    "references/review-artifacts.md": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e",
+    "references/state.md": "62a57cf6decb062cb732da222f68f4b043372ea8de52d770c441fb28d880b00a",
+    "references/webpage-prompts.md": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3",
+    "scripts/record_io.py": "9f9b6c2b48aaf9dd201e7933ff1e57c18d7032183d1ccc7a4390841908b44b77",
+    "scripts/render_mock_exam.py": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698",
+    "SKILL.md": "76b7156b4e245ec5d20f6b80d7c4a1ca9384f2b320484a3eda6a21d0f9663697"
+  },
+  "design": "4 arms x 2 packets x 2 replicates; serial within each session; arm order interleaved by replicate; phase1 turns 1-6 and phase2 turns 7-11.",
+  "sanitization": [
+    "absolute work/user paths replaced with <ROOT>",
+    "study file links made relative",
+    "misdecoded CJK codepoints U+3400-U+9FFF replaced with U+FFFD"
+  ],
+  "limits": "Synthetic packets, one model/CLI, scripted student, author-written prompts; no learning gains, real students, other models, artifacts, print or billing."
+}
