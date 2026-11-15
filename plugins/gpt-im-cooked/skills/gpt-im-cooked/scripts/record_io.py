@@ -390,17 +390,75 @@ def save_records(directory, payload, expected=None, allow_create=False, template
             raise SaveConflict({'saved': False, 'conflict': plan['path'].name,
                                 'current_sha256': plan['current']['sha256'], 'current_sections': sections,
                                 'next': 'Merge with these current sections and resend with current_sha256'})
+    changed = publish_checkpoint(plans)
     result = {'saved': True, 'updates': [], 'changed': {}}
     for plan in plans:
-        written = locked_write(plan['path'], plan['current']['sha256'], lambda old, exists, p=plan: (p['data'], {}))
-        result['changed'][plan['kind']] = written['changed']
-        result[plan['kind'] + '_sha256'] = written['sha256']
+        result['changed'][plan['kind']] = changed[plan['kind']]
+        result[plan['kind'] + '_sha256'] = digest(plan['data'])
         result['updates'] += plan['details']
         if plan['kind'] == 'record':
             result['statuses'], warnings = concept_statuses(plan['text'])
             if warnings:
                 result['warnings'] = warnings
     return result
+
+
+def publish_checkpoint(plans):
+    """Write every planned file or none: hold all locks, recheck hashes, and undo on a later failure."""
+    for plan in plans:
+        plan['path'] = Path(plan['path']).resolve()
+        plan['path'].parent.mkdir(parents=True, exist_ok=True)
+    held, done, changed = [], [], {}
+    try:
+        for plan in plans:  # a lock held by another writer fails here, before anything is written
+            lock = Path(str(plan['path']) + '.lock')
+            os.close(os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY))
+            held.append(lock)
+        for plan in plans:
+            if read_record(plan['path'])['sha256'] != plan['current']['sha256']:
+                raise ValueError(f'{plan["path"].name} changed while saving; nothing was written, resend the save')
+        try:
+            for plan in plans:
+                path, existed = plan['path'], plan['current']['exists']
+                old = path.read_bytes() if existed else b''
+                changed[plan['kind']] = not existed or old != plan['data']
+                if not changed[plan['kind']]:
+                    continue
+                backup = Path(str(path) + '.bak')
+                step = {'path': path, 'existed': existed, 'old': old, 'backup': backup,
+                        'old_backup': backup.read_bytes() if backup.exists() else None,
+                        'backup_written': False, 'published': False}
+                done.append(step)
+                if existed:
+                    atomic_write(backup, old)
+                    step['backup_written'] = True
+                atomic_write(path, plan['data'])
+                step['published'] = True
+                if path.read_bytes() != plan['data']:
+                    raise OSError('Post-write verification failed')
+        except Exception as error:
+            stuck = []
+            for step in reversed(done):
+                try:  # undo only what actually happened: the published file, then its replaced backup
+                    if step['published']:
+                        if step['existed']:
+                            atomic_write(step['path'], step['old'])
+                        else:
+                            step['path'].unlink(missing_ok=True)
+                    if step['backup_written']:
+                        if step['old_backup'] is None:
+                            step['backup'].unlink(missing_ok=True)
+                        else:
+                            atomic_write(step['backup'], step['old_backup'])
+                except OSError:
+                    stuck.append(step['path'].name)
+            if stuck:
+                raise OSError(f'Save failed ({error}) and these files could not be restored: {stuck}; inspect them and their .bak')
+            raise
+    finally:
+        for lock in held:
+            lock.unlink(missing_ok=True)
+    return changed
 
 
 if __name__ == '__main__':

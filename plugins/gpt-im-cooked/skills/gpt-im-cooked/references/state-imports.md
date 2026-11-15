@@ -10,7 +10,7 @@ Use `(session_id, attempt_id)` as the attempt identity, scoped to its artifact a
 
 Keep original answers separate from review judgments. A corrected review records its reason and which earlier judgment it supersedes; it never creates a new student attempt. Distinguish occurred-at, exported-at, and reviewed-at times; dates or unknown times cannot establish precise chronology. Reconcile concept status and the next-session pointer after revised feedback, and identify older guides affected by the change.
 
-Write import identity/hash/review entries in the record's Import ledger, and concept evidence in Concepts. Read back the section placement as well as the saved bytes; a successful file commit does not validate the record's structure.
+Write import identity/hash/review entries in the record's Import ledger, and concept evidence in Concepts. Confirm from the save result's `updates` list that each change landed in the intended section; a successful write does not by itself show where a row went. Only a manual or structural write made without the save command (see [state-reference.md](state-reference.md)) needs a read-back of section placement and saved bytes.
 
 ## Reviewing browser exports
 

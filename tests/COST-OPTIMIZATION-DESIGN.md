@@ -154,3 +154,11 @@ Implemented as designed, with these differences from the estimates above:
 - Package allowlist lists the two new reference files. No version bump and no ZIP rebuild: `check_distribution.py` still fails against the v2.0.0 archives, as on main.
 
 Verified without model calls: `check_state_io.py` (extended for `save`: templates, default key columns, no-op, conflict merge data, all-or-nothing across both files, foreign lock, CLI exit codes), `validate_package.py`, and the eight other regression scripts. **Not verified:** that a model actually uses `save` in one call, the token effect of any change, and the absence of behaviour regressions. Those are the purpose of the C-versus-D comparison in section 6.
+
+## 10. Review fixes (2026-11-15)
+
+Codex source review of `3edde3b` (reviews/T006.md) found one blocker and two wording conflicts, fixed in the next commit:
+
+- **B1 two-file atomicity.** `save` published the profile before attempting the learning record, so a foreign lock or failed write on the record left a half-saved checkpoint. `publish_checkpoint` now takes every lock first, rechecks hashes under the locks, and on a later failure restores each already-published file and its previous `.bak` (or removes a newly created file). Regression cases: foreign record lock with a valid two-file payload, failed replacement of the second file, a record edited between planning and publishing, and the same failure while creating a new course.
+- **M1** imported saves now verify placement from the save result instead of a read-back; a read-back is required only for manual or structural writes.
+- **N1** the reading list includes extracting patterns from papers and instructor review questions.

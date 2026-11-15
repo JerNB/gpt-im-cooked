@@ -206,6 +206,58 @@ def check_save(io, root):
     assert lock.exists() and record.read_bytes() == current
     lock.unlink()
 
+    # Checkpoint atomicity across both files (T006 review B1): a valid two-file save must change neither
+    # file when the second one cannot be published.
+    both = {'profile': {'Course scope': {'mode': 'upsert-rows', 'rows': ['| T8 | Two-file | In | none | none |']}},
+            'record': {'Next session': {'mode': 'replace', 'text': '- two-file checkpoint'}}}
+    state = lambda: (profile.read_bytes(), record.read_bytes(),
+                     {p.name: p.read_bytes() for p in sorted(study.glob('*.bak'))})
+    untouched = state()
+    # (1) foreign lock on the learning record: the profile is not written and our own profile lock is released.
+    lock.touch()
+    fails(lambda: io.save_records(study, both))
+    assert state() == untouched and lock.exists() and not Path(str(profile) + '.lock').exists()
+    lock.unlink()
+    # (2) the record's replacement fails after the profile was published: the profile and backups are restored.
+    replace = io.os.replace
+    def record_replace_fails(source, target):
+        if Path(target).name == record.name:
+            raise OSError('Simulated failed replacement of the learning record')
+        replace(source, target)
+    io.os.replace = record_replace_fails
+    try:
+        fails(lambda: io.save_records(study, both))
+    finally:
+        io.os.replace = replace
+    assert state() == untouched and not list(study.glob('*.lock')) and not list(study.glob('*.tmp'))
+    # (3) the record changes between planning and publishing: nothing is written.
+    opened = io.os.open
+    def edit_while_locking(path, flags, *rest):
+        if str(path).endswith(record.name + '.lock'):
+            record.write_bytes(untouched[1] + b'\nedited by another writer\n')
+        return opened(path, flags, *rest)
+    io.os.open = edit_while_locking
+    try:
+        fails(lambda: io.save_records(study, both))
+    finally:
+        io.os.open = opened
+    assert profile.read_bytes() == untouched[0] and record.read_bytes().endswith(b'edited by another writer\n')
+    record.write_bytes(untouched[1])
+    assert not list(study.glob('*.lock'))
+    # (4) same failure while creating a new course: no half-created record set is left behind.
+    half = root / 'study' / 'half'
+    io.os.replace = record_replace_fails
+    try:
+        fails(lambda: io.save_records(half, both, allow_create=True))
+    finally:
+        io.os.replace = replace
+    assert not list(half.glob('*.md')) and not list(half.glob('*.bak')) and not list(half.glob('*.lock'))
+    # The same two-file save succeeds once nothing interferes.
+    done = io.save_records(study, both)
+    assert done['changed'] == {'profile': True, 'record': True} and '| T8 | Two-file |' in profile.read_text(encoding='utf-8')
+    current = record.read_bytes()
+    saved = {**saved, 'record_sha256': done['record_sha256']}
+
     # CLI: JSON on standard input, one output line, exit 3 with merge data on conflict, exit 1 on bad input.
     def cli(payload, *extra):
         return subprocess.run([sys.executable, '-B', str(helper), 'save', '--dir', str(study), *extra],
