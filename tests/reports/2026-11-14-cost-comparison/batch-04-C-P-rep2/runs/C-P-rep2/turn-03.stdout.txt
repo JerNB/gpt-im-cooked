@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1dd84-3f8b-7bc0-9702-2ba73579fed2"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"**Hi student, let's get you uncooked.**\n\nQ2 has **5 element-to-element comparisons**: 6 elements give `6 − 1 = 5` adjacent pairs.\n\nSource: **Instructor key, Q2**."}}
+{"type":"turn.completed","usage":{"input_tokens":390393,"cached_input_tokens":343040,"cache_write_input_tokens":0,"output_tokens":4192,"reasoning_output_tokens":507}}

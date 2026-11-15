@@ -1,0 +1,30 @@
+{
+  "status": "BLOCKED_QUOTA",
+  "failed_session": "batch-04-C-P-rep2",
+  "failed_turn": 4,
+  "completed_turns_in_failed_session": 3,
+  "selected_complete_sessions": 7,
+  "selected_student_calls": 77,
+  "failed_session_excluded": true,
+  "automatic_retries": 0,
+  "temporary_auth_copies": 0,
+  "retry_message": "try again at Nov 15th, 2026 2:50 AM",
+  "retry_time_interpretation": "2026-11-15 02:50 America/New_York (UTC-05:00); raw message gives no explicit offset, current host timezone is Eastern Standard Time, matching client timezone",
+  "last_complete_CLI_usage": {
+    "input_tokens": 390393,
+    "cached_input_tokens": 343040,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4192,
+    "reasoning_output_tokens": 507
+  },
+  "latest_failed_thread_ledger_usage": {
+    "input_tokens": 424462,
+    "cached_input_tokens": 376832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 4323,
+    "reasoning_output_tokens": 521,
+    "total_tokens": 428785
+  },
+  "usage_limit_error_file": "batch-04-C-P-rep2/runs/C-P-rep2/turn-04.stdout.txt",
+  "recovery": "Fresh complete C-P-rep2 from turn1 under a NEW report/work label after explicit quota confirmation;never resume turn4 or splice. New quota window must be disclosed."
+}

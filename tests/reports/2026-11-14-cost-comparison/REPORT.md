@@ -1,4 +1,4 @@
-# T007 C-versus-D comparison — work in progress
+# T007 C-versus-D comparison — BLOCKED on quota
 
 Agent: codex. The comparison is incomplete; no improvement or acceptance verdict is available.
 
@@ -16,7 +16,11 @@ Turn 1 opened first-use guidance but neither record template nor core state.md. 
 
 ## Step 2 plan and quota gates
 
-Eight fresh sessions /88 student calls: C/D × S/P × two replicates. Four paired batches: S-rep1 C→D; P-rep1 C→D; S-rep2 D→C; P-rep2 D→C. Each batch requires a separate explicit human quota confirmation. Batch 01 (S-rep1, 22 calls) completed. C used 951,267 input-plus-output tokens and D used 929,649, a difference of 21,618. D was lower in this one pair; three pairs remain, so no acceptance conclusion follows. Failed commands: C one, D two (empty-search composite exits are counted). No quota failures occurred. Batch 02 (P-rep1) also completed: C936192 tokens, D702404, difference233788. Across the two completed pairs, D is lower twice out of two. Four selected sessions/44calls are complete; the four-session-per-arm acceptance remains unevaluated. Batch03 S-rep2 D→C completed: D783880 tokens, C1156554, difference372674. Six sessions/66calls are complete; D is lower in three completed matched pairs out of three. Batch04 P-rep2 D→C is awaiting quota confirmation. Independent Luna blind review has been explicitly authorized for the complete eight-case dataset.
+Eight fresh sessions /88 selected student calls were planned. Seven valid sessions /77 calls completed: three C sessions and all four D sessions. All four paired batches were explicitly authorized. The final C/P-rep2 completed turns1–3 and hit usage limit at turn4. Its partial reply/tool output and snapshots are retained, but the entire failed session is excluded from selection. No automatic retry or splice occurred; temporary auth copies are zero.
+
+Three complete matched pairs currently have lower D totals: S-rep1 C951267/D929649; P-rep1 C936192/D702404; S-rep2 C1156554/D783880. The valid unpaired D/P-rep2 uses948768. D's four-session total is3364701 tokens and its nonzero-exit command count is3, but no overall acceptance verdict is issued before the missing C session and blind review finish.
+
+The CLI says to try again at Nov15,2026 2:50AM. Current host and client timezone is Eastern/New_York; the raw message itself has no UTC offset. See [failure evidence](failure-diagnostics.json). A new confirmation is required for a fresh11-turn C/P-rep2 recovery. It must start at turn1 with new report/work paths; the failed turn4 is never resumed. A recovery pair crossing quota windows must be disclosed. Independent Luna review is authorized but has not started: it requires all8 complete cases.
 
 Each session uses its own turn-6 question to produce a correct turn-7 answer, recorded verbatim before phase 2. Failures remain separate, with no splicing. A quota failure stops the batch; no automatic recovery is authorized. Smoke and connection costs are separate from selected sessions.
 

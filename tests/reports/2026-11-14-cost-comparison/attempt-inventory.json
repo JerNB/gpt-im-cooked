@@ -1,0 +1,45 @@
+{
+  "CLI_invocations_current_successful_execution": 84,
+  "CLI_turns_completed": 83,
+  "failed_CLI_turns": 1,
+  "selected_complete_student_turns": 77,
+  "excluded_completed_partial_turns": 3,
+  "completed_diagnostic_turns": 3,
+  "groups": {
+    "batch-01-C-S-rep1": {
+      "complete": 11
+    },
+    "batch-01-D-S-rep1": {
+      "complete": 11
+    },
+    "batch-02-C-P-rep1": {
+      "complete": 11
+    },
+    "batch-02-D-P-rep1": {
+      "complete": 11
+    },
+    "batch-03-C-S-rep2": {
+      "complete": 11
+    },
+    "batch-03-D-S-rep2": {
+      "complete": 11
+    },
+    "batch-04-C-P-rep2": {
+      "complete": 3,
+      "failed": 1
+    },
+    "batch-04-D-P-rep2": {
+      "complete": 11
+    },
+    "smoke-001": {
+      "complete": 2
+    }
+  },
+  "known_completed_thread_usage_lower_bound": {
+    "input_tokens": 7005775,
+    "cached_input_tokens": 6372480,
+    "output_tokens": 72199,
+    "reasoning_output_tokens": 8775
+  },
+  "note": "Per-thread cumulative counters counted once, probe added once; excludes additional partial-turn4 usage and orchestration/reviewer costs. Do not add selected resource totals again. failure-diagnostics preserves the partial thread ledger endpoint separately. Prior historical routing probe is separate, completed0; billing unknown."
+}

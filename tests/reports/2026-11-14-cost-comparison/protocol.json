@@ -1,6 +1,6 @@
 {
   "task": "T007",
-  "status": "IN_PROGRESS",
+  "status": "BLOCKED_QUOTA:7/8 complete;fresh C-P-rep2 required",
   "C": "4d102f605260559af16d2f6620cd926bf0b8f6fd",
   "D": "9938d36d8538cc4476b0fcf3e37db9e8faa79d59",
   "model": "gpt-6.1-sol",

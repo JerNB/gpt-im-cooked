@@ -1145,6 +1145,326 @@
       "executed_sha256": "26a8acc69e9de3a3b4d7895df59fc8260794a887ea62885eb6c0d36efb42f1b7",
       "preview_sha256": "26a8acc69e9de3a3b4d7895df59fc8260794a887ea62885eb6c0d36efb42f1b7"
     },
+    "batch-04-C-P-rep2/fixtures/packet-p/materials/notes.md": {
+      "executed_sha256": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+      "preview_sha256": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/materials/outline.md": {
+      "executed_sha256": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+      "preview_sha256": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/materials/practice-key.md": {
+      "executed_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+      "preview_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/materials/practice.md": {
+      "executed_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+      "preview_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/materials/quiz-3.md": {
+      "executed_sha256": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db",
+      "preview_sha256": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/rubric-v2.json": {
+      "executed_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "preview_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/rubric.json": {
+      "executed_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "preview_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5"
+    },
+    "batch-04-C-P-rep2/fixtures/packet-p/script.json": {
+      "executed_sha256": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51",
+      "preview_sha256": "fd4a82d2d713ddf7482650015ef57cf85edd47cbaa12c930e7d626c2346b5e5b"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/files-after-02/study/cs-101/quiz-4/course-profile.md": {
+      "executed_sha256": "be8fd8e6b47608dadc929937050e3e60fce4750e2cefd882288bf86a5041353e",
+      "preview_sha256": "9ca02803b11c6dd1bbf58c6c85c490f0513005fc56d3cac477ddf521c3e32244"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/files-after-02/study/cs-101/quiz-4/learning-record.md": {
+      "executed_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6",
+      "preview_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/files-after-03/study/cs-101/quiz-4/course-profile.md": {
+      "executed_sha256": "be8fd8e6b47608dadc929937050e3e60fce4750e2cefd882288bf86a5041353e",
+      "preview_sha256": "9ca02803b11c6dd1bbf58c6c85c490f0513005fc56d3cac477ddf521c3e32244"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/files-after-03/study/cs-101/quiz-4/learning-record.md": {
+      "executed_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6",
+      "preview_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/files-after-04/study/cs-101/quiz-4/course-profile.md": {
+      "executed_sha256": "be8fd8e6b47608dadc929937050e3e60fce4750e2cefd882288bf86a5041353e",
+      "preview_sha256": "9ca02803b11c6dd1bbf58c6c85c490f0513005fc56d3cac477ddf521c3e32244"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/files-after-04/study/cs-101/quiz-4/learning-record.md": {
+      "executed_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6",
+      "preview_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/study/cs-101/quiz-4/course-profile.md": {
+      "executed_sha256": "be8fd8e6b47608dadc929937050e3e60fce4750e2cefd882288bf86a5041353e",
+      "preview_sha256": "9ca02803b11c6dd1bbf58c6c85c490f0513005fc56d3cac477ddf521c3e32244"
+    },
+    "batch-04-C-P-rep2/runs/C-P-rep2/study/cs-101/quiz-4/learning-record.md": {
+      "executed_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6",
+      "preview_sha256": "d40e0ee808c80d485bbc3c4bc6018be3b30a0618a53b61e7dd580c0dcebf0cf6"
+    },
+    "batch-04-C-P-rep2/skill-C/agents/openai.yaml": {
+      "executed_sha256": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c",
+      "preview_sha256": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c"
+    },
+    "batch-04-C-P-rep2/skill-C/assets/course-profile.md": {
+      "executed_sha256": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6",
+      "preview_sha256": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6"
+    },
+    "batch-04-C-P-rep2/skill-C/assets/first-use.md": {
+      "executed_sha256": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219",
+      "preview_sha256": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219"
+    },
+    "batch-04-C-P-rep2/skill-C/assets/learning-record.md": {
+      "executed_sha256": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a",
+      "preview_sha256": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a"
+    },
+    "batch-04-C-P-rep2/skill-C/assets/mock-exam-example.json": {
+      "executed_sha256": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee",
+      "preview_sha256": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee"
+    },
+    "batch-04-C-P-rep2/skill-C/assets/mock-exam-template.html": {
+      "executed_sha256": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0",
+      "preview_sha256": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0"
+    },
+    "batch-04-C-P-rep2/skill-C/references/concept-tutoring.md": {
+      "executed_sha256": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00",
+      "preview_sha256": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00"
+    },
+    "batch-04-C-P-rep2/skill-C/references/interactive-review.md": {
+      "executed_sha256": "a9f3d72e0c582132e579bfc9938455ba906d7abf66a2a529f5be2ef426b31feb",
+      "preview_sha256": "a9f3d72e0c582132e579bfc9938455ba906d7abf66a2a529f5be2ef426b31feb"
+    },
+    "batch-04-C-P-rep2/skill-C/references/mock-exam-layout.md": {
+      "executed_sha256": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29",
+      "preview_sha256": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29"
+    },
+    "batch-04-C-P-rep2/skill-C/references/practice-and-feedback.md": {
+      "executed_sha256": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9",
+      "preview_sha256": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9"
+    },
+    "batch-04-C-P-rep2/skill-C/references/review-artifacts.md": {
+      "executed_sha256": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e",
+      "preview_sha256": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e"
+    },
+    "batch-04-C-P-rep2/skill-C/references/state.md": {
+      "executed_sha256": "62a57cf6decb062cb732da222f68f4b043372ea8de52d770c441fb28d880b00a",
+      "preview_sha256": "62a57cf6decb062cb732da222f68f4b043372ea8de52d770c441fb28d880b00a"
+    },
+    "batch-04-C-P-rep2/skill-C/references/webpage-prompts.md": {
+      "executed_sha256": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3",
+      "preview_sha256": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3"
+    },
+    "batch-04-C-P-rep2/skill-C/scripts/record_io.py": {
+      "executed_sha256": "9f9b6c2b48aaf9dd201e7933ff1e57c18d7032183d1ccc7a4390841908b44b77",
+      "preview_sha256": "9f9b6c2b48aaf9dd201e7933ff1e57c18d7032183d1ccc7a4390841908b44b77"
+    },
+    "batch-04-C-P-rep2/skill-C/scripts/render_mock_exam.py": {
+      "executed_sha256": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698",
+      "preview_sha256": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698"
+    },
+    "batch-04-C-P-rep2/skill-C/SKILL.md": {
+      "executed_sha256": "76b7156b4e245ec5d20f6b80d7c4a1ca9384f2b320484a3eda6a21d0f9663697",
+      "preview_sha256": "76b7156b4e245ec5d20f6b80d7c4a1ca9384f2b320484a3eda6a21d0f9663697"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/materials/notes.md": {
+      "executed_sha256": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
+      "preview_sha256": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/materials/outline.md": {
+      "executed_sha256": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430",
+      "preview_sha256": "dc9e069b438aa2b04e038019f73c09be4afa45377aece3fe4870bf2f4b85b430"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/materials/practice-key.md": {
+      "executed_sha256": "4549643b39b9c675cd9039f2ed7f36a0083119c3ca27002ba70db7291b8d0a6b",
+      "preview_sha256": "07ed07e4c7908198ea8036586feadde8117940302df40547c304687a325c6f25"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/materials/practice.md": {
+      "executed_sha256": "565cb5d6fb3801b0076efe58833f45d726cb43ccc809fe553080222887fbcc2e",
+      "preview_sha256": "85cdbd968dbbd6287a197e19b78594905739081a8cb5fb5f4d1eccfd59fa6c35"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/materials/quiz-3.md": {
+      "executed_sha256": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db",
+      "preview_sha256": "ea4ff655c385bd9a844b4cb0a4f4eebffcd6fa22913034da2631f4233f7db1db"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/rubric-v2.json": {
+      "executed_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "preview_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/rubric.json": {
+      "executed_sha256": "506a550aea4e776e78e0273d5c1a9a80ff5b2521fe77d9a0101893b2519b5559",
+      "preview_sha256": "51111fc4e0337fe387140e6e7f0ac29dc7913cb25fafa59990af272fecdbecc5"
+    },
+    "batch-04-D-P-rep2/fixtures/packet-p/script.json": {
+      "executed_sha256": "4a65551fe2bd88d6ae308f94ee4e061e332f17157c74bb1cb6ca5415d3efda51",
+      "preview_sha256": "fd4a82d2d713ddf7482650015ef57cf85edd47cbaa12c930e7d626c2346b5e5b"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-02/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-02/learning-record.md": {
+      "executed_sha256": "2779ea7e6738ed7965ea64d40db9294f441d98897a4839cdf1b2448d8767e5c6",
+      "preview_sha256": "2779ea7e6738ed7965ea64d40db9294f441d98897a4839cdf1b2448d8767e5c6"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-03/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-03/learning-record.md": {
+      "executed_sha256": "2779ea7e6738ed7965ea64d40db9294f441d98897a4839cdf1b2448d8767e5c6",
+      "preview_sha256": "2779ea7e6738ed7965ea64d40db9294f441d98897a4839cdf1b2448d8767e5c6"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-04/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-04/learning-record.md": {
+      "executed_sha256": "2339050dce953da93dfb4e435edd7b2c28d449dfb387a580d0a5f9a21256bb31",
+      "preview_sha256": "2339050dce953da93dfb4e435edd7b2c28d449dfb387a580d0a5f9a21256bb31"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-05/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-05/learning-record.md": {
+      "executed_sha256": "47ac1485b4b69449ac013978d22a2280238e4eca25e2665745f541968af793c1",
+      "preview_sha256": "47ac1485b4b69449ac013978d22a2280238e4eca25e2665745f541968af793c1"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-06/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-06/learning-record.md": {
+      "executed_sha256": "47ac1485b4b69449ac013978d22a2280238e4eca25e2665745f541968af793c1",
+      "preview_sha256": "47ac1485b4b69449ac013978d22a2280238e4eca25e2665745f541968af793c1"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-07/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-07/learning-record.md": {
+      "executed_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165",
+      "preview_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-08/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-08/learning-record.md": {
+      "executed_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165",
+      "preview_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-09/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-09/learning-record.md": {
+      "executed_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165",
+      "preview_sha256": "747e5b39091f3d45491bc8b4d5d70c2d481bdc623c254ab385d1c99be8345165"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-10/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-10/learning-record.md": {
+      "executed_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354",
+      "preview_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-11/course-profile.md": {
+      "executed_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64",
+      "preview_sha256": "c5f47202a130cb7c10ce78e027cd9d867763fe86ced53cb25ea8306b9727ac64"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/files-after-11/learning-record.md": {
+      "executed_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354",
+      "preview_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354"
+    },
+    "batch-04-D-P-rep2/runs/D-P-rep2/learning-record.md": {
+      "executed_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354",
+      "preview_sha256": "0cc20dadf944042bd70f02abaebf2b81602366549eab2fe8ac951400e5934354"
+    },
+    "batch-04-D-P-rep2/skill-D/agents/openai.yaml": {
+      "executed_sha256": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c",
+      "preview_sha256": "4ef4d11486afa42a3702dabe38255844bbaf3397d13bae171219d07f313daf9c"
+    },
+    "batch-04-D-P-rep2/skill-D/assets/course-profile.md": {
+      "executed_sha256": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6",
+      "preview_sha256": "1ed13ca3be43f409db203c3b4a17369cba36cb9c5a3e333fea7cba92b063cce6"
+    },
+    "batch-04-D-P-rep2/skill-D/assets/first-use.md": {
+      "executed_sha256": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219",
+      "preview_sha256": "7b1128cac587a8577a88c81588d494af24914923783a2981a873b6f4f020e219"
+    },
+    "batch-04-D-P-rep2/skill-D/assets/learning-record.md": {
+      "executed_sha256": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a",
+      "preview_sha256": "6e28c1cf6d4467cbdcfcdcc9f39438ab0138a8be85c4ac8cdb74ff982860a10a"
+    },
+    "batch-04-D-P-rep2/skill-D/assets/mock-exam-example.json": {
+      "executed_sha256": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee",
+      "preview_sha256": "4228e34973f53e5d6068078d3247d94f39b40b1b54b202ecb8d035169495a1ee"
+    },
+    "batch-04-D-P-rep2/skill-D/assets/mock-exam-template.html": {
+      "executed_sha256": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0",
+      "preview_sha256": "6a0b1864ee9f7fe14dc421f6b400cae09a17387bb378caa918c7be0d587702c0"
+    },
+    "batch-04-D-P-rep2/skill-D/references/concept-tutoring.md": {
+      "executed_sha256": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00",
+      "preview_sha256": "4a94e4038e0456e55a98a335700cb27ab3417a9c5ed03a35e0b9cf03ee484e00"
+    },
+    "batch-04-D-P-rep2/skill-D/references/interactive-review.md": {
+      "executed_sha256": "21a4b8895f05d69cd06169994980ae1603f6a42561e9fc42af445f2dc1f0231b",
+      "preview_sha256": "21a4b8895f05d69cd06169994980ae1603f6a42561e9fc42af445f2dc1f0231b"
+    },
+    "batch-04-D-P-rep2/skill-D/references/mock-exam-layout.md": {
+      "executed_sha256": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29",
+      "preview_sha256": "2f258e0153123b9679bc0b4f612726fdaf18f13165f61f6561f38afe3ea4ae29"
+    },
+    "batch-04-D-P-rep2/skill-D/references/practice-and-feedback.md": {
+      "executed_sha256": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9",
+      "preview_sha256": "7182c8a47e50447874bd75ceb869157c8c3f52c647b164acb3dde216aa5bbdf9"
+    },
+    "batch-04-D-P-rep2/skill-D/references/review-artifacts.md": {
+      "executed_sha256": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e",
+      "preview_sha256": "41dd692350db37b0015191071b864f5234436c7f58a0c1877e87b8702466536e"
+    },
+    "batch-04-D-P-rep2/skill-D/references/state-imports.md": {
+      "executed_sha256": "bf3b0a3a9bf0c72562f22f34b12e6ebfda6a702832c3a84e82777a24cd66df12",
+      "preview_sha256": "bf3b0a3a9bf0c72562f22f34b12e6ebfda6a702832c3a84e82777a24cd66df12"
+    },
+    "batch-04-D-P-rep2/skill-D/references/state-reference.md": {
+      "executed_sha256": "9ea5468f637445626bd2ad286f4dc99f7f1722bae539340efe084b947eec3f90",
+      "preview_sha256": "9ea5468f637445626bd2ad286f4dc99f7f1722bae539340efe084b947eec3f90"
+    },
+    "batch-04-D-P-rep2/skill-D/references/state.md": {
+      "executed_sha256": "c67609cf3337772c314de29f580d6be92d60e27582c721cb2f475564683cb870",
+      "preview_sha256": "c67609cf3337772c314de29f580d6be92d60e27582c721cb2f475564683cb870"
+    },
+    "batch-04-D-P-rep2/skill-D/references/webpage-prompts.md": {
+      "executed_sha256": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3",
+      "preview_sha256": "9039bc939b44dbdde249bf37f7f112a846ba8619ee7d7a07ee771427e89571c3"
+    },
+    "batch-04-D-P-rep2/skill-D/scripts/record_io.py": {
+      "executed_sha256": "deb4832f9ae549128ca01e869b7ee8125d66fa8b51370bf3621d6f796a6f7381",
+      "preview_sha256": "deb4832f9ae549128ca01e869b7ee8125d66fa8b51370bf3621d6f796a6f7381"
+    },
+    "batch-04-D-P-rep2/skill-D/scripts/render_mock_exam.py": {
+      "executed_sha256": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698",
+      "preview_sha256": "4be14b24ccd1db23770604b2805adf01f18c5792b73539f22c73a5cbcec3e698"
+    },
+    "batch-04-D-P-rep2/skill-D/SKILL.md": {
+      "executed_sha256": "26a8acc69e9de3a3b4d7895df59fc8260794a887ea62885eb6c0d36efb42f1b7",
+      "preview_sha256": "26a8acc69e9de3a3b4d7895df59fc8260794a887ea62885eb6c0d36efb42f1b7"
+    },
     "fixtures/packet-p/materials/notes.md": {
       "executed_sha256": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01",
       "preview_sha256": "4f1c78053f43bb810d56022f086d2f2bef6008366c9286241eba2b83e693bd01"

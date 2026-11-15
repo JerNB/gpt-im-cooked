@@ -1,4 +1,4 @@
-"""Mirror completed runs, preserve pre-normalization bytes, then write manifest LAST."""
+"""Mirror quiescent completed/failed runs, preserve bytes, write manifest LAST."""
 from pathlib import Path
 import hashlib
 import json
@@ -33,7 +33,7 @@ def main():
         if not statefiles:
             continue
         state=json.loads(statefiles[0].read_text(encoding='utf-8'))
-        if report.name in active or state['failed'] or state['last_turn'] not in (2,11):
+        if report.name in active or (not state['failed'] and state['last_turn'] not in (2,11)):
             continue
         work=Path(state['cwd']);out=report/'runs'/state['label']
         for p in work.rglob('*'):

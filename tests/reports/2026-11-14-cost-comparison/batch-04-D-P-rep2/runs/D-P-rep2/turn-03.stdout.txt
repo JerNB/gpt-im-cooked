@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1dd7d-08a4-75e2-9547-c7a13b18ae06"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"**Hi student, let's get you uncooked.**\n\nQ2 has **5 element-to-element comparisons**: the list contains 6 elements, so one pass compares \\(6 - 1 = 5\\) adjacent pairs. [Instructor key, Q2](materials/practice-key.md)"}}
+{"type":"turn.completed","usage":{"input_tokens":395790,"cached_input_tokens":344064,"cache_write_input_tokens":0,"output_tokens":2857,"reasoning_output_tokens":566}}
