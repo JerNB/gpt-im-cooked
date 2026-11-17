@@ -352,11 +352,20 @@ def to_ics(plan, result, sequence, stamp):
             f'DESCRIPTION:{_ics_text(description)}', f'CATEGORIES:{_ics_text(category)}',
             f'SEQUENCE:{sequence}', 'TRANSP:OPAQUE', 'END:VEVENT'])
 
-    for block in result['blocks']:
+    if result['all_day']:  # one all-day event per study day, listing that day's tasks
+        days = {}
+        for block in result['blocks']:
+            days.setdefault(block['start'], []).append(block)
+        for day, blocks in sorted(days.items()):
+            total = sum(b['minutes'] for b in blocks)
+            items = [f"- {plan['courses'][b['course']]['title']} · {b['title']} ({b['minutes']} min, {b['kind']})"
+                     f"\n  Basis: {b['basis']}" for b in blocks]
+            event(f"{plan['plan_id']}-day-{day:%Y%m%d}", day, day + timedelta(days=1),
+                  f'Review list: {len(blocks)} tasks, {total} min', '\n'.join(items) + f'\n\n{PROGRESS_NOTE}', 'review-list')
+    for block in ([] if result['all_day'] else result['blocks']):
         course = plan['courses'][block['course']]
-        end = block['end'] + timedelta(days=1) if not isinstance(block['end'], datetime) else block['end']
         details = f"{block['details']}\n\n" if block['details'] else ''
-        event(block['id'], block['start'], end, f"{course['title']} · {block['title']}",
+        event(block['id'], block['start'], block['end'], f"{course['title']} · {block['title']}",
               f"{details}{block['minutes']} minutes · {block['kind']}\nBasis: {block['basis']}\n{PROGRESS_NOTE}",
               block['kind'])
     for course in plan['courses'].values():

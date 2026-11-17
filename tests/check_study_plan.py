@@ -365,6 +365,23 @@ def test_ics_all_day():
     assert 'DTSTART;VALUE=DATE:' in text and 'DTEND;VALUE=DATE:' in text
 
 
+def test_ics_all_day_one_event_per_day():
+    plan, result, text = ics_for(lambda d: d['availability'].update(weekly={}))
+    events = parse_ics(text)[1]
+    study = [e for e in events if e['CATEGORIES'][1] != 'Exam']
+    days = sorted({b['start'] for b in result['blocks']})
+    assert len(study) == len(days), (len(study), len(days))
+    assert len(events) == len(days) + len(plan['courses'])
+    for day in days:
+        event = next(e for e in study if e['DTSTART'][1] == f'{day:%Y%m%d}')
+        assert event['UID'][1] == f"{plan['plan_id']}-day-{day:%Y%m%d}@gpt-im-cooked"
+        for block in (b for b in result['blocks'] if b['start'] == day):
+            assert block['title'] in event['DESCRIPTION'][1] and block['basis'] in event['DESCRIPTION'][1]
+        total = sum(b['minutes'] for b in result['blocks'] if b['start'] == day)
+        assert f'{total} min' in event['SUMMARY'][1], event['SUMMARY'][1]
+    assert ics_for(lambda d: d['availability'].update(weekly={}))[2].replace('\r\n', '').count('UID') == len(events)
+
+
 # Task 4: printable HTML
 
 def html_for(mutate=None):
