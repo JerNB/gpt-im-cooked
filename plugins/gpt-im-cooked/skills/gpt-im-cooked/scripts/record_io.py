@@ -293,6 +293,7 @@ def update_section(path, name, fragment, expected, mode, key_columns=None):
 # ---------------------------------------------------------------------- save
 
 SAVE_FILES = (('profile', 'course-profile.md'), ('record', 'learning-record.md'))  # record is written last
+OPTIONAL_SECTIONS = {'Reference-sheet preferences'}  # created at the end of the file on first replace/append
 DEFAULT_KEYS = {'attempt history': ['Attempt ID / item locator'],
                 'import ledger': ['Course/artifact/version', 'Session / attempt ID']}
 
@@ -330,6 +331,10 @@ def plan_file(kind, path, updates, template, allow_create):
                 raise ValueError(f'{kind}/{name}: {mode!r} needs a "text" string')
             new = fragment_lines(change['text'].encode('utf-8'))
         keys = change.get('key_columns') or DEFAULT_KEYS.get(name.strip().casefold())
+        if name in OPTIONAL_SECTIONS and mode in ('replace', 'append') and not any(
+                s[0] == name for s in split_sections(text)[1]):
+            nl = '\r\n' if '\r\n' in text else '\n'
+            text = text.rstrip('\r\n') + nl + nl + f'## {name}' + nl
         text, info = apply_section(text, name, new, mode, keys)
         details.append({'file': path.name, **info})
     data = bom + text.encode('utf-8')

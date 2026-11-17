@@ -2,6 +2,8 @@
 
 Ordinary checkpoints use the one-command save in [state.md](state.md). Read this file for the profile field list, a structural rewrite, a host without Python, or lock recovery.
 
+The one-command save creates one optional course-profile section on first use: `Reference-sheet preferences` (with `replace` or `append`), appended at the end of the file. Any other missing section is still an error.
+
 ## Course profile
 
 Record:
