@@ -441,16 +441,23 @@ def fit(sheet, fonts):
     if not presets:
         raise Overflow(0, [], f'no layout preset meets the minimum body size {min_body}pt')
     _, _, columns, col_w, frame_h = _geometry(sheet)
-    if sheet['kind'] == 'study-guide':
-        index, preset = presets[min(1, len(presets) - 1)]
-        pages, fill = layout(sheet, fonts, preset)
-        return {'preset': index, 'pages': pages, 'column_fill': fill, 'body': preset['body'], 'code': preset['code']}
+    guide = sheet['kind'] == 'study-guide'
+    if guide:  # a guide starts one step below the most spacious preset and has no page cap
+        presets = presets[1:] or presets
     target = sheet['allowance']['sheets'] * sheet['allowance']['sides']
-    _check_blocks_fit(sheet, fonts, presets[-1][1], col_w, frame_h)
+    block_problem, any_block_fit = None, False
     for index, preset in presets:
+        try:  # every candidate must hold each block and code line at its own sizes
+            _check_blocks_fit(sheet, fonts, preset, col_w, frame_h)
+        except Overflow as error:
+            block_problem = error  # the last one is from the tightest preset tried
+            continue
+        any_block_fit = True
         pages, fill = layout(sheet, fonts, preset)
-        if pages <= target:
+        if guide or pages <= target:
             return {'preset': index, 'pages': pages, 'column_fill': fill, 'body': preset['body'], 'code': preset['code']}
+    if not any_block_fit:
+        raise block_problem
     heights = _section_heights(sheet, fonts, presets[-1][1], col_w)
     capacity = target * columns * frame_h
     over = max(sum(h for _, h in heights) - capacity, 1.0)

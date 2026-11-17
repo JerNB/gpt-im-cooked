@@ -237,6 +237,27 @@ def render_test_code_too_wide():
     raise AssertionError('a code line wider than a column was accepted')
 
 
+def render_test_chosen_preset_fits_code_width():
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    line = 'x' * 55  # too wide at 9.5 pt Consolas in a sheet column, fits at a smaller preset
+    for kind in ('exam-sheet', 'study-guide'):
+        data = sheet_with(lambda d: d['sections'][5]['blocks'][0].update(text=line))
+        data['kind'] = kind
+        if kind == 'study-guide':
+            data['sections'][5]['blocks'][0]['text'] = 'x' * 107  # too wide at the guide's 9.25 pt default
+        sheet = rs.load_sheet(data)
+        fonts = rs.find_fonts('en')
+        result = rs.fit(sheet, fonts)
+        assert result['preset'] > (0 if kind == 'exam-sheet' else 1), (kind, result)
+        col_w = rs._geometry(sheet)[3]
+        width = stringWidth(sheet['sections'][5]['blocks'][0]['text'], fonts['mono'], result['code'])
+        assert width <= col_w + 0.5, (kind, result, width, col_w)
+    widest = max(stringWidth('x' * 55, rs.find_fonts('en')['mono'], p['code']) for p in rs.PRESETS)
+    smallest = min(stringWidth('x' * 55, rs.find_fonts('en')['mono'], p['code']) for p in rs.PRESETS)
+    sheet_col = rs._geometry(rs.load_sheet(sheet_with()))[3]
+    assert smallest <= sheet_col < widest, 'fixture must be too wide at the largest preset only'
+
+
 def render_test_titles_stay_with_content():
     for data in (sheet_with(), dense_content()[0]):
         sheet = rs.load_sheet(data)
