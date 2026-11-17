@@ -289,3 +289,58 @@ def schedule(plan):
 
     blocks.sort(key=lambda b: (b['start'], b['id']))
     return {'blocks': blocks, 'unplaced': unplaced, 'all_day': all_day}
+
+
+PROGRESS_NOTE = 'Completing this block does not change your recorded progress.'
+
+
+def _ics_text(value):
+    return (value.replace('\\', '\\\\').replace(';', '\\;').replace(',', '\\,')
+            .replace('\r\n', '\n').replace('\n', '\\n'))
+
+
+def _fold(line):
+    """Fold to 75 octets per physical line without splitting a UTF-8 character."""
+    out, current, size, limit = [], '', 0, 75
+    for char in line:
+        width = len(char.encode('utf-8'))
+        if size + width > limit:
+            out.append(current)
+            current, size, limit = ' ', 1, 75
+        current += char
+        size += width
+    out.append(current)
+    return '\r\n'.join(out)
+
+
+def _ics_time(value):
+    if isinstance(value, datetime):
+        return f':{value:%Y%m%dT%H%M%S}'
+    return f';VALUE=DATE:{value:%Y%m%d}'
+
+
+def to_ics(plan, result, sequence, stamp):
+    """iCalendar text: one event per block and per exam, floating local times, no alarms."""
+    lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', "PRODID:-//GPT I'm Cooked//study-plan//EN", 'CALSCALE:GREGORIAN',
+             f"X-WR-CALNAME:{_ics_text(plan['plan_id'] + ' study plan (GPT, I' + chr(39) + 'm Cooked)')}"]
+
+    def event(uid, start, end, summary, description, category):
+        lines.extend([
+            'BEGIN:VEVENT', f'UID:{uid}@gpt-im-cooked', f'DTSTAMP:{stamp:%Y%m%dT%H%M%S}Z',
+            f'DTSTART{_ics_time(start)}', f'DTEND{_ics_time(end)}', f'SUMMARY:{_ics_text(summary)}',
+            f'DESCRIPTION:{_ics_text(description)}', f'CATEGORIES:{_ics_text(category)}',
+            f'SEQUENCE:{sequence}', 'TRANSP:OPAQUE', 'END:VEVENT'])
+
+    for block in result['blocks']:
+        course = plan['courses'][block['course']]
+        end = block['end'] + timedelta(days=1) if not isinstance(block['end'], datetime) else block['end']
+        details = f"{block['details']}\n\n" if block['details'] else ''
+        event(block['id'], block['start'], end, f"{course['title']} · {block['title']}",
+              f"{details}{block['minutes']} minutes · {block['kind']}\nBasis: {block['basis']}\n{PROGRESS_NOTE}",
+              block['kind'])
+    for course in plan['courses'].values():
+        where = f"\nLocation: {course['location']}" if course['location'] else ''
+        event(f"{plan['plan_id']}-{course['id']}-exam", course['exam_start'], course['exam_end'],
+              f"{course['title']} exam", f"Exam time from your course profile.{where}", 'Exam')
+    lines.append('END:VCALENDAR')
+    return ''.join(_fold(line) + '\r\n' for line in lines)

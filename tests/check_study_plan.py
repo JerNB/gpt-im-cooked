@@ -236,6 +236,88 @@ def test_deterministic():
     assert all(b['start'].minute % 5 == 0 for b in first['blocks'])
 
 
+# Task 3: iCalendar
+
+STAMP = datetime(2026, 11, 16, 12, 0, 0)
+
+
+def parse_ics(text):
+    """Unfold RFC 5545 lines and return a list of events as {NAME: (params, unescaped value)}."""
+    assert text.endswith('\r\n') and '\n' not in text.replace('\r\n', '')
+    lines = []
+    for raw in text.split('\r\n')[:-1]:
+        if raw.startswith(' '):
+            lines[-1] += raw[1:]
+        else:
+            lines.append(raw)
+    events, current = [], None
+    for line in lines:
+        name_part, value = line.split(':', 1)
+        name, *params = name_part.split(';')
+        if line == 'BEGIN:VEVENT':
+            current = {}
+        elif line == 'END:VEVENT':
+            events.append(current)
+            current = None
+        elif current is not None:
+            unescaped = re.sub(r'\\([\\;,nN])', lambda m: '\n' if m.group(1) in 'nN' else m.group(1), value)
+            current[name] = (params, unescaped)
+    return lines, events
+
+
+import re  # noqa: E402
+
+
+def ics_for(mutate=None):
+    plan, result = scheduled(mutate)
+    return plan, result, ps.to_ics(plan, result, 0, STAMP)
+
+
+def test_ics_parses():
+    plan, result, text = ics_for()
+    lines, events = parse_ics(text)
+    assert lines[0] == 'BEGIN:VCALENDAR' and lines[-1] == 'END:VCALENDAR'
+    assert len(events) == len(result['blocks']) + len(plan['courses'])
+    uids = [e['UID'][1] for e in events]
+    assert len(set(uids)) == len(uids)
+    assert sum(1 for e in events if e['CATEGORIES'][1] == 'Exam') == len(plan['courses'])
+    first = next(e for e in events if e['UID'][1] == result['blocks'][0]['id'] + '@gpt-im-cooked')
+    assert 'Basis: ' + result['blocks'][0]['basis'] in first['DESCRIPTION'][1]
+    assert 'does not change your recorded progress' in first['DESCRIPTION'][1]
+
+
+def test_ics_floating():
+    _, _, text = ics_for()
+    assert 'TZID' not in text
+    for line in parse_ics(text)[0]:
+        if line.endswith('Z'):
+            assert line.startswith('DTSTAMP:'), line
+
+
+def test_ics_no_alarm():
+    assert 'VALARM' not in ics_for()[2]
+
+
+def test_ics_escaping():
+    title = 'A, B; C\nD <script> \\ end'
+    _, _, text = ics_for(lambda d: d['tasks'][0].update(title=title))
+    events = parse_ics(text)[1]
+    assert any(e['SUMMARY'][1].endswith(title) for e in events), [e['SUMMARY'][1] for e in events][:3]
+
+
+def test_ics_folding():
+    details = 'Long details with accents é and symbols ≤ → ' * 8
+    _, _, text = ics_for(lambda d: d['tasks'][0].update(details=details))
+    assert all(len(line.encode('utf-8')) <= 75 for line in text.split('\r\n'))
+    events = parse_ics(text)[1]
+    assert any(e['DESCRIPTION'][1].startswith(details.strip()) for e in events)  # load_plan trims text
+
+
+def test_ics_all_day():
+    _, _, text = ics_for(lambda d: d['availability'].update(weekly={}))
+    assert 'DTSTART;VALUE=DATE:' in text and 'DTEND;VALUE=DATE:' in text
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 
