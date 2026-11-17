@@ -10,6 +10,7 @@ Conversation is the default for concept review. Honor requests for practice, a m
 | Make a mock exam / exam simulation | Self-contained HTML exam worksheet and a separate checked key |
 | Make a study guide / review guide | Actual PDF file; editable source may accompany it |
 | Make an interactive page for selected concepts | Focused self-contained HTML concept exploration |
+| Make a study plan / schedule / calendar | `.ics` file plus a printable self-contained HTML calendar, built by `scripts/plan_study.py` following [study-plan.md](study-plan.md) |
 
 Explicit language, format, and coverage requests override these defaults. A permitted reference sheet follows confirmed instructor rules.
 

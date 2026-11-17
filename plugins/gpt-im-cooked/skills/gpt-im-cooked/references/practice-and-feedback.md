@@ -37,7 +37,7 @@ For "review my mistakes," use reviewed record evidence and the current conversat
 
 For each target, identify the error mechanism and choose the next task: a same-structure retry, a new setting requiring the same principle, or a changed condition requiring the student to decide whether the method still applies. State the target and what changed in the separate key. Changing numbers alone practices execution; a transfer task changes context or reasoning demands. Keep variants within supplied scope and check the key before delivery.
 
-Offer a short recheck sequence suited to the exam timeline: correction and explanation, later unaided application, then a distinct-context recheck. Record a retry as a new attempt only when actually attempted, retain prior answer exposure, and distinguish assisted correction, unaided original-question retry, and independent transfer. Update priority after improvement or recurrence; avoid claiming mastery from recognition. Suggested recheck dates are a study plan, not scheduled notifications.
+Offer a short recheck sequence suited to the exam timeline: correction and explanation, later unaided application, then a distinct-context recheck. Record a retry as a new attempt only when actually attempted, retain prior answer exposure, and distinguish assisted correction, unaided original-question retry, and independent transfer. Update priority after improvement or recurrence; avoid claiming mastery from recognition. Suggested recheck dates are a study plan, not scheduled notifications; when the student wants them on a calendar, use [study-plan.md](study-plan.md).
 
 ## Domain adaptations
 
