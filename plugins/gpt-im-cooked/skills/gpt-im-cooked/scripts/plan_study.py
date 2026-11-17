@@ -446,3 +446,64 @@ def to_html(plan, result, generated_on):
                        'LEGEND': ''.join(legend), 'UNPLACED': unplaced, 'WEEKS': ''.join(weeks)}.items():
         page = page.replace('{{' + key + '}}', value)
     return page
+
+
+def _iso(value):
+    return value.isoformat(timespec='minutes') if isinstance(value, datetime) else value.isoformat()
+
+
+def main(argv=None):
+    import argparse
+    import json
+    from datetime import timezone
+
+    parser = argparse.ArgumentParser(description='Schedule a study plan and write plan.ics and calendar.html.')
+    parser.add_argument('plan', type=Path)
+    target = parser.add_mutually_exclusive_group(required=True)
+    target.add_argument('--out', type=Path, help='folder for schedule.json, plan.ics and calendar.html')
+    target.add_argument('--check', action='store_true', help='validate and schedule without writing files')
+    parser.add_argument('--force', action='store_true', help='regenerate into a folder that already has a plan')
+    args = parser.parse_args(argv)
+    try:
+        try:
+            data = json.loads(args.plan.read_text(encoding='utf-8'))
+        except OSError as error:
+            raise PlanError(f'cannot read {args.plan}: {error.strerror or error}') from None
+        except json.JSONDecodeError as error:
+            raise PlanError(f'{args.plan} is not valid JSON (line {error.lineno}: {error.msg})') from None
+        plan = load_plan(data)
+        result = schedule(plan)
+        placed = sum(b['minutes'] for b in result['blocks'])
+        summary = f"placed={len(result['blocks'])} unplaced={len(result['unplaced'])} minutes={placed}"
+        if args.check:
+            print(f'OK {summary} out=none')
+            return 0
+        out = args.out
+        previous = out / 'schedule.json'
+        sequence = 0
+        if previous.exists():
+            if not args.force:
+                raise PlanError(f'output exists in {out}; pass --force to regenerate')
+            try:
+                sequence = int(json.loads(previous.read_text(encoding='utf-8')).get('sequence', -1)) + 1
+            except (ValueError, OSError, AttributeError):
+                sequence = 1
+        out.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now(timezone.utc).replace(tzinfo=None, microsecond=0)
+        saved = {'format': FORMAT, 'plan_id': plan['plan_id'], 'sequence': sequence,
+                 'generated_on': plan['generated_on'].isoformat(), 'all_day': result['all_day'],
+                 'blocks': [{k: _iso(v) if isinstance(v, (date, datetime)) else v for k, v in b.items()}
+                            for b in result['blocks']],
+                 'unplaced': result['unplaced']}
+        previous.write_text(json.dumps(saved, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+        (out / 'plan.ics').write_text(to_ics(plan, result, sequence, stamp), encoding='utf-8', newline='')
+        (out / 'calendar.html').write_text(to_html(plan, result, plan['generated_on']), encoding='utf-8')
+        print(f'OK {summary} out={out}')
+        return 0
+    except PlanError as error:
+        print(f'ERROR {error}')
+        return 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

@@ -387,6 +387,69 @@ def test_html_no_placeholders():
     assert '{{' not in html_for()[2]
 
 
+# Task 5: command line
+
+import subprocess  # noqa: E402
+import tempfile  # noqa: E402
+
+SCRIPT = SKILL / 'scripts/plan_study.py'
+
+
+def run(*args):
+    done = subprocess.run([sys.executable, str(SCRIPT), *map(str, args)], capture_output=True, text=True,
+                          encoding='utf-8')
+    return done.returncode, done.stdout.strip(), done.stderr
+
+
+def write_plan(folder, data=None):
+    path = Path(folder) / 'plan.json'
+    path.write_text(json.dumps(data if data is not None else EXAMPLE), encoding='utf-8')
+    return path
+
+
+def test_cli_ok():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        code, stdout, _ = run(write_plan(tmp), '--out', out)
+        assert code == 0 and re.match(r'^OK placed=\d+ unplaced=\d+ minutes=\d+ out=', stdout), stdout
+        assert {p.name for p in out.iterdir()} == {'schedule.json', 'plan.ics', 'calendar.html'}
+        saved = json.loads((out / 'schedule.json').read_text(encoding='utf-8'))
+        assert saved['format'] == ps.FORMAT and saved['sequence'] == 0 and saved['blocks']
+
+
+def test_cli_check():
+    with tempfile.TemporaryDirectory() as tmp:
+        plan = write_plan(tmp)
+        code, stdout, _ = run(plan, '--check')
+        assert code == 0 and stdout.startswith('OK '), stdout
+        assert [p.name for p in Path(tmp).iterdir()] == ['plan.json']
+
+
+def test_cli_errors():
+    with tempfile.TemporaryDirectory() as tmp:
+        bad = Path(tmp) / 'bad.json'
+        bad.write_text('{not json', encoding='utf-8')
+        for path in (bad, write_plan(tmp, plan_with(lambda d: d['tasks'][0].pop('basis')))):
+            code, stdout, stderr = run(path, '--out', Path(tmp) / 'out')
+            assert code == 1 and stdout.startswith('ERROR '), stdout
+            assert 'Traceback' not in stderr, stderr
+        code, stdout, _ = run(Path(tmp) / 'missing.json', '--check')
+        assert code == 1 and stdout.startswith('ERROR '), stdout
+
+
+def test_regenerate():
+    with tempfile.TemporaryDirectory() as tmp:
+        plan, out = write_plan(tmp), Path(tmp) / 'out'
+        assert run(plan, '--out', out)[0] == 0
+        first = set(re.findall(r'UID:(\S+)', (out / 'plan.ics').read_text(encoding='utf-8')))
+        code, stdout, _ = run(plan, '--out', out)
+        assert code == 1 and 'force' in stdout, stdout
+        assert run(plan, '--out', out, '--force')[0] == 0
+        text = (out / 'plan.ics').read_text(encoding='utf-8')
+        assert set(re.findall(r'UID:(\S+)', text)) == first
+        assert 'SEQUENCE:1' in text and 'SEQUENCE:0' not in text
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 
