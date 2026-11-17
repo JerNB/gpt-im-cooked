@@ -11,3 +11,6 @@ __pycache__/
 Thumbs.db
 .env
 .env.*
+
+# Local development virtualenv (reportlab/pypdfium2 for sheet rendering checks)
+/.venv/
