@@ -123,6 +123,9 @@ def load_plan(data):
         weekly_minutes = course.get('weekly_minutes', 0)
         _need(isinstance(weekly_minutes, int) and not isinstance(weekly_minutes, bool) and weekly_minutes >= 0,
               f'{where}.weekly_minutes: must be a whole number of minutes')
+        _need(not weekly_minutes or _chunks(weekly_minutes, settings['min_block'], settings['max_block']) is not None,
+              f"{where}.weekly_minutes: {weekly_minutes} minutes cannot be split into blocks between "
+              f"{settings['min_block']} and {settings['max_block']} minutes")
         courses[cid] = {
             'id': cid, 'title': _text(course.get('title'), f'{where}.title'),
             'exam_start': exam_start, 'exam_end': exam_end, 'location': course.get('location') or '',
@@ -160,8 +163,12 @@ def load_plan(data):
         not_before = _date(not_before, f'{where}.not_before') if not_before is not None else None
         _need(not_before is None or datetime.combine(not_before, datetime.min.time()) < due_at,
               f'{where}.not_before: must be before the task is due (its due date or the exam)')
+        minutes = _positive(item.get('minutes'), f'{where}.minutes')
+        _need(kind == 'mock' or _chunks(minutes, settings['min_block'], settings['max_block']) is not None,
+              f"{where}: {minutes} minutes cannot be split into blocks between {settings['min_block']} and "
+              f"{settings['max_block']} minutes; change the minutes or the block limits")
         tasks.append({
-            'id': tid, 'course': cid, 'kind': kind, 'minutes': _positive(item.get('minutes'), f'{where}.minutes'),
+            'id': tid, 'course': cid, 'kind': kind, 'minutes': minutes,
             'title': _text(item.get('title'), f'{where}.title'), 'basis': basis,
             'details': _text(item.get('details'), f'{where}.details', required=False),
             'priority': priority, 'due_at': due_at, 'not_before': not_before,
@@ -172,13 +179,21 @@ def load_plan(data):
 
 
 def _chunks(total, min_block, max_block):
-    """Split a task into near-equal chunks no longer than max_block (each at least min_block when split)."""
+    """Near-equal chunks, each at most max_block and (when split) at least min_block; None if impossible.
+
+    A task no longer than max_block stays whole, even when shorter than min_block.
+    """
+    if total <= max_block:
+        return [total]
     count = -(-total // max_block)
-    while count > 1 and total // count < min_block:
-        count -= 1
-    unit = 5 if total % 5 == 0 else 1  # keep chunks in whole five-minute steps when the total allows
-    parts = total // unit
-    return [(parts // count + (1 if i < parts % count else 0)) * unit for i in range(count)]
+    while count * min_block <= total:
+        for unit in ((5, 1) if total % 5 == 0 else (1,)):  # prefer whole five-minute steps
+            parts = total // unit
+            sizes = [(parts // count + (1 if i < parts % count else 0)) * unit for i in range(count)]
+            if max(sizes) <= max_block and min(sizes) >= min_block:
+                return sizes
+        count += 1
+    return None
 
 
 def _round_up_5(moment):

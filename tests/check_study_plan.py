@@ -98,6 +98,22 @@ def test_rejects_block_sizes():
     rejects(lambda d: d['availability'].update(min_block=60, max_block=30), 'block')
 
 
+def test_rejects_unsplittable_task():
+    def tight_blocks(d):
+        d['availability'].update(min_block=60, max_block=90)
+        d['tasks'] = [t for t in d['tasks'] if t['kind'] != 'mock' and t['minutes'] <= 90 or t['id'] == 'cs201-t4-practice']
+        task(d, 'cs201-t4-practice')['minutes'] = 91
+    rejects(tight_blocks, 'cannot be split')
+
+
+def test_rejects_unsplittable_weekly_review():
+    def tight(d):
+        d['availability'].update(min_block=60, max_block=90)
+        d['tasks'] = [t for t in d['tasks'] if t['minutes'] <= 90 and t['kind'] != 'mock']
+        d['courses'][2]['weekly_minutes'] = 100
+    rejects(tight, 'cannot be split')
+
+
 def test_rejects_bad_date():
     rejects(lambda d: d.update(start='17 Nov 2026'), 'date')
 
@@ -169,6 +185,25 @@ def test_chunking():
     assert sum(lengths) == 200 and all(25 <= n <= 90 for n in lengths), lengths
     assert len({b['start'].date() for b in chunks}) == len(chunks)
     assert [b['id'] for b in chunks] == [f'fall-2026-finals-cs201-t4-practice-{n}' for n in range(1, len(chunks) + 1)]
+
+
+def test_blocks_respect_max_block():
+    for low, high in ((25, 90), (30, 45), (60, 90), (25, 88)):
+        def limits(d, low=low, high=high):
+            d['availability'].update(min_block=low, max_block=high)
+            d['tasks'] = [t for t in d['tasks'] if ps._chunks(t['minutes'], low, high) or t['kind'] == 'mock']
+        _, result = scheduled(limits)
+        sizes = [b['minutes'] for b in result['blocks'] if b['kind'] != 'mock']
+        assert sizes and max(sizes) <= high, (low, high, sizes)
+    for total in range(1, 400):
+        for low, high in ((25, 90), (60, 90), (25, 88), (40, 45)):
+            chunks = ps._chunks(total, low, high)
+            if chunks is None:
+                assert not any(n * low <= total <= n * high for n in range(2, total // low + 1)), (total, low, high)
+                assert total > high
+            else:
+                assert sum(chunks) == total and max(chunks) <= high, (total, low, high, chunks)
+                assert len(chunks) == 1 or min(chunks) >= low, (total, low, high, chunks)
 
 
 def test_mock_not_split():
