@@ -171,6 +171,18 @@ def test_chunking():
     assert [b['id'] for b in chunks] == [f'fall-2026-finals-cs201-t4-practice-{n}' for n in range(1, len(chunks) + 1)]
 
 
+def test_mock_not_split():
+    _, result = scheduled()
+    for task_id in ('sta199-mock', 'cs201-mock'):
+        sittings = [b for b in result['blocks'] if b['task'] == task_id]
+        assert len(sittings) == 1 and minutes(sittings[0]) == 120, sittings
+
+
+def test_chunks_whole_five_minutes():
+    _, result = scheduled()
+    assert all(minutes(b) % 5 == 0 for b in result['blocks']), [minutes(b) for b in result['blocks']]
+
+
 def test_no_overlap():
     _, result = scheduled()
     blocks = sorted(result['blocks'], key=lambda b: b['start'])
@@ -316,6 +328,63 @@ def test_ics_folding():
 def test_ics_all_day():
     _, _, text = ics_for(lambda d: d['availability'].update(weekly={}))
     assert 'DTSTART;VALUE=DATE:' in text and 'DTEND;VALUE=DATE:' in text
+
+
+# Task 4: printable HTML
+
+def html_for(mutate=None):
+    plan, result = scheduled(mutate)
+    return plan, result, ps.to_html(plan, result, date(2026, 11, 16))
+
+
+def test_html_self_contained():
+    page = html_for()[2].lower()
+    for banned in ('http://', 'https://', 'src=', '<link', '<script'):
+        assert banned not in page, banned
+
+
+def test_html_escaping():
+    title = '<script>alert(1)</script> & co'
+    page = html_for(lambda d: d['tasks'][0].update(title=title))[2]
+    assert '<script>' not in page and '&lt;script&gt;alert(1)&lt;/script&gt; &amp; co' in page
+
+
+def test_html_blocks():
+    plan, result, page = html_for()
+    for b in result['blocks']:
+        assert page.count(f'data-block="{b["id"]}"') == 1, b['id']
+    legend = page.split('class="legend"', 1)[1].split('</ul>', 1)[0]
+    for course in plan['courses'].values():
+        assert course['title'] in legend
+
+
+def test_html_notes():
+    page = html_for()[2]
+    assert 'does not change your recorded progress' in page
+    assert '2026-11-16' in page
+    assert 'STA199/learning-record.md' in page
+
+
+def test_html_exams():
+    plan, _, page = html_for()
+    assert page.count('class="block exam"') == len(plan['courses'])
+
+
+def test_html_unplaced():
+    def tight(d):
+        d['availability']['weekly'] = {'sat': ['14:00-15:00']}
+    _, result, page = html_for(tight)
+    box = page.split('Did not fit', 1)[1]
+    assert result['unplaced'] and all(u['title'] in box for u in result['unplaced'] if '<' not in u['title'])
+
+
+def test_html_all_day():
+    _, result, page = html_for(lambda d: d['availability'].update(weekly={}))
+    assert result['all_day'] and 'All-day review list' in page
+
+
+def test_html_no_placeholders():
+    assert '{{' not in html_for()[2]
 
 
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]

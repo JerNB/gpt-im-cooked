@@ -13,6 +13,8 @@ Usage:
 Requires Python 3.10+ and only its standard library.
 """
 from datetime import date, datetime, timedelta
+from pathlib import Path
+import html
 import re
 
 FORMAT = 'gpt-im-cooked-study-plan/1'
@@ -174,7 +176,9 @@ def _chunks(total, min_block, max_block):
     count = -(-total // max_block)
     while count > 1 and total // count < min_block:
         count -= 1
-    return [total // count + (1 if i < total % count else 0) for i in range(count)]
+    unit = 5 if total % 5 == 0 else 1  # keep chunks in whole five-minute steps when the total allows
+    parts = total // unit
+    return [(parts // count + (1 if i < parts % count else 0)) * unit for i in range(count)]
 
 
 def _round_up_5(moment):
@@ -240,7 +244,9 @@ class _Calendar:
 def _place_task(cal, plan, task, earliest, first_day=None, last_day=None):
     avail = plan['availability']
     blocks, missing, days = [], 0, set()
-    for size in _chunks(task['minutes'], avail['min_block'], avail['max_block']):
+    sizes = ([task['minutes']] if task['kind'] == 'mock'  # a mock exam is one sitting, never split
+             else _chunks(task['minutes'], avail['min_block'], avail['max_block']))
+    for size in sizes:
         spot = cal.place(size, earliest, task['due_at'], days, first_day, last_day)
         if spot is None:
             missing += size
@@ -344,3 +350,99 @@ def to_ics(plan, result, sequence, stamp):
               f"{course['title']} exam", f"Exam time from your course profile.{where}", 'Exam')
     lines.append('END:VCALENDAR')
     return ''.join(_fold(line) + '\r\n' for line in lines)
+
+
+COLOURS = ('#2f5d50', '#2a7f86', '#a8741a', '#7a4e7e', '#a24b3b', '#4b5d7a')
+TEMPLATE = Path(__file__).resolve().parents[1] / 'assets' / 'study-plan-template.html'
+FLOATING_NOTE = 'Times have no time zone; your calendar app shows them in its own zone.'
+
+
+def _hm(moment):
+    return f'{moment:%H:%M}'
+
+
+def to_html(plan, result, generated_on):
+    """Self-contained printable calendar (week grid, day list on narrow screens). No scripts, no external assets."""
+    esc = html.escape
+    courses = list(plan['courses'].values())
+    colour = {c['id']: COLOURS[i % len(COLOURS)] for i, c in enumerate(courses)}
+    last = max(c['exam_start'] for c in courses).date()
+    planned = sum(b['minutes'] for b in result['blocks'])
+
+    sources = [esc(c['record']) if c['record'] else f"{esc(c['title'])} (no learning record)" for c in courses]
+    notes = [f"Generated {generated_on.isoformat()} from: {', '.join(sources)}.",
+             'Completing a block does not change your recorded progress; your tutor updates progress from reviewed work.',
+             FLOATING_NOTE if not result['all_day'] else 'No study windows were given, so each day lists its review tasks.',
+             'Import plan.ics into a separate calendar so the whole plan can be removed or replaced at once.']
+
+    summary, legend = [], []
+    for c in courses:
+        mine = [b for b in result['blocks'] if b['course'] == c['id']]
+        record = f"Record: {esc(c['record'])}" if c['record'] else 'No learning record: time blocks only'
+        summary.append(
+            f'<article class="course-card" style="--c:{colour[c["id"]]}"><h2>{esc(c["title"])}</h2>'
+            f'<p class="exam-when">Exam {c["exam_start"]:%a %b} {c["exam_start"].day}, {_hm(c["exam_start"])}</p>'
+            f'<p>{len(mine)} blocks · {sum(b["minutes"] for b in mine)} min planned</p><p>{record}</p></article>')
+        legend.append(f'<li><span class="swatch" style="--c:{colour[c["id"]]}"></span>{esc(c["title"])}</li>')
+
+    def block_html(b):
+        course = plan['courses'][b['course']]
+        when = '' if result['all_day'] else f'<span class="time">{_hm(b["start"])}–{_hm(b["end"])}</span> '
+        return (f'<div class="block" data-block="{esc(b["id"])}" style="--c:{colour[b["course"]]}">'
+                f'<span class="check">&#9744; </span>{when}<span class="course">{esc(course["title"])}</span>'
+                f'<span class="title">{esc(b["title"])}</span>'
+                f'<span class="meta">{esc(b["kind"])} · {b["minutes"]} min</span>'
+                f'<span class="basis">{esc(b["basis"])}</span></div>')
+
+    def exam_html(c):
+        return (f'<div class="block exam"><span class="time">{_hm(c["exam_start"])}–{_hm(c["exam_end"])}</span> '
+                f'<span class="course">Exam</span><span class="title">{esc(c["title"])}</span></div>')
+
+    by_day = {}
+    for b in result['blocks']:
+        day = b['start'] if result['all_day'] else b['start'].date()
+        by_day.setdefault(day, []).append(b)
+    exams = {}
+    for c in courses:
+        exams.setdefault(c['exam_start'].date(), []).append(c)
+
+    weeks = []
+    monday = plan['start'] - timedelta(days=plan['start'].weekday())
+    while monday <= last:
+        cells = []
+        for offset in range(7):
+            day = monday + timedelta(days=offset)
+            items = [(b['start'] if not result['all_day'] else datetime.min, block_html(b)) for b in by_day.get(day, [])]
+            items += [(c['exam_start'], exam_html(c)) for c in exams.get(day, [])]
+            classes = ['day']
+            tag = ''
+            if day < plan['start'] or day > last:
+                classes.append('outside')
+            elif day in plan['availability']['days_off']:
+                classes.append('off')
+                tag = '<span class="tag">Day off</span>'
+            if not items:
+                classes.append('empty')
+            heading = 'All-day review list' if result['all_day'] and by_day.get(day) else ''
+            body = ''.join(h for _, h in sorted(items, key=lambda item: item[0]))
+            cells.append(f'<div class="{" ".join(classes)}"><h3>{day:%a} {day.day}</h3>{tag}'
+                         f'{f"<p class=tag>{heading}</p>" if heading else ""}{body}</div>')
+        weeks.append(f'<section class="week"><h2>Week of {monday:%b} {monday.day}</h2>'
+                     f'<div class="days">{"".join(cells)}</div></section>')
+        monday += timedelta(days=7)
+
+    unplaced = ''
+    if result['unplaced']:
+        rows = ''.join(f'<li>{esc(plan["courses"][u["course"]]["title"])} · {esc(u["title"])}: '
+                       f'{u["minutes"]} min ({esc(u["reason"])})</li>' for u in result['unplaced'])
+        unplaced = f'<section class="unplaced"><h2>Did not fit</h2><ul>{rows}</ul></section>'
+
+    title = f"{' · '.join(c['title'] for c in courses)} study plan"
+    subtitle = (f"{plan['start']:%b} {plan['start'].day} to {last:%b} {last.day}, {last.year} · "
+                f"{len(result['blocks'])} blocks · {planned / 60:.1f} hours planned")
+    page = TEMPLATE.read_text(encoding='utf-8')
+    for key, value in {'TITLE': esc(title), 'SUBTITLE': esc(subtitle),
+                       'NOTES': ''.join(f'<p>{n}</p>' for n in notes), 'SUMMARY': ''.join(summary),
+                       'LEGEND': ''.join(legend), 'UNPLACED': unplaced, 'WEEKS': ''.join(weeks)}.items():
+        page = page.replace('{{' + key + '}}', value)
+    return page
