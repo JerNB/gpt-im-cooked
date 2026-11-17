@@ -167,3 +167,125 @@ def load_plan(data):
 
     return {'plan_id': plan_id, 'start': start, 'generated_on': generated,
             'availability': availability, 'courses': courses, 'tasks': tasks}
+
+
+def _chunks(total, min_block, max_block):
+    """Split a task into near-equal chunks no longer than max_block (each at least min_block when split)."""
+    count = -(-total // max_block)
+    while count > 1 and total // count < min_block:
+        count -= 1
+    return [total // count + (1 if i < total % count else 0) for i in range(count)]
+
+
+def _round_up_5(moment):
+    extra = (-moment.minute) % 5
+    return moment.replace(second=0, microsecond=0) + timedelta(minutes=extra)
+
+
+class _Calendar:
+    """Free time per day, with a daily minute cap."""
+
+    def __init__(self, plan, all_day):
+        avail = plan['availability']
+        self.cap = avail['max_minutes_per_day']
+        self.all_day = all_day
+        last = max(c['exam_start'] for c in plan['courses'].values()).date()
+        exam_cut = {}
+        for course in plan['courses'].values():
+            day = course['exam_start'].date()
+            exam_cut[day] = min(exam_cut.get(day, course['exam_start']), course['exam_start'])
+        self.free, self.used = {}, {}
+        day = plan['start']
+        while day <= last:
+            if day not in avail['days_off']:
+                midnight = datetime.combine(day, datetime.min.time())
+                spans = [] if all_day else [
+                    [midnight + timedelta(minutes=s), midnight + timedelta(minutes=e)]
+                    for w, s, e in avail['windows'] if w == day.weekday()]
+                cut = exam_cut.get(day)
+                if cut is not None:  # nothing on an exam day after the first exam starts
+                    spans = [[s, min(e, cut)] for s, e in spans if s < cut]
+                if all_day or spans:
+                    self.free[day] = spans
+                    self.used[day] = 0
+            day += timedelta(days=1)
+
+    def place(self, length, earliest, due_at, avoid, first_day=None, last_day=None):
+        """Earliest fit on or after `earliest`, ending by `due_at`; days in `avoid` only as a last resort."""
+        for allow_repeat in (False, True):
+            for day in sorted(self.free):
+                if day < earliest or (first_day and day < first_day) or (last_day and day > last_day):
+                    continue
+                if (day in avoid) != allow_repeat:  # first pass: new days only; second: repeat days
+                    continue
+                if self.used[day] + length > self.cap:
+                    continue
+                if self.all_day:
+                    if day < due_at.date():
+                        self.used[day] += length
+                        return day, day
+                    continue
+                for span in self.free[day]:
+                    start = _round_up_5(span[0])
+                    end = start + timedelta(minutes=length)
+                    if end <= span[1] and end <= due_at:
+                        self.free[day].remove(span)
+                        self.free[day] += [s for s in ([span[0], start], [end, span[1]]) if s[1] > s[0]]
+                        self.free[day].sort()
+                        self.used[day] += length
+                        return start, end
+        return None
+
+
+def _place_task(cal, plan, task, earliest, first_day=None, last_day=None):
+    avail = plan['availability']
+    blocks, missing, days = [], 0, set()
+    for size in _chunks(task['minutes'], avail['min_block'], avail['max_block']):
+        spot = cal.place(size, earliest, task['due_at'], days, first_day, last_day)
+        if spot is None:
+            missing += size
+            continue
+        days.add(spot[0] if cal.all_day else spot[0].date())
+        blocks.append({
+            'id': f"{plan['plan_id']}-{task['id']}-{len(blocks) + 1}", 'task': task['id'],
+            'course': task['course'], 'kind': task['kind'], 'title': task['title'],
+            'start': spot[0], 'end': spot[1], 'minutes': size,
+            'basis': task['basis'], 'details': task['details'],
+        })
+    return blocks, missing
+
+
+def schedule(plan):
+    """Pack tasks into free time; returns {'blocks', 'unplaced', 'all_day'}. Nothing is dropped silently."""
+    all_day = not plan['availability']['windows']
+    cal = _Calendar(plan, all_day)
+    reason = ('no study day with capacity before it is due' if all_day
+              else 'no free time in the availability windows before it is due')
+    blocks, unplaced = [], []
+    order = sorted(plan['tasks'], key=lambda t: (t['due_at'], t['priority'], t['not_before'] or plan['start'], t['id']))
+    for task in order:
+        placed, missing = _place_task(cal, plan, task, task['not_before'] or plan['start'])
+        blocks += placed
+        if missing:
+            unplaced.append({'task': task['id'], 'course': task['course'], 'title': task['title'],
+                             'minutes': missing, 'reason': reason})
+
+    for course in plan['courses'].values():
+        if course['record'] is not None or not course['weekly_minutes']:
+            continue
+        monday = plan['start'] - timedelta(days=plan['start'].weekday())
+        while monday <= course['exam_start'].date():
+            year, week, _ = monday.isocalendar()
+            task = {'id': f"{course['id']}-review-{year}w{week:02d}", 'course': course['id'], 'kind': 'review',
+                    'title': f"{course['title']} review", 'basis': NO_RECORD,
+                    'details': 'General review time. This course has no learning record here, so plan the topics yourself.',
+                    'minutes': course['weekly_minutes'], 'due_at': course['exam_start']}
+            placed, missing = _place_task(cal, plan, task, max(monday, plan['start']), monday, monday + timedelta(days=6))
+            blocks += placed
+            if missing:
+                unplaced.append({'task': task['id'], 'course': course['id'], 'title': task['title'],
+                                 'minutes': missing, 'reason': reason})
+            monday += timedelta(days=7)
+
+    blocks.sort(key=lambda b: (b['start'], b['id']))
+    return {'blocks': blocks, 'unplaced': unplaced, 'all_day': all_day}

@@ -102,6 +102,140 @@ def test_rejects_bad_date():
     rejects(lambda d: d.update(start='17 Nov 2026'), 'date')
 
 
+# Task 2: free slots and packing
+
+from datetime import date, datetime, timedelta  # noqa: E402
+
+
+def scheduled(mutate=None):
+    plan = ps.load_plan(plan_with(mutate))
+    return plan, ps.schedule(plan)
+
+
+def minutes(block):
+    return int((block['end'] - block['start']).total_seconds() // 60)
+
+
+def test_example_all_placed():
+    _, result = scheduled()
+    assert result['unplaced'] == [], result['unplaced']
+    assert result['all_day'] is False
+
+
+def test_within_windows():
+    plan, result = scheduled()
+    for b in result['blocks']:
+        day = b['start'].date()
+        start = b['start'].hour * 60 + b['start'].minute
+        end = start + minutes(b)
+        assert any(w == day.weekday() and s <= start and end <= e for w, s, e in plan['availability']['windows']), b
+
+
+def test_days_off():
+    _, result = scheduled()
+    off = {date(2026, 11, 25), date(2026, 11, 26), date(2026, 11, 27)}
+    assert not [b for b in result['blocks'] if b['start'].date() in off]
+
+
+def test_daily_cap():
+    _, result = scheduled(lambda d: d['availability'].update(max_minutes_per_day=60))
+    per_day = {}
+    for b in result['blocks']:
+        per_day[b['start'].date()] = per_day.get(b['start'].date(), 0) + minutes(b)
+    assert max(per_day.values()) <= 60, per_day
+
+
+def test_before_exam():
+    plan, result = scheduled()
+    exams = [(c['exam_start'], c['exam_end']) for c in plan['courses'].values()]
+    for b in result['blocks']:
+        assert b['end'] <= plan['courses'][b['course']]['exam_start'], b
+        for exam_start, _ in exams:
+            assert not (b['start'].date() == exam_start.date() and b['end'] > exam_start), (b, exam_start)
+
+
+def test_not_before():
+    _, result = scheduled()
+    recheck = [b for b in result['blocks'] if b['task'] == 'sta199-t3-recheck']
+    assert recheck and all(b['start'].date() >= date(2026, 11, 19) for b in recheck)
+    mock = [b for b in result['blocks'] if b['task'] == 'sta199-mock']
+    assert mock and all(date(2026, 12, 4) <= b['start'].date() <= date(2026, 12, 6) for b in mock)
+
+
+def test_chunking():
+    _, result = scheduled()
+    chunks = [b for b in result['blocks'] if b['task'] == 'cs201-t4-practice']
+    lengths = [minutes(b) for b in chunks]
+    assert sum(lengths) == 200 and all(25 <= n <= 90 for n in lengths), lengths
+    assert len({b['start'].date() for b in chunks}) == len(chunks)
+    assert [b['id'] for b in chunks] == [f'fall-2026-finals-cs201-t4-practice-{n}' for n in range(1, len(chunks) + 1)]
+
+
+def test_no_overlap():
+    _, result = scheduled()
+    blocks = sorted(result['blocks'], key=lambda b: b['start'])
+    for a, b in zip(blocks, blocks[1:]):
+        assert a['end'] <= b['start'], (a, b)
+
+
+def test_overflow():
+    def tight(d):
+        d['availability']['weekly'] = {'sat': ['14:00-15:00']}
+        for c in d['courses']:
+            c['weekly_minutes'] = 0
+    plan, result = scheduled(tight)
+    placed = sum(minutes(b) for b in result['blocks'])
+    missing = sum(u['minutes'] for u in result['unplaced'])
+    assert result['unplaced'] and all(u['reason'] for u in result['unplaced'])
+    assert placed + missing == sum(t['minutes'] for t in plan['tasks'])
+
+
+def test_no_time_before_exam():
+    def early(d):
+        d['courses'][1]['exam'] = {'start': '2026-11-16T09:00', 'end': '2026-11-16T11:00'}
+        for t in d['tasks']:
+            if t['course'] == 'cs201':
+                t.pop('not_before', None)
+                t['due'] = 'exam'
+    _, result = scheduled(early)
+    assert not [b for b in result['blocks'] if b['course'] == 'cs201']
+    assert {u['task'] for u in result['unplaced']} >= {'cs201-t2-variant', 'cs201-t4-practice', 'cs201-t7-gap', 'cs201-mock'}
+
+
+def test_unrecorded_review():
+    plan, result = scheduled()
+    hist = [b for b in result['blocks'] if b['course'] == 'hist101']
+    assert hist and all(b['kind'] == 'review' and b['basis'] == ps.NO_RECORD for b in hist)
+    weeks = {}
+    for b in hist:
+        week = b['start'].isocalendar()[:2]
+        weeks[week] = weeks.get(week, 0) + minutes(b)
+    first = plan['start'].isocalendar()[:2]
+    last = plan['courses']['hist101']['exam_start'].isocalendar()[:2]
+    assert set(weeks) == {(2026, w) for w in range(first[1], last[1] + 1)}, weeks
+    assert all(abs(total - 120) < 25 for total in weeks.values()), weeks
+
+
+def test_all_day_fallback():
+    def no_windows(d):
+        d['availability']['weekly'] = {}
+        del d['availability']['max_minutes_per_day']
+    _, result = scheduled(no_windows)
+    assert result['all_day'] is True and result['blocks']
+    per_day = {}
+    for b in result['blocks']:
+        assert type(b['start']) is date, b
+        per_day[b['start']] = per_day.get(b['start'], 0) + b['minutes']
+    assert max(per_day.values()) <= 120, per_day
+
+
+def test_deterministic():
+    _, first = scheduled()
+    _, second = scheduled()
+    assert first == second
+    assert all(b['start'].minute % 5 == 0 for b in first['blocks'])
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 
