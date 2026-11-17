@@ -360,6 +360,37 @@ def render_test_missing_glyph_fails():
         assert pdf.read_bytes() == before, 'a failed render must not replace the existing round'
 
 
+def render_test_inline_code_checked_in_mono_font():
+    found = rs.find_fonts('en')
+    if found['body'] == 'Helvetica':
+        return  # no Unicode TTF on this host; nothing distinguishes body from mono coverage
+    beta = 'β'
+
+    def with_text(text):  # minimal sheet: only the text under test can contribute characters
+        return rs.load_sheet({'format': rs.FORMAT, 'title': 'Glyph check', 'course': 'Test',
+                              'sections': [{'id': 's', 'title': 'Only section', 'blocks': [{'type': 'cue', 'text': text}]}]})
+
+    latin1_mono = dict(found, mono='Courier')  # built-in Courier covers Latin-1 only; the TTF body covers beta
+    rs.check_glyphs(with_text(f'Use {beta} here.'), latin1_mono)  # prose: body font, fine
+    for text in (f'Use `x{beta}` here.', f'**Bold `{beta}`** inside a cue'):
+        try:
+            rs.check_glyphs(with_text(text), latin1_mono)
+        except rs.SheetError as error:
+            assert 'U+03B2' in str(error) and 'Courier' in str(error), str(error)
+        else:
+            raise AssertionError(f'inline code {text!r} was not checked against the mono font')
+
+    latin1_body = dict(found, body='Helvetica', bold='Helvetica-Bold')  # converse: code in a TTF mono that has beta
+    if not rs.missing_glyphs(beta, found['mono']):
+        rs.check_glyphs(with_text(f'Use `x{beta}` here.'), latin1_body)
+        try:
+            rs.check_glyphs(with_text(f'Use {beta} here.'), latin1_body)
+        except rs.SheetError as error:
+            assert 'Helvetica' in str(error)
+        else:
+            raise AssertionError('prose was not checked against the body font')
+
+
 def render_test_cli_overflow():
     with tempfile.TemporaryDirectory() as tmp:
         code, stdout, _ = run(write_sheet(tmp, multiplied(12)), '--out', Path(tmp) / 'out')

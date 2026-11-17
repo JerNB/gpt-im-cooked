@@ -498,22 +498,31 @@ def _slug(text):
     return re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')[:60] or 'sheet'
 
 
-def _all_text(sheet):
-    parts = [sheet['title'], sheet['course']]
+def _inventory(sheet):
+    """(prose, code): every rendered character, split by the font that draws it.
+
+    Backtick spans inside any paragraph field are drawn in the mono font, so they go with code blocks;
+    everything else is drawn in the body or bold font. Markup characters are not drawn and are removed.
+    """
+    fields = [sheet['title'], sheet['course']]
+    code = []
     for section in sheet['sections']:
-        parts.append(section['title'])
+        fields.append(section['title'])
         for block in section['blocks']:
+            if block['type'] == 'code':
+                code.append(block['text'])
+                continue
             for key in ('text', 'setup', 'takeaway', 'prompt', 'first_error', 'fix', 'conditions'):
-                if block.get(key) and not (block['type'] == 'code' and key == 'text'):
-                    parts.append(block[key])
+                if block.get(key):
+                    fields.append(block[key])
             for step in block.get('steps', []):
-                parts += [step['label'], step['text']]
-            parts += block.get('header', []) + [cell for row in block.get('rows', []) for cell in row]
-    return re.sub(r'\*\*|`|\^\{|_\{|\}', '', ' '.join(parts))
-
-
-def _code_text(sheet):
-    return ' '.join(b['text'] for s in sheet['sections'] for b in s['blocks'] if b['type'] == 'code')
+                fields += [step['label'], step['text']]
+            fields += block.get('header', []) + [cell for row in block.get('rows', []) for cell in row]
+    prose = []
+    for field in fields:
+        code += _CODE_SPAN.findall(field)
+        prose.append(_CODE_SPAN.sub(' ', field))
+    return re.sub(r'\*\*|\^\{|_\{|\}', '', ' '.join(prose)), ' '.join(code)
 
 
 def _previews(pdf_path, out_dir, stem):
@@ -537,7 +546,7 @@ def _previews(pdf_path, out_dir, stem):
 
 def check_glyphs(sheet, fonts):
     """Raise SheetError naming every character the chosen fonts cannot draw (text in body/bold, code in mono)."""
-    text, code = _all_text(sheet), _code_text(sheet)
+    text, code = _inventory(sheet)
     problems = {}
     for chars, font in ((missing_glyphs(text, fonts['body']), fonts['body']),
                         (missing_glyphs(text, fonts['bold']), fonts['bold']),
