@@ -279,6 +279,27 @@ def check_save(io, root):
     assert run.returncode == 0 and (fresh / 'learning-record.md').is_file() and not (fresh / 'course-profile.md').exists()
 
 
+def check_optional_section(io, root):
+    """'Reference-sheet preferences' is created at the end on first save; other missing sections still fail."""
+    study = root / 'study' / 'optional'
+    seed = {'profile': {'Course scope': {'mode': 'upsert-rows', 'rows': ['| T1 | Odds | In | Notes 2 | None |']}}}
+    io.save_records(study, seed, allow_create=True)
+    profile = study / 'course-profile.md'
+    before = profile.read_text(encoding='utf-8')
+    assert '## Reference-sheet preferences' not in before
+    pref = {'profile': {'Reference-sheet preferences': {'mode': 'append', 'text': '- Prefers one worked example'}}}
+    saved = io.save_records(study, pref)
+    after = profile.read_text(encoding='utf-8')
+    assert saved['changed']['profile'] and after.count('## Reference-sheet preferences') == 1
+    assert after.startswith(before.rstrip('\n')), 'existing sections stay byte-identical'
+    assert after.rstrip('\n').endswith('## Reference-sheet preferences\n\n- Prefers one worked example')
+    io.save_records(study, {'profile': {'Reference-sheet preferences': {'mode': 'append', 'text': '- Keep freed space empty'}}})
+    again = profile.read_text(encoding='utf-8')
+    assert again.count('## Reference-sheet preferences') == 1 and again.index('worked example') < again.index('freed space')
+    fails(lambda: io.save_records(study, {'profile': {'Made-up section': {'mode': 'append', 'text': '- x'}}}))
+    fails(lambda: io.save_records(study, {'record': {'Reference-sheet preferences': {'mode': 'upsert-rows', 'rows': ['| a |']}}}))
+
+
 def main():
     io = module('record_io', ROOT / 'plugins/gpt-im-cooked/skills/gpt-im-cooked/scripts/record_io.py')
     builder = module('builder', ROOT / 'scripts/build_packages.py')
@@ -319,6 +340,7 @@ def main():
         assert not lock.exists() and not list(root.glob('*.tmp'))
         check_sections(io, root)
         check_save(io, root)
+        check_optional_section(io, root)
         package = root/'package'
         package.mkdir()
         (package/'SKILL.md').write_text('# Skill')
