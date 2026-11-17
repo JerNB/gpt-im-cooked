@@ -93,6 +93,14 @@ def test_inline_markup():
     assert '<super>0.4</super>' in out and '<sub>i</sub>' in out
 
 
+def test_inline_code_is_literal():
+    mono = '<font face="{mono}">'
+    assert rs.inline('`x**2 + y**2`') == f'{mono}x**2 + y**2</font>'
+    assert rs.inline('`x_{i}` and `e^{x}`') == f'{mono}x_{{i}}</font> and {mono}e^{{x}}</font>'
+    assert rs.inline('`a < b && c`') == f'{mono}a &lt; b &amp;&amp; c</font>'
+    assert rs.inline('**fit** uses `y ~ x**2` then e^{2}') == f'<b>fit</b> uses {mono}y ~ x**2</font> then e<super>2</super>'
+
+
 def test_inline_escaping():
     assert rs.inline('a < b & **c') == 'a &lt; b &amp; **c'
     assert rs.inline('<b>x</b>') == '&lt;b&gt;x&lt;/b&gt;'

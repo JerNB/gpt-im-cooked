@@ -130,16 +130,29 @@ def load_sheet(data):
                          'changes': list(revision.get('changes', []))}}
 
 
+_CODE_SPAN = re.compile(r'`([^`]+)`')
 _MARKUP = [
     (re.compile(r'\*\*(.+?)\*\*'), r'<b>\1</b>'),
-    (re.compile(r'`(.+?)`'), r'<font face="{mono}">\1</font>'),
     (re.compile(r'\^\{(.+?)\}'), r'<super>\1</super>'),
     (re.compile(r'_\{(.+?)\}'), r'<sub>\1</sub>'),
 ]
 
 
 def inline(text):
-    """Escape text, then apply **bold**, `code`, ^{super} and _{sub}; unmatched markers stay literal."""
+    """Escape text and apply **bold**, ^{super} and _{sub} outside `code` spans; code is kept literally.
+
+    Unmatched markers stay literal.
+    """
+    out, last = [], 0
+    for match in _CODE_SPAN.finditer(text):
+        out.append(_markup(text[last:match.start()]))
+        out.append('<font face="{mono}">' + html.escape(match.group(1), quote=False) + '</font>')
+        last = match.end()
+    out.append(_markup(text[last:]))
+    return ''.join(out)
+
+
+def _markup(text):
     out = html.escape(text, quote=False)
     for pattern, replacement in _MARKUP:
         out = pattern.sub(replacement, out)
