@@ -134,6 +134,90 @@ def render_test_cjk():
     assert fonts['body'] == 'STSong-Light' and rs.missing_glyphs(sample + ' abc', fonts['body']) == set()
 
 
+# Task 4: layout and auto-fit (rendering group)
+
+def multiplied(times, kind='exam-sheet', data=None):
+    """Repeat every section `times` times with fresh ids, to make dense content."""
+    base = sheet_with() if data is None else data
+    sections = []
+    for n in range(times):
+        for s in base['sections']:
+            copy_ = copy.deepcopy(s)
+            copy_['id'] = f"{s['id']}-{n}"
+            sections.append(copy_)
+    base['sections'], base['kind'] = sections, kind
+    return base
+
+
+def fitted(data):
+    sheet = rs.load_sheet(data)
+    return rs.fit(sheet, rs.find_fonts(sheet['language']))
+
+
+def dense_content():
+    """Smallest repetition whose best fit is tighter than the most spacious preset."""
+    for times in range(2, 9):
+        data = multiplied(times)
+        try:
+            result = fitted(copy.deepcopy(data))
+        except rs.Overflow:
+            break
+        if result['preset'] > 0:
+            return data, result
+    raise AssertionError('no repetition count needed a tighter preset before overflowing')
+
+
+def render_test_example_fits():
+    result = fitted(sheet_with())
+    assert result['pages'] <= 2 and result['preset'] == 0, result
+    assert result['body'] == rs.PRESETS[0]['body']
+
+
+def render_test_cut_content_grows_type():
+    data, tight = dense_content()
+    data['sections'] = data['sections'][: len(data['sections']) // 2]
+    loose = fitted(data)
+    assert loose['body'] > tight['body'], (loose, tight)
+
+
+def render_test_overflow_reports_sections():
+    try:
+        fitted(multiplied(12))
+    except rs.Overflow as error:
+        ids = [sid for sid, _ in error.sections]
+        assert 'interaction-0' in ids and all(h > 0 for _, h in error.sections)
+        assert error.over_pt > 0
+        return
+    raise AssertionError('12x content fitted on two pages')
+
+
+def render_test_minimum_sizes():
+    assert all(p['body'] >= 9 and p['code'] >= 8.5 for p in rs.PRESETS)
+    data, _ = dense_content()
+    data['allowance']['min_body'] = 10
+    try:
+        result = fitted(data)
+    except rs.Overflow:
+        return
+    assert result['body'] >= 10, result
+
+
+def render_test_block_taller_than_column():
+    def huge(d):
+        d['sections'][2]['blocks'][0]['rows'] = [[f'r{i}', 'a', 'b'] for i in range(200)]
+    try:
+        fitted(sheet_with(huge))
+    except rs.Overflow as error:
+        assert error.sections and error.sections[0][0] == 'classify', error.sections
+        return
+    raise AssertionError('a 200-row table fitted inside one column')
+
+
+def render_test_study_guide_unbounded():
+    result = fitted(multiplied(12, kind='study-guide'))
+    assert result['pages'] > 2, result
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 

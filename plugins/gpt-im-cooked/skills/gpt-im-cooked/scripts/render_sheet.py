@@ -192,6 +192,238 @@ def find_fonts(language='en'):
     return {**chosen, 'files': files}
 
 
+PRESETS = [  # most spacious first; fit() keeps the first one that fits
+    {'body': 11.0, 'code': 9.5, 'gap': 6.0, 'section_gap': 11.0},
+    {'body': 10.5, 'code': 9.25, 'gap': 5.0, 'section_gap': 9.5},
+    {'body': 10.0, 'code': 9.0, 'gap': 4.5, 'section_gap': 8.0},
+    {'body': 9.5, 'code': 8.75, 'gap': 3.5, 'section_gap': 6.5},
+    {'body': 9.0, 'code': 8.5, 'gap': 3.0, 'section_gap': 5.0},
+]
+LEADING = 1.24
+HIGH_SCALE = 1.08
+MARGIN = 36.0
+COLUMN_GAP = 16.0
+HEADER = 18.0
+FOOTER = 16.0
+UNCONFIRMED_NOTE = "Exam use unconfirmed — check your instructor's rules."
+INK, MUTED, BRAND, TINT, RULE = '#1f2a24', '#5f6b63', '#2f5d50', '#e7efe9', '#c9d3cc'
+
+
+class Overflow(Exception):
+    """Content does not fit the allowed pages even at the tightest permitted preset."""
+
+    def __init__(self, over_pt, sections, reason='content is taller than the allowed pages'):
+        super().__init__(f'{reason}: over by about {over_pt:.0f}pt')
+        self.over_pt, self.sections, self.reason = over_pt, sections, reason
+
+
+def _styles(fonts, preset, weight):
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib import colors
+    scale = HIGH_SCALE if weight == 'high' else 1.0
+    size = preset['body'] * scale
+    base = ParagraphStyle('body', fontName=fonts['body'], fontSize=size, leading=size * LEADING,
+                          textColor=colors.HexColor(INK), spaceAfter=preset['gap'])
+    return {
+        'body': base,
+        'cue': ParagraphStyle('cue', parent=base, leftIndent=size * 0.9, bulletIndent=0),
+        'cell': ParagraphStyle('cell', parent=base, spaceAfter=0),
+        'label': ParagraphStyle('label', parent=base, fontName=fonts['bold'], spaceAfter=0,
+                                textColor=colors.HexColor(BRAND)),
+        'muted': ParagraphStyle('muted', parent=base, textColor=colors.HexColor(MUTED)),
+        'title': ParagraphStyle('title', parent=base, fontName=fonts['bold'], fontSize=size * 1.16,
+                                leading=size * 1.16 * 1.2, textColor=colors.HexColor(BRAND),
+                                spaceBefore=preset['section_gap'], spaceAfter=preset['gap'],
+                                backColor=colors.HexColor(TINT) if weight == 'high' else None,
+                                borderPadding=(2, 3, 2, 3) if weight == 'high' else 0),
+        'code': ParagraphStyle('code', fontName=fonts['mono'], fontSize=preset['code'],
+                               leading=preset['code'] * 1.2, textColor=colors.HexColor(INK),
+                               backColor=colors.HexColor('#f1f0ea'), borderPadding=3, spaceAfter=preset['gap'] + 2),
+    }
+
+
+def _para(text, style, fonts):
+    from reportlab.platypus import Paragraph
+    return Paragraph(inline(text).replace('{mono}', fonts['mono']), style)
+
+
+def _grid(rows, widths, styles, header=False):
+    from reportlab.platypus import Table, TableStyle
+    from reportlab.lib import colors
+    table = Table(rows, colWidths=widths, hAlign='LEFT')
+    commands = [('VALIGN', (0, 0), (-1, -1), 'TOP'), ('LEFTPADDING', (0, 0), (-1, -1), 3),
+                ('RIGHTPADDING', (0, 0), (-1, -1), 3), ('TOPPADDING', (0, 0), (-1, -1), 1.5),
+                ('BOTTOMPADDING', (0, 0), (-1, -1), 1.5),
+                ('LINEBELOW', (0, 0), (-1, -1), 0.4, colors.HexColor(RULE))]
+    if header:
+        commands.append(('BACKGROUND', (0, 0), (-1, 0), colors.HexColor(TINT)))
+    table.setStyle(TableStyle(commands))
+    return table
+
+
+def _block_flowables(block, styles, fonts, width):
+    from reportlab.platypus import Preformatted, Spacer, KeepTogether
+    P = lambda text, key='body': _para(text, styles[key], fonts)  # noqa: E731
+    gap = styles['body'].spaceAfter
+    kind = block['type']
+    if kind == 'text':
+        return [P(block['text'])]
+    if kind == 'cue':
+        from reportlab.platypus import Paragraph
+        return [Paragraph(inline(block['text']).replace('{mono}', fonts['mono']), styles['cue'], bulletText='•')]
+    if kind == 'code':
+        return [Preformatted(block['text'], styles['code'])]
+    if kind in ('stages', 'example'):
+        parts = [P(block['setup'], 'muted')] if kind == 'example' and block['setup'] else []
+        label_w = width * 0.32
+        rows = [[P(s['label'], 'label'), P(s['text'], 'cell')] for s in block['steps']]
+        parts.append(_grid(rows, [label_w, width - label_w], styles))
+        if kind == 'example' and block['takeaway']:
+            parts += [Spacer(1, gap * 0.6), P('**Takeaway:** ' + block['takeaway'])]
+        parts.append(Spacer(1, gap))
+        return [KeepTogether(parts)]
+    if kind == 'table':
+        n = len(block['header'])
+        rows = [[P(f'**{h}**' if h else '', 'cell') for h in block['header']]]
+        rows += [[P(c, 'cell') for c in row] for row in block['rows']]
+        return [KeepTogether([_grid(rows, [width / n] * n, styles, header=True), Spacer(1, gap)])]
+    rows = [[P('Question', 'label'), P(block['prompt'], 'cell')]] if block['prompt'] else []
+    rows += [[P('First error', 'label'), P(block['first_error'], 'cell')], [P('Fix', 'label'), P(block['fix'], 'cell')]]
+    if block['conditions']:
+        rows.append([P('Holds when', 'label'), P(block['conditions'], 'cell')])
+    label_w = width * 0.28
+    return [KeepTogether([_grid(rows, [label_w, width - label_w], styles), Spacer(1, gap)])]
+
+
+def _section_flowables(section, fonts, preset, width):
+    styles = _styles(fonts, preset, section['weight'])
+    title = _para(section['title'], styles['title'], fonts)
+    title.keepWithNext = True
+    body = []
+    for block in section['blocks']:
+        body += _block_flowables(block, styles, fonts, width)
+    return [title] + body
+
+
+def _geometry(sheet):
+    from reportlab.lib.pagesizes import letter, A4
+    page_w, page_h = letter if sheet['allowance']['paper'] == 'letter' else A4
+    columns = 2 if sheet['kind'] == 'exam-sheet' else 1
+    frame_h = page_h - 2 * MARGIN - HEADER - FOOTER
+    col_w = (page_w - 2 * MARGIN - COLUMN_GAP * (columns - 1)) / columns
+    return page_w, page_h, columns, col_w, frame_h
+
+
+def _build(sheet, fonts, preset, target=None):
+    """Lay out with one preset into `target` (a path or file object; in-memory when None). Returns pages and fill."""
+    import io
+    from reportlab.platypus import BaseDocTemplate, Frame, PageTemplate
+    from reportlab.lib import colors
+
+    page_w, page_h, columns, col_w, frame_h = _geometry(sheet)
+    frames = [Frame(MARGIN + i * (col_w + COLUMN_GAP), MARGIN + FOOTER, col_w, frame_h, id=f'col{i}',
+                    leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0) for i in range(columns)]
+    fill = {}
+
+    def decorate(canvas, doc):
+        canvas.saveState()
+        canvas.setFillColor(colors.HexColor(MUTED))
+        canvas.setFont(fonts['bold'], 8.5)
+        top = page_h - MARGIN - 10
+        canvas.drawString(MARGIN, top, sheet['title'])
+        if sheet['course']:
+            canvas.setFont(fonts['body'], 8.5)
+            canvas.drawRightString(page_w - MARGIN, top, sheet['course'])
+        canvas.setStrokeColor(colors.HexColor(RULE))
+        canvas.setLineWidth(0.5)
+        canvas.line(MARGIN, top - 4, page_w - MARGIN, top - 4)
+        canvas.setFont(fonts['body'], 7.5)
+        if sheet['allowance']['status'] != 'confirmed':
+            canvas.drawString(MARGIN, MARGIN, UNCONFIRMED_NOTE)
+        canvas.drawRightString(page_w - MARGIN, MARGIN, f'{doc.page}')
+        canvas.restoreState()
+
+    class Doc(BaseDocTemplate):
+        def afterFlowable(self, flowable):
+            frame = getattr(self, 'frame', None)
+            if frame is None or not getattr(frame, '_height', 0):
+                return
+            used = (frame._y1 + frame._height - frame._y) / frame._height
+            fill[(self.page, frame.id)] = round(max(fill.get((self.page, frame.id), 0), used), 3)
+
+    out = target if target is not None else io.BytesIO()
+    doc = Doc(out, pagesize=(page_w, page_h), leftMargin=MARGIN, rightMargin=MARGIN, topMargin=MARGIN,
+              bottomMargin=MARGIN, title=sheet['title'], author='', subject=sheet['course'],
+              creator="GPT, I'm Cooked render_sheet.py")
+    doc.addPageTemplates([PageTemplate(id='sheet', frames=frames, onPage=decorate)])
+    story = []
+    for section in sheet['sections']:
+        story += _section_flowables(section, fonts, preset, col_w)
+    doc.build(story)
+    return {'pages': doc.page, 'column_fill': [fill[k] for k in sorted(fill)]}
+
+
+def _measure(flowable, width):
+    """(width, height incl. spacing) without a canvas; KeepTogether groups are measured by their parts."""
+    from reportlab.platypus import KeepTogether
+    if isinstance(flowable, KeepTogether):
+        sizes = [_measure(f, width) for f in flowable._content]
+        return max((w for w, _ in sizes), default=0), sum(h for _, h in sizes)
+    w, h = flowable.wrap(width, 10 ** 6)
+    return w, h + flowable.getSpaceBefore() + flowable.getSpaceAfter()
+
+
+def _section_heights(sheet, fonts, preset, col_w):
+    heights = []
+    for section in sheet['sections']:
+        total = 0.0
+        for flowable in _section_flowables(section, fonts, preset, col_w):
+            total += _measure(flowable, col_w)[1]
+        heights.append((section['id'], round(total, 1)))
+    return heights
+
+
+def _check_blocks_fit(sheet, fonts, preset, col_w, frame_h):
+    """A single block taller than a column, or code wider than it, cannot be fixed by fitting."""
+    from reportlab.platypus import Preformatted
+    for section in sheet['sections']:
+        for flowable in _section_flowables(section, fonts, preset, col_w)[1:]:
+            w, h = _measure(flowable, col_w)
+            if h > frame_h:
+                raise Overflow(h - frame_h, [(section['id'], round(h, 1))], f'a block in section {section["id"]} is taller than one column')
+            if isinstance(flowable, Preformatted) and w > col_w + 0.5:
+                raise Overflow(w - col_w, [(section['id'], round(h, 1))], f'a code line in section {section["id"]} is wider than one column')
+
+
+def layout(sheet, fonts, preset):
+    """Build once with `preset` in memory; returns (pages, column_fill)."""
+    result = _build(sheet, fonts, preset)
+    return result['pages'], result['column_fill']
+
+
+def fit(sheet, fonts):
+    """Most spacious permitted preset that fits the allowed pages; raises Overflow with per-section heights."""
+    min_body = max(9.0, float(sheet['allowance']['min_body'] or 0))
+    presets = [(i, p) for i, p in enumerate(PRESETS) if p['body'] >= min_body]
+    if not presets:
+        raise Overflow(0, [], f'no layout preset meets the minimum body size {min_body}pt')
+    _, _, columns, col_w, frame_h = _geometry(sheet)
+    if sheet['kind'] == 'study-guide':
+        index, preset = presets[min(1, len(presets) - 1)]
+        pages, fill = layout(sheet, fonts, preset)
+        return {'preset': index, 'pages': pages, 'column_fill': fill, 'body': preset['body'], 'code': preset['code']}
+    target = sheet['allowance']['sheets'] * sheet['allowance']['sides']
+    _check_blocks_fit(sheet, fonts, presets[-1][1], col_w, frame_h)
+    for index, preset in presets:
+        pages, fill = layout(sheet, fonts, preset)
+        if pages <= target:
+            return {'preset': index, 'pages': pages, 'column_fill': fill, 'body': preset['body'], 'code': preset['code']}
+    heights = _section_heights(sheet, fonts, presets[-1][1], col_w)
+    capacity = target * columns * frame_h
+    over = max(sum(h for _, h in heights) - capacity, 1.0)
+    raise Overflow(over, heights)
+
+
 def _covered_by_cid(char):
     code = ord(char)
     return code < 0x80 or 0x3000 <= code <= 0x9FFF or 0xFF00 <= code <= 0xFFEF
