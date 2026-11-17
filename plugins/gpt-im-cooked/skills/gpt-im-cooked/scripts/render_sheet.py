@@ -299,10 +299,22 @@ def _section_flowables(section, fonts, preset, width):
     styles = _styles(fonts, preset, section['weight'])
     title = _para(section['title'], styles['title'], fonts)
     title.keepWithNext = True
-    body = []
-    for block in section['blocks']:
-        body += _block_flowables(block, styles, fonts, width)
-    return [title] + body
+    title._sheet = (section['id'], 'title')
+    blocks = [_block_flowables(block, styles, fonts, width) for block in section['blocks']]
+    for flowable in _leaves([f for group in blocks for f in group]):
+        flowable._sheet = (section['id'], 'block')
+    from reportlab.platypus import KeepTogether
+    # A heading must never sit alone at the bottom of a column: keep it with the first block.
+    return [KeepTogether([title] + blocks[0])] + [f for group in blocks[1:] for f in group]
+
+
+def _leaves(flowables):
+    from reportlab.platypus import KeepTogether
+    for flowable in flowables:
+        if isinstance(flowable, KeepTogether):
+            yield from _leaves(flowable._content)
+        else:
+            yield flowable
 
 
 def _geometry(sheet):
@@ -323,7 +335,7 @@ def _build(sheet, fonts, preset, target=None):
     page_w, page_h, columns, col_w, frame_h = _geometry(sheet)
     frames = [Frame(MARGIN + i * (col_w + COLUMN_GAP), MARGIN + FOOTER, col_w, frame_h, id=f'col{i}',
                     leftPadding=0, rightPadding=0, topPadding=0, bottomPadding=0) for i in range(columns)]
-    fill = {}
+    fill, placements = {}, []
 
     def decorate(canvas, doc):
         canvas.saveState()
@@ -346,6 +358,8 @@ def _build(sheet, fonts, preset, target=None):
     class Doc(BaseDocTemplate):
         def afterFlowable(self, flowable):
             frame = getattr(self, 'frame', None)
+            if getattr(flowable, '_sheet', None) and frame is not None:
+                placements.append((*flowable._sheet, (self.page, frame.id)))
             if frame is None or not getattr(frame, '_height', 0):
                 return
             used = (frame._y1 + frame._height - frame._y) / frame._height
@@ -360,7 +374,7 @@ def _build(sheet, fonts, preset, target=None):
     for section in sheet['sections']:
         story += _section_flowables(section, fonts, preset, col_w)
     doc.build(story)
-    return {'pages': doc.page, 'column_fill': [fill[k] for k in sorted(fill)]}
+    return {'pages': doc.page, 'column_fill': [fill[k] for k in sorted(fill)], 'placements': placements}
 
 
 def _measure(flowable, width):
@@ -387,10 +401,16 @@ def _check_blocks_fit(sheet, fonts, preset, col_w, frame_h):
     """A single block taller than a column, or code wider than it, cannot be fixed by fitting."""
     from reportlab.platypus import Preformatted
     for section in sheet['sections']:
-        for flowable in _section_flowables(section, fonts, preset, col_w)[1:]:
+        styles = _styles(fonts, preset, section['weight'])
+        blocks = [f for block in section['blocks'] for f in _block_flowables(block, styles, fonts, col_w)]
+        for flowable in blocks:
             w, h = _measure(flowable, col_w)
             if h > frame_h:
                 raise Overflow(h - frame_h, [(section['id'], round(h, 1))], f'a block in section {section["id"]} is taller than one column')
+            if isinstance(flowable, Preformatted):
+                from reportlab.pdfbase.pdfmetrics import stringWidth
+                style = flowable.style
+                w = max(stringWidth(line, style.fontName, style.fontSize) for line in flowable.lines)
             if isinstance(flowable, Preformatted) and w > col_w + 0.5:
                 raise Overflow(w - col_w, [(section['id'], round(h, 1))], f'a code line in section {section["id"]} is wider than one column')
 
@@ -452,3 +472,117 @@ def missing_glyphs(text, font_name):
         if not ok:
             missing.add(char)
     return missing
+
+
+def _slug(text):
+    return re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')[:60] or 'sheet'
+
+
+def _all_text(sheet):
+    parts = [sheet['title'], sheet['course']]
+    for section in sheet['sections']:
+        parts.append(section['title'])
+        for block in section['blocks']:
+            for key in ('text', 'setup', 'takeaway', 'prompt', 'first_error', 'fix', 'conditions'):
+                if block.get(key) and not (block['type'] == 'code' and key == 'text'):
+                    parts.append(block[key])
+            for step in block.get('steps', []):
+                parts += [step['label'], step['text']]
+            parts += block.get('header', []) + [cell for row in block.get('rows', []) for cell in row]
+    return re.sub(r'\*\*|`|\^\{|_\{|\}', '', ' '.join(parts))
+
+
+def _code_text(sheet):
+    return ' '.join(b['text'] for s in sheet['sections'] for b in s['blocks'] if b['type'] == 'code')
+
+
+def _previews(pdf_path, out_dir, stem):
+    try:
+        import pypdfium2 as pdfium
+    except ImportError:
+        return None
+    folder = out_dir / 'previews'
+    folder.mkdir(exist_ok=True)
+    document = pdfium.PdfDocument(str(pdf_path))
+    paths = []
+    try:
+        for i in range(len(document)):
+            name = f'previews/{stem}-page-{i + 1}.png'
+            document[i].render(scale=150 / 72).to_pil().save(out_dir / name)
+            paths.append(name)
+    finally:
+        document.close()
+    return paths
+
+
+def render(sheet, out_dir, force=False):
+    """Fit, write the PDF, a content copy, previews (when possible) and checks.json; returns the checks."""
+    import json
+    fonts = find_fonts(sheet['language'])
+    result = fit(sheet, fonts)
+    stem = f"{_slug(sheet['title'])}-v{sheet['revision']['round']}"
+    pdf_path = out_dir / f'{stem}.pdf'
+    if pdf_path.exists() and not force:
+        raise SheetError(f'{pdf_path.name} already exists; pass --force to replace this round')
+    out_dir.mkdir(parents=True, exist_ok=True)
+    preset = PRESETS[result['preset']]
+    built = _build(sheet, fonts, preset, str(pdf_path))
+    (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    missing = sorted(missing_glyphs(_all_text(sheet), fonts['body']) | missing_glyphs(_all_text(sheet), fonts['bold'])
+                     | missing_glyphs(_code_text(sheet), fonts['mono']))
+    checks = {'pdf': pdf_path.name, 'pages': built['pages'], 'preset': result['preset'], 'body': preset['body'],
+              'code': preset['code'], 'column_fill': built['column_fill'],
+              'fonts': {k: fonts[k] for k in ('body', 'bold', 'mono')} | {'files': fonts['files']},
+              'missing_glyphs': missing, 'allowance': sheet['allowance'], 'kind': sheet['kind'],
+              'previews': _previews(pdf_path, out_dir, stem)}
+    (out_dir / 'checks.json').write_text(json.dumps(checks, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    return checks
+
+
+def main(argv=None):
+    import argparse
+    import json
+    parser = argparse.ArgumentParser(description='Render an exam reference sheet or study guide to PDF.')
+    parser.add_argument('content', type=Path)
+    target = parser.add_mutually_exclusive_group(required=True)
+    target.add_argument('--out', type=Path, help='folder for the PDF, previews and checks.json')
+    target.add_argument('--check', action='store_true', help='validate and fit without writing files')
+    parser.add_argument('--force', action='store_true', help='replace this revision round if it exists')
+    args = parser.parse_args(argv)
+    try:
+        try:
+            data = json.loads(args.content.read_text(encoding='utf-8'))
+        except OSError as error:
+            raise SheetError(f'cannot read {args.content}: {error.strerror or error}') from None
+        except json.JSONDecodeError as error:
+            raise SheetError(f'{args.content} is not valid JSON (line {error.lineno}: {error.msg})') from None
+        sheet = load_sheet(data)
+        try:
+            import reportlab  # noqa: F401
+        except ImportError:
+            print('ERROR reportlab is not installed; ask the student before running pip install reportlab, '
+                  'or deliver a labelled editable source instead')
+            return 3
+        if args.check:
+            result = fit(sheet, find_fonts(sheet['language']))
+            print(f"OK pages={result['pages']} preset={result['preset']} body={result['body']}pt out=none")
+            return 0
+        checks = render(sheet, args.out, args.force)
+        line = f"OK pages={checks['pages']} preset={checks['preset']} body={checks['body']}pt out={args.out / checks['pdf']}"
+        if checks['missing_glyphs']:
+            line += f" missing_glyphs={len(checks['missing_glyphs'])}"
+        if checks['previews'] is None:
+            line += ' previews=none'
+        print(line)
+        return 0
+    except Overflow as error:
+        sections = ','.join(f'{sid}:{h:.0f}' for sid, h in error.sections)
+        print(f'OVERFLOW over={error.over_pt:.0f}pt sections={sections} reason={error.reason}')
+        return 2
+    except SheetError as error:
+        print(f'ERROR {error}')
+        return 1
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

@@ -155,16 +155,21 @@ def fitted(data):
 
 
 def dense_content():
-    """Smallest repetition whose best fit is tighter than the most spacious preset."""
-    for times in range(2, 9):
-        data = multiplied(times)
+    """Add copied sections one at a time until the best fit is tighter than the most spacious preset."""
+    base = sheet_with()
+    for extra in range(1, 3 * len(base['sections'])):
+        data = sheet_with()
+        for n in range(extra):
+            section = copy.deepcopy(base['sections'][n % len(base['sections'])])
+            section['id'] = f"{section['id']}-extra-{n}"
+            data['sections'].append(section)
         try:
             result = fitted(copy.deepcopy(data))
         except rs.Overflow:
             break
         if result['preset'] > 0:
             return data, result
-    raise AssertionError('no repetition count needed a tighter preset before overflowing')
+    raise AssertionError('no content size needed a tighter preset before overflowing')
 
 
 def render_test_example_fits():
@@ -213,9 +218,130 @@ def render_test_block_taller_than_column():
     raise AssertionError('a 200-row table fitted inside one column')
 
 
+def render_test_code_too_wide():
+    def wide(d):
+        d['sections'][5]['blocks'][0]['text'] = 'x <- ' + 'very_long_identifier_' * 8
+    try:
+        fitted(sheet_with(wide))
+    except rs.Overflow as error:
+        assert error.sections[0][0] == 'code' and 'wider' in error.reason, (error.sections, error.reason)
+        return
+    raise AssertionError('a code line wider than a column was accepted')
+
+
+def render_test_titles_stay_with_content():
+    for data in (sheet_with(), dense_content()[0]):
+        sheet = rs.load_sheet(data)
+        fonts = rs.find_fonts('en')
+        preset = rs.PRESETS[rs.fit(sheet, fonts)['preset']]
+        placements = rs._build(sheet, fonts, preset)['placements']
+        first = {}
+        for section_id, role, where in placements:
+            first.setdefault((section_id, role), where)
+        for section in sheet['sections']:
+            assert first[(section['id'], 'title')] == first[(section['id'], 'block')], (
+                section['id'], first[(section['id'], 'title')], first[(section['id'], 'block')])
+
+
 def render_test_study_guide_unbounded():
     result = fitted(multiplied(12, kind='study-guide'))
     assert result['pages'] > 2, result
+
+
+# Task 5: outputs and command line
+
+import re  # noqa: E402
+import subprocess  # noqa: E402
+import tempfile  # noqa: E402
+
+SCRIPT = SKILL / 'scripts/render_sheet.py'
+
+
+def run(*args, python=None):
+    done = subprocess.run([python or sys.executable, str(SCRIPT), *map(str, args)], capture_output=True,
+                          text=True, encoding='utf-8')
+    return done.returncode, done.stdout.strip(), done.stderr
+
+
+def write_sheet(folder, data=None, name='sheet.json'):
+    path = Path(folder) / name
+    path.write_text(json.dumps(data if data is not None else EXAMPLE), encoding='utf-8')
+    return path
+
+
+def pdf_text(path):
+    import pypdfium2 as pdfium
+    document = pdfium.PdfDocument(str(path))
+    try:
+        return [document[i].get_textpage().get_text_range() for i in range(len(document))]
+    finally:
+        document.close()
+
+
+def render_test_cli_ok():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        code, stdout, stderr = run(write_sheet(tmp), '--out', out)
+        assert code == 0 and re.match(r'^OK pages=[12] preset=\d body=[\d.]+pt out=', stdout), (stdout, stderr)
+        slug = 'regression-and-classification-exam-sheet-v1'
+        assert (out / f'{slug}.pdf').is_file() and (out / f'{slug}.json').is_file()
+        checks = json.loads((out / 'checks.json').read_text(encoding='utf-8'))
+        assert checks['pages'] in (1, 2) and checks['missing_glyphs'] == [] and checks['fonts']['body']
+        assert checks['previews'] and all((out / p).is_file() for p in checks['previews'])
+
+
+def render_test_footer_unconfirmed():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        assert run(write_sheet(tmp), '--out', out)[0] == 0
+        pages = pdf_text(next(out.glob('*.pdf')))
+        assert all('Exam use unconfirmed' in page for page in pages), pages
+        confirmed = sheet_with(lambda d: d['allowance'].update(status='confirmed'))
+        out2 = Path(tmp) / 'out2'
+        assert run(write_sheet(tmp, confirmed, 'c.json'), '--out', out2)[0] == 0
+        assert not any('Exam use unconfirmed' in page for page in pdf_text(next(out2.glob('*.pdf'))))
+
+
+def render_test_versions_kept():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        assert run(write_sheet(tmp), '--out', out)[0] == 0
+        second = sheet_with(lambda d: d['revision'].update(round=2))
+        path = write_sheet(tmp, second, 'r2.json')
+        assert run(path, '--out', out)[0] == 0
+        assert {p.name for p in out.glob('*.pdf')} == {'regression-and-classification-exam-sheet-v1.pdf',
+                                                       'regression-and-classification-exam-sheet-v2.pdf'}
+        code, stdout, _ = run(path, '--out', out)
+        assert code == 1 and 'force' in stdout, stdout
+        assert run(path, '--out', out, '--force')[0] == 0
+
+
+def render_test_cli_overflow():
+    with tempfile.TemporaryDirectory() as tmp:
+        code, stdout, _ = run(write_sheet(tmp, multiplied(12)), '--out', Path(tmp) / 'out')
+        assert code == 2 and re.match(r'^OVERFLOW over=\d+pt sections=interaction-0:[\d.]+', stdout), stdout
+        assert not (Path(tmp) / 'out').exists() or not list((Path(tmp) / 'out').glob('*.pdf'))
+
+
+def test_cli_errors():
+    with tempfile.TemporaryDirectory() as tmp:
+        bad = Path(tmp) / 'bad.json'
+        bad.write_text('{nope', encoding='utf-8')
+        invalid = write_sheet(tmp, sheet_with(lambda d: d.update(format='x')), 'invalid.json')
+        for path in (bad, invalid, Path(tmp) / 'missing.json'):
+            code, stdout, stderr = run(path, '--out', Path(tmp) / 'out')
+            assert code == 1 and stdout.startswith('ERROR '), stdout
+            assert 'Traceback' not in stderr, stderr
+
+
+def test_cli_no_reportlab():
+    with tempfile.TemporaryDirectory() as tmp:
+        wrapper = ("import sys, runpy; sys.modules['reportlab'] = None; "
+                   f"sys.argv = [{str(SCRIPT)!r}, {str(write_sheet(tmp))!r}, '--out', {str(Path(tmp) / 'o')!r}]; "
+                   f"runpy.run_path({str(SCRIPT)!r}, run_name='__main__')")
+        done = subprocess.run([sys.executable, '-c', wrapper], capture_output=True, text=True, encoding='utf-8')
+        assert done.returncode == 3, (done.returncode, done.stdout, done.stderr)
+        assert 'ask the student before running pip install reportlab' in done.stdout, done.stdout
 
 
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
