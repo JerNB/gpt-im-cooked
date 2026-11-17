@@ -22,6 +22,7 @@ SKILL_FILES = {
     'assets/mock-exam-template.html', 'assets/mock-exam-example.json',
     'references/study-plan.md', 'scripts/plan_study.py',
     'assets/study-plan-template.html', 'assets/study-plan-example.json',
+    'scripts/render_sheet.py', 'assets/sheet-example.json',
 }
 PLUGIN_FILES = {
     'plugin.json', '.codex-plugin/plugin.json',
