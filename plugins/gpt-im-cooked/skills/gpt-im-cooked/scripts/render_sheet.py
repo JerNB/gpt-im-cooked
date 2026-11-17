@@ -535,10 +535,28 @@ def _previews(pdf_path, out_dir, stem):
     return paths
 
 
+def check_glyphs(sheet, fonts):
+    """Raise SheetError naming every character the chosen fonts cannot draw (text in body/bold, code in mono)."""
+    text, code = _all_text(sheet), _code_text(sheet)
+    problems = {}
+    for chars, font in ((missing_glyphs(text, fonts['body']), fonts['body']),
+                        (missing_glyphs(text, fonts['bold']), fonts['bold']),
+                        (missing_glyphs(code, fonts['mono']), fonts['mono'])):
+        for char in chars:
+            problems.setdefault(char, set()).add(font)
+    if problems:
+        listed = ', '.join(f"U+{ord(c):04X} {c!r} ({'/'.join(sorted(f))})" for c, f in sorted(problems.items()))
+        raise SheetError(f'missing glyphs: {listed}; rewrite or spell out these characters and re-render')
+
+
 def render(sheet, out_dir, force=False):
-    """Fit, write the PDF, a content copy, previews (when possible) and checks.json; returns the checks."""
+    """Check glyphs, fit, then write the PDF, a content copy, previews (when possible) and checks.json.
+
+    Nothing is written when a check fails, so an existing round is never replaced by a failed render.
+    """
     import json
     fonts = find_fonts(sheet['language'])
+    check_glyphs(sheet, fonts)
     result = fit(sheet, fonts)
     stem = f"{_slug(sheet['title'])}-v{sheet['revision']['round']}"
     pdf_path = out_dir / f'{stem}.pdf'
@@ -548,12 +566,10 @@ def render(sheet, out_dir, force=False):
     preset = PRESETS[result['preset']]
     built = _build(sheet, fonts, preset, str(pdf_path))
     (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-    missing = sorted(missing_glyphs(_all_text(sheet), fonts['body']) | missing_glyphs(_all_text(sheet), fonts['bold'])
-                     | missing_glyphs(_code_text(sheet), fonts['mono']))
     checks = {'pdf': pdf_path.name, 'pages': built['pages'], 'preset': result['preset'], 'body': preset['body'],
               'code': preset['code'], 'column_fill': built['column_fill'],
               'fonts': {k: fonts[k] for k in ('body', 'bold', 'mono')} | {'files': fonts['files']},
-              'missing_glyphs': missing, 'allowance': sheet['allowance'], 'kind': sheet['kind'],
+              'missing_glyphs': [], 'allowance': sheet['allowance'], 'kind': sheet['kind'],
               'previews': _previews(pdf_path, out_dir, stem)}
     (out_dir / 'checks.json').write_text(json.dumps(checks, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     return checks
@@ -584,13 +600,13 @@ def main(argv=None):
                   'or deliver a labelled editable source instead')
             return 3
         if args.check:
-            result = fit(sheet, find_fonts(sheet['language']))
+            fonts = find_fonts(sheet['language'])
+            check_glyphs(sheet, fonts)
+            result = fit(sheet, fonts)
             print(f"OK pages={result['pages']} preset={result['preset']} body={result['body']}pt out=none")
             return 0
         checks = render(sheet, args.out, args.force)
         line = f"OK pages={checks['pages']} preset={checks['preset']} body={checks['body']}pt out={args.out / checks['pdf']}"
-        if checks['missing_glyphs']:
-            line += f" missing_glyphs={len(checks['missing_glyphs'])}"
         if checks['previews'] is None:
             line += ' previews=none'
         print(line)

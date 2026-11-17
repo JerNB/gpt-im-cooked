@@ -345,6 +345,21 @@ def render_test_versions_kept():
         assert run(path, '--out', out, '--force')[0] == 0
 
 
+def render_test_missing_glyph_fails():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        assert run(write_sheet(tmp), '--out', out)[0] == 0
+        pdf = out / 'regression-and-classification-exam-sheet-v1.pdf'
+        before = pdf.read_bytes()
+        broken = sheet_with(lambda d: d['sections'][0]['blocks'][0].update(text='Unassigned code point ͸ here'))
+        path = write_sheet(tmp, broken, 'broken.json')
+        for args in (('--check',), ('--out', out, '--force')):
+            code, stdout, stderr = run(path, *args)
+            assert code == 1 and stdout.startswith('ERROR missing glyphs') and 'U+0378' in stdout, (args, stdout)
+            assert 'Traceback' not in stderr
+        assert pdf.read_bytes() == before, 'a failed render must not replace the existing round'
+
+
 def render_test_cli_overflow():
     with tempfile.TemporaryDirectory() as tmp:
         code, stdout, _ = run(write_sheet(tmp, multiplied(12)), '--out', Path(tmp) / 'out')

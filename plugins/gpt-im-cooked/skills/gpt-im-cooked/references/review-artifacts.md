@@ -71,9 +71,10 @@ Check formulas, examples, terminology, and scope against the source materials an
 python <skill>/scripts/render_sheet.py SHEET.json --out <study dir>/sheets [--force]
 ```
 
-- `OK pages=… preset=… body=…pt out=…`: the renderer chose the most spacious layout that fits the allowed pages. `missing_glyphs=n` means some characters have no font on this host: rewrite them (for example spell out a symbol) and re-render. `previews=none` means no page images could be made: deliver with that inspection limit stated.
+- `OK pages=… preset=… body=…pt out=…`: the renderer chose the most spacious layout that fits the allowed pages, checking every block and code line at that layout's sizes. `previews=none` means no page images could be made: deliver with that inspection limit stated.
 - `OVERFLOW over=…pt sections=…`: cut or demote content from the lowest-value sections it lists (turn worked examples into cues, remove *omit*-tier material) and re-render. Never request smaller type; the renderer will not go below 9 pt body / 8.5 pt code, or below an instructor minimum given as `allowance.min_body`. A `reason` naming one block or code line means that block must be shortened or split.
-- `ERROR …`: fix the content file and re-run.
+- `ERROR missing glyphs: U+…`: the host's fonts cannot draw those characters; rewrite or spell them out and re-render. Nothing was written, so an earlier round's PDF is unchanged.
+- `ERROR …` (other): fix the content file and re-run.
 
 Look at each page preview once as an exam tool: each section can be found by its heading at print size, high-weight sections are visibly more prominent, staged calculations read top to bottom, and code is not cut mid-token. Report only what was actually inspected; never describe an uninspected layout as print-verified. For HTML handouts, check that they work without external assets and verify print preview separately before making page-count claims. Link final deliverables and mention only meaningful validation.
 
