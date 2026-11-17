@@ -359,7 +359,7 @@ def to_ics(plan, result, sequence, stamp):
         for day, blocks in sorted(days.items()):
             total = sum(b['minutes'] for b in blocks)
             items = [f"- {plan['courses'][b['course']]['title']} · {b['title']} ({b['minutes']} min, {b['kind']})"
-                     f"\n  Basis: {b['basis']}" for b in blocks]
+                     + (f"\n  {b['details']}" if b['details'] else '') + f"\n  Basis: {b['basis']}" for b in blocks]
             event(f"{plan['plan_id']}-day-{day:%Y%m%d}", day, day + timedelta(days=1),
                   f'Review list: {len(blocks)} tasks, {total} min', '\n'.join(items) + f'\n\n{PROGRESS_NOTE}', 'review-list')
     for block in ([] if result['all_day'] else result['blocks']):

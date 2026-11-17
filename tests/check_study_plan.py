@@ -377,6 +377,7 @@ def test_ics_all_day_one_event_per_day():
         assert event['UID'][1] == f"{plan['plan_id']}-day-{day:%Y%m%d}@gpt-im-cooked"
         for block in (b for b in result['blocks'] if b['start'] == day):
             assert block['title'] in event['DESCRIPTION'][1] and block['basis'] in event['DESCRIPTION'][1]
+            assert block['details'] in event['DESCRIPTION'][1], (day, block['task'])  # the task instructions
         total = sum(b['minutes'] for b in result['blocks'] if b['start'] == day)
         assert f'{total} min' in event['SUMMARY'][1], event['SUMMARY'][1]
     assert ics_for(lambda d: d['availability'].update(weekly={}))[2].replace('\r\n', '').count('UID') == len(events)
