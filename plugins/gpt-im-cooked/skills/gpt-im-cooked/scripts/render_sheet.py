@@ -13,7 +13,9 @@ Usage:
 Validation needs only the Python 3.10+ standard library; rendering needs ReportLab.
 The script never installs packages.
 """
+from pathlib import Path
 import html
+import os
 import re
 
 FORMAT = 'gpt-im-cooked-sheet/1'
@@ -142,3 +144,79 @@ def inline(text):
     for pattern, replacement in _MARKUP:
         out = pattern.sub(replacement, out)
     return out
+
+
+def _font_candidates():
+    windir = Path(os.environ.get('WINDIR', 'C:/Windows')) / 'Fonts'
+    mac = Path('/System/Library/Fonts/Supplemental')
+    linux = sorted(Path('/usr/share/fonts').rglob('DejaVuSans*.ttf')) if Path('/usr/share/fonts').is_dir() else []
+    by_name = {p.name: p for p in linux}
+    return {
+        'body': [windir / 'segoeui.ttf', windir / 'arial.ttf', mac / 'Arial.ttf', by_name.get('DejaVuSans.ttf')],
+        'bold': [windir / 'segoeuib.ttf', windir / 'arialbd.ttf', mac / 'Arial Bold.ttf', by_name.get('DejaVuSans-Bold.ttf')],
+        'mono': [windir / 'consola.ttf', windir / 'cour.ttf', mac / 'Courier New.ttf', by_name.get('DejaVuSansMono.ttf')],
+    }
+
+
+def find_fonts(language='en'):
+    """Register Unicode fonts found on this host; fall back to built-in Latin-1 fonts (then reported as missing glyphs)."""
+    from reportlab.pdfbase import pdfmetrics
+    from reportlab.pdfbase.ttfonts import TTFont
+    from reportlab.lib.fonts import addMapping
+
+    fallback = {'body': 'Helvetica', 'bold': 'Helvetica-Bold', 'mono': 'Courier'}
+    chosen, files = {}, {}
+    for role, paths in _font_candidates().items():
+        for path in paths:
+            if path is not None and path.is_file():
+                name = f'Sheet-{role}-{path.stem}'
+                if name not in pdfmetrics.getRegisteredFontNames():
+                    try:
+                        pdfmetrics.registerFont(TTFont(name, str(path)))
+                    except Exception:  # unreadable or unsupported font file: try the next candidate
+                        continue
+                chosen[role], files[name] = name, str(path)
+                break
+        else:
+            chosen[role] = fallback[role]
+    if chosen['body'] == 'Helvetica' or chosen['bold'] == 'Helvetica-Bold':
+        chosen['body'], chosen['bold'] = 'Helvetica', 'Helvetica-Bold'
+    if language.split('-')[0] in ('zh', 'ja', 'ko'):
+        from reportlab.pdfbase.cidfonts import UnicodeCIDFont
+        cid = {'zh': 'STSong-Light', 'ja': 'HeiseiMin-W3', 'ko': 'HYSMyeongJo-Medium'}[language.split('-')[0]]
+        if cid not in pdfmetrics.getRegisteredFontNames():
+            pdfmetrics.registerFont(UnicodeCIDFont(cid))
+        chosen['body'] = chosen['bold'] = cid
+    for bold, italic in ((0, 0), (1, 0), (0, 1), (1, 1)):  # lets <b> inside paragraphs use the bold file
+        addMapping(chosen['body'], bold, italic, chosen['bold'] if bold else chosen['body'])
+    return {**chosen, 'files': files}
+
+
+def _covered_by_cid(char):
+    code = ord(char)
+    return code < 0x80 or 0x3000 <= code <= 0x9FFF or 0xFF00 <= code <= 0xFFEF
+
+
+def missing_glyphs(text, font_name):
+    """Characters in `text` that the named font cannot draw (whitespace ignored)."""
+    from reportlab.pdfbase import pdfmetrics
+    font = pdfmetrics.getFont(font_name)
+    face = getattr(font, 'face', None)
+    cmap = getattr(face, 'charToGlyph', None)
+    missing = set()
+    for char in set(text):
+        if char.isspace():
+            continue
+        if cmap is not None:
+            ok = ord(char) in cmap
+        elif font_name in ('STSong-Light', 'HeiseiMin-W3', 'HYSMyeongJo-Medium'):
+            ok = _covered_by_cid(char)
+        else:
+            try:
+                char.encode('cp1252')
+                ok = True
+            except UnicodeEncodeError:
+                ok = False
+        if not ok:
+            missing.add(char)
+    return missing

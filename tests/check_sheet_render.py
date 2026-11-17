@@ -98,8 +98,43 @@ def test_inline_escaping():
     assert rs.inline('<b>x</b>') == '&lt;b&gt;x&lt;/b&gt;'
 
 
+# Task 3: fonts (rendering group; functions named render_test_* need ReportLab)
+
+import os  # noqa: E402
+
+CANDIDATE_FILES = [Path(os.environ.get('WINDIR', 'C:/Windows')) / 'Fonts/segoeui.ttf',
+                   Path(os.environ.get('WINDIR', 'C:/Windows')) / 'Fonts/arial.ttf',
+                   Path('/System/Library/Fonts/Supplemental/Arial.ttf')]
+
+
+def render_test_fonts_found():
+    fonts = rs.find_fonts('en')
+    if any(p.exists() for p in CANDIDATE_FILES) or list(Path('/usr/share/fonts').rglob('DejaVuSans.ttf')):
+        assert fonts['body'] != 'Helvetica' and fonts['files'], fonts
+        assert fonts['mono'] != fonts['body']
+    else:
+        assert rs.missing_glyphs('β', fonts['body']) == {'β'}
+
+
+def render_test_unicode_glyphs():
+    fonts = rs.find_fonts('en')
+    if fonts['body'] != 'Helvetica':
+        assert rs.missing_glyphs('β ≤ → ² − ·', fonts['body']) == set()
+        assert rs.missing_glyphs('β ≤ → ² − ·', fonts['bold']) == set()
+
+
+def render_test_missing_glyph_reported():
+    fonts = rs.find_fonts('en')
+    assert rs.missing_glyphs('\U0001D4AE', fonts['body']) == {'\U0001D4AE'}  # mathematical script S
+
+
+def render_test_cjk():
+    fonts = rs.find_fonts('zh')
+    sample = '\u6761\u4ef6\u6982\u7387'
+    assert fonts['body'] == 'STSong-Light' and rs.missing_glyphs(sample + ' abc', fonts['body']) == set()
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
-RENDER_TESTS = []  # filled by later tasks; need ReportLab
 
 
 def reportlab_available():
@@ -114,7 +149,7 @@ def check():
     failed = []
     tests = list(TESTS)
     if reportlab_available():
-        tests += RENDER_TESTS
+        tests += [value for name, value in sorted(globals().items()) if name.startswith('render_test_')]
     else:
         print('SKIP rendering checks: reportlab not installed')
     for test in tests:
