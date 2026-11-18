@@ -13,6 +13,7 @@ if sys.argv[1:]==['--version']:
 assert os.environ.get('CODEX_HOME')
 assert not any(k.startswith('CODEX_') and k!='CODEX_HOME' for k in os.environ)
 assert '--ignore-user-config' in sys.argv and 'skills.bundled.enabled=false' in sys.argv
+assert 'windows.sandbox="unelevated"' in sys.argv, 'Windows sandbox must be unelevated or every shell command is blocked (T016 smoke 1)'
 prompt=sys.stdin.read()
 print(json.dumps({'type':'thread.started','thread_id':'fake-thread'}))
 print(json.dumps({'type':'item.completed','item':{'type':'command_execution','id':'read','command':'Get-Content skills/gpt-im-cooked/SKILL.md STA/materials/outline.md','aggregated_output':"name: gpt-im-cooked\n# STAT 110 (synthetic) materials"}}))

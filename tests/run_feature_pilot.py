@@ -68,7 +68,7 @@ def run_turn(cli,work,report,run,home,session,arm,kind,rep,turn,prompt,new_sessi
     if new_session: session=None
     disabled=sorted({str(p.resolve()).replace('\\','/') for base in (Path.home()/'.agents/skills',Path.home()/'.codex/skills') if base.exists() for p in base.rglob('SKILL.md')})
     selectors='skills.config=['+','.join('{path='+json.dumps(p)+',enabled=false}' for p in disabled)+']'
-    args=['--json','--skip-git-repo-check','--ignore-user-config','-c',selectors,'-c','skills.bundled.enabled=false','-m',MODEL,'-c',f'model_reasoning_effort="{EFFORT}"','-c','approval_policy="never"','-c','sandbox_mode="workspace-write"']
+    args=['--json','--skip-git-repo-check','--ignore-user-config','-c',selectors,'-c','skills.bundled.enabled=false','-m',MODEL,'-c',f'model_reasoning_effort="{EFFORT}"','-c','approval_policy="never"','-c','sandbox_mode="workspace-write"','-c','windows.sandbox="unelevated"']
     cmd=cli_prefix(cli)+['exec']+(['resume']+args+[session,'-'] if session else args+['-C',str(run),'-'])
     env={k:v for k,v in os.environ.items() if not k.startswith('CODEX_')}; env.update(CODEX_HOME=str(home),PYTHONUTF8='1')
     (out/f'prompt-{turn:02}.md').write_text(prompt,encoding='utf-8')
