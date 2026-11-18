@@ -1,0 +1,64 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "Regression and Classification Exam Sheet",
+  "course": "STAT 101 (synthetic example)",
+  "allowance": {"status": "unconfirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {"id": "interaction", "title": "Interaction model: one running example", "weight": "high", "topics": ["T4"],
+     "blocks": [
+       {"type": "text", "text": "**Model:** score = 52 + 3.0·hours + 6·online − 1.5·hours·online, where online = 1 for the online section and 0 for in-person (baseline)."},
+       {"type": "example", "setup": "Interpret every term on the same model.", "steps": [
+         {"label": "Intercept 52", "text": "Predicted score for an **in-person** student who studies 0 hours."},
+         {"label": "hours 3.0", "text": "For **in-person** students, each extra hour adds 3.0 points on average."},
+         {"label": "online 6", "text": "At 0 hours, online students are predicted 6 points higher than in-person students."},
+         {"label": "hours·online −1.5", "text": "The hours slope is 1.5 points **smaller** for online students."},
+         {"label": "Group lines", "text": "In-person: 52 + 3.0·hours.  Online: 58 + 1.5·hours."}],
+        "takeaway": "Every coefficient is read for the baseline group unless the interaction term changes it."}
+     ]},
+    {"id": "logit", "title": "Logistic model: one worked profile", "weight": "high", "topics": ["T7"],
+     "blocks": [
+       {"type": "text", "text": "**Model:** log-odds(late) = −1.2 + 0.8·distance_km. Profile: distance_km = 2."},
+       {"type": "stages", "steps": [
+         {"label": "Log-odds", "text": "−1.2 + 0.8(2) = 0.4"},
+         {"label": "Odds", "text": "e^{0.4} = 1.49  (late is 1.49 times as likely as not late)"},
+         {"label": "Probability", "text": "1.49 / (1 + 1.49) = 0.60"}]},
+       {"type": "cue", "text": "Slope 0.8: each extra km multiplies the **odds** by e^{0.8} = 2.23; it does not add 0.8 to the probability."},
+       {"type": "cue", "text": "Intercept −1.2: log-odds at distance 0, so odds = e^{−1.2} = 0.30."}
+     ]},
+    {"id": "classify", "title": "Classification and thresholds", "weight": "high", "topics": ["T8"],
+     "blocks": [
+       {"type": "table", "header": ["", "Predicted late", "Predicted on time"],
+        "rows": [["Actually late", "TP", "FN (missed)"], ["Actually on time", "FP (false alarm)", "TN"]]},
+       {"type": "cue", "text": "**Sensitivity** = TP / (TP + FN): share of actual late cases caught."},
+       {"type": "cue", "text": "**Specificity** = TN / (TN + FP): share of actual on-time cases correctly cleared."},
+       {"type": "cue", "text": "Missed positives costly → **lower** the cutoff. False alarms costly → **raise** the cutoff."}
+     ]},
+    {"id": "residuals", "title": "Residuals and R²", "weight": "normal", "topics": ["T2", "T3"],
+     "blocks": [
+       {"type": "cue", "text": "Residual = observed − predicted. Positive: model underpredicts. Negative: model overpredicts."},
+       {"type": "cue", "text": "R² × 100% of the variability in the outcome is explained by the model."}
+     ]},
+    {"id": "selection", "title": "Model selection", "weight": "normal", "topics": ["T9"],
+     "blocks": [
+       {"type": "text", "text": "**Parsimony:** prefer the simplest model that still fits or predicts well; balance fit against complexity."},
+       {"type": "cue", "text": "Overfitting: fits noise in the training data and may predict new data poorly."},
+       {"type": "cue", "text": "Forward selection adds terms; backward elimination removes them. Stop when no step improves the criterion."}
+     ]},
+    {"id": "code", "title": "R code you may write", "weight": "normal", "topics": ["T10"],
+     "blocks": [
+       {"type": "code", "text": "fit <- logistic_reg() |>\n  fit(late ~ distance_km + online, data = trips)\ntidy(fit)    # coefficient rows\nglance(fit)  # model-level statistics"},
+       {"type": "cue", "text": "`tidy()` gives one row per coefficient; `glance()` gives one row of model-level statistics."}
+     ]},
+    {"id": "mistake", "title": "Corrected mistake", "weight": "normal", "topics": ["T7"],
+     "blocks": [
+       {"type": "mistake", "prompt": "Interpret the slope 0.8 in the logistic model.",
+        "first_error": "Said the probability rises by 0.8 per km.",
+        "fix": "The slope is on the log-odds scale; exponentiate to get the odds multiplier e^{0.8} = 2.23.",
+        "conditions": "Holds for any starting distance; the probability change is not constant."}
+     ]}
+  ],
+  "omitted": [{"topic": "T11", "reason": "ROC function syntax: student preference, not an instructor exclusion; ROC concepts stay in scope"}],
+  "revision": {"round": 1, "standing": [], "changes": []}
+}
