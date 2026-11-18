@@ -16,12 +16,14 @@ T010/T011 were checked by script tests and two code reviews, never by a real mod
 - **STA course** (folder `STA/`): packet S materials (`tests/fixtures/controlled-comparison/packet-s/materials/`), plus a course profile (exam 2026-12-08 09:00-12:00; reference-sheet allowance `Unknown`) and a learning record whose Concepts rows cover exactly:
   - T1 Demonstrated with `Recheck before exam`, promoted in a session dated 2026-11-17;
   - T2 Needs practice, with a corrective rule and one attempt row;
-  - T3 Improving (same-structure successes, no transfer yet);
+  - T3 Bayes' rule in scope and Unassessed, teaching notes not posted;
   - T4 in scope and Unassessed, notes available;
-  - T5 in scope, teaching notes missing;
-  - T6 excluded.
-- **CS course** (folder `CS/`): packet P materials with an analogous record (at least one Needs practice, one Improving, one Unassessed), exam 2026-12-10 14:00-17:00.
+  - X1 Hypothesis testing excluded (moved to Midterm 2).
+- **CS course** (folder `CS/`): packet P materials with a record covering P1 List aliasing Improving (same-structure successes, no transfer yet; Notes §1), P2 Loop tracing Needs practice, P3 Big-O Unassessed with teaching notes missing, P4 Nested data summaries Unassessed with notes available, and P5 Recursion excluded, exam 2026-12-10 14:00-17:00.
 - **HIST 101**: no folder and no record; it exists only in the scripted student message.
+
+Amendment 2026-11-18 (before any run): STA statuses follow the packet S outline — T3 Bayes' rule is the notes-missing case and hypothesis testing (X1) the excluded case; the Improving case is covered by CS.
+
 - Ground truth for the checks: a `expected.json` listing each concept's status and the task kind §5.2 of the design implies.
 
 ## Sessions and script
@@ -54,7 +56,7 @@ Calendar:
 - **C1** The first reply asks for availability in one message (exam times, weekly windows, days off, daily cap) or offers the all-day fallback; no second clarification round before planning.
 - **C2** `plan_study.py` ran and `plan.ics` and `calendar.html` were delivered (command log plus files).
 - **C3** Every task's `basis` cites a concept or topic that exists in the record (script check against `expected.json`).
-- **C4** Task kinds follow the table: T1 `recheck` with `not_before` ≥ 2026-11-18; T2 `variant`; T3 transfer `practice`; T4 `learn` and later `practice`; T5 `source-gap`; T6 nothing (script check).
+- **C4** Task kinds follow the table: T1 `recheck` with `not_before` ≥ 2026-11-18; T2 `variant`; T3 `source-gap`; T4 `learn` and later `practice`; X1 nothing; CS P1 transfer `practice`, P2 `variant`, P3 `source-gap`, P4 `learn` and later `practice`, P5 nothing (script check).
 - **C5** The unrecorded-course offer is made once; HIST 101 gets only `review` blocks with basis "No learning record".
 - **C6** No attempt to write to a calendar, no reminders promised; any unplaced task is reported to the student.
 
@@ -65,6 +67,8 @@ Sheet:
 - **S3** Content rules, scored blind from the PDF text and previews by a reviewer who does not see the arm: easy facts as one-line cues; one running example per related cluster; multi-step conversions staged and labelled; no generic checklist; no clipped or unreadable text.
 - **S4** The turn-3 revision applies the request and adds no new topic (diff of section and topic lists between the drafts).
 - **S5** New arm: a `Reference-sheet preferences` section is saved in the course profile after turn 3; in turn 4 the draft follows it without being told again. Old arm: record whether anything comparable happened.
+
+Scoring note (amendment 2026-11-18, before any run): both course profiles say *Final* while the frozen packet outlines are a Midterm 1 and a Quiz 4 outline. A tutor question that only checks whether that outline still applies is recorded as a scope check and does not by itself fail C1 or S1; any other extra question still counts.
 
 Resources (descriptive only): wall time, completed tool commands and processed tokens for the first draft (turns 1-2), the revision (turn 3) and turn 4, per session. CLI usage is cumulative per thread: report differences, as in T007.
 
