@@ -93,7 +93,11 @@ def run_turn(cli,work,report,run,home,session,arm,kind,rep,turn,prompt,new_sessi
     reply='\n\n'.join(e.get('item',{}).get('text','') for e in ev if e.get('type')=='item.completed' and e.get('item',{}).get('type')=='agent_message')
     (out/f'response-{turn:02}.md').write_text(scrub(reply,[work,run,home,ROOT,Path.home()]),encoding='utf-8')
     snap=out/f'files-after-{turn:02}'
-    shutil.copytree(run,snap,ignore=shutil.ignore_patterns('skill','materials','__pycache__'))
+    # Browser profiles/caches left by PDF rendering are not study output and may hold locked files (T016 smoke 2).
+    skipped=[]
+    try: shutil.copytree(run,snap,ignore=shutil.ignore_patterns('skill','materials','__pycache__','*-profile','*Cache*','Crashpad'))
+    except shutil.Error as error: skipped=[str(e[0]) for e in error.args[0]]
+    if skipped: (out/f'files-after-{turn:02}.skipped.json').write_text(scrub(json.dumps(skipped,indent=1),[work,run,home,ROOT,Path.home()]),encoding='utf-8')
     for f in snap.rglob('*'):
         if f.is_file() and f.suffix in {'.md','.txt','.json','.html','.ics'}:
             old=f.read_text(encoding='utf-8-sig',errors='replace'); f.write_text(scrub(old,[work,run,home,ROOT,Path.home()]),encoding='utf-8')

@@ -15,6 +15,7 @@ assert not any(k.startswith('CODEX_') and k!='CODEX_HOME' for k in os.environ)
 assert '--ignore-user-config' in sys.argv and 'skills.bundled.enabled=false' in sys.argv
 assert 'windows.sandbox="unelevated"' in sys.argv, 'Windows sandbox must be unelevated or every shell command is blocked (T016 smoke 1)'
 prompt=sys.stdin.read()
+cache=Path('outputs/edge-profile/Default/Code Cache/js'); cache.mkdir(parents=True,exist_ok=True); (cache/'index').write_text('browser cache',encoding='utf-8')
 print(json.dumps({'type':'thread.started','thread_id':'fake-thread'}))
 print(json.dumps({'type':'item.completed','item':{'type':'command_execution','id':'read','command':'Get-Content skills/gpt-im-cooked/SKILL.md STA/materials/outline.md','aggregated_output':"name: gpt-im-cooked\n# STAT 110 (synthetic) materials"}}))
 print(json.dumps({'type':'item.completed','item':{'type':'agent_message','text':'Fake tutor response.'}}))
@@ -69,6 +70,7 @@ def main():
             meta=json.loads((t/f'report/runs/{label}/turn-01.meta.json').read_text(encoding='utf-8-sig'))
             assert meta['complete'] and meta['material_read'] and meta['skill_read']
             assert (t/f'report/runs/{label}/files-after-01').is_dir()
+            assert not [x for x in (t/f'report/runs/{label}/files-after-01').rglob('*') if 'edge-profile' in x.parts], 'browser profiles are not study output (T016 smoke 2)'
         assert len(list((t/'report/runs').glob('*/turn-01.meta.json')))==3
         assert not list((t/'work').rglob('auth.json'))
         # Saved-output checks use a compact deterministic evidence fixture; no student/model data.

@@ -1,0 +1,244 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GPT I'm Cooked//study-plan//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:fall-2026-finals study plan (GPT\, I'm Cooked)
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261118@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- STAT 110 · Two-way tables: fix the denominator (45 min\, var
+ iant)\n  Use new table questions. Name the reference group first\, divide 
+ by its total\, then state the percentage to one decimal place with the gro
+ up in words.\n  Basis: Concepts T2: Needs practice (2026-11-17 attempt cho
+ se row total for column percentage)\n\nCompleting this block does not chan
+ ge your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261119@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- CS 101 · Loop comparisons: targeted variants (45 min\, varia
+ nt)\n  Trace new loops and report only element-to-element comparisons\; ex
+ plicitly exclude assignments\, index updates\, and loop-condition checks.\
+ n  Basis: Concepts P2: Needs practice (2026-11-17 attempt counted assignme
+ nts and loop checks)\n\nCompleting this block does not change your recorde
+ d progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261120@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:Review list: 1 tasks\, 25 min
+DESCRIPTION:- STAT 110 · Bayes’ rule: locate course notes (25 min\, sour
+ ce-gap)\n  Find the lecture notes or request the instructor’s Bayes’ r
+ ule explanation before studying it. The outline alone does not provide a m
+ ethod to learn from.\n  Basis: Concepts T3: Unassessed\, in scope\; teachi
+ ng notes not posted\n\nCompleting this block does not change your recorded
+  progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261121@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Review list: 1 tasks\, 25 min
+DESCRIPTION:- CS 101 · Big-O: locate course notes (25 min\, source-gap)\n 
+  Find the lecture notes or request the instructor’s Big-O explanation. T
+ he outline alone does not provide enough content for a course-grounded les
+ son.\n  Basis: Concepts P3: Unassessed\, in scope\; teaching notes not pos
+ ted\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261122@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- STAT 110 · Grouped summaries: learn from notes §3 (45 min\,
+  learn)\n  Review grouped summaries in STA/materials/notes.md §3. Explain
+  one summary per non-empty group and compare like with like.\n  Basis: Con
+ cepts T4: Unassessed\; teaching notes available in S2 §3\n\nCompleting th
+ is block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261123@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261123
+DTEND;VALUE=DATE:20261124
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- CS 101 · Nested data summaries: learn from notes §3 (45 min
+ \, learn)\n  Review nested list groups in CS/materials/notes.md §3. Work 
+ out the requested statistic separately for each inner list and label each 
+ group.\n  Basis: Concepts P4: Unassessed\; teaching notes available in P2 
+ §3\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261125@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261125
+DTEND;VALUE=DATE:20261126
+SUMMARY:Review list: 1 tasks\, 30 min
+DESCRIPTION:- STAT 110 · Conditional probability: unaided recheck (30 min\
+ , recheck)\n  Try a fresh question without notes. Identify the reference g
+ roup\, use its total as denominator\, and report a one-decimal percentage 
+ with the group named.\n  Basis: Concepts T1: Demonstrated\, Recheck before
+  exam (promoted 2026-11-17)\n\nCompleting this block does not change your 
+ recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261126@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261126
+DTEND;VALUE=DATE:20261127
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- CS 101 · List aliasing: transfer practice (45 min\, practice
+ )\n  Trace a new example with an alias or shallow copy. Draw which names s
+ hare each list before mutation\, then predict what changes are visible.\n 
+  Basis: Concepts P1: Improving\; transfer practice next (no transfer attem
+ pt yet)\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261128@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261128
+DTEND;VALUE=DATE:20261129
+SUMMARY:Review list: 1 tasks\, 30 min
+DESCRIPTION:- STAT 110 · Grouped summaries: independent practice (30 min\,
+  practice)\n  Without notes\, summarize a new grouped dataset\, showing on
+ e row per non-empty group and comparing the same statistic across groups.\
+ n  Basis: Concepts T4: Unassessed\; in scope with notes available S2 §3\n
+ \nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261129@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261129
+DTEND;VALUE=DATE:20261130
+SUMMARY:Review list: 1 tasks\, 30 min
+DESCRIPTION:- CS 101 · Nested data summaries: independent practice (30 min
+ \, practice)\n  For a new nested list\, compute the requested statistic pe
+ r inner list. State which observations belong to each result.\n  Basis: Co
+ ncepts P4: Unassessed\; in scope with notes available P2 §3\n\nCompleting
+  this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261201@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261201
+DTEND;VALUE=DATE:20261202
+SUMMARY:Review list: 1 tasks\, 60 min
+DESCRIPTION:- STAT 110 · STAT 110: cumulative retrieval and practice (60 m
+ in\, review)\n  Retrieve conditional probability\, row/column percentages\
+ , and grouped summaries\, then attempt available practice without the key.
+  Revisit Bayes only if course notes have been found. Hypothesis testing is
+  excluded.\n  Basis: Course scope T1–T4: in scope per STA/course-profile
+ .md\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261202@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261202
+DTEND;VALUE=DATE:20261203
+SUMMARY:Review list: 1 tasks\, 60 min
+DESCRIPTION:- CS 101 · CS 101: cumulative retrieval and practice (60 min\,
+  review)\n  Retrieve aliasing\, loop tracing\, and nested summaries\, then
+  attempt available practice without the key. Include Big-O only if course 
+ notes have been found. Recursion is excluded.\n  Basis: Course scope P1–
+ P4: in scope per CS/course-profile.md\n\nCompleting this block does not ch
+ ange your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261206@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- STAT 110 · STAT 110: final light review (45 min\, review)\n 
+  Briefly revisit any errors\, especially denominators and the T1 reference
+  group. Keep the last evening light before the 09:00 exam.\n  Basis: Cours
+ e scope T1–T4: in scope per STA/course-profile.md\; T1 recheck due befor
+ e exam\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-day-20261208@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART;VALUE=DATE:20261208
+DTEND;VALUE=DATE:20261209
+SUMMARY:Review list: 1 tasks\, 45 min
+DESCRIPTION:- CS 101 · CS 101: final light review (45 min\, review)\n  Rev
+ iew corrections and course reporting rules\; do a short fresh comparison-c
+ ount trace. Keep the last evening light before the 14:00 exam.\n  Basis: C
+ ourse scope P1–P4: in scope per CS/course-profile.md\n\nCompleting this 
+ block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-stat110-exam@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART:20261208T090000
+DTEND:20261208T120000
+SUMMARY:STAT 110 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:fall-2026-finals-cs101-exam@gpt-im-cooked
+DTSTAMP:20261118T231417Z
+DTSTART:20261210T140000
+DTEND:20261210T170000
+SUMMARY:CS 101 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
