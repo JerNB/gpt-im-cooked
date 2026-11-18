@@ -1,6 +1,6 @@
 # Fresh-model feature pilot: study calendar and exam sheet (T016)
 
-Status: **plan, frozen before any run; needs the human's approval of model calls.** Author: cc, 2026-11-18. Runner and reporter: codex. Skill under test: `main` at `74dceec` (PR #9: T010 calendar, T011 sheet). Comparison arm for the sheet only: v2.0.1 (`20bb271`, tag `v2.0.1`).
+Status: **plan, frozen before any run; model calls approved by the human on 2026-11-18 with the quota-saving model (amendment below).** Author: cc, 2026-11-18. Runner and reporter: codex. Skill under test: `main` at `74dceec` (PR #9: T010 calendar, T011 sheet). Comparison arm for the sheet only: v2.0.1 (`20bb271`, tag `v2.0.1`).
 
 ## Why
 
@@ -26,7 +26,7 @@ T010/T011 were checked by script tests and two code reviews, never by a real mod
 
 ## Sessions and script
 
-Same model and settings as T007 (`gpt-6.1-sol`, medium, Codex CLI as installed; record the version), same isolation (isolated `CODEX_HOME`, user config ignored, global and bundled skills disabled and verified, inherited CODEX variables stripped), serial execution, fresh session per row, no splicing of failed sessions. Every student message starts with the date sentence so dates are deterministic.
+Tutor model **`gpt-6-luna`**, reasoning effort medium, Codex CLI as installed (record the version); same isolation as T007 (isolated `CODEX_HOME`, user config ignored, global and bundled skills disabled and verified, inherited CODEX variables stripped), serial execution, fresh session per row, no splicing of failed sessions. Every student message starts with the date sentence so dates are deterministic.
 
 **Calendar, arm New, 2 sessions** (working directory = study root containing `STA/` and `CS/`):
 
@@ -76,10 +76,12 @@ The best-looking calendar page and sheet preview from the **New** arm are the so
 
 ## Budget and schedule
 
-Main runs: 2 calendar sessions × 3 turns + 4 sheet sessions × 3 turns + 4 fresh turn-4 sessions = **22 model turns**, plus at most one smoke turn per arm (excluded from statistics). Based on T004/T007 (about 0.1-0.3M processed tokens per turn, mostly cached input), expect roughly **3-6M processed tokens** and 1-1.5 hours of CLI time. These are CLI counters, not a bill. Stop on a quota failure; no automatic retries; a rerun is a fresh whole session.
+**Amendment 2026-11-18, before any run:** the human chose the quota-saving model `gpt-6-luna` for all tutor sessions (and for future tests). Earlier benchmarks (T004, T007) used `gpt-6.1-sol`, so token and time numbers here are not comparable with them; the Old-versus-New sheet comparison stays within-run and within-model. Blind scoring may also use Luna reviewers.
+
+Main runs: 2 calendar sessions × 3 turns + 4 sheet sessions × 3 turns + 4 fresh turn-4 sessions = **22 model turns**, plus at most one smoke turn per arm (excluded from statistics). Based on T004/T007 on a larger model (about 0.1-0.3M processed tokens per turn, mostly cached input), expect at most **3-6M processed tokens**, charged at the cheaper model's rate and 1-1.5 hours of CLI time. These are CLI counters, not a bill. Stop on a quota failure; no automatic retries; a rerun is a fresh whole session.
 
 Results are needed by **Thursday 2026-11-19 noon** so the post images can be made from them.
 
 ## What this cannot show
 
-Two sessions per cell, one model, one scripted student, synthetic courses. It cannot show learning gains, behaviour on other models or real students, calendar-app import, connector writes, paper printing, or fonts on other operating systems. Speed numbers are descriptive and may differ by run.
+Two sessions per cell, one smaller model (`gpt-6-luna`), one scripted student, synthetic courses. It cannot show learning gains, behaviour on other models or real students, calendar-app import, connector writes, paper printing, or fonts on other operating systems. Speed numbers are descriptive and may differ by run.
