@@ -7,17 +7,20 @@ type size, and reports overflow per section instead of shrinking further.
 It also writes checks.json and, when pypdfium2 is available, page previews.
 
 Usage:
-  python render_sheet.py SHEET.json --out DIR [--force] [--engine auto|reportlab|browser] [--browser PATH]
+  python render_sheet.py SHEET.json --out DIR [--force] [--engine auto|reportlab|native|browser] [--browser PATH]
   python render_sheet.py SHEET.json --check
 
-Validation needs only the Python 3.10+ standard library. Rendering uses ReportLab when it is installed;
-otherwise it prints an equivalent HTML layout to PDF with an installed Microsoft Edge, Google Chrome or
-Chromium (headless, temporary profile). With neither, it writes the printable HTML and exits with code 3.
+Validation needs only the Python 3.10+ standard library. Rendering uses ReportLab when it is installed and
+otherwise the built-in standard-library writer (sheet_pdf.py: embedded subsets of system TrueType fonts), which
+also works inside sandboxes. `--engine browser` instead prints an HTML layout with an installed Edge, Chrome or
+Chromium (usually blocked inside sandboxes). With no engine at all it writes printable HTML and exits with code 3.
 The script never installs packages.
 """
 from pathlib import Path
 import html
 import math
+
+import sheet_pdf
 import os
 import re
 
@@ -237,6 +240,7 @@ HEADER = 18.0
 FOOTER = 16.0
 UNCONFIRMED_NOTE = "Exam use unconfirmed — check your instructor's rules."
 INK, MUTED, BRAND, TINT, RULE = '#1f2a24', '#5f6b63', '#2f5d50', '#e7efe9', '#c9d3cc'
+CODE_BG = '#f1f0ea'
 
 
 class Overflow(Exception):
@@ -868,13 +872,80 @@ def fit_browser(sheet, browser, work, timeout=60, leftovers=None):
                    f'content needs {pages} pages at the tightest permitted size, {target} allowed (browser engine)')
 
 
+def _theme():
+    return {'MARGIN': MARGIN, 'COLUMN_GAP': COLUMN_GAP, 'HEADER': HEADER, 'FOOTER': FOOTER, 'LEADING': LEADING,
+            'HIGH_SCALE': HIGH_SCALE, 'INK': INK, 'MUTED': MUTED, 'BRAND': BRAND, 'TINT': TINT, 'RULE': RULE,
+            'CODE_BG': CODE_BG, 'UNCONFIRMED_NOTE': UNCONFIRMED_NOTE}
+
+
+def check_glyphs_native(sheet, fonts):
+    """Like check_glyphs() for the native engine's TrueType fonts."""
+    text, code = _inventory(sheet)
+    problems = {}
+    for chars, role in ((fonts['body'].missing(text), 'body'), (fonts['bold'].missing(text), 'bold'),
+                        (fonts['mono'].missing(code), 'mono')):
+        for char in chars:
+            problems.setdefault(char, set()).add(fonts[role].name)
+    if problems:
+        listed = ', '.join(f"U+{ord(c):04X} {c!r} ({'/'.join(sorted(f))})" for c, f in sorted(problems.items()))
+        raise SheetError(f'missing glyphs: {listed}; rewrite or spell out these characters and re-render')
+
+
+def _native_layout(sheet, fonts, preset):
+    try:
+        return sheet_pdf.layout(sheet, fonts, preset, _geometry(sheet), _theme())
+    except sheet_pdf.TooTall as error:
+        raise Overflow(error.height, [(error.section, round(error.height, 1))], error.reason) from None
+
+
+def fit_native(sheet, fonts):
+    """fit() for the native engine: same candidate presets, guide start and page target."""
+    presets = _candidate_presets(sheet)
+    guide = sheet['kind'] == 'study-guide'
+    target = sheet['allowance']['sheets'] * sheet['allowance']['sides']
+    _, _, columns, _, frame_h = _geometry(sheet)
+    block_problem, last = None, None
+    for index, preset in presets:
+        try:
+            result = _native_layout(sheet, fonts, preset)
+        except Overflow as error:
+            block_problem = error
+            continue
+        last = result
+        if guide or result['pages'] <= target:
+            return {'preset': index, 'pages': result['pages'], 'column_fill': result['fill'], 'body': preset['body'],
+                    'code': preset['code'], 'layout': result}
+    if last is None:
+        raise block_problem
+    capacity = target * columns * frame_h
+    over = max(sum(h for _, h in last['heights']) - capacity, 1.0)
+    raise Overflow(over, last['heights'])
+
+
+def _render_native(sheet, out_dir, stem, fonts):
+    import json
+    check_glyphs_native(sheet, fonts)
+    result = fit_native(sheet, fonts)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    pdf_path = out_dir / f'{stem}.pdf'
+    pages = sheet_pdf.write_pdf(sheet, fonts, result['layout'], _geometry(sheet), _theme(), pdf_path)
+    (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    checks = {'engine': 'native', 'pdf': pdf_path.name, 'pages': pages, 'preset': result['preset'],
+              'body': result['body'], 'code': result['code'], 'column_fill': result['column_fill'],
+              'fonts': {role: fonts[role].name for role in sheet_pdf.ROLES} | {'files': fonts['files']},
+              'missing_glyphs': [], 'allowance': sheet['allowance'], 'kind': sheet['kind'],
+              'previews': _previews(pdf_path, out_dir, stem)}
+    (out_dir / 'checks.json').write_text(json.dumps(checks, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    return checks
+
+
 def _engine(requested):
     if requested != 'auto':
         return requested
     try:
         import reportlab  # noqa: F401
     except ImportError:
-        return 'browser'
+        return 'native'
     return 'reportlab'
 
 
@@ -889,8 +960,19 @@ def render(sheet, out_dir, force=False, engine='auto', browser=None, timeout=60)
     pdf_path = out_dir / f'{stem}.pdf'
     if pdf_path.exists() and not force:
         raise SheetError(f'{pdf_path.name} already exists; pass --force to replace this round')
-    if _engine(engine) == 'browser':
-        return _render_browser(sheet, out_dir, stem, browser or find_browser(), timeout)
+    chosen = _engine(engine)
+    if chosen == 'native':
+        try:
+            fonts = sheet_pdf.load_fonts(sheet['language'])
+        except sheet_pdf.NoFont:
+            if engine == 'native':
+                raise SheetError('native engine: no usable TrueType font on this host') from None
+            chosen = 'browser'  # auto: last resort before printable HTML
+        else:
+            return _render_native(sheet, out_dir, stem, fonts)
+    if chosen == 'browser':
+        return _render_browser(sheet, out_dir, stem, browser or (find_browser() if engine == 'browser' else None),
+                               timeout)
     fonts = find_fonts(sheet['language'])
     check_glyphs(sheet, fonts)
     result = fit(sheet, fonts)
@@ -918,7 +1000,7 @@ def _render_browser(sheet, out_dir, stem, browser, timeout):
         html_path = out_dir / f'{stem}.html'
         html_path.write_text(to_html(sheet, index), encoding='utf-8')
         raise NoEngine(html_path)
-    with tempfile.TemporaryDirectory(prefix='gim-sheet-') as work:
+    with tempfile.TemporaryDirectory(prefix='gim-sheet-', ignore_cleanup_errors=True) as work:
         leftovers = []
         index, pages, tmp_pdf, tmp_html = fit_browser(sheet, browser, Path(work), timeout, leftovers)
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -945,8 +1027,8 @@ def main(argv=None):
     target.add_argument('--out', type=Path, help='folder for the PDF, previews and checks.json')
     target.add_argument('--check', action='store_true', help='validate and fit without writing files')
     parser.add_argument('--force', action='store_true', help='replace this revision round if it exists')
-    parser.add_argument('--engine', choices=('auto', 'reportlab', 'browser'), default='auto',
-                        help='auto: ReportLab when installed, otherwise an installed Edge/Chrome/Chromium')
+    parser.add_argument('--engine', choices=('auto', 'reportlab', 'native', 'browser'), default='auto',
+                        help='auto: ReportLab when installed, otherwise the built-in writer (works in sandboxes)')
     parser.add_argument('--browser', type=Path, help='path to a Chromium-based browser for the browser engine')
     args = parser.parse_args(argv)
     try:
@@ -968,13 +1050,22 @@ def main(argv=None):
         browser = [str(args.browser)] if args.browser else None
         if browser and not args.browser.is_file():
             raise SheetError(f'browser not found: {args.browser}')
+        if args.check and engine == 'native':
+            try:
+                fonts = sheet_pdf.load_fonts(sheet['language'])
+            except sheet_pdf.NoFont as error:
+                raise SheetError(f'native engine: {error}') from None
+            check_glyphs_native(sheet, fonts)
+            result = fit_native(sheet, fonts)
+            print(f"OK pages={result['pages']} preset={result['preset']} body={result['body']}pt out=none engine=native")
+            return 0
         if args.check:
             if engine == 'browser':
                 import tempfile
                 browser = browser or find_browser()
                 if browser is None:
                     raise SheetError('no PDF engine to check the fit: ReportLab is not installed and no browser was found')
-                with tempfile.TemporaryDirectory(prefix='gim-sheet-') as work:
+                with tempfile.TemporaryDirectory(prefix='gim-sheet-', ignore_cleanup_errors=True) as work:
                     index, pages, _, _ = fit_browser(sheet, browser, Path(work))
                 print(f"OK pages={pages} preset={index} body={PRESETS[index]['body']}pt out=none engine=browser")
                 return 0
@@ -983,7 +1074,7 @@ def main(argv=None):
             result = fit(sheet, fonts)
             print(f"OK pages={result['pages']} preset={result['preset']} body={result['body']}pt out=none engine=reportlab")
             return 0
-        checks = render(sheet, args.out, args.force, engine=engine, browser=browser)
+        checks = render(sheet, args.out, args.force, engine=args.engine, browser=browser)
         line = f"OK pages={checks['pages']} preset={checks['preset']} body={checks['body']}pt out={args.out / checks['pdf']}"
         if checks['previews'] is None:
             line += ' previews=none'

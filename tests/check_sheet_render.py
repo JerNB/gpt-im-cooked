@@ -414,10 +414,10 @@ NO_ENGINE_QUESTION = 'I can make the PDF if you let me install one Python packag
 
 
 def run_without_engines(*args):
-    """Run main() with ReportLab hidden and no browser discoverable."""
+    """Run main() with ReportLab hidden, no usable font for the native writer and no browser discoverable."""
     code = ("import sys; sys.modules['reportlab'] = None; "
             f"sys.path.insert(0, {str(SCRIPT.parent)!r}); import render_sheet as r; "
-            "r._browser_candidates = lambda: []; "
+            "r._browser_candidates = lambda: []; r.sheet_pdf.find_font_files = lambda language='en': None; "
             f"raise SystemExit(r.main({[str(a) for a in args]!r}))")
     done = subprocess.run([sys.executable, '-c', code], capture_output=True, text=True, encoding='utf-8')
     return done.returncode, done.stdout.strip(), done.stderr
@@ -798,6 +798,168 @@ def browser_test_real_example():
                 assert expected in found[0], expected
 
 
+# Native engine: pure standard-library PDF writer (runs where ReportLab and browsers cannot, e.g. sandboxes)
+
+def native_fitted(data):
+    sheet = rs.load_sheet(data)
+    return rs.fit_native(sheet, rs.sheet_pdf.load_fonts(sheet['language']))
+
+
+def pdf_structure(data):
+    """Check the cross-reference table points at every object; return the page count."""
+    import re as re_
+    assert data.startswith(b'%PDF-1.') and data.rstrip().endswith(b'%%EOF')
+    start = int(re_.search(rb'startxref\s+(\d+)', data[-64:]).group(1))
+    assert data[start:start + 4] == b'xref', 'startxref does not point at the xref table'
+    head = re_.match(rb'xref\s+0 (\d+)\s+', data[start:])
+    count = int(head.group(1))
+    entries = data[start + head.end(): start + head.end() + 20 * count]
+    for number in range(1, count):
+        offset = int(entries[20 * number: 20 * number + 10])
+        assert re_.match(rb'%d 0 obj' % number, data[offset:offset + 16]), f'object {number} offset wrong'
+    return rs.pdf_page_count(data)
+
+
+def native_test_example_renders():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        checks = rs.render(rs.load_sheet(sheet_with()), out, engine='native')
+        assert checks['engine'] == 'native' and 1 <= checks['pages'] <= 2, checks
+        data = (out / checks['pdf']).read_bytes()
+        assert pdf_structure(data) == checks['pages']
+        for marker in (b'/FontFile2', b'/ToUnicode', b'/Identity-H', b'/CIDFontType2'):
+            assert marker in data, marker
+        assert len(data) < 400_000, f'fonts should be subset: {len(data)} bytes'
+        assert checks['missing_glyphs'] == [] and len(checks['column_fill']) >= 2
+        assert all(0 < f <= 1.0 for f in checks['column_fill']), checks['column_fill']
+
+
+def native_test_guide_one_column_no_cap():
+    sheet = rs.load_sheet(multiplied(3, 'study-guide'))
+    result = rs.fit_native(sheet, rs.sheet_pdf.load_fonts('en'))
+    assert result['preset'] == 1 and result['pages'] > 2, result
+
+
+def native_test_cut_content_grows_type():
+    small = native_fitted(sheet_with(lambda d: d.update(sections=d['sections'][:2])))
+    full = native_fitted(sheet_with())
+    assert small['preset'] <= full['preset'] and small['preset'] == 0, (small, full)
+    dense = native_fitted(multiplied(2))
+    assert dense['preset'] > full['preset'] or dense['pages'] == 2, (dense, full)
+
+
+def native_test_overflow_reports_sections():
+    try:
+        native_fitted(multiplied(12))
+    except rs.Overflow as error:
+        ids = [sid for sid, _ in error.sections]
+        assert 'interaction-0' in ids and all(h > 0 for _, h in error.sections) and error.over_pt > 0
+        return
+    raise AssertionError('12x content fitted on two pages')
+
+
+def native_test_block_taller_than_column():
+    def huge(d):
+        d['sections'][2]['blocks'][0]['rows'] = [[f'r{i}', 'a', 'b'] for i in range(200)]
+    try:
+        native_fitted(sheet_with(huge))
+    except rs.Overflow as error:
+        assert error.sections and error.sections[0][0] == 'classify' and 'taller' in error.reason, error.reason
+        return
+    raise AssertionError('a 200-row table fitted inside one column')
+
+
+def native_test_code_too_wide():
+    def wide(d):
+        d['sections'][5]['blocks'][0]['text'] = 'x <- ' + 'very_long_identifier_' * 8
+    try:
+        native_fitted(sheet_with(wide))
+    except rs.Overflow as error:
+        assert error.sections[0][0] == 'code' and 'wider' in error.reason, (error.sections, error.reason)
+        return
+    raise AssertionError('a code line wider than a column was accepted')
+
+
+def native_test_minimum_body():
+    data = multiplied(2)
+    data['allowance']['min_body'] = 10.5
+    try:
+        result = native_fitted(data)
+    except rs.Overflow:
+        return
+    assert result['body'] >= 10.5, result
+
+
+def native_test_missing_glyph():
+    with tempfile.TemporaryDirectory() as tmp:
+        sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][0]['blocks'].append(
+            {'type': 'text', 'text': 'emoji \U0001F600 here'})))
+        try:
+            rs.render(sheet, Path(tmp) / 'out', engine='native')
+        except rs.SheetError as error:
+            assert 'U+1F600' in str(error), error
+        else:
+            raise AssertionError('a character the fonts lack was accepted')
+        assert not (Path(tmp) / 'out').exists() or not list((Path(tmp) / 'out').glob('*.pdf'))
+
+
+def native_test_text_and_positions():
+    """With pypdfium2: the text is extractable (ToUnicode) and every glyph on page 1 sits in a column."""
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        long_cell = 'very_long_identifier_' * 3
+        data = sheet_with(lambda d: d['sections'][2]['blocks'][0]['rows'].append([long_cell, 'x', 'y']))
+        checks = rs.render(rs.load_sheet(data), out, engine='native')
+        found = pdf_chars(out / checks['pdf'])
+        if found is None:
+            return
+        text = found[0]
+        for expected in (EXAMPLE['title'], EXAMPLE['course'], 'Exam use unconfirmed', 'Interaction model', 'TP / (TP + FN)'):
+            assert expected in text, expected
+        width = rs.PAGE_SIZES['letter'][0]
+        col_w = (width - 2 * rs.MARGIN - rs.COLUMN_GAP) / 2
+        cols = ((rs.MARGIN - 1, rs.MARGIN + col_w + 1), (rs.MARGIN + col_w + rs.COLUMN_GAP - 1, width - rs.MARGIN + 1))
+        stray = [(c, round(l), round(r)) for c, l, r in found[1] if not any(lo <= l and r <= hi for lo, hi in cols)]
+        assert not stray, stray[:10]
+        assert checks['previews'] and all((out / p).is_file() for p in checks['previews'])
+
+
+def native_test_cli_auto_without_reportlab():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'o'
+        code = ("import sys; sys.modules['reportlab'] = None; "
+                f"sys.path.insert(0, {str(SCRIPT.parent)!r}); import render_sheet as r; "
+                "r._browser_candidates = lambda: []; "
+                f"raise SystemExit(r.main([{str(write_sheet(tmp))!r}, '--out', {str(out)!r}]))")
+        done = subprocess.run([sys.executable, '-c', code], capture_output=True, text=True, encoding='utf-8')
+        assert done.returncode == 0 and 'engine=native' in done.stdout, (done.returncode, done.stdout, done.stderr)
+        assert list(out.glob('*-v1.pdf')) and not list(out.glob('*.html'))
+
+
+def test_browser_temp_cleanup_error_is_not_a_crash():
+    """A sandbox that refuses to delete the work folder must not turn into a traceback."""
+    real = os.rmdir
+    refused = []
+
+    def refuse(path, *args, **kwargs):
+        name = Path(path).name
+        if name.startswith('gim-sheet-') and not name.startswith('gim-sheet-browser-'):
+            refused.append(str(path))
+            raise PermissionError(5, 'Access is denied', str(path))
+        return real(path, *args, **kwargs)
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)})
+        os.rmdir = refuse
+        try:
+            checks = rs.render(rs.load_sheet(sheet_with()), Path(tmp) / 'out', engine='browser', browser=browser)
+        finally:
+            os.rmdir = real
+        assert checks['pages'] == 1 and refused, refused
+        for path in set(refused):
+            import shutil as shutil_
+            shutil_.rmtree(path, ignore_errors=True)
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 
@@ -816,6 +978,10 @@ def check():
         tests += [value for name, value in sorted(globals().items()) if name.startswith('render_test_')]
     else:
         print('SKIP rendering checks: reportlab not installed')
+    if rs.sheet_pdf.find_font_files('en'):
+        tests += [value for name, value in sorted(globals().items()) if name.startswith('native_test_')]
+    else:
+        print('SKIP native-engine checks: no usable TrueType font found')
     if rs.find_browser():
         tests += [value for name, value in sorted(globals().items()) if name.startswith('browser_test_')]
     else:

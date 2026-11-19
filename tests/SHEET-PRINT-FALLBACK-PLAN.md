@@ -44,6 +44,18 @@ Status: plan, cc, 2026-11-19. Source: findings 1-5 of the T016 pilot (`tests/rep
 2. The code-height check ignored padding and wrapping: the width check now uses the column minus the code padding, tabs are 4 spaces in both the estimate and the CSS, and the height counts wrapped lines at a 0.60 em fallback font width.
 3. `review-artifacts.md` says which blocks the browser engine checks.
 
+## Rerun on gpt-6-luna and the native engine (2026-11-19)
+
+The 8-turn New-arm rerun (`tests/reports/2026-11-19-sheet-rerun/` on `codex/T016-feature-pilot`) made no PDF. Headless Edge cannot start inside the Codex Windows sandbox, and the browser engine crashed while cleaning up its temporary folder. The human chose a pure-Python PDF writer:
+
+- **`scripts/sheet_pdf.py`** (standard library only):
+  - It reads system TrueType fonts (Segoe UI, Arial, DejaVu or Liberation, plus Consolas, Courier New or a monospace equivalent; fonts whose licence forbids embedding are skipped).
+  - It embeds a subset of each font as an Identity-H CID font with a ToUnicode map, so the text stays extractable.
+  - It lays out columns with the same presets, colours and geometry as the ReportLab engine and writes a PDF 1.4 file.
+  - Every block is kept together. A block taller than a column, or a code line wider than one, is reported with the ReportLab wording. Missing glyphs are checked against the real fonts.
+- `auto` is now ReportLab when installed, otherwise native. With no usable font it writes printable HTML and exits 3. The browser engine runs only with `--engine browser`, and its temporary folders are removed with `ignore_cleanup_errors`.
+- Checked inside `codex sandbox` (unelevated): the example sheet renders in 0.35 s, 2 pages, 66 KB.
+
 ## Not covered
 
 Glyph coverage in the browser engine, print layout on paper, and browsers other than Chromium (Firefox has no headless print-to-PDF). A short re-run of the New sheet sessions on `gpt-6-luna` (8 turns) follows the codex review and gives the post its sheet screenshot.
