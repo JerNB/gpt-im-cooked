@@ -1,0 +1,12 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<HOME>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<HOME>\\AppData\\Local\\Temp\\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\\home-sheet-New-rep2"))
+2026-11-19T00:03:16.338803Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in <HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\sheet-New-rep2\STA\sta-final-guide.json:
+      "blocks": [
+        {"type": "text", "text": "**Core question:** “What share of [reference group] also has [outcome]?” Start by naming the reference group; its count is the denominator."},
+        {"type": "example", "setup": "One table; switch the reference group to see why the two answers differ.", "steps": [
+          {"label": "Counts", "text": "Among 40 students: 25 commute; 10 of the commuters cycle."},
+          {"label": "Cycle among commuters", "text": "10 / 25 = 40.0% of commuters. Denominator: commuter total."},
+          {"label": "Commuters among cyclists", "text": "If the table gives a cyclist total, divide the commuter cyclists by that total. This is a different question and usually a different percentage."}
+        ], "takeaway": "P(A | B) means the share in group B that is also in A: count in both A and B divided by the total in B. The group after the bar sets the denominator."},
+        {"type": "mistake", "prompt": "A column percentage was requested, but the row total was used.", "first_error": "The recorded attempt selected a row total for a column percentage.", "fix": "Column percentage = cell / column total. Row percentage = cell / row total. Name the reference group, then use that group's total.", "conditions": "Each row of row percentages sums to 100%; each column of column percentages sums to 100%. Percentages down a column need not sum to 100%."},
+        {"type": "cue", "text": "Course reporting rule in the supplied outline: report proportions as percentages to **one decimal place** and name the reference group in words (for example, “40.0% of commuters”)."}
+      ]

@@ -1,0 +1,104 @@
+[
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 1,
+    "wall_seconds": 202.37,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 330167,
+      "cached_input_tokens": 302720,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5037,
+      "reasoning_output_tokens": 1705
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 330167,
+      "cached_input_tokens": 302720,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5037,
+      "reasoning_output_tokens": 1705
+    },
+    "material_read": true,
+    "skill_read": true
+  },
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 2,
+    "wall_seconds": 75.39,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 607521,
+      "cached_input_tokens": 571904,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8386,
+      "reasoning_output_tokens": 3639
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 277354,
+      "cached_input_tokens": 269184,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3349,
+      "reasoning_output_tokens": 1934
+    }
+  },
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 3,
+    "wall_seconds": 143.68,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 991543,
+      "cached_input_tokens": 944128,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 15590,
+      "reasoning_output_tokens": 7423
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 384022,
+      "cached_input_tokens": 372224,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7204,
+      "reasoning_output_tokens": 3784
+    }
+  },
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 4,
+    "wall_seconds": 66.56,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 197572,
+      "cached_input_tokens": 175872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2798,
+      "reasoning_output_tokens": 749
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 197572,
+      "cached_input_tokens": 175872,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 2798,
+      "reasoning_output_tokens": 749
+    }
+  }
+]

@@ -1,0 +1,208 @@
+{
+  "format": "gpt-im-cooked-study-plan/1",
+  "plan_id": "sta-cs-finals-2026",
+  "generated_on": "2026-11-18",
+  "start": "2026-11-18",
+  "availability": {
+    "weekly": {
+      "mon": [
+        "19:00-22:00"
+      ],
+      "tue": [
+        "19:00-22:00"
+      ],
+      "wed": [
+        "19:00-22:00"
+      ],
+      "thu": [
+        "19:00-22:00"
+      ],
+      "fri": [
+        "19:00-22:00"
+      ],
+      "sat": [
+        "14:00-18:00"
+      ],
+      "sun": [
+        "14:00-18:00"
+      ]
+    },
+    "days_off": [
+      "2026-11-25",
+      "2026-11-26",
+      "2026-11-27"
+    ],
+    "max_minutes_per_day": 180,
+    "min_block": 25,
+    "max_block": 90
+  },
+  "courses": [
+    {
+      "id": "sta110",
+      "title": "STAT 110",
+      "exam": {
+        "start": "2026-12-08T09:00",
+        "end": "2026-12-08T12:00"
+      },
+      "record": "STA/learning-record.md"
+    },
+    {
+      "id": "cs101",
+      "title": "CS 101",
+      "exam": {
+        "start": "2026-12-10T14:00",
+        "end": "2026-12-10T17:00"
+      },
+      "record": "CS/learning-record.md"
+    },
+    {
+      "id": "hist101",
+      "title": "HIST 101",
+      "exam": {
+        "start": "2026-12-11T09:00",
+        "end": "2026-12-11T09:01"
+      },
+      "record": null,
+      "weekly_minutes": 120
+    }
+  ],
+  "tasks": [
+    {
+      "id": "sta-t1-recheck",
+      "course": "sta110",
+      "kind": "recheck",
+      "minutes": 30,
+      "title": "Conditional probability: unaided recheck",
+      "not_before": "2026-11-20",
+      "due": "exam",
+      "priority": 1,
+      "basis": "Concepts T1: Demonstrated, Recheck before exam",
+      "details": "Answer a new conditional probability question without notes; check the reference group before computing."
+    },
+    {
+      "id": "sta-t2-variant",
+      "course": "sta110",
+      "kind": "variant",
+      "minutes": 45,
+      "title": "Two-way tables: denominator variant",
+      "due": "exam",
+      "priority": 1,
+      "basis": "Concepts T2: Needs practice (2026-11-17 attempt confused row and column denominators)",
+      "details": "For new row and column percentages, name the reference group and use its total as the denominator."
+    },
+    {
+      "id": "sta-t3-gap",
+      "course": "sta110",
+      "kind": "source-gap",
+      "minutes": 25,
+      "title": "Bayes’ rule: locate course notes",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts T3: Unassessed; in scope in S1, teaching notes not posted",
+      "details": "Find the course notes or an instructor-provided explanation for Bayes’ rule. The outline alone does not support teaching it."
+    },
+    {
+      "id": "sta-t4-learn",
+      "course": "sta110",
+      "kind": "learn",
+      "minutes": 60,
+      "title": "Grouped summaries: learn from lecture notes",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts T4: Unassessed; notes available in S2 section 3",
+      "details": "Review the grouped summaries section of the lecture notes and write a short explanation of its method."
+    },
+    {
+      "id": "sta-t4-practice",
+      "course": "sta110",
+      "kind": "practice",
+      "minutes": 45,
+      "title": "Grouped summaries: practice",
+      "not_before": "2026-11-22",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts T4: Unassessed; notes available in S2 section 3",
+      "details": "Attempt relevant course practice independently, then check your reasoning against the supplied key if available."
+    },
+    {
+      "id": "sta-mock",
+      "course": "sta110",
+      "kind": "mock",
+      "minutes": 120,
+      "title": "STAT 110 timed mock sitting",
+      "not_before": "2026-12-04",
+      "due": "2026-12-06",
+      "priority": 1,
+      "basis": "Per-course mock sitting 2–4 days before exam",
+      "details": "Use a supplied practice or past paper as a timed sitting, then review the answers. Historical format is not a guarantee of final format."
+    },
+    {
+      "id": "cs-p2-variant",
+      "course": "cs101",
+      "kind": "variant",
+      "minutes": 45,
+      "title": "Loop tracing: comparison-count variant",
+      "due": "exam",
+      "priority": 1,
+      "basis": "Concepts P2: Needs practice (2026-11-17 attempt counted assignments and loop checks)",
+      "details": "Trace a new loop and count only element-to-element comparisons."
+    },
+    {
+      "id": "cs-p1-transfer",
+      "course": "cs101",
+      "kind": "practice",
+      "minutes": 45,
+      "title": "List aliasing: transfer practice",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts P1: Improving; correct same-structure work, transfer not yet reviewed",
+      "details": "Trace object identity before mutation in a new function or setting, then explain what changes through an alias."
+    },
+    {
+      "id": "cs-p3-gap",
+      "course": "cs101",
+      "kind": "source-gap",
+      "minutes": 25,
+      "title": "Big-O: locate course notes",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts P3: Unassessed; in scope in P1, teaching notes not posted",
+      "details": "Find the course notes or an instructor-provided explanation for Big-O; the outline alone does not support teaching it."
+    },
+    {
+      "id": "cs-p4-learn",
+      "course": "cs101",
+      "kind": "learn",
+      "minutes": 60,
+      "title": "Nested data summaries: learn from notes",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts P4: Unassessed; notes available in P2 section 3",
+      "details": "Review nested data summaries in the notes and explain the steps in your own words."
+    },
+    {
+      "id": "cs-p4-practice",
+      "course": "cs101",
+      "kind": "practice",
+      "minutes": 45,
+      "title": "Nested data summaries: practice",
+      "not_before": "2026-11-24",
+      "due": "exam",
+      "priority": 2,
+      "basis": "Concepts P4: Unassessed; notes available in P2 section 3",
+      "details": "Attempt relevant course practice independently, then check your work against the supplied key if available."
+    },
+    {
+      "id": "cs-mock",
+      "course": "cs101",
+      "kind": "mock",
+      "minutes": 120,
+      "title": "CS 101 timed mock sitting",
+      "not_before": "2026-12-06",
+      "due": "2026-12-08",
+      "priority": 1,
+      "basis": "Per-course mock sitting 2–4 days before exam",
+      "details": "Use the supplied practice set as a timed sitting, then review the answers. The final format is not established by available materials."
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Review — Supported Topics",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "unconfirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {
+      "id": "reference-group",
+      "title": "Conditional probability and two-way tables",
+      "weight": "high",
+      "topics": ["T1", "T2"],
+      "blocks": [
+        {"type": "text", "text": "**Core question:** “What share of [reference group] also has [outcome]?” Start by naming the reference group; its count is the denominator."},
+        {"type": "example", "setup": "One table; switch the reference group to see why the two answers differ.", "steps": [
+          {"label": "Counts", "text": "Among 40 students: 25 commute; 10 of the commuters cycle."},
+          {"label": "Cycle among commuters", "text": "10 / 25 = 40.0% of commuters. Denominator: commuter total."},
+          {"label": "Commuters among cyclists", "text": "If the table gives a cyclist total, divide the commuter cyclists by that total. This is a different question and usually a different percentage."}
+        ], "takeaway": "P(A | B) means the share in B that is also in A: both A and B / total in B. The group after the bar sets the denominator."},
+        {"type": "mistake", "prompt": "A column percentage was requested, but the row total was used.", "first_error": "The recorded attempt selected a row total for a column percentage.", "fix": "Column percentage = cell / column total. Row percentage = cell / row total. Name the reference group, then use that group's total.", "conditions": "Each row of row percentages sums to 100%; each column of column percentages sums to 100%. Percentages down a column need not sum to 100%."},
+        {"type": "cue", "text": "Course reporting rule in the supplied outline: report proportions as percentages to **one decimal place** and name the reference group in words (for example, “40.0% of commuters”)."}
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": ["T4"],
+      "blocks": [
+        {"type": "example", "setup": "A grouped summary calculates one chosen summary, such as a mean, for each non-empty category.", "steps": [
+          {"label": "Split", "text": "Group students by course section."},
+          {"label": "Summarize", "text": "Calculate the mean score separately within each section."},
+          {"label": "Output size", "text": "Four non-empty sections produce four rows, whether the original data had 120 students or another number."}
+        ], "takeaway": "Compare like with like: mean with mean, count with count. A group mean is not a group total."}
+      ]
+    },
+    {
+      "id": "scope-gaps",
+      "title": "Coverage and source gaps",
+      "weight": "low",
+      "topics": ["T3"],
+      "blocks": [
+        {"type": "cue", "text": "Bayes’ rule is listed in the outline, but its teaching notes are not posted. Get the lecture notes before relying on a rule or formula for this topic."},
+        {"type": "cue", "text": "This workspace contains a Midterm 1 outline, not a confirmed cumulative-final outline. Hypothesis testing is excluded from that midterm outline; its appearance in the 2025 paper does not confirm final coverage."}
+      ]
+    }
+  ],
+  "omitted": [
+    {"topic": "T3 Bayes’ rule", "reason": "In the outline but source explanation/lecture notes are unavailable; do not invent course method."},
+    {"topic": "Hypothesis testing", "reason": "Explicitly excluded from the supplied Midterm 1 outline; cumulative final status is unconfirmed."}
+  ],
+  "revision": {"round": 1, "standing": [], "changes": []}
+}

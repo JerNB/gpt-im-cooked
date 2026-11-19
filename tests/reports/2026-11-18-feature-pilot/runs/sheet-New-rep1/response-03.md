@@ -1,0 +1,5 @@
+I’ll revise the sheet using only examples and facts already in your course files, and record “no new information” as a standing constraint for future revisions. The PDF renderer is still unavailable without ReportLab, so I’ll update the editable source and check whether rendering is possible.
+
+Revised round 2: I replaced the abstract conditional probability and table-percentage rules with one worked commuter example using the existing Practice A data, and removed duplicate wording to give the layout more room. I added no course information and recorded that as a standing revision constraint.
+
+The updated editable source is [STA final exam cheat sheet](<ROOT>/sta-final-sheet.json). PDF generation is still unavailable because ReportLab isn’t installed, so I couldn’t inspect the revised page layout.

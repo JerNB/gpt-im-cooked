@@ -1,0 +1,25 @@
+{
+  "arm": "Old",
+  "workflow": "sheet",
+  "replicate": 1,
+  "turn": 2,
+  "wall_seconds": 104.91,
+  "returncode": 0,
+  "usage_cumulative": {
+    "input_tokens": 848321,
+    "cached_input_tokens": 790272,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 13420,
+    "reasoning_output_tokens": 2451
+  },
+  "complete": true,
+  "error": null,
+  "external_skill_commands": [],
+  "usage_delta": {
+    "input_tokens": 259441,
+    "cached_input_tokens": 250368,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 5218,
+    "reasoning_output_tokens": 831
+  }
+}

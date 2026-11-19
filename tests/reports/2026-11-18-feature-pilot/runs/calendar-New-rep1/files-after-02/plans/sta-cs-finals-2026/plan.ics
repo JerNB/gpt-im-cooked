@@ -1,0 +1,194 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GPT I'm Cooked//study-plan//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:sta-cs-finals-2026 study plan (GPT\, I'm Cooked)
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t2-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261118T190000
+DTEND:20261118T195000
+SUMMARY:STAT 110 · Two-way table denominator variant
+DESCRIPTION:Practice row and column percentages\; state reference group bef
+ ore denominator.\n\n50 minutes · variant\nBasis: Concepts T2: Needs pract
+ ice (attempt 2026-11-17 confused row and column denominators)\nCompleting 
+ this block does not change your recorded progress.
+CATEGORIES:variant
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t3-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261118T195000
+DTEND:20261118T201500
+SUMMARY:STAT 110 · Find Bayes' rule lecture notes
+DESCRIPTION:Locate notes or request excerpt\; outline alone does not explai
+ n method.\n\n25 minutes · source-gap\nBasis: Concepts T3: Unassessed\, in
+  scope\; notes not posted\nCompleting this block does not change your reco
+ rded progress.
+CATEGORIES:source-gap
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t4l-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261118T201500
+DTEND:20261118T210500
+SUMMARY:STAT 110 · Learn grouped summaries
+DESCRIPTION:Review one result per non-empty group\; compare same summary ac
+ ross groups.\n\n50 minutes · learn\nBasis: Concepts T4: Unassessed\, note
+ s available S2 section 3\nCompleting this block does not change your recor
+ ded progress.
+CATEGORIES:learn
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p2-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261118T210500
+DTEND:20261118T215000
+SUMMARY:CS 101 · Loop comparison-count variant
+DESCRIPTION:Trace changed loop\; report element-to-element comparisons only
+ .\n\n45 minutes · variant\nBasis: Concepts P2: Needs practice (attempt 20
+ 26-11-17 counted assignments and loop checks)\nCompleting this block does 
+ not change your recorded progress.
+CATEGORIES:variant
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p1-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261119T190000
+DTEND:20261119T194500
+SUMMARY:CS 101 · List aliasing transfer
+DESCRIPTION:Trace nested-list example\; mark shared outer object and nested
+  lists after shallow copy.\n\n45 minutes · practice\nBasis: Concepts P1: 
+ Improving\; transfer attempt not yet reviewed\nCompleting this block does 
+ not change your recorded progress.
+CATEGORIES:practice
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p3-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261119T194500
+DTEND:20261119T201000
+SUMMARY:CS 101 · Find Big-O lecture notes
+DESCRIPTION:Locate notes or request excerpt\; outline alone does not explai
+ n Big-O.\n\n25 minutes · source-gap\nBasis: Concepts P3: Unassessed\, in 
+ scope\; notes not posted\nCompleting this block does not change your recor
+ ded progress.
+CATEGORIES:source-gap
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p4l-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261119T201000
+DTEND:20261119T210000
+SUMMARY:CS 101 · Learn nested data summaries
+DESCRIPTION:Summarize each inner list separately using requested statistic\
+ ; identify group.\n\n50 minutes · learn\nBasis: Concepts P4: Unassessed\,
+  notes available P2 section 3\nCompleting this block does not change your 
+ recorded progress.
+CATEGORIES:learn
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t1-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261120T190000
+DTEND:20261120T193000
+SUMMARY:STAT 110 · Conditional probability recheck
+DESCRIPTION:Solve a fresh item without notes\; name the reference group\, d
+ enominator\, and one-decimal percentage.\n\n30 minutes · recheck\nBasis: 
+ Concepts T1: Demonstrated\, Recheck before exam\nCompleting this block doe
+ s not change your recorded progress.
+CATEGORIES:recheck
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t4p-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261121T140000
+DTEND:20261121T144000
+SUMMARY:STAT 110 · Grouped summaries practice
+DESCRIPTION:Compute requested summary separately by group\; check key.\n\n4
+ 0 minutes · practice\nBasis: Concepts T4: Unassessed\, notes available S2
+  section 3\nCompleting this block does not change your recorded progress.
+CATEGORIES:practice
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p4p-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261121T144000
+DTEND:20261121T152000
+SUMMARY:CS 101 · Nested summaries practice
+DESCRIPTION:Work practice items\; do not combine groups unless asked.\n\n40
+  minutes · practice\nBasis: Concepts P4: Unassessed\, notes available P2 
+ section 3\nCompleting this block does not change your recorded progress.
+CATEGORIES:practice
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-mock-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261204T190000
+DTEND:20261204T210000
+SUMMARY:STAT 110 · STAT 110 mock review
+DESCRIPTION:Timed review from supplied practice\, then check key. Hypothesi
+ s testing excluded.\n\n120 minutes · mock\nBasis: STAT 110 final preparat
+ ion\; in-scope topics T1-T4\nCompleting this block does not change your re
+ corded progress.
+CATEGORIES:mock
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-mock-1@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261206T140000
+DTEND:20261206T160000
+SUMMARY:CS 101 · CS 101 mock review
+DESCRIPTION:Timed review from supplied practice\, then check key. Recursion
+  excluded.\n\n120 minutes · mock\nBasis: CS 101 final preparation\; in-sc
+ ope topics P1-P4\nCompleting this block does not change your recorded prog
+ ress.
+CATEGORIES:mock
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-exam@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261208T090000
+DTEND:20261208T120000
+SUMMARY:STAT 110 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-exam@gpt-im-cooked
+DTSTAMP:20261118T233338Z
+DTSTART:20261210T140000
+DTEND:20261210T170000
+SUMMARY:CS 101 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
