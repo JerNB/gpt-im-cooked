@@ -1183,6 +1183,37 @@ def render_test_styled_cells_measured_with_their_fonts():
     assert widths[1] >= stringWidth('summarise_by_group()', fonts['mono'], size) + 6 - 0.01, widths
 
 
+def native_test_formula_words_wrap_as_units():
+    """A word made of several runs (x^{2}) moves to the next line whole; its exponent never sits alone."""
+    fonts = rs.sheet_pdf.load_fonts('en')
+    for size in (11.0, 14.0):
+        lay = rs.sheet_pdf.Layout(fonts, size, '#000000')
+        word = lay.width_of(rs.sheet_pdf.styled_words('x^{2}')[0])
+        both = lay.width_of(rs.sheet_pdf.runs('i x^{2}'))
+        width = (word + both) / 2  # fits x^{2} alone but not "i x^{2}"
+        lines = lay.wrap('i x^{2}', width)
+        texts = [''.join(p for p, *_ in line) for line in lines]
+        assert texts == ['i', 'x2'], (size, texts)
+        sheet = rs.load_sheet(sheet_with())
+        cols = [['', 'i x^{2}'], ['', 'm' * 25]]
+        widths = rs.sheet_pdf.table_widths(cols, rs._geometry(sheet)[3], lay.width_of, pad=6.0)
+        if sum(widths) and widths != [rs._geometry(sheet)[3] / 2] * 2:
+            for line in lay.wrap('i x^{2}', widths[0] - 6.0):
+                assert any(kind == '' for _, _, kind, *_ in line), (size, widths, line)
+
+
+def render_test_script_width_matches_paragraph():
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.platypus.paraparser import ParaParser
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    fonts = rs.find_fonts('en')
+    for size in (9.0, 11.0, 11.88, 14.0):
+        frags = ParaParser().parse('x<super>Noncommuters</super>', ParagraphStyle('t', fontName=fonts['body'], fontSize=size))[1]
+        actual = sum(stringWidth(f.text, f.fontName, f.fontSize) for f in frags)
+        measured = rs._reportlab_width_of(fonts, size)(rs.sheet_pdf.runs('x^{Noncommuters}'))
+        assert abs(actual - measured) < 0.01, (size, actual, measured)
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 

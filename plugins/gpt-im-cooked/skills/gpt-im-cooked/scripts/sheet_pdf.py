@@ -347,58 +347,49 @@ class Layout:
         return size * 0.7 if kind in ('sup', 'sub') else size
 
     def wrap(self, text, width, size=None, bold=False, color=None):
-        """Lines of [(text, role, kind, size, color)] fitting `width`; long words are broken by character."""
+        """Lines of [(text, role, kind, size, color)] fitting `width`.
+
+        Words (which may mix runs, as in x^{2}) are placed whole; a word wider than the line is broken
+        by character.
+        """
         size = size or self.size
         color = color or self.color
-        text = re.sub(r'\s+', ' ', text).strip()
-        pieces = []  # (word or ' ', role, kind)
-        for chunk, role, kind in runs(text, bold):
-            for part in re.split(r'( )', chunk):
-                if part:
-                    pieces.append((part, role, kind))
-        lines, line, used = [], [], 0.0
+        base = 'bold' if bold else 'body'
+        space = self.fonts[base].width(' ', size)
 
-        def w(piece):
-            part, role, kind = piece
+        def seg_w(part, role, kind):
             return self.fonts[role].width(part, self.seg_size(kind, size))
-
-        def flush():
-            nonlocal line, used
-            while line and line[-1][0] == ' ':
-                used -= w(line.pop())
-            lines.append(line)
-            line, used = [], 0.0
-        for piece in pieces:
-            if piece[0] == ' ' and not line:
+        lines, line, used = [], [], 0.0
+        for word in styled_words(text, bold):
+            word_w = sum(seg_w(*seg) for seg in word)
+            gap = space if line else 0.0
+            if used + gap + word_w <= width + 0.01:
+                if line:
+                    line.append((' ', base, ''))
+                line += word
+                used += gap + word_w
                 continue
-            width_p = w(piece)
-            if used + width_p <= width + 0.01:
-                line.append(piece)
-                used += width_p
+            if line:
+                lines.append(line)
+                line, used = [], 0.0
+            if word_w <= width + 0.01:
+                line, used = list(word), word_w
                 continue
-            if line and piece[0] != ' ':
-                flush()
-            if piece[0] == ' ':
-                continue
-            if width_p <= width + 0.01:
-                line.append(piece)
-                used += width_p
-                continue
-            part, role, kind = piece  # a token wider than the line: break it by character
-            chunk = ''
-            for char in part:
-                if self.fonts[role].width(chunk + char, self.seg_size(kind, size)) + used > width + 0.01 and (chunk or line):
-                    if chunk:
-                        line.append((chunk, role, kind))
-                    flush()
-                    chunk = char
-                else:
-                    chunk += char
-            if chunk:
-                line.append((chunk, role, kind))
-                used += self.fonts[role].width(chunk, self.seg_size(kind, size))
+            for part, role, kind in word:  # wider than a whole line: break by character
+                chunk = ''
+                for char in part:
+                    if used + seg_w(chunk + char, role, kind) > width + 0.01 and (chunk or line):
+                        if chunk:
+                            line.append((chunk, role, kind))
+                        lines.append(line)
+                        line, used, chunk = [], 0.0, char
+                    else:
+                        chunk += char
+                if chunk:
+                    line.append((chunk, role, kind))
+                    used += seg_w(chunk, role, kind)
         if line or not lines:
-            flush()
+            lines.append(line)
         return [[(p, r, k, size, color) for p, r, k in ln] for ln in lines]
 
 

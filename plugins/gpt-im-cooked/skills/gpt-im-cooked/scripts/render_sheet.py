@@ -319,7 +319,8 @@ def _reportlab_width_of(fonts, size):
     from reportlab.pdfbase.pdfmetrics import stringWidth
 
     def width_of(segments):
-        return sum(stringWidth(part, fonts[role], size * 0.7 if kind else size) for part, role, kind in segments)
+        script = max(size - 2, size * 0.8)  # ReportLab's <super>/<sub> size
+        return sum(stringWidth(part, fonts[role], script if kind else size) for part, role, kind in segments)
     return width_of
 
 
