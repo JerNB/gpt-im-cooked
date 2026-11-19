@@ -652,7 +652,7 @@ def to_html(sheet, preset_index):
   @bottom-right {{ content: counter(page); font: 7.5pt {fonts}; color: {MUTED}; }} }}
 html {{ background: #fff; }}
 body {{ margin: 0; color: {INK}; font-family: {fonts}; font-size: {body}pt; line-height: {LEADING};
-  columns: {columns}; column-gap: {COLUMN_GAP}pt; column-fill: auto; }}
+  columns: {columns}; column-gap: {COLUMN_GAP}pt; column-fill: auto; overflow-wrap: anywhere; }}
 .section.high {{ font-size: {round(body * HIGH_SCALE, 2)}pt; }}
 h2 {{ font-size: 1.16em; line-height: 1.2; color: {BRAND}; margin: {preset['section_gap']}pt 0 {gap}pt;
   break-after: avoid; }}
@@ -664,8 +664,8 @@ p {{ margin: 0 0 {gap}pt; }}
 .cue {{ padding-left: 0.9em; text-indent: -0.9em; }}
 .cue::before {{ content: "\\2022"; display: inline-block; width: 0.9em; text-indent: 0; }}
 .muted {{ color: {MUTED}; }}
-table {{ width: 100%; border-collapse: collapse; }}
-th, td {{ text-align: left; vertical-align: top; padding: 1.5pt 3pt; border-bottom: 0.4pt solid {RULE}; font-weight: normal; }}
+table {{ width: 100%; border-collapse: collapse; table-layout: fixed; }}
+th, td {{ text-align: left; vertical-align: top; padding: 1.5pt 3pt; border-bottom: 0.4pt solid {RULE}; font-weight: normal; overflow-wrap: anywhere; }}
 .grid th {{ color: {BRAND}; font-weight: 600; }}
 .data thead th {{ background: {TINT}; font-weight: 600; }}
 .takeaway {{ margin: {round(gap * 0.6, 2)}pt 0 0; }}
@@ -725,9 +725,44 @@ def _browser_name(browser):
     return Path(browser[-1]).name
 
 
-def print_pdf(browser, html_path, pdf_path, timeout=60):
-    """Print `html_path` with a headless browser and a throwaway profile; return the finished PDF bytes."""
+def _stop_profile_processes(profile):
+    """Stop browser processes started for this print: they are the only ones whose command line names `profile`."""
+    import subprocess
+    marker = str(profile)
+    try:
+        if os.name == 'nt':
+            quoted = marker.replace("'", "''")
+            script = ("Get-CimInstance Win32_Process | Where-Object { $_.ProcessId -ne $PID -and $_.CommandLine "
+                      f"-and $_.CommandLine.Contains('{quoted}') }} | ForEach-Object {{ "
+                      "Stop-Process -Id $_.ProcessId -Force -ErrorAction SilentlyContinue }")
+            subprocess.run(['powershell', '-NoProfile', '-NonInteractive', '-Command', script],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=30)
+        else:
+            subprocess.run(['pkill', '-KILL', '-f', re.escape(marker)], stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        pass  # the caller reports the profile if it cannot be removed
+
+
+def _remove_profile(profile):
+    """Remove the throwaway profile, stopping its browser processes if they still hold it. True when removed."""
     import shutil
+    import time
+    for attempt in range(24):
+        shutil.rmtree(profile, ignore_errors=True)
+        if not profile.exists():
+            return True
+        if attempt in (3, 12):  # still in use after about 1 s / 4 s: stop what this print started
+            _stop_profile_processes(profile)
+        time.sleep(0.25)
+    return False
+
+
+def print_pdf(browser, html_path, pdf_path, timeout=60, leftovers=None):
+    """Print `html_path` with a headless browser and a throwaway profile; return the finished PDF bytes.
+
+    A profile that cannot be removed is appended to `leftovers` (and named in the error on failure).
+    """
     import subprocess
     import tempfile
     import time
@@ -737,27 +772,34 @@ def print_pdf(browser, html_path, pdf_path, timeout=60):
                                '--print-to-pdf-no-header', f'--print-to-pdf={pdf_path}', html_path.resolve().as_uri()]
     name = _browser_name(browser)
     deadline = time.monotonic() + timeout
+    data, failure = None, None
     try:
-        try:
-            subprocess.run(command, capture_output=True, timeout=timeout)
-        except (OSError, subprocess.SubprocessError) as error:
-            raise SheetError(f'the browser ({name}) could not print the sheet: {error}') from None
+        # Output goes to DEVNULL: a detached browser child must not keep our pipes (and this call) open.
+        subprocess.run(command, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                       timeout=timeout)
+    except (OSError, subprocess.SubprocessError) as error:
+        failure = f'the browser ({name}) could not print the sheet: {error}'
+    if failure is None:
         # Some launchers (Edge on Windows) return before the PDF exists: wait for a complete, stable file.
         last = -1
         while time.monotonic() < deadline:
             if pdf_path.is_file():
-                data = pdf_path.read_bytes()
-                if data.startswith(b'%PDF') and data.rstrip().endswith(b'%%EOF') and len(data) == last:
-                    return data
-                last = len(data)
+                current = pdf_path.read_bytes()
+                if current.startswith(b'%PDF') and current.rstrip().endswith(b'%%EOF') and len(current) == last:
+                    data = current
+                    break
+                last = len(current)
             time.sleep(0.25)
-        raise SheetError(f'the browser ({name}) did not write a complete PDF within {timeout}s')
-    finally:
-        for _ in range(20):  # the browser may still hold the profile for a moment after printing
-            shutil.rmtree(profile, ignore_errors=True)
-            if not profile.exists():
-                break
-            time.sleep(0.25)
+        else:
+            failure = f'the browser ({name}) did not write a complete PDF within {timeout}s'
+    if failure is not None:
+        _stop_profile_processes(profile)
+    removed = _remove_profile(profile)
+    if not removed and leftovers is not None:
+        leftovers.append(str(profile))
+    if failure is not None:
+        raise SheetError(failure + ('' if removed else f'; temporary browser profile left at {profile}'))
+    return data
 
 
 def _candidate_presets(sheet):
@@ -770,19 +812,28 @@ def _candidate_presets(sheet):
     return presets
 
 
-def _code_fits(sheet, preset, col_w):
-    """Estimated widest code line against the column (monospace advance), or an Overflow describing it."""
+def _code_fits(sheet, preset, col_w, frame_h):
+    """Estimated code width and height against one column, or an Overflow describing the first problem.
+
+    Code is the one block the browser cannot break sensibly; other blocks taller than a column are
+    continued in the next column (never clipped), as `break-inside: avoid` allows.
+    """
     for section in sheet['sections']:
         for block in section['blocks']:
             if block['type'] != 'code':
                 continue
-            widest = max(len(line.expandtabs(4)) for line in block['text'].splitlines()) * MONO_ADVANCE * preset['code']
+            lines = [line.expandtabs(4) for line in block['text'].splitlines()]
+            widest = max(len(line) for line in lines) * MONO_ADVANCE * preset['code']
             if widest > col_w + 0.5:
                 return Overflow(widest - col_w, [], f'a code line in section {section["id"]} is wider than one column')
+            height = len(lines) * preset['code'] * 1.2 + 6 + preset['gap']
+            if height > frame_h:
+                return Overflow(height - frame_h, [(section['id'], round(height, 1))],
+                                f'a block in section {section["id"]} is taller than one column')
     return None
 
 
-def fit_browser(sheet, browser, work, timeout=60):
+def fit_browser(sheet, browser, work, timeout=60, leftovers=None):
     """Print each permitted preset (most spacious first) until one fits; returns (index, pages, pdf, html)."""
     presets = _candidate_presets(sheet)
     _, _, columns, col_w, frame_h = _geometry(sheet)
@@ -790,12 +841,12 @@ def fit_browser(sheet, browser, work, timeout=60):
     target = sheet['allowance']['sheets'] * sheet['allowance']['sides']
     problem, pages = None, None
     for index, preset in presets:
-        problem = _code_fits(sheet, preset, col_w)
+        problem = _code_fits(sheet, preset, col_w, frame_h)
         if problem:
             continue
         html_path, pdf_path = work / f'preset-{index}.html', work / f'preset-{index}.pdf'
         html_path.write_text(to_html(sheet, index), encoding='utf-8')
-        pages = pdf_page_count(print_pdf(browser, html_path, pdf_path, timeout))
+        pages = pdf_page_count(print_pdf(browser, html_path, pdf_path, timeout, leftovers))
         if pages is None:
             raise SheetError(f'the browser ({_browser_name(browser)}) wrote a PDF without a readable page count')
         if guide or pages <= target:
@@ -857,7 +908,8 @@ def _render_browser(sheet, out_dir, stem, browser, timeout):
         html_path.write_text(to_html(sheet, index), encoding='utf-8')
         raise NoEngine(html_path)
     with tempfile.TemporaryDirectory(prefix='gim-sheet-') as work:
-        index, pages, tmp_pdf, tmp_html = fit_browser(sheet, browser, Path(work), timeout)
+        leftovers = []
+        index, pages, tmp_pdf, tmp_html = fit_browser(sheet, browser, Path(work), timeout, leftovers)
         out_dir.mkdir(parents=True, exist_ok=True)
         pdf_path = out_dir / f'{stem}.pdf'
         shutil.copyfile(tmp_pdf, pdf_path)
@@ -866,7 +918,8 @@ def _render_browser(sheet, out_dir, stem, browser, timeout):
     (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     checks = {'engine': 'browser', 'browser': _browser_name(browser), 'pdf': pdf_path.name, 'html': f'{stem}.html',
               'pages': pages, 'preset': index, 'body': preset['body'], 'code': preset['code'], 'column_fill': None,
-              'missing_glyphs': 'unchecked', 'allowance': sheet['allowance'], 'kind': sheet['kind'],
+              'missing_glyphs': 'unchecked', 'leftover_profiles': leftovers, 'allowance': sheet['allowance'],
+              'kind': sheet['kind'],
               'previews': _previews(pdf_path, out_dir, stem)}
     (out_dir / 'checks.json').write_text(json.dumps(checks, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     return checks
@@ -926,6 +979,8 @@ def main(argv=None):
         line += f" engine={checks['engine']}"
         if checks['engine'] == 'browser':
             line += ' glyphs=unchecked'
+            if checks['leftover_profiles']:
+                line += f" leftover_profiles={len(checks['leftover_profiles'])}"
         print(line)
         return 0
     except NoEngine as error:

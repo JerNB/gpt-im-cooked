@@ -32,6 +32,12 @@ Status: plan, cc, 2026-11-19. Source: findings 1-5 of the T016 pilot (`tests/rep
 - Real-browser checks run when a Chromium browser is found (skipped otherwise): the example renders to 2 pages or fewer, with header, footer and text present.
 - `check_study_plan.py`: missing `exam.end` is accepted, and the assumed end appears in the `.ics` and HTML. An explicit end is unchanged.
 
+## Review round 1 (codex, REQUEST_CHANGES) and changes
+
+1. Long tokens could overflow a column: tables now use a fixed layout, and cells, prose and inline code wrap anywhere. A real-browser check confirms that every character on page 1 stays inside a column (needs pypdfium2).
+2. A code block taller than a column passed browser fitting: its height is now estimated per preset, and it is rejected with the ReportLab reason, for sheets and guides. Other blocks taller than a column continue in the next column and are never clipped.
+3. A detached browser child could outlive a timeout and keep its profile: the processes whose command line names the throwaway profile are stopped, the profile is removed, and a profile that cannot be removed is reported (`leftover_profiles`). The fake launcher now detaches a delayed or hanging child that holds the profile.
+
 ## Not covered
 
 Glyph coverage in the browser engine, print layout on paper, and browsers other than Chromium (Firefox has no headless print-to-PDF). A short re-run of the New sheet sessions on `gpt-6-luna` (8 turns) follows the codex review and gives the post its sheet screenshot.

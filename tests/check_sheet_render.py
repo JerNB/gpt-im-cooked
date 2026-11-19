@@ -6,6 +6,7 @@ skipped with a message and the remaining checks still run. Layout only; content 
 from pathlib import Path
 import copy
 import json
+import os
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -437,14 +438,28 @@ def test_cli_no_engine_writes_printable_html():
 # Browser engine (standard library; a fake browser stands in for Edge/Chrome)
 
 FAKE_BROWSER = r"""
-import json, re, sys
+import json, os, re, subprocess, sys, time
 from pathlib import Path
 from urllib.parse import unquote, urlparse
 args = sys.argv[1:]
-log = Path(__file__).with_name('calls.jsonl')
-with log.open('a', encoding='utf-8') as f:
-    f.write(json.dumps(args) + '\n')
-behaviour = json.loads(Path(__file__).with_name('pages.json').read_text(encoding='utf-8'))
+here = Path(__file__)
+behaviour = json.loads(here.with_name('pages.json').read_text(encoding='utf-8'))
+if os.environ.get('FAKE_BROWSER_CHILD') != '1':
+    with here.with_name('calls.jsonl').open('a', encoding='utf-8') as f:
+        f.write(json.dumps(args) + '\n')
+    if behaviour.get('detach'):  # like the Edge launcher: start the real browser and return at once
+        flags = 0x00000008 | 0x00000200 if sys.platform == 'win32' else 0
+        subprocess.Popen([sys.executable, str(here), *args], env=dict(os.environ, FAKE_BROWSER_CHILD='1'),
+                         creationflags=flags, start_new_session=sys.platform != 'win32',
+                         stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        raise SystemExit(0)
+else:
+    profile = next(a.split('=', 1)[1] for a in args if a.startswith('--user-data-dir='))
+    os.chdir(profile)  # like a real browser, keep the profile folder in use
+    here.with_name('child.pid').write_text(str(os.getpid()), encoding='utf-8')
+    if behaviour.get('hang'):
+        time.sleep(3600)
+    time.sleep(behaviour.get('delay', 0))
 if behaviour.get('write') is False:
     raise SystemExit(0)
 target = next(a.split('=', 1)[1] for a in args if a.startswith('--print-to-pdf='))
@@ -607,6 +622,107 @@ def test_find_browser_uses_candidates():
             rs._browser_candidates = saved
 
 
+def pid_alive(pid):
+    if sys.platform == 'win32':
+        done = subprocess.run(['tasklist', '/FI', f'PID eq {pid}', '/NH'], capture_output=True, text=True)
+        return str(pid) in done.stdout
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+def test_browser_waits_for_detached_launcher():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)}, detach=True, delay=1.0)
+        checks = rs.render(rs.load_sheet(sheet_with()), Path(tmp) / 'out', engine='browser', browser=browser,
+                           timeout=15)
+        assert checks['pages'] == 1 and checks['leftover_profiles'] == [], checks
+
+
+def test_browser_hanging_child_is_stopped_and_profile_removed():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)}, detach=True, hang=True)
+        try:
+            rs.render(rs.load_sheet(sheet_with()), Path(tmp) / 'out', engine='browser', browser=browser, timeout=3)
+        except rs.SheetError as error:
+            assert 'did not write a complete PDF' in str(error), error
+        else:
+            raise AssertionError('a hanging browser must fail the render')
+        pid = int((Path(tmp) / 'child.pid').read_text(encoding='utf-8'))
+        assert not pid_alive(pid), f'browser child {pid} left running'
+        profile = next(a.split('=', 1)[1] for a in calls(tmp)[0] if a.startswith('--user-data-dir='))
+        assert not Path(profile).exists(), profile
+
+
+def test_browser_rejects_block_taller_than_column():
+    tall = {'type': 'code', 'text': '\n'.join(f'x{i} = {i}' for i in range(100))}
+    for kind in ('exam-sheet', 'study-guide'):
+        with tempfile.TemporaryDirectory() as tmp:
+            browser = fake_browser(tmp, {i: 1 for i in range(5)})
+            sheet = rs.load_sheet(sheet_with(lambda d: (d.update(kind=kind), d['sections'][0]['blocks'].append(tall))))
+            try:
+                rs.render(sheet, Path(tmp) / 'out', engine='browser', browser=browser)
+            except rs.Overflow as error:
+                assert 'taller than one column' in error.reason and error.sections, (kind, error.reason)
+            else:
+                raise AssertionError(f'{kind}: a 100-line code block cannot fit one column')
+            assert calls(tmp) == []
+
+
+def test_html_wraps_long_tokens():
+    page = rs.to_html(rs.load_sheet(sheet_with()), 0)
+    assert 'table-layout: fixed' in page
+    rule = next(line for line in page.splitlines() if line.startswith('th, td'))
+    assert 'overflow-wrap: anywhere' in rule, rule
+    assert 'column-fill: auto; overflow-wrap: anywhere' in page  # body rule: prose and inline code wrap
+
+
+def pdf_chars(path):
+    """(text, [(char, left, right)]) for page 1, or None without pypdfium2."""
+    try:
+        import pypdfium2 as pdfium
+    except ImportError:
+        return None
+    document = pdfium.PdfDocument(str(path))
+    try:
+        text = ''.join(document[i].get_textpage().get_text_range() for i in range(len(document)))
+        page = document[0].get_textpage()
+        boxes = []
+        for k in range(page.count_chars()):
+            char = page.get_text_range(k, 1)
+            if char.strip():
+                left, _, right, _ = page.get_charbox(k)
+                boxes.append((char, left, right))
+        return text, boxes
+    finally:
+        document.close()
+
+
+def browser_test_long_tokens_stay_in_columns():
+    long_cell = 'very_long_identifier_' * 6
+    def mutate(d):
+        d['sections'][0]['blocks'] = [
+            {'type': 'table', 'header': ['Name', 'Meaning'], 'rows': [[long_cell, 'x'], ['y', long_cell]]},
+            {'type': 'text', 'text': 'See ' + long_cell + ' and `' + long_cell + '`.'}]
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        code, stdout, stderr = run(write_sheet(tmp, sheet_with(mutate)), '--out', out, '--engine', 'browser')
+        assert code == 0, (code, stdout, stderr)
+        checks = json.loads((out / 'checks.json').read_text(encoding='utf-8'))
+        found = pdf_chars(out / checks['pdf'])
+        if found is None:
+            return  # character positions need pypdfium2
+        width = rs.PAGE_SIZES['letter'][0]
+        col_w = (width - 2 * rs.MARGIN - rs.COLUMN_GAP) / 2
+        left_col = (rs.MARGIN - 1, rs.MARGIN + col_w + 1)
+        right_col = (rs.MARGIN + col_w + rs.COLUMN_GAP - 1, width - rs.MARGIN + 1)
+        stray = [(c, round(l), round(r)) for c, l, r in found[1]
+                 if not any(lo <= l and r <= hi for lo, hi in (left_col, right_col))]
+        assert not stray, stray[:10]
+
+
 def browser_test_real_example():
     with tempfile.TemporaryDirectory() as tmp:
         out = Path(tmp) / 'out'
@@ -617,6 +733,10 @@ def browser_test_real_example():
         data = (out / checks['pdf']).read_bytes()
         assert data.startswith(b'%PDF') and rs.pdf_page_count(data) == checks['pages']
         assert [p.name for p in out.iterdir() if p.is_dir()] in ([], ['previews'])
+        found = pdf_chars(out / checks['pdf'])
+        if found is not None:
+            for expected in (EXAMPLE['title'], EXAMPLE['course'], 'Exam use unconfirmed', 'Interaction model'):
+                assert expected in found[0], expected
 
 
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
