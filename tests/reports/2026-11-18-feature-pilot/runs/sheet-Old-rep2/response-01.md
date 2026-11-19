@@ -8,8 +8,8 @@ One important scope issue: the available outline is explicitly for **Midterm 1**
 
 I made a **two-page starter guide** for STAT 110’s December 8 final, using the course files and your saved review record.
 
-- [Study guide PDF](<<ROOT>/outputs/study-guide.pdf>)
-- [Editable Markdown version](<<ROOT>/outputs/study-guide.md>)
+- Study guide PDF (`<ROOT>/outputs/study-guide.pdf`)
+- Editable Markdown version (`<ROOT>/outputs/study-guide.md`)
 
 The available outline is for **Midterm 1**, so the guide covers only its confirmed topics: conditional probability, two-way table percentages, and grouped summaries. It flags Bayes’ rule because its teaching notes are missing, and notes that the final’s full scope is unconfirmed. I included your recorded denominator mix-up as a focused reminder. I generated the PDF and inspected both pages; I did not change your learning record.
 

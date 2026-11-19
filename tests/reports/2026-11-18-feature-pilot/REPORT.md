@@ -70,3 +70,4 @@ Learning gains, real students, other models (results on `gpt-6-luna` are not com
 `protocol.json` (model, revisions, fingerprints, isolation), `results-*.json`, `runs/<session>/` (prompts, sanitized JSONL events, responses, per-turn file snapshots, usage metadata), frozen skills `skill-New/`, `skill-Old/`. Demo candidate for T013: `runs/calendar-New-rep2/files-after-03/plans/sta-cs-finals-2026/calendar.html` (synthetic courses). No New-arm sheet PDF exists for a screenshot.
 
 Sanitizing (2026-11-18, cc): the runner scrubbed temporary work paths only; private home-directory prefixes in 56 evidence files across this report and the three smoke folders were replaced with `<HOME>` before commit. Numbers and event structure are unchanged.
+Links in tutor replies that pointed into the temporary session folders (absolute or relative) were turned into plain `path` text so the archive has no broken links; the files themselves are in each turn's `files-after-NN/` snapshot.

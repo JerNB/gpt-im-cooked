@@ -13,7 +13,7 @@ The available files are for STAT 110, but the outline is explicitly for Midterm 
 
 I made a course-based starter guide from the STAT 110 files. It covers conditional probability, two-way tables, and grouped summaries, with a worked row-versus-column example based on the mix-up in your learning record.
 
-- [Editable review guide](<ROOT>/stat110-final-review.md)
-- [Guide content file](<ROOT>/stat110-final-review.json)
+- Editable review guide (`<ROOT>/stat110-final-review.md`)
+- Guide content file (`<ROOT>/stat110-final-review.json`)
 
 The supplied outline is for Midterm 1, so it doesn’t establish full cumulative-final coverage. Bayes’ rule is listed, but its teaching notes are missing; hypothesis testing’s status for the final is also unclear. The guide is marked as an exam sheet with use unconfirmed. I couldn’t render a PDF because ReportLab is unavailable, so the layout hasn’t been print-checked.

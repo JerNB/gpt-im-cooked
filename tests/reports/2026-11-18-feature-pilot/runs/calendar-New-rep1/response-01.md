@@ -15,8 +15,8 @@ I have the exam dates and topic evidence. I’m checking the planner’s input f
 
 I made a daily all-day review list for STAT 110 and CS 101, based on the targets in each course’s learning record. It schedules 12 study blocks totaling 640 minutes, with no blocks left unplaced.
 
-- [Study calendar](<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\calendar-New-rep1\plans\sta-cs-finals-2026\calendar.html)
-- [Importable calendar](<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\calendar-New-rep1\plans\sta-cs-finals-2026\plan.ics)
+- Study calendar (`<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\calendar-New-rep1\plans\sta-cs-finals-2026\calendar.html`)
+- Importable calendar (`<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\calendar-New-rep1\plans\sta-cs-finals-2026\plan.ics`)
 
 STAT 110’s first block is the two-way table denominator variant; CS 101’s is the loop comparison-count variant. Both target recorded practice needs. The plan also includes source-finding tasks for Bayes’ rule and Big-O, since the teaching notes are missing. It uses supplied practice for mock review, not a confirmed exam format.
 

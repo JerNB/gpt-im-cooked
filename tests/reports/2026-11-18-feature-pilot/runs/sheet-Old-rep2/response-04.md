@@ -8,7 +8,7 @@ I found an existing two-page draft and checked its rendered pages. It is readabl
 
 That opening line is my tutoring-workflow marker. I made a compact, two-page study draft using the supplied notes and your saved T2 denominator correction.
 
-- [Cheat sheet PDF](<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\sheet-Old-rep2\STA\outputs\exam-sheet-draft.pdf)
-- [Editable Markdown](<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\sheet-Old-rep2\STA\outputs\exam-sheet-draft.md)
+- Cheat sheet PDF (`<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\sheet-Old-rep2\STA\outputs\exam-sheet-draft.pdf`)
+- Editable Markdown (`<HOME>\AppData\Local\Temp\feature-pilot-2a5631ba7c3e49db90303fe645ab474a\sheet-Old-rep2\STA\outputs\exam-sheet-draft.md`)
 
 I checked the rendered pages for readability. The available outline is for Midterm 1, so the final’s topic coverage and reference-sheet rules remain unconfirmed. Bayes’ rule is listed, but its teaching notes are missing. I also updated the saved course scope to reflect those gaps.

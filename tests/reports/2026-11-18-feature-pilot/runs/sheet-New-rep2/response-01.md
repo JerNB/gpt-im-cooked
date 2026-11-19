@@ -12,7 +12,7 @@ The guide content is drafted. PDF export is unavailable because this environment
 
 **Hi student, let's get you uncooked.**
 
-I made an editable guide at [STA-final-study-guide.md](<ROOT>/outputs/STA-final-study-guide.md).
+I made an editable guide at STA-final-study-guide.md (`<ROOT>/outputs/STA-final-study-guide.md`).
 
 It uses the supplied course materials and includes a correction for your recorded row-versus-column denominator error. The full cumulative final scope isn’t confirmed by the available Midterm 1 outline, and Bayes’ rule is listed without teaching notes, so both gaps are called out in the guide.
 

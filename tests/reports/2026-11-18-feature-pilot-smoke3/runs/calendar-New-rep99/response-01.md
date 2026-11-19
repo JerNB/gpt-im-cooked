@@ -17,6 +17,6 @@ I made the all-day study calendar from today, Nov 18, through your finals. It in
 
 I used a 120-minute daily limit and assumed no days off, since you hadn’t given availability. The topic choices follow your learning records, including short blocks to find the missing Bayes’ rule and Big-O notes. Recursion and hypothesis testing are excluded per the course records.
 
-[Open the printable calendar](<ROOT>/plans/finals-2026/calendar.html) · [Import the calendar file](<ROOT>/plans/finals-2026/plan.ics)
+Open the printable calendar (`<ROOT>/plans/finals-2026/calendar.html`) · Import the calendar file (`<ROOT>/plans/finals-2026/plan.ics`)
 
 Import the `.ics` into a **separate calendar** so you can remove or replace the plan as a whole. Events are all-day review lists; the calendar sends no reminders, and completing a block does not update your learning record.

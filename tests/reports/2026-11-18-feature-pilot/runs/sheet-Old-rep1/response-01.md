@@ -8,8 +8,8 @@ The notes and profile reveal an important scope gap: the supplied outline is for
 
 Welcome to *GPT, I’m Cooked*. I made a two-page study guide from your local STAT 110 materials, with an editable copy:
 
-- [Download the PDF study guide](outputs/STAT110-final-study-guide.pdf)
-- [Open the editable Markdown copy](outputs/STAT110-final-study-guide.md)
+- Download the PDF study guide (`outputs/STAT110-final-study-guide.pdf`)
+- Open the editable Markdown copy (`outputs/STAT110-final-study-guide.md`)
 
 It covers conditional probability, two-way table percentages, grouped summaries, and Bayes’ rule. It emphasizes your recorded row-versus-column denominator error and includes a recheck cue for conditional probability.
 

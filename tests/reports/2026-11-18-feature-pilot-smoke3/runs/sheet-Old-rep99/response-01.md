@@ -8,7 +8,7 @@ The saved record shows one reviewed denominator error in two way tables, and an 
 
 Welcome to GPT, I’m Cooked. I made a two-page starter guide from the supplied STAT 110 materials, with extra focus on the saved row-versus-column denominator error and a recheck of conditional probability.
 
-- [Download the study guide PDF](<HOME>\AppData\Local\Temp\feature-pilot-18d08f1d721a4e929859b4e12ceda50f\sheet-Old-rep99\STA\outputs\sta_final_study_guide.pdf)
-- [View the editable guide](<HOME>\AppData\Local\Temp\feature-pilot-18d08f1d721a4e929859b4e12ceda50f\sheet-Old-rep99\STA\outputs\sta_final_study_guide.md)
+- Download the study guide PDF (`<HOME>\AppData\Local\Temp\feature-pilot-18d08f1d721a4e929859b4e12ceda50f\sheet-Old-rep99\STA\outputs\sta_final_study_guide.pdf`)
+- View the editable guide (`<HOME>\AppData\Local\Temp\feature-pilot-18d08f1d721a4e929859b4e12ceda50f\sheet-Old-rep99\STA\outputs\sta_final_study_guide.md`)
 
 The supplied outline is labeled “Midterm 1,” so the final’s full scope is unconfirmed. Bayes’ rule is listed there, but its teaching notes are missing. Send the final review sheet or remaining lecture notes and I can expand the guide.

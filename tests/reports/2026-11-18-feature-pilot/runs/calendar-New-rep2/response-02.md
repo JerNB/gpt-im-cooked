@@ -6,6 +6,6 @@ Great, I have the exam times and availability. I’m translating the recorded pr
 - **CS:** 6 blocks, 340 minutes. First: Nov 18, 9:10–9:55 pm, loop tracing.
 - The plan includes the Thanksgiving break, targeted practice, course-note source gaps for Bayes’ rule and Big-O, and one mock sitting per course.
 
-Files: [Importable calendar](</<ROOT>/plans/sta-cs-finals-2026/plan.ics>) · [Printable calendar](</<ROOT>/plans/sta-cs-finals-2026/calendar.html>)
+Files: Importable calendar (`/<ROOT>/plans/sta-cs-finals-2026/plan.ics`) · Printable calendar (`/<ROOT>/plans/sta-cs-finals-2026/calendar.html`)
 
 Import the `.ics` into a **separate calendar** so you can remove or replace the plan as a whole. The event times have no time zone, so your calendar app will display them in its own zone. The calendar sends no reminders, and completing a block does not update your learning record.

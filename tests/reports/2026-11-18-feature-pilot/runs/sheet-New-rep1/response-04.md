@@ -4,7 +4,7 @@ The profile already confirms the allowance: one sheet, both sides. The supplied 
 
 **Hi student, let's get you uncooked.**
 
-I made the sheet from the supplied STAT 110 materials: [sta-final-sheet.json](/<ROOT>/sta-final-sheet.json).
+I made the sheet from the supplied STAT 110 materials: sta-final-sheet.json (`/<ROOT>/sta-final-sheet.json`).
 
 It focuses on the T1/T2 denominator distinction, includes the supported T4 grouped-summary rule, and flags Bayes’ rule because the lecture notes weren’t supplied. The sheet allowance is confirmed as one sheet, both sides. The outline is labeled for Midterm 1, though, so broader cumulative-final coverage is unconfirmed; hypothesis testing is explicitly excluded by that outline.
 

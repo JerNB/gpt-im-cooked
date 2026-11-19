@@ -2,5 +2,5 @@ I’ll revise the reference sheet around the supplied commuter question as the w
 
 Updated the two-sided sheet with one worked conditional-probability example using the commuter data. I trimmed the abstract explanation and enlarged the text and spacing. I didn’t add new course information; the sheet still notes that the supplied materials lack a numerical two-way table example.
 
-- [Revised two-sided PDF](outputs/STAT110-final-reference-sheet.pdf)
-- [Editable Markdown copy](outputs/STAT110-final-reference-sheet.md)
+- Revised two-sided PDF (`outputs/STAT110-final-reference-sheet.pdf`)
+- Editable Markdown copy (`outputs/STAT110-final-reference-sheet.md`)

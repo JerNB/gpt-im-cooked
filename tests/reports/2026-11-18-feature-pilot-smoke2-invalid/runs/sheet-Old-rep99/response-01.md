@@ -8,7 +8,7 @@ The guide content is ready, including the documented denominator error and reche
 
 **Hi student, let's get you uncooked.**
 
-I made an [editable STAT 110 final study guide](outputs/STA-final-study-guide.html). It covers the documented material on conditional probability, two-way table percentages, and grouped summaries. It also emphasizes your recorded denominator mix-up and the conditional probability recheck due before the exam.
+I made an editable STAT 110 final study guide (`outputs/STA-final-study-guide.html`). It covers the documented material on conditional probability, two-way table percentages, and grouped summaries. It also emphasizes your recorded denominator mix-up and the conditional probability recheck due before the exam.
 
 The supplied outline is for Midterm 1, so the guide is a **course-based starter**, not confirmed complete final coverage. Bayes’ rule is named there, but the teaching notes are missing; the guide flags that gap. The final’s full scope and format remain unconfirmed.
 

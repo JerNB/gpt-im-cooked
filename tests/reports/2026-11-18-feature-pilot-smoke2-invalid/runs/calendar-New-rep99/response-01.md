@@ -18,6 +18,6 @@ I made a study calendar for both finals, using all-day task lists because I don�
 - **CS 101:** 7 blocks, 295 minutes. First block: Nov 19, loop comparison counts.
 - The plan also includes the recorded source gaps for Bayes’ rule and Big-O, and keeps excluded topics out of the review.
 
-Files: [calendar.ics](/<ROOT>/plans/fall-2026-finals/plan.ics) · [calendar preview](/<ROOT>/plans/fall-2026-finals/calendar.html)
+Files: calendar.ics (`/<ROOT>/plans/fall-2026-finals/plan.ics`) · calendar preview (`/<ROOT>/plans/fall-2026-finals/calendar.html`)
 
 Import the ICS into a separate calendar so you can remove or replace the plan as a group. The calendar has no time zone or reminders, and completing a block does not update your learning records. The plan uses a 120-minute daily planning cap; send your actual availability if you’d like me to retime it.

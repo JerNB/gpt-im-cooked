@@ -6,7 +6,7 @@ The profile already records that one two-sided sheet is allowed. The available o
 
 **Hi student, let's get you uncooked.**
 
-I made an [editable cheat sheet](<ROOT>/outputs/STA-final-cheat-sheet-editable.md) using the saved preference for one worked example and no added information.
+I made an editable cheat sheet (`<ROOT>/outputs/STA-final-cheat-sheet-editable.md`) using the saved preference for one worked example and no added information.
 
 The supplied outline covers Midterm 1, so this is a course-supported starter—not a confirmed map of the cumulative final. It covers conditional probability, two-way tables, and grouped summaries. Bayes’ rule is listed, but its teaching notes are missing; hypothesis testing is excluded from the Midterm 1 outline, and its final status is unknown.
 

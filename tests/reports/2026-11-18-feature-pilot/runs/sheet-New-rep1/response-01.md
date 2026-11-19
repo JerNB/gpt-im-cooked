@@ -15,6 +15,6 @@ That opening line is the tutoring marker; it’s not a measure of your progress.
 
 I drafted a **one-sheet, two-sided exam reference sheet**, marked **exam use unconfirmed**, since the exam’s sheet rules aren’t recorded. It focuses on the row-versus-column denominator issue from your prior attempt, includes a conditional probability recheck, and covers grouped summaries. Bayes’ rule is listed as in scope, but its lecture notes are missing, so I flagged it as a source gap rather than inventing a method. Hypothesis testing is excluded in the current outline.
 
-The PDF renderer couldn’t run because ReportLab isn’t installed. Here is the editable source: [STA final review sheet JSON](<ROOT>/sta-final-sheet.json). I couldn’t inspect a PDF preview because no PDF was generated.
+The PDF renderer couldn’t run because ReportLab isn’t installed. Here is the editable source: STA final review sheet JSON (`<ROOT>/sta-final-sheet.json`). I couldn’t inspect a PDF preview because no PDF was generated.
 
-I updated the learning record with the guide and the next step: get the Bayes’ rule notes, then revisit T1 and T2. [Learning record](<ROOT>/learning-record.md).
+I updated the learning record with the guide and the next step: get the Bayes’ rule notes, then revisit T1 and T2. Learning record (`<ROOT>/learning-record.md`).
