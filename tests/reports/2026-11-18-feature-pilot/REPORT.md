@@ -8,7 +8,7 @@ All 22 planned turns completed: no quota failure, no rerun, no global-skill acce
 
 - **Calendar works end to end on a smaller model.** In 2 of 2 sessions the tutor derived every task from the records exactly as `references/study-plan.md` prescribes, cited a real record row for each, ran `plan_study.py`, and delivered `plan.ics` + `calendar.html` with nothing unplaced.
 - **Three behaviour gaps in the calendar flow:** it did not wait for the availability answer in 1 of 2 sessions, never offered to add courses without records (0 of 2), and in 1 of 2 sessions did not add HIST 101 when asked.
-- **The new sheet path produced no PDF (0 of 4 sheet sessions × turns)** because the test host's Python has no ReportLab. The tutor correctly did not install it unasked and delivered an editable source, but it also **did not ask the student** whether to install it (0 of 2), which the skill requires. v2.0.1 produced a two-page PDF in 2 of 2 sessions by printing through the browser. On a host like this, the new sheet path is a regression in output format.
+- **The new sheet path produced no PDF (0 of 4 sheet sessions × turns)** because the test host's Python has no ReportLab. The tutor correctly did not install it unasked and delivered an editable source, but it also **did not ask the student** whether to install it (0 of 2), which the skill requires. v2.0.1 produced a two-page PDF in 2 of 2 sessions (with PyMuPDF, installed on this host; see the correction below). On a host like this, the new sheet path is a regression in output format.
 - **Preference memory works:** after the revision, New saved a `Reference-sheet preferences` section in 2 of 2 sessions and both fresh turn-4 sessions read it.
 
 ## Calendar (arm New)
@@ -55,7 +55,7 @@ All 22 turns: 7,289,194 processed tokens, above the plan's 3-6M estimate. New's 
 
 ## Findings for the skill (not changed during the pilot)
 
-1. **No-dependency PDF path needed.** `render_sheet.py` requires ReportLab; without it the new default output is a source file, where v2.0.1 printed a PDF through the browser. Either add a fallback (HTML with print CSS, printed by an installed Chromium browser) or make the install question unmissable. Release blocker for advertising the sheet feature.
+1. **No-dependency PDF path needed.** `render_sheet.py` requires ReportLab; without it the new default output is a source file, where v2.0.1 made a PDF with PyMuPDF, which this host happens to have (correction below). Either add a fallback (HTML with print CSS, printed by an installed Chromium browser) or make the install question unmissable. Release blocker for advertising the sheet feature.
 2. **Ask, then wait.** `study-plan.md` (and the sheet allowance question) should say: ask in the reply and end the turn; do not continue with a default unless the student asks for it. In exec mode the CLI question tool returned nothing and the tutor proceeded.
 3. **Unrecorded-course offer was never made (0/2).** The instruction is in step 4 of Gather but is easy to skip; make it part of the delivery summary.
 4. **Missing exam end time:** allow `exam.end` to be omitted (default duration) or tell the tutor to assume a duration and say so, instead of asking (rep 1) or inventing 09:01 (rep 2).
@@ -71,3 +71,7 @@ Learning gains, real students, other models (results on `gpt-6-luna` are not com
 
 Sanitizing (2026-11-18, cc): the runner scrubbed temporary work paths only; private home-directory prefixes in 56 evidence files across this report and the three smoke folders were replaced with `<HOME>` before commit. Numbers and event structure are unchanged.
 Links in tutor replies that pointed into the temporary session folders (absolute or relative) were turned into plain `path` text so the archive has no broken links; the files themselves are in each turn's `files-after-NN/` snapshot.
+
+## Correction (2026-11-19, cc)
+
+An earlier version of this report said v2.0.1 printed its PDFs "through the browser". The Old-arm logs show `import fitz` (PyMuPDF) in both sessions and no browser print command. The follow-up rerun ([2026-11-19-sheet-rerun](../2026-11-19-sheet-rerun/REPORT.md)) also found that headless Edge cannot print inside the Codex Windows sandbox used here.

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-preset="0"><head><meta charset="utf-8"><title>STAT 110 Final Exam Sheet</title><style>
+@page { size: letter; margin: 54.0pt 36.0pt 52.0pt;
+  @top-left { content: "STAT 110 Final Exam Sheet"; font: 600 8.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; }
+  @top-right { content: "STAT 110 (synthetic)"; font: 8.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; }
+  @bottom-left { content: "Exam use unconfirmed \2014  check your instructor's rules."; font: 7.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; }
+  @bottom-right { content: counter(page); font: 7.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; } }
+html { background: #fff; }
+body { margin: 0; color: #1f2a24; font-family: "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; font-size: 11.0pt; line-height: 1.24;
+  columns: 2; column-gap: 16.0pt; column-fill: auto; overflow-wrap: anywhere; }
+.section.high { font-size: 11.88pt; }
+h2 { font-size: 1.16em; line-height: 1.2; color: #2f5d50; margin: 11.0pt 0 6.0pt;
+  break-after: avoid; }
+.section.high h2 { background: #e7efe9; padding: 2pt 3pt; }
+body > .section:first-child h2 { margin-top: 0; }
+.keep { break-inside: avoid; }
+.block { margin: 0 0 6.0pt; break-inside: avoid; }
+p { margin: 0 0 6.0pt; }
+.cue { padding-left: 0.9em; text-indent: -0.9em; }
+.cue::before { content: "\2022"; display: inline-block; width: 0.9em; text-indent: 0; }
+.muted { color: #5f6b63; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th, td { text-align: left; vertical-align: top; padding: 1.5pt 3pt; border-bottom: 0.4pt solid #c9d3cc; font-weight: normal; overflow-wrap: anywhere; }
+.grid th { color: #2f5d50; font-weight: 600; }
+.data thead th { background: #e7efe9; font-weight: 600; }
+.takeaway { margin: 3.6pt 0 0; }
+code, pre { font-family: Consolas, Menlo, "DejaVu Sans Mono", "Courier New", monospace; }
+pre.code { font-size: 9.5pt; line-height: 1.2; background: #f1f0ea; padding: 3.0pt; tab-size: 4;
+  white-space: pre-wrap; overflow-wrap: anywhere; }
+</style></head>
+<body>
+<section class="section high" id="reporting"><div class="keep"><h2>Every proportion: report + name the group</h2><p class="block cue">Report as a percentage to <b>1 decimal place</b> and name the reference group: <b>40.0% of commuters</b>. The course outline says answers without the group lose one point. (S1 reporting rule)</p></div></section>
+<section class="section high" id="table"><div class="keep"><h2>Conditional probability + two-way table: choose the denominator</h2><p class="block">Example counts: among 25 commuters, 10 cycle and 15 do not; among 15 noncommuters, 5 cycle and 10 do not. Total = 40. (Notes sections 1-2; practice Q1)</p></div><div class="block example"><p class="muted">Ask first: Among which group? That group is the denominator.</p><table class="grid steps"><colgroup><col style="width:32%"><col></colgroup><tr><th>Among commuters, what share cycle?</th><td>10 / 25 = <b>40.0% of commuters</b>. P(cycle | commuter): overlap divided by commuter total.</td></tr><tr><th>Among cyclists, what share commute?</th><td>10 / 15 = <b>66.7% of cyclists</b>. P(commuter | cycle): same overlap, different reference group.</td></tr><tr><th>Row percentage</th><td>Cell divided by its row total. Each row sums to 100%. Example: commuter/cycle = 10/25 = 40.0%.</td></tr><tr><th>Column percentage</th><td>Cell divided by its column total. Each column sums to 100%. Example: commuter/cycle = 10/15 = 66.7%.</td></tr></table><p class="takeaway"><b>Takeaway:</b> P(A | B) means A among B: B supplies the denominator. P(A | B) usually differs from P(B | A). (Notes sections 1.1-1.4, 2.2-2.3)</p></div><table class="block grid mistake"><colgroup><col style="width:28%"><col></colgroup><tr><th>Question</th><td>Earlier two-way-table attempt: chose the row total for a column percentage.</td></tr><tr><th>First error</th><td>Used the total for the wrong reference group.</td></tr><tr><th>Fix</th><td>For a column percentage, divide by that column's total; for a row percentage, divide by that row's total.</td></tr><tr><th>Holds when</th><td>Name the group represented by the chosen row or column before dividing. Check that row percentages sum across each row and column percentages down each column to 100%. (S2 §2; learning record, T2 attempt 2026-11-17)</td></tr></table><p class="block cue">Conditional probability requires an equally weighted sample and a nonempty reference group. (S2 §1.4)</p></section>
+<section class="section" id="grouped"><div class="keep"><h2>Grouped summaries</h2><div class="block example"><p class="muted">For a mean score by course section, each nonempty section becomes one output row.</p><table class="grid steps"><colgroup><col style="width:32%"><col></colgroup><tr><th>Rows returned</th><td>One row per nonempty group. Four nonempty sections = <b>4 rows</b>, even if the original data had 120 students. (Notes section 3.2; 2025 past paper Q3)</td></tr><tr><th>Compare fairly</th><td>Compare the same summary across groups (mean with mean, count with count); do not compare a group mean with a group total. (S2 §3.3)</td></tr></table><p class="takeaway"><b>Takeaway:</b> Grouping changes the output unit from individual cases to groups. A grouped summary has one summary value per group. (S2 §3.1–3.3)</p></div></div></section>
+</body></html>

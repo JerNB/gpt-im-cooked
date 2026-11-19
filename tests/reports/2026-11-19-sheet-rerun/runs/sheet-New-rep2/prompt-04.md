@@ -1,0 +1,1 @@
+Today is Thursday 2026-11-19. Make me a cheat sheet for my STA final.
