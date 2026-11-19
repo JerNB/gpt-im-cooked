@@ -310,17 +310,21 @@ def _para(text, style, fonts):
 
 def _reportlab_table_widths(block, fonts, size, width):
     """sheet_pdf.table_widths() measured with the ReportLab fonts (3 pt cell padding on each side)."""
+    columns = [[h] + [r[i] for r in block['rows']] for i, h in enumerate(block['header'])]
+    return sheet_pdf.table_widths(columns, width, _reportlab_width_of(fonts, size), pad=6.0)
+
+
+def _reportlab_width_of(fonts, size):
+    """width_of(segments) for sheet_pdf's width rules, measured with the ReportLab fonts."""
     from reportlab.pdfbase.pdfmetrics import stringWidth
 
-    def measure(text, bold=False):
-        return stringWidth(text, fonts['bold'] if bold else fonts['body'], size)
-    columns = [[h] + [r[i] for r in block['rows']] for i, h in enumerate(block['header'])]
-    return sheet_pdf.table_widths(columns, width, measure, pad=6.0)
+    def width_of(segments):
+        return sum(stringWidth(part, fonts[role], size * 0.7 if kind else size) for part, role, kind in segments)
+    return width_of
 
 
 def _reportlab_label_width(labels, fonts, size, width, share):
-    from reportlab.pdfbase.pdfmetrics import stringWidth
-    return sheet_pdf.label_width(labels, width, share, lambda text, bold=False: stringWidth(text, fonts['bold'], size))
+    return sheet_pdf.label_width(labels, width, share, _reportlab_width_of(fonts, size))
 
 
 def _grid(rows, widths, styles, header=False):

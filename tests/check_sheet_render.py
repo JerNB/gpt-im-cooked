@@ -263,7 +263,7 @@ def render_test_titles_stay_with_content():
     for data in (sheet_with(), dense_content()[0]):
         sheet = rs.load_sheet(data)
         fonts = rs.find_fonts('en')
-        preset = rs.PRESETS[rs.fit(sheet, fonts)['preset']]
+        preset = rs.preset_by_id(rs.fit(sheet, fonts)['preset'])
         placements = rs._build(sheet, fonts, preset)['placements']
         first = {}
         for section_id, role, where in placements:
@@ -1069,7 +1069,7 @@ TABLE = {'type': 'table', 'header': ['', 'Cycles', 'Does not cycle', 'Total'],
 
 
 def test_table_widths_fit_longest_words():
-    measure = lambda text, bold=False: 6.0 * len(text)  # noqa: E731  (6 pt per character)
+    measure = lambda segments: 6.0 * sum(len(part) for part, _, _ in segments)  # noqa: E731  (6 pt per char)
     cols = [[h] + [r[i] for r in TABLE['rows']] for i, h in enumerate(TABLE['header'])]
     widths = rs.sheet_pdf.table_widths(cols, 262.0, measure, pad=6.0)
     assert abs(sum(widths) - 262.0) < 0.01, widths
@@ -1090,7 +1090,7 @@ def native_test_table_cells_keep_whole_words():
         col_w = rs._geometry(sheet)[3]
         cols = [[h] + [r[i] for r in TABLE['rows']] for i, h in enumerate(TABLE['header'])]
         lay = rs.sheet_pdf.Layout(fonts, preset['body'], '#000000')
-        widths = rs.sheet_pdf.table_widths(cols, col_w, lay.measure, pad=6.0)
+        widths = rs.sheet_pdf.table_widths(cols, col_w, lay.width_of, pad=6.0)
         for i, col in enumerate(cols):
             words = {w for cell in col for w in cell.split()}
             for cell in col:
@@ -1109,7 +1109,7 @@ def render_test_table_columns_fit_words():
 
 
 def test_label_width_widens_for_long_words():
-    measure = lambda text, bold=False: 7.0 * len(text)  # noqa: E731
+    measure = lambda segments: 7.0 * sum(len(part) for part, _, _ in segments)  # noqa: E731
     assert rs.sheet_pdf.label_width(['Calculation', 'Odds'], 200.0, 0.32, measure) == 7.0 * 11 + 6.0
     assert rs.sheet_pdf.label_width(['Odds'], 200.0, 0.32, measure) == 64.0
     assert rs.sheet_pdf.label_width(['Supercalifragilistic'], 200.0, 0.32, measure) == 90.0  # capped at 45%
@@ -1125,11 +1125,62 @@ def native_test_grown_labels_keep_whole_words():
     preset = rs.preset_by_id(-3)
     lay = rs.sheet_pdf.Layout(fonts, preset['body'], '#000000')
     col_w = rs._geometry(sheet)[3]
-    width = rs.sheet_pdf.label_width(['Calculation', 'Reference group'], col_w, 0.32, lay.measure)
+    width = rs.sheet_pdf.label_width(['Calculation', 'Reference group'], col_w, 0.32, lay.width_of)
     for label in ('Calculation', 'Reference group'):
         for line in lay.wrap(label, width - 6.0, bold=True):
             for word in ''.join(part for part, *_ in line).split():
                 assert word in label.split(), (word, width)
+
+
+def test_table_widths_boundary_has_no_division_by_zero():
+    """Minimum widths a hair over the column (codex round 6): equal shares, never a crash."""
+    measure = lambda segments: sum(len(part) for part, _, _ in segments) * 1.0  # noqa: E731
+    cols = [['', 'x' * 250], ['', '']]  # mins 256 + 6 = 262.0 plus a fraction below
+    widths = rs.sheet_pdf.table_widths(cols, 255.995 + 6.0, measure, pad=6.0)
+    assert widths == [(255.995 + 6.0) / 2] * 2, widths
+    assert rs.sheet_pdf.table_widths([['', 'abc'], ['', '']], 20.0, measure, pad=6.0)  # zero demand, no crash
+
+
+STYLED = {'type': 'table', 'header': ['Group', 'Function'],
+          'rows': [['**Noncommuters**', '`summarise_by_group()`'], ['Commuters', '`n()`']]}
+
+
+def native_test_styled_cells_keep_whole_words():
+    sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][2].update(blocks=[STYLED])))
+    fonts = rs.sheet_pdf.load_fonts('en')
+    col_w = rs._geometry(sheet)[3]
+    for index in (0, 4, -3):
+        lay = rs.sheet_pdf.Layout(fonts, rs.preset_by_id(index)['body'], '#000000')
+        cols = [[f'**{h}**' for h in STYLED['header']][i:i + 1] + [r[i] for r in STYLED['rows']] for i in range(2)]
+        widths = rs.sheet_pdf.table_widths(cols, col_w, lay.width_of, pad=6.0)
+        mins = [max(lay.width_of(w) for r, c in enumerate(col) for w in rs.sheet_pdf.styled_words(c, r == 0)) + 6.0
+                for col in cols]
+        if sum(mins) > col_w:  # the longest words cannot all fit: equal shares, breaking is expected
+            assert widths == [col_w / 2] * 2, (index, widths)
+            continue
+        for i, col in enumerate(cols):
+            for cell in col:
+                words = rs.sheet_pdf.plain(cell).split()
+                for line in lay.wrap(cell, widths[i] - 6.0):
+                    for word in ''.join(part for part, *_ in line).split():
+                        assert word in words, (index, cell, word, widths)
+    labels = ['`group_by()`', '**Reference** group']
+    lay = rs.sheet_pdf.Layout(fonts, rs.preset_by_id(-3)['body'], '#000000')
+    width = rs.sheet_pdf.label_width(labels, col_w, 0.32, lay.width_of)
+    for label in labels:
+        for line in lay.wrap(label, width - 6.0, bold=True):
+            for word in ''.join(part for part, *_ in line).split():
+                assert word in rs.sheet_pdf.plain(label).split(), (label, word, width)
+
+
+def render_test_styled_cells_measured_with_their_fonts():
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    fonts = rs.find_fonts('en')
+    size = rs.PRESETS[0]['body']
+    sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][2].update(blocks=[STYLED])))
+    widths = rs._reportlab_table_widths(STYLED, fonts, size, rs._geometry(sheet)[3])
+    assert widths[0] >= stringWidth('Noncommuters', fonts['bold'], size) + 6 - 0.01, widths
+    assert widths[1] >= stringWidth('summarise_by_group()', fonts['mono'], size) + 6 - 0.01, widths
 
 
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
