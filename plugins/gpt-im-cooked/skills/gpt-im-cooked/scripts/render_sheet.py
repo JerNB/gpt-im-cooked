@@ -17,6 +17,7 @@ The script never installs packages.
 """
 from pathlib import Path
 import html
+import math
 import os
 import re
 
@@ -583,6 +584,9 @@ def check_glyphs(sheet, fonts):
 
 NO_ENGINE_QUESTION = 'I can make the PDF if you let me install one Python package (pip install reportlab). Install it?'
 MONO_ADVANCE = 0.55  # em, Consolas; wider monospace fonts (Menlo, DejaVu Sans Mono: 0.60) wrap instead of clipping
+MONO_ADVANCE_WIDE = 0.6  # em; code height assumes the widest common fallback, so wrapped lines are counted
+CODE_PAD = 3.0  # pt of padding on each side of a code block
+TAB_SIZE = 4
 BODY_FONTS = '"Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif'
 CJK_FONTS = '"Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans", "Malgun Gothic", '
 MONO_FONTS = 'Consolas, Menlo, "DejaVu Sans Mono", "Courier New", monospace'
@@ -670,7 +674,7 @@ th, td {{ text-align: left; vertical-align: top; padding: 1.5pt 3pt; border-bott
 .data thead th {{ background: {TINT}; font-weight: 600; }}
 .takeaway {{ margin: {round(gap * 0.6, 2)}pt 0 0; }}
 code, pre {{ font-family: {MONO_FONTS}; }}
-pre.code {{ font-size: {preset['code']}pt; line-height: 1.2; background: #f1f0ea; padding: 3pt;
+pre.code {{ font-size: {preset['code']}pt; line-height: 1.2; background: #f1f0ea; padding: {CODE_PAD}pt; tab-size: {TAB_SIZE};
   white-space: pre-wrap; overflow-wrap: anywhere; }}
 '''
     sections = []
@@ -772,31 +776,36 @@ def print_pdf(browser, html_path, pdf_path, timeout=60, leftovers=None):
                                '--print-to-pdf-no-header', f'--print-to-pdf={pdf_path}', html_path.resolve().as_uri()]
     name = _browser_name(browser)
     deadline = time.monotonic() + timeout
-    data, failure = None, None
+    data, failure, removed = None, None, True
     try:
-        # Output goes to DEVNULL: a detached browser child must not keep our pipes (and this call) open.
-        subprocess.run(command, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-                       timeout=timeout)
-    except (OSError, subprocess.SubprocessError) as error:
-        failure = f'the browser ({name}) could not print the sheet: {error}'
-    if failure is None:
-        # Some launchers (Edge on Windows) return before the PDF exists: wait for a complete, stable file.
-        last = -1
-        while time.monotonic() < deadline:
-            if pdf_path.is_file():
-                current = pdf_path.read_bytes()
-                if current.startswith(b'%PDF') and current.rstrip().endswith(b'%%EOF') and len(current) == last:
-                    data = current
-                    break
-                last = len(current)
-            time.sleep(0.25)
-        else:
-            failure = f'the browser ({name}) did not write a complete PDF within {timeout}s'
-    if failure is not None:
-        _stop_profile_processes(profile)
-    removed = _remove_profile(profile)
-    if not removed and leftovers is not None:
-        leftovers.append(str(profile))
+        try:
+            # Output goes to DEVNULL: a detached browser child must not keep our pipes (and this call) open.
+            subprocess.run(command, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                           timeout=timeout)
+        except (OSError, subprocess.SubprocessError) as error:
+            failure = f'the browser ({name}) could not print the sheet: {error}'
+        if failure is None:
+            # Some launchers (Edge on Windows) return before the PDF exists: wait for a complete, stable file.
+            last = -1
+            while time.monotonic() < deadline:
+                try:
+                    current = pdf_path.read_bytes() if pdf_path.is_file() else None
+                except OSError:  # still being written (sharing violation): try again until the deadline
+                    current = None
+                if current is not None:
+                    if current.startswith(b'%PDF') and current.rstrip().endswith(b'%%EOF') and len(current) == last:
+                        data = current
+                        break
+                    last = len(current)
+                time.sleep(0.25)
+            else:
+                failure = f'the browser ({name}) did not write a complete PDF within {timeout}s'
+    finally:  # runs on every exit, including unexpected errors and interrupts
+        if data is None:
+            _stop_profile_processes(profile)
+        removed = _remove_profile(profile)
+        if not removed and leftovers is not None:
+            leftovers.append(str(profile))
     if failure is not None:
         raise SheetError(failure + ('' if removed else f'; temporary browser profile left at {profile}'))
     return data
@@ -822,11 +831,13 @@ def _code_fits(sheet, preset, col_w, frame_h):
         for block in section['blocks']:
             if block['type'] != 'code':
                 continue
-            lines = [line.expandtabs(4) for line in block['text'].splitlines()]
+            lines = [line.expandtabs(TAB_SIZE) for line in block['text'].splitlines()]
+            text_w = col_w - 2 * CODE_PAD
             widest = max(len(line) for line in lines) * MONO_ADVANCE * preset['code']
-            if widest > col_w + 0.5:
-                return Overflow(widest - col_w, [], f'a code line in section {section["id"]} is wider than one column')
-            height = len(lines) * preset['code'] * 1.2 + 6 + preset['gap']
+            if widest > text_w + 0.5:
+                return Overflow(widest - text_w, [], f'a code line in section {section["id"]} is wider than one column')
+            visual = sum(max(1, math.ceil(len(line) * MONO_ADVANCE_WIDE * preset['code'] / text_w)) for line in lines)
+            height = visual * preset['code'] * 1.2 + 2 * CODE_PAD + preset['gap']
             if height > frame_h:
                 return Overflow(height - frame_h, [(section['id'], round(height, 1))],
                                 f'a block in section {section["id"]} is taller than one column')

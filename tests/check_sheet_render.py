@@ -671,6 +671,65 @@ def test_browser_rejects_block_taller_than_column():
             assert calls(tmp) == []
 
 
+def test_browser_read_errors_are_retried_then_cleaned_up():
+    """A transient read error (Windows sharing violation) is retried; a persistent one is a SheetError with cleanup."""
+    import pathlib
+    real = pathlib.Path.read_bytes
+    for failures, expect_ok in ((2, True), (10 ** 6, False)):
+        state = {'left': failures}
+
+        def flaky(self):
+            if self.suffix == '.pdf' and state['left'] > 0:
+                state['left'] -= 1
+                raise PermissionError(13, 'The process cannot access the file', str(self))
+            return real(self)
+        with tempfile.TemporaryDirectory() as tmp:
+            browser = fake_browser(tmp, {i: 1 for i in range(5)})
+            pathlib.Path.read_bytes = flaky
+            try:
+                try:
+                    checks = rs.render(rs.load_sheet(sheet_with()), Path(tmp) / 'out', engine='browser',
+                                       browser=browser, timeout=2)
+                except rs.SheetError as error:
+                    assert not expect_ok, error
+                    assert 'did not write a complete PDF' in str(error), error
+                else:
+                    assert expect_ok and checks['pages'] == 1, checks
+            finally:
+                pathlib.Path.read_bytes = real
+            profile = next(a.split('=', 1)[1] for a in calls(tmp)[0] if a.startswith('--user-data-dir='))
+            assert not Path(profile).exists(), profile
+
+
+def test_browser_code_width_counts_padding():
+    """50 characters at preset 0 (Letter) fit the column but not the column minus the code padding."""
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)})
+        sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][0]['blocks'].append(
+            {'type': 'code', 'text': 'y' * 50})))
+        checks = rs.render(sheet, Path(tmp) / 'out', engine='browser', browser=browser)
+        assert checks['preset'] >= 1, checks
+
+
+def test_browser_code_height_counts_wrapped_lines():
+    """40 lines of 54 characters fit at 0.55 em but wrap in a 0.60 em fallback font: twice the height."""
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)})
+        sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][0]['blocks'].append(
+            {'type': 'code', 'text': '\n'.join('z' * 54 for _ in range(40))})))
+        try:
+            rs.render(sheet, Path(tmp) / 'out', engine='browser', browser=browser)
+        except rs.Overflow as error:
+            assert 'taller than one column' in error.reason, error.reason
+        else:
+            raise AssertionError('wrapped code taller than a column was accepted')
+        assert calls(tmp) == []
+
+
+def test_html_code_tab_size_matches_estimate():
+    assert 'tab-size: 4' in rs.to_html(rs.load_sheet(sheet_with()), 0)
+
+
 def test_html_wraps_long_tokens():
     page = rs.to_html(rs.load_sheet(sheet_with()), 0)
     assert 'table-layout: fixed' in page

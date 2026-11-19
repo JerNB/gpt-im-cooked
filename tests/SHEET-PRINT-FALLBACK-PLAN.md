@@ -38,6 +38,12 @@ Status: plan, cc, 2026-11-19. Source: findings 1-5 of the T016 pilot (`tests/rep
 2. A code block taller than a column passed browser fitting: its height is now estimated per preset, and it is rejected with the ReportLab reason, for sheets and guides. Other blocks taller than a column continue in the next column and are never clipped.
 3. A detached browser child could outlive a timeout and keep its profile: the processes whose command line names the throwaway profile are stopped, the profile is removed, and a profile that cannot be removed is reported (`leftover_profiles`). The fake launcher now detaches a delayed or hanging child that holds the profile.
 
+## Review round 2 (codex, REQUEST_CHANGES) and changes
+
+1. A read error while waiting for the PDF skipped cleanup: cleanup now runs in `finally`. A read error (for example a Windows sharing violation) is retried until the deadline and then reported as a `SheetError`.
+2. The code-height check ignored padding and wrapping: the width check now uses the column minus the code padding, tabs are 4 spaces in both the estimate and the CSS, and the height counts wrapped lines at a 0.60 em fallback font width.
+3. `review-artifacts.md` says which blocks the browser engine checks.
+
 ## Not covered
 
 Glyph coverage in the browser engine, print layout on paper, and browsers other than Chromium (Firefox has no headless print-to-PDF). A short re-run of the New sheet sessions on `gpt-6-luna` (8 turns) follows the codex review and gives the post its sheet screenshot.
