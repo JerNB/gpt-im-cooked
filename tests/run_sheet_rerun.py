@@ -12,7 +12,7 @@ import argparse, importlib.util, shutil, tempfile, uuid
 HERE = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location('feature_pilot', HERE / 'run_feature_pilot.py')
 fp = importlib.util.module_from_spec(spec); spec.loader.exec_module(fp)
-fp.NEW = 'c72a32a'  # T017 head approved by codex in review round 3
+fp.NEW = 'c72a32a'  # T017 head approved by codex in review round 3 (browser engine)
 REPORT = fp.ROOT / 'tests/reports/2026-11-19-sheet-rerun'
 
 
@@ -23,11 +23,14 @@ def main():
     ap.add_argument('--cli', default=shutil.which('codex'))
     ap.add_argument('--auth', type=Path, default=Path.home() / '.codex' / 'auth.json')
     ap.add_argument('--report', type=Path)
+    ap.add_argument('--rev', help='skill revision for the New arm (default: c72a32a, the first rerun)')
     ap.add_argument('--work', type=Path)
     a = ap.parse_args()
     if a.run_smoke == a.run_main:
         print('NO MODEL CALLS: pass exactly one of --run-smoke or --run-main.'); return 0
     if not a.cli: raise SystemExit('Codex CLI not found')
+    if a.rev:
+        fp.NEW = a.rev
     report = (a.report or (REPORT.with_name(REPORT.name + '-smoke') if a.run_smoke else REPORT)).resolve()
     work = (a.work or Path(tempfile.gettempdir()) / f'sheet-rerun-{uuid.uuid4().hex}').resolve()
     version = fp.prepare(report, work, a.cli)

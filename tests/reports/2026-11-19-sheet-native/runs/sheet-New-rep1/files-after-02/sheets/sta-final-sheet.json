@@ -1,0 +1,59 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Reference Sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "confirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {
+      "id": "conditional-probability",
+      "title": "Conditional probability: choose the reference group",
+      "weight": "high",
+      "topics": ["T1", "T2"],
+      "blocks": [
+        {"type": "text", "text": "P(A | B) means the probability of A **among cases in B**. For an equally weighted sample with non-empty B: P(A | B) = count(A and B) / count(B). The denominator is the group after the vertical bar."},
+        {"type": "example", "setup": "25 of 40 students commute; 10 commuters cycle. Find the percent of commuters who cycle.", "steps": [
+          {"label": "Reference group", "text": "Commuters: 25 students (the group named after 'of')."},
+          {"label": "Numerator", "text": "10 commuters cycle."},
+          {"label": "Compute and report", "text": "10 / 25 = 0.40 = 40.0% of commuters."}], "takeaway": "Use the restricted group as denominator; do not divide by all 40 students."},
+        {"type": "mistake", "prompt": "Find the percentage of column-group cases with a property.", "first_error": "A previous table attempt used a row total for a column percentage.", "fix": "Name the reference group first. For a column percentage, divide the cell by that column's total.", "conditions": "P(A | B) and P(B | A) generally differ because their reference groups differ."},
+        {"type": "cue", "text": "Report each proportion as a percentage to **one decimal place** and name the reference group: '40.0% of commuters.'"}
+      ]
+    },
+    {
+      "id": "two-way-tables",
+      "title": "Two-way tables: row vs. column percentages",
+      "weight": "high",
+      "topics": ["T2"],
+      "blocks": [
+        {"type": "cue", "text": "Row % = cell / row total. Column % = cell / column total. This is the same reference-group choice as conditional probability."},
+        {"type": "cue", "text": "Row percentages sum to 100% across each row. Column percentages sum to 100% down each column. Percentages across a row of column percentages need not sum to 100%."},
+        {"type": "text", "text": "Before dividing, translate the question into words: 'among which group?' Pick that row or column total as the denominator. Report the percentage and name that group."}
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": ["T4"],
+      "blocks": [
+        {"type": "cue", "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) per group."},
+        {"type": "cue", "text": "Output: one row per non-empty group, not one row per original case. Compare groups using the same summary: mean with mean, count with count."}
+      ]
+    },
+    {
+      "id": "scope-gap",
+      "title": "Scope note",
+      "weight": "normal",
+      "topics": ["T3"],
+      "blocks": [
+        {"type": "cue", "text": "Bayes' rule is listed in the Midterm 1 outline, but its teaching notes were not posted in the supplied files; no formula or procedure is included here. Final coverage beyond this outline is unconfirmed."}
+      ]
+    }
+  ],
+  "omitted": [
+    {"topic": "Hypothesis testing", "reason": "The supplied Midterm 1 outline excludes it from that midterm; whether it is included on the cumulative final is unconfirmed."}
+  ],
+  "revision": {"round": 1, "standing": [], "changes": []}
+}

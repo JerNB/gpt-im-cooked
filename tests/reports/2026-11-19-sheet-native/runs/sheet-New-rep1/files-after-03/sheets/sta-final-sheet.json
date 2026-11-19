@@ -1,0 +1,55 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Reference Sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "confirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {
+      "id": "conditional-probability",
+      "title": "Conditional probability: choose the reference group",
+      "weight": "high",
+      "topics": ["T1", "T2"],
+      "blocks": [
+        {"type": "example", "setup": "25 of 40 students commute; 10 commuters cycle. Find the percentage of commuters who cycle.", "steps": [
+          {"label": "Reference group", "text": "Commuters: 25 students. The question asks for the share among this group."},
+          {"label": "Cell count", "text": "10 commuters cycle."},
+          {"label": "Calculation", "text": "10 / 25 = 0.40 = 40.0% of commuters."}], "takeaway": "The denominator is the reference group (commuters), not the full class of 40."},
+        {"type": "cue", "text": "Report proportions as percentages rounded to one decimal place and name the reference group."}
+      ]
+    },
+    {
+      "id": "two-way-tables",
+      "title": "Two-way tables: row vs. column percentages",
+      "weight": "high",
+      "topics": ["T2"],
+      "blocks": [
+        {"type": "text", "text": "In a two-way table, the worked commuter calculation is a percentage for the commuter group: the cell count divided by that group's total."}
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": ["T4"],
+      "blocks": [
+        {"type": "cue", "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) per group."},
+        {"type": "cue", "text": "Output: one row per non-empty group, not one row per original case. Compare groups using the same summary: mean with mean, count with count."}
+      ]
+    },
+    {
+      "id": "scope-gap",
+      "title": "Scope note",
+      "weight": "normal",
+      "topics": ["T3"],
+      "blocks": [
+        {"type": "cue", "text": "Bayes' rule is listed in the Midterm 1 outline, but its teaching notes were not posted in the supplied files; no formula or procedure is included here. Final coverage beyond this outline is unconfirmed."}
+      ]
+    }
+  ],
+  "omitted": [
+    {"topic": "Hypothesis testing", "reason": "The supplied Midterm 1 outline excludes it from that midterm; whether it is included on the cumulative final is unconfirmed."}
+  ],
+  "revision": {"round": 2, "standing": ["Do not add new information (2026-11-18)."], "changes": ["Replaced abstract denominator guidance with one worked commuter example; removed the general row/column percentage cues to open space for easier reading."]}
+}
