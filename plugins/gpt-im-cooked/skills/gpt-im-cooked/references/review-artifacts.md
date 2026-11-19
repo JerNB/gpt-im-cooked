@@ -20,7 +20,7 @@ Webpages have three experiences: concept exploration for understanding, coached 
 
 For mock exams, read [mock-exam-layout.md](mock-exam-layout.md) and the exam path in [interactive-review.md](interactive-review.md), even if "webpage" was omitted. The STA199 reference supplies a numbered-paper layout; the student's actual course supplies topics, question formats, and rules.
 
-For sheets and guides, write the content JSON (shape: [assets/sheet-example.json](../assets/sheet-example.json)) and render it with `scripts/render_sheet.py`; do not hand-build a layout program. The renderer uses ReportLab when it is installed and otherwise its built-in standard-library PDF writer with the computer's own fonts, which also works inside sandboxes; nothing needs installing. Use `--engine browser` (Edge, Chrome or Chromium) only if the student asks; browsers usually cannot start inside a sandbox. Never install a package without asking. Do not claim that source text, a print button, or an HTML preview is a generated PDF.
+For sheets and guides, write the content JSON (shape: [assets/sheet-example.json](../assets/sheet-example.json)) and render it with `scripts/render_sheet.py`; do not hand-build a layout program, and never copy, edit or patch the renderer or its presets. If the layout cannot meet a request, say what it can do instead. The renderer uses ReportLab when it is installed and otherwise its built-in standard-library PDF writer with the computer's own fonts, which also works inside sandboxes; nothing needs installing. Use `--engine browser` (Edge, Chrome or Chromium) only if the student asks; browsers usually cannot start inside a sandbox. Never install a package without asking. Do not claim that source text, a print button, or an HTML preview is a generated PDF.
 
 ## Review packets without a named concept
 
@@ -81,7 +81,7 @@ Look at each page preview once as an exam tool: each section can be found by its
 
 ## Revision rounds and preferences
 
-When the student asks for changes, apply exactly those edits to the content JSON, increase `revision.round`, and re-render; earlier rounds' PDFs are kept. Standing constraints from earlier rounds (for example "no new information") stay active in later rounds; list them in `revision.standing`. Space freed by deletions is not refilled: the renderer turns it into larger type and spacing.
+When the student asks for changes, apply exactly those edits to the content JSON, increase `revision.round`, and re-render; earlier rounds' PDFs are kept. Standing constraints from earlier rounds (for example "no new information") stay active in later rounds; list them in `revision.standing`. Space freed by deletions is not refilled: the renderer turns it into larger type and spacing (an exam sheet that fits at 11 pt grows to 12-14 pt when that needs no more pages; a guide stays at 10.5 pt). Deliver the PDF of the round you just rendered, the highest `revision.round`, not an earlier file.
 
 Save durable preferences from a round in the course profile section `Reference-sheet preferences` (created by the one-command save on first use). Write each as a dated bullet, and keep them separate from scope decisions, for example `- Prefers one worked example over abstract rules (2026-11-16, round 1)` or `- Leave off: ROC function syntax; concept stays (2026-11-16, round 1)`. Read this section before every sheet or guide in that course. When starting a sheet in another course, offer once to reuse the general, non-topic preferences.
 

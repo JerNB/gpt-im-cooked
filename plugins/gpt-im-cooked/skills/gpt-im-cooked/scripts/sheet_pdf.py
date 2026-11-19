@@ -279,11 +279,50 @@ def _marked(text, bold):
     return out
 
 
+def plain(text):
+    """The characters a cell prints, without markup."""
+    return ''.join(part for part, _, _ in runs(text))
+
+
+def table_widths(columns, width, measure, pad=6.0):
+    """Column widths for a table: every column at least as wide as its longest word when the total allows,
+    remaining space shared by how much each column's longest cell still needs; equal shares otherwise.
+
+    `columns` lists each column's cells (header first); `measure(text, bold=False)` gives a width in points.
+    """
+    count = len(columns)
+    equal = [width / count] * count
+    mins = [max((measure(word, bold=row == 0) for row, cell in enumerate(col) for word in plain(cell).split()),
+                default=0.0) + pad for col in columns]
+    if sum(mins) > width + 0.01:
+        return equal
+    natural = [max(m, max((measure(plain(cell), bold=row == 0) for row, cell in enumerate(col)), default=0.0) + pad)
+               for m, col in zip(mins, columns)]
+    if sum(natural) <= width:
+        extra = (width - sum(natural)) / count
+        return [n + extra for n in natural]
+    room = width - sum(mins)
+    wants = [n - m for m, n in zip(mins, natural)]
+    return [m + room * w / sum(wants) for m, w in zip(mins, wants)]
+
+
+def label_width(labels, width, share, measure, pad=6.0, cap=0.45):
+    """Label column of a two-column grid: `share` of the width, widened (up to `cap`) so the longest
+    label word is not split."""
+    longest = max((measure(word, bold=True) for label in labels for word in plain(label).split()), default=0.0)
+    return min(max(width * share, longest + pad), width * cap)
+
+
 class Layout:
     """Measures and wraps text for one preset; collects drawing operations."""
 
     def __init__(self, fonts, size, color):
         self.fonts, self.size, self.color = fonts, size, color
+
+    def measure(self, text, bold=False):
+        """Printed width of `text` (markup applied, whitespace collapsed) at this layout's size."""
+        text = re.sub(r'\s+', ' ', text).strip()
+        return sum(self.fonts[role].width(part, self.seg_size(kind, self.size)) for part, role, kind in runs(text, bold))
 
     def seg_size(self, kind, size):
         return size * 0.7 if kind in ('sup', 'sub') else size
@@ -467,10 +506,10 @@ def build_blocks(section, fonts, preset, width, theme):
                 rows = ([('Question', block['prompt'])] if block['prompt'] else []) + \
                     [('First error', block['first_error']), ('Fix', block['fix'])] + \
                     ([('Holds when', block['conditions'])] if block['conditions'] else [])
-                label_w = width * 0.28
+                label_w = label_width([r[0] for r in rows], width, 0.28, lay.measure)
             else:
                 rows = [(s['label'], s['text']) for s in block['steps']]
-                label_w = width * 0.32
+                label_w = label_width([r[0] for r in rows], width, 0.32, lay.measure)
             parts.append(('grid', _grid(lay, fonts, rows, [label_w, width - label_w], size, leading, theme,
                                         label_role=True)))
             if kind == 'example' and block['takeaway']:
@@ -478,10 +517,10 @@ def build_blocks(section, fonts, preset, width, theme):
                 parts.append(('para', para('**Takeaway:** ' + block['takeaway'])))
             boxes.append(_stack(parts, gap))
         elif kind == 'table':
-            n = len(block['header'])
+            columns = [[h] + [r[i] for r in block['rows']] for i, h in enumerate(block['header'])]
+            widths = table_widths(columns, width, lay.measure)
             rows = [[f'**{h}**' if h else '' for h in block['header']]] + block['rows']
-            boxes.append(_stack([('grid', _grid(lay, fonts, rows, [width / n] * n, size, leading, theme,
-                                                header=True))], gap))
+            boxes.append(_stack([('grid', _grid(lay, fonts, rows, widths, size, leading, theme, header=True))], gap))
     return boxes
 
 

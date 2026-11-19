@@ -183,7 +183,7 @@ def dense_content():
 
 def render_test_example_fits():
     result = fitted(sheet_with())
-    assert result['pages'] <= 2 and result['preset'] == 0, result
+    assert result['pages'] <= 2 and result['preset'] <= 0, result  # may grow into the larger sizes
     assert result['body'] == rs.PRESETS[0]['body']
 
 
@@ -843,7 +843,7 @@ def native_test_guide_one_column_no_cap():
 def native_test_cut_content_grows_type():
     small = native_fitted(sheet_with(lambda d: d.update(sections=d['sections'][:2])))
     full = native_fitted(sheet_with())
-    assert small['preset'] <= full['preset'] and small['preset'] == 0, (small, full)
+    assert small['body'] >= full['body'] and small['preset'] < 0, (small, full)
     dense = native_fitted(multiplied(2))
     assert dense['preset'] > full['preset'] or dense['pages'] == 2, (dense, full)
 
@@ -1018,6 +1018,118 @@ def test_browser_temp_cleanup_error_is_not_a_crash():
         for path in set(refused):
             import shutil as shutil_
             shutil_.rmtree(path, ignore_errors=True)
+
+
+# Larger sizes for sparse sheets and content-based table widths (T017 native rerun findings 1-2)
+
+SPARSE = lambda d: d.update(sections=d['sections'][:2])  # noqa: E731
+
+
+def test_grow_presets_are_larger_and_ordered():
+    assert [rs.preset_by_id(i)['body'] for i in (-3, -2, -1, 0)] == [14.0, 13.0, 12.0, 11.0]
+    assert rs.preset_by_id(4) == rs.PRESETS[4]
+
+
+def native_test_sparse_sheet_grows_without_adding_pages():
+    sheet = rs.load_sheet(sheet_with(SPARSE))
+    fonts = rs.sheet_pdf.load_fonts('en')
+    base = rs._native_layout(sheet, fonts, rs.PRESETS[0])
+    result = rs.fit_native(sheet, fonts)
+    assert result['preset'] < 0 and result['body'] > 11 and result['pages'] <= base['pages'], (result, base['pages'])
+
+
+def native_test_guide_never_grows():
+    sheet = rs.load_sheet(sheet_with(lambda d: (SPARSE(d), d.update(kind='study-guide'))))
+    assert rs.fit_native(sheet, rs.sheet_pdf.load_fonts('en'))['preset'] == 1
+
+
+def native_test_min_body_does_not_block_growth():
+    sheet = rs.load_sheet(sheet_with(lambda d: (SPARSE(d), d['allowance'].update(min_body=10))))
+    assert rs.fit_native(sheet, rs.sheet_pdf.load_fonts('en'))['body'] > 11
+
+
+def render_test_sparse_sheet_grows_without_adding_pages():
+    sheet = rs.load_sheet(sheet_with(SPARSE))
+    fonts = rs.find_fonts('en')
+    base_pages, _ = rs.layout(sheet, fonts, rs.PRESETS[0])
+    result = rs.fit(sheet, fonts)
+    assert result['preset'] < 0 and result['body'] > 11 and result['pages'] <= base_pages, (result, base_pages)
+    guide = rs.load_sheet(sheet_with(lambda d: (SPARSE(d), d.update(kind='study-guide'))))
+    assert rs.fit(guide, fonts)['preset'] == 1
+
+
+def render_test_grown_sheet_renders():
+    with tempfile.TemporaryDirectory() as tmp:
+        checks = rs.render(rs.load_sheet(sheet_with(SPARSE)), Path(tmp) / 'out')
+        assert checks['preset'] < 0 and checks['body'] > 11 and checks['pages'] >= 1, checks
+
+
+TABLE = {'type': 'table', 'header': ['', 'Cycles', 'Does not cycle', 'Total'],
+         'rows': [['Commuters', '10', '15', '25'], ['Noncommuters', '5', '10', '15'], ['Total', '15', '25', '40']]}
+
+
+def test_table_widths_fit_longest_words():
+    measure = lambda text, bold=False: 6.0 * len(text)  # noqa: E731  (6 pt per character)
+    cols = [[h] + [r[i] for r in TABLE['rows']] for i, h in enumerate(TABLE['header'])]
+    widths = rs.sheet_pdf.table_widths(cols, 262.0, measure, pad=6.0)
+    assert abs(sum(widths) - 262.0) < 0.01, widths
+    assert widths[0] >= 6.0 * len('Noncommuters') + 6.0, widths
+    for i, col in enumerate(cols):
+        longest_word = max((len(w) for cell in col for w in cell.split()), default=0)
+        assert widths[i] >= 6.0 * longest_word + 6.0 - 0.01, (i, widths)
+    # when even the longest words cannot fit, fall back to equal shares
+    assert rs.sheet_pdf.table_widths(cols, 60.0, measure, pad=6.0) == [15.0] * 4
+
+
+def native_test_table_cells_keep_whole_words():
+    data = sheet_with(lambda d: d['sections'][2].update(blocks=[TABLE]))
+    sheet = rs.load_sheet(data)
+    fonts = rs.sheet_pdf.load_fonts('en')
+    for index in (0, 4, -3):
+        preset = rs.preset_by_id(index)
+        col_w = rs._geometry(sheet)[3]
+        cols = [[h] + [r[i] for r in TABLE['rows']] for i, h in enumerate(TABLE['header'])]
+        lay = rs.sheet_pdf.Layout(fonts, preset['body'], '#000000')
+        widths = rs.sheet_pdf.table_widths(cols, col_w, lay.measure, pad=6.0)
+        for i, col in enumerate(cols):
+            words = {w for cell in col for w in cell.split()}
+            for cell in col:
+                for line in lay.wrap(cell, widths[i] - 6.0):
+                    for word in ''.join(part for part, *_ in line).split():
+                        assert word in words, (index, i, word, widths)
+
+
+def render_test_table_columns_fit_words():
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    fonts = rs.find_fonts('en')
+    sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][2].update(blocks=[TABLE])))
+    col_w = rs._geometry(sheet)[3]
+    widths = rs._reportlab_table_widths(TABLE, fonts, rs.PRESETS[0]['body'], col_w)
+    assert widths[0] >= stringWidth('Noncommuters', fonts['body'], rs.PRESETS[0]['body']) + 6 - 0.01, widths
+
+
+def test_label_width_widens_for_long_words():
+    measure = lambda text, bold=False: 7.0 * len(text)  # noqa: E731
+    assert rs.sheet_pdf.label_width(['Calculation', 'Odds'], 200.0, 0.32, measure) == 7.0 * 11 + 6.0
+    assert rs.sheet_pdf.label_width(['Odds'], 200.0, 0.32, measure) == 64.0
+    assert rs.sheet_pdf.label_width(['Supercalifragilistic'], 200.0, 0.32, measure) == 90.0  # capped at 45%
+
+
+def native_test_grown_labels_keep_whole_words():
+    step = {'type': 'stages', 'steps': [{'label': 'Calculation', 'text': '10 / 25 = 0.40'},
+                                        {'label': 'Reference group', 'text': 'Commuters'}]}
+    sheet = rs.load_sheet(sheet_with(lambda d: d.update(sections=[{'id': 's', 'title': 'S', 'blocks': [step]}])))
+    fonts = rs.sheet_pdf.load_fonts('en')
+    result = rs.fit_native(sheet, fonts)
+    assert result['preset'] == -3, result
+    preset = rs.preset_by_id(-3)
+    lay = rs.sheet_pdf.Layout(fonts, preset['body'], '#000000')
+    col_w = rs._geometry(sheet)[3]
+    width = rs.sheet_pdf.label_width(['Calculation', 'Reference group'], col_w, 0.32, lay.measure)
+    for label in ('Calculation', 'Reference group'):
+        for line in lay.wrap(label, width - 6.0, bold=True):
+            for word in ''.join(part for part, *_ in line).split():
+                assert word in label.split(), (word, width)
 
 
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]

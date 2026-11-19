@@ -56,6 +56,21 @@ The 8-turn New-arm rerun (`tests/reports/2026-11-19-sheet-rerun/` on `codex/T016
 - `auto` is now ReportLab when installed, otherwise native. With no usable font it writes printable HTML and exits 3. The browser engine runs only with `--engine browser`, and its temporary folders are removed with `ignore_cleanup_errors`.
 - Checked inside `codex sandbox` (unelevated): the example sheet renders in 0.35 s, 2 pages, 66 KB.
 
+## Native rerun findings and changes (2026-11-19)
+
+The 8-turn rerun on `337022d` (`tests/reports/2026-11-19-sheet-native/` on `codex/T016-feature-pilot`) made PDFs inside the sandbox in 2 of 2 sessions. It also showed four problems:
+
+- Freed space could not become larger type, because 11 pt was the largest size. One tutor patched the renderer to reach 15 pt.
+- Equal-width table columns split words.
+- At larger sizes, label columns split words as well.
+- One tutor linked an older round instead of the one it had just rendered.
+
+Changes:
+
+- **Larger sizes.** `GROW_PRESETS` adds 12, 13 and 14 pt (preset ids -1 to -3). An exam sheet that fits at preset 0 (11 pt) moves to the largest of these that needs no more pages, in both the ReportLab and the native engine. Guides never grow. The browser engine is unchanged.
+- **Column widths.** `sheet_pdf.table_widths()` makes each table column at least as wide as its longest word when the total allows, and shares the remaining space by how much each column's longest cell still needs; otherwise columns get equal shares. `label_width()` widens the label column of grids up to 45% so the longest label word fits. Both engines use these rules.
+- **Wording.** `review-artifacts.md` now says: never copy or patch the renderer, the size range is 9-14 pt, and always deliver the newest round.
+
 ## Not covered
 
 Glyph coverage in the browser engine, print layout on paper, and browsers other than Chromium (Firefox has no headless print-to-PDF). A short re-run of the New sheet sessions on `gpt-6-luna` (8 turns) follows the codex review and gives the post its sheet screenshot.

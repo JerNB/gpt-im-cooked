@@ -232,6 +232,33 @@ PRESETS = [  # most spacious first; fit() keeps the first one that fits
     {'body': 9.5, 'code': 8.75, 'gap': 3.5, 'section_gap': 6.5},
     {'body': 9.0, 'code': 8.5, 'gap': 3.0, 'section_gap': 5.0},
 ]
+GROW_PRESETS = [  # ids -1, -2, -3: larger sizes an exam sheet may use when it keeps the same page count
+    {'body': 12.0, 'code': 10.0, 'gap': 6.5, 'section_gap': 12.0},
+    {'body': 13.0, 'code': 10.5, 'gap': 7.0, 'section_gap': 13.0},
+    {'body': 14.0, 'code': 11.0, 'gap': 7.5, 'section_gap': 14.0},
+]
+
+
+def preset_by_id(index):
+    """PRESETS[index] for 0-4; GROW_PRESETS for -1 (12 pt) to -3 (14 pt)."""
+    return PRESETS[index] if index >= 0 else GROW_PRESETS[-index - 1]
+
+
+def _grow(sheet, chosen, pages, try_pages):
+    """For an exam sheet that fits at the most spacious standard preset, the largest grow preset that
+    needs no more pages; None when none qualifies. `try_pages(preset)` returns pages or raises Overflow."""
+    if sheet['kind'] != 'exam-sheet' or chosen != 0:
+        return None
+    for index in (-3, -2, -1):
+        try:
+            grown = try_pages(preset_by_id(index))
+        except Overflow:
+            continue
+        if grown <= pages:
+            return index
+    return None
+
+
 LEADING = 1.24
 HIGH_SCALE = 1.08
 MARGIN = 36.0
@@ -281,6 +308,21 @@ def _para(text, style, fonts):
     return Paragraph(inline(text).replace('{mono}', fonts['mono']), style)
 
 
+def _reportlab_table_widths(block, fonts, size, width):
+    """sheet_pdf.table_widths() measured with the ReportLab fonts (3 pt cell padding on each side)."""
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+
+    def measure(text, bold=False):
+        return stringWidth(text, fonts['bold'] if bold else fonts['body'], size)
+    columns = [[h] + [r[i] for r in block['rows']] for i, h in enumerate(block['header'])]
+    return sheet_pdf.table_widths(columns, width, measure, pad=6.0)
+
+
+def _reportlab_label_width(labels, fonts, size, width, share):
+    from reportlab.pdfbase.pdfmetrics import stringWidth
+    return sheet_pdf.label_width(labels, width, share, lambda text, bold=False: stringWidth(text, fonts['bold'], size))
+
+
 def _grid(rows, widths, styles, header=False):
     from reportlab.platypus import Table, TableStyle
     from reportlab.lib import colors
@@ -309,7 +351,7 @@ def _block_flowables(block, styles, fonts, width):
         return [Preformatted(block['text'], styles['code'])]
     if kind in ('stages', 'example'):
         parts = [P(block['setup'], 'muted')] if kind == 'example' and block['setup'] else []
-        label_w = width * 0.32
+        label_w = _reportlab_label_width([s['label'] for s in block['steps']], fonts, styles['label'].fontSize, width, 0.32)
         rows = [[P(s['label'], 'label'), P(s['text'], 'cell')] for s in block['steps']]
         parts.append(_grid(rows, [label_w, width - label_w], styles))
         if kind == 'example' and block['takeaway']:
@@ -317,15 +359,16 @@ def _block_flowables(block, styles, fonts, width):
         parts.append(Spacer(1, gap))
         return [KeepTogether(parts)]
     if kind == 'table':
-        n = len(block['header'])
+        widths = _reportlab_table_widths(block, fonts, styles['cell'].fontSize, width)
         rows = [[P(f'**{h}**' if h else '', 'cell') for h in block['header']]]
         rows += [[P(c, 'cell') for c in row] for row in block['rows']]
-        return [KeepTogether([_grid(rows, [width / n] * n, styles, header=True), Spacer(1, gap)])]
+        return [KeepTogether([_grid(rows, widths, styles, header=True), Spacer(1, gap)])]
     rows = [[P('Question', 'label'), P(block['prompt'], 'cell')]] if block['prompt'] else []
     rows += [[P('First error', 'label'), P(block['first_error'], 'cell')], [P('Fix', 'label'), P(block['fix'], 'cell')]]
     if block['conditions']:
         rows.append([P('Holds when', 'label'), P(block['conditions'], 'cell')])
-    label_w = width * 0.28
+    label_w = _reportlab_label_width(['Question', 'First error', 'Fix', 'Holds when'], fonts,
+                                     styles['label'].fontSize, width, 0.28)
     return [KeepTogether([_grid(rows, [label_w, width - label_w], styles), Spacer(1, gap)])]
 
 
@@ -478,6 +521,13 @@ def fit(sheet, fonts):
         any_block_fit = True
         pages, fill = layout(sheet, fonts, preset)
         if guide or pages <= target:
+            def try_pages(candidate):
+                _check_blocks_fit(sheet, fonts, candidate, col_w, frame_h)
+                return layout(sheet, fonts, candidate)[0]
+            grown = _grow(sheet, index, pages, try_pages)
+            if grown is not None:
+                index, preset = grown, preset_by_id(grown)
+                pages, fill = layout(sheet, fonts, preset)
             return {'preset': index, 'pages': pages, 'column_fill': fill, 'body': preset['body'], 'code': preset['code']}
     if not any_block_fit:
         raise block_problem
@@ -643,7 +693,7 @@ def _html_block(block):
 
 def to_html(sheet, preset_index):
     """A self-contained printable page for one layout preset (no scripts, no external assets)."""
-    preset = PRESETS[preset_index]
+    preset = preset_by_id(preset_index)
     columns = 2 if sheet['kind'] == 'exam-sheet' else 1
     paper = 'letter' if sheet['allowance']['paper'] == 'letter' else 'A4'
     fonts = (CJK_FONTS if sheet['language'].split('-')[0] in ('zh', 'ja', 'ko') else '') + BODY_FONTS
@@ -913,6 +963,10 @@ def fit_native(sheet, fonts):
             continue
         last = result
         if guide or result['pages'] <= target:
+            grown = _grow(sheet, index, result['pages'], lambda p: _native_layout(sheet, fonts, p)['pages'])
+            if grown is not None:
+                index, preset = grown, preset_by_id(grown)
+                result = _native_layout(sheet, fonts, preset)
             return {'preset': index, 'pages': result['pages'], 'column_fill': result['fill'], 'body': preset['body'],
                     'code': preset['code'], 'layout': result}
     if last is None:
@@ -977,7 +1031,7 @@ def render(sheet, out_dir, force=False, engine='auto', browser=None, timeout=60)
     check_glyphs(sheet, fonts)
     result = fit(sheet, fonts)
     out_dir.mkdir(parents=True, exist_ok=True)
-    preset = PRESETS[result['preset']]
+    preset = preset_by_id(result['preset'])
     built = _build(sheet, fonts, preset, str(pdf_path))
     (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     checks = {'engine': 'reportlab', 'pdf': pdf_path.name, 'pages': built['pages'], 'preset': result['preset'],
