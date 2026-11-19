@@ -18,6 +18,7 @@ import html
 import re
 
 FORMAT = 'gpt-im-cooked-study-plan/1'
+DEFAULT_EXAM_HOURS = 3  # used when the student gives no exam end time; outputs say it was assumed
 KINDS = {'learn', 'practice', 'variant', 'recheck', 'mock', 'review', 'source-gap'}
 WEEKDAYS = ('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun')
 DEFAULTS = {'max_minutes_per_day': 120, 'min_block': 25, 'max_block': 90}
@@ -114,9 +115,11 @@ def load_plan(data):
         _need(isinstance(cid, str) and SLUG.match(cid), f'{where}.id: use lowercase letters, digits and hyphens')
         _need(cid not in courses, f'{where}.id: duplicate course {cid!r}')
         exam = course.get('exam')
-        _need(isinstance(exam, dict), f'{where}.exam: missing start and end')
+        _need(isinstance(exam, dict), f'{where}.exam: missing start')
         exam_start = _datetime(exam.get('start'), f'{where}.exam.start')
-        exam_end = _datetime(exam.get('end'), f'{where}.exam.end')
+        end_assumed = exam.get('end') is None
+        exam_end = (exam_start + timedelta(hours=DEFAULT_EXAM_HOURS) if end_assumed
+                    else _datetime(exam.get('end'), f'{where}.exam.end'))
         _need(exam_end > exam_start, f'{where}.exam: end must be after start')
         record = course.get('record')
         _need(record is None or (isinstance(record, str) and record.strip()), f'{where}.record: path or null')
@@ -128,7 +131,8 @@ def load_plan(data):
               f"{settings['min_block']} and {settings['max_block']} minutes")
         courses[cid] = {
             'id': cid, 'title': _text(course.get('title'), f'{where}.title'),
-            'exam_start': exam_start, 'exam_end': exam_end, 'location': course.get('location') or '',
+            'exam_start': exam_start, 'exam_end': exam_end, 'exam_end_assumed': end_assumed,
+            'location': course.get('location') or '',
             'record': record, 'weekly_minutes': weekly_minutes,
         }
 
@@ -370,8 +374,10 @@ def to_ics(plan, result, sequence, stamp):
               block['kind'])
     for course in plan['courses'].values():
         where = f"\nLocation: {course['location']}" if course['location'] else ''
+        assumed = (f'\nEnd time not given; {DEFAULT_EXAM_HOURS} hours assumed.'
+                   if course['exam_end_assumed'] else '')
         event(f"{plan['plan_id']}-{course['id']}-exam", course['exam_start'], course['exam_end'],
-              f"{course['title']} exam", f"Exam time from your course profile.{where}", 'Exam')
+              f"{course['title']} exam", f"Exam time from your course profile.{assumed}{where}", 'Exam')
     lines.append('END:VCALENDAR')
     return ''.join(_fold(line) + '\r\n' for line in lines)
 
@@ -419,7 +425,8 @@ def to_html(plan, result, generated_on):
                 f'<span class="basis">{esc(b["basis"])}</span></div>')
 
     def exam_html(c):
-        return (f'<div class="block exam"><span class="time">{_hm(c["exam_start"])}–{_hm(c["exam_end"])}</span> '
+        assumed = ' (end assumed)' if c['exam_end_assumed'] else ''
+        return (f'<div class="block exam"><span class="time">{_hm(c["exam_start"])}–{_hm(c["exam_end"])}{assumed}</span> '
                 f'<span class="course">Exam</span><span class="title">{esc(c["title"])}</span></div>')
 
     by_day = {}

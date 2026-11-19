@@ -20,7 +20,7 @@ Webpages have three experiences: concept exploration for understanding, coached 
 
 For mock exams, read [mock-exam-layout.md](mock-exam-layout.md) and the exam path in [interactive-review.md](interactive-review.md), even if "webpage" was omitted. The STA199 reference supplies a numbered-paper layout; the student's actual course supplies topics, question formats, and rules.
 
-For sheets and guides, write the content JSON (shape: [assets/sheet-example.json](../assets/sheet-example.json)) and render it with `scripts/render_sheet.py`; do not hand-build a layout program. The renderer needs ReportLab. If it reports that ReportLab is missing, ask the student before running `pip install reportlab`; if they decline or installation fails, deliver a clearly labeled editable source, explain the specific limitation, and identify unverified layout. Do not claim that source text, a print button, or an HTML preview is a generated PDF.
+For sheets and guides, write the content JSON (shape: [assets/sheet-example.json](../assets/sheet-example.json)) and render it with `scripts/render_sheet.py`; do not hand-build a layout program. The renderer uses ReportLab when it is installed and otherwise prints the same layout through an installed Microsoft Edge, Google Chrome or Chromium, so most computers need no installation. Never install a package without asking. Do not claim that source text, a print button, or an HTML preview is a generated PDF.
 
 ## Review packets without a named concept
 
@@ -35,7 +35,7 @@ Recommend a starting concept using current reviewed difficulty evidence when ava
 
 When a navigator is requested or useful for the selected units, use honest labels such as Available, Planned, Source needed, and Excluded. Show activity completion separately from reviewed understanding, and preserve answers when switching between implemented units. Let students change the suggested route without an intake questionnaire.
 
-When a student asks for a study guide, review guide, or cheat sheet and the course profile does not already record the allowance, ask exactly one question before drafting: "Is this a cheat sheet you'll bring into the exam? How many sheets, and one- or two-sided?" If they do not know or skip it, build one two-sided sheet (two pages) and mark it exam use unconfirmed. Only "it's just for reviewing, not for the exam" produces a study guide. Record the answer in the course profile. Do not ask for approval of a content plan before the first draft: generate it and let the student revise. Do not assume that double-sided means two sheets: sheets and printed sides are different. An exam sheet must meet confirmed restrictions. Preserve an instructed document structure during edits.
+When a student asks for a study guide, review guide, or cheat sheet and the course profile does not already record the allowance, ask exactly one question before drafting: "Is this a cheat sheet you'll bring into the exam? How many sheets, and one- or two-sided?" Ask it in your reply and end the turn; draft after the answer. If their next message does not know or skips it, build one two-sided sheet (two pages) and mark it exam use unconfirmed. Only "it's just for reviewing, not for the exam" produces a study guide. Record the answer in the course profile. Do not ask for approval of a content plan before the first draft: generate it and let the student revise. Do not assume that double-sided means two sheets: sheets and printed sides are different. An exam sheet must meet confirmed restrictions. Preserve an instructed document structure during edits.
 
 ## Content rules
 
@@ -71,8 +71,9 @@ Check formulas, examples, terminology, and scope against the source materials an
 python <skill>/scripts/render_sheet.py SHEET.json --out <study dir>/sheets [--force]
 ```
 
-- `OK pages=… preset=… body=…pt out=…`: the renderer chose the most spacious layout that fits the allowed pages, checking every block and code line at that layout's sizes. `previews=none` means no page images could be made: deliver with that inspection limit stated.
+- `OK pages=… preset=… body=…pt out=…`: the renderer chose the most spacious layout that fits the allowed pages, checking every block and code line at that layout's sizes. `previews=none` means no page images could be made: deliver with that inspection limit stated. `engine=browser glyphs=unchecked` means Edge or Chrome printed it: the printable `.html` beside the PDF has the same layout, and characters were not checked against the fonts, so look for missing symbols where you can view the pages.
 - `OVERFLOW over=…pt sections=…`: cut or demote content from the lowest-value sections it lists (turn worked examples into cues, remove *omit*-tier material) and re-render. Never request smaller type; the renderer will not go below 9 pt body / 8.5 pt code, or below an instructor minimum given as `allowance.min_body`. A `reason` naming one block or code line means that block must be shortened or split.
+- `ERROR no PDF engine: ...` (exit code 3): neither ReportLab nor a supported browser exists. The renderer wrote a printable HTML file. Link it, labelled "printable HTML, not a PDF yet", then ask exactly: "I can make the PDF if you let me install one Python package (pip install reportlab). Install it?" and end the turn. On yes, run `pip install reportlab` and re-render; on no, tell them they can open the HTML and choose Print > Save as PDF, and that the page count is unchecked.
 - `ERROR missing glyphs: U+…`: the host's fonts cannot draw those characters; rewrite or spell them out and re-render. Nothing was written, so an earlier round's PDF is unchanged.
 - `ERROR …` (other): fix the content file and re-run.
 

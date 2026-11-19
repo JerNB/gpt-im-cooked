@@ -7,10 +7,12 @@ type size, and reports overflow per section instead of shrinking further.
 It also writes checks.json and, when pypdfium2 is available, page previews.
 
 Usage:
-  python render_sheet.py SHEET.json --out DIR [--force]
+  python render_sheet.py SHEET.json --out DIR [--force] [--engine auto|reportlab|browser] [--browser PATH]
   python render_sheet.py SHEET.json --check
 
-Validation needs only the Python 3.10+ standard library; rendering needs ReportLab.
+Validation needs only the Python 3.10+ standard library. Rendering uses ReportLab when it is installed;
+otherwise it prints an equivalent HTML layout to PDF with an installed Microsoft Edge, Google Chrome or
+Chromium (headless, temporary profile). With neither, it writes the printable HTML and exits with code 3.
 The script never installs packages.
 """
 from pathlib import Path
@@ -152,11 +154,25 @@ def inline(text):
     return ''.join(out)
 
 
-def _markup(text):
+def _markup(text, rules=None):
     out = html.escape(text, quote=False)
-    for pattern, replacement in _MARKUP:
+    for pattern, replacement in rules or _MARKUP:
         out = pattern.sub(replacement, out)
     return out
+
+
+_HTML_MARKUP = [(pattern, replacement.replace('super>', 'sup>')) for pattern, replacement in _MARKUP]
+
+
+def inline_html(text):
+    """Like inline(), for the HTML engine: <code> spans are literal, markup applies outside them."""
+    out, last = [], 0
+    for match in _CODE_SPAN.finditer(text):
+        out.append(_markup(text[last:match.start()], _HTML_MARKUP))
+        out.append('<code>' + html.escape(match.group(1), quote=False) + '</code>')
+        last = match.end()
+    out.append(_markup(text[last:], _HTML_MARKUP))
+    return ''.join(out)
 
 
 def _font_candidates():
@@ -330,9 +346,11 @@ def _leaves(flowables):
             yield flowable
 
 
+PAGE_SIZES = {'letter': (612.0, 792.0), 'a4': (595.2756, 841.8898)}  # points, as in reportlab.lib.pagesizes
+
+
 def _geometry(sheet):
-    from reportlab.lib.pagesizes import letter, A4
-    page_w, page_h = letter if sheet['allowance']['paper'] == 'letter' else A4
+    page_w, page_h = PAGE_SIZES[sheet['allowance']['paper']]
     columns = 2 if sheet['kind'] == 'exam-sheet' else 1
     frame_h = page_h - 2 * MARGIN - HEADER - FOOTER
     col_w = (page_w - 2 * MARGIN - COLUMN_GAP * (columns - 1)) / columns
@@ -530,9 +548,12 @@ def _previews(pdf_path, out_dir, stem):
         import pypdfium2 as pdfium
     except ImportError:
         return None
+    try:
+        document = pdfium.PdfDocument(str(pdf_path))
+    except Exception:  # a PDF pdfium cannot open gets no previews; the caller reports previews=none
+        return None
     folder = out_dir / 'previews'
     folder.mkdir(exist_ok=True)
-    document = pdfium.PdfDocument(str(pdf_path))
     paths = []
     try:
         for i in range(len(document)):
@@ -558,27 +579,294 @@ def check_glyphs(sheet, fonts):
         raise SheetError(f'missing glyphs: {listed}; rewrite or spell out these characters and re-render')
 
 
-def render(sheet, out_dir, force=False):
-    """Check glyphs, fit, then write the PDF, a content copy, previews (when possible) and checks.json.
+# Browser engine: the same content and presets as HTML with print CSS, printed by an installed Chromium browser.
+
+NO_ENGINE_QUESTION = 'I can make the PDF if you let me install one Python package (pip install reportlab). Install it?'
+MONO_ADVANCE = 0.55  # em, Consolas; wider monospace fonts (Menlo, DejaVu Sans Mono: 0.60) wrap instead of clipping
+BODY_FONTS = '"Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif'
+CJK_FONTS = '"Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "Hiragino Sans", "Malgun Gothic", '
+MONO_FONTS = 'Consolas, Menlo, "DejaVu Sans Mono", "Courier New", monospace'
+
+
+class NoEngine(SheetError):
+    """Neither ReportLab nor a Chromium browser is available; a printable HTML file was written instead."""
+
+    def __init__(self, html_path):
+        super().__init__(
+            f'no PDF engine: ReportLab is not installed and no Edge, Chrome or Chromium was found. '
+            f'Printable HTML written (not a PDF; page count unchecked): {html_path}. '
+            f'Ask the student exactly: "{NO_ENGINE_QUESTION}" '
+            f'If they decline, they can open the HTML and use Print > Save as PDF.')
+        self.html_path = html_path
+
+
+def _css_string(text):
+    """A double-quoted CSS string that cannot end the string or the <style> element."""
+    return '"' + ''.join(c if c.isalnum() or c in ' .,:;!?()[]-_\'/&+=#%@*' else f'\\{ord(c):x} ' for c in text) + '"'
+
+
+def _html_block(block):
+    kind = block['type']
+    if kind == 'text':
+        return f'<p class="block">{inline_html(block["text"])}</p>'
+    if kind == 'cue':
+        return f'<p class="block cue">{inline_html(block["text"])}</p>'
+    if kind == 'code':
+        return f'<pre class="block code">{html.escape(block["text"], quote=False)}</pre>'
+    if kind in ('stages', 'example'):
+        parts = [f'<p class="muted">{inline_html(block["setup"])}</p>'] if kind == 'example' and block['setup'] else []
+        rows = ''.join(f'<tr><th>{inline_html(s["label"])}</th><td>{inline_html(s["text"])}</td></tr>'
+                       for s in block['steps'])
+        parts.append(f'<table class="grid steps"><colgroup><col style="width:32%"><col></colgroup>{rows}</table>')
+        if kind == 'example' and block['takeaway']:
+            parts.append(f'<p class="takeaway">{inline_html("**Takeaway:** " + block["takeaway"])}</p>')
+        return f'<div class="block {kind}">' + ''.join(parts) + '</div>'
+    if kind == 'table':
+        head = ''.join(f'<th>{inline_html(h)}</th>' for h in block['header'])
+        body = ''.join('<tr>' + ''.join(f'<td>{inline_html(c)}</td>' for c in row) + '</tr>' for row in block['rows'])
+        return f'<table class="block data"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table>'
+    rows = [('Question', block['prompt'])] if block['prompt'] else []
+    rows += [('First error', block['first_error']), ('Fix', block['fix'])]
+    if block['conditions']:
+        rows.append(('Holds when', block['conditions']))
+    cells = ''.join(f'<tr><th>{label}</th><td>{inline_html(text)}</td></tr>' for label, text in rows)
+    return f'<table class="block grid mistake"><colgroup><col style="width:28%"><col></colgroup>{cells}</table>'
+
+
+def to_html(sheet, preset_index):
+    """A self-contained printable page for one layout preset (no scripts, no external assets)."""
+    preset = PRESETS[preset_index]
+    columns = 2 if sheet['kind'] == 'exam-sheet' else 1
+    paper = 'letter' if sheet['allowance']['paper'] == 'letter' else 'A4'
+    fonts = (CJK_FONTS if sheet['language'].split('-')[0] in ('zh', 'ja', 'ko') else '') + BODY_FONTS
+    body, gap = preset['body'], preset['gap']
+    note = '' if sheet['allowance']['status'] == 'confirmed' else (
+        f'@bottom-left {{ content: {_css_string(UNCONFIRMED_NOTE)}; font: 7.5pt {fonts}; color: {MUTED}; }}')
+    course = f'@top-right {{ content: {_css_string(sheet["course"])}; font: 8.5pt {fonts}; color: {MUTED}; }}' \
+        if sheet['course'] else ''
+    css = f'''
+@page {{ size: {paper}; margin: {MARGIN + HEADER}pt {MARGIN}pt {MARGIN + FOOTER}pt;
+  @top-left {{ content: {_css_string(sheet["title"])}; font: 600 8.5pt {fonts}; color: {MUTED}; }}
+  {course}
+  {note}
+  @bottom-right {{ content: counter(page); font: 7.5pt {fonts}; color: {MUTED}; }} }}
+html {{ background: #fff; }}
+body {{ margin: 0; color: {INK}; font-family: {fonts}; font-size: {body}pt; line-height: {LEADING};
+  columns: {columns}; column-gap: {COLUMN_GAP}pt; column-fill: auto; }}
+.section.high {{ font-size: {round(body * HIGH_SCALE, 2)}pt; }}
+h2 {{ font-size: 1.16em; line-height: 1.2; color: {BRAND}; margin: {preset['section_gap']}pt 0 {gap}pt;
+  break-after: avoid; }}
+.section.high h2 {{ background: {TINT}; padding: 2pt 3pt; }}
+body > .section:first-child h2 {{ margin-top: 0; }}
+.keep {{ break-inside: avoid; }}
+.block {{ margin: 0 0 {gap}pt; break-inside: avoid; }}
+p {{ margin: 0 0 {gap}pt; }}
+.cue {{ padding-left: 0.9em; text-indent: -0.9em; }}
+.cue::before {{ content: "\\2022"; display: inline-block; width: 0.9em; text-indent: 0; }}
+.muted {{ color: {MUTED}; }}
+table {{ width: 100%; border-collapse: collapse; }}
+th, td {{ text-align: left; vertical-align: top; padding: 1.5pt 3pt; border-bottom: 0.4pt solid {RULE}; font-weight: normal; }}
+.grid th {{ color: {BRAND}; font-weight: 600; }}
+.data thead th {{ background: {TINT}; font-weight: 600; }}
+.takeaway {{ margin: {round(gap * 0.6, 2)}pt 0 0; }}
+code, pre {{ font-family: {MONO_FONTS}; }}
+pre.code {{ font-size: {preset['code']}pt; line-height: 1.2; background: #f1f0ea; padding: 3pt;
+  white-space: pre-wrap; overflow-wrap: anywhere; }}
+'''
+    sections = []
+    for section in sheet['sections']:
+        blocks = [_html_block(b) for b in section['blocks']]
+        title = f'<h2>{inline_html(section["title"])}</h2>'
+        weight = ' high' if section['weight'] == 'high' else ''
+        sections.append(f'<section class="section{weight}" id="{section["id"]}"><div class="keep">{title}{blocks[0]}</div>'
+                        + ''.join(blocks[1:]) + '</section>')
+    lang = html.escape(sheet['language'])
+    return (f'<!doctype html>\n<html lang="{lang}" data-preset="{preset_index}"><head><meta charset="utf-8">'
+            f'<title>{html.escape(sheet["title"])}</title><style>{css}</style></head>\n<body>\n'
+            + '\n'.join(sections) + '\n</body></html>\n')
+
+
+def _browser_candidates():
+    import shutil
+    paths = []
+    if os.name == 'nt':
+        for base in (os.environ.get('PROGRAMFILES(X86)'), os.environ.get('PROGRAMFILES'), os.environ.get('LOCALAPPDATA')):
+            if base:
+                paths += [Path(base) / 'Microsoft/Edge/Application/msedge.exe',
+                          Path(base) / 'Google/Chrome/Application/chrome.exe',
+                          Path(base) / 'Chromium/Application/chrome.exe']
+    paths += [Path('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'),
+              Path('/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge'),
+              Path('/Applications/Chromium.app/Contents/MacOS/Chromium')]
+    for name in ('msedge', 'microsoft-edge', 'microsoft-edge-stable', 'google-chrome', 'google-chrome-stable',
+                 'chromium', 'chromium-browser', 'chrome'):
+        found = shutil.which(name)
+        if found:
+            paths.append(Path(found))
+    return paths
+
+
+def find_browser():
+    """Command prefix for the first installed Chromium browser, or None."""
+    for path in _browser_candidates():
+        if path.is_file():
+            return [str(path)]
+    return None
+
+
+def pdf_page_count(data):
+    """Page count from the PDF page tree (the root /Pages node has the largest /Count), or None."""
+    counts = [int(n) for n in re.findall(rb'/Type\s*/Pages\b[^>]*?/Count\s+(\d+)', data)]
+    counts += [int(n) for n in re.findall(rb'/Count\s+(\d+)[^>]*?/Type\s*/Pages\b', data)]
+    return max(counts) if counts else None
+
+
+def _browser_name(browser):
+    return Path(browser[-1]).name
+
+
+def print_pdf(browser, html_path, pdf_path, timeout=60):
+    """Print `html_path` with a headless browser and a throwaway profile; return the finished PDF bytes."""
+    import shutil
+    import subprocess
+    import tempfile
+    import time
+    profile = Path(tempfile.mkdtemp(prefix='gim-sheet-browser-'))
+    command = list(browser) + ['--headless', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
+                               '--disable-extensions', f'--user-data-dir={profile}', '--no-pdf-header-footer',
+                               '--print-to-pdf-no-header', f'--print-to-pdf={pdf_path}', html_path.resolve().as_uri()]
+    name = _browser_name(browser)
+    deadline = time.monotonic() + timeout
+    try:
+        try:
+            subprocess.run(command, capture_output=True, timeout=timeout)
+        except (OSError, subprocess.SubprocessError) as error:
+            raise SheetError(f'the browser ({name}) could not print the sheet: {error}') from None
+        # Some launchers (Edge on Windows) return before the PDF exists: wait for a complete, stable file.
+        last = -1
+        while time.monotonic() < deadline:
+            if pdf_path.is_file():
+                data = pdf_path.read_bytes()
+                if data.startswith(b'%PDF') and data.rstrip().endswith(b'%%EOF') and len(data) == last:
+                    return data
+                last = len(data)
+            time.sleep(0.25)
+        raise SheetError(f'the browser ({name}) did not write a complete PDF within {timeout}s')
+    finally:
+        for _ in range(20):  # the browser may still hold the profile for a moment after printing
+            shutil.rmtree(profile, ignore_errors=True)
+            if not profile.exists():
+                break
+            time.sleep(0.25)
+
+
+def _candidate_presets(sheet):
+    min_body = max(9.0, float(sheet['allowance']['min_body'] or 0))
+    presets = [(i, p) for i, p in enumerate(PRESETS) if p['body'] >= min_body]
+    if not presets:
+        raise Overflow(0, [], f'no layout preset meets the minimum body size {min_body}pt')
+    if sheet['kind'] == 'study-guide':
+        presets = presets[1:] or presets
+    return presets
+
+
+def _code_fits(sheet, preset, col_w):
+    """Estimated widest code line against the column (monospace advance), or an Overflow describing it."""
+    for section in sheet['sections']:
+        for block in section['blocks']:
+            if block['type'] != 'code':
+                continue
+            widest = max(len(line.expandtabs(4)) for line in block['text'].splitlines()) * MONO_ADVANCE * preset['code']
+            if widest > col_w + 0.5:
+                return Overflow(widest - col_w, [], f'a code line in section {section["id"]} is wider than one column')
+    return None
+
+
+def fit_browser(sheet, browser, work, timeout=60):
+    """Print each permitted preset (most spacious first) until one fits; returns (index, pages, pdf, html)."""
+    presets = _candidate_presets(sheet)
+    _, _, columns, col_w, frame_h = _geometry(sheet)
+    guide = sheet['kind'] == 'study-guide'
+    target = sheet['allowance']['sheets'] * sheet['allowance']['sides']
+    problem, pages = None, None
+    for index, preset in presets:
+        problem = _code_fits(sheet, preset, col_w)
+        if problem:
+            continue
+        html_path, pdf_path = work / f'preset-{index}.html', work / f'preset-{index}.pdf'
+        html_path.write_text(to_html(sheet, index), encoding='utf-8')
+        pages = pdf_page_count(print_pdf(browser, html_path, pdf_path, timeout))
+        if pages is None:
+            raise SheetError(f'the browser ({_browser_name(browser)}) wrote a PDF without a readable page count')
+        if guide or pages <= target:
+            return index, pages, pdf_path, html_path
+    if pages is None:
+        raise problem
+    raise Overflow((pages - target) * columns * frame_h, [],
+                   f'content needs {pages} pages at the tightest permitted size, {target} allowed (browser engine)')
+
+
+def _engine(requested):
+    if requested != 'auto':
+        return requested
+    try:
+        import reportlab  # noqa: F401
+    except ImportError:
+        return 'browser'
+    return 'reportlab'
+
+
+def render(sheet, out_dir, force=False, engine='auto', browser=None, timeout=60):
+    """Check, fit, then write the PDF, a content copy, previews (when possible) and checks.json.
 
     Nothing is written when a check fails, so an existing round is never replaced by a failed render.
+    The browser engine also keeps the printable HTML; with no browser it writes only that HTML and raises NoEngine.
     """
     import json
-    fonts = find_fonts(sheet['language'])
-    check_glyphs(sheet, fonts)
-    result = fit(sheet, fonts)
     stem = f"{_slug(sheet['title'])}-v{sheet['revision']['round']}"
     pdf_path = out_dir / f'{stem}.pdf'
     if pdf_path.exists() and not force:
         raise SheetError(f'{pdf_path.name} already exists; pass --force to replace this round')
+    if _engine(engine) == 'browser':
+        return _render_browser(sheet, out_dir, stem, browser or find_browser(), timeout)
+    fonts = find_fonts(sheet['language'])
+    check_glyphs(sheet, fonts)
+    result = fit(sheet, fonts)
     out_dir.mkdir(parents=True, exist_ok=True)
     preset = PRESETS[result['preset']]
     built = _build(sheet, fonts, preset, str(pdf_path))
     (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-    checks = {'pdf': pdf_path.name, 'pages': built['pages'], 'preset': result['preset'], 'body': preset['body'],
-              'code': preset['code'], 'column_fill': built['column_fill'],
+    checks = {'engine': 'reportlab', 'pdf': pdf_path.name, 'pages': built['pages'], 'preset': result['preset'],
+              'body': preset['body'], 'code': preset['code'], 'column_fill': built['column_fill'],
               'fonts': {k: fonts[k] for k in ('body', 'bold', 'mono')} | {'files': fonts['files']},
               'missing_glyphs': [], 'allowance': sheet['allowance'], 'kind': sheet['kind'],
+              'previews': _previews(pdf_path, out_dir, stem)}
+    (out_dir / 'checks.json').write_text(json.dumps(checks, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    return checks
+
+
+def _render_browser(sheet, out_dir, stem, browser, timeout):
+    import json
+    import shutil
+    import tempfile
+    if browser is None:
+        presets = _candidate_presets(sheet)
+        index = presets[0][0] if sheet['kind'] == 'study-guide' else presets[-1][0]  # tightest: likeliest to fit
+        out_dir.mkdir(parents=True, exist_ok=True)
+        html_path = out_dir / f'{stem}.html'
+        html_path.write_text(to_html(sheet, index), encoding='utf-8')
+        raise NoEngine(html_path)
+    with tempfile.TemporaryDirectory(prefix='gim-sheet-') as work:
+        index, pages, tmp_pdf, tmp_html = fit_browser(sheet, browser, Path(work), timeout)
+        out_dir.mkdir(parents=True, exist_ok=True)
+        pdf_path = out_dir / f'{stem}.pdf'
+        shutil.copyfile(tmp_pdf, pdf_path)
+        shutil.copyfile(tmp_html, out_dir / f'{stem}.html')
+    preset = PRESETS[index]
+    (out_dir / f'{stem}.json').write_text(json.dumps(sheet, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+    checks = {'engine': 'browser', 'browser': _browser_name(browser), 'pdf': pdf_path.name, 'html': f'{stem}.html',
+              'pages': pages, 'preset': index, 'body': preset['body'], 'code': preset['code'], 'column_fill': None,
+              'missing_glyphs': 'unchecked', 'allowance': sheet['allowance'], 'kind': sheet['kind'],
               'previews': _previews(pdf_path, out_dir, stem)}
     (out_dir / 'checks.json').write_text(json.dumps(checks, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     return checks
@@ -593,6 +881,9 @@ def main(argv=None):
     target.add_argument('--out', type=Path, help='folder for the PDF, previews and checks.json')
     target.add_argument('--check', action='store_true', help='validate and fit without writing files')
     parser.add_argument('--force', action='store_true', help='replace this revision round if it exists')
+    parser.add_argument('--engine', choices=('auto', 'reportlab', 'browser'), default='auto',
+                        help='auto: ReportLab when installed, otherwise an installed Edge/Chrome/Chromium')
+    parser.add_argument('--browser', type=Path, help='path to a Chromium-based browser for the browser engine')
     args = parser.parse_args(argv)
     try:
         try:
@@ -602,24 +893,44 @@ def main(argv=None):
         except json.JSONDecodeError as error:
             raise SheetError(f'{args.content} is not valid JSON (line {error.lineno}: {error.msg})') from None
         sheet = load_sheet(data)
-        try:
-            import reportlab  # noqa: F401
-        except ImportError:
-            print('ERROR reportlab is not installed; ask the student before running pip install reportlab, '
-                  'or deliver a labelled editable source instead')
-            return 3
+        engine = _engine(args.engine)
+        if engine == 'reportlab':
+            try:
+                import reportlab  # noqa: F401
+            except ImportError:
+                print(f'ERROR reportlab is not installed; ask the student exactly: "{NO_ENGINE_QUESTION}" '
+                      'or use --engine auto to print through an installed browser')
+                return 3
+        browser = [str(args.browser)] if args.browser else None
+        if browser and not args.browser.is_file():
+            raise SheetError(f'browser not found: {args.browser}')
         if args.check:
+            if engine == 'browser':
+                import tempfile
+                browser = browser or find_browser()
+                if browser is None:
+                    raise SheetError('no PDF engine to check the fit: ReportLab is not installed and no browser was found')
+                with tempfile.TemporaryDirectory(prefix='gim-sheet-') as work:
+                    index, pages, _, _ = fit_browser(sheet, browser, Path(work))
+                print(f"OK pages={pages} preset={index} body={PRESETS[index]['body']}pt out=none engine=browser")
+                return 0
             fonts = find_fonts(sheet['language'])
             check_glyphs(sheet, fonts)
             result = fit(sheet, fonts)
-            print(f"OK pages={result['pages']} preset={result['preset']} body={result['body']}pt out=none")
+            print(f"OK pages={result['pages']} preset={result['preset']} body={result['body']}pt out=none engine=reportlab")
             return 0
-        checks = render(sheet, args.out, args.force)
+        checks = render(sheet, args.out, args.force, engine=engine, browser=browser)
         line = f"OK pages={checks['pages']} preset={checks['preset']} body={checks['body']}pt out={args.out / checks['pdf']}"
         if checks['previews'] is None:
             line += ' previews=none'
+        line += f" engine={checks['engine']}"
+        if checks['engine'] == 'browser':
+            line += ' glyphs=unchecked'
         print(line)
         return 0
+    except NoEngine as error:
+        print(f'ERROR {error}')
+        return 3
     except Overflow as error:
         sections = ','.join(f'{sid}:{h:.0f}' for sid, h in error.sections)
         print(f'OVERFLOW over={error.over_pt:.0f}pt sections={sections} reason={error.reason}')

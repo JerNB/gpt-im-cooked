@@ -409,14 +409,214 @@ def test_cli_errors():
             assert 'Traceback' not in stderr, stderr
 
 
-def test_cli_no_reportlab():
+NO_ENGINE_QUESTION = 'I can make the PDF if you let me install one Python package (pip install reportlab). Install it?'
+
+
+def run_without_engines(*args):
+    """Run main() with ReportLab hidden and no browser discoverable."""
+    code = ("import sys; sys.modules['reportlab'] = None; "
+            f"sys.path.insert(0, {str(SCRIPT.parent)!r}); import render_sheet as r; "
+            "r._browser_candidates = lambda: []; "
+            f"raise SystemExit(r.main({[str(a) for a in args]!r}))")
+    done = subprocess.run([sys.executable, '-c', code], capture_output=True, text=True, encoding='utf-8')
+    return done.returncode, done.stdout.strip(), done.stderr
+
+
+def test_cli_no_engine_writes_printable_html():
     with tempfile.TemporaryDirectory() as tmp:
-        wrapper = ("import sys, runpy; sys.modules['reportlab'] = None; "
-                   f"sys.argv = [{str(SCRIPT)!r}, {str(write_sheet(tmp))!r}, '--out', {str(Path(tmp) / 'o')!r}]; "
-                   f"runpy.run_path({str(SCRIPT)!r}, run_name='__main__')")
-        done = subprocess.run([sys.executable, '-c', wrapper], capture_output=True, text=True, encoding='utf-8')
-        assert done.returncode == 3, (done.returncode, done.stdout, done.stderr)
-        assert 'ask the student before running pip install reportlab' in done.stdout, done.stdout
+        out = Path(tmp) / 'o'
+        code, stdout, stderr = run_without_engines(write_sheet(tmp), '--out', out)
+        assert code == 3, (code, stdout, stderr)
+        assert stdout.startswith('ERROR no PDF engine'), stdout
+        assert NO_ENGINE_QUESTION in stdout, stdout
+        html_files = list(out.glob('*-v1.html'))
+        assert len(html_files) == 1 and not list(out.glob('*.pdf')), list(out.iterdir())
+        assert str(html_files[0]) in stdout, stdout
+
+
+# Browser engine (standard library; a fake browser stands in for Edge/Chrome)
+
+FAKE_BROWSER = r"""
+import json, re, sys
+from pathlib import Path
+from urllib.parse import unquote, urlparse
+args = sys.argv[1:]
+log = Path(__file__).with_name('calls.jsonl')
+with log.open('a', encoding='utf-8') as f:
+    f.write(json.dumps(args) + '\n')
+behaviour = json.loads(Path(__file__).with_name('pages.json').read_text(encoding='utf-8'))
+if behaviour.get('write') is False:
+    raise SystemExit(0)
+target = next(a.split('=', 1)[1] for a in args if a.startswith('--print-to-pdf='))
+path = unquote(urlparse(args[-1]).path)
+source = Path(path.lstrip('/') if sys.platform == 'win32' else path)
+preset = re.search(r'data-preset="(\d+)"', source.read_text(encoding='utf-8')).group(1)
+pages = behaviour['pages'][preset]
+body = b'%PDF-1.4\n1 0 obj<</Type /Catalog /Pages 2 0 R>>endobj\n2 0 obj<</Type /Pages /Count ' + str(pages).encode() + b'>>endobj\n'
+Path(target).write_bytes(body + (b'' if behaviour.get('truncate') else b'%%EOF\n'))
+"""
+
+
+def fake_browser(folder, pages, **behaviour):
+    folder = Path(folder)
+    script = folder / 'fake_browser.py'
+    script.write_text(FAKE_BROWSER, encoding='utf-8')
+    (folder / 'pages.json').write_text(json.dumps({'pages': {str(k): v for k, v in pages.items()}, **behaviour}),
+                                       encoding='utf-8')
+    return [sys.executable, str(script)]
+
+
+def calls(folder):
+    log = Path(folder) / 'calls.jsonl'
+    return [json.loads(line) for line in log.read_text(encoding='utf-8').splitlines()] if log.exists() else []
+
+
+def test_html_structure():
+    sheet = rs.load_sheet(sheet_with())
+    page = rs.to_html(sheet, 2)
+    assert page.startswith('<!doctype html>') and 'data-preset="2"' in page
+    assert f"font-size: {rs.PRESETS[2]['body']}pt" in page
+    assert 'columns: 2' in page and 'size: letter' in page
+    assert rs._css_string(rs.UNCONFIRMED_NOTE) in page
+    assert '<script' not in page and 'http://' not in page and 'https://' not in page
+    guide = rs.load_sheet(sheet_with(lambda d: d.update(kind='study-guide')))
+    assert 'columns: 1' in rs.to_html(guide, 1)
+    confirmed = rs.load_sheet(sheet_with(lambda d: d['allowance'].update(status='confirmed', paper='a4')))
+    page = rs.to_html(confirmed, 0)
+    assert rs._css_string(rs.UNCONFIRMED_NOTE) not in page and 'size: A4' in page
+
+
+def test_html_escapes_and_keeps_code_literal():
+    def mutate(d):
+        d['title'] = 'A <b> & "c"'
+        d['sections'][0]['blocks'] = [{'type': 'text', 'text': 'x^{2} **bold** `a**b**<c>` </style>'},
+                                      {'type': 'code', 'text': 'if a < b:\n    print("**x**")'}]
+    page = rs.to_html(rs.load_sheet(sheet_with(mutate)), 0)
+    assert 'A &lt;b&gt; &amp;' in page
+    assert 'x<sup>2</sup> <b>bold</b> <code>a**b**&lt;c&gt;</code> &lt;/style&gt;' in page, page
+    assert 'if a &lt; b:\n    print(' in page and '**x**' in page
+
+
+def test_html_high_weight_and_blocks():
+    page = rs.to_html(rs.load_sheet(sheet_with()), 0)
+    assert 'class="section high"' in page
+    for marker in ('class="block cue"', 'class="grid steps"', 'class="block data"'):
+        assert marker in page, marker
+
+
+def test_browser_fit_picks_most_spacious_that_fits():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {0: 3, 1: 3, 2: 2, 3: 2, 4: 1})
+        out = Path(tmp) / 'out'
+        checks = rs.render(rs.load_sheet(sheet_with()), out, engine='browser', browser=browser)
+        assert checks['engine'] == 'browser' and checks['preset'] == 2 and checks['pages'] == 2, checks
+        assert checks['missing_glyphs'] == 'unchecked' and checks['column_fill'] is None
+        assert checks['browser'] == 'fake_browser.py'
+        stem = checks['pdf'][:-4]
+        assert (out / checks['pdf']).read_bytes().rstrip().endswith(b'%%EOF')
+        assert (out / f'{stem}.html').is_file() and (out / f'{stem}.json').is_file() and (out / 'checks.json').is_file()
+        assert 'data-preset="2"' in (out / f'{stem}.html').read_text(encoding='utf-8')
+        made = calls(tmp)
+        assert len(made) == 3, made  # presets 0, 1, 2 tried; stops at the first fit
+        for args in made:
+            profile = next(a.split('=', 1)[1] for a in args if a.startswith('--user-data-dir='))
+            assert not Path(profile).exists() and out.resolve() not in Path(profile).resolve().parents
+            assert '--headless' in args and '--no-pdf-header-footer' in args
+        assert sorted(p.name for p in out.iterdir() if p.is_dir()) in ([], ['previews'])
+
+
+def test_browser_respects_minimum_body():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {0: 3, 1: 3, 2: 3, 3: 2, 4: 1})
+        sheet = rs.load_sheet(sheet_with(lambda d: d['allowance'].update(min_body=10)))
+        try:
+            rs.render(sheet, Path(tmp) / 'out', engine='browser', browser=browser)
+        except rs.Overflow as error:
+            assert 'browser engine' in error.reason and error.sections == []
+        else:
+            raise AssertionError('expected overflow: only presets 0-2 meet a 10pt minimum')
+        assert not list((Path(tmp) / 'out').glob('*.pdf')) if (Path(tmp) / 'out').exists() else True
+
+
+def test_browser_study_guide_single_print():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {0: 9, 1: 7, 2: 6, 3: 5, 4: 4})
+        sheet = rs.load_sheet(sheet_with(lambda d: d.update(kind='study-guide')))
+        checks = rs.render(sheet, Path(tmp) / 'out', engine='browser', browser=browser)
+        assert checks['preset'] == 1 and checks['pages'] == 7 and len(calls(tmp)) == 1
+
+
+def test_browser_code_width_estimate():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)})
+        sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][0]['blocks'].append(
+            {'type': 'code', 'text': 'x = ' + 'a' * 120})))
+        try:
+            rs.render(sheet, Path(tmp) / 'out', engine='browser', browser=browser)
+        except rs.Overflow as error:
+            assert 'code line' in error.reason, error.reason
+        else:
+            raise AssertionError('a 124-character code line cannot fit a sheet column')
+        assert calls(tmp) == []
+
+
+def test_browser_missing_or_partial_pdf_is_an_error():
+    for behaviour in ({'write': False}, {'truncate': True}):
+        with tempfile.TemporaryDirectory() as tmp:
+            browser = fake_browser(tmp, {i: 1 for i in range(5)}, **behaviour)
+            out = Path(tmp) / 'out'
+            try:
+                rs.render(rs.load_sheet(sheet_with()), out, engine='browser', browser=browser, timeout=2)
+            except rs.SheetError as error:
+                assert 'browser' in str(error), error
+            else:
+                raise AssertionError(f'expected an error for {behaviour}')
+            assert not out.exists() or not list(out.glob('*.pdf'))
+
+
+def test_browser_keeps_earlier_round():
+    with tempfile.TemporaryDirectory() as tmp:
+        browser = fake_browser(tmp, {i: 1 for i in range(5)})
+        out = Path(tmp) / 'out'
+        sheet = rs.load_sheet(sheet_with())
+        rs.render(sheet, out, engine='browser', browser=browser)
+        try:
+            rs.render(sheet, out, engine='browser', browser=browser)
+        except rs.SheetError as error:
+            assert '--force' in str(error)
+        else:
+            raise AssertionError('an existing round was replaced without --force')
+
+
+def test_pdf_page_count():
+    assert rs.pdf_page_count(b'%PDF-1.4 <</Type /Pages /Count 2 /Kids [3 0 R 4 0 R]>> <</Type /Pages /Count 1>> %%EOF') == 2
+    assert rs.pdf_page_count(b'%PDF-1.4 nothing') is None
+
+
+def test_find_browser_uses_candidates():
+    with tempfile.TemporaryDirectory() as tmp:
+        exe = Path(tmp) / 'msedge.exe'
+        exe.write_text('', encoding='utf-8')
+        saved = rs._browser_candidates
+        try:
+            rs._browser_candidates = lambda: [Path(tmp) / 'missing.exe', exe]
+            assert rs.find_browser() == [str(exe)]
+            rs._browser_candidates = lambda: []
+            assert rs.find_browser() is None
+        finally:
+            rs._browser_candidates = saved
+
+
+def browser_test_real_example():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        code, stdout, stderr = run(write_sheet(tmp), '--out', out, '--engine', 'browser')
+        assert code == 0 and 'engine=browser' in stdout, (code, stdout, stderr)
+        checks = json.loads((out / 'checks.json').read_text(encoding='utf-8'))
+        assert 1 <= checks['pages'] <= 2, checks
+        data = (out / checks['pdf']).read_bytes()
+        assert data.startswith(b'%PDF') and rs.pdf_page_count(data) == checks['pages']
+        assert [p.name for p in out.iterdir() if p.is_dir()] in ([], ['previews'])
 
 
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
@@ -437,6 +637,10 @@ def check():
         tests += [value for name, value in sorted(globals().items()) if name.startswith('render_test_')]
     else:
         print('SKIP rendering checks: reportlab not installed')
+    if rs.find_browser():
+        tests += [value for name, value in sorted(globals().items()) if name.startswith('browser_test_')]
+    else:
+        print('SKIP real-browser checks: no Edge/Chrome/Chromium found')
     for test in tests:
         try:
             test()
