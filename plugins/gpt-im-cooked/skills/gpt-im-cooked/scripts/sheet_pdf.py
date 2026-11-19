@@ -87,6 +87,7 @@ class TrueType:
     def __init__(self, path):
         self.path = Path(path)
         data = self.path.read_bytes()
+        self.data = data
         if data[:4] not in (b'\x00\x01\x00\x00', b'true'):
             raise ValueError('not a single TrueType font')
         count = struct.unpack('>H', data[4:6])[0]
@@ -101,6 +102,7 @@ class TrueType:
         fs_type = struct.unpack('>H', os2[8:10])[0] if len(os2) >= 10 else 0
         if fs_type & 0x000F == 0x0002 or fs_type & 0x0200:  # restricted licence or bitmap-only embedding
             raise ValueError('font licence does not permit embedding')
+        self.no_subset = bool(fs_type & 0x0100)  # licence allows embedding only the whole font
         head = self.tables['head']
         self.units = struct.unpack('>H', head[18:20])[0]
         self.bbox = struct.unpack('>hhhh', head[36:44])
@@ -177,7 +179,12 @@ class TrueType:
         return a, b
 
     def subset(self, gids):
-        """A valid font file keeping glyph IDs, with outlines only for `gids` (plus composite parts)."""
+        """A valid font file keeping glyph IDs, with outlines only for `gids` (plus composite parts).
+
+        Fonts whose licence forbids subsetting (OS/2 fsType bit 8) are returned whole.
+        """
+        if self.no_subset:
+            return self.data
         glyf = self.tables['glyf']
         keep, todo = set(), set(gids) | {0}
         while todo:
@@ -235,21 +242,33 @@ def _font_file(tables):
 
 # ---------------------------------------------------------------- inline text
 
-_SPAN = re.compile(r'`([^`]+)`|\*\*(.+?)\*\*|\^\{(.+?)\}|_\{(.+?)\}')
+_CODE = re.compile(r'`([^`]+)`')
+_MARK = re.compile(r'\*\*(.+?)\*\*|\^\{(.+?)\}|_\{(.+?)\}')
 
 
 def runs(text, bold=False):
-    """[(text, role, kind)] with kind '', 'sup' or 'sub'. Markup inside code spans stays literal."""
+    """[(text, role, kind)] with kind '', 'sup' or 'sub'.
+
+    As in the ReportLab engine, `code` spans are split out first and kept literal; **bold**, ^{sup} and _{sub}
+    apply outside them, and markup nests inside bold. Unmatched markers stay literal.
+    """
+    out, last = [], 0
+    for match in _CODE.finditer(text):
+        out += _marked(text[last:match.start()], bold)
+        out.append((match.group(1), 'mono', ''))
+        last = match.end()
+    return out + _marked(text[last:], bold)
+
+
+def _marked(text, bold):
     out, last = [], 0
     base = 'bold' if bold else 'body'
-    for match in _SPAN.finditer(text):
+    for match in _MARK.finditer(text):
         if match.start() > last:
             out.append((text[last:match.start()], base, ''))
-        code, strong, sup, sub = match.groups()
-        if code is not None:
-            out.append((code, 'mono', ''))
-        elif strong is not None:
-            out.append((strong, 'bold', ''))
+        strong, sup, sub = match.groups()
+        if strong is not None:
+            out += _marked(strong, True)
         elif sup is not None:
             out.append((sup, base, 'sup'))
         else:
@@ -273,6 +292,7 @@ class Layout:
         """Lines of [(text, role, kind, size, color)] fitting `width`; long words are broken by character."""
         size = size or self.size
         color = color or self.color
+        text = re.sub(r'\s+', ' ', text).strip()
         pieces = []  # (word or ' ', role, kind)
         for chunk, role, kind in runs(text, bold):
             for part in re.split(r'( )', chunk):
@@ -517,7 +537,7 @@ def layout(sheet, fonts, preset, geometry, theme):
         boxes = build_blocks(section, fonts, preset, col_w, theme)
         total = sum(b.space_before + b.height + b.space_after for b in boxes)
         heights.append((section['id'], round(total, 1)))
-        for i, box in enumerate(boxes[1:], start=1):
+        for box in boxes:
             if box.height > frame_h:
                 raise TooTall(section['id'], box.height, f'a block in section {section["id"]} is taller than one column')
         units.append((section['id'], [boxes[0], boxes[1]] if len(boxes) > 1 else [boxes[0]]))

@@ -892,12 +892,15 @@ def native_test_minimum_body():
 
 def native_test_missing_glyph():
     with tempfile.TemporaryDirectory() as tmp:
+        fonts = rs.sheet_pdf.load_fonts('en')
+        absent = next(chr(c) for c in list(range(0x1F600, 0x1F650)) + list(range(0xE000, 0xF900))
+                      if all(ord(chr(c)) not in fonts[r].cmap for r in ('body', 'bold')))
         sheet = rs.load_sheet(sheet_with(lambda d: d['sections'][0]['blocks'].append(
-            {'type': 'text', 'text': 'emoji \U0001F600 here'})))
+            {'type': 'text', 'text': f'symbol {absent} here'})))
         try:
             rs.render(sheet, Path(tmp) / 'out', engine='native')
         except rs.SheetError as error:
-            assert 'U+1F600' in str(error), error
+            assert f'U+{ord(absent):04X}' in str(error), error
         else:
             raise AssertionError('a character the fonts lack was accepted')
         assert not (Path(tmp) / 'out').exists() or not list((Path(tmp) / 'out').glob('*.pdf'))
@@ -922,6 +925,63 @@ def native_test_text_and_positions():
         stray = [(c, round(l), round(r)) for c, l, r in found[1] if not any(lo <= l and r <= hi for lo, hi in cols)]
         assert not stray, stray[:10]
         assert checks['previews'] and all((out / p).is_file() for p in checks['previews'])
+
+
+def test_native_runs_nest_markup_in_bold():
+    sp = rs.sheet_pdf
+    assert sp.runs('**x^{2}**') == [('x', 'bold', ''), ('2', 'bold', 'sup')]
+    assert sp.runs('a **b_{i}** `c**d` e') == [('a ', 'body', ''), ('b', 'bold', ''), ('i', 'bold', 'sub'),
+                                               (' ', 'body', ''), ('c**d', 'mono', ''), (' e', 'body', '')]
+    assert sp.runs('**open `x` 2**') == [('**open ', 'body', ''), ('x', 'mono', ''), (' 2**', 'body', '')]
+    assert sp.runs('`x^{2}`') == [('x^{2}', 'mono', '')]
+
+
+def native_test_prose_whitespace_is_normalized():
+    fonts = rs.sheet_pdf.load_fonts('en')
+    lay = rs.sheet_pdf.Layout(fonts, 10, '#000000')
+    lines = lay.wrap('alpha\nbeta\tend  two', 500)
+    drawn = ''.join(part for line in lines for part, *_ in line)
+    assert drawn == 'alpha beta end two', repr(drawn)
+
+
+def native_test_table_header_formula():
+    with tempfile.TemporaryDirectory() as tmp:
+        out = Path(tmp) / 'out'
+        data = sheet_with(lambda d: d['sections'][2]['blocks'][0].update(
+            header=['Odds e^{x}', 'b', 'c'], rows=[['1', '2', '3']]))
+        checks = rs.render(rs.load_sheet(data), out, engine='native')
+        found = pdf_chars(out / checks['pdf'])
+        if found is not None:
+            # PDFium extracts the raised x on its own line; what matters is that no literal markup survives
+            assert 'Odds e' in found[0] and '^{' not in found[0] and 'e^' not in found[0], found[0][:400]
+
+
+def native_test_oversized_title_is_reported():
+    data = sheet_with(lambda d: d['sections'][0].update(title='Heading ' * 500, blocks=[{'type': 'text', 'text': 'x'}]))
+    try:
+        native_fitted(data)
+    except rs.Overflow as error:
+        assert 'taller than one column' in error.reason and error.sections[0][0] == 'interaction', error.reason
+        return
+    raise AssertionError('a title taller than a column was accepted')
+
+
+def native_test_no_subsetting_flag_embeds_whole_font():
+    import struct as struct_
+    source = rs.sheet_pdf.load_fonts('en')['body']
+    data = bytearray(source.path.read_bytes())
+    count = struct_.unpack('>H', data[4:6])[0]
+    for i in range(count):
+        tag, _, offset, _ = struct_.unpack('>4sIII', data[12 + 16 * i: 28 + 16 * i])
+        if tag == b'OS/2':
+            fs = struct_.unpack('>H', data[offset + 8:offset + 10])[0]
+            data[offset + 8:offset + 10] = struct_.pack('>H', fs | 0x0100)
+    with tempfile.TemporaryDirectory() as tmp:
+        path = Path(tmp) / 'nosubset.ttf'
+        path.write_bytes(bytes(data))
+        font = rs.sheet_pdf.TrueType(path)
+        assert font.no_subset and font.subset({font.gid('A')}) == bytes(data)
+        assert len(source.subset({source.gid('A')})) < len(source.path.read_bytes()) // 4
 
 
 def native_test_cli_auto_without_reportlab():
