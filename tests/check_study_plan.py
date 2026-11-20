@@ -503,6 +503,26 @@ def test_regenerate():
         assert 'SEQUENCE:1' in text and 'SEQUENCE:0' not in text
 
 
+def test_exam_end_optional():
+    """A missing exam end is assumed to be 3 hours after the start, and both outputs say so."""
+    drop = lambda d: d['courses'][2]['exam'].pop('end')  # noqa: E731
+    plan = ps.load_plan(plan_with(drop))
+    course = plan['courses']['hist101']
+    assert course['exam_end'] - course['exam_start'] == ps.timedelta(hours=ps.DEFAULT_EXAM_HOURS)
+    assert course['exam_end_assumed'] and not plan['courses']['sta199']['exam_end_assumed']
+    _, _, ics = ics_for(drop)
+    unfolded = ics.replace('\r\n ', '')
+    assert 'End time not given' in unfolded and unfolded.count('End time not given') == 1
+    _, _, page = html_for(drop)
+    assert 'end assumed' in page and page.count('end assumed') == 1
+    _, _, page = html_for()
+    assert 'end assumed' not in page
+
+
+def test_exam_end_still_checked():
+    rejects(lambda d: d['courses'][0]['exam'].update(end='2026-12-08T08:00'), 'end must be after start')
+
+
 TESTS = [value for name, value in sorted(globals().items()) if name.startswith('test_')]
 
 
