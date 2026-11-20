@@ -1,0 +1,29 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Cheat Sheet — supplied topics",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "confirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": "Student confirms one sheet, both sides allowed. Other content restrictions are unconfirmed."},
+  "language": "en",
+  "sections": [
+    {"id": "conditional-tables", "title": "Conditional probability + table percentages", "weight": "high", "topics": ["T1", "T2"], "blocks": [
+      {"type": "text", "text": "**First name the reference group.** P(A | B) asks: among cases in B, what share are also in A? Compute (A and B) / B. B is the denominator; the whole sample is not."},
+      {"type": "example", "setup": "Practice A Q1: 40 students; 25 commute; 10 of the commuters cycle. Let B = commuters and A = cyclists.", "steps": [
+        {"label": "Reference group", "text": "B = the 25 commuters (the question asks what share of commuters cycle)."},
+        {"label": "Intersection / denominator", "text": "10 / 25 = 40.0% of commuters cycle."},
+        {"label": "Two-way table", "text": "A row percentage divides its cell by that row total; a column percentage divides its cell by that column total. Pick the total for the group named in the question."}], "takeaway": "Report proportions as a percentage rounded to one decimal place, and name the reference group in words. The order matters: P(A | B) and P(B | A) usually differ. (Outline reporting rule; Notes §§1.1–1.4, 2.2; Practice A Q1)"},
+      {"type": "cue", "text": "Within each row, row percentages sum to 100%; within each column, column percentages sum to 100%. Across a row of column percentages, totals need not be 100%. (Notes §2.3)"}
+    ]},
+    {"id": "grouped", "title": "Grouped summaries", "weight": "normal", "topics": ["T4"], "blocks": [
+      {"type": "cue", "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) for each non-empty group. Output: one row per group, not per original case. Compare groups using the same summary (mean with mean, count with count). (Notes §§3.1–3.3)"}
+    ]},
+    {"id": "bayes-gap", "title": "Bayes’ rule — course notes needed", "weight": "normal", "topics": ["T3"], "blocks": [
+      {"type": "cue", "text": "Listed in scope by the supplied outline, but the rule and worked method are not in the supplied notes. Get the lecture notes before relying on a formula here. (Outline; course profile source register)"}
+    ]}
+  ],
+  "omitted": [
+    {"topic": "Hypothesis testing", "reason": "The supplied outline explicitly excludes it and says it moved to Midterm 2; the 2025 paper is historical and does not change current scope."},
+    {"topic": "Other cumulative-final topics", "reason": "No final exam outline or additional course notes were supplied; this sheet covers the confirmed topics in the available outline only."}
+  ],
+  "revision": {"round": 3, "standing": ["Prefer worked examples over abstract interpretation rules; use freed space for readability and add no new information."], "changes": ["Updated round 2 to the confirmed one-sheet, two-sided allowance; kept one commuter/cyclist example for T1 and T2, retained the T3 source gap, and compacted T4 to its supported rule. Flagged that broader cumulative-final coverage is unconfirmed."]}
+}

@@ -1,0 +1,34 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STA Final Exam Cheat Sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "confirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": "Student confirms one sheet, both sides allowed. Paper size and other content restrictions are unconfirmed."},
+  "language": "en",
+  "sections": [
+    {"id": "conditional", "title": "Conditional probability", "weight": "high", "topics": ["T1"], "blocks": [
+      {"type": "text", "text": "**Meaning:** P(A | B) is the share of reference group B that also belongs to A. **Formula:** cases in both A and B / cases in B."},
+      {"type": "example", "setup": "Practice A, Q1: 25 commuters; 10 cycle. The full class has 40 students.", "steps": [
+        {"label": "Reference group", "text": "Commuters (25), because the question asks about commuters."},
+        {"label": "Compute", "text": "10 / 25 = 40.0% of commuters cycle."},
+        {"label": "Report", "text": "Give a percentage to one decimal place and name the reference group."}], "takeaway": "P(cycle | commuter) uses commuters in the denominator; reversing the condition changes the reference group."},
+      {"type": "cue", "text": "Assumptions from Notes §1.4: equally weighted cases; reference group is not empty."}
+    ]},
+    {"id": "tables", "title": "Two-way tables: pick the denominator", "weight": "high", "topics": ["T2"], "blocks": [
+      {"type": "table", "header": ["Requested percentage", "Divide cell count by", "Percentages sum to 100% within"], "rows": [
+        ["Row percentage", "that row's total", "each row"],
+        ["Column percentage", "that column's total", "each column"]]},
+      {"type": "mistake", "prompt": "Prior attempt: a column percentage was computed using the row total.", "first_error": "Selected the row total as denominator.", "fix": "Use the total of the column containing the cell. First say which group is the reference group; that group's total is the denominator.", "conditions": "Percentages down a column sum to 100%; across a row they need not."},
+      {"type": "cue", "text": "Reporting rule: percentage to 1 decimal place + reference group in words (for example, “40.0% of commuters”). (Outline; Notes §2)"}
+    ]},
+    {"id": "bayes", "title": "Bayes’ rule — course source needed", "weight": "normal", "topics": ["T3"], "blocks": [
+      {"type": "cue", "text": "The current outline lists Bayes’ rule in scope, but its teaching notes are not posted (profile source register; Outline). This guide cannot supply a course-grounded rule or worked method yet. Review the lecture notes when available."}
+    ]},
+    {"id": "grouped", "title": "Grouped summaries", "weight": "normal", "topics": ["T4"], "blocks": [
+      {"type": "cue", "text": "Split cases by a categorical variable and compute one summary (such as a mean or count) per group. Result: one row per non-empty group, not per original case. (Notes §3.1–3.2)"},
+      {"type": "cue", "text": "Compare groups using the same summary; do not compare a group mean with a group total. (Notes §3.3)"}
+    ]}
+  ],
+  "omitted": [{"topic": "Hypothesis testing", "reason": "Explicitly excluded from the current outline; moved to Midterm 2. Historical Midterm 1 (2025), Q2 is not current scope."}],
+  "revision": {"round": 1, "standing": [], "changes": []}
+}

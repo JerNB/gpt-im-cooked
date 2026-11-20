@@ -21,6 +21,8 @@ skill download. Registration alone is not installation.
 This plugin needs no connected service or API key. Its getting-started skill is
 `gpt-im-cooked-start`; ordinary studying uses `gpt-im-cooked`.
 
+Version 2.0.2 adds a study calendar across courses and exam cheat sheets
+rendered to PDF by the skill itself, with no extra installation.
 Version 2.0.1 saves progress changes in the same turn, marks same-session
 Demonstrated results for a recheck, and saves records with one command.
 Version 2.0.0 added checkpoint-based record saves, concise study handoffs,

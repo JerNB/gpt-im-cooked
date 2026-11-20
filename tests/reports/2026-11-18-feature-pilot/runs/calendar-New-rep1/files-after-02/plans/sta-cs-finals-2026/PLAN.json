@@ -1,0 +1,198 @@
+{
+    "format":  "gpt-im-cooked-study-plan/1",
+    "plan_id":  "sta-cs-finals-2026",
+    "generated_on":  "2026-11-18",
+    "start":  "2026-11-18",
+    "availability":  {
+                         "weekly":  {
+                                        "mon":  [
+                                                    "19:00-22:00"
+                                                ],
+                                        "tue":  [
+                                                    "19:00-22:00"
+                                                ],
+                                        "wed":  [
+                                                    "19:00-22:00"
+                                                ],
+                                        "thu":  [
+                                                    "19:00-22:00"
+                                                ],
+                                        "fri":  [
+                                                    "19:00-22:00"
+                                                ],
+                                        "sat":  [
+                                                    "14:00-18:00"
+                                                ],
+                                        "sun":  [
+                                                    "14:00-18:00"
+                                                ]
+                                    },
+                         "days_off":  [
+                                          "2026-11-25",
+                                          "2026-11-26",
+                                          "2026-11-27"
+                                      ],
+                         "max_minutes_per_day":  180,
+                         "min_block":  25,
+                         "max_block":  90
+                     },
+    "courses":  [
+                    {
+                        "id":  "sta",
+                        "title":  "STAT 110",
+                        "exam":  {
+                                     "start":  "2026-12-08T09:00",
+                                     "end":  "2026-12-08T12:00"
+                                 },
+                        "record":  "STA/learning-record.md"
+                    },
+                    {
+                        "id":  "cs",
+                        "title":  "CS 101",
+                        "exam":  {
+                                     "start":  "2026-12-10T14:00",
+                                     "end":  "2026-12-10T17:00"
+                                 },
+                        "record":  "CS/learning-record.md"
+                    }
+                ],
+    "tasks":  [
+                  {
+                      "id":  "sta-t1",
+                      "course":  "sta",
+                      "kind":  "recheck",
+                      "minutes":  30,
+                      "title":  "Conditional probability recheck",
+                      "not_before":  "2026-11-20",
+                      "due":  "exam",
+                      "priority":  1,
+                      "basis":  "Concepts T1: Demonstrated, Recheck before exam",
+                      "details":  "Solve a fresh item without notes; name the reference group, denominator, and one-decimal percentage."
+                  },
+                  {
+                      "id":  "sta-t2",
+                      "course":  "sta",
+                      "kind":  "variant",
+                      "minutes":  50,
+                      "title":  "Two-way table denominator variant",
+                      "due":  "exam",
+                      "priority":  1,
+                      "basis":  "Concepts T2: Needs practice (attempt 2026-11-17 confused row and column denominators)",
+                      "details":  "Practice row and column percentages; state reference group before denominator."
+                  },
+                  {
+                      "id":  "sta-t3",
+                      "course":  "sta",
+                      "kind":  "source-gap",
+                      "minutes":  25,
+                      "title":  "Find Bayes\u0027 rule lecture notes",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts T3: Unassessed, in scope; notes not posted",
+                      "details":  "Locate notes or request excerpt; outline alone does not explain method."
+                  },
+                  {
+                      "id":  "sta-t4l",
+                      "course":  "sta",
+                      "kind":  "learn",
+                      "minutes":  50,
+                      "title":  "Learn grouped summaries",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts T4: Unassessed, notes available S2 section 3",
+                      "details":  "Review one result per non-empty group; compare same summary across groups."
+                  },
+                  {
+                      "id":  "sta-t4p",
+                      "course":  "sta",
+                      "kind":  "practice",
+                      "minutes":  40,
+                      "title":  "Grouped summaries practice",
+                      "not_before":  "2026-11-21",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts T4: Unassessed, notes available S2 section 3",
+                      "details":  "Compute requested summary separately by group; check key."
+                  },
+                  {
+                      "id":  "sta-mock",
+                      "course":  "sta",
+                      "kind":  "mock",
+                      "minutes":  120,
+                      "title":  "STAT 110 mock review",
+                      "not_before":  "2026-12-04",
+                      "due":  "2026-12-06",
+                      "priority":  1,
+                      "basis":  "STAT 110 final preparation; in-scope topics T1-T4",
+                      "details":  "Timed review from supplied practice, then check key. Hypothesis testing excluded."
+                  },
+                  {
+                      "id":  "cs-p1",
+                      "course":  "cs",
+                      "kind":  "practice",
+                      "minutes":  45,
+                      "title":  "List aliasing transfer",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts P1: Improving; transfer attempt not yet reviewed",
+                      "details":  "Trace nested-list example; mark shared outer object and nested lists after shallow copy."
+                  },
+                  {
+                      "id":  "cs-p2",
+                      "course":  "cs",
+                      "kind":  "variant",
+                      "minutes":  45,
+                      "title":  "Loop comparison-count variant",
+                      "due":  "exam",
+                      "priority":  1,
+                      "basis":  "Concepts P2: Needs practice (attempt 2026-11-17 counted assignments and loop checks)",
+                      "details":  "Trace changed loop; report element-to-element comparisons only."
+                  },
+                  {
+                      "id":  "cs-p3",
+                      "course":  "cs",
+                      "kind":  "source-gap",
+                      "minutes":  25,
+                      "title":  "Find Big-O lecture notes",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts P3: Unassessed, in scope; notes not posted",
+                      "details":  "Locate notes or request excerpt; outline alone does not explain Big-O."
+                  },
+                  {
+                      "id":  "cs-p4l",
+                      "course":  "cs",
+                      "kind":  "learn",
+                      "minutes":  50,
+                      "title":  "Learn nested data summaries",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts P4: Unassessed, notes available P2 section 3",
+                      "details":  "Summarize each inner list separately using requested statistic; identify group."
+                  },
+                  {
+                      "id":  "cs-p4p",
+                      "course":  "cs",
+                      "kind":  "practice",
+                      "minutes":  40,
+                      "title":  "Nested summaries practice",
+                      "not_before":  "2026-11-21",
+                      "due":  "exam",
+                      "priority":  2,
+                      "basis":  "Concepts P4: Unassessed, notes available P2 section 3",
+                      "details":  "Work practice items; do not combine groups unless asked."
+                  },
+                  {
+                      "id":  "cs-mock",
+                      "course":  "cs",
+                      "kind":  "mock",
+                      "minutes":  120,
+                      "title":  "CS 101 mock review",
+                      "not_before":  "2026-12-06",
+                      "due":  "2026-12-08",
+                      "priority":  1,
+                      "basis":  "CS 101 final preparation; in-scope topics P1-P4",
+                      "details":  "Timed review from supplied practice, then check key. Recursion excluded."
+                  }
+              ]
+}

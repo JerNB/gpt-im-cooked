@@ -1,0 +1,138 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final | Provisional topic coverage",
+  "course": "STAT 110",
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": "Student confirms one sheet, both sides. PDF laid out on US Letter; instructor paper-size requirement and other content restrictions are unknown. Available topic outline is for Midterm 1, so cumulative-final coverage is unconfirmed.",
+    "min_body": null
+  },
+  "language": "en",
+  "sections": [
+    {
+      "id": "scope",
+      "title": "Scope note",
+      "weight": "high",
+      "topics": [
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ],
+      "blocks": [
+        {
+          "type": "text",
+          "text": "This sheet covers topics listed for **Midterm 1** in the supplied outline; that outline does not confirm the cumulative final. **Bayes' rule is listed in scope, but its lecture explanation is missing from the supplied files.** Add your instructor's formula/example before relying on that topic."
+        }
+      ]
+    },
+    {
+      "id": "reference-group",
+      "title": "Conditional probability + two-way table percentages",
+      "weight": "high",
+      "topics": [
+        "T1",
+        "T2"
+      ],
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**One example table** (counts of students by commute and cycling status):"
+        },
+        {
+          "type": "table",
+          "header": [
+            "",
+            "Cycles",
+            "Does not cycle",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Commuters",
+              "10",
+              "15",
+              "25"
+            ],
+            [
+              "Noncommuters",
+              "5",
+              "10",
+              "15"
+            ],
+            [
+              "Total",
+              "15",
+              "25",
+              "40"
+            ]
+          ]
+        },
+        {
+          "type": "example",
+          "setup": "Assume equally weighted cases and a non-empty reference group.",
+          "steps": [
+            {
+              "label": "Among commuters, what share cycles?",
+              "text": "Use the commuter row total: 10 / 25 = **40.0% of commuters**."
+            },
+            {
+              "label": "Among cyclists, what share commutes?",
+              "text": "Use the cyclist column total: 10 / 15 = **66.7% of cyclists**. Same cell, different reference group and denominator."
+            }
+          ],
+          "takeaway": ""
+        },
+        {
+          "type": "cue",
+          "text": "**Reporting rule (outline):** every proportion as a percentage to **one decimal place**, with the reference group named (for example, 40.0% of commuters)."
+        }
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": [
+        "T4"
+      ],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Split cases by a categorical variable and compute one summary (such as a mean or count) per non-empty group."
+        },
+        {
+          "type": "cue",
+          "text": "Output: one row per group, not one row per original case."
+        },
+        {
+          "type": "cue",
+          "text": "Compare groups using the same summary; do not compare a group mean with a group total."
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {
+      "topic": "Bayes' rule calculation",
+      "reason": "T3 is listed in the supplied outline, but no explanatory formula or worked method is in the supplied materials; do not invent course content. The source gap is flagged above."
+    },
+    {
+      "topic": "Hypothesis testing",
+      "reason": "Excluded from the supplied Midterm 1 outline only; the cumulative-final outline is unavailable, so final scope is unconfirmed."
+    }
+  ],
+  "revision": {
+    "round": 2,
+    "standing": [
+      "Do not add new information."
+    ],
+    "changes": [
+      "Replaced abstract T1/T2 rules and repeated mistake text with one worked table example; used the freed space for a more readable layout."
+    ]
+  }
+}

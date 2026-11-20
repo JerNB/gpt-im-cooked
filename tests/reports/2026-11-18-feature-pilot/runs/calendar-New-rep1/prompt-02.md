@@ -1,0 +1,1 @@
+Exams: STA Dec 8, 9am-12pm; CS Dec 10, 2-5pm. I can study weekdays 7-10pm and weekends 2-6pm, not Nov 25-27 (Thanksgiving). At most 3 hours a day.

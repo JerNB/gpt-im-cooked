@@ -1,0 +1,1 @@
+Use the available $gpt-im-cooked skill for this tutoring request. Read and follow its SKILL.md and referenced files. Use only supplied local course files; do not browse, delegate, or contact services.

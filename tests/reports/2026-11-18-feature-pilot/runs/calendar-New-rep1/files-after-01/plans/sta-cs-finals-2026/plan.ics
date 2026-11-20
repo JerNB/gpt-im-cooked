@@ -1,0 +1,131 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GPT I'm Cooked//study-plan//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:sta-cs-finals-2026 study plan (GPT\, I'm Cooked)
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-day-20261118@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Review list: 3 tasks\, 120 min
+DESCRIPTION:- CS 101 · Loop comparison-count variant (45 min\, variant)\n 
+  Trace changed loop\; report element-to-element comparisons only.\n  Basis
+ : Concepts P2: Needs practice (attempt 2026-11-17 counted assignments and 
+ loop checks)\n- STAT 110 · Two-way table denominator variant (50 min\, va
+ riant)\n  Practice row and column percentages\; state reference group befo
+ re denominator.\n  Basis: Concepts T2: Needs practice (attempt 2026-11-17 
+ confused row and column denominators)\n- STAT 110 · Find Bayes' rule lect
+ ure notes (25 min\, source-gap)\n  Locate notes or request excerpt\; outli
+ ne alone does not explain method.\n  Basis: Concepts T3: Unassessed\, in s
+ cope\; notes not posted\n\nCompleting this block does not change your reco
+ rded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-day-20261119@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:Review list: 3 tasks\, 120 min
+DESCRIPTION:- CS 101 · List aliasing transfer (45 min\, practice)\n  Trace
+  nested-list example\; mark shared outer object and nested lists after sha
+ llow copy.\n  Basis: Concepts P1: Improving\; transfer attempt not yet rev
+ iewed\n- CS 101 · Find Big-O lecture notes (25 min\, source-gap)\n  Locat
+ e notes or request excerpt\; outline alone does not explain Big-O.\n  Basi
+ s: Concepts P3: Unassessed\, in scope\; notes not posted\n- STAT 110 · Le
+ arn grouped summaries (50 min\, learn)\n  Review one result per non-empty 
+ group\; compare same summary across groups.\n  Basis: Concepts T4: Unasses
+ sed\, notes available S2 section 3\n\nCompleting this block does not chang
+ e your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-day-20261120@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:Review list: 2 tasks\, 80 min
+DESCRIPTION:- CS 101 · Learn nested data summaries (50 min\, learn)\n  Sum
+ marize each inner list separately using requested statistic\; identify gro
+ up.\n  Basis: Concepts P4: Unassessed\, notes available P2 section 3\n- ST
+ AT 110 · Conditional probability recheck (30 min\, recheck)\n  Solve a fr
+ esh item without notes\; name the reference group\, denominator\, and one-
+ decimal percentage.\n  Basis: Concepts T1: Demonstrated\, Recheck before e
+ xam\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-day-20261121@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Review list: 2 tasks\, 80 min
+DESCRIPTION:- CS 101 · Nested summaries practice (40 min\, practice)\n  Wo
+ rk practice items\; do not combine groups unless asked.\n  Basis: Concepts
+  P4: Unassessed\, notes available P2 section 3\n- STAT 110 · Grouped summ
+ aries practice (40 min\, practice)\n  Compute requested summary separately
+  by group\; check key.\n  Basis: Concepts T4: Unassessed\, notes available
+  S2 section 3\n\nCompleting this block does not change your recorded progr
+ ess.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-day-20261204@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:Review list: 1 tasks\, 120 min
+DESCRIPTION:- STAT 110 · STAT 110 mock review (120 min\, mock)\n  Timed re
+ view from supplied practice\, then check key. Hypothesis testing excluded.
+ \n  Basis: STAT 110 final preparation\; in-scope topics T1-T4\n\nCompletin
+ g this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-day-20261206@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Review list: 1 tasks\, 120 min
+DESCRIPTION:- CS 101 · CS 101 mock review (120 min\, mock)\n  Timed review
+  from supplied practice\, then check key. Recursion excluded.\n  Basis: CS
+  101 final preparation\; in-scope topics P1-P4\n\nCompleting this block do
+ es not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-exam@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART:20261208T090000
+DTEND:20261208T120000
+SUMMARY:STAT 110 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-exam@gpt-im-cooked
+DTSTAMP:20261118T233318Z
+DTSTART:20261210T140000
+DTEND:20261210T170000
+SUMMARY:CS 101 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,117 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final: Probability and Grouped Data",
+  "course": "STAT 110",
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": "Student reports one sheet, both sides may be brought to the exam; paper size and content restrictions not supplied.",
+    "min_body": null
+  },
+  "language": "en",
+  "sections": [
+    {
+      "id": "reference-group",
+      "title": "Conditional probability and table percentages",
+      "weight": "high",
+      "topics": [
+        "T1",
+        "T2"
+      ],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "**Choose the reference group first.** P(A | B) = cases in both A and B / cases in B. The group after the bar is the denominator. P(A | B) and P(B | A) usually differ."
+        },
+        {
+          "type": "example",
+          "setup": "One table; the question wording selects the denominator.",
+          "steps": [
+            {
+              "label": "Counts",
+              "text": "Among 25 commuters, 10 cycle and 15 do not. Among 15 noncommuters, 5 cycle and 10 do not. Totals: 30 cycle, 25 do not."
+            },
+            {
+              "label": "Cycle among commuters",
+              "text": "10 / 25 = 40.0% of commuters. Reference group: commuters."
+            },
+            {
+              "label": "Commuters among cyclists",
+              "text": "10 / 15 = 66.7% of cyclists. Reference group: cyclists."
+            },
+            {
+              "label": "Row percentage",
+              "text": "For commuter row: cycle 10/25 = 40.0%; do not cycle 15/25 = 60.0%. Row percentages use the row total; each row sums to 100%."
+            },
+            {
+              "label": "Column percentage",
+              "text": "For cycle column: commuters 10/15 = 66.7%; noncommuters 5/15 = 33.3%. Column percentages use the column total; each column sums to 100%."
+            }
+          ],
+          "takeaway": "Name the group the question asks about, then divide by that group's total. Always report the percentage and reference group."
+        },
+        {
+          "type": "mistake",
+          "prompt": "A column percentage was requested, but the row total was selected.",
+          "first_error": "The saved attempt selected the row total for a column percentage; the original question and reasoning are not in the record.",
+          "fix": "For a column percentage, divide the cell by its column total. First name the reference group; it must match the requested column.",
+          "conditions": "Row and column percentages each total 100% within their own reference group, not necessarily across the other direction."
+        },
+        {
+          "type": "cue",
+          "text": "**Reporting rule (outline):** every proportion as a percentage to 1 decimal place, with the reference group in words: “40.0% of commuters.”"
+        }
+      ]
+    },
+    {
+      "id": "grouped",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": [
+        "T4"
+      ],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) per group. Output: one row per non-empty group, not one row per original case. Compare groups using the same summary (mean with mean, total with total)."
+        }
+      ]
+    },
+    {
+      "id": "scope-note",
+      "title": "Coverage limits for this final",
+      "weight": "normal",
+      "topics": [
+        "T3"
+      ],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "**Bayes' rule:** listed as covered in lecture, but the supplied notes do not include its rule or method. Get the lecture notes before relying on this sheet for that topic."
+        },
+        {
+          "type": "cue",
+          "text": "The supplied outline is for Midterm 1, not the cumulative final. Final topic coverage, exam format, paper size, and content restrictions remain unconfirmed."
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {
+      "topic": "T3 Bayes' rule",
+      "reason": "In the supplied Midterm 1 outline, but its teaching notes are missing; no method added without a course source."
+    },
+    {
+      "topic": "Final topics beyond the Midterm 1 outline, including hypothesis testing",
+      "reason": "The supplied outline excludes hypothesis testing from Midterm 1 only; it does not establish what is included or excluded on the cumulative final."
+    }
+  ],
+  "revision": {
+    "round": 1,
+    "standing": [],
+    "changes": []
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final - confirmed-materials reference sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "confirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": "Paper size assumed letter for rendering; other instructor restrictions unknown."},
+  "language": "en",
+  "sections": [
+    {"id": "conditional-table", "title": "Reference groups: conditional probability and two-way tables", "weight": "high", "topics": ["T1", "T2"],
+     "blocks": [
+       {"type": "text", "text": "**Question to ask first:** Which group is the question about? That group supplies the denominator. Report a percentage to **1 decimal place** and name the group: e.g., `40.0% of commuters`. (Outline reporting rule.)"},
+       {"type": "table", "header": ["Campus commute", "Cycles", "Does not cycle", "Total"],
+        "rows": [["Commuters", "10", "15", "25"], ["Noncommuters", "3", "12", "15"], ["Total", "13", "27", "40"]]},
+       {"type": "example", "setup": "Use this same table; each percentage answers a different reference-group question.", "steps": [
+         {"label": "Among commuters, cycle", "text": "10 / 25 = 40.0% of commuters. Reference group: commuters; denominator is the commuter row total."},
+         {"label": "Among cyclists, commute", "text": "10 / 13 = 76.9% of cyclists. Reference group: cyclists; denominator is the cycling column total."},
+         {"label": "Row %", "text": "Divide each cell by its row total. The percentages across a row sum to 100%."},
+         {"label": "Column %", "text": "Divide each cell by its column total. The percentages down a column sum to 100%."}],
+        "takeaway": "P(A | B) = cases in both A and B / cases in B. In a table, B is the chosen row or column group."},
+       {"type": "mistake", "prompt": "Find the percentage of commuters who cycle.", "first_error": "Prior attempt used a row total for a column percentage.", "fix": "Name the reference group first: commuters means use the commuter row total, 25. Then 10 / 25 = 40.0% of commuters.", "conditions": "For a column percentage, use that column's total instead. P(A | B) and P(B | A) generally differ."}
+     ]},
+    {"id": "grouped", "title": "Grouped summaries", "weight": "normal", "topics": ["T4"],
+     "blocks": [
+       {"type": "text", "text": "A grouped summary splits cases by a categorical variable and computes one summary (such as a mean or count) per group. It has one row per non-empty group, not one row per original case."},
+       {"type": "example", "setup": "A course has 120 students in 4 sections; calculate each section's mean score.", "steps": [
+         {"label": "Rows", "text": "4 rows: one for each non-empty section."},
+         {"label": "Comparison", "text": "Compare section means with section means; do not compare a mean with a total."}],
+        "takeaway": "The grouping variable determines the summary rows."}
+     ]},
+    {"id": "bayes-gap", "title": "Bayes' rule: source gap", "weight": "normal", "topics": ["T3"],
+     "blocks": [
+       {"type": "text", "text": "Listed in the outline as lecture-covered, but the supplied notes do not include its rule or method. Add the instructor's lecture notes before relying on a formula here."}
+     ]}
+  ],
+  "omitted": [],
+  "revision": {"round": 1, "standing": [], "changes": []}
+}

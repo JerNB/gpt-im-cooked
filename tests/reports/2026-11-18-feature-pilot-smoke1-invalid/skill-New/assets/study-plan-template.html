@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<style>
+:root {
+  --paper: #f7f4ec;
+  --card: #fffdf8;
+  --ink: #1f2a24;
+  --muted: #5f6b63;
+  --line: #ddd6c6;
+  --brand: #2f5d50;
+  --exam: #8a2f24;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.45 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+main { max-width: 1240px; margin: 0 auto; padding: 32px 24px 56px; }
+.eyebrow { margin: 0; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 6px 0 4px; font: 600 34px/1.15 Georgia, "Times New Roman", serif; }
+.subtitle { margin: 0 0 20px; color: var(--muted); }
+.notes { margin: 0 0 24px; padding: 14px 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); color: var(--muted); font-size: 13px; }
+.notes p { margin: 2px 0; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.course-card { padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--c); border-radius: var(--radius); }
+.course-card h2 { margin: 0 0 4px; font-size: 16px; }
+.course-card p { margin: 2px 0; color: var(--muted); font-size: 13px; }
+.course-card .exam-when { color: var(--exam); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 22px; padding: 0; list-style: none; font-size: 13px; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
+.week { margin: 0 0 28px; }
+.week h2 { margin: 0 0 10px; font: 600 18px/1.2 Georgia, "Times New Roman", serif; }
+.days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.day { min-height: 120px; padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.day.off, .day.outside { background: transparent; border-style: dashed; }
+.day.outside { opacity: .45; }
+.day h3 { margin: 0 0 6px; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.day .tag { display: inline-block; margin: 4px 0; font-size: 12px; color: var(--muted); }
+.block { margin: 0 0 6px; padding: 6px 8px; border-left: 4px solid var(--c); border-radius: 6px; background: color-mix(in srgb, var(--c) 9%, #fff); font-size: 12.5px; break-inside: avoid; }
+.block .time { font-weight: 700; }
+.block .course { color: var(--c); font-weight: 700; }
+.block .title { display: block; margin: 2px 0; color: var(--ink); }
+.block .meta, .block .basis { display: block; color: var(--muted); font-size: 11.5px; }
+.block.exam { --c: var(--exam); background: color-mix(in srgb, var(--exam) 12%, #fff); }
+.block.exam .title { font-weight: 700; }
+.check { display: none; }
+.unplaced { margin: 0 0 28px; padding: 14px 18px; border: 2px solid var(--exam); border-radius: var(--radius); background: var(--card); }
+.unplaced h2 { margin: 0 0 6px; font-size: 16px; color: var(--exam); }
+.unplaced ul { margin: 0; padding-left: 18px; }
+@media (max-width: 768px) {
+  main { padding: 20px 16px 40px; }
+  h1 { font-size: 27px; }
+  .days { grid-template-columns: 1fr; }
+  .day { min-height: 0; }
+  .day.outside, .day.empty { display: none; }
+}
+@media print {
+  @page { size: landscape; margin: 10mm; }
+  body { background: #fff; font-size: 11px; }
+  main { max-width: none; padding: 0; }
+  .summary, .notes { break-inside: avoid; }
+  .week { break-before: page; }
+  .day { min-height: 0; }
+  .check { display: inline; }
+}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Study plan</p>
+<h1>{{TITLE}}</h1>
+<p class="subtitle">{{SUBTITLE}}</p>
+<section class="notes">{{NOTES}}</section>
+<section class="summary">{{SUMMARY}}</section>
+<ul class="legend">{{LEGEND}}</ul>
+{{UNPLACED}}
+{{WEEKS}}
+</main>
+</body>
+</html>

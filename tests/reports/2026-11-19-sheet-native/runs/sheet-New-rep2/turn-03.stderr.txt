@@ -1,0 +1,34 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<HOME>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<HOME>\\AppData\\Local\\Temp\\sheet-rerun-c3f5e5fc0ff44d129fc96496b5305a86\\home-sheet-New-rep2"))
+2026-11-19T03:44:53.590111Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in <HOME>\AppData\Local\Temp\sheet-rerun-c3f5e5fc0ff44d129fc96496b5305a86\sheet-New-rep2\STA\STAT110-final-sheet.json:
+          "setup": "The question's wording selects the reference group; that group's count is the denominator.",
+          "steps": [
+            {
+              "label": "Conditional probability",
+              "text": "P(A | B) = count in both A and B / count in B. Read it as the probability of A **among B**. B is the reference group. Assumes equally weighted cases and a non-empty reference group."
+            },
+            {
+              "label": "Row percentage",
+              "text": "Among commuters, what share cycles? 10 / 25 = **40.0% of commuters**. Denominator: commuter row total."
+            },
+            {
+              "label": "Column percentage",
+              "text": "Among cyclists, what share commutes? 10 / 15 = **66.7% of cyclists**. Denominator: cycling column total."
+            },
+            {
+              "label": "Check",
+              "text": "Row percentages add to 100% across one row; column percentages add to 100% down one column. The reverse conditional uses a different reference group: P(commutes | cycles) is not P(cycles | commutes)."
+            }
+          ],
+          "takeaway": "Name the reference group first, then use its total as the denominator."
+        },
+        {
+          "type": "cue",
+          "text": "**Reporting rule (outline):** every proportion as a percentage to **one decimal place**, with the reference group named: �?0.0% of commuters.�?
+        },
+        {
+          "type": "mistake",
+          "prompt": "Recorded error: selected the row total for a column percentage (learning record, 2026-11-17).",
+          "first_error": "Used the wrong reference-group total.",
+          "fix": "For ��mong cyclists,�?divide by the cyclist column total: 10 / 15 = 66.7% of cyclists.",
+          "conditions": "Choose the row or column from the group named after ��mong/of�? the cell stays the same, but the reference group and denominator change."
+2026-11-19T03:49:24.585619Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`\\\"C:\\\\\\\\Windows\\\\\\\\System32\\\\\\\\WindowsPowerShell\\\\\\\\v1.0\\\\\\\\powershell.exe\\\" -Command \\\"Remove-Item -LiteralPath 'outputs/renderer-readable' -Recurse -Force; Remove-Item -LiteralPath 'outputs/STAT110-final-sheet-r2' -Recurse -Force; Get-ChildItem outputs | Select-Object Name,Mode\\\"` rejected: blocked by policy\")" }

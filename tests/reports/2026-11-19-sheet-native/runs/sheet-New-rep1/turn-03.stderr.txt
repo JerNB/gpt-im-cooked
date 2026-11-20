@@ -1,0 +1,1 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<HOME>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<HOME>\\AppData\\Local\\Temp\\sheet-rerun-c3f5e5fc0ff44d129fc96496b5305a86\\home-sheet-New-rep1"))

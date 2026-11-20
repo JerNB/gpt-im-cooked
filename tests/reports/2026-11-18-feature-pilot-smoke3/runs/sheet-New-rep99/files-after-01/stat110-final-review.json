@@ -1,0 +1,35 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Review Starter",
+  "course": "STAT 110",
+  "allowance": {"status": "unconfirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {"id": "scope", "title": "Scope: what these files support", "weight": "high", "topics": ["T1", "T2", "T3", "T4"], "blocks": [
+      {"type": "text", "text": "Starter coverage from the supplied Midterm 1 outline and notes: conditional probability, two-way tables, and grouped summaries. The outline is not a final outline, so cumulative-final coverage is unconfirmed. Bayes' rule is listed as taught, but its teaching notes are missing. Hypothesis testing appears on the 2025 midterm paper but is explicitly moved to Midterm 2 in the current outline; its final status is unconfirmed."},
+      {"type": "cue", "text": "Reporting rule (outline): write every proportion as a percentage to 1 decimal place and name the reference group, e.g., '40.0% of commuters'."}
+    ]},
+    {"id": "conditional", "title": "T1 Conditional probability", "weight": "normal", "topics": ["T1"], "blocks": [
+      {"type": "cue", "text": "P(A | B) means the share of group B that is also in A: count(A and B) / count(B). The group after the bar is the reference group and denominator. Order matters; P(A | B) and P(B | A) generally differ."},
+      {"type": "example", "setup": "Practice set A Q1: 25 of 40 students commute; 10 commuters cycle.", "steps": [
+        {"label": "Choose reference group", "text": "The question asks about commuters, so use the 25 commuters."},
+        {"label": "Compute and report", "text": "10 / 25 = 0.40 = 40.0% of commuters."}], "takeaway": "Use the restricted group named by the question, not the whole class."}
+    ]},
+    {"id": "tables", "title": "T2 Two-way tables: choose the denominator", "weight": "high", "topics": ["T1", "T2"], "blocks": [
+      {"type": "text", "text": "One shared example. Rows are commute status; columns are cycling status. Cell counts: commuters—cycle 10, do not cycle 15 (row total 25); noncommuters—cycle 5, do not cycle 20 (row total 25). Column totals: cycle 15, do not cycle 35."},
+      {"type": "example", "setup": "Read the same cell (commuters who cycle) under two different reference groups.", "steps": [
+        {"label": "Row percentage", "text": "10 / 25 = 40.0% of commuters cycle. Divide by the commuters row total."},
+        {"label": "Column percentage", "text": "10 / 15 = 66.7% of cyclists are commuters. Divide by the cycling column total."}], "takeaway": "First name the reference group; its row or column total is the denominator. Row percentages sum to 100% across each row; column percentages sum to 100% down each column."},
+      {"type": "mistake", "prompt": "Prior reviewed table item: selected a row total for a column percentage.", "first_error": "Used the row total even though the question specified a column percentage.", "fix": "For a column percentage, divide the cell by its column total; say the reference group in words.", "conditions": "The denominator is the total for the reference group requested."}
+    ]},
+    {"id": "grouped", "title": "T4 Grouped summaries", "weight": "normal", "topics": ["T4"], "blocks": [
+      {"type": "cue", "text": "Split cases by a categorical variable and compute the chosen summary (such as a mean or count) for each group. The output has one row per non-empty group, not one per original case. Compare like summaries (mean with mean, total with total). (Notes section 3; 2025 midterm Q3 illustrates row count.)"}
+    ]},
+    {"id": "gaps", "title": "T3 Bayes' rule: source needed", "weight": "normal", "topics": ["T3"], "blocks": [
+      {"type": "text", "text": "The outline lists Bayes' rule as in scope and says it was covered in lecture, but the supplied notes do not teach it. No formula or worked method is included here. Add the lecture notes or instructor explanation before using this guide for T3."}
+    ]}
+  ],
+  "omitted": [],
+  "revision": {"round": 1, "standing": [], "changes": []}
+}

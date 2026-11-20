@@ -1,0 +1,31 @@
+{
+  "format": "gpt-im-cooked-study-plan/1",
+  "plan_id": "finals-2026",
+  "generated_on": "2026-11-18",
+  "start": "2026-11-18",
+  "availability": {
+    "weekly": {},
+    "days_off": [],
+    "max_minutes_per_day": 120,
+    "min_block": 25,
+    "max_block": 90
+  },
+  "courses": [
+    {"id": "sta110", "title": "STAT 110", "exam": {"start": "2026-12-08T09:00", "end": "2026-12-08T12:00"}, "record": "../../STA/learning-record.md"},
+    {"id": "cs101", "title": "CS 101", "exam": {"start": "2026-12-10T14:00", "end": "2026-12-10T17:00"}, "record": "../../CS/learning-record.md"}
+  ],
+  "tasks": [
+    {"id": "sta-t1-recheck", "course": "sta110", "kind": "recheck", "minutes": 30, "title": "Conditional probability recheck", "not_before": "2026-12-03", "due": "exam", "priority": 1, "basis": "Concepts T1: Demonstrated; Recheck before exam", "details": "Without notes, solve a fresh conditional probability question and check the reference group before computing."},
+    {"id": "sta-t2-variant", "course": "sta110", "kind": "variant", "minutes": 45, "title": "Two-way table denominator variant", "due": "exam", "priority": 1, "basis": "Concepts T2: Needs practice; 2026-11-17 attempt confused row and column denominators", "details": "For new row and column percentage questions, name the reference group and use its total as denominator."},
+    {"id": "sta-t3-gap", "course": "sta110", "kind": "source-gap", "minutes": 25, "title": "Find Bayes’ rule course notes", "due": "exam", "priority": 2, "basis": "Concepts T3: Unassessed; teaching notes not posted", "details": "Locate course notes or ask the instructor for the missing Bayes’ rule teaching material; do not substitute outside explanations."},
+    {"id": "sta-t4-learn", "course": "sta110", "kind": "learn", "minutes": 60, "title": "Learn grouped summaries", "due": "exam", "priority": 2, "basis": "Concepts T4: Unassessed; teaching notes available in S2 section 3", "details": "Study grouped summaries in the lecture notes and write a short explanation of the method."},
+    {"id": "sta-t4-practice", "course": "sta110", "kind": "practice", "minutes": 40, "title": "Practice grouped summaries", "not_before": "2026-11-21", "due": "exam", "priority": 2, "basis": "Concepts T4: Unassessed; teaching notes available in S2 section 3", "details": "Attempt course practice on grouped summaries before checking the key."},
+    {"id": "sta-mock", "course": "sta110", "kind": "mock", "minutes": 120, "title": "STAT 110 timed mock sitting", "not_before": "2026-12-04", "due": "2026-12-06", "priority": 1, "basis": "Per-course mock sitting before the final; scope from the STAT 110 course record", "details": "Complete a timed cumulative sitting, then review answers against available course materials."},
+    {"id": "cs-p1-practice", "course": "cs101", "kind": "practice", "minutes": 40, "title": "List aliasing transfer practice", "due": "exam", "priority": 2, "basis": "Concepts P1: Improving; transfer practice is next", "details": "Trace object identity before mutation in a new code setting, then explain the result."},
+    {"id": "cs-p2-variant", "course": "cs101", "kind": "variant", "minutes": 45, "title": "Loop comparison-count variant", "due": "exam", "priority": 1, "basis": "Concepts P2: Needs practice; 2026-11-17 attempt included loop checks incorrectly", "details": "Work a new loop-tracing problem and count only element-to-element comparisons."},
+    {"id": "cs-p3-gap", "course": "cs101", "kind": "source-gap", "minutes": 25, "title": "Find Big-O course notes", "due": "exam", "priority": 2, "basis": "Concepts P3: Unassessed; lecture notes not posted", "details": "Locate course notes or ask the instructor for the missing Big-O teaching material; do not substitute outside explanations."},
+    {"id": "cs-p4-learn", "course": "cs101", "kind": "learn", "minutes": 60, "title": "Learn nested data summaries", "due": "exam", "priority": 2, "basis": "Concepts P4: Unassessed; teaching notes available in P2 section 3", "details": "Study nested data summaries in the unit notes and write a short explanation of the method."},
+    {"id": "cs-p4-practice", "course": "cs101", "kind": "practice", "minutes": 40, "title": "Practice nested data summaries", "not_before": "2026-11-22", "due": "exam", "priority": 2, "basis": "Concepts P4: Unassessed; teaching notes available in P2 section 3", "details": "Attempt course practice on nested data summaries before checking the key."},
+    {"id": "cs-mock", "course": "cs101", "kind": "mock", "minutes": 120, "title": "CS 101 timed mock sitting", "not_before": "2026-12-06", "due": "2026-12-08", "priority": 1, "basis": "Per-course mock sitting before the final; scope from the CS 101 course record", "details": "Complete a timed sitting on confirmed in-scope topics, then review answers against available course materials."}
+  ]
+}

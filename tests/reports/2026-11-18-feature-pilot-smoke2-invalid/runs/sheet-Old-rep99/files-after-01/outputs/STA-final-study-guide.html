@@ -1,0 +1,42 @@
+﻿<!doctype html><html><head><meta charset="utf-8"><title>STAT 110 Final Study Guide</title><style>
+@page{size:letter;margin:.65in}*{box-sizing:border-box}body{font:11pt/1.45 Arial,sans-serif;color:#182333;margin:0}h1{font-size:28pt;color:#163a5f;margin:0 0 5pt}h2{font-size:17pt;color:#163a5f;border-bottom:2px solid #60a5a5;padding-bottom:4pt;margin:12pt 0 6pt}h3{font-size:12pt;color:#155e75;margin:8pt 0 3pt}p{margin:4pt 0 7pt}ul,ol{margin:3pt 0 8pt;padding-left:20pt}li{margin:2pt 0}.sub{font-size:13pt;color:#476174}.box{background:#eef6f6;border-left:4px solid #27818a;padding:8pt 10pt;margin:8pt 0}.warn{background:#fff5dc;border-left-color:#d69e2e}.example{background:#f3f5f8;padding:8pt 10pt;margin:7pt 0}.small{font-size:9pt;color:#526273}.pill{font-weight:bold;color:#155e75}.page{break-before:page}table{border-collapse:collapse;width:100%;margin:8pt 0}td,th{border:1px solid #bdc9d1;padding:5pt;text-align:left}th{background:#e8eef3}.avoid-break{break-inside:avoid}footer{font-size:8pt;color:#657585;border-top:1px solid #bdc9d1;padding-top:5pt;margin-top:12pt}
+</style></head><body>
+<h1>STAT 110 Final</h1><div class="sub">Course-based starter study guide · Prepared Nov 18, 2026 · Final listed Dec 8, 2026, 9:00 a.m.–12:00 p.m.</div>
+<div class="box warn"><b>Coverage check:</b> The available outline is explicitly for Midterm 1, not the final. This guide covers only the four topics it lists and that have some documentation. The final’s full scope is unconfirmed. Bayes’ rule is listed as in scope on that outline, but its teaching notes are missing, so this guide does not invent its rule or method. Ask for the final review outline and Bayes notes to complete coverage.</div>
+<h2>What to study from these files</h2>
+<table><tr><th>Topic</th><th>Available basis</th><th>Current review priority</th></tr>
+<tr><td>Conditional probability</td><td>Lecture notes §1; practice set A Q1–Q4 and key</td><td>Recheck before final; record says demonstrated in an earlier session</td></tr>
+<tr><td>Two-way table row/column percentages</td><td>Lecture notes §2</td><td>Practice: a prior attempt used the row total for a column percentage</td></tr>
+<tr><td>Grouped summaries</td><td>Lecture notes §3; 2025 Midterm 1 Q3</td><td>Unassessed; learn and apply</td></tr>
+<tr><td>Bayes’ rule</td><td>Named in outline only</td><td>Source gap; obtain lecture notes</td></tr></table>
+<p class="small">Sources: materials/outline.md (“In scope,” “Not on this midterm,” reporting rule); materials/notes.md §§1–3; materials/practice.md Q1–Q4 and practice-key.md; materials/midterm-2025.md Q1–Q3. The 2025 paper is historical and does not establish final format or coverage.</p>
+<h2>Your answer-format rule</h2>
+<div class="box"><b>For every proportion:</b> convert to a percentage, round to <b>one decimal place</b>, and name the reference group in words. Write “40.0% of commuters,” not “0.4,” “40%,” or “2/5.” The outline says answers without the reference group lose one point.</div>
+<div class="example"><b>Quick routine</b><br>1. Identify the group named after “among,” “of,” or “within.”<br>2. Use that group as the denominator.<br>3. Count the cases in that group that also meet the target condition.<br>4. Divide, multiply by 100, round to one decimal, and state the group.</div>
+<footer>STAT 110 · Study guide based only on supplied local course files · Coverage beyond listed sources remains unconfirmed.</footer>
+<div class="page"></div>
+<h2>1. Conditional probability — T1</h2>
+<p><b>Meaning:</b> P(A | B) asks, “Among cases in group B, what share are also in A?” The vertical bar means “among.” The denominator is the size of B, not the whole sample. The order matters: P(A | B) and P(B | A) generally use different reference groups. These rules assume equally weighted cases and a nonempty reference group. (Notes §1.1–§1.4.)</p>
+<div class="example"><b>Example from practice set A Q1:</b> 25 students commute; 10 of those commuters cycle. The reference group is commuters, so 10 ÷ 25 = 0.40 = <b>40.0% of commuters</b>. The 40 students in the full class are not the denominator.</div>
+<h3>Common slip</h3><p>Using the whole sample, or reversing the condition, changes the question. First say the reference group aloud; only then choose the denominator.</p>
+<h3>Retrieval check</h3><p>A club has 30 members; 12 are seniors; 4 of the seniors volunteer. What percentage of seniors volunteer? State the group. (Practice set A Q3; check against its key after trying.)</p>
+<h2>2. Two-way tables — T2</h2>
+<p>A two-way table counts cases across two categorical variables. Each cell is a subgroup; row and column totals give possible reference groups. A <b>row percentage</b> is cell ÷ its row total. A <b>column percentage</b> is cell ÷ its column total. This is the same denominator decision as conditional probability (notes §2.1–§2.3).</p>
+<table><tr><th></th><th>Cycles</th><th>Does not cycle</th><th>Total</th></tr><tr><th>Commuter</th><td>10</td><td>15</td><td>25</td></tr><tr><th>Not commuter</th><td>5</td><td>10</td><td>15</td></tr><tr><th>Total</th><td>15</td><td>25</td><td>40</td></tr></table>
+<div class="example"><b>Cell: commuter and cycles (10)</b><br>Row percentage: 10 ÷ 25 = <b>40.0% of commuters</b> cycle.<br>Column percentage: 10 ÷ 15 = <b>66.7% of cyclists</b> are commuters.<br>Same cell, different question, different denominator.</div>
+<p>Row percentages add to 100% within each row; column percentages add to 100% within each column. Percentages across a row of column percentages need not add to 100% (notes §2.3).</p>
+<div class="box warn"><b>Personalized correction:</b> Your recorded table attempt chose the row total for a column percentage. Corrective rule: name the reference group, then divide by that group’s total. For a column percentage, stay within that column.</div>
+<footer>STAT 110 · T1/T2 methods and examples are tied to notes §§1–2 and the cited practice materials.</footer>
+<div class="page"></div>
+<h2>3. Grouped summaries — T4</h2>
+<p>A grouped summary splits observations by a categorical variable and calculates one summary value (such as a mean or count) for each group. It has <b>one row per non-empty group</b>, not one row per original observation. Compare groups using the same kind of summary; do not compare a group mean with a group total. (Notes §3.1–§3.3.)</p>
+<div class="example"><b>Past-paper example:</b> The 2025 Midterm 1 Q3 describes a mean score for each of four course sections. The result has <b>4 rows</b>, one per section, even though the original data had 120 students. This is a historical example of the rule, not evidence that the final will use the same question.</div>
+<h3>Check yourself</h3><p>A grouped report gives the median rent for each of 6 neighborhoods, all non-empty. How many rows should the result have? Explain what each row represents.</p>
+<h2>4. Bayes’ rule — T3 (source gap)</h2>
+<div class="box warn">The available outline names Bayes’ rule as covered in lecture, but says notes are to be posted. No supplied source explains the formula, conditions, or application procedure. Do not rely on this guide as preparation for T3. Add your lecture notes or final review sheet, then this section can be completed from the course’s own treatment.</div>
+<h2>Final preparation route</h2>
+<ol><li>Get the current final review outline; confirm which units are cumulative and any exclusions.</li><li>Recheck conditional probability without notes, including naming the reference group.</li><li>Practice table questions in both directions: row percentage and column percentage. State each denominator in words.</li><li>Work a new grouped-summary example and explain why row count follows the number of non-empty groups.</li><li>Review Bayes’ rule from the missing course notes, then add any other final topics not covered here.</li></ol>
+<div class="box"><b>Before you call this final-ready:</b> Match this list against the instructor’s final scope. Exam format and reference-sheet rules are unknown in the supplied profile.</div>
+<p class="small"><b>Personalization basis:</b> The learning record marks T1 demonstrated with a pre-exam recheck due, T2 needs practice due to denominator confusion, T3 unassessed because notes are missing, and T4 unassessed. No exam-style prediction is made from the single available 2025 Midterm 1.</p>
+<footer>End · Source-limited starter guide; update when the final outline and missing notes are available.</footer>
+</body></html>

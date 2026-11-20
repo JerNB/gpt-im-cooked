@@ -1,0 +1,110 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final | Provisional topic coverage",
+  "course": "STAT 110",
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": "Student confirms one sheet, both sides. PDF laid out on US Letter; instructor paper-size requirement and other content restrictions are unknown. Available topic outline is for Midterm 1, so cumulative-final coverage is unconfirmed."
+  },
+  "language": "en",
+  "sections": [
+    {
+      "id": "scope",
+      "title": "Scope note",
+      "weight": "high",
+      "topics": ["T1", "T2", "T3", "T4"],
+      "blocks": [
+        {
+          "type": "text",
+          "text": "This sheet covers topics listed for **Midterm 1** in the supplied outline; that outline does not confirm the cumulative final. **Bayes' rule is listed in scope, but its lecture explanation is missing from the supplied files.** Add your instructor's formula/example before relying on that topic."
+        }
+      ]
+    },
+    {
+      "id": "reference-group",
+      "title": "Conditional probability + two-way table percentages",
+      "weight": "high",
+      "topics": ["T1", "T2"],
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**One example table** (counts of students by commute and cycling status):"
+        },
+        {
+          "type": "table",
+          "header": ["", "Cycles", "Does not cycle", "Total"],
+          "rows": [
+            ["Commuters", "10", "15", "25"],
+            ["Noncommuters", "5", "10", "15"],
+            ["Total", "15", "25", "40"]
+          ]
+        },
+        {
+          "type": "example",
+          "setup": "The question's wording selects the reference group; that group's count is the denominator.",
+          "steps": [
+            {
+              "label": "Conditional probability",
+              "text": "P(A | B) = count in both A and B / count in B. Read it as the probability of A **among B**. B is the reference group. Assumes equally weighted cases and a non-empty reference group."
+            },
+            {
+              "label": "Row percentage",
+              "text": "Among commuters, what share cycles? 10 / 25 = **40.0% of commuters**. Denominator: commuter row total."
+            },
+            {
+              "label": "Column percentage",
+              "text": "Among cyclists, what share commutes? 10 / 15 = **66.7% of cyclists**. Denominator: cycling column total."
+            },
+            {
+              "label": "Check",
+              "text": "Row percentages add to 100% across one row; column percentages add to 100% down one column. The reverse conditional uses a different reference group: P(commutes | cycles) is not P(cycles | commutes)."
+            }
+          ],
+          "takeaway": "Name the reference group first, then use its total as the denominator."
+        },
+        {
+          "type": "cue",
+          "text": "**Reporting rule (outline):** every proportion as a percentage to **one decimal place**, with the reference group named: “40.0% of commuters.”"
+        },
+        {
+          "type": "mistake",
+          "prompt": "Recorded error: selected the row total for a column percentage (learning record, 2026-11-17).",
+          "first_error": "Used the wrong reference-group total.",
+          "fix": "For “among cyclists,” divide by the cyclist column total: 10 / 15 = 66.7% of cyclists.",
+          "conditions": "Choose the row or column from the group named after “among/of”; the cell stays the same, but the reference group and denominator change."
+        }
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": ["T4"],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) per non-empty group. Output: one row per group, not one row per original case. Compare groups using the same summary; do not compare a group mean with a group total."
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {
+      "topic": "Bayes' rule calculation",
+      "reason": "T3 is listed in the supplied outline, but no explanatory formula or worked method is in the supplied materials; do not invent course content. The source gap is flagged above."
+    },
+    {
+      "topic": "Hypothesis testing",
+      "reason": "Excluded from the supplied Midterm 1 outline only; the cumulative-final outline is unavailable, so final scope is unconfirmed."
+    }
+  ],
+  "revision": {
+    "round": 1,
+    "standing": [],
+    "changes": []
+  }
+}

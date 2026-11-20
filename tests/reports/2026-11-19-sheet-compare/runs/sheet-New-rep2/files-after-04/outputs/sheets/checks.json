@@ -1,0 +1,33 @@
+{
+  "engine": "native",
+  "pdf": "stat-110-final-confirmed-materials-reference-sheet-v2.pdf",
+  "pages": 1,
+  "preset": -3,
+  "body": 14.0,
+  "code": 11.0,
+  "column_fill": [
+    0.989,
+    0.466
+  ],
+  "fonts": {
+    "body": "segoeui",
+    "bold": "segoeuib",
+    "mono": "consola",
+    "files": {
+      "body": "C:\\Windows\\Fonts\\segoeui.ttf",
+      "bold": "C:\\Windows\\Fonts\\segoeuib.ttf",
+      "mono": "C:\\Windows\\Fonts\\consola.ttf"
+    }
+  },
+  "missing_glyphs": [],
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": "Paper size assumed letter for rendering; other instructor restrictions unknown.",
+    "min_body": null
+  },
+  "kind": "exam-sheet",
+  "previews": null
+}

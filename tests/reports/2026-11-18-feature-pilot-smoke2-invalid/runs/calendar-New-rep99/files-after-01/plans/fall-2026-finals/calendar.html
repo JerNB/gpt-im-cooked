@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>STAT 110 · CS 101 study plan</title>
+<style>
+:root {
+  --paper: #f7f4ec;
+  --card: #fffdf8;
+  --ink: #1f2a24;
+  --muted: #5f6b63;
+  --line: #ddd6c6;
+  --brand: #2f5d50;
+  --exam: #8a2f24;
+  --radius: 10px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.45 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+main { max-width: 1240px; margin: 0 auto; padding: 32px 24px 56px; }
+.eyebrow { margin: 0; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1 { margin: 6px 0 4px; font: 600 34px/1.15 Georgia, "Times New Roman", serif; }
+.subtitle { margin: 0 0 20px; color: var(--muted); }
+.notes { margin: 0 0 24px; padding: 14px 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); color: var(--muted); font-size: 13px; }
+.notes p { margin: 2px 0; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.course-card { padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--c); border-radius: var(--radius); }
+.course-card h2 { margin: 0 0 4px; font-size: 16px; }
+.course-card p { margin: 2px 0; color: var(--muted); font-size: 13px; }
+.course-card .exam-when { color: var(--exam); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 22px; padding: 0; list-style: none; font-size: 13px; }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.swatch { width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
+.week { margin: 0 0 28px; }
+.week h2 { margin: 0 0 10px; font: 600 18px/1.2 Georgia, "Times New Roman", serif; }
+.days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.day { min-height: 120px; padding: 8px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.day.off, .day.outside { background: transparent; border-style: dashed; }
+.day.outside { opacity: .45; }
+.day h3 { margin: 0 0 6px; font-size: 12px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.day .tag { display: inline-block; margin: 4px 0; font-size: 12px; color: var(--muted); }
+.block { margin: 0 0 6px; padding: 6px 8px; border-left: 4px solid var(--c); border-radius: 6px; background: color-mix(in srgb, var(--c) 9%, #fff); font-size: 12.5px; break-inside: avoid; }
+.block .time { font-weight: 700; }
+.block .course { color: var(--c); font-weight: 700; }
+.block .title { display: block; margin: 2px 0; color: var(--ink); }
+.block .meta, .block .basis { display: block; color: var(--muted); font-size: 11.5px; }
+.block.exam { --c: var(--exam); background: color-mix(in srgb, var(--exam) 12%, #fff); }
+.block.exam .title { font-weight: 700; }
+.check { display: none; }
+.unplaced { margin: 0 0 28px; padding: 14px 18px; border: 2px solid var(--exam); border-radius: var(--radius); background: var(--card); }
+.unplaced h2 { margin: 0 0 6px; font-size: 16px; color: var(--exam); }
+.unplaced ul { margin: 0; padding-left: 18px; }
+@media (max-width: 768px) {
+  main { padding: 20px 16px 40px; }
+  h1 { font-size: 27px; }
+  .days { grid-template-columns: 1fr; }
+  .day { min-height: 0; }
+  .day.outside, .day.empty { display: none; }
+}
+@media print {
+  @page { size: landscape; margin: 10mm; }
+  body { background: #fff; font-size: 11px; }
+  main { max-width: none; padding: 0; }
+  .summary, .notes { break-inside: avoid; }
+  .week { break-before: page; }
+  .day { min-height: 0; }
+  .check { display: inline; }
+}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">Study plan</p>
+<h1>STAT 110 · CS 101 study plan</h1>
+<p class="subtitle">Nov 18 to Dec 10, 2026 · 14 blocks · 9.6 hours planned</p>
+<section class="notes"><p>Generated 2026-11-18 from: STA/learning-record.md, CS/learning-record.md.</p><p>Completing a block does not change your recorded progress; your tutor updates progress from reviewed work.</p><p>No study windows were given, so each day lists its review tasks.</p><p>Import plan.ics into a separate calendar so the whole plan can be removed or replaced at once.</p></section>
+<section class="summary"><article class="course-card" style="--c:#2f5d50"><h2>STAT 110</h2><p class="exam-when">Exam Tue Dec 8, 09:00</p><p>7 blocks · 280 min planned</p><p>Record: STA/learning-record.md</p></article><article class="course-card" style="--c:#2a7f86"><h2>CS 101</h2><p class="exam-when">Exam Thu Dec 10, 14:00</p><p>7 blocks · 295 min planned</p><p>Record: CS/learning-record.md</p></article></section>
+<ul class="legend"><li><span class="swatch" style="--c:#2f5d50"></span>STAT 110</li><li><span class="swatch" style="--c:#2a7f86"></span>CS 101</li></ul>
+
+<section class="week"><h2>Week of Nov 16</h2><div class="days"><div class="day outside empty"><h3>Mon 16</h3></div><div class="day outside empty"><h3>Tue 17</h3></div><div class="day"><h3>Wed 18</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-t2-variant-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">Two-way tables: fix the denominator</span><span class="meta">variant · 45 min</span><span class="basis">Concepts T2: Needs practice (2026-11-17 attempt chose row total for column percentage)</span></div></div><div class="day"><h3>Thu 19</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-p2-variant-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">Loop comparisons: targeted variants</span><span class="meta">variant · 45 min</span><span class="basis">Concepts P2: Needs practice (2026-11-17 attempt counted assignments and loop checks)</span></div></div><div class="day"><h3>Fri 20</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-t3-gap-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">Bayes’ rule: locate course notes</span><span class="meta">source-gap · 25 min</span><span class="basis">Concepts T3: Unassessed, in scope; teaching notes not posted</span></div></div><div class="day"><h3>Sat 21</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-p3-gap-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">Big-O: locate course notes</span><span class="meta">source-gap · 25 min</span><span class="basis">Concepts P3: Unassessed, in scope; teaching notes not posted</span></div></div><div class="day"><h3>Sun 22</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-t4-learn-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">Grouped summaries: learn from notes §3</span><span class="meta">learn · 45 min</span><span class="basis">Concepts T4: Unassessed; teaching notes available in S2 §3</span></div></div></div></section><section class="week"><h2>Week of Nov 23</h2><div class="days"><div class="day"><h3>Mon 23</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-p4-learn-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">Nested data summaries: learn from notes §3</span><span class="meta">learn · 45 min</span><span class="basis">Concepts P4: Unassessed; teaching notes available in P2 §3</span></div></div><div class="day empty"><h3>Tue 24</h3></div><div class="day"><h3>Wed 25</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-t1-recheck-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">Conditional probability: unaided recheck</span><span class="meta">recheck · 30 min</span><span class="basis">Concepts T1: Demonstrated, Recheck before exam (promoted 2026-11-17)</span></div></div><div class="day"><h3>Thu 26</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-p1-practice-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">List aliasing: transfer practice</span><span class="meta">practice · 45 min</span><span class="basis">Concepts P1: Improving; transfer practice next (no transfer attempt yet)</span></div></div><div class="day empty"><h3>Fri 27</h3></div><div class="day"><h3>Sat 28</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-t4-practice-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">Grouped summaries: independent practice</span><span class="meta">practice · 30 min</span><span class="basis">Concepts T4: Unassessed; in scope with notes available S2 §3</span></div></div><div class="day"><h3>Sun 29</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-p4-practice-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">Nested data summaries: independent practice</span><span class="meta">practice · 30 min</span><span class="basis">Concepts P4: Unassessed; in scope with notes available P2 §3</span></div></div></div></section><section class="week"><h2>Week of Nov 30</h2><div class="days"><div class="day empty"><h3>Mon 30</h3></div><div class="day"><h3>Tue 1</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-review-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">STAT 110: cumulative retrieval and practice</span><span class="meta">review · 60 min</span><span class="basis">Course scope T1–T4: in scope per STA/course-profile.md</span></div></div><div class="day"><h3>Wed 2</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-review-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">CS 101: cumulative retrieval and practice</span><span class="meta">review · 60 min</span><span class="basis">Course scope P1–P4: in scope per CS/course-profile.md</span></div></div><div class="day empty"><h3>Thu 3</h3></div><div class="day empty"><h3>Fri 4</h3></div><div class="day empty"><h3>Sat 5</h3></div><div class="day"><h3>Sun 6</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-sta-final-review-1" style="--c:#2f5d50"><span class="check">&#9744; </span><span class="course">STAT 110</span><span class="title">STAT 110: final light review</span><span class="meta">review · 45 min</span><span class="basis">Course scope T1–T4: in scope per STA/course-profile.md; T1 recheck due before exam</span></div></div></div></section><section class="week"><h2>Week of Dec 7</h2><div class="days"><div class="day empty"><h3>Mon 7</h3></div><div class="day"><h3>Tue 8</h3><p class=tag>All-day review list</p><div class="block" data-block="fall-2026-finals-cs-final-review-1" style="--c:#2a7f86"><span class="check">&#9744; </span><span class="course">CS 101</span><span class="title">CS 101: final light review</span><span class="meta">review · 45 min</span><span class="basis">Course scope P1–P4: in scope per CS/course-profile.md</span></div><div class="block exam"><span class="time">09:00–12:00</span> <span class="course">Exam</span><span class="title">STAT 110</span></div></div><div class="day empty"><h3>Wed 9</h3></div><div class="day"><h3>Thu 10</h3><div class="block exam"><span class="time">14:00–17:00</span> <span class="course">Exam</span><span class="title">CS 101</span></div></div><div class="day outside empty"><h3>Fri 11</h3></div><div class="day outside empty"><h3>Sat 12</h3></div><div class="day outside empty"><h3>Sun 13</h3></div></div></section>
+</main>
+</body>
+</html>

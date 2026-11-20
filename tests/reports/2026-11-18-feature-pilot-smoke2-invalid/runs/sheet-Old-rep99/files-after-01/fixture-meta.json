@@ -1,0 +1,15 @@
+{
+  "course": "STAT 110 (synthetic)",
+  "exam": "Final",
+  "dates": {
+    "exam": "2026-12-08",
+    "time": "09:00-12:00"
+  },
+  "learning_statuses": {
+    "T1": "Demonstrated",
+    "T2": "Needs practice",
+    "T3": "Unassessed",
+    "T4": "Unassessed",
+    "X1": "Excluded"
+  }
+}

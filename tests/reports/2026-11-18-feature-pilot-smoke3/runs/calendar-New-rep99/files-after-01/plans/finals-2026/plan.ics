@@ -1,0 +1,158 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GPT I'm Cooked//study-plan//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:finals-2026 study plan (GPT\, I'm Cooked)
+BEGIN:VEVENT
+UID:finals-2026-day-20261118@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261118
+DTEND;VALUE=DATE:20261119
+SUMMARY:Review list: 3 tasks\, 115 min
+DESCRIPTION:- CS 101 · Loop comparison-count variant (45 min\, variant)\n 
+  Work a new loop-tracing problem and count only element-to-element compari
+ sons.\n  Basis: Concepts P2: Needs practice\; 2026-11-17 attempt included 
+ loop checks incorrectly\n- STAT 110 · Two-way table denominator variant (
+ 45 min\, variant)\n  For new row and column percentage questions\, name th
+ e reference group and use its total as denominator.\n  Basis: Concepts T2:
+  Needs practice\; 2026-11-17 attempt confused row and column denominators\
+ n- STAT 110 · Find Bayes’ rule course notes (25 min\, source-gap)\n  Lo
+ cate course notes or ask the instructor for the missing Bayes’ rule teac
+ hing material\; do not substitute outside explanations.\n  Basis: Concepts
+  T3: Unassessed\; teaching notes not posted\n\nCompleting this block does 
+ not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261119@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261119
+DTEND;VALUE=DATE:20261120
+SUMMARY:Review list: 2 tasks\, 100 min
+DESCRIPTION:- CS 101 · List aliasing transfer practice (40 min\, practice)
+ \n  Trace object identity before mutation in a new code setting\, then exp
+ lain the result.\n  Basis: Concepts P1: Improving\; transfer practice is n
+ ext\n- STAT 110 · Learn grouped summaries (60 min\, learn)\n  Study group
+ ed summaries in the lecture notes and write a short explanation of the met
+ hod.\n  Basis: Concepts T4: Unassessed\; teaching notes available in S2 se
+ ction 3\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261120@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261120
+DTEND;VALUE=DATE:20261121
+SUMMARY:Review list: 2 tasks\, 85 min
+DESCRIPTION:- CS 101 · Find Big-O course notes (25 min\, source-gap)\n  Lo
+ cate course notes or ask the instructor for the missing Big-O teaching mat
+ erial\; do not substitute outside explanations.\n  Basis: Concepts P3: Una
+ ssessed\; lecture notes not posted\n- CS 101 · Learn nested data summarie
+ s (60 min\, learn)\n  Study nested data summaries in the unit notes and wr
+ ite a short explanation of the method.\n  Basis: Concepts P4: Unassessed\;
+  teaching notes available in P2 section 3\n\nCompleting this block does no
+ t change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261121@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261121
+DTEND;VALUE=DATE:20261122
+SUMMARY:Review list: 1 tasks\, 40 min
+DESCRIPTION:- STAT 110 · Practice grouped summaries (40 min\, practice)\n 
+  Attempt course practice on grouped summaries before checking the key.\n  
+ Basis: Concepts T4: Unassessed\; teaching notes available in S2 section 3\
+ n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261122@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261122
+DTEND;VALUE=DATE:20261123
+SUMMARY:Review list: 1 tasks\, 40 min
+DESCRIPTION:- CS 101 · Practice nested data summaries (40 min\, practice)\
+ n  Attempt course practice on nested data summaries before checking the ke
+ y.\n  Basis: Concepts P4: Unassessed\; teaching notes available in P2 sect
+ ion 3\n\nCompleting this block does not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261203@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261204
+SUMMARY:Review list: 1 tasks\, 30 min
+DESCRIPTION:- STAT 110 · Conditional probability recheck (30 min\, recheck
+ )\n  Without notes\, solve a fresh conditional probability question and ch
+ eck the reference group before computing.\n  Basis: Concepts T1: Demonstra
+ ted\; Recheck before exam\n\nCompleting this block does not change your re
+ corded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261204@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261204
+DTEND;VALUE=DATE:20261205
+SUMMARY:Review list: 1 tasks\, 120 min
+DESCRIPTION:- STAT 110 · STAT 110 timed mock sitting (120 min\, mock)\n  C
+ omplete a timed cumulative sitting\, then review answers against available
+  course materials.\n  Basis: Per-course mock sitting before the final\; sc
+ ope from the STAT 110 course record\n\nCompleting this block does not chan
+ ge your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-day-20261206@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART;VALUE=DATE:20261206
+DTEND;VALUE=DATE:20261207
+SUMMARY:Review list: 1 tasks\, 120 min
+DESCRIPTION:- CS 101 · CS 101 timed mock sitting (120 min\, mock)\n  Compl
+ ete a timed sitting on confirmed in-scope topics\, then review answers aga
+ inst available course materials.\n  Basis: Per-course mock sitting before 
+ the final\; scope from the CS 101 course record\n\nCompleting this block d
+ oes not change your recorded progress.
+CATEGORIES:review-list
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-sta110-exam@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART:20261208T090000
+DTEND:20261208T120000
+SUMMARY:STAT 110 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:finals-2026-cs101-exam@gpt-im-cooked
+DTSTAMP:20261118T232210Z
+DTSTART:20261210T140000
+DTEND:20261210T170000
+SUMMARY:CS 101 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:1
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

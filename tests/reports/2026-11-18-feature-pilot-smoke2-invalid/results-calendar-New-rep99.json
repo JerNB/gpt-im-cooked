@@ -1,0 +1,29 @@
+[
+  {
+    "arm": "New",
+    "workflow": "calendar",
+    "replicate": 99,
+    "turn": 1,
+    "wall_seconds": 225.71,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 444815,
+      "cached_input_tokens": 412160,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5581,
+      "reasoning_output_tokens": 988
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 444815,
+      "cached_input_tokens": 412160,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5581,
+      "reasoning_output_tokens": 988
+    },
+    "material_read": true,
+    "skill_read": true
+  }
+]
