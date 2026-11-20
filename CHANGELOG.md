@@ -1,5 +1,68 @@
 # Changelog
 
+## v2.0.2 — Finals: study calendar and exam cheat sheets — November 19, 2026
+
+**Plan several courses on one calendar, and get an exam cheat sheet as a real PDF without installing anything.**
+
+Download the [standalone skill](docs/downloads/gpt-im-cooked-skill-v2.0.2.zip) or [plugin package](docs/downloads/gpt-im-cooked-plugin-v2.0.2.zip) ([checksums](docs/downloads/SHA256SUMS-v2.0.2.txt)). Earlier archives, including v2.0.1, remain available unchanged. Skill and plugin identities are preserved; existing course directories and learning records work without migration.
+
+### Added: a study calendar across courses
+
+- Ask for a study plan or calendar and the tutor reads each included course's learning record. It derives tasks from what is recorded (`references/study-plan.md`):
+  - Needs practice → a changed-condition variant.
+  - Improving → one transfer practice.
+  - Demonstrated with a recheck note → an unaided recheck.
+  - In scope but teaching notes missing → a short block to find them.
+  - Each course → one mock sitting 2–4 days before its exam.
+
+  Every task cites the record row it came from.
+- `scripts/plan_study.py` (standard library) places the tasks into the study windows you give once: weekly times, days off and a daily cap. It writes `plan.ics` and a printable `calendar.html`. Without windows it makes one all-day review list per day.
+  - The `.ics` has stable event IDs, so a regenerated plan updates rather than duplicates. Its times are floating (no time zone) and it sends no reminders.
+  - Courses without a record get labelled review blocks only.
+  - An exam with no end time is assumed to last 3 hours, and both files say so.
+  - Nothing is written to a connected calendar without an explicit yes in the conversation.
+
+### Added: exam cheat sheets and study guides from a template renderer
+
+- **One question, then a draft.** A guide or cheat-sheet request gets a single question ("Is this a cheat sheet you'll bring into the exam? How many sheets, and one- or two-sided?"). The tutor then ends the turn and waits. If the answer is unknown, it makes one two-sided sheet marked *exam use unconfirmed*. There is no content plan to approve before the first draft.
+- **Content rules.** The rules come from one student's revision history, for example: tier each topic as worked, cue or omit; use one running example per cluster; stage multi-step conversions; make the important things prominent; no generic reminders; empty space is allowed; a student's "leave it off" is not an instructor exclusion.
+- **Rendering.** The tutor writes content only (JSON), and `scripts/render_sheet.py` lays it out.
+  - It uses ReportLab when installed, and otherwise the new built-in writer `scripts/sheet_pdf.py`. That writer uses only the standard library, embeds subsets of the computer's TrueType fonts, keeps text extractable and works inside the Codex sandbox.
+  - A browser engine (`--engine browser`) is available on request.
+  - With no usable engine, it writes printable HTML and gives the exact install question to ask.
+- **Fitting.**
+  - It picks the most spacious layout that fits the allowed pages (9–11 pt body).
+  - An exam sheet with spare room grows to 12–14 pt without adding pages.
+  - Overflow is reported per section, never fixed by shrinking below the minimum.
+  - Table and label columns are at least as wide as their longest word, measured in the font each word is printed in.
+  - Characters the fonts cannot draw are reported before anything is written.
+- **Revisions.** Rounds are kept as `-v<round>`. Standing constraints such as "no new information" carry over. Lasting preferences are saved in a new `Reference-sheet preferences` section of the course profile and reused in later sessions.
+
+### Changed
+
+- When the tutor needs your answer (calendar availability, sheet allowance), it asks in the reply and ends the turn instead of continuing with a default.
+- The offer to add courses without a record is made once, at the end of the plan delivery.
+- `record_io.py save` accepts the optional `Reference-sheet preferences` section.
+
+### Evidence for this release
+
+Exploratory, synthetic courses, one scripted student, one smaller model (`gpt-6-luna`, Codex CLI 0.162.1). Earlier benchmarks used `gpt-6.1-sol`, so numbers are not comparable across those reports. Tokens are CLI counters, not billing.
+
+- **Calendar** ([pilot report](tests/reports/2026-11-18-feature-pilot/REPORT.md), 2 sessions).
+  - Tasks derived per the table: 2/2. Every task cited a record row: 12/12 per session.
+  - `plan_study.py` ran and the `.ics` and HTML were delivered: 2/2. No calendar writes.
+  - Gaps found there: the tutor did not wait for the availability answer (1/2), made the unrecorded-course offer 0/2 times, and in one session invented an exam end time. The wording and the 3-hour default above respond to these and were **not** re-run with a model.
+- **PDF path.**
+  - In that pilot the then-new renderer made 0/2 PDFs on a host without ReportLab.
+  - A browser-print fallback also produced none inside the Codex Windows sandbox ([rerun](tests/reports/2026-11-19-sheet-rerun/REPORT.md)).
+  - With the built-in writer, 2/2 sessions produced their sheets inside the sandbox ([native rerun](tests/reports/2026-11-19-sheet-native/REPORT.md)).
+- **v2.0.1 vs this release** ([comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md), 3 sessions per arm, the same 4 scripted turns).
+  - Allowance question asked first: 3/3 vs 0/3. Sheets made by the renderer: 3/3. Preferences saved: 3/3; v2.0.1 has no such feature.
+  - Means for a fresh-session sheet: 361,660 → 187,671 processed tokens (−48%) and 106.2 → 65.4 s (−38%). The whole 4-turn session: −27% tokens and −17% time.
+  - Per-session spread is wide and ranges overlap.
+  - On that host v2.0.1 made its PDFs with PyMuPDF, which happened to be installed.
+- Not measured: sheet content quality (no blind scoring), learning gains, real students, other models, macOS and Linux, PDF viewers other than PDFium, paper printing, calendar-app imports and connector writes.
+
 ## v2.0.1 — Steadier progress records — November 15, 2026
 
 **Progress is saved when it changes, "Demonstrated" asks for a later recheck, and saving takes one step.**

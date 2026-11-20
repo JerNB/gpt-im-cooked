@@ -6,7 +6,9 @@ A reusable **English learning and exam-review skill and plugin** for college and
 
 Designed for English-language college and graduate study, including international students at US universities. Tutoring, page copy, feedback, and generated study outputs default to English unless the student explicitly asks for another language. Teaching uses plain language, small worked examples, and explanations of why each step follows. Optional concept pages use purposeful interactions and spacious layouts suited to the idea.
 
-**V2 · v2.0.1** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+**V2 · v2.0.2** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+
+**[v2.0.2 — Finals: study calendar and exam cheat sheets — November 19, 2026](#whats-new-in-202)** · One calendar for several courses, built from your learning records, and exam cheat sheets rendered to PDF with no installation. [See what changed and what the tests showed.](#whats-new-in-202)
 
 **[v2.0.1 — Steadier progress records — November 15, 2026](#whats-new-in-201)** · Progress changes are saved in the same turn, same-session "Demonstrated" carries a recheck, gaps in your notes get a labelled offer, and saving takes one command. [See what changed and what the tests showed.](#whats-new-in-201)
 
@@ -15,6 +17,23 @@ Designed for English-language college and graduate study, including internationa
 The October 17 patch preserves answer exposure across retries in a [repaired concept-page example](examples/grouped-transformations.html), adds an executable regression, and clarifies how tutors review contradictory export labels. [Evidence, repeated tutor runs, and limits](tests/reports/2026-10-17/REPORT.md) distinguish the reproduced page defect from model judgments and unmeasured learning gains.
 
 The October 15 update makes conversation the primary review experience, with optional interactive pages for selected concepts. A simple mock-exam request produces an HTML paper with a separate key; a study-guide request produces a PDF when the host supports generation. See the [v0.5.0 changes and package checks](tests/reports/2026-10-15/RELEASE.md).
+
+## What's new in 2.0.2
+
+**Finals season: plan several courses on one calendar, and get an exam cheat sheet as a real PDF.**
+
+| | 2.0.1 | 2.0.2 |
+|---|---|---|
+| Study plan across courses | Written by hand in chat | Tasks derived from each course's learning record, placed into your study windows, exported as `plan.ics` + a printable calendar |
+| Cheat sheet / study guide | Layout written from scratch each time; needs a PDF library on your computer | One allowance question, then a draft rendered by the skill's own PDF writer: no installation, works inside the Codex sandbox |
+| Revisions | Re-done from scratch | Only the requested change; spare space becomes larger type (up to 14 pt); preferences remembered for next time |
+
+**What the tests showed** ([comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md), synthetic course, scripted student, `gpt-6-luna`, 3 sessions per version):
+- The new version asked the allowance question first in 3/3 sessions (old: 0/3) and saved the student's preferences in 3/3.
+- Making a sheet again in a fresh session used 48% fewer tokens and 38% less time on average.
+- A whole four-turn session used 27% fewer tokens and 17% less time.
+
+Sessions varied widely, and the old version relied on a PDF library that happened to be installed on the test computer. The calendar was piloted in 2 sessions ([report](tests/reports/2026-11-18-feature-pilot/REPORT.md)): every task cited its record row. These are small exploratory tests, not a study of learning. See the [changelog](CHANGELOG.md) for details and limits.
 
 ## What's new in 2.0.1
 
@@ -111,7 +130,7 @@ Past papers provide evidence of question formats and reasoning patterns. New que
 
 ## Quick start
 
-1. **[Download the standalone skill](docs/downloads/gpt-im-cooked-skill-v2.0.1.zip)** and extract the `gpt-im-cooked` folder.
+1. **[Download the standalone skill](docs/downloads/gpt-im-cooked-skill-v2.0.2.zip)** and extract the `gpt-im-cooked` folder.
 2. Copy that entire folder into `~/.codex/skills/` (or your configured `$CODEX_HOME/skills/`). Preserve an existing copy unless you intend to replace it. Refresh the skill list or restart the client if needed, then open a new chat.
 3. Add one useful course file and send:
 
@@ -122,7 +141,7 @@ Here are my course notes and practice paper.
 
 You can start with a single course link, outline, or set of notes. A short request is enough: the skill handles scope checks, separate practice answers, and selective learning records. Past exams, dates, and official keys help, but are optional. Mention known exclusions; uncertain scope is flagged. Materials are read as needed for the current activity rather than requiring a complete course inventory before tutoring.
 
-**Prefer the plugin?** [Download the plugin package](docs/downloads/gpt-im-cooked-plugin-v2.0.1.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
+**Prefer the plugin?** [Download the plugin package](docs/downloads/gpt-im-cooked-plugin-v2.0.2.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
 
 **Try without installing:** clone or download the repository, keep the whole skill folder accessible, and ask Codex to read [SKILL.md](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and its relevant supporting files. This manual preview does not test automatic plugin discovery.
 
@@ -157,7 +176,7 @@ Every tutoring reply starts with **“Hi student, let's get you uncooked.”** I
 
 ## What has been tested
 
-The v2.0.1 downloads contain the maintained source. Two exploratory comparisons on synthetic courses with a scripted student and one model (four sessions per arm) are archived: the [plain-model comparison](tests/reports/2026-11-14-controlled-comparison/REPORT.md) compared two earlier skill versions (not v2.0.1) with a well-prompted plain model: tied on most checks, the pre-release main-branch skill ahead on genuine transfer checks (4/4 vs. 2/4 or 3/4, one adjudication disputed), and both skill versions more expensive; the [cost comparison](tests/reports/2026-11-14-cost-comparison/REPORT.md) found v2.0.1 lower in tokens than that intermediate revision in 4 of 4 matched pairs, with behaviour counts tied under the selected adjudications (one v2.0.1 transfer-check pass is disputed). Neither measures learning gains or billing. The [October 17 evidence report](tests/reports/2026-10-17/REPORT.md) includes original/repaired page-script replay, isolated tutor runs, and record ablations. These do not establish learning gains or automatic plugin discovery. The HTML-mock/PDF-guide defaults still lack a dedicated fresh model run. See the [current validation status](VALIDATION.md) and [earlier release checks](tests/reports/2026-10-15/RELEASE.md).
+The v2.0.2 downloads contain the maintained source. The calendar and cheat-sheet features were piloted on a smaller model ([pilot](tests/reports/2026-11-18-feature-pilot/REPORT.md), [old-vs-new comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md)); see the changelog for counts and limits. Two exploratory comparisons on synthetic courses with a scripted student and one model (four sessions per arm) are archived: the [plain-model comparison](tests/reports/2026-11-14-controlled-comparison/REPORT.md) compared two earlier skill versions (not v2.0.1) with a well-prompted plain model: tied on most checks, the pre-release main-branch skill ahead on genuine transfer checks (4/4 vs. 2/4 or 3/4, one adjudication disputed), and both skill versions more expensive; the [cost comparison](tests/reports/2026-11-14-cost-comparison/REPORT.md) found v2.0.1 lower in tokens than that intermediate revision in 4 of 4 matched pairs, with behaviour counts tied under the selected adjudications (one v2.0.1 transfer-check pass is disputed). Neither measures learning gains or billing. The [October 17 evidence report](tests/reports/2026-10-17/REPORT.md) includes original/repaired page-script replay, isolated tutor runs, and record ablations. These do not establish learning gains or automatic plugin discovery. The HTML-mock/PDF-guide defaults still lack a dedicated fresh model run. See the [current validation status](VALIDATION.md) and [earlier release checks](tests/reports/2026-10-15/RELEASE.md).
 
 Version 0.4.1 adds duplicate-import/review rules, a Python standard-library helper for conflict-checked single-record writes and backups, explicit export identities, pre-key snapshots, and an allowlisted package builder. Python 3.10+ is optional; hosts without it use the documented manual fallback. Student records remain Markdown in their workspace. The helper is invoked by the tutor, not a background service. Export review and import-ledger updates remain tutor responsibilities.
 

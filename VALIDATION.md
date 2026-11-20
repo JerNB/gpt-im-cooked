@@ -1,5 +1,17 @@
 # Validation status
 
+## 2.0.2 — November 19, 2026
+
+Evidence for the study calendar and exam sheets comes from exploratory runs on synthetic courses with one scripted student and one smaller model (`gpt-6-luna`, Codex CLI 0.162.1):
+
+- a calendar and sheet [pilot](tests/reports/2026-11-18-feature-pilot/REPORT.md) (2 sessions per cell, 22 turns);
+- two sheet reruns that located and then fixed the PDF path inside the Codex Windows sandbox ([browser fallback](tests/reports/2026-11-19-sheet-rerun/REPORT.md), [built-in writer](tests/reports/2026-11-19-sheet-native/REPORT.md));
+- an [old-vs-new comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md) (3 sessions per arm, v2.0.1 vs. the final source).
+
+Scoring was by the author agent, without blind review. Counts and means are reported in those reports and summarised in the changelog. They do not establish sheet content quality, learning gains, real-student behaviour, other models, macOS or Linux behaviour, PDF viewers other than PDFium, paper printing, calendar-app imports or connector writes. Calendar wording changes made after the pilot (waiting for answers, the unrecorded-course offer, the exam-end default) were not re-run with a model.
+
+The renderers were reviewed by the other agent over eight rounds; it approved the final source after 13 findings were fixed test-first. Mechanical checks were run on the release branch: package structure; distribution matching for the new v2.0.2 archives; study-plan scheduling and output; sheet rendering, with and without ReportLab, a real browser and the built-in writer; record I/O; mock-exam rendering and template logic; demo state; concept retries; the evidence chain and archive; and archived run evidence. Checksums are in `docs/downloads/SHA256SUMS-v2.0.2.txt`. The v2.0.1 and earlier archives are unchanged.
+
 ## 2.0.1 — November 15, 2026
 
 Behaviour and cost evidence for this release comes from two exploratory
