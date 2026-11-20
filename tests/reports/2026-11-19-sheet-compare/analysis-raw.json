@@ -1,0 +1,392 @@
+{
+ "sheet-New-rep1": {
+  "arm": "New",
+  "rep": "rep1",
+  "turns": {
+   "1": {
+    "sec": 102.76,
+    "tok": 83600,
+    "cmds": 4,
+    "render_ok": [],
+    "other_pdf_tool": 0,
+    "pdfs": [],
+    "asked": true,
+    "complete": true
+   },
+   "2": {
+    "sec": 230.87,
+    "tok": 619516,
+    "cmds": 30,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-probability-and-grouped-data-v1.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "3": {
+    "sec": 45.99,
+    "tok": 249462,
+    "cmds": 6,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-probability-and-grouped-data-v1.pdf",
+     "stat-110-final-probability-and-grouped-data-v2.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "4": {
+    "sec": 78.5,
+    "tok": 227686,
+    "cmds": 44,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-probability-and-grouped-data-v1.pdf",
+     "stat-110-final-probability-and-grouped-data-v2.pdf",
+     "stat-110-final-probability-and-grouped-data-v3.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   }
+  },
+  "prefs_saved": true
+ },
+ "sheet-New-rep2": {
+  "arm": "New",
+  "rep": "rep2",
+  "turns": {
+   "1": {
+    "sec": 54.81,
+    "tok": 80906,
+    "cmds": 6,
+    "render_ok": [],
+    "other_pdf_tool": 0,
+    "pdfs": [],
+    "asked": true,
+    "complete": true
+   },
+   "2": {
+    "sec": 98.62,
+    "tok": 305568,
+    "cmds": 16,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-confirmed-materials-reference-sheet-v1.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "3": {
+    "sec": 71.21,
+    "tok": 291271,
+    "cmds": 10,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 2,
+    "pdfs": [
+     "stat-110-final-confirmed-materials-reference-sheet-v1.pdf",
+     "stat-110-final-confirmed-materials-reference-sheet-v2.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "4": {
+    "sec": 63.23,
+    "tok": 209040,
+    "cmds": 14,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-confirmed-materials-reference-sheet-v1.pdf",
+     "stat-110-final-confirmed-materials-reference-sheet-v2.pdf",
+     "stat-110-final-confirmed-materials-reference-sheet-v2.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   }
+  },
+  "prefs_saved": true
+ },
+ "sheet-New-rep3": {
+  "arm": "New",
+  "rep": "rep3",
+  "turns": {
+   "1": {
+    "sec": 146.51,
+    "tok": 101821,
+    "cmds": 4,
+    "render_ok": [],
+    "other_pdf_tool": 0,
+    "pdfs": [],
+    "asked": true,
+    "complete": true
+   },
+   "2": {
+    "sec": 281.0,
+    "tok": 556481,
+    "cmds": 20,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-cheat-sheet-v1.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "3": {
+    "sec": 232.79,
+    "tok": 539349,
+    "cmds": 10,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ],
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-cheat-sheet-v1.pdf",
+     "stat-110-final-cheat-sheet-v2.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "4": {
+    "sec": 54.58,
+    "tok": 126287,
+    "cmds": 8,
+    "render_ok": [
+     [
+      "1",
+      "native"
+     ]
+    ],
+    "other_pdf_tool": 0,
+    "pdfs": [
+     "stat-110-final-cheat-sheet-v1.pdf",
+     "stat-110-final-cheat-sheet-v2.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   }
+  },
+  "prefs_saved": true
+ },
+ "sheet-Old-rep1": {
+  "arm": "Old",
+  "rep": "rep1",
+  "turns": {
+   "1": {
+    "sec": 181.35,
+    "tok": 402263,
+    "cmds": 14,
+    "render_ok": [],
+    "other_pdf_tool": 6,
+    "pdfs": [
+     "STAT110_final_study_guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "2": {
+    "sec": 50.57,
+    "tok": 171732,
+    "cmds": 2,
+    "render_ok": [],
+    "other_pdf_tool": 2,
+    "pdfs": [
+     "STAT110_exam_sheet_draft.pdf",
+     "STAT110_final_study_guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "3": {
+    "sec": 87.64,
+    "tok": 354553,
+    "cmds": 4,
+    "render_ok": [],
+    "other_pdf_tool": 4,
+    "pdfs": [
+     "STAT110_exam_sheet_draft.pdf",
+     "STAT110_final_study_guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "4": {
+    "sec": 73.23,
+    "tok": 311901,
+    "cmds": 18,
+    "render_ok": [],
+    "other_pdf_tool": 6,
+    "pdfs": [
+     "STAT110_exam_sheet_draft.pdf",
+     "STAT110_final_study_guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   }
+  },
+  "prefs_saved": false
+ },
+ "sheet-Old-rep2": {
+  "arm": "Old",
+  "rep": "rep2",
+  "turns": {
+   "1": {
+    "sec": 329.07,
+    "tok": 375223,
+    "cmds": 14,
+    "render_ok": [],
+    "other_pdf_tool": 4,
+    "pdfs": [
+     "study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "2": {
+    "sec": 93.13,
+    "tok": 313507,
+    "cmds": 8,
+    "render_ok": [],
+    "other_pdf_tool": 8,
+    "pdfs": [
+     "exam-cheat-sheet-draft.pdf",
+     "study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "3": {
+    "sec": 87.6,
+    "tok": 317269,
+    "cmds": 4,
+    "render_ok": [],
+    "other_pdf_tool": 4,
+    "pdfs": [
+     "exam-cheat-sheet-draft.pdf",
+     "study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "4": {
+    "sec": 167.74,
+    "tok": 442952,
+    "cmds": 22,
+    "render_ok": [],
+    "other_pdf_tool": 12,
+    "pdfs": [
+     "exam-cheat-sheet-draft.pdf",
+     "study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   }
+  },
+  "prefs_saved": false
+ },
+ "sheet-Old-rep3": {
+  "arm": "Old",
+  "rep": "rep3",
+  "turns": {
+   "1": {
+    "sec": 310.3,
+    "tok": 564412,
+    "cmds": 28,
+    "render_ok": [],
+    "other_pdf_tool": 18,
+    "pdfs": [
+     "STAT110-final-study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "2": {
+    "sec": 96.29,
+    "tok": 301089,
+    "cmds": 8,
+    "render_ok": [],
+    "other_pdf_tool": 8,
+    "pdfs": [
+     "STAT110-exam-reference-sheet-draft.pdf",
+     "STAT110-final-study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "3": {
+    "sec": 205.95,
+    "tok": 735526,
+    "cmds": 14,
+    "render_ok": [],
+    "other_pdf_tool": 14,
+    "pdfs": [
+     "STAT110-exam-reference-sheet-draft.pdf",
+     "STAT110-final-study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   },
+   "4": {
+    "sec": 77.72,
+    "tok": 330128,
+    "cmds": 12,
+    "render_ok": [],
+    "other_pdf_tool": 2,
+    "pdfs": [
+     "STAT110-exam-reference-sheet-draft.pdf",
+     "STAT110-final-study-guide.pdf"
+    ],
+    "asked": false,
+    "complete": true
+   }
+  },
+  "prefs_saved": false
+ }
+}

@@ -1,0 +1,110 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final: Probability and Grouped Data",
+  "course": "STAT 110",
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": "Student confirmed one sheet, both sides, for exam use. Paper size and content restrictions are not supplied.",
+    "min_body": null
+  },
+  "language": "en",
+  "sections": [
+    {
+      "id": "reference-group",
+      "title": "Conditional probability and table percentages",
+      "weight": "high",
+      "topics": [
+        "T1",
+        "T2"
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "setup": "Rows are commuter status; columns are cycling status. The question wording chooses the reference group (denominator).",
+          "steps": [
+            {
+              "label": "Counts",
+              "text": "Among 25 commuters, 10 cycle and 15 do not. Among 15 noncommuters, 5 cycle and 10 do not. Totals: 30 cycle; 25 do not."
+            },
+            {
+              "label": "Cycle among commuters",
+              "text": "10 / 25 = 40.0% of commuters. Reference group: commuters."
+            },
+            {
+              "label": "Commuters among cyclists",
+              "text": "10 / 15 = 66.7% of cyclists. Reference group: cyclists. P(A|B) and P(B|A) usually differ because the reference groups differ."
+            },
+            {
+              "label": "Row percentages",
+              "text": "Within the commuter row: 10/25 = 40.0% cycle; 15/25 = 60.0% do not. Divide each cell by its row total; each row sums to 100%."
+            },
+            {
+              "label": "Column percentages",
+              "text": "Within the cycle column: 10/15 = 66.7% commuters; 5/15 = 33.3% noncommuters. Divide each cell by its column total; each column sums to 100%."
+            }
+          ],
+          "takeaway": "Choose the group named after 'among' / 'of' first. Divide the overlap by that group's total; state the group in words. Assume equally weighted cases and a non-empty reference group."
+        },
+        {
+          "type": "cue",
+          "text": "Report proportions as percentages rounded to 1 decimal place and name the reference group: '40.0% of commuters.' (Outline reporting rule.)"
+        }
+      ]
+    },
+    {
+      "id": "grouped",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": [
+        "T4"
+      ],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Split cases by a categorical variable; calculate one summary (e.g., mean or count) per non-empty group. Output has one row per group, not per original case. Compare like with like: mean vs mean, total vs total."
+        }
+      ]
+    },
+    {
+      "id": "scope-note",
+      "title": "Coverage gaps to fill from final materials",
+      "weight": "normal",
+      "topics": [
+        "T3"
+      ],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Bayes' rule is listed in the supplied Midterm 1 outline, but its method is not in the supplied notes. Add it only after checking lecture notes."
+        },
+        {
+          "type": "cue",
+          "text": "The available outline is for Midterm 1, not the cumulative final. Final topics and exam restrictions remain unconfirmed; this sheet covers only supported material."
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {
+      "topic": "T3 Bayes' rule",
+      "reason": "Teaching method not supplied; omitted rather than inventing a course rule."
+    },
+    {
+      "topic": "Other cumulative-final topics",
+      "reason": "No final outline or teaching materials supplied. Hypothesis testing is excluded from Midterm 1 only; its final status is unconfirmed."
+    }
+  ],
+  "revision": {
+    "round": 3,
+    "standing": [
+      "Do not add unsupported information; use one running example for conditional probability and table percentages; leave freed space empty."
+    ],
+    "changes": [
+      "Clarified row/column orientation and reference-group cue in the running example; corrected the final-scope note to identify the provided outline as Midterm 1."
+    ]
+  }
+}
