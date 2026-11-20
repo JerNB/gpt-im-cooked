@@ -1,0 +1,72 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Cheat Sheet",
+  "course": "STAT 110",
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": "Student confirmed one sheet, both sides; paper size and other restrictions unknown."
+  },
+  "language": "en",
+  "sections": [
+    {
+      "id": "reference-group",
+      "title": "Conditional probability: choose the reference group",
+      "weight": "high",
+      "topics": ["T1", "T2"],
+      "blocks": [
+        {
+          "type": "example",
+          "setup": "One table; rows are commute status and columns are cycling status.",
+          "steps": [
+            {"label": "Counts", "text": "Among 25 commuters, 10 cycle; among 15 noncommuters, 5 cycle. Total cyclists = 15; total noncyclists = 25."},
+            {"label": "Row %: cycle among commuters", "text": "Reference group = commuters, so divide by the commuter row total: 10 / 25 = 40.0% of commuters."},
+            {"label": "Column %: commuters among cyclists", "text": "Reference group = cyclists, so divide by the cyclist column total: 10 / 15 = 66.7% of cyclists."},
+            {"label": "Check", "text": "Row percentages add to 100% across each row. Column percentages add to 100% down each column. Across a row of column percentages, they need not add to 100%."}
+          ],
+          "takeaway": "Name the group after “among” first; use its row or column total as denominator."
+        },
+        {
+          "type": "cue",
+          "text": "**Exam reporting:** give every proportion as a percentage rounded to 1 decimal place and name the reference group: “40.0% of commuters.”"
+        }
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": ["T4"],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) per non-empty group. Output: one row per group, not per original case. Compare the same kind of summary across groups; do not compare a mean with a total."
+        }
+      ]
+    },
+    {
+      "id": "bayes-source-gap",
+      "title": "Bayes’ rule: source check needed",
+      "weight": "low",
+      "topics": ["T3"],
+      "blocks": [
+        {
+          "type": "cue",
+          "text": "Listed in the supplied outline as in scope, but the lecture notes say the teaching material has not been posted. The supplied files do not provide a formula or worked method; check your course notes before relying on a rule here."
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {"topic": "Full cumulative-final scope", "reason": "The only supplied outline is for Midterm 1; no complete final outline or review packet was supplied."},
+    {"topic": "Additional final topics", "reason": "Unconfirmed in the available course files; this sheet covers only supported topics T1, T2, and T4, and flags the T3 source gap."}
+  ],
+  "revision": {
+    "round": 2,
+    "standing": ["Do not add new information; leave space freed by edits empty so the layout can be more readable."],
+    "changes": ["Removed the abstract conditional-probability interpretation text; retained the existing worked table example and reporting cue."]
+  }
+}

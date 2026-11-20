@@ -1,0 +1,1 @@
+Yes, please also add HIST 101: exam Dec 11 at 9am, about 2 hours a week.

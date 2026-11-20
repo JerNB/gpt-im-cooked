@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" data-preset="0"><head><meta charset="utf-8"><title>STAT 110 Final Cheat Sheet</title><style>
+@page { size: letter; margin: 54.0pt 36.0pt 52.0pt;
+  @top-left { content: "STAT 110 Final Cheat Sheet"; font: 600 8.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; }
+  @top-right { content: "STAT 110"; font: 8.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; }
+  
+  @bottom-right { content: counter(page); font: 7.5pt "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; color: #5f6b63; } }
+html { background: #fff; }
+body { margin: 0; color: #1f2a24; font-family: "Segoe UI", Arial, "Helvetica Neue", "DejaVu Sans", sans-serif; font-size: 11.0pt; line-height: 1.24;
+  columns: 2; column-gap: 16.0pt; column-fill: auto; overflow-wrap: anywhere; }
+.section.high { font-size: 11.88pt; }
+h2 { font-size: 1.16em; line-height: 1.2; color: #2f5d50; margin: 11.0pt 0 6.0pt;
+  break-after: avoid; }
+.section.high h2 { background: #e7efe9; padding: 2pt 3pt; }
+body > .section:first-child h2 { margin-top: 0; }
+.keep { break-inside: avoid; }
+.block { margin: 0 0 6.0pt; break-inside: avoid; }
+p { margin: 0 0 6.0pt; }
+.cue { padding-left: 0.9em; text-indent: -0.9em; }
+.cue::before { content: "\2022"; display: inline-block; width: 0.9em; text-indent: 0; }
+.muted { color: #5f6b63; }
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th, td { text-align: left; vertical-align: top; padding: 1.5pt 3pt; border-bottom: 0.4pt solid #c9d3cc; font-weight: normal; overflow-wrap: anywhere; }
+.grid th { color: #2f5d50; font-weight: 600; }
+.data thead th { background: #e7efe9; font-weight: 600; }
+.takeaway { margin: 3.6pt 0 0; }
+code, pre { font-family: Consolas, Menlo, "DejaVu Sans Mono", "Courier New", monospace; }
+pre.code { font-size: 9.5pt; line-height: 1.2; background: #f1f0ea; padding: 3.0pt; tab-size: 4;
+  white-space: pre-wrap; overflow-wrap: anywhere; }
+</style></head>
+<body>
+<section class="section high" id="reference-group"><div class="keep"><h2>Conditional probability: choose the reference group</h2><div class="block example"><p class="muted">One table; rows are commute status and columns are cycling status.</p><table class="grid steps"><colgroup><col style="width:32%"><col></colgroup><tr><th>Counts</th><td>Among 25 commuters, 10 cycle; among 15 noncommuters, 5 cycle. Total cyclists = 15; total noncyclists = 25.</td></tr><tr><th>Row %: cycle among commuters</th><td>Reference group = commuters, so divide by the commuter row total: 10 / 25 = 40.0% of commuters.</td></tr><tr><th>Column %: commuters among cyclists</th><td>Reference group = cyclists, so divide by the cyclist column total: 10 / 15 = 66.7% of cyclists.</td></tr><tr><th>Check</th><td>Row percentages add to 100% across each row. Column percentages add to 100% down each column. Across a row of column percentages, they need not add to 100%.</td></tr></table><p class="takeaway"><b>Takeaway:</b> Name the group after “among” first; use its row or column total as denominator.</p></div></div><p class="block cue"><b>Exam reporting:</b> give every proportion as a percentage rounded to 1 decimal place and name the reference group: “40.0% of commuters.”</p></section>
+<section class="section" id="grouped-summaries"><div class="keep"><h2>Grouped summaries</h2><p class="block cue">Split cases by a categorical variable; compute one summary (such as a mean or count) per non-empty group. Output: one row per group, not per original case. Compare the same kind of summary across groups; do not compare a mean with a total.</p></div></section>
+<section class="section" id="bayes-source-gap"><div class="keep"><h2>Bayes’ rule: source check needed</h2><p class="block cue">Listed in the supplied outline as in scope, but the lecture notes say the teaching material has not been posted. The supplied files do not provide a formula or worked method; check your course notes before relying on a rule here.</p></div></section>
+</body></html>

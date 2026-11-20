@@ -1,0 +1,1 @@
+Today is Wednesday 2026-11-18. Can you make me a study guide for my STA final?

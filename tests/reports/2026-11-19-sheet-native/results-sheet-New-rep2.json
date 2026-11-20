@@ -1,0 +1,104 @@
+[
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 1,
+    "wall_seconds": 109.24,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 113851,
+      "cached_input_tokens": 94336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1115,
+      "reasoning_output_tokens": 307
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 113851,
+      "cached_input_tokens": 94336,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1115,
+      "reasoning_output_tokens": 307
+    },
+    "material_read": true,
+    "skill_read": true
+  },
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 2,
+    "wall_seconds": 178.08,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 788414,
+      "cached_input_tokens": 737280,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 8683,
+      "reasoning_output_tokens": 3638
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 674563,
+      "cached_input_tokens": 642944,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7568,
+      "reasoning_output_tokens": 3331
+    }
+  },
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 3,
+    "wall_seconds": 344.26,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 1871570,
+      "cached_input_tokens": 1792512,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 25115,
+      "reasoning_output_tokens": 15099
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 1083156,
+      "cached_input_tokens": 1055232,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 16432,
+      "reasoning_output_tokens": 11461
+    }
+  },
+  {
+    "arm": "New",
+    "workflow": "sheet",
+    "replicate": 2,
+    "turn": 4,
+    "wall_seconds": 123.83,
+    "returncode": 0,
+    "usage_cumulative": {
+      "input_tokens": 335038,
+      "cached_input_tokens": 311168,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3899,
+      "reasoning_output_tokens": 2022
+    },
+    "complete": true,
+    "error": null,
+    "external_skill_commands": [],
+    "usage_delta": {
+      "input_tokens": 335038,
+      "cached_input_tokens": 311168,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 3899,
+      "reasoning_output_tokens": 2022
+    }
+  }
+]

@@ -1,0 +1,162 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Cheat Sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {
+    "status": "confirmed",
+    "sheets": 1,
+    "sides": 2,
+    "paper": "letter",
+    "rules": null,
+    "min_body": null
+  },
+  "language": "en",
+  "sections": [
+    {
+      "id": "reference-group",
+      "title": "Choose the reference group first",
+      "weight": "high",
+      "topics": [
+        "T1",
+        "T2"
+      ],
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Conditional probability:** P(A | B) means the share of group B that is also in A. Compute overlap / size of B. The group after the bar is the denominator."
+        },
+        {
+          "type": "example",
+          "setup": "Same 2 x 2 table for both directions. Illustrative count added for teaching: 3 non-commuters cycle.",
+          "steps": [
+            {
+              "label": "Counts",
+              "text": "Among 40 students: 25 commute; 10 commuters cycle; 3 non-commuters cycle. Table: commuters—10 cycle, 15 do not; non-commuters—3 cycle, 12 do not."
+            },
+            {
+              "label": "Among commuters",
+              "text": "10 / 25 = 40.0% of commuters cycle. Reference group = commuters; denominator = 25."
+            },
+            {
+              "label": "Among cyclists",
+              "text": "10 / 13 = 76.9% of cyclists commute. Reference group = cyclists; denominator = 13."
+            }
+          ],
+          "takeaway": "Reversing the condition changes the reference group and usually changes the answer."
+        },
+        {
+          "type": "cue",
+          "text": "Before dividing: underline the words after ‘of’ / ‘among’; those identify the reference group. Assume equally weighted cases and a non-empty group."
+        },
+        {
+          "type": "cue",
+          "text": "Report every proportion as a percentage to 1 decimal place and name the group: ‘40.0% of commuters.’"
+        }
+      ]
+    },
+    {
+      "id": "table-percentages",
+      "title": "Row % vs column %",
+      "weight": "high",
+      "topics": [
+        "T2",
+        "T1"
+      ],
+      "blocks": [
+        {
+          "type": "table",
+          "header": [
+            "",
+            "Cycle",
+            "Do not cycle",
+            "Total"
+          ],
+          "rows": [
+            [
+              "Commuters",
+              "10",
+              "15",
+              "25"
+            ],
+            [
+              "Non-commuters",
+              "3",
+              "12",
+              "15"
+            ],
+            [
+              "Total",
+              "13",
+              "27",
+              "40"
+            ]
+          ]
+        },
+        {
+          "type": "cue",
+          "text": "Row % = cell / its row total. Answers ‘within this row group, what share…?’ Each complete row sums to 100%."
+        },
+        {
+          "type": "cue",
+          "text": "Column % = cell / its column total. Answers ‘within this column group, what share…?’ Each complete column sums to 100%. Percentages across a row of column percentages need not sum to 100%."
+        },
+        {
+          "type": "mistake",
+          "prompt": "Need the column percentage for commuters among cyclists.",
+          "first_error": "Used the commuter row total (25).",
+          "fix": "Use the cyclist column total: 10 / 13 = 76.9% of cyclists are commuters.",
+          "conditions": "Choose the denominator from the requested reference group, not the cell's row/column label alone."
+        }
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": [
+        "T4"
+      ],
+      "blocks": [
+        {
+          "type": "example",
+          "setup": "Illustrative grouped summary of scores by section.",
+          "steps": [
+            {
+              "label": "Input",
+              "text": "120 students belong to 4 sections."
+            },
+            {
+              "label": "Group",
+              "text": "Compute one mean score for each non-empty section."
+            },
+            {
+              "label": "Output",
+              "text": "The summary has 4 rows—one per section, not 120 rows."
+            }
+          ],
+          "takeaway": "Compare group means with group means, or counts with counts; do not compare a mean to a total."
+        },
+        {
+          "type": "cue",
+          "text": "A grouped summary splits cases by a categorical variable and reports one chosen summary (for example, mean or count) per non-empty group."
+        }
+      ]
+    }
+  ],
+  "omitted": [
+    {
+      "topic": "T3 Bayes' rule",
+      "reason": "Listed for Midterm 1 in the outline, but lecture explanation/notes were not supplied; rule details need course source verification."
+    },
+    {
+      "topic": "Hypothesis testing",
+      "reason": "The current outline excludes it from Midterm 1; its status for the cumulative final is unconfirmed."
+    }
+  ],
+  "revision": {
+    "round": 1,
+    "standing": [],
+    "changes": []
+  }
+}

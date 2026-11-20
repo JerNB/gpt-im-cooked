@@ -1,0 +1,33 @@
+{
+  "format": "gpt-im-cooked-study-plan/1",
+  "plan_id": "fall-2026-finals",
+  "generated_on": "2026-11-18",
+  "start": "2026-11-18",
+  "availability": {
+    "weekly": {},
+    "days_off": [],
+    "max_minutes_per_day": 120,
+    "min_block": 25,
+    "max_block": 90
+  },
+  "courses": [
+    {"id":"stat110","title":"STAT 110","exam":{"start":"2026-12-08T09:00","end":"2026-12-08T12:00"},"record":"STA/learning-record.md"},
+    {"id":"cs101","title":"CS 101","exam":{"start":"2026-12-10T14:00","end":"2026-12-10T17:00"},"record":"CS/learning-record.md"}
+  ],
+  "tasks": [
+    {"id":"sta-t2-variant","course":"stat110","kind":"variant","minutes":45,"title":"Two-way tables: fix the denominator","not_before":"2026-11-18","due":"2026-12-07","priority":1,"basis":"Concepts T2: Needs practice (2026-11-17 attempt chose row total for column percentage)","details":"Use new table questions. Name the reference group first, divide by its total, then state the percentage to one decimal place with the group in words."},
+    {"id":"cs-p2-variant","course":"cs101","kind":"variant","minutes":45,"title":"Loop comparisons: targeted variants","not_before":"2026-11-19","due":"2026-12-09","priority":1,"basis":"Concepts P2: Needs practice (2026-11-17 attempt counted assignments and loop checks)","details":"Trace new loops and report only element-to-element comparisons; explicitly exclude assignments, index updates, and loop-condition checks."},
+    {"id":"sta-t3-gap","course":"stat110","kind":"source-gap","minutes":25,"title":"Bayes’ rule: locate course notes","not_before":"2026-11-20","due":"2026-12-07","priority":2,"basis":"Concepts T3: Unassessed, in scope; teaching notes not posted","details":"Find the lecture notes or request the instructor’s Bayes’ rule explanation before studying it. The outline alone does not provide a method to learn from."},
+    {"id":"cs-p3-gap","course":"cs101","kind":"source-gap","minutes":25,"title":"Big-O: locate course notes","not_before":"2026-11-21","due":"2026-12-09","priority":2,"basis":"Concepts P3: Unassessed, in scope; teaching notes not posted","details":"Find the lecture notes or request the instructor’s Big-O explanation. The outline alone does not provide enough content for a course-grounded lesson."},
+    {"id":"sta-t4-learn","course":"stat110","kind":"learn","minutes":45,"title":"Grouped summaries: learn from notes §3","not_before":"2026-11-22","due":"2026-12-07","priority":2,"basis":"Concepts T4: Unassessed; teaching notes available in S2 §3","details":"Review grouped summaries in STA/materials/notes.md §3. Explain one summary per non-empty group and compare like with like."},
+    {"id":"cs-p4-learn","course":"cs101","kind":"learn","minutes":45,"title":"Nested data summaries: learn from notes §3","not_before":"2026-11-23","due":"2026-12-09","priority":2,"basis":"Concepts P4: Unassessed; teaching notes available in P2 §3","details":"Review nested list groups in CS/materials/notes.md §3. Work out the requested statistic separately for each inner list and label each group."},
+    {"id":"sta-t1-recheck","course":"stat110","kind":"recheck","minutes":30,"title":"Conditional probability: unaided recheck","not_before":"2026-11-25","due":"2026-12-07","priority":1,"basis":"Concepts T1: Demonstrated, Recheck before exam (promoted 2026-11-17)","details":"Try a fresh question without notes. Identify the reference group, use its total as denominator, and report a one-decimal percentage with the group named."},
+    {"id":"cs-p1-practice","course":"cs101","kind":"practice","minutes":45,"title":"List aliasing: transfer practice","not_before":"2026-11-26","due":"2026-12-09","priority":2,"basis":"Concepts P1: Improving; transfer practice next (no transfer attempt yet)","details":"Trace a new example with an alias or shallow copy. Draw which names share each list before mutation, then predict what changes are visible."},
+    {"id":"sta-t4-practice","course":"stat110","kind":"practice","minutes":30,"title":"Grouped summaries: independent practice","not_before":"2026-11-28","due":"2026-12-07","priority":2,"basis":"Concepts T4: Unassessed; in scope with notes available S2 §3","details":"Without notes, summarize a new grouped dataset, showing one row per non-empty group and comparing the same statistic across groups."},
+    {"id":"cs-p4-practice","course":"cs101","kind":"practice","minutes":30,"title":"Nested data summaries: independent practice","not_before":"2026-11-29","due":"2026-12-09","priority":2,"basis":"Concepts P4: Unassessed; in scope with notes available P2 §3","details":"For a new nested list, compute the requested statistic per inner list. State which observations belong to each result."},
+    {"id":"sta-review","course":"stat110","kind":"review","minutes":60,"title":"STAT 110: cumulative retrieval and practice","not_before":"2026-12-01","due":"2026-12-07","priority":3,"basis":"Course scope T1–T4: in scope per STA/course-profile.md","details":"Retrieve conditional probability, row/column percentages, and grouped summaries, then attempt available practice without the key. Revisit Bayes only if course notes have been found. Hypothesis testing is excluded."},
+    {"id":"cs-review","course":"cs101","kind":"review","minutes":60,"title":"CS 101: cumulative retrieval and practice","not_before":"2026-12-02","due":"2026-12-09","priority":3,"basis":"Course scope P1–P4: in scope per CS/course-profile.md","details":"Retrieve aliasing, loop tracing, and nested summaries, then attempt available practice without the key. Include Big-O only if course notes have been found. Recursion is excluded."},
+    {"id":"sta-final-review","course":"stat110","kind":"review","minutes":45,"title":"STAT 110: final light review","not_before":"2026-12-06","due":"2026-12-07","priority":1,"basis":"Course scope T1–T4: in scope per STA/course-profile.md; T1 recheck due before exam","details":"Briefly revisit any errors, especially denominators and the T1 reference group. Keep the last evening light before the 09:00 exam."},
+    {"id":"cs-final-review","course":"cs101","kind":"review","minutes":45,"title":"CS 101: final light review","not_before":"2026-12-08","due":"2026-12-09","priority":1,"basis":"Course scope P1–P4: in scope per CS/course-profile.md","details":"Review corrections and course reporting rules; do a short fresh comparison-count trace. Keep the last evening light before the 14:00 exam."}
+  ]
+}

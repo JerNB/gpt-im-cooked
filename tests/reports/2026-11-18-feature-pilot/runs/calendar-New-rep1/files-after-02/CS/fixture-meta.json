@@ -1,0 +1,15 @@
+{
+  "course": "CS 101 (synthetic)",
+  "exam": "Final",
+  "dates": {
+    "exam": "2026-12-10",
+    "time": "14:00-17:00"
+  },
+  "learning_statuses": {
+    "P1": "Improving",
+    "P2": "Needs practice",
+    "P3": "Unassessed",
+    "P4": "Unassessed",
+    "P5": "Excluded"
+  }
+}

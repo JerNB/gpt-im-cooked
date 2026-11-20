@@ -1,0 +1,1 @@
+Today is Wednesday 2026-11-18. My STA and CS finals are coming up (folders are here). Can you make me a study calendar?

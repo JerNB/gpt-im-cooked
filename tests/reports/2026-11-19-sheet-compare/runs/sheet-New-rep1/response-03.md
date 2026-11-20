@@ -1,0 +1,5 @@
+I’ll revise the existing sheet only: fold the probability and table guidance into one worked example, remove the separate mistake block, and keep the existing course reporting rule and grouped-summary cue. I’ll rerender the next revision and check whether the saved space improves the layout.
+
+Updated revision 2 of the sheet (PDF) (`/<ROOT>/sheets/stat-110-final-probability-and-grouped-data-v2.pdf`) and its editable content file (`/<ROOT>/sheets/stat-110-final-probability-and-grouped-data-v2.json`).
+
+I removed the separate probability rule and mistake block, leaving one worked example to explain the reference groups and table percentages. The existing reporting rule and grouped-summary cue remain. The renderer fit the sheet at **14 pt**, up from 12 pt, with no missing characters. It still fits on one page, so the back is blank. Previews weren’t available for visual inspection.

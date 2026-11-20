@@ -1,0 +1,33 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Exam Sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "unconfirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {"id":"reporting","title":"Every proportion: report + name the group","weight":"high","topics":["T1","T2"],"blocks":[
+      {"type":"cue","text":"Report as a percentage to **1 decimal place** and name the reference group: **40.0% of commuters**. The course outline says answers without the group lose one point. (S1 reporting rule)"}
+    ]},
+    {"id":"table","title":"Conditional probability + two-way table: choose the denominator","weight":"high","topics":["T1","T2"],"blocks":[
+      {"type":"text","text":"Example counts: among 25 commuters, 10 cycle and 15 do not; among 15 noncommuters, 5 cycle and 10 do not. Total = 40. (Notes sections 1-2; practice Q1)"},
+      {"type":"example","setup":"Ask first: Among which group? That group is the denominator.","steps":[
+        {"label":"Among commuters, what share cycle?","text":"10 / 25 = **40.0% of commuters**. P(cycle | commuter): overlap divided by commuter total."},
+        {"label":"Among cyclists, what share commute?","text":"10 / 15 = **66.7% of cyclists**. P(commuter | cycle): same overlap, different reference group."},
+        {"label":"Row percentage","text":"Cell divided by its row total. Each row sums to 100%. Example: commuter/cycle = 10/25 = 40.0%."},
+        {"label":"Column percentage","text":"Cell divided by its column total. Each column sums to 100%. Example: commuter/cycle = 10/15 = 66.7%."}],"takeaway":"P(A | B) means A among B: B supplies the denominator. P(A | B) usually differs from P(B | A). (Notes sections 1.1-1.4, 2.2-2.3)"},
+      {"type":"mistake","prompt":"Earlier two-way-table attempt: chose the row total for a column percentage.","first_error":"Used the total for the wrong reference group.","fix":"For a column percentage, divide by that column's total; for a row percentage, divide by that row's total.","conditions":"Name the group represented by the chosen row or column before dividing. Check that row percentages sum across each row and column percentages down each column to 100%. (S2 §2; learning record, T2 attempt 2026-11-17)"},
+      {"type":"cue","text":"Conditional probability requires an equally weighted sample and a nonempty reference group. (S2 §1.4)"}
+    ]},
+    {"id":"grouped","title":"Grouped summaries","weight":"normal","topics":["T4"],"blocks":[
+      {"type":"example","setup":"For a mean score by course section, each nonempty section becomes one output row.","steps":[
+        {"label":"Rows returned","text":"One row per nonempty group. Four nonempty sections = **4 rows**, even if the original data had 120 students. (Notes section 3.2; 2025 past paper Q3)"},
+        {"label":"Compare fairly","text":"Compare the same summary across groups (mean with mean, count with count); do not compare a group mean with a group total. (S2 §3.3)"}],"takeaway":"Grouping changes the output unit from individual cases to groups. A grouped summary has one summary value per group. (S2 §3.1–3.3)"}
+    ]}
+  ],
+  "omitted": [
+    {"topic":"T3 Bayes' rule","reason":"Listed in the Midterm 1 outline, but its teaching notes are missing; method not supplied in accessible materials."},
+    {"topic":"X1 Hypothesis testing","reason":"Final scope unconfirmed. Its exclusion is stated only for Midterm 1; no Final outline was supplied."}
+  ],
+  "revision":{"round":1,"standing":[],"changes":[]}
+}

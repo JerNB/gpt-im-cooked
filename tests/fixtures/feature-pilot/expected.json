@@ -1,0 +1,55 @@
+{
+  "STA": {
+    "concepts": {
+      "T1": {
+        "status": "Demonstrated",
+        "kind": "recheck"
+      },
+      "T2": {
+        "status": "Needs practice",
+        "kind": "variant"
+      },
+      "T3": {
+        "status": "Unassessed",
+        "kind": "source-gap"
+      },
+      "T4": {
+        "status": "Unassessed",
+        "kind": "learn then practice"
+      },
+      "X1": {
+        "status": "Excluded",
+        "kind": "none"
+      }
+    },
+    "unrecorded_course": {
+      "name": "HIST 101",
+      "kind": "review",
+      "basis": "No learning record"
+    }
+  },
+  "CS": {
+    "concepts": {
+      "P1": {
+        "status": "Improving",
+        "kind": "transfer practice"
+      },
+      "P2": {
+        "status": "Needs practice",
+        "kind": "variant"
+      },
+      "P3": {
+        "status": "Unassessed",
+        "kind": "source-gap"
+      },
+      "P4": {
+        "status": "Unassessed",
+        "kind": "learn then practice"
+      },
+      "P5": {
+        "status": "Excluded",
+        "kind": "none"
+      }
+    }
+  }
+}

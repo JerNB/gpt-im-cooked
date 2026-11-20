@@ -1,0 +1,47 @@
+{
+  "format": "gpt-im-cooked-sheet/1",
+  "kind": "exam-sheet",
+  "title": "STAT 110 Final Reference Sheet",
+  "course": "STAT 110 (synthetic)",
+  "allowance": {"status": "unconfirmed", "sheets": 1, "sides": 2, "paper": "letter", "rules": null},
+  "language": "en",
+  "sections": [
+    {
+      "id": "conditional-probability",
+      "title": "Conditional probability and two-way tables: choose the reference group",
+      "weight": "high",
+      "topics": ["T1", "T2"],
+      "blocks": [
+        {"type": "example", "setup": "Two-way table slice: 25 students commute; 10 commuters cycle (40 students total). Find the percentage of commuters who cycle.", "steps": [
+          {"label": "Reference group", "text": "Commuters: 25 students. The question asks for the share among this group."},
+          {"label": "Cell count", "text": "10 commuters cycle."},
+          {"label": "Calculation", "text": "10 / 25 = 0.40 = 40.0% of commuters."}], "takeaway": "The denominator is the reference group (commuters), not the full class of 40. In a table, divide a cell by its row total for a row percentage or its column total for a column percentage; percentages sum to 100% within that row or column."},
+        {"type": "cue", "text": "P(A | B): among B, share also in A = count(A and B) / count(B). Order matters; P(A | B) and P(B | A) usually differ. Assume equal case weights and a non-empty reference group."},
+        {"type": "cue", "text": "Report every proportion as a percentage rounded to 1 decimal place and name the reference group (e.g., 40.0% of commuters)."}
+      ]
+    },
+    {
+      "id": "grouped-summaries",
+      "title": "Grouped summaries",
+      "weight": "normal",
+      "topics": ["T4"],
+      "blocks": [
+        {"type": "cue", "text": "Split cases by a categorical variable; compute one summary (such as a mean or count) per group."},
+        {"type": "cue", "text": "Output: one row per non-empty group, not one row per original case. Compare groups using the same summary: mean with mean, count with count."}
+      ]
+    },
+    {
+      "id": "scope-gap",
+      "title": "Scope limits for this final sheet",
+      "weight": "normal",
+      "topics": ["T3"],
+      "blocks": [
+        {"type": "cue", "text": "Bayes' rule is listed in the supplied Midterm 1 outline, but its teaching notes are missing; no formula or procedure is included. The supplied outline is for Midterm 1, so final coverage is unconfirmed; other final topics may be missing. Check the cumulative final outline and instructor sheet restrictions before using this in the exam."}
+      ]
+    }
+  ],
+  "omitted": [
+    {"topic": "Hypothesis testing", "reason": "The supplied Midterm 1 outline excludes it from that midterm; whether it is included on the cumulative final is unconfirmed."}
+  ],
+  "revision": {"round": 3, "standing": ["Do not add new information (2026-11-18)."], "changes": ["Restored supported row/column percentage cues and the conditional probability notation around one running table example; marked exam use unconfirmed because content restrictions and final scope are unknown."]}
+}

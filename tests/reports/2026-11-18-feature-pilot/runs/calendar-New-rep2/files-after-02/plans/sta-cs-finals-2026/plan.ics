@@ -1,0 +1,199 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GPT I'm Cooked//study-plan//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:sta-cs-finals-2026 study plan (GPT\, I'm Cooked)
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t2-variant-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261118T190000
+DTEND:20261118T194500
+SUMMARY:STAT 110 · Two-way tables: denominator variant
+DESCRIPTION:For new row and column percentages\, name the reference group a
+ nd use its total as the denominator.\n\n45 minutes · variant\nBasis: Conc
+ epts T2: Needs practice (2026-11-17 attempt confused row and column denomi
+ nators)\nCompleting this block does not change your recorded progress.
+CATEGORIES:variant
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t3-gap-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261118T194500
+DTEND:20261118T201000
+SUMMARY:STAT 110 · Bayes’ rule: locate course notes
+DESCRIPTION:Find the course notes or an instructor-provided explanation for
+  Bayes’ rule. The outline alone does not support teaching it.\n\n25 minu
+ tes · source-gap\nBasis: Concepts T3: Unassessed\; in scope in S1\, teach
+ ing notes not posted\nCompleting this block does not change your recorded 
+ progress.
+CATEGORIES:source-gap
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t4-learn-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261118T201000
+DTEND:20261118T211000
+SUMMARY:STAT 110 · Grouped summaries: learn from lecture notes
+DESCRIPTION:Review the grouped summaries section of the lecture notes and w
+ rite a short explanation of its method.\n\n60 minutes · learn\nBasis: Con
+ cepts T4: Unassessed\; notes available in S2 section 3\nCompleting this bl
+ ock does not change your recorded progress.
+CATEGORIES:learn
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p2-variant-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261118T211000
+DTEND:20261118T215500
+SUMMARY:CS 101 · Loop tracing: comparison-count variant
+DESCRIPTION:Trace a new loop and count only element-to-element comparisons.
+ \n\n45 minutes · variant\nBasis: Concepts P2: Needs practice (2026-11-17 
+ attempt counted assignments and loop checks)\nCompleting this block does n
+ ot change your recorded progress.
+CATEGORIES:variant
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p1-transfer-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261119T190000
+DTEND:20261119T194500
+SUMMARY:CS 101 · List aliasing: transfer practice
+DESCRIPTION:Trace object identity before mutation in a new function or sett
+ ing\, then explain what changes through an alias.\n\n45 minutes · practic
+ e\nBasis: Concepts P1: Improving\; correct same-structure work\, transfer 
+ not yet reviewed\nCompleting this block does not change your recorded prog
+ ress.
+CATEGORIES:practice
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p3-gap-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261119T194500
+DTEND:20261119T201000
+SUMMARY:CS 101 · Big-O: locate course notes
+DESCRIPTION:Find the course notes or an instructor-provided explanation for
+  Big-O\; the outline alone does not support teaching it.\n\n25 minutes · 
+ source-gap\nBasis: Concepts P3: Unassessed\; in scope in P1\, teaching not
+ es not posted\nCompleting this block does not change your recorded progres
+ s.
+CATEGORIES:source-gap
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p4-learn-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261119T201000
+DTEND:20261119T211000
+SUMMARY:CS 101 · Nested data summaries: learn from notes
+DESCRIPTION:Review nested data summaries in the notes and explain the steps
+  in your own words.\n\n60 minutes · learn\nBasis: Concepts P4: Unassessed
+ \; notes available in P2 section 3\nCompleting this block does not change 
+ your recorded progress.
+CATEGORIES:learn
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t1-recheck-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261120T190000
+DTEND:20261120T193000
+SUMMARY:STAT 110 · Conditional probability: unaided recheck
+DESCRIPTION:Answer a new conditional probability question without notes\; c
+ heck the reference group before computing.\n\n30 minutes · recheck\nBasis
+ : Concepts T1: Demonstrated\, Recheck before exam\nCompleting this block d
+ oes not change your recorded progress.
+CATEGORIES:recheck
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-t4-practice-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261122T140000
+DTEND:20261122T144500
+SUMMARY:STAT 110 · Grouped summaries: practice
+DESCRIPTION:Attempt relevant course practice independently\, then check you
+ r reasoning against the supplied key if available.\n\n45 minutes · practi
+ ce\nBasis: Concepts T4: Unassessed\; notes available in S2 section 3\nComp
+ leting this block does not change your recorded progress.
+CATEGORIES:practice
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-p4-practice-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261124T190000
+DTEND:20261124T194500
+SUMMARY:CS 101 · Nested data summaries: practice
+DESCRIPTION:Attempt relevant course practice independently\, then check you
+ r work against the supplied key if available.\n\n45 minutes · practice\nB
+ asis: Concepts P4: Unassessed\; notes available in P2 section 3\nCompletin
+ g this block does not change your recorded progress.
+CATEGORIES:practice
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta-mock-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261204T190000
+DTEND:20261204T210000
+SUMMARY:STAT 110 · STAT 110 timed mock sitting
+DESCRIPTION:Use a supplied practice or past paper as a timed sitting\, then
+  review the answers. Historical format is not a guarantee of final format.
+ \n\n120 minutes · mock\nBasis: Per-course mock sitting 2–4 days before 
+ exam\nCompleting this block does not change your recorded progress.
+CATEGORIES:mock
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs-mock-1@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261206T140000
+DTEND:20261206T160000
+SUMMARY:CS 101 · CS 101 timed mock sitting
+DESCRIPTION:Use the supplied practice set as a timed sitting\, then review 
+ the answers. The final format is not established by available materials.\n
+ \n120 minutes · mock\nBasis: Per-course mock sitting 2–4 days before ex
+ am\nCompleting this block does not change your recorded progress.
+CATEGORIES:mock
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-sta110-exam@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261208T090000
+DTEND:20261208T120000
+SUMMARY:STAT 110 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+UID:sta-cs-finals-2026-cs101-exam@gpt-im-cooked
+DTSTAMP:20261118T235602Z
+DTSTART:20261210T140000
+DTEND:20261210T170000
+SUMMARY:CS 101 exam
+DESCRIPTION:Exam time from your course profile.
+CATEGORIES:Exam
+SEQUENCE:0
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,3 @@
+WARNING: proceeding, even though we could not create PATH aliases: Refusing to create helper binaries under temporary dir "<HOME>\\AppData\\Local\\Temp\\" (codex_home: AbsolutePathBuf("<HOME>\\AppData\\Local\\Temp\\sheet-compare-6dfa053be2ec43f3950df613035c60da\\home-sheet-Old-rep1"))
+2026-11-20T00:49:48.902947Z ERROR codex_core::tools::router: error=apply_patch verification failed: Failed to find expected lines in <HOME>\AppData\Local\Temp\sheet-compare-6dfa053be2ec43f3950df613035c60da\sheet-Old-rep1\STA\outputs\build_cheat_sheet.py:
+  "Write �?0.0% of commuters,�?not �?.4,�?�?0%,�?or �?/5.�?The outline says omitting the reference group loses one point. (Outline)"]),
