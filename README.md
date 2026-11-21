@@ -1,198 +1,160 @@
 <p align="center"><img src="docs/assets/wordmark.svg" alt="GPT, I'm Cooked. Your course. Your weak spots. A better next attempt." width="100%"></p>
 
-<p align="center"><a href="https://jernb.github.io/gpt-im-cooked/demo.html"><strong>Try the mock exam</strong></a> · <a href="#quick-start">Get started</a> · <a href="docs/INSTALLATION.md">Install</a> · <a href="VALIDATION.md">Testing & limitations</a></p>
+<p align="center">
+  <a href="https://github.com/JerNB/gpt-im-cooked/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/JerNB/gpt-im-cooked?color=235d46&label=release"></a>
+  <img alt="Codex skill and plugin" src="https://img.shields.io/badge/Codex-skill%20%2B%20plugin-235d46">
+  <img alt="Runs locally, no server" src="https://img.shields.io/badge/runs-locally%2C%20no%20server-5fa58d">
+</p>
 
-A reusable **English learning and exam-review skill and plugin** for college and graduate students. Understand your course concepts through clear conversation, retain meaningful learning evidence and weak spots, and use that record for personalized practice exams and study guides. Interactive pages are an optional aid for selected concepts.
+<p align="center">
+  <a href="https://jernb.github.io/gpt-im-cooked/demo.html"><strong>Try the mock exam</strong></a> ·
+  <a href="#quick-start"><strong>Install</strong></a> ·
+  <a href="#what-it-makes">Examples</a> ·
+  <a href="CHANGELOG.md">Changelog</a> ·
+  <a href="VALIDATION.md">Testing &amp; limits</a>
+</p>
 
-Designed for English-language college and graduate study, including international students at US universities. Tutoring, page copy, feedback, and generated study outputs default to English unless the student explicitly asks for another language. Teaching uses plain language, small worked examples, and explanations of why each step follows. Optional concept pages use purposeful interactions and spacious layouts suited to the idea.
+**GPT, I'm Cooked** is a study skill for Codex:
+- Bring your lecture notes and a past paper, and work through the concept that lost you.
+- Turn the mistakes you made into your next practice exam, review guide or exam cheat sheet.
 
-**V2 · v2.0.2** · Main skill: `$gpt-im-cooked` · Codex-ready instructions · No bundled AI server
+Everything it teaches comes from the materials you supply, and your progress is kept as plain Markdown in your own folder. It is built for college and graduate courses taught in English, including for international students at US universities.
 
-**[v2.0.2 — Finals: study calendar and exam cheat sheets — November 19, 2026](#whats-new-in-202)** · One calendar for several courses, built from your learning records, and exam cheat sheets rendered to PDF with no installation. [See what changed and what the tests showed.](#whats-new-in-202)
+## Watch one mistake become practice
 
-**[v2.0.1 — Steadier progress records — November 15, 2026](#whats-new-in-201)** · Progress changes are saved in the same turn, same-session "Demonstrated" carries a recheck, gaps in your notes get a labelled offer, and saving takes one command. [See what changed and what the tests showed.](#whats-new-in-201)
+[![A CS201 student asks whether a doubling loop is Θ(n log n); the tutor counts the work instead](docs/assets/showcase/film-still.jpg)](https://jernb.github.io/gpt-im-cooked/assets/showcase/preview-720p-en.mp4)
 
-**[V2 workflow update — October 31, 2026](CHANGELOG.md)** · Checkpoint-based learning records, targeted mistake review, adaptive guides, and humanities feedback.
+**[▶ Play (60 s, English)](https://jernb.github.io/gpt-im-cooked/assets/showcase/preview-720p-en.mp4)** · [Chinese portrait edition](https://jernb.github.io/gpt-im-cooked/assets/showcase/preview-720p-zh.mp4)
 
-The October 17 patch preserves answer exposure across retries in a [repaired concept-page example](examples/grouped-transformations.html), adds an executable regression, and clarifies how tutors review contradictory export labels. [Evidence, repeated tutor runs, and limits](tests/reports/2026-10-17/REPORT.md) distinguish the reproduced page defect from model judgments and unmeasured learning gains.
+The outer loop doubles `i` and the inner loop runs `i` times, so the work is 1 + 2 + 4 + … + n < 2n: Θ(n), not Θ(n log n). Change the inner bound to `n` and the answer changes. That change becomes the next practice question.
 
-The October 15 update makes conversation the primary review experience, with optional interactive pages for selected concepts. A simple mock-exam request produces an HTML paper with a separate key; a study-guide request produces a PDF when the host supports generation. See the [v0.5.0 changes and package checks](tests/reports/2026-10-15/RELEASE.md).
+*Chat scenes are illustrative and the learning record is synthetic. [Music](docs/assets/showcase/BGM-LICENSE.md) · [Sound credits](docs/assets/showcase/FREESOUND-CREDITS.md)*
 
-## What's new in 2.0.2
+## What you can do
 
-**Finals season: plan several courses on one calendar, and get an exam cheat sheet as a real PDF.**
+| You want to… | Ask, for example | You get |
+| --- | --- | --- |
+| **Understand** a lecture | "Walk me through the first worked example in these notes, then give me one to try." | A plain-language explanation tied to your slides and a question to try on your own. Gaps in your notes are flagged instead of filled in. |
+| **Practise** a weak spot | "I keep mixing up row and column percentages. Give me a new one." | A variant that changes the setting or a condition, not just the numbers. For a full rehearsal, an HTML mock exam with a separate answer key. |
+| **Pick up** where you left off | "What's left before my midterm?" | Your mistakes, the help you received and your real progress, read back from your course record. "Mastered" only after a later, unaided transfer question. |
+| **Prepare** for finals | "Make me a cheat sheet. One sheet, both sides." · "Plan my STA and CS finals." | A cheat sheet or review guide as a PDF sized to your exam rules, and a study calendar across courses as `.ics` plus a printable page. |
 
-| | 2.0.1 | 2.0.2 |
-|---|---|---|
-| Study plan across courses | Written by hand in chat | Tasks derived from each course's learning record, placed into your study windows, exported as `plan.ics` + a printable calendar |
-| Cheat sheet / study guide | Layout written from scratch each time; needs a PDF library on your computer | One allowance question, then a draft rendered by the skill's own PDF writer: no installation, works inside the Codex sandbox |
-| Revisions | Re-done from scratch | Only the requested change; spare space becomes larger type (up to 14 pt); preferences remembered for next time |
+## What it makes
 
-**What the tests showed** ([comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md), synthetic course, scripted student, `gpt-6-luna`, 3 sessions per version):
-- The new version asked the allowance question first in 3/3 sessions (old: 0/3) and saved the student's preferences in 3/3.
-- Making a sheet again in a fresh session used 48% fewer tokens and 38% less time on average.
-- A whole four-turn session used 27% fewer tokens and 17% less time.
+These are real outputs:
+- The calendar and the cheat sheet were produced by the released skill in test sessions on a synthetic course.
+- The mock exam and the review guide come from the study sessions that inspired the project.
 
-Sessions varied widely, and the old version relied on a PDF library that happened to be installed on the test computer. The calendar was piloted in 2 sessions ([report](tests/reports/2026-11-18-feature-pilot/REPORT.md)): every task cited its record row. These are small exploratory tests, not a study of learning. See the [changelog](CHANGELOG.md) for details and limits.
+<table>
+<tr>
+<td width="50%" valign="top">
+<a href="https://jernb.github.io/gpt-im-cooked/examples/sta199/practice/STA199_Mock_Practice_B.html"><img src="docs/examples/sta199/mock-preview.png" alt="STA199 practice paper with a graph-interpretation question and question navigation"></a>
+<br><strong>Mock exam</strong> · STA199<br>
+A 32-question practice paper built around a student's recorded mistakes, with a separate key. <a href="https://jernb.github.io/gpt-im-cooked/examples/sta199/practice/STA199_Mock_Practice_B.html">Try it</a> · <a href="docs/examples/sta199/learning-record-english.md">Learning record</a>
+</td>
+<td width="50%" valign="top">
+<a href="docs/examples/cs201/guide.pdf"><img src="docs/examples/cs201/page-4.png" alt="Page four of the CS201 review guide showing object references and nested loops"></a>
+<br><strong>Review guide</strong> · CS201<br>
+A six-page PDF that turns questions about object references into diagrams and code traces. <a href="docs/examples/cs201/guide.pdf">Read the PDF</a> · <a href="https://jernb.github.io/gpt-im-cooked/examples/cs201/">Browse the case</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="docs/assets/showcase/study-calendar.jpg"><img src="docs/assets/showcase/study-calendar.jpg" alt="Study calendar for STAT 110, CS 101 and HIST 101 with blocks such as a two-way-table variant and a Bayes' rule notes search, and Thanksgiving days off"></a>
+<br><strong>Study calendar</strong> · three courses<br>
+Every block says which record entry put it there, for example "Needs practice (attempt confused row and column denominators)". Days off stay empty.
+</td>
+<td width="50%" valign="top">
+<a href="docs/assets/showcase/cheat-sheet.png"><img src="docs/assets/showcase/cheat-sheet.png" alt="One-page STAT 110 reference sheet with a worked two-way table, a corrected mistake, grouped summaries and a Bayes' rule source-gap note"></a>
+<br><strong>Exam cheat sheet</strong> · STAT 110<br>
+A worked table instead of abstract rules, and the student's own mistake turned into a short fix. A topic missing from the notes is flagged rather than invented.
+</td>
+</tr>
+</table>
 
-## What's new in 2.0.1
+Interactive concept pages are optional. Here is one for grouped `mutate()` vs `summarize()`: [open the example](examples/grouped-transformations.html) · [screenshot](docs/assets/showcase/concept-page.png).
 
-**Your progress is kept when it changes, "Demonstrated" asks for a later recheck, and saving takes one step.**
+## How it works
 
-| | 2.0.0 | 2.0.1 |
-|---|---|---|
-| **When progress is saved** | In batches, after five tutoring turns with meaningful changes | A status change (Needs practice, Improving, Demonstrated, Recheck) and an answer to "am I ready?" are saved in the same turn; other evidence still batches |
-| **"Demonstrated"** | Needs a reviewed transfer task | Same, and if all of it happened in one sitting, the record says `Recheck before exam` and schedules a later unaided try |
-| **A topic your notes don't cover** | The tutor states the gap and asks for the notes | It also offers, once, a general explanation clearly labelled *not from your course materials*; given only if you accept, never counted as course content |
-| **How a save happens** | The tutor assembles a multi-step save each time | One `record_io.py save` command updates the course profile and learning record together, and undoes its own writes if a later write fails |
-| **Record files** | Created on the first explanation | Created at the first save that has something to keep |
-| **Opening line** | Could repeat inside one reply | Appears once per reply |
+```mermaid
+flowchart LR
+    A[Your materials<br>notes · slides · past papers] --> B[Scope<br>what's in, what's out]
+    B --> C[Explain<br>in conversation]
+    C --> D[Your attempt]
+    D --> E[(Course record<br>Markdown in your folder)]
+    E --> F[Practice<br>variants · mock exam]
+    E --> G[Prepare<br>cheat sheet · guide · calendar]
+    F --> D
+```
 
-Existing course directories and learning records work as before; no migration is needed. Full details are in the [changelog](CHANGELOG.md).
-
-### What the tests showed
-
-Two exploratory comparisons on synthetic statistics and programming courses, with a scripted student, one model, and four study sessions per version. Numbers are counts of sessions (or replies), not rates.
-
-**The behaviour changes** ([controlled comparison](tests/reports/2026-11-14-controlled-comparison/REPORT.md)): the pre-release skill versus the revision that introduced them.
-
-| Check | Before | After |
-|---|---|---|
-| Readiness review saved in the learning record | 0 of 4 | 4 of 4 |
-| New session resumed from an out-of-date record | 1 of 4 | 0 of 4 |
-| Same-sitting "Demonstrated" marked for a recheck | 0 of 3 | 4 of 4 |
-| Missing-notes topic got a labelled general-explanation offer | 1 of 4 | 4 of 4 |
-
-That revision cost about 31% more tokens. 2.0.1 keeps those behaviours and takes most of the extra cost back out:
-
-**The cost changes** ([cost comparison](tests/reports/2026-11-14-cost-comparison/REPORT.md)): the revision versus 2.0.1, run side by side.
-
-| Measure | Revision | 2.0.1 |
-|---|---|---|
-| Tokens over four sessions (input + output) | 4,032,907 | 3,364,701 (about 17% fewer) |
-| Sessions where 2.0.1 was cheaper than its matched pair | — | 4 of 4 |
-| Saves done with the one-step command | 0 (multi-step saves instead) | 20 of 20, none failed |
-| Replies with a repeated opening line | 15 of 44 | 0 of 44 |
-| Readiness saved / out-of-date resume / recheck marker / labelled offer | 4/4 · 0/4 · 4/4 · 4/4 | 4/4 · 0/4 · 4/4 · 4/4 |
-
-Every other rubric check tied. On the transfer-check question both versions scored 3 passes and 1 unclear, and one 2.0.1 pass is disputed by a second reviewer.
-
-**Limits.** These are small scripted tests with one model, not a study of learning. Tokens are tool counters, not a bill. 2.0.1 was not run side by side with the pre-release skill or with a plain AI chat, and the same frozen skill used 27% fewer tokens in one run than in another, so compare numbers only within a table. Scoring was by model reviewers on masked sessions; blinding was partial. Not measured: learning gains, real students, other models, mock exams and study guides, and what happens when you accept the general explanation.
-
-## Try an exam-style demo
-
-[![Preview of the live mock exam worksheet](docs/assets/demo-preview.jpg)](https://jernb.github.io/gpt-im-cooked/demo.html)
-
-**[Open the interactive mock exam →](https://jernb.github.io/gpt-im-cooked/demo.html)** · **[Visit the project page →](https://jernb.github.io/gpt-im-cooked/)**
-
-An original, eight-question statistics paper with multiple-select questions, graph interpretation, and R code completion. Navigate the paper, mark items to revisit, record reasoning and confidence, then export your attempt. The answer key stays in a separate page.
-
-The layout is inspired by a college mock-exam study workflow. The public demo uses a **fictional course packet and student record**; it does not reproduce an instructor's paper or use private study notes. It has no AI connection or automatic grading. Attach its exported JSON to your tutor for feedback and reviewed record updates.
-
-[Course packet](docs/course-packet.md) · [Synthetic learning record](docs/learning-record.md) · [Question blueprint](docs/content-map.md) · [Separate solutions](docs/answer-key.html)
-
-## Real study examples
-
-**[Explore the real STA199 and CS201 cases →](https://jernb.github.io/gpt-im-cooked/examples/)**
-
-These are the creator's actual study artifacts from the workflow that inspired the skill, shared for others to explore. The sessions predate the packaged release; they demonstrate the workflow, not measured learning gains from installing the plugin.
-
-### STA199: a mock midterm shaped by saved learning evidence
-
-[![The original STA199 mock paper: a graph interpretation question and question navigation](docs/examples/sta199/mock-preview.png)](https://jernb.github.io/gpt-im-cooked/examples/sta199/)
-
-**[Open the original 32-question Mock Practice B](https://jernb.github.io/gpt-im-cooked/examples/sta199/practice/STA199_Mock_Practice_B.html)** · **[Download the editable QMD + datasets + six graphs](docs/examples/sta199/practice-pack.zip)**
-
-The real record remembers a grouped-`mutate` row-count error, a duplicate-key join error, and multiple-select difficulties. It also removes stale weakness labels after correct execution, and distinguishes self-reported difficulty from assisted-session improvement. Those priorities inform new practice while retaining broad course coverage.
-
-[Case walkthrough & reusable English prompts](https://jernb.github.io/gpt-im-cooked/examples/sta199/) · [English selection of the learning evidence](docs/examples/sta199/learning-record-english.md) · [Original Chinese study record](docs/examples/sta199/learning-record-original.md) · [Separate answer key (spoilers)](docs/examples/sta199/answer-key.md)
-
-The original Quarto HTML is a browser-readable worksheet. Edit the QMD to answer and run R code; it has no automatic grading. The public record removes only computer-local absolute paths and adds a publication note. Private student attempts referenced in that record are not bundled.
-
-### CS201: the actual six-page personalized review guide
-
-[![Original CS201 guide page 4: object references, pair loops, and course-specific code](docs/examples/cs201/page-4.png)](https://jernb.github.io/gpt-im-cooked/examples/cs201/)
-
-**[Read or download the original PDF](docs/examples/cs201/guide.pdf)** · **[Browse all six pages and the case walkthrough](https://jernb.github.io/gpt-im-cooked/examples/cs201/)** · [English source draft](docs/examples/cs201/guide-source.md)
-
-The student's missed questions and follow-up requests became exact constructor traces, identity/equality tables, P0 reference diagrams, P1 token-window visuals, runtime reminders, and relevant APT patterns. This shows a personalized guide built from supplied course code and specific difficulties. The PDF is unchanged; reference-sheet permission depends on your own course.
-
-## What makes it useful
-
-| Principle | What happens in your review |
-|---|---|
-| **Your supplied course is the boundary** | Teaching rules need a source in your accessible notes. Missing content is flagged; excluded topics stay out. |
-| **Remember useful learning evidence** | Save meaningful mistakes, specific difficulties, assisted attempts, and improvements. Read that record when resuming. |
-| **Understand through clear conversation** | Explain the main idea in plain English, work through a small example, clarify the confusing step, and build an accurate takeaway. |
-| **Personalize the next output** | Emphasize your documented weak spots in focused practice, an instructor-style mock exam, a study guide, or a permitted reference sheet. Optional interactive pages explore selected concepts when requested. |
-
-Past papers provide evidence of question formats and reasoning patterns. New questions use original situations. A mock exam keeps breadth; a focused drill can concentrate on one weakness. The skill does not predict the next exam or promise a grade.
+- **Grounded in your course.** Every rule it teaches points to a file you supplied. When your notes don't cover something, it says so and asks. It does not fill the gap from the web.
+- **Your attempt first.** Practice sets and mock exams keep their answer keys in separate files, so you can try before you look.
+- **Honest progress.** One correct answer is not mastery. A topic counts as *Demonstrated* only after a reviewed transfer question in a new setting, and a same-day success gets a later recheck.
+- **Local files.** There is no server and no account. Records, sheets and calendars are ordinary files in your workspace, and nothing is written to your calendar app without your yes.
 
 ## Quick start
 
-1. **[Download the standalone skill](docs/downloads/gpt-im-cooked-skill-v2.0.2.zip)** and extract the `gpt-im-cooked` folder.
-2. Copy that entire folder into `~/.codex/skills/` (or your configured `$CODEX_HOME/skills/`). Preserve an existing copy unless you intend to replace it. Refresh the skill list or restart the client if needed, then open a new chat.
-3. Add one useful course file and send:
+1. **[Download the skill (v2.0.2)](docs/downloads/gpt-im-cooked-skill-v2.0.2.zip)**. Extract the whole `gpt-im-cooked` folder into `~/.codex/skills/`, or into your `$CODEX_HOME/skills/`.
+2. Restart Codex or refresh the skill list. Open a new chat in the folder that has your course files.
+3. Start with one request:
 
 ```text
-Use $gpt-im-cooked to help me prepare for my midterm.
-Here are my course notes and practice paper.
+Use $gpt-im-cooked. Here are my CS201 notes and last year's midterm.
+Walk me through the loop-analysis question I got wrong, then give me a similar one.
 ```
 
-You can start with a single course link, outline, or set of notes. A short request is enough: the skill handles scope checks, separate practice answers, and selective learning records. Past exams, dates, and official keys help, but are optional. Mention known exclusions; uncertain scope is flagged. Materials are read as needed for the current activity rather than requiring a complete course inventory before tutoring.
+More starting points:
 
-**Prefer the plugin?** [Download the plugin package](docs/downloads/gpt-im-cooked-plugin-v2.0.2.zip) and follow the [plugin installation guide](docs/INSTALLATION.md). It bundles the same review skill plus onboarding. Local marketplace support varies by client; install one route for normal use to avoid duplicate entries.
+```text
+My STA199 final is in two weeks. Make me a one-sheet, two-sided cheat sheet.
+```
 
-**Try without installing:** clone or download the repository, keep the whole skill folder accessible, and ask Codex to read [SKILL.md](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and its relevant supporting files. This manual preview does not test automatic plugin discovery.
+```text
+Plan my STA and CS finals: weekday evenings 7-10pm, weekends 2-6pm, nothing over Thanksgiving.
+```
 
-## The study loop
+Prefer the plugin, which adds a getting-started guide? [Download the plugin](docs/downloads/gpt-im-cooked-plugin-v2.0.2.zip) and follow the [installation guide](docs/INSTALLATION.md).
 
-**Course scope → conversational concept review → learning evidence and record → personalized practice/mock exam → study guide**
+The bundled helpers need Python 3.10 or later: PDF sheets, calendar files and one-step record saves. Without Python the tutor still works, and it tells you which file it could not produce. Tutoring is in English by default; ask if you want another language.
 
-Join at the requested step. Concept review starts in conversation, with clear explanations and source-grounded examples. Requests for targeted questions select coached practice; explicit mock-exam requests select independent exam practice with separate solutions. Past papers calibrate applications and formats when available; they are optional for concept learning. An interactive page can be offered briefly when manipulating a relationship would help, and is generated when the student chooses it. Browser exports need tutor review before they update the saved record.
+## What's new in 2.0.2
 
-No chosen concept is required. A full review packet starts with a concise topic map, a supported study route, and a first explanation in chat. Requested concept pages focus on one or a few supported concepts, with spatial layouts chosen for the activity. Explicit broader artifact requests retain their requested coverage; unread or unsupported topics remain identified honestly.
+- **Study calendar across courses.** Tasks come from each course's record and fit into the study windows you give once. Export an `.ics` file or print the page.
+- **Exam cheat sheets as real PDFs, with nothing to install.** You answer one question about your exam allowance, then get a draft. Spare space becomes larger type, and your revision preferences are remembered.
+- **Leaner revisions.** In a small old-vs-new comparison, making a sheet again in a fresh session used about half the tokens.
 
-**Default formats:** mock exams are HTML exam worksheets with separate checked keys, following the [STA199 paper layout](plugins/gpt-im-cooked/skills/gpt-im-cooked/references/mock-exam-layout.md); study/review guides are PDF files with rendered-page checks when supported. Explicit format requests override these defaults. If PDF generation is unavailable, the tutor labels the editable fallback and its limits. Small recaps and ordinary concept questions stay in chat.
+[Full release notes](CHANGELOG.md) · [All releases](https://github.com/JerNB/gpt-im-cooked/releases)
 
-| You want to… | Say… |
-|---|---|
-| Check the boundary | “Compare my notes with the exam outline. Flag missing content.” |
-| Start from a review packet | “Here are my review files. Map the topics and suggest where to start.” |
-| Understand a concept | “I don't get this concept. Explain it in plain English.” |
-| Get a nudge | “Give me a small hint for question 4, without the answer.” |
-| Review an attempt | “Check my answers and reasoning. Keep my original attempt.” |
-| Practice like the exam | “Make a short mock exam from these materials.” |
-| Target a difficulty | “Give me new questions on my recent denominator mistakes.” |
-| Make a guide | “Make an English review guide from my weak concepts.” |
-| Explore a few concepts visually | “Make an interactive page for these two concepts.” |
-| Resume | “Continue from my course profile and saved learning record.” |
+## Evidence and limits
 
-See [conversational concept review](plugins/gpt-im-cooked/skills/gpt-im-cooked/references/concept-tutoring.md) for the teaching approach and [optional webpage prompts](plugins/gpt-im-cooked/skills/gpt-im-cooked/references/webpage-prompts.md) for concept-page and mock-exam briefs. A one-sentence request is enough to start.
+This project reports what it measured and what it didn't.
+- **What was tested.** Behaviour has been checked in exploratory runs on synthetic courses, with a scripted student, one model at a time and a few sessions per version. Examples: the [old-vs-new sheet comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md) and the [calendar pilot](tests/reports/2026-11-18-feature-pilot/REPORT.md).
+- **What that shows.** These runs are evidence that the workflow behaves as described, not that it improves grades.
+- **What was not measured.** Learning gains, studies with real students, other models and paper printing.
 
-In a writable workspace, the tutor saves a course profile and selective learning record, usually under `study/<course>/<exam>/`. Student data stays outside the installed package. A new chat must have access to that record; bring it when switching computers. Browser exports require tutor review before the record changes.
+Details are in [VALIDATION.md](VALIDATION.md).
 
-Every tutoring reply starts with **“Hi student, let's get you uncooked.”** It is a visible workflow marker. It cannot measure remaining context. If it disappears, ask the tutor to reread the skill and accessible saved records.
+The skill does not predict your exam or promise a grade. A cheat sheet is only for exams that allow one, so check your instructor's rules.
 
-## What has been tested
+<details>
+<summary><strong>For contributors: repository layout and checks</strong></summary>
 
-The v2.0.2 downloads contain the maintained source. The calendar and cheat-sheet features were piloted on a smaller model ([pilot](tests/reports/2026-11-18-feature-pilot/REPORT.md), [old-vs-new comparison](tests/reports/2026-11-19-sheet-compare/REPORT.md)); see the changelog for counts and limits. Two exploratory comparisons on synthetic courses with a scripted student and one model (four sessions per arm) are archived: the [plain-model comparison](tests/reports/2026-11-14-controlled-comparison/REPORT.md) compared two earlier skill versions (not v2.0.1) with a well-prompted plain model: tied on most checks, the pre-release main-branch skill ahead on genuine transfer checks (4/4 vs. 2/4 or 3/4, one adjudication disputed), and both skill versions more expensive; the [cost comparison](tests/reports/2026-11-14-cost-comparison/REPORT.md) found v2.0.1 lower in tokens than that intermediate revision in 4 of 4 matched pairs, with behaviour counts tied under the selected adjudications (one v2.0.1 transfer-check pass is disputed). Neither measures learning gains or billing. The [October 17 evidence report](tests/reports/2026-10-17/REPORT.md) includes original/repaired page-script replay, isolated tutor runs, and record ablations. These do not establish learning gains or automatic plugin discovery. The HTML-mock/PDF-guide defaults still lack a dedicated fresh model run. See the [current validation status](VALIDATION.md) and [earlier release checks](tests/reports/2026-10-15/RELEASE.md).
+| Path | What it is |
+| --- | --- |
+| [`plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md`](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) | The skill itself; `references/` are loaded on demand |
+| `plugins/gpt-im-cooked/skills/gpt-im-cooked/scripts/` | Standard-library helpers: record saves, mock-exam and sheet renderers, the PDF writer and the calendar planner |
+| `plugins/gpt-im-cooked/skills/gpt-im-cooked-start/` | The plugin's getting-started entry |
+| `docs/` | Project site, demo exam, examples and versioned downloads |
+| `tests/` | Regression checks and dated evidence reports |
 
-Version 0.4.1 adds duplicate-import/review rules, a Python standard-library helper for conflict-checked single-record writes and backups, explicit export identities, pre-key snapshots, and an allowlisted package builder. Python 3.10+ is optional; hosts without it use the documented manual fallback. Student records remain Markdown in their workspace. The helper is invoked by the tutor, not a background service. Export review and import-ledger updates remain tutor responsibilities.
+```bash
+python tests/validate_package.py    # package structure, links, metadata
+python tests/check_sheet_render.py  # cheat-sheet renderer and PDF writer
+python tests/check_study_plan.py    # calendar planner and exports
+python tests/check_state_io.py      # record saves
+python scripts/build_packages.py    # rebuild the release ZIPs
+```
 
-Run `python tests/check_state_io.py` and `node tests/check_demo_state.cjs` for state/helper and demo-script regressions. See [state checks and limits](tests/reports/2026-10-11/STATE.md) and the [fresh-model pilot](tests/STATE-PILOT.md). Script checks do not establish new model behavior.
+Earlier release notes and test reports remain in [CHANGELOG.md](CHANGELOG.md) and `tests/reports/`.
 
-The previous v0.3.0 run used five isolated tutoring contexts and 14 total turns, including fresh-chat resume, selective record updates, scope boundaries, and browser export import. The earlier coached page was tested in Chrome. Those archived results describe the tested snapshots, not every later revision.
-
-The v0.4.1 update organizes the main skill around the study loop, unifies naming, and makes the plugin download include a usable local marketplace. See the [v0.4.1 cleanup and distribution checks](tests/reports/2026-10-11/CLEANUP.md), [validation status](VALIDATION.md), the [earlier demo check](tests/reports/2026-10-10/SHOWCASE.md), and the [earlier model run](tests/reports/2026-10-10/REPORT.md). Actual plugin installation/discovery and real-student learning gains remain unverified.
-
-## Explore the package
-
-- [Review skill](plugins/gpt-im-cooked/skills/gpt-im-cooked/SKILL.md) and [onboarding skill](plugins/gpt-im-cooked/skills/gpt-im-cooked-start/SKILL.md)
-- [Installation and updates](docs/INSTALLATION.md)
-- [Evaluation method](tests/EVALUATION.md) and [22 behavioral pilot cases](tests/PILOT-CASES.md)
-- [Earlier worked demonstration](examples/DEMO.md) and [fresh-chat review guide](tests/reports/2026-10-10/resume/outputs/review-guide-01.md)
-
-For development checks, install PyYAML and run `python tests/validate_package.py`. Build both downloads from the same source with `python scripts/build_packages.py`; then run `python tests/check_distribution.py` to check their extracted contents and paths. This checks package structure; it does not install the plugin or evaluate learning gains.
-
-The project was previously named **ExamLoop**. Version 0.4.1 unifies the plugin ID, directory, and main skill as `gpt-im-cooked`; onboarding is `gpt-im-cooked-start`. Existing `exam-loop` plugin installations need an intentional replacement; study records stay in their original workspace. This is a skills-only preview, not a public plugin-directory listing. Code execution, browsing, and PDF generation depend on the host's available tools.
+</details>
