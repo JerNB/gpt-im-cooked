@@ -81,7 +81,7 @@ def main():
 
     files = packaged_files()
     for path in files:
-        if path.suffix in ('.jpg', '.png', '.zip', '.pdf', '.xlsx'):
+        if path.suffix in ('.jpg', '.png', '.zip', '.pdf', '.xlsx', '.mp4'):
             continue
         content = path.read_text(encoding='utf-8')
         if path != ROOT / 'docs/examples/sta199/learning-record-original.md':
