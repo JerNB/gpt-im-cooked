@@ -2,6 +2,16 @@
 
 Bring your lecture notes to Codex. Work through a tricky concept, try a question on your own, and use the mistakes you made to shape your next practice exam.
 
+## Watch a minute of review
+
+[![Watch the English walkthrough of a CS201 loop-analysis problem](docs/assets/showcase/film-still.jpg)](media/showcase/preview-720p-en.mp4)
+
+**[Play in English · 60 seconds](media/showcase/preview-720p-en.mp4)** · **[Chinese portrait edition · 60 seconds](media/showcase/preview-720p-zh.mp4)**
+
+The film follows one CS201 mistake. An outer loop doubles its index; the inner loop runs *i* times. Counting the work gives 1 + 2 + 4 + … + n, which is less than 2n. Now change the inner bound to *n*: does the same answer still hold? The walkthrough shows how that change becomes a fresh practice question. The chat scenes are illustrative and the learning record is synthetic. [Music](docs/assets/showcase/BGM-LICENSE.md) · [Sound credits](docs/assets/showcase/FREESOUND-CREDITS.md)
+
+## Take the demo exam
+
 **[Try the mock exam ↗](https://jernb.github.io/gpt-im-cooked/demo.html)** &nbsp; · &nbsp; **[Install the skill](#quick-start)**
 
 [![Open the interactive statistics exam worksheet](docs/assets/demo-preview.jpg)](https://jernb.github.io/gpt-im-cooked/demo.html)
@@ -16,6 +26,29 @@ Bring your lecture notes to Codex. Work through a tricky concept, try a question
 | Practise one weak spot | Ask for a hint, explain your reasoning, then try the idea in a new setting. For a full rehearsal, generate an HTML mock exam with course-wide coverage and separate solutions. |
 | Pick up where you left off | The tutor keeps meaningful mistakes, help received, and improvements in a course record in your workspace. Give a new chat access to that record to resume or recheck a topic. |
 | Prepare for finals | Turn your weak spots into a PDF review guide or a reference sheet sized to your exam allowance. Fit tasks from several courses into your available study windows and export a printable calendar or an ICS file. |
+
+## Follow a mistake through the workflow
+
+![Worked concept comparison from the statistics demo](docs/assets/showcase/concept-comparison.png)
+
+1. **Predict the output.** In the [grouped transformations exercise](examples/grouped-transformations.html), consider what happens to the row count when you compute a mean within each group. A grouped summary and a new column can contain the same means while producing different tables.
+2. **Ask for the smallest useful hint.** Try “Show me what happens to the first group, then let me finish the second.” Your first attempt and the help you received give the tutor different evidence.
+3. **Try it again with a change.** Ask for a new dataset and decide which operation preserves the rows. When you return to the course record, the tutor can distinguish a corrected answer from a later independent attempt.
+
+## Plan finals across courses
+
+The two posters below are from the Chinese finals campaign. Open either image to inspect the example at full size.
+
+<a href="docs/assets/showcase/04-calendar.png"><img src="docs/assets/showcase/04-calendar.png" width="48%" alt="Chinese campaign poster showing a multi-course study calendar"></a>
+<a href="docs/assets/showcase/06-sheet.png"><img src="docs/assets/showcase/06-sheet.png" width="48%" alt="Chinese campaign poster showing an exam reference sheet"></a>
+
+**A calendar built from your records.** Give Codex your exam dates, available study windows, days off and daily time limit. Each study block points back to the evidence that put it on the calendar. Import the ICS file into your calendar app or print the HTML schedule.
+
+> I have statistics on Tuesday and CS on Friday. Keep Sunday free. Use my two course records to plan the remaining evenings.
+
+**A reference sheet that fits the exam rules.** Specify the number of sheets and permitted sides. The tutor can condense the examples you still mix up into a PDF, then revise the part you point out. For an exam that disallows notes, the same material can serve as a study guide beforehand.
+
+> One double-sided sheet is allowed. Keep the join examples, shorten the definitions, and use any spare space for larger type.
 
 ## From actual study sessions
 
